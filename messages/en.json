@@ -75,7 +75,27 @@
     "detailLessonNo": "第 {n} 课",
     "detailSummary": "课程梗概",
     "detailGoals": "学习目标",
-    "detailOutline": "课堂环节"
+    "detailOutline": "课堂环节",
+    "wizardEntry": "课件向导"
+  },
+  "wizard": {
+    "title": "课件向导",
+    "sub": "2–3 个快问快答，为孩子推荐入门实验室",
+    "step": "第 {n} 步 / 共 {total} 步",
+    "back": "上一步",
+    "q1": "孩子多大？",
+    "ages": ["5–8 岁", "9–10 岁", "11–13 岁", "14–16 岁"],
+    "q2": "孩子更喜欢哪类事情？",
+    "interests": ["创作表达（画画 / 声音 / 视频）", "编程与逻辑", "硬件与动手", "还不确定"],
+    "q3": "有相关基础吗？",
+    "levels": ["零基础", "学过一点", "有项目经验"],
+    "resultTag": "推荐起点",
+    "pathTitle": "建议路径",
+    "actDetail": "查看课程详情",
+    "actTemplate": "下载课件模板",
+    "actPresent": "打开演示模式",
+    "actRestart": "重新测评",
+    "labsTitle": "三大实验室速览"
   },
   "resources": {
     "title1": "Resource",

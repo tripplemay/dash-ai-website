@@ -13,7 +13,7 @@ import {
 import { Link } from "@/i18n/navigation";
 import { CourseGrowth } from "@/components/course-growth";
 import { WorksWall } from "@/components/works-wall";
-import { MonitorPlay } from "lucide-react";
+import { MonitorPlay, Wand2 } from "lucide-react";
 import { LABS, FAQ } from "@/lib/data";
 
 const PATH = [
@@ -52,13 +52,22 @@ export default function CoursePage() {
               </h1>
               <div className="mt-2 text-[13.5px] tracking-wide text-[#9FB3E8]">{t("sub")}</div>
             </div>
-            <Link
-              href="/course/present"
-              className="flex items-center gap-2 rounded-[10px] border border-cyan/50 bg-cyan/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-cyan transition-colors hover:bg-cyan/20"
-            >
-              <MonitorPlay className="size-4" />
-              {t("presentEntry")}
-            </Link>
+            <div className="flex items-center gap-2.5">
+              <Link
+                href="/course/wizard"
+                className="flex items-center gap-2 rounded-[10px] border border-cyan/50 bg-cyan/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-cyan transition-colors hover:bg-cyan/20"
+              >
+                <Wand2 className="size-4" />
+                {t("wizardEntry")}
+              </Link>
+              <Link
+                href="/course/present"
+                className="flex items-center gap-2 rounded-[10px] border border-cyan/50 bg-cyan/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-cyan transition-colors hover:bg-cyan/20"
+              >
+                <MonitorPlay className="size-4" />
+                {t("presentEntry")}
+              </Link>
+            </div>
           </div>
         </div>
       </section>
