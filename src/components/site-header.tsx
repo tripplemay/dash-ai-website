@@ -63,9 +63,9 @@ export function SiteHeader() {
             {t(n.key)}
           </Link>
         ))}
-        <a href="/brand/index.html" target="_blank" rel="noreferrer" className={linkCls("/brand")}>
+        <Link href="/brand" className={linkCls("/brand")}>
           {t("brand")}
-        </a>
+        </Link>
         {isAdmin && (
           <Link href="/admin" className={linkCls("/admin")}>
             {t("admin")}
@@ -104,9 +104,9 @@ export function SiteHeader() {
                 {t(n.key)}
               </Link>
             ))}
-            <a href="/brand/index.html" target="_blank" rel="noreferrer" className={linkCls("/brand")}>
+            <Link href="/brand" onClick={() => setOpen(false)} className={linkCls("/brand")}>
               {t("brand")}
-            </a>
+            </Link>
             {isAdmin && (
               <Link href="/admin" onClick={() => setOpen(false)} className={linkCls("/admin")}>
                 {t("admin")}
