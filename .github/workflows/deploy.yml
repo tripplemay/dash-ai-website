@@ -20,7 +20,8 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          # 与 VPS 侧 /opt/node22 保持同一大版本（better-sqlite3 原生模块 ABI 一致）
+          node-version: 22
           cache: pnpm
 
       - name: Install
