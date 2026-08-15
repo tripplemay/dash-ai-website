@@ -31,8 +31,8 @@ export function SiteHeader() {
   const { data: session } = authClient.useSession();
   const isAdmin = (session?.user as { role?: string } | undefined)?.role === "admin";
 
-  // 大屏播放页全屏展示，隐藏顶栏
-  if (pathname === "/player") return null;
+  // 大屏播放页 / 课程演示页全屏展示，隐藏顶栏
+  if (pathname === "/player" || pathname.startsWith("/course/present")) return null;
 
   const switchLocale = (l: "zh" | "en") => router.replace(pathname, { locale: l });
 

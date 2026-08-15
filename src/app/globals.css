@@ -76,3 +76,10 @@ body {
 .logo-rounded {
   border-radius: 22%;
 }
+
+/* 成长体系阶梯：桌面端逐级抬升 */
+@media (min-width: 768px) {
+  .stair-item {
+    transform: translateY(calc((3 - var(--i)) * 16px));
+  }
+}

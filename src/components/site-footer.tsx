@@ -7,8 +7,8 @@ export function SiteFooter() {
   const t = useTranslations("footer");
   const pathname = usePathname();
 
-  // 大屏播放页全屏展示，隐藏页脚
-  if (pathname === "/player") return null;
+  // 大屏播放页 / 课程演示页全屏展示，隐藏页脚
+  if (pathname === "/player" || pathname.startsWith("/course/present")) return null;
 
   return (
     <footer className="mt-10 bg-deep py-6.5 text-[12.5px] tracking-wide text-[#8FA3DC]">

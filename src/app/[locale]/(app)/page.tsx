@@ -2,7 +2,19 @@ import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { TextGenerateEffect } from "@/components/aceternity/text-generate-effect";
+import { listRecentResources } from "@/lib/db";
+import { Clock3 } from "lucide-react";
 import { LABS } from "@/lib/data";
+
+/** updated_at（UTC "YYYY-MM-DD HH:mm:ss"）→ 相对日期 */
+function relDate(s: string): string {
+  const d = new Date(s.replace(" ", "T") + "Z");
+  const days = Math.floor((Date.now() - d.getTime()) / 86400000);
+  if (days <= 0) return "今天";
+  if (days === 1) return "昨天";
+  if (days < 30) return `${days} 天前`;
+  return d.toLocaleDateString("zh-CN");
+}
 
 const ROLES = [
   { key: "res", href: "/resources", icon: "/assets/icons/image.png", iconBg: "#FFF1E8", go: "text-orange" },
@@ -19,6 +31,7 @@ const LATEST = [
 
 export default function HomePage() {
   const t = useTranslations();
+  const recent = listRecentResources(4);
 
   return (
     <>
@@ -47,8 +60,36 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 最近更新资源提示条（悬浮在 hero 下缘） */}
+      {recent.length > 0 && (
+        <section className="relative z-20 mx-auto -mt-[28px] max-w-[1200px] px-7">
+          <div className="flex flex-col gap-3 rounded-2xl bg-card px-6 py-4 shadow-card sm:flex-row sm:items-center">
+            <div className="flex shrink-0 items-center gap-2 text-[13px] font-extrabold tracking-wider text-navy">
+              <Clock3 className="size-4 text-cyan-print" />
+              {t("home.recentTitle")}
+            </div>
+            <div className="grid flex-1 grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-4">
+              {recent.map((r) => (
+                <a
+                  key={r.id}
+                  href={`/api/download/${r.id}`}
+                  className="group flex min-w-0 items-baseline gap-2"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <span className="truncate text-[13px] font-bold text-navy group-hover:text-cyan-print">
+                    {r.title}
+                  </span>
+                  <span className="shrink-0 text-[11px] text-subtext">{relDate(r.updated_at)}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* 三角色入口 */}
-      <section className="relative z-20 mx-auto -mt-[70px] max-w-[1200px] px-7">
+      <section className="relative z-20 mx-auto mt-6 max-w-[1200px] px-7">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {ROLES.map((r) => (
             <Link

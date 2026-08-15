@@ -71,3 +71,10 @@ export function listAllResources(): ResourceRow[] {
 export function getResource(id: number): ResourceRow | undefined {
   return getDb().prepare("SELECT * FROM resources WHERE id = ?").get(id) as ResourceRow | undefined;
 }
+
+/** 最近更新的上架资源（首页提示条用） */
+export function listRecentResources(limit = 4): ResourceRow[] {
+  return getDb()
+    .prepare("SELECT * FROM resources WHERE enabled = 1 ORDER BY updated_at DESC, id DESC LIMIT ?")
+    .all(limit) as ResourceRow[];
+}

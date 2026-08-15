@@ -7,6 +7,10 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Link } from "@/i18n/navigation";
+import { CourseGrowth } from "@/components/course-growth";
+import { WorksWall } from "@/components/works-wall";
+import { MonitorPlay } from "lucide-react";
 import { LABS, FAQ } from "@/lib/data";
 
 const PATH = [
@@ -37,11 +41,22 @@ export default function CoursePage() {
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#101C52,#1B2A6B)] px-0 pt-11 pb-8.5 text-white">
         <Spotlight className="-top-24 left-1/3" fill="#00E5FF" />
         <div className="relative z-10 mx-auto max-w-[1200px] px-7">
-          <h1 className="text-[32px] font-extrabold tracking-[2px]">
-            {t("title1")}
-            <em className="not-italic text-cyan">{t("title2")}</em>
-          </h1>
-          <div className="mt-2 text-[13.5px] tracking-wide text-[#9FB3E8]">{t("sub")}</div>
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h1 className="text-[32px] font-extrabold tracking-[2px]">
+                {t("title1")}
+                <em className="not-italic text-cyan">{t("title2")}</em>
+              </h1>
+              <div className="mt-2 text-[13.5px] tracking-wide text-[#9FB3E8]">{t("sub")}</div>
+            </div>
+            <Link
+              href="/course/present"
+              className="flex items-center gap-2 rounded-[10px] border border-cyan/50 bg-cyan/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-cyan transition-colors hover:bg-cyan/20"
+            >
+              <MonitorPlay className="size-4" />
+              {t("presentEntry")}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -122,6 +137,12 @@ export default function CoursePage() {
           </section>
         ))}
       </div>
+
+      {/* 成长体系 · 能力认证阶梯 */}
+      <CourseGrowth />
+
+      {/* 学员作品墙（占位） */}
+      <WorksWall />
 
       {/* 家长 FAQ */}
       <section className="mx-auto max-w-[1200px] px-7 py-8.5">

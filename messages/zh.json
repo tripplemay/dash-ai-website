@@ -34,7 +34,8 @@
     "labsTitle": "三大",
     "labsTitleEm": "实验室",
     "labsSub": "创想 · 工程 · 远征——9 大能力实验室，覆盖 5–16 岁",
-    "viewAll": "查看全部"
+    "viewAll": "查看全部",
+    "recentTitle": "最近更新"
   },
   "course": {
     "title1": "课程",
@@ -46,7 +47,23 @@
     "faqTitle": "家长",
     "faqEm": "FAQ",
     "faqSub": "16 个高频问题的标准应答口径",
-    "outcome": "结业产出："
+    "outcome": "结业产出：",
+    "presentEntry": "演示模式",
+    "growthTitle": "成长体系",
+    "growthEm": "能力认证阶梯",
+    "growthSub": "四层认证阶梯：可量化、可验证、可向第三方展示——孩子每一步成长都有据可查",
+    "pointsTitle": "研究积分 · 获取规则",
+    "badgesTitle": "实验室认证徽章 · 九枚序列",
+    "badgesSub": "通过实验室全部项目与评估，即点亮该实验室认证，获得徽章与能力证书",
+    "profileTitle": "成长档案 · 我的实验地图",
+    "profileSub": "家长端学习报告包含：",
+    "radarNote": "示意",
+    "entriesTitle": "多入口 · 殊途同归",
+    "worksTitle": "学员",
+    "worksEm": "作品墙",
+    "worksSub": "每个阶段以真实作品结业——这里是未来学员作品的展位",
+    "worksWatermark": "作品征集中",
+    "worksNote": "结课后，学员的真实绘本、有声剧、小程序与无人机作品将在此展示。"
   },
   "resources": {
     "title1": "资源",

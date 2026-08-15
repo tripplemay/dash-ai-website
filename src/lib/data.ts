@@ -86,3 +86,104 @@ export const SLIDES: Slide[] = [
   { img: "/assets/ext/课程体系全景宣传图-v3.png", cap: "课程体系全景 · 9 大能力实验室" },
   { img: "/assets/ext/06-结课证书-1120x790.png", cap: "每座实验室 · 都有认证徽章" },
 ];
+
+// ================= 成长体系（能力认证阶梯） =================
+// 内容取自《DASH-AI世界观与成长体系-v3.md》第四章，教育版语汇（面向家长/合作方）
+
+/** 第一层 · 研究积分 */
+export const GROWTH_POINTS = {
+  rules: [
+    { label: "课堂互动", value: "+2" },
+    { label: "作业提交", value: "+5" },
+    { label: "优秀作品", value: "+10" },
+    { label: "协作贡献", value: "+3" },
+  ],
+  principles: ["只加不扣，保护每一份参与热情", "周榜即时反馈 + 累计榜长期荣誉", "计入学习档案，参与度量化呈现给家长"],
+};
+
+/** 第二层 · 实验室认证徽章：9 枚徽章对应 9 项能力元素 */
+export interface GrowthBadge {
+  elem: string;   // 能力元素
+  lab: string;    // 对应课程/阶段
+  color: string;  // 沿用实验室主题色
+}
+export const GROWTH_BADGES: GrowthBadge[] = [
+  { elem: "曙光", lab: "AI 体验课", color: "#00B8D9" },
+  { elem: "色彩", lab: "AI 绘图", color: "#FF7A45" },
+  { elem: "声音", lab: "AI 配音", color: "#FF7A45" },
+  { elem: "光影", lab: "AI 视频", color: "#FF7A45" },
+  { elem: "符码", lab: "Python 基础", color: "#A79BFF" },
+  { elem: "造物", lab: "APP 开发", color: "#A79BFF" },
+  { elem: "洞察", lab: "AI 数据分析", color: "#A79BFF" },
+  { elem: "苍穹", lab: "无人机创客", color: "#5E9BFF" },
+  { elem: "智慧", lab: "趣味益智 · AI 原理", color: "#5E9BFF" },
+];
+
+/** 第三层 · 三轨能力称号 */
+export interface GrowthTitle {
+  name: string;
+  alias: string;
+  condition: string;
+  proof: string;
+  color: string;
+}
+export const GROWTH_TITLES: GrowthTitle[] = [
+  { name: "AI 创作者", alias: "创想家", condition: "创想实验室 3 项认证", proof: "个人作品集（绘本 + 有声剧 + 短片），可直接用于特长展示", color: "#FF7A45" },
+  { name: "AI 工程师", alias: "架构师", condition: "工程实验室 3 项认证", proof: "上线小程序 + 数据报告 + 程序集，对接科创类竞赛与活动", color: "#A79BFF" },
+  { name: "AI 研究员", alias: "远征者", condition: "远征实验室 2 项认证", proof: "苍穹执照 + AI 原理认证，硬件与思维的双重证明", color: "#5E9BFF" },
+];
+
+/** 四层阶梯概览（卡片与演示页共用） */
+export interface GrowthLayer {
+  level: string;
+  title: string;
+  tagline: string;
+  points: string[];
+  color: string;
+}
+export const GROWTH_LAYERS: GrowthLayer[] = [
+  {
+    level: "01", title: "研究积分", tagline: "学习行为积分 · 每节课都在积累",
+    points: ["课堂互动 / 作业 / 作品 / 协作均可积分", "只加不扣", "周榜 + 累计榜双榜并行"],
+    color: "#00B8D9",
+  },
+  {
+    level: "02", title: "实验室认证徽章", tagline: "阶段能力认证 · 九枚徽章",
+    points: ["通过实验室全部项目与评估即可获得", "9 枚徽章对应 9 项能力元素", "数字徽章 + 实体徽章 + 能力证书"],
+    color: "#5E9BFF",
+  },
+  {
+    level: "03", title: "三轨能力称号", tagline: "领域认证 · 创作 / 工程 / 研究",
+    points: ["AI 创作者 · 创想 3 证", "AI 工程师 · 工程 3 证", "AI 研究员 · 远征 2 证"],
+    color: "#A79BFF",
+  },
+  {
+    level: "04", title: "九证集齐", tagline: "全阶段认证 · 少年全栈研究员",
+    points: ["授予「少年全栈研究员」终级认证", "作品与姓名录入年度「荣誉殿堂」", "升学简历可直接引用的素材"],
+    color: "#FF7A45",
+  },
+];
+
+/** 成长档案（我的实验地图） */
+export const GROWTH_PROFILE = {
+  reportItems: ["各实验室同步率", "研究积分参与度", "五维能力雷达图", "作品索引"],
+  physical: "实体版：A2 实验地图海报 + 每阶段一枚夜光贴纸，9 枚集齐呈现完整实验室全景",
+  radarDims: ["想象力", "表达力", "逻辑力", "工程力", "洞察力"],
+  radarSample: [86, 78, 84, 72, 90], // 示意数据（百分比）
+};
+
+/** 多入口说明 */
+export const GROWTH_ENTRIES = [
+  { key: "低龄入口（5–8 岁）", path: "体验中心 → 创想实验室启程", note: "激励以研究积分与贴纸为主" },
+  { key: "高龄入口（10+ 岁）", path: "体验中心 → 工程实验室启程", note: "激励以徽章与称号为主" },
+];
+export const GROWTH_ENTRIES_NOTE = "全部路径汇聚于九证集齐，不同入口不影响认证的等效性";
+
+/** 学员作品墙（占位，结课后替换为真实作品） */
+export interface WorkSlot { icon: string; title: string; desc: string }
+export const WORK_SLOTS: WorkSlot[] = [
+  { icon: "brush", title: "学员绘本", desc: "创想实验室 · 出版级个人绘本" },
+  { icon: "mic", title: "有声剧作品", desc: "语音合成实验室 · 声演有声绘本" },
+  { icon: "app", title: "上线小程序", desc: "应用工程实验室 · 真实上线作品" },
+  { icon: "drone", title: "无人机作品", desc: "智能硬件实验室 · 组装与试飞记录" },
+];
