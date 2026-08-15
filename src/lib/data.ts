@@ -74,17 +74,28 @@ export const RESOURCE_CATS = ["全部", "课程海报", "招募物料", "证书�
 // 除「全部」外的可入库分类
 export const RESOURCE_CATS_STORE = RESOURCE_CATS.slice(1);
 
-export interface Slide { img: string; cap: string }
+/**
+ * 大屏轮播 slide：判别联合。
+ * - image：全屏图片
+ * - content：结构化内容页（渲染时引用 LABS / GROWTH / WORK_SLOTS，不硬编码文案）
+ */
+export type SlideContentKey = "lab-0" | "lab-1" | "lab-2" | "growth" | "works" | "cta";
+export type Slide =
+  | { type: "image"; img: string; cap: string }
+  | { type: "content"; content: SlideContentKey; cap: string };
 
+// 叙事顺序：品牌主视觉 → 三大实验室 → 课程体系全景 → 成长体系 → 学员作品 → 证书/展台 → 招募收尾
 export const SLIDES: Slide[] = [
-  { img: "/assets/ext/mkt-hero-poster.png", cap: "品牌主视觉 · 小D 与点点的实验室之旅" },
-  { img: "/assets/ext/实验室海报-1.png", cap: "创想实验室 · AI 绘图 / 配音 / 视频" },
-  { img: "/assets/ext/实验室海报-2.png", cap: "工程实验室 · Python / APP / 数据分析" },
-  { img: "/assets/ext/实验室海报-3.png", cap: "远征实验室 · 无人机 / AI 原理" },
-  { img: "/assets/ext/01-体验课招募海报-3x4.png", cap: "体验课招募中 · 0 元预约" },
-  { img: "/assets/ext/mkt-rollup-main.png", cap: "三大实验室 · 全息展台" },
-  { img: "/assets/ext/课程体系全景宣传图-v3.png", cap: "课程体系全景 · 9 大能力实验室" },
-  { img: "/assets/ext/06-结课证书-1120x790.png", cap: "每座实验室 · 都有认证徽章" },
+  { type: "image", img: "/assets/ext/mkt-hero-poster.png", cap: "品牌主视觉 · 小D 与点点的实验室之旅" },
+  { type: "content", content: "lab-0", cap: "创想实验室 · AI 创作力" },
+  { type: "content", content: "lab-1", cap: "工程实验室 · 编程工程力" },
+  { type: "content", content: "lab-2", cap: "远征实验室 · 硬件与 AI 思维" },
+  { type: "image", img: "/assets/ext/课程体系全景宣传图-v3.png", cap: "课程体系全景 · 9 大能力实验室" },
+  { type: "content", content: "growth", cap: "成长体系 · 能力认证阶梯" },
+  { type: "content", content: "works", cap: "学员作品 · 每个阶段都有真实产出" },
+  { type: "image", img: "/assets/ext/06-结课证书-1120x790.png", cap: "每座实验室 · 都有认证徽章" },
+  { type: "image", img: "/assets/ext/mkt-rollup-main.png", cap: "三大实验室 · 全息展台" },
+  { type: "content", content: "cta", cap: "体验课招募中 · 0 元预约" },
 ];
 
 // ================= 成长体系（能力认证阶梯） =================
@@ -183,7 +194,7 @@ export const GROWTH_ENTRIES_NOTE = "全部路径汇聚于九证集齐，不同�
 export interface WorkSlot { icon: string; title: string; desc: string }
 export const WORK_SLOTS: WorkSlot[] = [
   { icon: "brush", title: "学员绘本", desc: "创想实验室 · 出版级个人绘本" },
-  { icon: "mic", title: "有声剧作品", desc: "语音合成实验室 · 声演有声绘本" },
-  { icon: "app", title: "上线小程序", desc: "应用工程实验室 · 真实上线作品" },
-  { icon: "drone", title: "无人机作品", desc: "智能硬件实验室 · 组装与试飞记录" },
+  { icon: "mic", title: "有声剧作品", desc: "创想实验室 · 声演有声绘本" },
+  { icon: "app", title: "上线小程序", desc: "工程实验室 · 真实上线作品" },
+  { icon: "drone", title: "无人机作品", desc: "远征实验室 · 组装与试飞记录" },
 ];

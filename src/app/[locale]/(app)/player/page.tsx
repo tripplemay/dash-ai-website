@@ -1,15 +1,171 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { SLIDES } from "@/lib/data";
+import { SLIDES, LABS, GROWTH_LAYERS, WORK_SLOTS, Lab } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
 const DUR = 8000;
 
-export default function PlayerPage() {
+/* ---------- content 型 slide（数据均引自 data.ts） ---------- */
+
+function LabSlide({ lab, poster }: { lab: Lab; poster: string }) {
+  return (
+    <div className="absolute inset-0 bg-midnight">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover opacity-35" />
+      <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,14,40,.92),rgba(8,14,40,.3))]" />
+      <div className="relative flex h-full flex-col justify-end p-10 pb-24 lg:p-24 lg:pb-28">
+        <span
+          className="w-fit rounded-xl px-4 py-1.5 text-sm font-extrabold tracking-[4px] text-white lg:px-5 lg:py-2 lg:text-[20px]"
+          style={{ background: lab.color }}
+        >
+          {lab.en}
+        </span>
+        <h2 className="mt-4 text-[38px] font-extrabold tracking-[3px] text-white lg:mt-6 lg:text-[64px] lg:tracking-[4px]">
+          {lab.name}
+          <span className="ml-4 align-middle text-[15px] font-bold text-[#BFEFFF] lg:ml-6 lg:text-[26px]">
+            {lab.hours}
+          </span>
+        </h2>
+        <div className="mt-2 text-[16px] text-[#BFEFFF] lg:mt-3 lg:text-[24px]">{lab.desc}</div>
+        <div className="mt-5 flex flex-wrap gap-3 lg:mt-8 lg:gap-4">
+          {lab.courses.map((c) => (
+            <div key={c.name} className="rounded-2xl bg-white/10 px-4 py-3 backdrop-blur-sm lg:px-6 lg:py-4">
+              <span className="text-[17px] font-extrabold text-white lg:text-[24px]">{c.name}</span>
+              <span className="ml-2.5 text-[12px] text-[#BFEFFF] lg:ml-3 lg:text-[16px]">
+                {c.age} · {c.count}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GrowthSlide() {
+  return (
+    <div className="absolute inset-0 bg-[linear-gradient(135deg,#0A1232,#101C52)]">
+      <div className="relative flex h-full flex-col justify-center p-10 lg:px-24">
+        <div className="text-[13px] font-extrabold tracking-[6px] text-[#9FB3E8] lg:text-[20px]">成长体系</div>
+        <h2 className="mt-3 text-[32px] font-extrabold tracking-[3px] text-white lg:text-[52px]">
+          能力认证<em className="not-italic text-cyan">阶梯</em>
+        </h2>
+        <div className="mt-8 flex flex-col gap-4 lg:mt-14 lg:flex-row lg:items-stretch lg:gap-6">
+          {GROWTH_LAYERS.map((l, i) => (
+            <div key={l.level} className="flex flex-1 items-center gap-4 lg:gap-6">
+              <div
+                className="flex-1 rounded-2xl bg-white/8 p-4 backdrop-blur-sm lg:p-6"
+                style={{ borderTop: `4px solid ${l.color}` }}
+              >
+                <div className="text-[20px] font-extrabold lg:text-[30px]" style={{ color: l.color }}>
+                  {l.level}
+                </div>
+                <div className="mt-1 text-[18px] font-extrabold text-white lg:mt-2 lg:text-[24px]">{l.title}</div>
+                <div className="mt-1 text-[12px] leading-relaxed text-[#BFEFFF] lg:mt-2 lg:text-[15px]">
+                  {l.tagline}
+                </div>
+              </div>
+              {i < GROWTH_LAYERS.length - 1 && (
+                <div className="hidden text-[26px] text-cyan/60 lg:block">→</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function WorksSlide() {
+  return (
+    <div className="absolute inset-0 bg-[linear-gradient(135deg,#0A1232,#1B2A6B)]">
+      <div className="relative flex h-full flex-col justify-center p-10 lg:px-24">
+        <h2 className="text-[32px] font-extrabold tracking-[3px] text-white lg:text-[52px]">
+          学员<em className="not-italic text-cyan">作品</em>
+        </h2>
+        <div className="mt-3 text-[15px] text-[#BFEFFF] lg:text-[22px]">
+          每个阶段以真实作品结业——绘本 / 有声剧 / 小程序 / 无人机
+        </div>
+        <div className="mt-8 grid grid-cols-2 gap-4 lg:mt-12 lg:grid-cols-4 lg:gap-6">
+          {WORK_SLOTS.map((w) => (
+            <div
+              key={w.title}
+              className="relative flex flex-col items-center overflow-hidden rounded-2xl border-2 border-dashed border-white/25 bg-white/5 px-4 py-8 text-center lg:py-12"
+            >
+              <span className="pointer-events-none absolute top-3 -right-8 rotate-45 bg-white/10 px-8 py-0.5 text-[9px] font-extrabold tracking-[2px] text-white/60">
+                作品征集中
+              </span>
+              <span className="flex size-14 items-center justify-center rounded-2xl bg-[#F0F5FC] lg:size-16">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={`/assets/icons/${w.icon}.png`} alt="" className="size-8 opacity-80 lg:size-9" />
+              </span>
+              <div className="mt-3 text-[15px] font-extrabold text-white lg:mt-4 lg:text-[20px]">{w.title}</div>
+              <div className="mt-1 text-[11px] text-[#9FB3E8] lg:text-[13px]">{w.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CtaSlide() {
+  return (
+    <div className="absolute inset-0 bg-midnight">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img src="/assets/ext/mkt-hero-poster.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,14,40,.92),rgba(8,14,40,.45))]" />
+      <div className="relative flex h-full flex-col items-start justify-center gap-8 p-10 lg:flex-row lg:items-center lg:gap-16 lg:px-24">
+        <div>
+          <h2 className="text-[36px] leading-tight font-extrabold tracking-[3px] text-white lg:text-[64px] lg:tracking-[4px]">
+            体验课<em className="not-italic text-cyan">免费预约</em>
+          </h2>
+          <div className="mt-4 text-[15px] leading-relaxed text-[#BFEFFF] lg:mt-6 lg:text-[24px]">
+            3 节体验课 · AI 绘本生成 / 数字人 / 计算机视觉
+            <br />
+            让孩子先获得第一项能力认证
+          </div>
+          <div className="mt-6 inline-flex rounded-2xl bg-orange px-7 py-3.5 text-[18px] font-extrabold tracking-[3px] text-white lg:mt-10 lg:px-10 lg:py-5 lg:text-[28px]">
+            扫码预约 · 0 元体验
+          </div>
+        </div>
+        {/* 二维码占位框 */}
+        <div className="flex flex-col items-center">
+          <div className="relative flex size-[160px] items-center justify-center rounded-2xl border-2 border-dashed border-cyan/50 bg-white/5 lg:size-[220px]">
+            <span className="absolute top-2 left-2 size-5 border-t-2 border-l-2 border-cyan" />
+            <span className="absolute top-2 right-2 size-5 border-t-2 border-r-2 border-cyan" />
+            <span className="absolute bottom-2 left-2 size-5 border-b-2 border-l-2 border-cyan" />
+            <span className="absolute right-2 bottom-2 size-5 border-r-2 border-b-2 border-cyan" />
+            <span className="text-[13px] font-bold tracking-[3px] text-[#9FB3E8] lg:text-[15px]">二维码占位</span>
+          </div>
+          <div className="mt-3 text-[12px] tracking-[2px] text-[#9FB3E8] lg:text-[13px]">校区预约二维码</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ContentSlide({ contentKey }: { contentKey: string }) {
+  if (contentKey.startsWith("lab-")) {
+    const i = Number(contentKey.split("-")[1]);
+    return <LabSlide lab={LABS[i]} poster={`/assets/ext/实验室海报-${i + 1}.png`} />;
+  }
+  if (contentKey === "growth") return <GrowthSlide />;
+  if (contentKey === "works") return <WorksSlide />;
+  return <CtaSlide />;
+}
+
+/* ---------- 播放器 ---------- */
+
+function PlayerDeck() {
   const t = useTranslations("player");
-  const [idx, setIdx] = useState(0);
+  const sp = useSearchParams();
+  const raw = Number(sp.get("slide"));
+  const initial = Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), SLIDES.length) : 1;
+  const [idx, setIdx] = useState(initial - 1); // 0-based
   const [playing, setPlaying] = useState(true);
   const [awake, setAwake] = useState(true);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -79,16 +235,20 @@ export default function PlayerPage() {
       {/* 轮播舞台 */}
       <div className="absolute inset-0">
         {SLIDES.map((s, i) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            key={s.img}
-            src={s.img}
-            alt={s.cap}
+          <div
+            key={i}
             className={cn(
-              "absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-900 ease-in-out",
-              i === idx && "opacity-100"
+              "absolute inset-0 transition-opacity duration-900 ease-in-out",
+              i === idx ? "opacity-100" : "pointer-events-none opacity-0"
             )}
-          />
+          >
+            {s.type === "image" ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={s.img} alt={s.cap} className="absolute inset-0 h-full w-full object-cover" />
+            ) : (
+              <ContentSlide contentKey={s.content} />
+            )}
+          </div>
         ))}
       </div>
 
@@ -101,7 +261,7 @@ export default function PlayerPage() {
       >
         {SLIDES.map((s, i) => (
           <button
-            key={s.img}
+            key={i}
             onClick={() => {
               go(i);
               restart();
@@ -129,6 +289,9 @@ export default function PlayerPage() {
         </div>
         <div className="ml-1.5 text-[12.5px] tracking-wide text-[#BFEFFF]">{SLIDES[idx].cap}</div>
         <div className="flex-1" />
+        <div className="text-[12.5px] font-bold tracking-[2px] text-[#BFEFFF] tabular-nums">
+          {idx + 1} / {SLIDES.length}
+        </div>
         <button
           onClick={prev}
           className="rounded-[9px] border border-white/25 bg-white/12 px-3.5 py-1.5 text-xs tracking-wider text-white"
@@ -149,5 +312,13 @@ export default function PlayerPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function PlayerPage() {
+  return (
+    <Suspense>
+      <PlayerDeck />
+    </Suspense>
   );
 }
