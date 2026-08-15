@@ -28,6 +28,8 @@ export function SiteHeader() {
   const pathname = usePathname();
   const router = useRouter();
   const [open, setOpen] = useState(false);
+  const { data: session } = authClient.useSession();
+  const isAdmin = (session?.user as { role?: string } | undefined)?.role === "admin";
 
   // 大屏播放页全屏展示，隐藏顶栏
   if (pathname === "/player") return null;
@@ -63,6 +65,11 @@ export function SiteHeader() {
         <a href="/brand/index.html" target="_blank" rel="noreferrer" className={linkCls("/brand")}>
           {t("brand")}
         </a>
+        {isAdmin && (
+          <Link href="/admin" className={linkCls("/admin")}>
+            {t("admin")}
+          </Link>
+        )}
         <DropdownMenu>
           <DropdownMenuTrigger className="ml-2.5 flex items-center gap-1.5 rounded-[10px] border border-cyan/50 px-3 py-1.5 text-xs font-bold tracking-widest text-cyan">
             <Languages className="size-3.5" />
@@ -99,6 +106,11 @@ export function SiteHeader() {
             <a href="/brand/index.html" target="_blank" rel="noreferrer" className={linkCls("/brand")}>
               {t("brand")}
             </a>
+            {isAdmin && (
+              <Link href="/admin" onClick={() => setOpen(false)} className={linkCls("/admin")}>
+                {t("admin")}
+              </Link>
+            )}
             <button onClick={() => switchLocale(locale === "zh" ? "en" : "zh")} className={cn(linkCls("/lang"), "text-left")}>
               {locale === "zh" ? "English" : "中文"}
             </button>

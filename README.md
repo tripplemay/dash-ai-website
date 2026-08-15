@@ -15,12 +15,13 @@ Next.js 全栈工程，为 DASH AI 少儿 AI 素养课程的合作伙伴提供�
 
 ```bash
 pnpm install
-BETTER_AUTH_SECRET=dev-secret SEED_INITIAL_PASSWORD=<本地演示密码> pnpm seed   # 建表 + 写入三个初始账号
+BETTER_AUTH_SECRET=dev-secret SEED_INITIAL_PASSWORD=<初始密码> SEED_ADMIN_PASSWORD=<管理员密码> pnpm seed
 pnpm dev
 ```
 
 访问 `http://localhost:3000/` 跳转到 `/zh`，未登录重定向 `/zh/login`。
-初始账号：`partner` / `teacher` / `guest`，密码为 seed 时传入的 `SEED_INITIAL_PASSWORD`。
+seed 幂等：已存在账号跳过、角色校正；`resources` 表仅在为空时播种（数据源 `scripts/resources-seed.json`）。
+初始账号：`partner` / `teacher` / `guest`（密码为 `SEED_INITIAL_PASSWORD`）+ `admin`（密码为 `SEED_ADMIN_PASSWORD`，管理后台 `/admin` 仅 admin 可见）。
 
 ### 环境变量
 
@@ -29,7 +30,8 @@ pnpm dev
 | `BETTER_AUTH_SECRET`    | 会话密钥，生产必须设置（缺失时生产构建/运行会拒绝启动）          |
 | `BETTER_AUTH_URL`       | 站点对外 base URL，如 `https://pr.dashedu.net`                  |
 | `DASH_AUTH_DB`          | SQLite 文件路径，默认 `./dash-auth.db`                          |
-| `SEED_INITIAL_PASSWORD` | 仅 seed 脚本使用：三个初始账号的初始密码（≥8 位）               |
+| `SEED_INITIAL_PASSWORD` | 仅 seed 脚本使用：partner/teacher/guest 的初始密码（≥8 位）     |
+| `SEED_ADMIN_PASSWORD`   | 仅 seed 脚本使用：admin 账号的初始密码（≥8 位）                 |
 | `DASH_AUTH_DISABLED`    | `=1` 且 `NODE_ENV=development` 时跳过登录守卫（本地预览用）      |
 
 ## 目录结构
@@ -37,14 +39,16 @@ pnpm dev
 ```
 ├── messages/            # zh.json / en.json 文案
 ├── public/              # 不进 git：assets/ files/ brand/（部署时单独分发）
-├── scripts/seed.mjs     # 建表 + 初始账号（密码来自 SEED_INITIAL_PASSWORD）
+├── scripts/seed.mjs     # 建表 + 初始账号 + 资源播种（数据源 resources-seed.json）
 ├── src/
 │   ├── proxy.ts         # locale 路由 + 登录守卫
-│   ├── i18n/ lib/ components/
+│   ├── i18n/ lib/ components/   # lib/db.ts 资源表 · lib/storage.ts 存储抽象 · lib/admin-guard.ts
 │   └── app/
 │       ├── api/auth/[...all]/    # better-auth 处理器
-│       ├── api/browse/[...path]/ # public 目录浏览清单
-│       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (admin)/
+│       ├── api/browse/[...path]/ # public 目录浏览清单（需登录）
+│       ├── api/download/[id]/    # 资源下载端点（登录校验 → 302）
+│       ├── api/admin/upload/     # 资源上传（admin，multipart 流式写盘）
+│       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (admin)/admin{,/accounts,/resources}
 └── .github/workflows/deploy.yml  # 推送 main 自动构建并部署到 VPS
 ```
 

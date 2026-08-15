@@ -1,9 +1,13 @@
 import { useTranslations } from "next-intl";
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { ResourceCenter } from "@/components/resource-center";
+import { listEnabledResources } from "@/lib/db";
+
+export const dynamic = "force-dynamic";
 
 export default function ResourcesPage() {
   const t = useTranslations("resources");
+  const items = listEnabledResources();
   return (
     <>
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#101C52,#1B2A6B)] pt-11 pb-8.5 text-white">
@@ -16,7 +20,7 @@ export default function ResourcesPage() {
           <div className="mt-2 text-[13.5px] tracking-wide text-[#9FB3E8]">{t("sub")}</div>
         </div>
       </section>
-      <ResourceCenter />
+      <ResourceCenter items={items} />
     </>
   );
 }

@@ -1,15 +1,24 @@
 import { NextRequest, NextResponse } from "next/server";
 import fs from "node:fs";
 import path from "node:path";
+import { auth, AUTH_DISABLED } from "@/lib/auth";
 
 /**
  * 目录浏览：public 下的目录（如 files/证书手册/家长手册/）静态服务不支持列目录，
  * 这里渲染一个简单清单页，文件直接链接到 /files/... 静态地址。
+ * 需要登录：未登录重定向到登录页。
  */
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ path: string[] }> }
 ) {
+  if (!AUTH_DISABLED) {
+    const session = await auth.api.getSession({ headers: req.headers });
+    if (!session) {
+      return NextResponse.redirect(new URL("/zh/login", req.url), 302);
+    }
+  }
+
   const { path: segs } = await params;
   const rel = segs.map(decodeURIComponent).join("/");
   const abs = path.join(process.cwd(), "public", rel);

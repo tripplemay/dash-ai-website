@@ -1,5 +1,5 @@
 import { betterAuth } from "better-auth";
-import { username } from "better-auth/plugins";
+import { username, admin } from "better-auth/plugins";
 import Database from "better-sqlite3";
 import path from "node:path";
 
@@ -16,7 +16,7 @@ export const auth = betterAuth({
   appName: "DASH AI Marketing Hub",
   database: new Database(dbPath),
   emailAndPassword: { enabled: true },
-  plugins: [username()],
+  plugins: [username(), admin()],
   secret: secret || "dash-dev-secret-local-only",
 });
 

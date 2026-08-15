@@ -67,37 +67,12 @@ export const FAQ: [string, string][] = [
   ["费用与退费政策？", "体验课免费；正式课按阶段报名，开课前全额退，开课后按剩余课时比例退。"],
 ];
 
-export interface Resource {
-  cat: string;
-  name: string;
-  file: string;
-  thumb: string;
-  spec: string;
-  usage: string;
-  dir?: boolean;
-}
-
+// 资源分类 key（筛选项 / 后台表单共用）。
+// 资源条目本身已入库（resources 表），种子数据见 scripts/resources-seed.json。
 export const RESOURCE_CATS = ["全部", "课程海报", "招募物料", "证书手册", "社媒", "品牌资产", "吉祥物", "课件模板"];
 
-export const RESOURCES: Resource[] = [
-  { cat: "课程海报", name: "创想实验室海报", file: "/files/海报/实验室海报-1.png", thumb: "/assets/ext/实验室海报-1.png", spec: "4032×1920 · 横版", usage: "横幅/电视屏/宣传栏" },
-  { cat: "课程海报", name: "工程实验室海报", file: "/files/海报/实验室海报-2.png", thumb: "/assets/ext/实验室海报-2.png", spec: "4032×1920 · 横版", usage: "横幅/电视屏/宣传栏" },
-  { cat: "课程海报", name: "远征实验室海报", file: "/files/海报/实验室海报-3.png", thumb: "/assets/ext/实验室海报-3.png", spec: "4032×1920 · 横版", usage: "横幅/电视屏/宣传栏" },
-  { cat: "课程海报", name: "课程体系全景图（竖版长图）", file: "/files/海报/课程体系全景宣传图-v2.png", thumb: "/assets/ext/课程体系全景宣传图-v2.png", spec: "2880×4480 · 竖版", usage: "朋友圈长图/展架" },
-  { cat: "课程海报", name: "课程体系全景图（横版）", file: "/files/海报/课程体系全景宣传图-v3.png", thumb: "/assets/ext/课程体系全景宣传图-v3.png", spec: "4032×1920 · 横版", usage: "官网首屏/横屏展示" },
-  { cat: "课程海报", name: "课程体系总览（九宫格版）", file: "/files/海报/课程体系全景宣传图.png", thumb: "/assets/ext/课程体系全景宣传图.png", spec: "2880×3240", usage: "宣传册内页/公众号" },
-  { cat: "招募物料", name: "体验课招募海报", file: "/files/招募物料/01-体验课招募海报-3x4.png", thumb: "/files/招募物料/01-体验课招募海报-3x4.png", spec: "2160×2880 · 3:4", usage: "小红书/朋友圈/A3 打印" },
-  { cat: "招募物料", name: "招生长图", file: "/files/招募物料/02-招生长图-9x16.png", thumb: "/files/招募物料/02-招生长图-9x16.png", spec: "1800×3200 · 9:16", usage: "朋友圈长图/咨询转发" },
-  { cat: "招募物料", name: "易拉宝", file: "/files/招募物料/04-易拉宝-800x2000.png", thumb: "/files/招募物料/04-易拉宝-800x2000.png", spec: "1600×4000 · 800×2000mm 等比", usage: "易拉宝印刷（200DPI）" },
-  { cat: "招募物料", name: "试听卡邀请函", file: "/files/招募物料/05-试听卡邀请函-1000x630.png", thumb: "/files/招募物料/05-试听卡邀请函-1000x630.png", spec: "2000×1260", usage: "体验课邀约卡（双面彩印）" },
-  { cat: "证书手册", name: "结课证书", file: "/files/证书手册/06-结课证书-1120x790.png", thumb: "/files/证书手册/06-结课证书-1120x790.png", spec: "2240×1580 · A4 横版", usage: "A4 横版铜版纸" },
-  { cat: "证书手册", name: "家长手册（12 页套图）", file: "/files/证书手册/家长手册/", thumb: "/files/证书手册/家长手册/P0.png", spec: "1588×2246 × 12 页", usage: "A4 骑马钉/咨询台", dir: true },
-  { cat: "社媒", name: "公众号头图", file: "/files/招募物料/03-公众号头图-900x383.png", thumb: "/files/招募物料/03-公众号头图-900x383.png", spec: "1800×766 · 900×383 标准", usage: "公众号封面" },
-  { cat: "品牌资产", name: "logo 套件（横版/堆叠/单色）", file: "/files/品牌资产/", thumb: "/assets/img/logo/DASH-mark_1024.png", spec: "透明底 PNG · 多尺寸", usage: "招牌/印刷/视频角标", dir: true },
-  { cat: "品牌资产", name: "图标集（32 枚）", file: "/files/品牌资产/icons/", thumb: "/assets/icons/rocket.png", spec: "透明底 PNG × 32", usage: "课件/海报点缀", dir: true },
-  { cat: "吉祥物", name: "小D 与点点 · 透明底素材包", file: "/files/吉祥物/透明底/", thumb: "/assets/img/mascot/cube-pair-standard.png", spec: "7 个变体 · 透明底 PNG", usage: "贴纸/人偶/课件插图", dir: true },
-  { cat: "课件模板", name: "8 套课程 PPT 模板", file: "/files/课件模板/", thumb: "/assets/ext/t-lab-s1.png", spec: "PPTX × 8 · 各 24 页版式", usage: "教师制作课件", dir: true },
-];
+// 除「全部」外的可入库分类
+export const RESOURCE_CATS_STORE = RESOURCE_CATS.slice(1);
 
 export interface Slide { img: string; cap: string }
 
