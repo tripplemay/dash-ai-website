@@ -30,5 +30,10 @@ export async function GET(
     row.kind === "folder"
       ? storage.resolveFolderUrl(row.file_key)
       : storage.resolveFileUrl(row.file_key);
-  return NextResponse.redirect(new URL(target, req.url), 302);
+  // 相对 Location：由浏览器/客户端基于当前源解析，
+  // 避免反代后 req.url 拿到内部地址（localhost:3517）拼出错误跳转
+  return new Response(null, {
+    status: 302,
+    headers: { Location: encodeURI(target) },
+  });
 }
