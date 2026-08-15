@@ -103,9 +103,10 @@ export default function CoursePage() {
             <div className="mt-2 text-[13.5px] text-subtext">{lab.desc}</div>
 
             {lab.courses.map((c) => (
-              <div
+              <Link
                 key={c.name}
-                className="relative mt-3.5 rounded-[14px] border border-[#E4EAF7] bg-card p-[16px_18px] transition-shadow hover:shadow-card"
+                href={`/course/${c.slug}`}
+                className="relative mt-3.5 block rounded-[14px] border border-[#E4EAF7] bg-card p-[16px_18px] transition-shadow hover:border-[#C7D8F2] hover:shadow-card"
               >
                 <div
                   className="absolute top-3.5 bottom-3.5 left-0 w-1 rounded-sm"
@@ -135,7 +136,7 @@ export default function CoursePage() {
                   {t("outcome")}
                   <b className="text-navy">{c.outcome}</b>
                 </div>
-              </div>
+              </Link>
             ))}
           </section>
         ))}

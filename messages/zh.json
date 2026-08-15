@@ -64,7 +64,15 @@
     "worksEm": "作品墙",
     "worksSub": "每个阶段均以真实作品结业，学员作品将在此集中展示",
     "worksWatermark": "作品征集中",
-    "worksNote": "结课后，学员的真实绘本、有声剧、小程序与无人机作品将在此展示。"
+    "worksNote": "结课后，学员的真实绘本、有声剧、小程序与无人机作品将在此展示。",
+    "detailBack": "返回课程介绍中心",
+    "detailIntro": "课程简介",
+    "detailModules": "课程内容模块",
+    "detailLessons": "逐课大纲",
+    "detailLessonsCount": "共 {count} 课",
+    "detailOutcome": "结课产出",
+    "detailSibling": "同主题课程",
+    "detailBadge": "认证徽章 · {elem}"
   },
   "resources": {
     "title1": "资源",
