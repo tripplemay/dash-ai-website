@@ -5,8 +5,10 @@ import { ArrowLeft, Award } from "lucide-react";
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
+import { CourseExplorer } from "@/components/course-explorer";
 import { COURSE_ENTRIES, GROWTH_BADGES } from "@/lib/data";
-import { COURSE_SLUGS, LESSONS } from "@/lib/lessons";
+import { COURSE_SLUGS } from "@/lib/lessons";
+import { LESSON_DETAILS } from "@/lib/lesson-content";
 
 export function generateStaticParams() {
   return COURSE_SLUGS.map((slug) => ({ slug }));
@@ -28,19 +30,25 @@ export async function generateMetadata({
 
 export default async function CourseDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ lesson?: string }>;
 }) {
-  const { slug } = await params;
+  const [{ slug }, sp] = await Promise.all([params, searchParams]);
   const entry = findEntry(slug);
   if (!entry) notFound();
 
   const t = await getTranslations("course");
   const { lab, course } = entry;
-  const lessons = LESSONS[course.slug];
+  const lessons = LESSON_DETAILS[course.slug];
   const badge = GROWTH_BADGES.find((b) => b.lab === course.name);
-  const siblings = lab.courses.filter((c) => c.slug !== course.slug);
-  const compact = lessons.length > 16; // 课时多的课程分栏紧凑展示
+  const siblings = lab.courses
+    .filter((c) => c.slug !== course.slug)
+    .map((c) => ({ slug: c.slug, name: c.name }));
+  // ?lesson=N：1..N 直达某节课；0 / 缺省 / 非法值 = 课程总览
+  const raw = Number(sp.lesson);
+  const initial = Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), lessons.length) : 0;
 
   return (
     <>
@@ -85,97 +93,14 @@ export default async function CourseDetailPage({
         </div>
       </section>
 
-      <div className="mx-auto max-w-[1200px] px-7 py-8.5">
-        {/* 课程简介：intro + 现实锚点 */}
-        <section>
-          <h2 className="text-[22px] font-extrabold tracking-[2px]">
-            {t("detailIntro")}
-          </h2>
-          <div className="mt-3 rounded-[14px] border border-[#E4EAF7] bg-card p-[18px_20px] text-[13.5px] leading-[1.9] text-subtext">
-            <p>{course.intro}</p>
-            <p className="mt-2">{course.reality}</p>
-          </div>
-        </section>
-
-        {/* 课程内容模块 */}
-        <section className="mt-8.5">
-          <h2 className="text-[22px] font-extrabold tracking-[2px]">{t("detailModules")}</h2>
-          <div className="mt-3 flex flex-wrap gap-1.5">
-            {course.modules.map((m) => (
-              <span
-                key={m}
-                className="rounded-lg border border-[#E0EAF8] bg-[#F0F5FC] px-2.5 py-[3px] text-[11.5px] text-[#3D5A80]"
-              >
-                {m}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* 逐课大纲 */}
-        <section className="mt-8.5">
-          <div className="flex items-baseline gap-3">
-            <h2 className="text-[22px] font-extrabold tracking-[2px]">{t("detailLessons")}</h2>
-            <span className="text-[12.5px] font-bold text-subtext">
-              {t("detailLessonsCount", { count: lessons.length })}
-            </span>
-          </div>
-          <div
-            className={`mt-3 grid gap-2.5 sm:grid-cols-2 ${compact ? "lg:grid-cols-3" : ""}`}
-          >
-            {lessons.map((l) => (
-              <div
-                key={l.n}
-                className={`flex items-center gap-2.5 rounded-[12px] border border-[#E4EAF7] bg-card ${
-                  compact ? "px-3 py-2" : "px-3.5 py-2.5"
-                }`}
-              >
-                <span
-                  className="flex size-6.5 shrink-0 items-center justify-center rounded-[7px] text-[11px] font-extrabold text-white"
-                  style={{ background: lab.color }}
-                >
-                  {l.n}
-                </span>
-                <span className="text-[12.5px] font-bold text-navy">{l.title}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* 结课产出 */}
-        <section className="mt-8.5">
-          <div className="rounded-[14px] bg-[linear-gradient(135deg,#101C52,#1B2A6B)] p-[18px_20px] text-white">
-            <div className="text-[12px] font-extrabold tracking-[3px] text-cyan">{t("detailOutcome")}</div>
-            <div className="mt-2 text-[17px] font-extrabold tracking-wide">{course.outcome}</div>
-          </div>
-        </section>
-
-        {/* 页脚导航：返回 + 同主题课程 */}
-        <section className="mt-8.5 flex flex-wrap items-center gap-2.5 border-t-2 border-[#E4EAF7] pt-6">
-          <Link
-            href="/course"
-            className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#D6E2F8] bg-card px-4 py-2.5 text-[12.5px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
-          >
-            <ArrowLeft className="size-3.5" />
-            {t("detailBack")}
-          </Link>
-          {siblings.length > 0 && (
-            <>
-              <span className="ml-2 text-[12px] font-bold text-subtext">{t("detailSibling")}</span>
-              {siblings.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/course/${c.slug}`}
-                  className="rounded-[10px] px-4 py-2.5 text-[12.5px] font-extrabold text-white transition-opacity hover:opacity-85"
-                  style={{ background: lab.color }}
-                >
-                  {c.name}
-                </Link>
-              ))}
-            </>
-          )}
-        </section>
-      </div>
+      {/* 左栏课表 + 右侧详情（客户端交互，URL 同步 ?lesson=N） */}
+      <CourseExplorer
+        lab={{ name: lab.name, color: lab.color }}
+        course={course}
+        lessons={lessons}
+        siblings={siblings}
+        initial={initial}
+      />
     </>
   );
 }

@@ -68,11 +68,14 @@
     "detailBack": "返回课程介绍中心",
     "detailIntro": "课程简介",
     "detailModules": "课程内容模块",
-    "detailLessons": "逐课大纲",
-    "detailLessonsCount": "共 {count} 课",
     "detailOutcome": "结课产出",
     "detailSibling": "同主题课程",
-    "detailBadge": "认证徽章 · {elem}"
+    "detailBadge": "认证徽章 · {elem}",
+    "detailOverview": "课程总览",
+    "detailLessonNo": "第 {n} 课",
+    "detailSummary": "课程梗概",
+    "detailGoals": "学习目标",
+    "detailOutline": "课堂环节"
   },
   "resources": {
     "title1": "Resource",
