@@ -8,7 +8,6 @@ import { BackgroundBeams } from "@/components/aceternity/background-beams";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
 
 export default function LoginPage() {
   const t = useTranslations("login");
@@ -81,16 +80,6 @@ export default function LoginPage() {
           <Button type="submit" disabled={loading} className="mt-5 h-10 w-full text-sm font-extrabold tracking-[4px]">
             {loading ? t("loading") : t("submit")}
           </Button>
-
-          <Separator className="my-5" />
-          <div className="text-xs text-subtext">
-            <div className="mb-1.5 font-extrabold text-navy">{t("demoTitle")}</div>
-            <code className="rounded bg-mist px-1.5 py-0.5">partner</code> /{" "}
-            <code className="rounded bg-mist px-1.5 py-0.5">teacher</code> /{" "}
-            <code className="rounded bg-mist px-1.5 py-0.5">guest</code>
-            <span className="mx-1.5">·</span>
-            {t("password")} <code className="rounded bg-mist px-1.5 py-0.5">Dash#2026</code>
-          </div>
         </form>
       </div>
     </div>
