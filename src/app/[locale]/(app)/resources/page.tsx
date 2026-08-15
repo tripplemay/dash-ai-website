@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Suspense } from "react";
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { ResourceCenter } from "@/components/resource-center";
 import { listEnabledResources } from "@/lib/db";
@@ -20,7 +21,9 @@ export default function ResourcesPage() {
           <div className="mt-2 text-[13.5px] tracking-wide text-[#9FB3E8]">{t("sub")}</div>
         </div>
       </section>
-      <ResourceCenter items={items} />
+      <Suspense>
+        <ResourceCenter items={items} />
+      </Suspense>
     </>
   );
 }

@@ -20,6 +20,7 @@ const NAV = [
   { href: "/resources", key: "resources" },
   { href: "/course", key: "course" },
   { href: "/player", key: "player" },
+  { href: "/guide", key: "guide" },
 ] as const;
 
 export function SiteHeader() {

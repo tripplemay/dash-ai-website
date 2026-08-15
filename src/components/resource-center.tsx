@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Download, Eye, FolderOpen } from "lucide-react";
+import { Download, Eye, FolderOpen, Package } from "lucide-react";
 import { RESOURCE_CATS } from "@/lib/data";
 import type { ResourceRow } from "@/lib/db";
 import { cn } from "@/lib/utils";
@@ -15,12 +16,16 @@ export type ResourceItem = Pick<
 
 export function ResourceCenter({ items }: { items: ResourceItem[] }) {
   const t = useTranslations("resources");
-  const [cat, setCat] = useState("全部");
+  const sp = useSearchParams();
+  const initialCat = sp.get("cat");
+  const [cat, setCat] = useState(
+    initialCat && RESOURCE_CATS.includes(initialCat) ? initialCat : "全部"
+  );
   const list = items.filter((r) => cat === "全部" || r.category === cat);
 
   return (
     <section className="mx-auto max-w-[1200px] px-7 py-8.5">
-      <div className="mt-4 mb-5.5 flex flex-wrap gap-2">
+      <div className="mt-4 mb-5.5 flex flex-wrap items-center gap-2">
         {RESOURCE_CATS.map((c) => (
           <button
             key={c}
@@ -33,6 +38,15 @@ export function ResourceCenter({ items }: { items: ResourceItem[] }) {
             {c === "全部" ? t("all") : c}
           </button>
         ))}
+        {cat !== "全部" && (
+          <a
+            href={`/api/download/category/${encodeURIComponent(cat)}`}
+            className="ml-auto flex items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-[#24348A]"
+          >
+            <Package className="size-4" />
+            {t("zipCat")}（{cat}）
+          </a>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
