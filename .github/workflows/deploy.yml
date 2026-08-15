@@ -38,7 +38,7 @@ jobs:
           cp -R .next/standalone/. release/app/
           cp -R .next/static release/app/.next/static
           cp scripts/seed.mjs release/app/scripts/seed.mjs
-          tar -czf release.tar.gz -C release app
+          tar -czf release.tar.gz -C release/app .
           ls -lh release.tar.gz
 
       - name: Deploy to VPS
