@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "Home",
+    "resources": "Resources",
+    "course": "Courses",
+    "player": "Screen Player",
+    "brand": "Brand",
+    "logout": "Sign out"
+  },
+  "hero": {
+    "kick": "DASH AI LAB · MARKETING HUB",
+    "title1": "The Marketing Hub",
+    "title2": "for Partners",
+    "sub": "Download print-ready materials, present courses to parents, and loop highlights on any screen."
+  },
+  "roles": {
+    "res": { "title": "Marketing Resources", "desc": "Posters, roll-ups, certificates, handbooks, logos, mascots and PPT templates in print-ready quality." },
+    "course": { "title": "Present Courses", "desc": "Curriculum, course details, growth system and parent FAQ — presentable right in the browser." },
+    "player": { "title": "Screen Player", "desc": "Open on any screen or iPad. Auto-loops brand and course highlights, hands-free." },
+    "enter": "Enter →"
+  },
+  "home": {
+    "latest": "Latest Resources",
+    "labsTitle": "Three", "labsTitleEm": "Labs",
+    "labsSub": "Create · Build · Explore — 9 capability labs for ages 5–16",
+    "viewAll": "View all"
+  },
+  "course": {
+    "title1": "Course",
+    "title2": "Center",
+    "sub": "9 capability labs · 132 lessons · ages 5–16 ｜ present on screen or in person",
+    "pathTitle": "Learning Path",
+    "pathEm": "Multiple Entries",
+    "pathSub": "低龄（5–8 岁）从创想进入 · 10+ 岁可直接从工程进入 · 全部路径汇聚于「少年全栈研究员」",
+    "faqTitle": "Parent",
+    "faqEm": "FAQ",
+    "faqSub": "16 个高频问题的标准应答口径",
+    "outcome": "结业产出："
+  },
+  "resources": {
+    "title1": "Resource",
+    "title2": "Download Center",
+    "sub": "All materials are print-ready HD files · click a card to preview, use the buttons to download",
+    "all": "All",
+    "suggest": "建议：",
+    "download": "Download",
+    "preview": "Preview",
+    "openDir": "打开文件夹"
+  },
+  "player": {
+    "prev": "‹ Prev",
+    "next": "Next ›",
+    "pause": "Pause",
+    "play": "Play"
+  },
+  "footer": {
+    "left": "DASH AI Lab · Kids AI Literacy Program",
+    "right": "Partners only · Authorized access"
+  },
+  "login": {
+    "title": "Partners Area",
+    "sub": "DASH AI LAB · MARKETING HUB",
+    "desc": "Sign in with an authorized account to access downloads, course deck and screen player.",
+    "username": "Username",
+    "password": "Password",
+    "usernamePh": "partner / teacher / guest",
+    "passwordPh": "Enter password",
+    "submit": "Sign in",
+    "loading": "Signing in…",
+    "failed": "Sign-in failed. Check username or password.",
+    "demoTitle": "Demo accounts"
+  }
+}

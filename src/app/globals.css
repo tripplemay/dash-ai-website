@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* DASH AI · VI 设计令牌（v2.1）+ shadcn 语义色 */
+@theme {
+  /* 品牌色板 */
+  --color-navy: #1b2a6b; /* 主品牌蓝 */
+  --color-midnight: #0a1232; /* 深空蓝底（渐变起） */
+  --color-deep: #0d1740; /* 深空蓝底（顶栏/页脚） */
+  --color-cyan: #00e5ff; /* 电光青 · 深底强调 */
+  --color-cyan-print: #00b8d9; /* 电光青 · 浅底文字修正 */
+  --color-orange: #ff7a45; /* 活力橙 · 辅强调 */
+  --color-mist: #e8f0fe; /* 雾蓝 · 浅色卡片底 */
+  --color-subtext: #5a6b9c; /* 次级文字 */
+  /* 三实验室主题色 */
+  --color-lab-create: #ff7a45;
+  --color-lab-build: #a79bff;
+  --color-lab-explore: #5e9bff;
+
+  /* shadcn 语义色（映射到品牌体系） */
+  --color-background: #f4f7fd;
+  --color-foreground: #1b2a6b;
+  --color-card: #ffffff;
+  --color-card-foreground: #1b2a6b;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #1b2a6b;
+  --color-primary: #1b2a6b;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #eef4fe;
+  --color-secondary-foreground: #1b2a6b;
+  --color-muted: #eef4fe;
+  --color-muted-foreground: #5a6b9c;
+  --color-accent: #e8f0fe;
+  --color-accent-foreground: #1b2a6b;
+  --color-destructive: #e5484d;
+  --color-border: #dce6f7;
+  --color-input: #dce6f7;
+  --color-ring: #00b8d9;
+
+  --radius-lg: 12px;
+  --radius-md: 10px;
+  --radius-sm: 8px;
+  --radius-xl: 16px;
+
+  --font-sans: "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+
+  --shadow-card: 0 10px 30px rgba(27, 42, 107, 0.12);
+  --shadow-card-hover: 0 18px 44px rgba(27, 42, 107, 0.2);
+
+  /* Aceternity Spotlight 动画 */
+  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
+  @keyframes spotlight {
+    0% {
+      opacity: 0;
+      transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -40%) scale(1);
+    }
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+/* logo 圆角比例 22% */
+.logo-rounded {
+  border-radius: 22%;
+}

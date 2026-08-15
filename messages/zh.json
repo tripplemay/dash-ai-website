@@ -1,0 +1,73 @@
+{
+  "nav": {
+    "home": "首页",
+    "resources": "资源下载",
+    "course": "课程介绍",
+    "player": "大屏播放",
+    "brand": "品牌规范",
+    "logout": "退出登录"
+  },
+  "hero": {
+    "kick": "DASH AI 实验室 · 营销资源中心",
+    "title1": "合作伙伴的",
+    "title2": "营销资源站",
+    "sub": "下载宣传物料 · 在线介绍课程 · 大屏循环播放——一个站点，全部搞定"
+  },
+  "roles": {
+    "res": { "title": "下载营销资源", "desc": "海报 / 易拉宝 / 证书 / 手册 / logo / 吉祥物 / 课件模板，印刷级高清文件，随取随用" },
+    "course": { "title": "向家长介绍课程", "desc": "课程体系、逐课详解、成长体系、家长 FAQ——网页演示，投屏即讲" },
+    "player": { "title": "大屏循环播放", "desc": "校区大屏 / iPad 打开即播，自动轮播品牌与课程亮点，无操作干扰" },
+    "enter": "进入 →"
+  },
+  "home": {
+    "latest": "最新资源",
+    "labsTitle": "三大", "labsTitleEm": "实验室",
+    "labsSub": "创想 · 工程 · 远征——9 大能力实验室，覆盖 5–16 岁",
+    "viewAll": "查看全部"
+  },
+  "course": {
+    "title1": "课程",
+    "title2": "介绍中心",
+    "sub": "9 大能力实验室 · 132 课时 · 5–16 岁 ｜ 投屏演示或当面讲解均可使用",
+    "pathTitle": "进阶路径",
+    "pathEm": "多入口可选",
+    "pathSub": "低龄（5–8 岁）从创想进入 · 10+ 岁可直接从工程进入 · 全部路径汇聚于「少年全栈研究员」",
+    "faqTitle": "家长",
+    "faqEm": "FAQ",
+    "faqSub": "16 个高频问题的标准应答口径",
+    "outcome": "结业产出："
+  },
+  "resources": {
+    "title1": "资源",
+    "title2": "下载中心",
+    "sub": "全部素材均为印刷级高清文件 · 点击卡片预览，按钮下载 · 印刷建议见卡片标注",
+    "all": "全部",
+    "suggest": "建议：",
+    "download": "下载",
+    "preview": "预览",
+    "openDir": "打开文件夹"
+  },
+  "player": {
+    "prev": "‹ 上一张",
+    "next": "下一张 ›",
+    "pause": "暂停",
+    "play": "播放"
+  },
+  "footer": {
+    "left": "DASH AI 实验室 · 少儿 AI 素养课程",
+    "right": "合作伙伴专区 · 需授权访问"
+  },
+  "login": {
+    "title": "合作伙伴专区",
+    "sub": "DASH AI 实验室 · 营销资源中心",
+    "desc": "请使用授权账号登录，登录后可访问资源下载、课程介绍与大屏播放。",
+    "username": "用户名",
+    "password": "密码",
+    "usernamePh": "partner / teacher / guest",
+    "passwordPh": "请输入密码",
+    "submit": "登 录",
+    "loading": "登录中…",
+    "failed": "登录失败，请检查用户名或密码",
+    "demoTitle": "演示账号"
+  }
+}

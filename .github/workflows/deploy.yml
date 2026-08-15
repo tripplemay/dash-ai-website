@@ -1,0 +1,67 @@
+name: build-deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-main
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # pnpm 版本取自 package.json 的 packageManager 字段
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        # BETTER_AUTH_SECRET 仅为构建期占位（生产构建要求该变量存在）；
+        # 运行时真实密钥只存在于 VPS 的 pm2 ecosystem 配置中。
+        run: BETTER_AUTH_SECRET=ci-build-placeholder pnpm build
+
+      - name: Package standalone
+        run: |
+          mkdir -p release/app/.next release/app/scripts
+          cp -R .next/standalone/. release/app/
+          cp -R .next/static release/app/.next/static
+          cp scripts/seed.mjs release/app/scripts/seed.mjs
+          tar -czf release.tar.gz -C release app
+          ls -lh release.tar.gz
+
+      - name: Deploy to VPS
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          scp -i ~/.ssh/deploy_key release.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/opt/dash-pr/release.tar.gz"
+          ssh -i ~/.ssh/deploy_key "$DEPLOY_USER@$DEPLOY_HOST" bash -s <<'REMOTE_EOF'
+          set -e
+          REL=/opt/dash-pr/releases/$(date +%Y%m%d%H%M%S)
+          mkdir -p "$REL"
+          tar -xzf /opt/dash-pr/release.tar.gz -C "$REL"
+          ln -sfn /opt/dash-pr/public "$REL/public"
+          ln -sfn "$REL" /opt/dash-pr/current.new
+          mv -T /opt/dash-pr/current.new /opt/dash-pr/current
+          pm2 startOrReload /opt/dash-pr/ecosystem.config.js
+          pm2 save
+          rm -f /opt/dash-pr/release.tar.gz
+          cd /opt/dash-pr/releases && ls -1t | tail -n +6 | xargs -r rm -rf
+          echo "deployed: $REL"
+          REMOTE_EOF
