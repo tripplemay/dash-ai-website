@@ -6,8 +6,11 @@ import { routing } from "@/i18n/routing";
 import "../globals.css";
 
 export const metadata: Metadata = {
-  title: "DASH AI 实验室 · 营销资源中心",
-  description: "DASH AI 实验室合作伙伴营销资源站：宣传物料下载、课程介绍、大屏循环播放",
+  title: {
+    default: "DASH AI 实验室 · 营销资源中心",
+    template: "%s · DASH AI 营销资源中心",
+  },
+  description: "DASH AI 实验室合作伙伴营销资源中心：宣传物料下载、课程介绍、校区大屏播放",
 };
 
 export function generateStaticParams() {

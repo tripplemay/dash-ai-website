@@ -1,5 +1,8 @@
 import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
 import { Spotlight } from "@/components/aceternity/spotlight";
+
+export const metadata: Metadata = { title: "使用指南" };
 import { Printer, MonitorPlay, Settings2 } from "lucide-react";
 
 interface PrintItem { icon: string; title: string; points: string[] }

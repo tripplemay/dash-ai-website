@@ -1,5 +1,8 @@
 import { headers } from "next/headers";
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
+
+export const metadata: Metadata = { title: "管理后台" };
 import { getTranslations } from "next-intl/server";
 import { auth, AUTH_DISABLED } from "@/lib/auth";
 import { AdminNav } from "@/components/admin-nav";

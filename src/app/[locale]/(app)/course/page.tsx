@@ -1,6 +1,9 @@
 import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { Badge } from "@/components/ui/badge";
+
+export const metadata: Metadata = { title: "课程介绍中心" };
 import {
   Accordion,
   AccordionContent,

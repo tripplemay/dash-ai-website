@@ -13,20 +13,20 @@
     "kick": "DASH AI LAB · MARKETING HUB",
     "title1": "The Marketing Hub",
     "title2": "for Partners",
-    "sub": "Download print-ready materials, present courses to parents, and loop highlights on any screen."
+    "sub": "An integrated hub for print-ready marketing downloads, online course presentation, and on-screen looping displays."
   },
   "roles": {
     "res": {
       "title": "Marketing Resources",
-      "desc": "Posters, roll-ups, certificates, handbooks, logos, mascots and PPT templates in print-ready quality."
+      "desc": "Posters, roll-ups, certificates, handbooks, brand assets and PPT templates — all print-ready for production."
     },
     "course": {
       "title": "Present Courses",
-      "desc": "Curriculum, course details, growth system and parent FAQ — presentable right in the browser."
+      "desc": "Curriculum, course details, growth system and parent FAQ, ready for browser presentation and screen casting."
     },
     "player": {
       "title": "Screen Player",
-      "desc": "Open on any screen or iPad. Auto-loops brand and course highlights, hands-free."
+      "desc": "For venue screens and iPads — auto-loops brand and course content, no manual operation required."
     },
     "enter": "Enter →"
   },
@@ -34,42 +34,42 @@
     "latest": "Latest Resources",
     "labsTitle": "Three",
     "labsTitleEm": "Labs",
-    "labsSub": "Create · Build · Explore — 9 capability labs for ages 5–16",
+    "labsSub": "Create, Build and Explore — 9 capability labs for ages 5–16",
     "viewAll": "View all",
     "recentTitle": "最近更新"
   },
   "course": {
     "title1": "Course",
     "title2": "Center",
-    "sub": "9 capability labs · 132 lessons · ages 5–16 ｜ present on screen or in person",
+    "sub": "9 capability labs · 132 lessons · ages 5–16 — ready for screen presentation or in-person walkthrough",
     "pathTitle": "Learning Path",
     "pathEm": "Multiple Entries",
     "pathSub": "低龄（5–8 岁）从创想进入 · 10+ 岁可直接从工程进入 · 全部路径汇聚于「少年全栈研究员」",
     "faqTitle": "Parent",
     "faqEm": "FAQ",
-    "faqSub": "16 个高频问题的标准应答口径",
+    "faqSub": "16 个家长高频问题与标准解答",
     "outcome": "结业产出：",
     "presentEntry": "演示模式",
     "growthTitle": "成长体系",
     "growthEm": "能力认证阶梯",
-    "growthSub": "四层认证阶梯：可量化、可验证、可向第三方展示——孩子每一步成长都有据可查",
+    "growthSub": "四层认证阶梯，可量化、可验证、可向第三方展示，学员成长全程有据可查",
     "pointsTitle": "研究积分 · 获取规则",
     "badgesTitle": "实验室认证徽章 · 九枚序列",
-    "badgesSub": "通过实验室全部项目与评估，即点亮该实验室认证，获得徽章与能力证书",
+    "badgesSub": "通过实验室全部项目与评估，即获得该实验室认证徽章与能力证书",
     "profileTitle": "成长档案 · 我的实验地图",
     "profileSub": "家长端学习报告包含：",
     "radarNote": "示意",
     "entriesTitle": "多入口 · 殊途同归",
     "worksTitle": "学员",
     "worksEm": "作品墙",
-    "worksSub": "每个阶段以真实作品结业——这里是未来学员作品的展位",
+    "worksSub": "每个阶段均以真实作品结业，学员作品将在此集中展示",
     "worksWatermark": "作品征集中",
     "worksNote": "结课后，学员的真实绘本、有声剧、小程序与无人机作品将在此展示。"
   },
   "resources": {
     "title1": "Resource",
     "title2": "Download Center",
-    "sub": "All materials are print-ready HD files · click a card to preview, use the buttons to download",
+    "sub": "All materials are print-ready HD files with production specs, available for single-item or category-bundle download.",
     "all": "All",
     "suggest": "建议：",
     "download": "Download",
@@ -112,7 +112,7 @@
     "forbiddenDesc": "当前账号不是管理员，无法访问管理后台。如需权限请联系总部运营。",
     "dash": {
       "title": "管理概览",
-      "sub": "账号与资源的整体情况",
+      "sub": "账号与资源数据的整体概览",
       "users": "账号总数",
       "resources": "资源总数",
       "enabled": "已上架资源",
@@ -120,7 +120,7 @@
     },
     "accounts": {
       "title": "账号管理",
-      "sub": "合作伙伴 / 教师 / 访客账号的创建、重置密码与启停",
+      "sub": "合作伙伴、教师与访客账号的创建、密码重置与启停管理",
       "createTitle": "新建账号",
       "colUsername": "用户名",
       "colName": "姓名",
@@ -147,7 +147,7 @@
     },
     "resources": {
       "title": "资源管理",
-      "sub": "上传新素材、维护元数据与上下架；文件保存到 public/files/<分类>/ 下",
+      "sub": "上传新素材，维护元数据与上下架状态",
       "uploadTitle": "上传新资源",
       "colFile": "文件",
       "colTitle": "标题",
@@ -178,14 +178,14 @@
   "guide": {
     "title1": "使用",
     "title2": "指南",
-    "sub": "印刷交付 · 大屏播放 · 内容更新——合作伙伴与校区运营的操作手册",
+    "sub": "印刷交付、大屏播放与内容更新的标准操作手册",
     "anchorPrint": "印刷指南",
     "anchorPlayer": "播放指南",
     "anchorOps": "更新指南",
     "print": {
       "title": "印刷",
       "titleEm": "指南",
-      "sub": "按物料类型对照卡片即可下单印刷；拿不准就先打样",
+      "sub": "按物料类型对照规格下单印刷，批量印制前请先打样确认",
       "items": [
         {
           "icon": "image",
@@ -260,7 +260,7 @@
     "player": {
       "title": "播放",
       "titleEm": "指南",
-      "sub": "校区大屏 / iPad / 课程演示三种打开方式",
+      "sub": "校区大屏、iPad 与课程投屏演示的操作说明",
       "blocks": [
         {
           "title": "校区大屏",

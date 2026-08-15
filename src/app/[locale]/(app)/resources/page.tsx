@@ -1,5 +1,8 @@
 import { useTranslations } from "next-intl";
+import type { Metadata } from "next";
 import { Suspense } from "react";
+
+export const metadata: Metadata = { title: "资源下载中心" };
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { ResourceCenter } from "@/components/resource-center";
 import { listEnabledResources } from "@/lib/db";
