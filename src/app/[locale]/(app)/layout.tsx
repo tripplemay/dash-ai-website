@@ -1,6 +1,7 @@
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 import { auth, AUTH_DISABLED } from "@/lib/auth";
+import { getSafeReturnTo, RETURN_TO_HEADER } from "@/lib/return-to";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 
@@ -13,13 +14,19 @@ export default async function AppLayout({
 }) {
   const { locale } = await params;
   if (!AUTH_DISABLED) {
-    const session = await auth.api.getSession({ headers: await headers() });
-    if (!session) redirect(`/${locale}/login`);
+    const requestHeaders = await headers();
+    const session = await auth.api.getSession({ headers: requestHeaders });
+    if (!session) {
+      const loginUrl = new URL(`/${locale}/login`, "http://dash-ai.invalid");
+      const returnTo = getSafeReturnTo(requestHeaders.get(RETURN_TO_HEADER), locale);
+      if (returnTo) loginUrl.searchParams.set("returnTo", returnTo);
+      redirect(`${loginUrl.pathname}${loginUrl.search}`);
+    }
   }
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col lg:pl-64">
       <SiteHeader />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 pb-20 lg:pb-0">{children}</main>
       <SiteFooter />
     </div>
   );

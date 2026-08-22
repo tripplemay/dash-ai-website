@@ -1,6 +1,7 @@
 // DASH AI 营销资源站 · 内容数据（平移自 website/*.html 内联 JS）
 
 import type { CourseSlug } from "./lessons";
+import { assetUrl } from "./assets";
 
 export interface LabCourse {
   slug: CourseSlug; // 详情页路由 /course/[slug]，对应 lessons-seed.json 键
@@ -112,10 +113,10 @@ export const SLIDES: Slide[] = [
   { type: "content", content: "lab-0", cap: "创想实验室 · AI 创作力" },
   { type: "content", content: "lab-1", cap: "工程实验室 · 编程工程力" },
   { type: "content", content: "lab-2", cap: "远征实验室 · 硬件与 AI 思维" },
-  { type: "image", img: "/assets/ext/课程体系全景宣传图-v3.png", cap: "课程体系全景 · 9 大能力实验室" },
+  { type: "image", img: assetUrl("/assets/ext/课程体系全景宣传图-v3.png"), cap: "课程体系全景 · 9 大能力实验室" },
   { type: "content", content: "growth", cap: "成长体系 · 能力认证阶梯" },
   { type: "content", content: "works", cap: "学员作品 · 每个阶段都有真实产出" },
-  { type: "image", img: "/assets/ext/06-结课证书-1120x790.png", cap: "每座实验室 · 都有认证徽章" },
+  { type: "image", img: assetUrl("/assets/ext/06-结课证书-1120x790.png"), cap: "每座实验室 · 都有认证徽章" },
   { type: "image", img: "/assets/ext/mkt-rollup-main.png", cap: "三大实验室 · 全息展台" },
   { type: "content", content: "cta", cap: "体验课招募中 · 0 元预约" },
 ];

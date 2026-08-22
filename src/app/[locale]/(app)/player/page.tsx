@@ -2,19 +2,33 @@
 
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { SLIDES, LABS, GROWTH_LAYERS, WORK_SLOTS, Lab } from "@/lib/data";
 import { cn } from "@/lib/utils";
+import { assetUrl } from "@/lib/assets";
+import { X } from "lucide-react";
 
 const DUR = 8000;
 
+function slideFromSearch(search: string, total: number): number {
+  const raw = Number(new URLSearchParams(search).get("slide"));
+  return Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), total) : 1;
+}
+
 /* ---------- content 型 slide（数据均引自 data.ts） ---------- */
 
-function LabSlide({ lab, poster }: { lab: Lab; poster: string }) {
+function LabSlide({ lab, poster, active }: { lab: Lab; poster: string; active: boolean }) {
   return (
     <div className="absolute inset-0 bg-midnight">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={poster} alt="" className="absolute inset-0 h-full w-full object-cover opacity-35" />
+      <img
+        src={poster}
+        alt=""
+        loading={active ? "eager" : "lazy"}
+        fetchPriority={active ? "high" : "low"}
+        className="absolute inset-0 h-full w-full object-cover opacity-35"
+      />
       <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,14,40,.92),rgba(8,14,40,.3))]" />
       <div className="relative flex h-full flex-col justify-end p-10 pb-24 lg:p-24 lg:pb-28">
         <span
@@ -100,7 +114,7 @@ function WorksSlide() {
               </span>
               <span className="flex size-14 items-center justify-center rounded-2xl bg-[#F0F5FC] lg:size-16">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={`/assets/icons/${w.icon}.png`} alt="" className="size-8 opacity-80 lg:size-9" />
+                <img src={`/assets/icons/${w.icon}.png`} alt="" loading="lazy" className="size-8 opacity-80 lg:size-9" />
               </span>
               <div className="mt-3 text-[15px] font-extrabold text-white lg:mt-4 lg:text-[20px]">{w.title}</div>
               <div className="mt-1 text-[11px] text-[#9FB3E8] lg:text-[13px]">{w.desc}</div>
@@ -112,11 +126,17 @@ function WorksSlide() {
   );
 }
 
-function CtaSlide() {
+function CtaSlide({ active }: { active: boolean }) {
   return (
     <div className="absolute inset-0 bg-midnight">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src="/assets/ext/mkt-hero-poster.png" alt="" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+      <img
+        src="/assets/ext/mkt-hero-poster.png"
+        alt=""
+        loading={active ? "eager" : "lazy"}
+        fetchPriority={active ? "high" : "low"}
+        className="absolute inset-0 h-full w-full object-cover opacity-30"
+      />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,14,40,.92),rgba(8,14,40,.45))]" />
       <div className="relative flex h-full flex-col items-start justify-center gap-8 p-10 lg:flex-row lg:items-center lg:gap-16 lg:px-24">
         <div>
@@ -148,51 +168,81 @@ function CtaSlide() {
   );
 }
 
-function ContentSlide({ contentKey }: { contentKey: string }) {
+function ContentSlide({ contentKey, active }: { contentKey: string; active: boolean }) {
   if (contentKey.startsWith("lab-")) {
     const i = Number(contentKey.split("-")[1]);
-    return <LabSlide lab={LABS[i]} poster={`/assets/ext/实验室海报-${i + 1}.png`} />;
+    return (
+      <LabSlide
+        lab={LABS[i]}
+        poster={assetUrl(`/assets/ext/实验室海报-${i + 1}.png`)}
+        active={active}
+      />
+    );
   }
   if (contentKey === "growth") return <GrowthSlide />;
   if (contentKey === "works") return <WorksSlide />;
-  return <CtaSlide />;
+  return <CtaSlide active={active} />;
 }
 
 /* ---------- 播放器 ---------- */
 
 function PlayerDeck() {
   const t = useTranslations("player");
+  const locale = useLocale();
+  const router = useRouter();
   const sp = useSearchParams();
-  const raw = Number(sp.get("slide"));
-  const initial = Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), SLIDES.length) : 1;
+  const search = sp.toString();
+  const initial = slideFromSearch(search, SLIDES.length);
   const [idx, setIdx] = useState(initial - 1); // 0-based
   const [playing, setPlaying] = useState(true);
   const [awake, setAwake] = useState(true);
+  const idxRef = useRef(initial - 1);
   const timer = useRef<ReturnType<typeof setInterval> | null>(null);
   const idle = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const touchStartX = useRef<number | null>(null);
   const playingRef = useRef(playing);
-  playingRef.current = playing;
 
-  const go = useCallback((i: number) => {
-    setIdx(((i % SLIDES.length) + SLIDES.length) % SLIDES.length);
+  const exitLabel = locale === "zh" ? "退出大屏播放" : "Exit screen player";
+  const prevLabel = locale === "zh" ? "上一页" : "Previous slide";
+  const nextLabel = locale === "zh" ? "下一页" : "Next slide";
+
+  const updateSlideUrl = useCallback((slide: number, mode: "push" | "replace") => {
+    const params = new URLSearchParams(window.location.search);
+    params.set("slide", String(slide));
+    const url = `${window.location.pathname}?${params.toString()}${window.location.hash}`;
+    if (mode === "push") {
+      window.history.pushState(null, "", url);
+    } else {
+      window.history.replaceState(null, "", url);
+    }
   }, []);
+
+  const go = useCallback(
+    (i: number, mode: "push" | "replace" = "push") => {
+      const next = ((i % SLIDES.length) + SLIDES.length) % SLIDES.length;
+      idxRef.current = next;
+      setIdx(next);
+      updateSlideUrl(next + 1, mode);
+    },
+    [updateSlideUrl]
+  );
 
   const restart = useCallback(() => {
     if (timer.current) clearInterval(timer.current);
     if (playingRef.current) {
-      timer.current = setInterval(() => setIdx((v) => (v + 1) % SLIDES.length), DUR);
+      timer.current = setInterval(() => go(idxRef.current + 1, "replace"), DUR);
     }
-  }, []);
+  }, [go]);
 
   const next = useCallback(() => {
-    setIdx((v) => (v + 1) % SLIDES.length);
+    go(idxRef.current + 1);
     restart();
-  }, [restart]);
+  }, [go, restart]);
 
   const prev = useCallback(() => {
-    setIdx((v) => (v - 1 + SLIDES.length) % SLIDES.length);
+    go(idxRef.current - 1);
     restart();
-  }, [restart]);
+  }, [go, restart]);
 
   const toggle = useCallback(() => {
     setPlaying((p) => !p);
@@ -204,6 +254,44 @@ function PlayerDeck() {
     idle.current = setTimeout(() => setAwake(false), 3000);
   }, []);
 
+  const exit = useCallback(() => router.push("/workspace"), [router]);
+
+  const onTouchStart = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      touchStartX.current = e.touches[0]?.clientX ?? e.changedTouches[0]?.clientX ?? null;
+      wake();
+    },
+    [wake]
+  );
+
+  const onTouchEnd = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      const start = touchStartX.current;
+      touchStartX.current = null;
+      if (start === null) return;
+      const end = e.changedTouches[0]?.clientX ?? e.touches[0]?.clientX;
+      if (end === undefined || Math.abs(end - start) < 40) return;
+      if (end < start) next();
+      else prev();
+      wake();
+    },
+    [next, prev, wake]
+  );
+
+  useEffect(() => {
+    playingRef.current = playing;
+  }, [playing]);
+
+  // Native history updates are integrated with the Next router; this restores
+  // the visible slide when the user presses browser Back/Forward.
+  useEffect(() => {
+    const nextSlide = slideFromSearch(search, SLIDES.length) - 1;
+    if (nextSlide !== idxRef.current) {
+      idxRef.current = nextSlide;
+      setIdx(nextSlide);
+    }
+  }, [search]);
+
   useEffect(() => {
     restart();
     return () => {
@@ -212,7 +300,8 @@ function PlayerDeck() {
   }, [restart, playing]);
 
   useEffect(() => {
-    wake();
+    if (idle.current) clearTimeout(idle.current);
+    idle.current = setTimeout(() => setAwake(false), 3000);
     const onKey = (e: KeyboardEvent) => {
       if (e.code === "Space") {
         e.preventDefault();
@@ -220,6 +309,10 @@ function PlayerDeck() {
       }
       if (e.code === "ArrowRight") next();
       if (e.code === "ArrowLeft") prev();
+      if (e.code === "Escape") {
+        e.preventDefault();
+        exit();
+      }
     };
     window.addEventListener("mousemove", wake);
     window.addEventListener("keydown", onKey);
@@ -228,10 +321,24 @@ function PlayerDeck() {
       window.removeEventListener("keydown", onKey);
       if (idle.current) clearTimeout(idle.current);
     };
-  }, [wake, next, prev, toggle]);
+  }, [exit, next, prev, toggle, wake]);
 
   return (
-    <div className="fixed inset-0 z-[60] bg-black">
+    <div
+      className="fixed inset-0 z-[60] bg-black"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
+      <button
+        type="button"
+        onClick={exit}
+        aria-label={exitLabel}
+        title={exitLabel}
+        className="fixed top-4 left-4 z-20 inline-flex size-10 items-center justify-center rounded-full border border-white/30 bg-black/45 text-white backdrop-blur-sm transition-colors hover:bg-black/70 focus-visible:ring-2 focus-visible:ring-cyan"
+      >
+        <X className="size-5" />
+      </button>
+
       {/* 轮播舞台 */}
       <div className="absolute inset-0">
         {SLIDES.map((s, i) => (
@@ -244,9 +351,15 @@ function PlayerDeck() {
           >
             {s.type === "image" ? (
               // eslint-disable-next-line @next/next/no-img-element
-              <img src={s.img} alt={s.cap} className="absolute inset-0 h-full w-full object-cover" />
+              <img
+                src={s.img}
+                alt={s.cap}
+                loading={i === idx ? "eager" : "lazy"}
+                fetchPriority={i === idx ? "high" : "low"}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
             ) : (
-              <ContentSlide contentKey={s.content} />
+              <ContentSlide contentKey={s.content} active={i === idx} />
             )}
           </div>
         ))}
@@ -261,6 +374,7 @@ function PlayerDeck() {
       >
         {SLIDES.map((s, i) => (
           <button
+            type="button"
             key={i}
             onClick={() => {
               go(i);
@@ -283,30 +397,41 @@ function PlayerDeck() {
         )}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/assets/img/logo/DASH-mark-dark_1024.png" alt="logo" className="logo-rounded h-[30px] w-[30px] object-cover" />
-        <div className="text-sm font-extrabold tracking-[2px] text-white">
+        <img
+          src="/assets/img/logo/DASH-mark-dark_1024.png"
+          alt="logo"
+          className="logo-rounded hidden h-[30px] w-[30px] object-cover sm:block"
+        />
+        <div className="hidden text-sm font-extrabold tracking-[2px] text-white sm:block">
           DASH <em className="not-italic text-cyan">AI</em>
         </div>
-        <div className="ml-1.5 text-[12.5px] tracking-wide text-[#BFEFFF]">{SLIDES[idx].cap}</div>
+        <div className="ml-1.5 hidden min-w-0 flex-1 truncate text-[12.5px] tracking-wide text-[#BFEFFF] md:block">
+          {SLIDES[idx].cap}
+        </div>
         <div className="flex-1" />
         <div className="text-[12.5px] font-bold tracking-[2px] text-[#BFEFFF] tabular-nums">
           {idx + 1} / {SLIDES.length}
         </div>
         <button
+          type="button"
           onClick={prev}
-          className="rounded-[9px] border border-white/25 bg-white/12 px-3.5 py-1.5 text-xs tracking-wider text-white"
+          aria-label={prevLabel}
+          className="rounded-[9px] border border-white/25 bg-white/12 px-2 py-1.5 text-xs tracking-wider text-white sm:px-3.5"
         >
           {t("prev")}
         </button>
         <button
+          type="button"
           onClick={toggle}
-          className="rounded-[9px] border border-white/25 bg-white/12 px-3.5 py-1.5 text-xs tracking-wider text-white"
+          className="rounded-[9px] border border-white/25 bg-white/12 px-2 py-1.5 text-xs tracking-wider text-white sm:px-3.5"
         >
           {playing ? t("pause") : t("play")}
         </button>
         <button
+          type="button"
           onClick={next}
-          className="rounded-[9px] border border-white/25 bg-white/12 px-3.5 py-1.5 text-xs tracking-wider text-white"
+          aria-label={nextLabel}
+          className="rounded-[9px] border border-white/25 bg-white/12 px-2 py-1.5 text-xs tracking-wider text-white sm:px-3.5"
         >
           {t("next")}
         </button>

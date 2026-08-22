@@ -1,17 +1,36 @@
-import { useTranslations } from "next-intl";
-import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
-export const metadata: Metadata = { title: "资源下载中心" };
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { ResourceCenter } from "@/components/resource-center";
 import { listEnabledResources } from "@/lib/db";
+import { getPageMetadata } from "@/lib/page-metadata";
 
 export const dynamic = "force-dynamic";
 
-export default function ResourcesPage() {
-  const t = useTranslations("resources");
-  const items = listEnabledResources();
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return getPageMetadata(params, "resources");
+}
+
+export default async function ResourcesPage({
+  searchParams,
+}: {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const t = await getTranslations("resources");
+  const params = (await searchParams) ?? {};
+  const value = (key: string) => {
+    const item = params[key];
+    return Array.isArray(item) ? item[0] : item;
+  };
+  const cat = value("cat");
+  const q = value("q");
+  const sort = value("sort");
+  const items = listEnabledResources({
+    category: cat,
+    query: q,
+    sort: sort === "recent" || sort === "name" ? sort : "default",
+  });
   return (
     <>
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#101C52,#1B2A6B)] pt-11 pb-8.5 text-white">
@@ -25,7 +44,7 @@ export default function ResourcesPage() {
         </div>
       </section>
       <Suspense>
-        <ResourceCenter items={items} />
+        <ResourceCenter items={items} initialQuery={q ?? ""} initialCategory={cat ?? "全部"} initialSort={sort ?? "default"} />
       </Suspense>
     </>
   );

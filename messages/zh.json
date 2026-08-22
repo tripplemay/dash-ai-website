@@ -1,13 +1,39 @@
 {
+  "metadata": {
+    "title": "DASH AI 实验室 · 营销资源中心",
+    "template": "%s · DASH AI 营销资源中心",
+    "description": "DASH AI 实验室合作伙伴营销资源中心：宣传物料下载、课程介绍、校区大屏播放",
+    "pages": {
+      "workspace": "工作台",
+      "courses": "课程中心",
+      "wizard": "课件向导",
+      "presentations": "演示中心",
+      "screen": "大屏播放",
+      "coursePresentation": "课程讲解",
+      "resources": "资源下载中心",
+      "guide": "使用指南",
+      "brand": "品牌规范",
+      "admin": "管理后台",
+      "login": "合作伙伴登录"
+    }
+  },
   "nav": {
     "home": "首页",
+    "workspace": "工作台",
     "resources": "资源下载",
     "course": "课程介绍",
+    "courses": "课程中心",
     "player": "大屏播放",
+    "presentations": "演示中心",
     "brand": "品牌规范",
     "logout": "退出登录",
     "admin": "管理",
-    "guide": "使用指南"
+    "guide": "使用指南",
+    "more": "更多",
+    "search": "搜索资源",
+    "searchPlaceholder": "搜索资源、课程或关键词",
+    "primaryNavigation": "主导航",
+    "secondaryNavigation": "帮助与工具"
   },
   "hero": {
     "kick": "DASH AI 实验室 · 营销资源中心",
@@ -66,6 +92,8 @@
     "worksWatermark": "作品征集中",
     "worksNote": "结课后，学员的真实绘本、有声剧、小程序与无人机作品将在此展示。",
     "detailBack": "返回课程介绍中心",
+    "breadcrumb": "课程详情路径",
+    "breadcrumbCourses": "课程中心",
     "detailIntro": "课程简介",
     "detailModules": "课程内容模块",
     "detailOutcome": "结课产出",
@@ -76,7 +104,13 @@
     "detailSummary": "课程梗概",
     "detailGoals": "学习目标",
     "detailOutline": "课堂环节",
-    "wizardEntry": "课件向导"
+    "wizardEntry": "课件向导",
+    "lessonSearch": "搜索课节标题或编号",
+    "lessonSelect": "选择课节",
+    "lessonContent": "课节内容",
+    "lessonPagination": "课节翻页",
+    "previousLesson": "上一课",
+    "nextLesson": "下一课"
   },
   "wizard": {
     "title": "课件向导",
@@ -106,13 +140,38 @@
     "download": "下载",
     "preview": "预览",
     "openDir": "打开文件夹",
-    "zipCat": "打包下载本类"
+    "zipCat": "打包下载本类",
+    "search": "搜索资源",
+    "searchPlaceholder": "搜索标题、分类或规格",
+    "sort": "排序",
+    "sortDefault": "默认排序",
+    "sortRecent": "最近更新",
+    "sortName": "按名称",
+    "clearFilters": "清除筛选",
+    "resultCount": "共 {count} 项",
+    "emptyTitle": "没有匹配的资源",
+    "emptySub": "试试更短的关键词，或清除当前筛选条件。",
+    "openDetail": "查看资源：{title}",
+    "breadcrumb": "资源详情路径",
+    "categories": ["全部", "课程海报", "招募物料", "证书手册", "社媒", "品牌资产", "吉祥物", "课件模板"],
+    "dimensions": "规格",
+    "adviceLabel": "使用建议",
+    "format": "格式"
   },
   "player": {
     "prev": "‹ 上一张",
     "next": "下一张 ›",
     "pause": "暂停",
     "play": "播放"
+  },
+  "presentations": {
+    "title": "演示中心",
+    "sub": "按场景选择投屏播放或课程讲解模式，进入后可用链接参数恢复指定页。",
+    "screenTitle": "校区大屏播放",
+    "screenDesc": "自动循环播放品牌、实验室和招募内容，适合校区大屏与 iPad。",
+    "courseTitle": "课程讲解模式",
+    "courseDesc": "按页讲解课程体系、成长认证和家长沟通内容，适合面对面演示。",
+    "open": "打开模式"
   },
   "footer": {
     "left": "DASH AI 实验室 · 少儿 AI 素养课程",
@@ -190,6 +249,7 @@
       "colSort": "排序",
       "colUpdated": "更新于",
       "colOps": "操作",
+      "categories": ["课程海报", "招募物料", "证书手册", "社媒", "品牌资产", "吉祥物", "课件模板"],
       "advicePh": "如：A3 打印 / 朋友圈长图",
       "uploadSubmit": "上传",
       "submitting": "上传中…",

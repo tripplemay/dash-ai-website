@@ -1,13 +1,39 @@
 {
+  "metadata": {
+    "title": "DASH AI Lab · Marketing Hub",
+    "template": "%s · DASH AI Marketing Hub",
+    "description": "DASH AI Lab partner marketing hub for campaign materials, course presentations, and venue screen playback.",
+    "pages": {
+      "workspace": "Workspace",
+      "courses": "Course Center",
+      "wizard": "Courseware Wizard",
+      "presentations": "Presentation Center",
+      "screen": "Screen Player",
+      "coursePresentation": "Course Walkthrough",
+      "resources": "Resource Center",
+      "guide": "User Guide",
+      "brand": "Brand Guidelines",
+      "admin": "Admin Console",
+      "login": "Partner Sign In"
+    }
+  },
   "nav": {
     "home": "Home",
+    "workspace": "Workspace",
     "resources": "Resources",
     "course": "Courses",
+    "courses": "Courses",
     "player": "Screen Player",
+    "presentations": "Presentations",
     "brand": "Brand",
     "logout": "Sign out",
-    "admin": "管理",
-    "guide": "使用指南"
+    "admin": "Admin",
+    "guide": "Guide",
+    "more": "More",
+    "search": "Search resources",
+    "searchPlaceholder": "Search resources, courses, or keywords",
+    "primaryNavigation": "Primary navigation",
+    "secondaryNavigation": "Help and tools"
   },
   "hero": {
     "kick": "DASH AI LAB · MARKETING HUB",
@@ -36,7 +62,7 @@
     "labsTitleEm": "Labs",
     "labsSub": "Create, Build and Explore — 9 capability labs for ages 5–16",
     "viewAll": "View all",
-    "recentTitle": "最近更新"
+    "recentTitle": "Recently updated"
   },
   "course": {
     "title1": "Course",
@@ -44,75 +70,108 @@
     "sub": "9 capability labs · 132 lessons · ages 5–16 — ready for screen presentation or in-person walkthrough",
     "pathTitle": "Learning Path",
     "pathEm": "Multiple Entries",
-    "pathSub": "低龄（5–8 岁）从创想进入 · 10+ 岁可直接从工程进入 · 全部路径汇聚于「少年全栈研究员」",
+    "pathSub": "Younger learners (5–8) start with Create · ages 10+ can enter through Build · every path leads to the Young Full-Stack Researcher",
     "faqTitle": "Parent",
     "faqEm": "FAQ",
-    "faqSub": "16 个家长高频问题与标准解答",
-    "outcome": "结业产出：",
-    "presentEntry": "演示模式",
-    "growthTitle": "成长体系",
-    "growthEm": "能力认证阶梯",
-    "growthSub": "四层认证阶梯，可量化、可验证、可向第三方展示，学员成长全程有据可查",
-    "pointsTitle": "研究积分 · 获取规则",
-    "badgesTitle": "实验室认证徽章 · 九枚序列",
-    "badgesSub": "通过实验室全部项目与评估，即获得该实验室认证徽章与能力证书",
-    "profileTitle": "成长档案 · 我的实验地图",
-    "profileSub": "家长端学习报告包含：",
-    "radarNote": "示意",
-    "entriesTitle": "多入口 · 殊途同归",
-    "worksTitle": "学员",
-    "worksEm": "作品墙",
-    "worksSub": "每个阶段均以真实作品结业，学员作品将在此集中展示",
-    "worksWatermark": "作品征集中",
-    "worksNote": "结课后，学员的真实绘本、有声剧、小程序与无人机作品将在此展示。",
-    "detailBack": "返回课程介绍中心",
-    "detailIntro": "课程简介",
-    "detailModules": "课程内容模块",
-    "detailOutcome": "结课产出",
-    "detailSibling": "同主题课程",
-    "detailBadge": "认证徽章 · {elem}",
-    "detailOverview": "课程总览",
-    "detailLessonNo": "第 {n} 课",
-    "detailSummary": "课程梗概",
-    "detailGoals": "学习目标",
-    "detailOutline": "课堂环节",
-    "wizardEntry": "课件向导"
+    "faqSub": "16 questions parents ask most, with standard answers",
+    "outcome": "Course outcome:",
+    "presentEntry": "Presentation mode",
+    "growthTitle": "Growth system",
+    "growthEm": "Capability certification ladder",
+    "growthSub": "Four measurable, verifiable certification levels that can be shared with third parties and document each learner's progress",
+    "pointsTitle": "Research points · How they are earned",
+    "badgesTitle": "Lab certification badges · Nine levels",
+    "badgesSub": "Complete every project and assessment in a lab to earn its certification badge and capability certificate",
+    "profileTitle": "Growth profile · My experiment map",
+    "profileSub": "Parent learning reports include:",
+    "radarNote": "Sample",
+    "entriesTitle": "Multiple entry points · One destination",
+    "worksTitle": "Learner",
+    "worksEm": "Work Wall",
+    "worksSub": "Every stage ends with a real-world project, collected here as a learner portfolio",
+    "worksWatermark": "Collecting works",
+    "worksNote": "After each course, learners' real picture books, audio dramas, mini programs, and drone projects will be showcased here.",
+    "detailBack": "Back to course center",
+    "breadcrumb": "Course detail path",
+    "breadcrumbCourses": "Course center",
+    "detailIntro": "Course overview",
+    "detailModules": "Course modules",
+    "detailOutcome": "Course outcome",
+    "detailSibling": "Related courses",
+    "detailBadge": "Certification badge · {elem}",
+    "detailOverview": "Course overview",
+    "detailLessonNo": "Lesson {n}",
+    "detailSummary": "Course summary",
+    "detailGoals": "Learning goals",
+    "detailOutline": "Lesson outline",
+    "wizardEntry": "Courseware wizard",
+    "lessonSearch": "Search lesson title or number",
+    "lessonSelect": "Select lesson",
+    "lessonContent": "Lesson content",
+    "lessonPagination": "Lesson pagination",
+    "previousLesson": "Previous lesson",
+    "nextLesson": "Next lesson"
   },
   "wizard": {
-    "title": "课件向导",
-    "sub": "2–3 个快问快答，为孩子推荐入门实验室",
-    "step": "第 {n} 步 / 共 {total} 步",
-    "back": "上一步",
-    "q1": "孩子多大？",
-    "ages": ["5–8 岁", "9–10 岁", "11–13 岁", "14–16 岁"],
-    "q2": "孩子更喜欢哪类事情？",
-    "interests": ["创作表达（画画 / 声音 / 视频）", "编程与逻辑", "硬件与动手", "还不确定"],
-    "q3": "有相关基础吗？",
-    "levels": ["零基础", "学过一点", "有项目经验"],
-    "resultTag": "推荐起点",
-    "pathTitle": "建议路径",
-    "actDetail": "查看课程详情",
-    "actTemplate": "下载课件模板",
-    "actPresent": "打开演示模式",
-    "actRestart": "重新测评",
-    "labsTitle": "三大实验室速览"
+    "title": "Courseware wizard",
+    "sub": "Two or three quick questions to recommend an entry lab",
+    "step": "Step {n} of {total}",
+    "back": "Back",
+    "q1": "How old is the learner?",
+    "ages": ["5–8 years", "9–10 years", "11–13 years", "14–16 years"],
+    "q2": "What does the learner enjoy most?",
+    "interests": ["Creative expression (art / sound / video)", "Programming and logic", "Hardware and making", "Not sure yet"],
+    "q3": "Any relevant experience?",
+    "levels": ["No experience", "Some experience", "Project experience"],
+    "resultTag": "Recommended starting point",
+    "pathTitle": "Suggested path",
+    "actDetail": "View course details",
+    "actTemplate": "Download course template",
+    "actPresent": "Open presentation mode",
+    "actRestart": "Start over",
+    "labsTitle": "Three labs at a glance"
   },
   "resources": {
     "title1": "Resource",
     "title2": "Download Center",
     "sub": "All materials are print-ready HD files with production specs, available for single-item or category-bundle download.",
     "all": "All",
-    "suggest": "建议：",
+    "suggest": "Tip: ",
     "download": "Download",
     "preview": "Preview",
-    "openDir": "打开文件夹",
-    "zipCat": "打包下载本类"
+    "openDir": "Open folder",
+    "zipCat": "Download this category",
+    "search": "Search resources",
+    "searchPlaceholder": "Search title, category, or specs",
+    "sort": "Sort",
+    "sortDefault": "Default order",
+    "sortRecent": "Recently updated",
+    "sortName": "Name",
+    "clearFilters": "Clear filters",
+    "resultCount": "{count} items",
+    "emptyTitle": "No matching resources",
+    "emptySub": "Try a shorter keyword or clear the active filters.",
+    "openDetail": "Open resource: {title}",
+    "breadcrumb": "Resource detail path",
+    "categories": ["All", "Course posters", "Recruitment", "Certificates", "Social", "Brand assets", "Mascots", "Course templates"],
+    "dimensions": "Specs",
+    "adviceLabel": "Usage advice",
+    "format": "Format"
   },
   "player": {
     "prev": "‹ Prev",
     "next": "Next ›",
     "pause": "Pause",
     "play": "Play"
+  },
+  "presentations": {
+    "title": "Presentation Center",
+    "sub": "Choose screen playback or a course walkthrough. Both modes can resume a shared slide URL.",
+    "screenTitle": "Venue screen player",
+    "screenDesc": "Loop brand, lab, and recruitment content for venue displays and iPad kiosks.",
+    "courseTitle": "Course walkthrough",
+    "courseDesc": "Walk parents through the curriculum, growth system, and outcomes in a guided deck.",
+    "open": "Open mode"
   },
   "footer": {
     "left": "DASH AI Lab · Kids AI Literacy Program",
@@ -132,232 +191,233 @@
     "demoTitle": "Demo accounts"
   },
   "admin": {
-    "console": "管理后台",
-    "backToSite": "返回主站",
+    "console": "Admin console",
+    "backToSite": "Back to site",
     "nav": {
-      "dashboard": "概览",
-      "accounts": "账号管理",
-      "resources": "资源管理"
+      "dashboard": "Overview",
+      "accounts": "Accounts",
+      "resources": "Resources"
     },
-    "forbiddenTitle": "无访问权限",
-    "forbiddenDesc": "当前账号不是管理员，无法访问管理后台。如需权限请联系总部运营。",
+    "forbiddenTitle": "Access denied",
+    "forbiddenDesc": "This account is not an administrator and cannot access the console. Contact central operations to request access.",
     "dash": {
-      "title": "管理概览",
-      "sub": "账号与资源数据的整体概览",
-      "users": "账号总数",
-      "resources": "资源总数",
-      "enabled": "已上架资源",
-      "disabled": "已下架资源"
+      "title": "Admin overview",
+      "sub": "A snapshot of account and resource activity",
+      "users": "Total accounts",
+      "resources": "Total resources",
+      "enabled": "Published resources",
+      "disabled": "Unpublished resources"
     },
     "accounts": {
-      "title": "账号管理",
-      "sub": "合作伙伴、教师与访客账号的创建、密码重置与启停管理",
-      "createTitle": "新建账号",
-      "colUsername": "用户名",
-      "colName": "姓名",
-      "colRole": "角色",
-      "colPassword": "初始密码",
-      "colStatus": "状态",
-      "colCreated": "创建时间",
-      "colOps": "操作",
-      "passwordPh": "至少 8 位",
-      "createSubmit": "创建账号",
-      "submitting": "提交中…",
-      "createOk": "创建成功",
-      "createFailed": "创建失败",
-      "failed": "操作失败",
-      "statusActive": "正常",
-      "statusBanned": "已停用",
-      "reset": "重置密码",
-      "resetPrompt": "为 {username} 设置新密码（至少 8 位）：",
-      "resetOk": "密码已重置",
-      "ban": "停用",
-      "unban": "启用",
-      "banConfirm": "确认停用账号 {username}？停用后该账号将无法登录。",
-      "unbanConfirm": "确认恢复账号 {username}？"
+      "title": "Account management",
+      "sub": "Create partner, teacher, and guest accounts; reset passwords and control access",
+      "createTitle": "Create account",
+      "colUsername": "Username",
+      "colName": "Name",
+      "colRole": "Role",
+      "colPassword": "Initial password",
+      "colStatus": "Status",
+      "colCreated": "Created",
+      "colOps": "Actions",
+      "passwordPh": "At least 8 characters",
+      "createSubmit": "Create account",
+      "submitting": "Submitting…",
+      "createOk": "Account created",
+      "createFailed": "Could not create account",
+      "failed": "Action failed",
+      "statusActive": "Active",
+      "statusBanned": "Suspended",
+      "reset": "Reset password",
+      "resetPrompt": "Set a new password for {username} (at least 8 characters):",
+      "resetOk": "Password reset",
+      "ban": "Suspend",
+      "unban": "Restore",
+      "banConfirm": "Suspend {username}? They will no longer be able to sign in.",
+      "unbanConfirm": "Restore {username}?"
     },
     "resources": {
-      "title": "资源管理",
-      "sub": "上传新素材，维护元数据与上下架状态",
-      "uploadTitle": "上传新资源",
-      "colFile": "文件",
-      "colTitle": "标题",
-      "colCategory": "分类",
-      "colAdvice": "印刷建议",
-      "colPreview": "预览",
-      "colFormat": "格式",
-      "colPath": "路径",
-      "colSort": "排序",
-      "colUpdated": "更新于",
-      "colOps": "操作",
-      "advicePh": "如：A3 打印 / 朋友圈长图",
-      "uploadSubmit": "上传",
-      "submitting": "上传中…",
-      "uploadOk": "上传成功",
-      "failed": "操作失败",
-      "needFile": "请选择文件",
-      "overwriteConfirm": "同名文件已存在，确认覆盖？",
-      "edit": "编辑",
-      "save": "保存",
-      "cancel": "取消",
-      "delete": "删除",
-      "enable": "上架",
-      "disable": "下架",
-      "deleteConfirm": "确认删除资源「{title}」的记录？（不会删除磁盘文件）"
+      "title": "Resource management",
+      "sub": "Upload materials and maintain metadata and publishing status",
+      "uploadTitle": "Upload resource",
+      "colFile": "File",
+      "colTitle": "Title",
+      "colCategory": "Category",
+      "colAdvice": "Usage advice",
+      "colPreview": "Preview",
+      "colFormat": "Format",
+      "colPath": "Path",
+      "colSort": "Order",
+      "colUpdated": "Updated",
+      "colOps": "Actions",
+      "categories": ["Course posters", "Recruitment", "Certificates", "Social", "Brand assets", "Mascots", "Course templates"],
+      "advicePh": "e.g. A3 print / social long image",
+      "uploadSubmit": "Upload",
+      "submitting": "Uploading…",
+      "uploadOk": "Upload complete",
+      "failed": "Action failed",
+      "needFile": "Choose a file",
+      "overwriteConfirm": "A file with this name already exists. Overwrite it?",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "enable": "Publish",
+      "disable": "Unpublish",
+      "deleteConfirm": "Delete the record for “{title}”? (The disk file will remain.)"
     }
   },
   "guide": {
-    "title1": "使用",
-    "title2": "指南",
-    "sub": "印刷交付、大屏播放与内容更新的标准操作手册",
-    "anchorPrint": "印刷指南",
-    "anchorPlayer": "播放指南",
-    "anchorOps": "更新指南",
+    "title1": "User",
+    "title2": "Guide",
+    "sub": "Standard procedures for print delivery, screen playback, and content updates",
+    "anchorPrint": "Print guide",
+    "anchorPlayer": "Playback guide",
+    "anchorOps": "Operations guide",
     "print": {
-      "title": "印刷",
-      "titleEm": "指南",
-      "sub": "按物料类型对照规格下单印刷，批量印制前请先打样确认",
+      "title": "Print",
+      "titleEm": "Guide",
+      "sub": "Match each material to its specs and approve a proof before placing a batch order",
       "items": [
         {
           "icon": "image",
-          "title": "课程海报",
+          "title": "Course posters",
           "points": [
-            "A3 铜版纸",
-            "200DPI 以上",
-            "覆哑膜防反光"
+            "A3 coated paper",
+            "200 DPI or higher",
+            "Matte lamination to reduce glare"
           ]
         },
         {
           "icon": "users",
-          "title": "体验课招募海报",
+          "title": "Trial-class recruitment poster",
           "points": [
-            "A3 打印（线下张贴）",
-            "同一文件可直接作朋友圈长图"
+            "A3 print for on-site posting",
+            "The same file can be used as a social long image"
           ]
         },
         {
           "icon": "upload",
-          "title": "易拉宝",
+          "title": "Roll-up banner",
           "points": [
-            "800×2000mm 成品",
+            "800×2000 mm finished size",
             "200DPI",
-            "写真覆膜，含支架安装"
+            "Photo-paper lamination with stand assembly"
           ]
         },
         {
           "icon": "calendar",
-          "title": "试听卡邀请函",
+          "title": "Trial-class invitation card",
           "points": [
-            "双面彩印",
-            "300g 铜版纸",
-            "圆角模切可选"
+            "Full-color, double-sided",
+            "300 g coated paper",
+            "Optional rounded-corner die cut"
           ]
         },
         {
           "icon": "trophy",
-          "title": "结课证书",
+          "title": "Completion certificate",
           "points": [
-            "A4 铜版纸或哑粉纸",
-            "单面彩印",
-            "预留手写签名区"
+            "A4 coated or matte paper",
+            "Full-color, single-sided",
+            "Leave room for a handwritten signature"
           ]
         },
         {
           "icon": "book",
-          "title": "家长手册",
+          "title": "Parent handbook",
           "points": [
-            "A4 骑马钉装订",
-            "封面 250g / 内页 157g 铜版纸",
-            "12 页套图按页序排列"
+            "A4 saddle-stitch binding",
+            "250 g cover / 157 g inner coated paper",
+            "Arrange the 12-page set in order"
           ]
         },
         {
           "icon": "chat",
-          "title": "公众号头图 / 招生长图",
+          "title": "Social header / recruitment long image",
           "points": [
-            "仅数字用途，无需印刷",
-            "公众号封面直接使用 900×383 标准图",
-            "长图适配朋友圈与私信转发"
+            "Digital use only; no printing required",
+            "Use the 900×383 standard image for the account cover",
+            "Long images fit social feeds and direct messages"
           ]
         }
       ],
-      "commonTitle": "交付印刷厂通用提示",
+      "commonTitle": "General print-shop notes",
       "common": [
-        "全部文件先转 CMYK 色彩模式",
-        "四边各留 3mm 出血",
-        "先打样确认色差，再批量印刷"
+        "Convert every file to CMYK first",
+        "Leave 3 mm bleed on all four sides",
+        "Approve color on a proof before the batch run"
       ]
     },
     "player": {
-      "title": "播放",
-      "titleEm": "指南",
-      "sub": "校区大屏、iPad 与课程投屏演示的操作说明",
+      "title": "Playback",
+      "titleEm": "Guide",
+      "sub": "Instructions for venue screens, iPad kiosks, and course presentations",
       "blocks": [
         {
-          "title": "校区大屏",
+          "title": "Venue screen",
           "steps": [
-            "浏览器打开营销资源站并登录",
-            "进入「大屏播放」",
-            "按 F11 进入全屏",
-            "空格暂停 / 继续，← → 手动切换",
-            "建议把本站设为浏览器主页，开机即播"
+            "Open the marketing hub in a browser and sign in",
+            "Open “Screen Player”",
+            "Press F11 for browser fullscreen",
+            "Space pauses / resumes; use ← → to change slides",
+            "Set this site as the browser home page for startup playback"
           ]
         },
         {
-          "title": "iPad",
+          "title": "iPad kiosk",
           "steps": [
-            "Safari 打开站点并登录",
-            "分享 →「添加到主屏幕」",
-            "从主屏幕图标全屏启动",
-            "配合「引导式访问」锁定 app，防误触退出"
+            "Open the site in Safari and sign in",
+            "Share → “Add to Home Screen”",
+            "Launch fullscreen from the Home Screen icon",
+            "Use Guided Access to lock the app and prevent accidental exits"
           ]
         },
         {
-          "title": "课程演示（向家长讲解）",
+          "title": "Course walkthrough (for parents)",
           "steps": [
-            "进入「课程介绍」页",
-            "点右上角「演示模式」",
-            "← → 或空格翻页，ESC 退出",
-            "支持 ?slide=N 直达第 N 页"
+            "Open the “Courses” page",
+            "Select “Presentation mode”",
+            "Use ← → or Space to change slides; press Esc to exit",
+            "Use ?slide=N to open a specific slide"
           ]
         }
       ]
     },
     "ops": {
-      "title": "更新",
-      "titleEm": "指南",
-      "sub": "面向总部运营：素材与账号的日常维护",
+      "title": "Operations",
+      "titleEm": "Guide",
+      "sub": "Daily material and account maintenance for central operations",
       "blocks": [
         {
-          "title": "上传新素材",
+          "title": "Upload material",
           "steps": [
-            "admin 账号登录",
-            "进入「管理 → 资源管理」",
-            "选择文件、填写标题 / 分类 / 印刷建议后上传",
-            "中文文件名原样保留；同名文件需确认覆盖"
+            "Sign in with an admin account",
+            "Open “Admin → Resources”",
+            "Choose a file, fill in the title / category / usage advice, and upload",
+            "CJK filenames are preserved; confirm before overwriting an existing name"
           ]
         },
         {
-          "title": "上下架与元数据",
+          "title": "Publishing and metadata",
           "steps": [
-            "资源管理列表右侧开关即可上下架",
-            "下架后资源页立即隐藏、下载链接返回 404",
-            "铅笔图标可编辑标题 / 分类 / 印刷建议 / 排序"
+            "Use the switch on the resource list to publish or unpublish",
+            "Unpublished resources disappear immediately and download links return 404",
+            "Use the pencil icon to edit title / category / usage advice / order"
           ]
         },
         {
-          "title": "账号管理",
+          "title": "Account management",
           "steps": [
-            "「管理 → 账号管理」可新建账号（用户名 + 姓名 + 角色 + 初始密码）",
-            "忘记密码用「重置密码」",
-            "「停用」后该账号立即无法登录，可随时恢复"
+            "Open “Admin → Accounts” to create an account (username + name + role + initial password)",
+            "Use “Reset password” if someone forgets their password",
+            "A suspended account cannot sign in until it is restored"
           ]
         },
         {
-          "title": "课程内容类修改",
+          "title": "Course content changes",
           "steps": [
-            "课程文案、FAQ、成长体系等内容维护在代码仓库中",
-            "联系技术同事走 git 流程修改发布"
+            "Course copy, FAQ, and growth-system content are maintained in the code repository",
+            "Work with the technical team to update and publish through git"
           ]
         }
       ]

@@ -1,42 +1,44 @@
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { TextGenerateEffect } from "@/components/aceternity/text-generate-effect";
 import { listRecentResources } from "@/lib/db";
 import { Clock3 } from "lucide-react";
 import { LABS } from "@/lib/data";
+import { assetUrl } from "@/lib/assets";
 
 /** updated_at（UTC "YYYY-MM-DD HH:mm:ss"）→ 相对日期 */
-function relDate(s: string): string {
+function relDate(s: string, locale: string): string {
   const d = new Date(s.replace(" ", "T") + "Z");
   const days = Math.floor((Date.now() - d.getTime()) / 86400000);
-  if (days <= 0) return "今天";
-  if (days === 1) return "昨天";
-  if (days < 30) return `${days} 天前`;
-  return d.toLocaleDateString("zh-CN");
+  if (days <= 0) return locale === "zh" ? "今天" : "Today";
+  if (days === 1) return locale === "zh" ? "昨天" : "Yesterday";
+  if (days < 30) return locale === "zh" ? `${days} 天前` : `${days} days ago`;
+  return d.toLocaleDateString(locale === "zh" ? "zh-CN" : "en-US");
 }
 
 const ROLES = [
   { key: "res", href: "/resources", icon: "/assets/icons/image.png", iconBg: "#FFF1E8", go: "text-orange" },
-  { key: "course", href: "/course", icon: "/assets/icons/book.png", iconBg: "#F0EDFF", go: "text-[#7A5CFF]" },
-  { key: "player", href: "/player", icon: "/assets/icons/play.png", iconBg: "#E8F4FF", go: "text-[#2E7DFF]" },
+  { key: "course", href: "/courses", icon: "/assets/icons/book.png", iconBg: "#F0EDFF", go: "text-[#7A5CFF]" },
+  { key: "player", href: "/presentations", icon: "/assets/icons/play.png", iconBg: "#E8F4FF", go: "text-[#2E7DFF]" },
 ] as const;
 
 const LATEST = [
-  { img: "/assets/ext/01-体验课招募海报-3x4.png", label: "体验课招募海报" },
-  { img: "/assets/ext/实验室海报-1.png", label: "创想实验室海报" },
-  { img: "/assets/ext/02-招生长图-9x16.png", label: "招生长图" },
+  { img: assetUrl("/assets/ext/01-体验课招募海报-3x4.png"), label: "体验课招募海报" },
+  { img: assetUrl("/assets/ext/实验室海报-1.png"), label: "创想实验室海报" },
+  { img: assetUrl("/assets/ext/02-招生长图-9x16.png"), label: "招生长图" },
   { img: "/assets/ext/mkt-rollup-main.png", label: "易拉宝主视觉" },
 ];
 
 export default function HomePage() {
   const t = useTranslations();
+  const locale = useLocale();
   const recent = listRecentResources(4);
 
   return (
     <>
       {/* Hero · 深空科技风 */}
-      <section className="relative h-[520px] overflow-hidden bg-midnight">
+      <section className="relative min-h-[350px] overflow-hidden bg-midnight">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/assets/img/mkt-hero-poster.png"
@@ -45,7 +47,7 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,14,40,.88),rgba(8,14,40,.35)_60%,rgba(8,14,40,.15))]" />
         <Spotlight className="-top-40 left-0 md:-top-20 md:left-60" fill="#00E5FF" />
-        <div className="relative z-10 mx-auto flex h-full max-w-[1200px] flex-col justify-center px-7">
+        <div className="relative z-10 mx-auto flex min-h-[350px] max-w-[1200px] flex-col justify-center px-7 py-12">
           <div className="text-[13px] font-extrabold tracking-[3px] text-[#FF9A6C]">{t("hero.kick")}</div>
           <h1 className="mt-3 text-[52px] leading-[1.35] font-extrabold tracking-[2px] text-white">
             {t("hero.title1")}
@@ -57,6 +59,17 @@ export default function HomePage() {
             className="mt-3.5 text-base font-normal tracking-wide text-[#C7D6F5]"
             duration={0.3}
           />
+          <div className="mt-6 flex flex-wrap gap-2.5">
+            <Link href="/resources" className="rounded-[10px] bg-cyan px-4 py-2.5 text-[13px] font-extrabold text-navy transition-colors hover:bg-white">
+              {t("roles.res.title")}
+            </Link>
+            <Link href="/courses" className="rounded-[10px] border border-white/35 bg-white/10 px-4 py-2.5 text-[13px] font-extrabold text-white transition-colors hover:bg-white/20">
+              {t("roles.course.title")}
+            </Link>
+            <Link href="/presentations" className="rounded-[10px] border border-white/35 bg-white/10 px-4 py-2.5 text-[13px] font-extrabold text-white transition-colors hover:bg-white/20">
+              {t("roles.player.title")}
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -70,18 +83,16 @@ export default function HomePage() {
             </div>
             <div className="grid flex-1 grid-cols-1 gap-x-6 gap-y-1.5 sm:grid-cols-2 lg:grid-cols-4">
               {recent.map((r) => (
-                <a
+                <Link
                   key={r.id}
-                  href={`/api/download/${r.id}`}
+                  href={`/resources/${r.id}`}
                   className="group flex min-w-0 items-baseline gap-2"
-                  target="_blank"
-                  rel="noreferrer"
                 >
                   <span className="truncate text-[13px] font-bold text-navy group-hover:text-cyan-print">
                     {r.title}
                   </span>
-                  <span className="shrink-0 text-[11px] text-subtext">{relDate(r.updated_at)}</span>
-                </a>
+                  <span className="shrink-0 text-[11px] text-subtext">{relDate(r.updated_at, locale)}</span>
+                </Link>
               ))}
             </div>
           </div>
@@ -124,7 +135,7 @@ export default function HomePage() {
             </h2>
             <div className="mt-1.5 text-[13.5px] text-subtext">{t("home.labsSub")}</div>
           </div>
-          <Link href="/course" className="text-sm font-extrabold text-cyan-print hover:underline">
+          <Link href="/courses" className="text-sm font-extrabold text-cyan-print hover:underline">
             {t("home.viewAll")} →
           </Link>
         </div>
@@ -132,13 +143,13 @@ export default function HomePage() {
           {LABS.map((lab) => (
             <Link
               key={lab.en}
-              href="/course"
+              href="/courses"
               className="group relative overflow-hidden rounded-2xl shadow-card transition-all duration-200 hover:-translate-y-1.5 hover:shadow-card-hover"
             >
               <div className="relative h-40">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={`/assets/ext/实验室海报-${lab.en === "CREATE LAB" ? 1 : lab.en === "BUILD LAB" ? 2 : 3}.png`}
+                  src={assetUrl(`/assets/ext/实验室海报-${lab.en === "CREATE LAB" ? 1 : lab.en === "BUILD LAB" ? 2 : 3}.png`)}
                   alt={lab.name}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />

@@ -54,11 +54,37 @@ export function getDb(): Database.Database {
   return _db;
 }
 
-/** 上架资源（资源下载页用），按 sort 升序 */
-export function listEnabledResources(): ResourceRow[] {
+export interface ResourceListOptions {
+  query?: string;
+  category?: string;
+  sort?: "default" | "recent" | "name";
+}
+
+/** 上架资源（资源下载页用），支持服务端搜索/筛选。 */
+export function listEnabledResources(options: ResourceListOptions = {}): ResourceRow[] {
+  const where = ["enabled = 1"];
+  const args: string[] = [];
+  const query = options.query?.trim();
+
+  if (options.category && options.category !== "全部") {
+    where.push("category = ?");
+    args.push(options.category);
+  }
+  if (query) {
+    where.push("(title LIKE ? OR category LIKE ? OR dimensions LIKE ? OR print_advice LIKE ?)");
+    const pattern = `%${query}%`;
+    args.push(pattern, pattern, pattern, pattern);
+  }
+
+  const order =
+    options.sort === "recent"
+      ? "updated_at DESC, id DESC"
+      : options.sort === "name"
+        ? "title COLLATE NOCASE ASC, id ASC"
+        : "sort ASC, id ASC";
   return getDb()
-    .prepare("SELECT * FROM resources WHERE enabled = 1 ORDER BY sort ASC, id ASC")
-    .all() as ResourceRow[];
+    .prepare(`SELECT * FROM resources WHERE ${where.join(" AND ")} ORDER BY ${order}`)
+    .all(...args) as ResourceRow[];
 }
 
 /** 全部资源（管理后台用） */

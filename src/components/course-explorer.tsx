@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { ArrowLeft, LayoutGrid, Target } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, LayoutGrid, Search, Target } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import type { LabCourse } from "@/lib/data";
 import type { LessonDetail } from "@/lib/lesson-content";
@@ -24,24 +24,28 @@ function splitStep(step: string): [string, string] {
 export function CourseExplorer({ lab, course, lessons, siblings, initial }: Props) {
   const t = useTranslations("course");
   const [cur, setCur] = useState(initial);
+  const [lessonQuery, setLessonQuery] = useState("");
   const contentRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
 
   // 深链直达（如 drone ?lesson=25）时，把左栏滚动到当前选中项
   useEffect(() => {
     sidebarRef.current
-      ?.querySelector('[aria-current="true"]')
+      ?.querySelector('[aria-current="page"]')
       ?.scrollIntoView({ block: "nearest" });
     // 仅在首次挂载时执行
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const select = useCallback(
     (i: number) => {
       const next = Math.max(0, Math.min(i, lessons.length));
       setCur(next);
-      const url = window.location.pathname + (next === 0 ? "" : `?lesson=${next}`);
-      window.history.replaceState(null, "", url);
+      const params = new URLSearchParams(window.location.search);
+      if (next === 0) params.delete("lesson");
+      else params.set("lesson", String(next));
+      const query = params.toString();
+      const url = `${window.location.pathname}${query ? `?${query}` : ""}${window.location.hash}`;
+      window.history.pushState(null, "", url);
       contentRef.current?.scrollIntoView({ block: "start" });
     },
     [lessons.length]
@@ -61,10 +65,15 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
     [cur, select]
   );
 
-  const items = [
-    { n: 0, title: t("detailOverview") },
-    ...lessons.map((l) => ({ n: l.n, title: l.title })),
-  ];
+  useEffect(() => {
+    const onPopState = () => {
+      const raw = Number(new URLSearchParams(window.location.search).get("lesson"));
+      const next = Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), lessons.length) : 0;
+      setCur(next);
+    };
+    window.addEventListener("popstate", onPopState);
+    return () => window.removeEventListener("popstate", onPopState);
+  }, [lessons.length]);
 
   /** 左栏/顶部条共用的导航项 */
   const navButton = (item: { n: number; title: string }, mobile: boolean) => {
@@ -73,7 +82,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
       <button
         key={item.n}
         onClick={() => select(item.n)}
-        aria-current={active}
+        aria-current={active ? "page" : undefined}
         className={
           mobile
             ? `flex shrink-0 items-center gap-1.5 rounded-[10px] border px-3 py-2 text-[12px] font-extrabold whitespace-nowrap transition-colors ${
@@ -110,12 +119,43 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
   };
 
   const lesson = cur > 0 ? lessons[cur - 1] : null;
+  const filteredLessons = lessons.filter((item) => {
+    const q = lessonQuery.trim().toLowerCase();
+    return !q || item.title.toLowerCase().includes(q) || String(item.n).includes(q);
+  });
+  const filteredItems = [
+    { n: 0, title: t("detailOverview") },
+    ...filteredLessons.map((l) => ({ n: l.n, title: l.title })),
+  ];
+  const previous = cur > 0 ? cur - 1 : null;
+  const next = cur < lessons.length ? cur + 1 : null;
 
   return (
-    <div className="mx-auto max-w-[1200px] px-7 py-8.5 md:flex md:items-start md:gap-6">
-      {/* 移动端：顶部横向滚动 chips */}
-      <div className="-mx-7 mb-5 flex gap-2 overflow-x-auto px-7 pb-1 md:hidden">
-        {items.map((it) => navButton(it, true))}
+    <div className="mx-auto max-w-[1200px] px-5 py-7 sm:px-7 sm:py-8.5 md:flex md:items-start md:gap-6">
+      {/* 移动端：搜索 + 原生选择器，避免 135 个横向 chips 难以定位 */}
+      <div className="mb-5 md:hidden">
+        <label className="relative block">
+          <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-subtext" />
+          <input
+            value={lessonQuery}
+            onChange={(event) => setLessonQuery(event.target.value)}
+            placeholder={t("lessonSearch")}
+            aria-label={t("lessonSearch")}
+            className="h-10 w-full rounded-[10px] border border-[#DCE6F7] bg-card pr-3 pl-9 text-[13px] outline-none focus:border-cyan-print"
+          />
+        </label>
+        <select
+          value={cur}
+          onChange={(event) => select(Number(event.target.value))}
+          aria-label={t("lessonSelect")}
+          className="mt-2.5 h-11 w-full rounded-[10px] border border-[#DCE6F7] bg-card px-3 text-[13px] font-bold text-navy outline-none focus:border-cyan-print"
+        >
+          {filteredItems.map((it) => (
+            <option key={it.n} value={it.n}>
+              {it.n === 0 ? it.title : `${it.n}. ${it.title}`}
+            </option>
+          ))}
+        </select>
       </div>
 
       {/* 桌面端：左栏课表（sticky + 独立滚动） */}
@@ -123,7 +163,17 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
         ref={sidebarRef}
         className="sticky top-[78px] hidden max-h-[calc(100vh-102px)] w-[236px] shrink-0 flex-col gap-0.5 overflow-y-auto rounded-[14px] border border-[#E4EAF7] bg-card p-2 md:flex"
       >
-        {items.map((it) => navButton(it, false))}
+        <label className="relative mb-2 block">
+          <Search aria-hidden="true" className="absolute top-1/2 left-2.5 size-3.5 -translate-y-1/2 text-subtext" />
+          <input
+            value={lessonQuery}
+            onChange={(event) => setLessonQuery(event.target.value)}
+            placeholder={t("lessonSearch")}
+            aria-label={t("lessonSearch")}
+            className="h-8 w-full rounded-[8px] border border-[#DCE6F7] bg-[#F8FBFF] pr-2 pl-8 text-[11px] outline-none focus:border-cyan-print"
+          />
+        </label>
+        {filteredItems.map((it) => navButton(it, false))}
       </aside>
 
       {/* 右栏内容区（聚焦时 ↑/↓ 切换） */}
@@ -131,6 +181,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
         ref={contentRef}
         tabIndex={0}
         onKeyDown={onKeyDown}
+        aria-label={t("lessonContent")}
         className="min-w-0 flex-1 scroll-mt-[78px] outline-none"
       >
         {lesson === null ? (
@@ -170,7 +221,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
             {/* 总览页底部：返回 + 同主题课程 */}
             <section className="mt-8.5 flex flex-wrap items-center gap-2.5 border-t-2 border-[#E4EAF7] pt-6">
               <Link
-                href="/course"
+                href="/courses"
                 className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#D6E2F8] bg-card px-4 py-2.5 text-[12.5px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
               >
                 <ArrowLeft className="size-3.5" />
@@ -182,7 +233,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
                   {siblings.map((c) => (
                     <Link
                       key={c.slug}
-                      href={`/course/${c.slug}`}
+                      href={`/courses/${c.slug}`}
                       className="rounded-[10px] px-4 py-2.5 text-[12.5px] font-extrabold text-white transition-opacity hover:opacity-85"
                       style={{ background: lab.color }}
                     >
@@ -266,6 +317,29 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
                 <div className="mt-1 text-[14.5px] font-extrabold text-navy">{lesson.output}</div>
               </div>
             </section>
+
+            <nav aria-label={t("lessonPagination")} className="mt-8 flex flex-wrap items-center justify-between gap-2 border-t-2 border-[#E4EAF7] pt-5">
+              {previous === null ? <span /> : (
+                <button
+                  type="button"
+                  onClick={() => select(previous)}
+                  className="inline-flex max-w-[48%] items-center gap-1.5 rounded-[10px] border border-[#D6E2F8] bg-card px-3.5 py-2.5 text-left text-[12px] font-extrabold text-navy hover:border-cyan-print"
+                >
+                  <ChevronLeft className="size-4 shrink-0" />
+                  <span className="truncate">{t("previousLesson")}</span>
+                </button>
+              )}
+              {next === null ? <span /> : (
+                <button
+                  type="button"
+                  onClick={() => select(next)}
+                  className="ml-auto inline-flex max-w-[48%] items-center gap-1.5 rounded-[10px] border border-[#D6E2F8] bg-card px-3.5 py-2.5 text-right text-[12px] font-extrabold text-navy hover:border-cyan-print"
+                >
+                  <span className="truncate">{t("nextLesson")}</span>
+                  <ChevronRight className="size-4 shrink-0" />
+                </button>
+              )}
+            </nav>
           </>
         )}
       </div>

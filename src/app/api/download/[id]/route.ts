@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { auth, AUTH_DISABLED } from "@/lib/auth";
 import { getResource } from "@/lib/db";
 import { getStorage } from "@/lib/storage";
+import { assetUrl } from "@/lib/assets";
 
 /**
  * 资源下载/打开端点。
@@ -34,6 +35,6 @@ export async function GET(
   // 避免反代后 req.url 拿到内部地址（localhost:3517）拼出错误跳转
   return new Response(null, {
     status: 302,
-    headers: { Location: encodeURI(target) },
+    headers: { Location: assetUrl(target) },
   });
 }

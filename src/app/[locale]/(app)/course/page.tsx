@@ -17,10 +17,10 @@ import { MonitorPlay, Wand2 } from "lucide-react";
 import { LABS, FAQ } from "@/lib/data";
 
 const PATH = [
-  { name: "体验中心", color: "#00B8D9" },
-  { name: "创想实验室", color: "#FF7A45" },
-  { name: "工程实验室", color: "#A79BFF" },
-  { name: "远征实验室", color: "#5E9BFF" },
+  { name: "体验中心", color: "#00B8D9", href: "#pilot" },
+  { name: "创想实验室", color: "#FF7A45", href: "#create" },
+  { name: "工程实验室", color: "#A79BFF", href: "#build" },
+  { name: "远征实验室", color: "#5E9BFF", href: "#explore" },
 ];
 
 /** 把 **加粗** 渲染为高亮 */
@@ -54,14 +54,14 @@ export default function CoursePage() {
             </div>
             <div className="flex items-center gap-2.5">
               <Link
-                href="/course/wizard"
+                href="/courses/wizard"
                 className="flex items-center gap-2 rounded-[10px] border border-cyan/50 bg-cyan/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-cyan transition-colors hover:bg-cyan/20"
               >
                 <Wand2 className="size-4" />
                 {t("wizardEntry")}
               </Link>
               <Link
-                href="/course/present"
+                href="/presentations/course"
                 className="flex items-center gap-2 rounded-[10px] border border-cyan/50 bg-cyan/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-cyan transition-colors hover:bg-cyan/20"
               >
                 <MonitorPlay className="size-4" />
@@ -73,19 +73,20 @@ export default function CoursePage() {
       </section>
 
       {/* 进阶路径 */}
-      <section className="mx-auto max-w-[1200px] px-7 py-8.5">
+      <section id="pilot" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 py-8.5">
         <h2 className="text-[26px] font-extrabold tracking-[2px]">
           {t("pathTitle")} <em className="not-italic text-cyan-print">{t("pathEm")}</em>
         </h2>
         <div className="mt-4.5 mb-1.5 flex flex-wrap items-center">
           {PATH.map((p, i) => (
             <div key={p.name} className="flex min-w-0 flex-1 items-center last:flex-none">
-              <div
+              <a
+                href={p.href}
                 className="rounded-xl px-4 py-2.5 text-[13.5px] font-extrabold whitespace-nowrap text-white"
                 style={{ background: p.color }}
               >
                 {p.name}
-              </div>
+              </a>
               {i < PATH.length - 1 && <div className="h-0.5 min-w-6 flex-1 bg-[#D6E2F8]" />}
             </div>
           ))}
@@ -95,8 +96,8 @@ export default function CoursePage() {
 
       {/* 实验室与课程 */}
       <div className="mx-auto max-w-[1200px] px-7">
-        {LABS.map((lab) => (
-          <section key={lab.en} className="mt-8.5">
+        {LABS.map((lab, index) => (
+          <section key={lab.en} id={["create", "build", "explore"][index]} className="mt-8.5 scroll-mt-24">
             <div className="flex items-center gap-3 border-b-2 border-[#E4EAF7] pb-3">
               <span
                 className="rounded-[10px] px-3.5 py-1.5 text-xs font-extrabold tracking-widest text-white"
@@ -114,7 +115,7 @@ export default function CoursePage() {
             {lab.courses.map((c) => (
               <Link
                 key={c.name}
-                href={`/course/${c.slug}`}
+                href={`/courses/${c.slug}`}
                 className="relative mt-3.5 block rounded-[14px] border border-[#E4EAF7] bg-card p-[16px_18px] transition-shadow hover:border-[#C7D8F2] hover:shadow-card"
               >
                 <div

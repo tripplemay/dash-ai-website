@@ -35,7 +35,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "非法分类" }, { status: 400 });
 
   // 防目录穿越：只取文件名部分，去掉路径与控制字符
-  const filename = path.basename(file.name).replace(/[\\/:*?"<>|\x00-\x1f]/g, "");
+  const filename = path.basename(file.name).replace(/[\\/:*?"<>|#%\x00-\x1f]/g, "");
   if (!filename) return NextResponse.json({ error: "文件名非法" }, { status: 400 });
 
   const dir = path.join(process.cwd(), "public", "files", category);

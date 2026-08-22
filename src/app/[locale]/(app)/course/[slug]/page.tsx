@@ -56,8 +56,15 @@ export default async function CourseDetailPage({
       <section className="relative overflow-hidden bg-[linear-gradient(135deg,#101C52,#1B2A6B)] pt-11 pb-8.5 text-white">
         <Spotlight className="-top-24 left-1/3" fill="#00E5FF" />
         <div className="relative z-10 mx-auto max-w-[1200px] px-7">
+          <nav aria-label={t("breadcrumb")} className="flex flex-wrap items-center gap-2 text-[12px] font-bold text-[#9FB3E8]">
+            <Link href="/courses" className="transition-colors hover:text-cyan">{t("breadcrumbCourses")}</Link>
+            <span aria-hidden="true">/</span>
+            <span>{lab.name}</span>
+            <span aria-hidden="true">/</span>
+            <span className="text-white">{course.name}</span>
+          </nav>
           <Link
-            href="/course"
+            href="/courses"
             className="inline-flex items-center gap-1.5 text-[12.5px] font-bold tracking-wider text-[#9FB3E8] transition-colors hover:text-cyan"
           >
             <ArrowLeft className="size-3.5" />

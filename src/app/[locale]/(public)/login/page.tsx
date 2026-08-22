@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
-import { useRouter } from "@/i18n/navigation";
+import { useLocale, useTranslations } from "next-intl";
 import { authClient } from "@/lib/auth-client";
+import { getSafeReturnTo } from "@/lib/return-to";
 import { BackgroundBeams } from "@/components/aceternity/background-beams";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label";
 
 export default function LoginPage() {
   const t = useTranslations("login");
-  const router = useRouter();
+  const locale = useLocale();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -27,8 +27,12 @@ export default function LoginPage() {
       setError(t("failed"));
       return;
     }
-    router.push("/");
-    router.refresh();
+    const returnTo = getSafeReturnTo(
+      new URLSearchParams(window.location.search).get("returnTo"),
+      locale,
+      { allowBrowseApi: true }
+    );
+    window.location.replace(returnTo ?? `/${locale}`);
   };
 
   return (

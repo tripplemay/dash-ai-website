@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import {
@@ -71,28 +71,86 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
   const [level, setLevel] = useState<WizardLevel | null>(init.level);
   const [done, setDone] = useState(init.done);
 
+  const syncUrl = (
+    nextAge: WizardAge | null,
+    nextInterest: WizardInterest | null,
+    nextLevel: WizardLevel | null
+  ) => {
+    const params = new URLSearchParams();
+    if (nextAge) params.set("age", nextAge);
+    if (nextInterest) params.set("interest", nextInterest);
+    if (nextLevel) params.set("level", nextLevel);
+    const search = params.toString();
+    window.history.pushState(null, "", `${window.location.pathname}${search ? `?${search}` : ""}`);
+  };
+
+  useEffect(() => {
+    const restore = () => {
+      const params = new URLSearchParams(window.location.search);
+      const nextAge = AGES.includes(params.get("age") as WizardAge) ? (params.get("age") as WizardAge) : null;
+      const nextInterest = nextAge && INTERESTS.some((x) => x.key === params.get("interest"))
+        ? (params.get("interest") as WizardInterest)
+        : null;
+      const nextLevel = nextInterest && LEVELS.some((x) => x.key === params.get("level"))
+        ? (params.get("level") as WizardLevel)
+        : null;
+      const nextDone = !!(nextAge && nextInterest && (nextLevel || !needsLevel(nextInterest)));
+      setAge(nextAge);
+      setInterest(nextInterest);
+      setLevel(nextLevel);
+      setDone(nextDone);
+      setStep(nextDone ? 0 : nextInterest ? (needsLevel(nextInterest) ? 2 : 1) : nextAge ? 1 : 0);
+    };
+    window.addEventListener("popstate", restore);
+    return () => window.removeEventListener("popstate", restore);
+  }, []);
+
   const total = interest && !needsLevel(interest) ? 2 : 3;
   const result = done && age && interest ? recommend(age, interest, level ?? undefined) : null;
 
   const pickAge = (a: WizardAge) => {
     setAge(a);
+    setInterest(null);
+    setLevel(null);
+    setDone(false);
     setStep(1);
+    syncUrl(a, null, null);
   };
   const pickInterest = (i: WizardInterest) => {
     setInterest(i);
+    setLevel(null);
+    syncUrl(age, i, null);
     if (needsLevel(i)) setStep(2);
     else setDone(true);
   };
   const pickLevel = (l: WizardLevel) => {
     setLevel(l);
     setDone(true);
+    syncUrl(age, interest, l);
   };
   const back = () => {
     if (done) {
       setDone(false);
-      setStep(interest && needsLevel(interest) ? 2 : 1);
+      if (interest && needsLevel(interest)) {
+        setLevel(null);
+        setStep(2);
+        syncUrl(age, interest, null);
+      } else {
+        setInterest(null);
+        setStep(1);
+        syncUrl(age, null, null);
+      }
     } else {
-      setStep((s) => Math.max(0, s - 1));
+      if (step === 2) {
+        setLevel(null);
+        setInterest(null);
+        setStep(1);
+        syncUrl(age, null, null);
+      } else {
+        setAge(null);
+        setStep(0);
+        syncUrl(null, null, null);
+      }
     }
   };
   const restart = () => {
@@ -101,6 +159,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
     setInterest(null);
     setLevel(null);
     setDone(false);
+    syncUrl(null, null, null);
   };
 
   /** 问题卡大按钮（iPad 可点） */
@@ -226,7 +285,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
                   {result.secondaryLabel}
                 </span>
                 <Link
-                  href={`/course/${result.secondary.course.slug}`}
+                  href={`/courses/${result.secondary.course.slug}`}
                   className="rounded-[9px] px-3 py-1.5 text-[12.5px] font-extrabold text-white transition-opacity hover:opacity-85"
                   style={{ background: result.secondary.lab.color }}
                 >
@@ -247,7 +306,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
                 {LAB_SUMMARIES.map((l) => (
                   <Link
                     key={l.en}
-                    href="/course"
+                    href="/courses"
                     className="rounded-2xl border border-[#E4EAF7] bg-card p-4 transition-shadow hover:shadow-card"
                   >
                     <span
@@ -291,7 +350,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
           {/* 快捷动作 */}
           <section className="mt-8 flex flex-wrap gap-2.5 border-t-2 border-[#E4EAF7] pt-6">
             <Link
-              href={`/course/${result.primary.course.slug}`}
+              href={`/courses/${result.primary.course.slug}`}
               className="inline-flex items-center gap-2 rounded-[10px] px-5 py-3 text-[13.5px] font-extrabold text-white transition-opacity hover:opacity-85"
               style={{ background: result.primary.lab.color }}
             >
@@ -315,7 +374,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
               );
             })()}
             <Link
-              href="/course/present"
+              href="/presentations/course"
               className="inline-flex items-center gap-2 rounded-[10px] border border-[#D6E2F8] bg-card px-5 py-3 text-[13.5px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
             >
               <MonitorPlay className="size-4" />

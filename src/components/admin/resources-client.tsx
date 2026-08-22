@@ -15,11 +15,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Upload, Pencil, Trash2, Check, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { assetUrl } from "@/lib/assets";
 
 // ---------- 上传新资源 ----------
 
 export function UploadForm() {
   const t = useTranslations("admin.resources");
+  const categoryLabels = t.raw("categories") as string[];
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState("");
@@ -90,9 +92,9 @@ export function UploadForm() {
             onChange={(e) => setCategory(e.target.value)}
             className="h-9 w-full rounded-lg border border-input bg-transparent px-2.5 text-sm"
           >
-            {RESOURCE_CATS_STORE.map((c) => (
+            {RESOURCE_CATS_STORE.map((c, index) => (
               <option key={c} value={c}>
-                {c}
+                {categoryLabels[index] ?? c}
               </option>
             ))}
           </select>
@@ -121,6 +123,7 @@ export function UploadForm() {
 
 export function ResourceRow({ row }: { row: ResourceRow }) {
   const t = useTranslations("admin.resources");
+  const categoryLabels = t.raw("categories") as string[];
   const router = useRouter();
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({
@@ -162,7 +165,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
       <td className="px-4 py-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={row.preview || "/assets/img/mkt-hero-poster.png"}
+          src={assetUrl(row.preview || "/assets/img/mkt-hero-poster.png")}
           alt=""
           className="h-10 w-16 rounded-lg bg-deep object-cover"
         />
@@ -181,15 +184,15 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             onChange={(e) => setForm({ ...form, category: e.target.value })}
             className="h-9 rounded-lg border border-input bg-transparent px-2 text-sm"
           >
-            {RESOURCE_CATS_STORE.map((c) => (
+            {RESOURCE_CATS_STORE.map((c, index) => (
               <option key={c} value={c}>
-                {c}
+                {categoryLabels[index] ?? c}
               </option>
             ))}
           </select>
         ) : (
           <span className="rounded-lg bg-mist px-2.5 py-1 text-[11px] font-extrabold text-navy">
-            {row.category}
+            {categoryLabels[RESOURCE_CATS_STORE.indexOf(row.category)] ?? row.category}
           </span>
         )}
       </td>

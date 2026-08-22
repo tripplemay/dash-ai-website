@@ -26,7 +26,7 @@ export const TextGenerateEffect = ({
       { opacity: 1, filter: filter ? "blur(0px)" : "none" },
       { duration: duration ?? 1, delay: stagger(0.06) }
     );
-  }, [scope.current, animate, filter, duration]);
+  }, [animate, filter, duration, words]);
 
   return (
     <div className={cn("font-bold", className)}>
