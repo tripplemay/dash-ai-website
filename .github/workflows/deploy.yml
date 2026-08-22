@@ -38,6 +38,7 @@ jobs:
           cp -R .next/standalone/. release/app/
           cp -R .next/static release/app/.next/static
           cp scripts/seed.mjs release/app/scripts/seed.mjs
+          cp scripts/resources-seed.json release/app/scripts/resources-seed.json
           tar -czf release.tar.gz -C release/app .
           ls -lh release.tar.gz
 
