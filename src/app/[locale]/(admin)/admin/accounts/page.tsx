@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 export const dynamic = "force-dynamic";
 
 const ROLE_STYLE: Record<string, string> = {
-  admin: "bg-[#FFF1E8] text-orange",
-  partner: "bg-[#E6FAFF] text-cyan-print",
-  teacher: "bg-[#F0EDFF] text-[#7A5CFF]",
-  guest: "bg-[#E8F4FF] text-[#2E7DFF]",
+  admin: "bg-orange-50 text-orange-700",
+  partner: "bg-coral-50 text-coral-700",
+  teacher: "bg-indigo-50 text-indigo-700",
+  guest: "bg-sky-50 text-sky-700",
 };
 
 interface AdminUser {
@@ -47,14 +47,14 @@ export default async function AdminAccountsPage({
   return (
     <>
       <h1 className="text-[24px] font-extrabold tracking-[2px]">{t("title")}</h1>
-      <div className="mt-1.5 mb-5 text-[13.5px] text-subtext">{t("sub")}</div>
+      <div className="mt-1.5 mb-5 text-[13.5px] text-muted-foreground">{t("sub")}</div>
 
       <CreateAccountForm />
 
-      <div className="mt-5 overflow-hidden rounded-2xl bg-card shadow-card">
+      <div className="mt-5 overflow-hidden rounded-lg border border-neutral-200 bg-card shadow-card">
         <table className="w-full text-left text-[13px]">
           <thead>
-            <tr className="border-b border-[#E4EAF7] text-[12px] tracking-wider text-subtext">
+            <tr className="border-b border-neutral-200 text-[12px] tracking-wider text-muted-foreground">
               <th className="px-5 py-3.5 font-extrabold">{t("colUsername")}</th>
               <th className="px-5 py-3.5 font-extrabold">{t("colName")}</th>
               <th className="px-5 py-3.5 font-extrabold">{t("colRole")}</th>
@@ -65,14 +65,14 @@ export default async function AdminAccountsPage({
           </thead>
           <tbody>
             {users.map((u) => (
-              <tr key={u.id} className="border-b border-[#F0F5FC] last:border-0 hover:bg-[#FAFCFF]">
-                <td className="px-5 py-3 font-extrabold text-navy">{u.username || "—"}</td>
+              <tr key={u.id} className="border-b border-neutral-100 last:border-0 hover:bg-neutral-50">
+                <td className="px-5 py-3 font-extrabold text-indigo-800">{u.username || "—"}</td>
                 <td className="px-5 py-3">{u.name}</td>
                 <td className="px-5 py-3">
                   <span
                     className={cn(
                       "rounded-lg px-2.5 py-1 text-[11px] font-extrabold",
-                      ROLE_STYLE[u.role || ""] || "bg-mist text-subtext"
+                      ROLE_STYLE[u.role || ""] || "bg-muted text-muted-foreground"
                     )}
                   >
                     {u.role || "user"}
@@ -82,10 +82,10 @@ export default async function AdminAccountsPage({
                   {u.banned ? (
                     <span className="font-bold text-destructive">{t("statusBanned")}</span>
                   ) : (
-                    <span className="font-bold text-[#0E9F6E]">{t("statusActive")}</span>
+                    <span className="font-bold text-[#17613B]">{t("statusActive")}</span>
                   )}
                 </td>
-                <td className="px-5 py-3 text-subtext">
+                <td className="px-5 py-3 text-muted-foreground">
                   {new Date(u.createdAt).toLocaleDateString(locale === "zh" ? "zh-CN" : "en")}
                 </td>
                 <td className="px-5 py-3">

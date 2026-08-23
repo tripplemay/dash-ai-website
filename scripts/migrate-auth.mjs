@@ -36,13 +36,13 @@ export async function runAuthMigrations(auth) {
 const isMain = process.argv[1] && fs.realpathSync(process.argv[1]) === fs.realpathSync(fileURLToPath(import.meta.url));
 if (isMain) {
   process.umask(0o077);
-  const database = new Database(dbPath, { timeout: 5000 });
+  const database = new Database(dbPath, { timeout: 30000 });
+  database.pragma("busy_timeout = 30000");
   database.pragma("journal_mode = WAL");
   database.pragma("foreign_keys = ON");
-  database.pragma("busy_timeout = 5000");
   restrictDatabaseFiles();
   const auth = betterAuth({
-    appName: "DASH AI Marketing Hub",
+    appName: "芯坐标 CORECOORD",
     baseURL: "https://migration.invalid",
     database,
     emailAndPassword: { enabled: true },

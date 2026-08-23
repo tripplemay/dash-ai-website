@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "DASH AI Lab · Marketing Hub",
-    "template": "%s · DASH AI Marketing Hub",
-    "description": "DASH AI Lab partner marketing hub for campaign materials, course presentations, and venue screen playback.",
+    "title": "CORECOORD · Partner Workspace",
+    "template": "%s · CORECOORD",
+    "description": "CORECOORD partner workspace for brand systems, course projects, visual previews, and presentation tools.",
     "pages": {
       "workspace": "Workspace",
       "courses": "Course Center",
@@ -25,6 +25,7 @@
     "courses": "Courses",
     "player": "Screen Player",
     "presentations": "Presentations",
+    "presentationsShort": "Present",
     "brand": "Brand",
     "logout": "Sign out",
     "admin": "Admin",
@@ -41,23 +42,23 @@
     "retry": "Try again"
   },
   "hero": {
-    "kick": "DASH AI LAB · MARKETING HUB",
-    "title1": "The Marketing Hub",
-    "title2": "for Partners",
-    "sub": "An integrated hub for print-ready marketing downloads, online course presentation, and on-screen looping displays."
+    "kick": "PARTNER WORKSPACE · CORECOORD",
+    "title1": "Create",
+    "title2": "with direction.",
+    "sub": "Start from a question. Explore projects, brand assets, and evidence of progress."
   },
   "roles": {
     "res": {
-      "title": "Marketing Resources",
-      "desc": "Posters, roll-ups, certificates, handbooks, brand assets and PPT templates — all print-ready for production."
+      "title": "Use the brand system",
+      "desc": "Logos, type, color, coordinate graphics, and templates aligned to the latest VI delivery."
     },
     "course": {
       "title": "Present Courses",
-      "desc": "Curriculum, course details, growth system and parent FAQ, ready for browser presentation and screen casting."
+      "desc": "Projects, lesson details, growth records, and parent FAQ, ready for browser presentation."
     },
     "player": {
       "title": "Screen Player",
-      "desc": "For venue screens and iPads — auto-loops brand and course content, no manual operation required."
+      "desc": "For venue screens and iPads — loop the current brand and course story."
     },
     "enter": "Enter →"
   },
@@ -67,7 +68,13 @@
     "labsTitleEm": "Labs",
     "labsSub": "Create, Build and Explore — 9 capability labs for ages 5–16",
     "viewAll": "View all",
-    "recentTitle": "Recently updated"
+    "recentTitle": "Recently updated",
+    "previewLabels": {
+      "cover": "Brand key visual",
+      "stages": "Stage color system",
+      "certificate": "Growth certificate sample",
+      "field": "Coordinate field graphic"
+    }
   },
   "course": {
     "title1": "Course",
@@ -139,7 +146,7 @@
   "resources": {
     "title1": "Resource",
     "title2": "Download Center",
-    "sub": "All materials are print-ready HD files with production specs, available for single-item or category-bundle download.",
+    "sub": "A maintained CORECOORD release for identity, guides, previews, and course templates. Download a single file or a complete category bundle.",
     "all": "All",
     "suggest": "Tip: ",
     "download": "Download",
@@ -159,7 +166,7 @@
     "emptySub": "Try a shorter keyword or clear the active filters.",
     "openDetail": "Open resource: {title}",
     "breadcrumb": "Resource detail path",
-    "categories": ["All", "Course posters", "Recruitment", "Certificates", "Social", "Brand assets", "Mascots", "Course templates"],
+    "categories": ["All", "Brand system", "Guides", "Visual previews", "Course templates"],
     "dimensions": "Specs",
     "adviceLabel": "Usage advice",
     "format": "Format"
@@ -171,22 +178,24 @@
     "play": "Play"
   },
   "presentations": {
+    "kicker": "PRESENTATIONS · CORECOORD",
+    "brandAlt": "CORECOORD",
     "title": "Presentation Center",
     "sub": "Choose screen playback or a course walkthrough. Both modes can resume a shared slide URL.",
     "screenTitle": "Venue screen player",
-    "screenDesc": "Loop brand, lab, and recruitment content for venue displays and iPad kiosks.",
+    "screenDesc": "Loop the brand key visual, course coordinates, and approved previews for venue displays and iPad kiosks.",
     "courseTitle": "Course walkthrough",
     "courseDesc": "Walk parents through the curriculum, growth system, and outcomes in a guided deck.",
     "open": "Open mode"
   },
   "footer": {
-    "left": "DASH AI Lab · Kids AI Literacy Program",
+    "left": "CORECOORD · Kids AI Literacy Program",
     "right": "Partners only · Authorized access"
   },
   "login": {
     "title": "Partners Area",
-    "sub": "DASH AI LAB · MARKETING HUB",
-    "desc": "Sign in with an authorized account to access downloads, course deck and screen player.",
+    "sub": "CORECOORD · PARTNER WORKSPACE",
+    "desc": "Sign in with an authorized account to access the brand system, course projects, and presentation tools.",
     "username": "Username",
     "password": "Password",
     "usernamePh": "partner / teacher / guest",
@@ -255,7 +264,7 @@
       "colSort": "Order",
       "colUpdated": "Updated",
       "colOps": "Actions",
-      "categories": ["Course posters", "Recruitment", "Certificates", "Social", "Brand assets", "Mascots", "Course templates"],
+      "categories": ["Brand system", "Guides", "Visual previews", "Course templates"],
       "advicePh": "e.g. A3 print / social long image",
       "uploadSubmit": "Upload",
       "submitting": "Uploading…",
@@ -276,83 +285,66 @@
   "guide": {
     "title1": "User",
     "title2": "Guide",
-    "sub": "Standard procedures for print delivery, screen playback, and content updates",
+    "sub": "Standard procedures for brand assets, course presentations, and content updates",
     "anchorPrint": "Print guide",
     "anchorPlayer": "Playback guide",
     "anchorOps": "Operations guide",
     "print": {
       "title": "Print",
       "titleEm": "Guide",
-      "sub": "Match each material to its specs and approve a proof before placing a batch order",
+      "sub": "Follow the CORECOORD VI System 2026.1 hierarchy, dimensions, and color rules for every delivery",
       "items": [
         {
           "icon": "image",
-          "title": "Course posters",
+          "title": "Logo and graphic system",
           "points": [
-            "A3 coated paper",
-            "200 DPI or higher",
-            "Matte lamination to reduce glare"
-          ]
-        },
-        {
-          "icon": "users",
-          "title": "Trial-class recruitment poster",
-          "points": [
-            "A3 print for on-site posting",
-            "The same file can be used as a social long image"
-          ]
-        },
-        {
-          "icon": "upload",
-          "title": "Roll-up banner",
-          "points": [
-            "800×2000 mm finished size",
-            "200DPI",
-            "Photo-paper lamination with stand assembly"
-          ]
-        },
-        {
-          "icon": "calendar",
-          "title": "Trial-class invitation card",
-          "points": [
-            "Full-color, double-sided",
-            "300 g coated paper",
-            "Optional rounded-corner die cut"
-          ]
-        },
-        {
-          "icon": "trophy",
-          "title": "Completion certificate",
-          "points": [
-            "A4 coated or matte paper",
-            "Full-color, single-sided",
-            "Leave room for a handwritten signature"
+            "Use the approved horizontal, stacked, and mark SVGs",
+            "Horizontal lockup min 280 px; mark min 24 px for digital use",
+            "Do not crop, stretch, redraw, or recolor"
           ]
         },
         {
           "icon": "book",
-          "title": "Parent handbook",
+          "title": "Fonts and tokens",
           "points": [
-            "A4 saddle-stitch binding",
-            "250 g cover / 157 g inner coated paper",
-            "Arrange the 12-page set in order"
+            "Use Noto Sans SC and Noto Sans Mono CJK SC",
+            "Read colors from the CORECOORD token files",
+            "Keep monospace coordinates and approved tracking"
           ]
         },
         {
-          "icon": "chat",
-          "title": "Social header / recruitment long image",
+          "icon": "image",
+          "title": "Approved preview set",
           "points": [
-            "Digital use only; no printing required",
-            "Use the 900×383 standard image for the account cover",
-            "Long images fit social feeds and direct messages"
+            "Use previews for review, selection, and screen tests",
+            "Download the matching source template for production",
+            "Keep the original ratio and avoid unapproved decoration"
+          ]
+        },
+        {
+          "icon": "calendar",
+          "title": "Course and print templates",
+          "points": [
+            "Four SVG source groups: course, print, social, and video",
+            "Keep the grid, stage colors, and clear space",
+            "Replace content only; do not alter the logo structure"
+          ]
+        },
+        {
+          "icon": "book",
+          "title": "VI System 2026.1 manual",
+          "points": [
+            "Complete reference for brand, fonts, colors, graphics, and templates",
+            "The resource center provides the formal PDF delivery",
+            "Confirm release 2026.1 before publishing"
           ]
         }
       ],
-      "commonTitle": "General print-shop notes",
+      "commonTitle": "Delivery and publishing checks",
       "common": [
-        "Convert every file to CMYK first",
-        "Leave 3 mm bleed on all four sides",
-        "Approve color on a proof before the batch run"
+        "Download assets only from the approved CORECOORD 2026.1 tree",
+        "Use the 2 / 4 / 8 px radius scale",
+        "Before release, verify the logo, font, and token URLs"
       ]
     },
     "player": {
@@ -363,7 +355,7 @@
         {
           "title": "Venue screen",
           "steps": [
-            "Open the marketing hub in a browser and sign in",
+            "Open the partner workspace in a browser and sign in",
             "Open “Screen Player”",
             "Press F11 for browser fullscreen",
             "Space pauses / resumes; use ← → to change slides",

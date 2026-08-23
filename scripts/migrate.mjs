@@ -21,14 +21,49 @@ function restrictDatabaseFiles(dbPath) {
 }
 
 const CATEGORY_KEYS = {
+  "品牌系统": "brand-system",
+  "使用指南": "guides",
+  "视觉预览": "visual-previews",
+  "课件模板": "course-templates",
   "课程海报": "course-posters",
   "招募物料": "recruitment",
   "证书手册": "certificates",
   社媒: "social-media",
   "品牌资产": "brand-assets",
   吉祥物: "mascots",
-  "课件模板": "course-templates",
 };
+
+function readCorecoordSeed() {
+  const seedPath = path.join(ROOT, "resources-seed.json");
+  let items;
+  try {
+    items = JSON.parse(fs.readFileSync(seedPath, "utf8"));
+  } catch (error) {
+    throw new Error(`CORECOORD resource seed is invalid: ${error.message}`);
+  }
+  if (!Array.isArray(items) || items.length === 0) throw new Error("CORECOORD resource seed is empty");
+  const currentKeys = items.map((item) => item.file_key);
+  if (currentKeys.some((key) => typeof key !== "string" || !key.startsWith("files/corecoord/"))) {
+    throw new Error("CORECOORD resource seed contains an invalid file_key");
+  }
+  if (new Set(currentKeys).size !== currentKeys.length) {
+    throw new Error("CORECOORD resource seed contains duplicate file_key values");
+  }
+  return { items, currentKeys };
+}
+
+/** Keep the release-owned catalogue in sync without deleting historical rows. */
+function disableStaleCorecoordResources(db, currentKeys) {
+  db
+    .prepare(
+      `UPDATE resources
+       SET enabled = 0, updated_at = datetime('now')
+       WHERE enabled <> 0
+         AND file_key LIKE 'files/corecoord/%'
+         AND file_key NOT IN (${currentKeys.map(() => "?").join(",")})`
+    )
+    .run(...currentKeys);
+}
 
 const MIGRATIONS = [
   {
@@ -168,6 +203,63 @@ const MIGRATIONS = [
       db.exec("CREATE UNIQUE INDEX IF NOT EXISTS resources_file_key_unique ON resources (file_key)");
     },
   },
+  {
+    id: "006_corecoord_brand_release",
+    up(db) {
+      // Keep the historical rows for audit/rollback, but remove them from the
+      // public catalogue before publishing the versioned CORECOORD package.
+      db.prepare("UPDATE resources SET enabled = 0 WHERE file_key NOT LIKE 'files/corecoord/%'").run();
+
+      const { items, currentKeys } = readCorecoordSeed();
+      const insert = db.prepare(`
+        INSERT INTO resources (
+          title, category, category_key, kind, format, size, dimensions,
+          print_advice, file_key, preview, sort, enabled
+        )
+        SELECT @title, @category, @category_key, @kind, @format, @size, @dimensions,
+          @print_advice, @file_key, @preview, @sort, 1
+        WHERE NOT EXISTS (SELECT 1 FROM resources WHERE file_key = @file_key)
+      `);
+      const update = db.prepare(`
+        UPDATE resources SET
+          title = @title,
+          category = @category,
+          category_key = @category_key,
+          kind = @kind,
+          format = @format,
+          size = @size,
+          dimensions = @dimensions,
+          print_advice = @print_advice,
+          preview = @preview,
+          sort = @sort,
+          enabled = 1,
+          updated_at = datetime('now')
+        WHERE file_key = @file_key
+      `);
+      const tx = db.transaction((rows) => {
+        // The seed is authoritative for the release-owned namespace. Rows
+        // removed from a future package stay in the database for audit, but
+        // must not remain downloadable or visible in the catalogue.
+        disableStaleCorecoordResources(db, currentKeys);
+        for (const item of rows) {
+          const row = { ...item, category_key: item.category_key || CATEGORY_KEYS[item.category] || "unknown" };
+          update.run(row);
+          insert.run(row);
+        }
+      });
+      tx(items);
+    },
+  },
+  {
+    id: "007_corecoord_resource_prune",
+    up(db) {
+      // Keep the release-owned namespace authoritative for databases that
+      // already applied migration 006 before a later package revision removed
+      // one of its resource rows. Historical rows remain available for audit.
+      const { currentKeys } = readCorecoordSeed();
+      disableStaleCorecoordResources(db, currentKeys);
+    },
+  },
 ];
 
 /** 在一个 SQLite 连接上执行所有未应用的应用迁移。 */
@@ -188,13 +280,18 @@ export function runMigrations(db) {
       mark.run(migration.id);
     })();
   }
+  // Migration IDs are immutable, but the release seed can change when a
+  // corrected brand package is deployed. Reconcile on every maintenance run
+  // so removed release-owned rows cannot remain publicly enabled forever.
+  const { currentKeys } = readCorecoordSeed();
+  db.transaction(() => disableStaleCorecoordResources(db, currentKeys))();
 }
 
 export function openDatabase(dbPath = process.env.DASH_AUTH_DB || DEFAULT_DB) {
-  const db = new Database(dbPath);
+  const db = new Database(dbPath, { timeout: 30000 });
   restrictDatabaseFiles(dbPath);
+  db.pragma("busy_timeout = 30000");
   db.pragma("journal_mode = WAL");
-  db.pragma("busy_timeout = 5000");
   runMigrations(db);
   restrictDatabaseFiles(dbPath);
   const integrity = db.pragma("integrity_check", { simple: true });

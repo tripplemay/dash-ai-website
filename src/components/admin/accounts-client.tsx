@@ -30,7 +30,7 @@ export function CreateAccountForm() {
   };
 
   return (
-    <form onSubmit={submit} className="rounded-2xl bg-card p-6 shadow-card">
+    <form onSubmit={submit} className="rounded-lg border border-neutral-200 bg-card p-6 shadow-card">
       <h2 className="text-[16px] font-extrabold">{t("createTitle")}</h2>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-1.5">
@@ -80,7 +80,7 @@ export function CreateAccountForm() {
           {busy ? t("submitting") : t("createSubmit")}
         </Button>
         {msg && (
-          <span className={`text-[13px] font-bold ${msg.ok ? "text-cyan-print" : "text-destructive"}`}>
+          <span className={`text-[13px] font-bold ${msg.ok ? "text-coral-700" : "text-destructive"}`}>
             {msg.text}
           </span>
         )}
@@ -125,7 +125,7 @@ export function AccountRowActions({
         onClick={doReset}
         disabled={busy}
         title={t("reset")}
-        className="flex items-center gap-1 rounded-lg bg-[#EEF4FE] px-3 py-1.5 text-xs font-bold text-navy hover:bg-mist"
+        className="flex items-center gap-1 rounded-md bg-indigo-50 px-3 py-1.5 text-xs font-bold text-indigo-800 hover:bg-indigo-100"
       >
         <KeyRound className="size-3.5" />
         {t("reset")}
@@ -134,7 +134,7 @@ export function AccountRowActions({
         onClick={toggleBan}
         disabled={busy}
         className={`flex items-center gap-1 rounded-lg px-3 py-1.5 text-xs font-bold ${
-          banned ? "bg-[#E8F9F0] text-[#0E9F6E]" : "bg-[#FDEDEA] text-destructive"
+          banned ? "bg-[#EAF8F0] text-[#17613B]" : "bg-[#FDE8E5] text-destructive"
         }`}
       >
         {banned ? <CircleCheck className="size-3.5" /> : <Ban className="size-3.5" />}

@@ -35,13 +35,13 @@ export default async function AdminLayout({
         <div className="flex min-h-screen flex-col bg-background">
           <AdminNav />
           <div className="flex flex-1 items-center justify-center px-6">
-            <div className="w-full max-w-[420px] rounded-2xl bg-card p-10 text-center shadow-card">
-              <div className="text-[40px] font-extrabold text-navy">403</div>
+            <div className="w-full max-w-[420px] rounded-lg border border-neutral-200 bg-card p-10 text-center shadow-card">
+              <div className="text-[40px] font-extrabold text-indigo-800">403</div>
               <div className="mt-2 text-[17px] font-extrabold">{t("forbiddenTitle")}</div>
-              <p className="mt-2 text-[13px] leading-relaxed text-subtext">{t("forbiddenDesc")}</p>
+              <p className="mt-2 text-[13px] leading-relaxed text-muted-foreground">{t("forbiddenDesc")}</p>
               <Link
                 href="/workspace"
-                className="mt-5 inline-block rounded-[10px] bg-navy px-6 py-2.5 text-[13px] font-extrabold tracking-wider text-white"
+                className="mt-5 inline-block rounded-md bg-indigo-700 px-6 py-2.5 text-[13px] font-extrabold tracking-wider text-white"
               >
                 {t("backToSite")}
               </Link>

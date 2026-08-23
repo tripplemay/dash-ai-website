@@ -43,10 +43,12 @@ if (!isDevelopment) {
 }
 
 function openAuthDatabase() {
-  const database = new Database(dbPath, { timeout: 5000 });
+  const database = new Database(dbPath, { timeout: 30000 });
+  // Build workers can initialize the shared SQLite file concurrently. Set the
+  // busy timeout before the WAL transition so the first writer wins cleanly.
+  database.pragma("busy_timeout = 30000");
   database.pragma("journal_mode = WAL");
   database.pragma("foreign_keys = ON");
-  database.pragma("busy_timeout = 5000");
   return database;
 }
 
@@ -61,7 +63,7 @@ if (process.env.DASH_AUTH_DISABLED === "1" && !isDevelopment) {
 }
 
 export const auth = betterAuth({
-  appName: "DASH AI Marketing Hub",
+  appName: "芯坐标 CORECOORD",
   database: openAuthDatabase(),
   emailAndPassword: { enabled: true },
   plugins: [username(), admin()],

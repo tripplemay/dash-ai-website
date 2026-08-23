@@ -6,10 +6,16 @@ import { useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
 import { LABS, GROWTH_LAYERS, GROWTH_BADGES, GROWTH_ENTRIES, GROWTH_ENTRIES_NOTE } from "@/lib/data";
 import { cn } from "@/lib/utils";
-import { assetUrl } from "@/lib/assets";
+import { BrandLogo } from "@/components/brand-logo";
+import { CORECOORD_ASSET_ROOT, CORECOORD_STAGES, stageOnAccent } from "@/lib/brand";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const TOTAL = 9;
+const PREVIEW_ROOT = `${CORECOORD_ASSET_ROOT}/vi-system-2026/deliverables/previews`;
+const PRESENTATION_COVER_PREVIEW = `${PREVIEW_ROOT}/corecoord-presentation-cover-16x9.png`;
+const STAGE_PALETTE_PREVIEW = `${PREVIEW_ROOT}/corecoord-stage-palette.png`;
+const VIDEO_COVER_PREVIEW = `${PREVIEW_ROOT}/corecoord-video-cover-16x9.png`;
+const COORDINATE_FIELD_PREVIEW = `${PREVIEW_ROOT}/corecoord-coordinate-field-light.png`;
 
 function slideFromSearch(search: string, total: number): number {
   const raw = Number(new URLSearchParams(search).get("slide"));
@@ -33,6 +39,7 @@ function PresentDeck() {
   const idle = useRef<ReturnType<typeof setTimeout> | null>(null);
   const touchStartX = useRef<number | null>(null);
 
+  const brandLogoAlt = locale === "zh" ? "芯坐标" : "CORECOORD";
   const exitLabel = locale === "zh" ? "退出课程演示" : "Exit presentation";
   const prevLabel = locale === "zh" ? "上一页" : "Previous slide";
   const nextLabel = locale === "zh" ? "下一页" : "Next slide";
@@ -127,7 +134,7 @@ function PresentDeck() {
 
   return (
     <div
-      className={cn("fixed inset-0 z-[60] bg-midnight text-white", !cursorOn && "cursor-none")}
+      className={cn("fixed inset-0 z-[60] bg-reverse-background text-white", !cursorOn && "cursor-none")}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
@@ -136,7 +143,7 @@ function PresentDeck() {
         onClick={exit}
         aria-label={exitLabel}
         title={exitLabel}
-        className="fixed top-5 right-5 z-20 inline-flex size-11 items-center justify-center rounded-full border border-white/30 bg-black/35 text-white backdrop-blur-sm transition-colors hover:bg-black/65 focus-visible:ring-2 focus-visible:ring-cyan"
+        className="fixed top-5 right-5 z-20 inline-flex size-11 items-center justify-center rounded-[4px] border border-white/30 bg-reverse-background/90 text-white transition-colors hover:bg-core-indigo focus-visible:ring-[3px] focus-visible:ring-signal-coral"
       >
         <X className="size-5" />
       </button>
@@ -152,7 +159,7 @@ function PresentDeck() {
           onClick={prev}
           aria-label={prevLabel}
           title={prevLabel}
-          className="inline-flex size-11 items-center justify-center rounded-full border border-white/30 bg-black/35 text-white backdrop-blur-sm transition-colors hover:bg-black/65 focus-visible:ring-2 focus-visible:ring-cyan"
+          className="inline-flex size-11 items-center justify-center rounded-[4px] border border-white/30 bg-reverse-background/90 text-white transition-colors hover:bg-core-indigo focus-visible:ring-[3px] focus-visible:ring-signal-coral"
         >
           <ChevronLeft className="size-5" />
         </button>
@@ -161,7 +168,7 @@ function PresentDeck() {
           onClick={next}
           aria-label={nextLabel}
           title={nextLabel}
-          className="inline-flex size-11 items-center justify-center rounded-full border border-white/30 bg-black/35 text-white backdrop-blur-sm transition-colors hover:bg-black/65 focus-visible:ring-2 focus-visible:ring-cyan"
+          className="inline-flex size-11 items-center justify-center rounded-[4px] border border-white/30 bg-reverse-background/90 text-white transition-colors hover:bg-core-indigo focus-visible:ring-[3px] focus-visible:ring-signal-coral"
         >
           <ChevronRight className="size-5" />
         </button>
@@ -171,31 +178,32 @@ function PresentDeck() {
       <section className={show(0)}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/img/cover-bg.png"
+          src={PRESENTATION_COVER_PREVIEW}
           alt=""
           loading={idx === 0 ? "eager" : "lazy"}
           fetchPriority={idx === 0 ? "high" : "low"}
           className="absolute inset-0 h-full w-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,14,40,.9),rgba(8,14,40,.4))]" />
+        <div className="absolute inset-0 bg-reverse-background/75" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/logo/DASH-mark-dark_1024.png" alt="" className="logo-rounded size-20 object-cover" />
+          <BrandLogo variant="stacked-reverse" alt={brandLogoAlt} width={176} height={176} className="h-28 w-28 sm:h-36 sm:w-36" priority />
           <h1 className="mt-5 text-[36px] leading-tight font-extrabold tracking-[2px] sm:mt-8 sm:text-[52px] lg:text-[72px] lg:tracking-[4px]">
-            DASH <em className="not-italic text-cyan">AI</em> 实验室
+            {locale === "zh" ? "有方向的创造" : "Create with direction"}
           </h1>
-          <div className="mt-4 text-[16px] font-bold tracking-[2px] text-[#BFEFFF] sm:mt-6 sm:text-[22px] sm:tracking-[4px] lg:text-[28px] lg:tracking-[6px]">少儿 AI 素养课程 · 合作伙伴课程介绍</div>
-          <div className="mt-7 inline-flex w-fit rounded-2xl border border-cyan/40 bg-cyan/10 px-5 py-3 text-[20px] font-extrabold tracking-[2px] text-cyan sm:mt-12 sm:px-8 sm:py-4 sm:text-[28px] lg:text-[32px] lg:tracking-[4px]">
-            兴趣是入口，能力是出口
+          <div className="mt-4 text-[16px] font-bold tracking-[2px] text-white/80 sm:mt-6 sm:text-[22px] sm:tracking-[4px] lg:text-[28px] lg:tracking-[6px]">有方向的创造 · 合作伙伴课程介绍</div>
+          <div className="mt-7 inline-flex w-fit rounded-[4px] border border-signal-coral/60 bg-signal-coral/15 px-5 py-3 text-[20px] font-extrabold tracking-[2px] text-signal-coral sm:mt-12 sm:px-8 sm:py-4 sm:text-[28px] lg:text-[32px] lg:tracking-[4px]">
+            在 AI 世界，找到自己的坐标。
           </div>
         </div>
       </section>
 
       {/* 2 · 数字总览 */}
       <section className={show(1)}>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#0A1232,#1B2A6B)]" />
+        <div className="absolute inset-0 bg-reverse-background" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-15" />
         <div className="relative flex h-full flex-col items-center justify-center px-5">
-          <div className="text-[22px] font-extrabold tracking-[8px] text-[#9FB3E8]">课程体系总览</div>
+          <div className="text-[22px] font-extrabold tracking-[8px] text-white/65">课程体系总览</div>
           <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-14 sm:gap-10 lg:gap-24">
             {[
               { n: "9", u: "大能力实验室" },
@@ -203,12 +211,12 @@ function PresentDeck() {
               { n: "5–16", u: "岁覆盖" },
             ].map((s) => (
               <div key={s.u} className="text-center">
-                <div className="text-[48px] leading-none font-extrabold text-cyan sm:text-[80px] lg:text-[120px]">{s.n}</div>
+                <div className="text-[48px] leading-none font-extrabold text-signal-coral sm:text-[80px] lg:text-[120px]">{s.n}</div>
                 <div className="mt-2 text-[12px] font-bold tracking-wide text-white sm:mt-4 sm:text-[20px] lg:text-[26px] lg:tracking-[3px]">{s.u}</div>
               </div>
             ))}
           </div>
-          <div className="mt-8 px-5 text-center text-[15px] text-[#BFEFFF] sm:mt-14 sm:text-[22px] lg:text-[24px]">AIGC 创作 · 编程工程 · 智能硬件 三大方向</div>
+          <div className="mt-8 px-5 text-center text-[15px] text-white/75 sm:mt-14 sm:text-[22px] lg:text-[24px]">AI 创作 · 编程工程 · 智能硬件三大方向</div>
         </div>
       </section>
 
@@ -217,30 +225,30 @@ function PresentDeck() {
         <section key={lab.en} className={show(2 + i)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={assetUrl(`/assets/ext/实验室海报-${i + 1}.png`)}
+            src={STAGE_PALETTE_PREVIEW}
             alt=""
             loading={idx === 2 + i ? "eager" : "lazy"}
             fetchPriority={idx === 2 + i ? "high" : "low"}
             className="absolute inset-0 h-full w-full object-cover opacity-45"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(8,14,40,.92),rgba(8,14,40,.25))]" />
+          <div className="absolute inset-0 bg-reverse-background/80" />
           <div className="relative flex h-full flex-col justify-end px-6 pb-20 sm:px-10 sm:pb-24 lg:px-24">
             <span
-              className="w-fit rounded-xl px-4 py-1.5 text-[14px] font-extrabold tracking-[2px] text-white sm:px-5 sm:py-2 sm:text-[18px] sm:tracking-[3px] lg:text-[20px] lg:tracking-[4px]"
-              style={{ background: lab.color }}
+              className="w-fit rounded-[4px] px-4 py-1.5 text-[14px] font-extrabold tracking-[2px] sm:px-5 sm:py-2 sm:text-[18px] sm:tracking-[3px] lg:text-[20px] lg:tracking-[4px]"
+              style={{ background: lab.color, color: stageOnAccent(lab.color) }}
             >
               {lab.en}
             </span>
             <h2 className="mt-4 text-[34px] font-extrabold tracking-[2px] sm:mt-6 sm:text-[50px] lg:text-[64px] lg:tracking-[4px]">
               {lab.name}
-              <span className="ml-3 align-middle text-[14px] font-bold text-[#BFEFFF] sm:ml-6 sm:text-[22px] lg:text-[26px]">{lab.hours}</span>
+              <span className="ml-3 align-middle text-[14px] font-bold text-white/75 sm:ml-6 sm:text-[22px] lg:text-[26px]">{lab.hours}</span>
             </h2>
-            <div className="mt-2 text-[15px] text-[#BFEFFF] sm:mt-3 sm:text-[20px] lg:text-[24px]">{lab.desc}</div>
+            <div className="mt-2 text-[15px] text-white/80 sm:mt-3 sm:text-[20px] lg:text-[24px]">{lab.desc}</div>
             <div className="mt-5 flex flex-wrap gap-2 sm:mt-8 sm:gap-4">
               {lab.courses.map((c) => (
-                <div key={c.name} className="rounded-2xl bg-white/10 px-6 py-4 backdrop-blur-sm">
+                <div key={c.name} className="rounded-[8px] border border-white/20 bg-white/10 px-6 py-4">
                   <span className="text-[24px] font-extrabold">{c.name}</span>
-                  <span className="ml-3 text-[16px] text-[#BFEFFF]">
+                  <span className="ml-3 text-[16px] text-white/70">
                     {c.age} · {c.count}
                   </span>
                 </div>
@@ -252,24 +260,26 @@ function PresentDeck() {
 
       {/* 6 · 成长体系阶梯 */}
       <section className={show(5)}>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#0A1232,#101C52)]" />
+        <div className="absolute inset-0 bg-reverse-background" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
-          <div className="text-[22px] font-extrabold tracking-[8px] text-[#9FB3E8]">成长体系</div>
+          <div className="text-[22px] font-extrabold tracking-[8px] text-white/65">成长体系</div>
           <h2 className="mt-3 text-[34px] font-extrabold tracking-[2px] sm:mt-4 sm:text-[44px] lg:text-[52px] lg:tracking-[3px]">
-            能力认证<em className="not-italic text-cyan">阶梯</em>
+            能力认证<em className="not-italic text-signal-coral">阶梯</em>
           </h2>
           <div className="mt-8 flex flex-col items-stretch gap-3 sm:mt-14 lg:flex-row lg:gap-6">
             {GROWTH_LAYERS.map((l, i) => (
               <div key={l.level} className="flex flex-1 items-center gap-3 lg:gap-6">
                 <div
-                  className="flex-1 rounded-2xl bg-white/8 p-6 backdrop-blur-sm"
+                  className="flex-1 rounded-[8px] border border-white/15 bg-white/8 p-6"
                   style={{ borderTop: `4px solid ${l.color}`, transform: `translateY(${(3 - i) * -18}px)` }}
                 >
                   <div className="text-[30px] font-extrabold" style={{ color: l.color }}>{l.level}</div>
                   <div className="mt-2 text-[26px] font-extrabold">{l.title}</div>
-                  <div className="mt-2 text-[15px] leading-relaxed text-[#BFEFFF]">{l.tagline}</div>
+                  <div className="mt-2 text-[15px] leading-relaxed text-white/70">{l.tagline}</div>
                 </div>
-                {i < GROWTH_LAYERS.length - 1 && <div className="hidden text-[28px] text-cyan/60 lg:block">→</div>}
+                {i < GROWTH_LAYERS.length - 1 && <div className="hidden text-[28px] text-signal-coral/75 lg:block">→</div>}
               </div>
             ))}
           </div>
@@ -278,25 +288,27 @@ function PresentDeck() {
 
       {/* 7 · 九枚认证徽章 */}
       <section className={show(6)}>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#0A1232,#1B2A6B)]" />
+        <div className="absolute inset-0 bg-reverse-background" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
           <h2 className="text-[32px] font-extrabold tracking-[2px] sm:text-[44px] lg:text-[52px] lg:tracking-[3px]">
-            九枚<em className="not-italic text-cyan">实验室认证徽章</em>
+            九枚<em className="not-italic text-signal-coral">实验室认证徽章</em>
           </h2>
-          <div className="mt-3 text-[22px] text-[#BFEFFF]">每通过一座实验室的项目评估，即点亮一项能力认证</div>
+          <div className="mt-3 text-[22px] text-white/75">每通过一座实验室的项目评估，即点亮一项能力认证</div>
           <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-12 sm:grid-cols-5 sm:gap-4 lg:grid-cols-9 lg:gap-5">
             {GROWTH_BADGES.map((b, i) => (
               <div key={b.elem} className="flex flex-col items-center">
                 <div
-                  className="relative flex size-[84px] items-center justify-center rounded-3xl text-[26px] font-extrabold text-white shadow-[0_10px_30px_rgba(0,0,0,.35)]"
-                  style={{ background: b.color }}
+                  className="relative flex size-[84px] items-center justify-center rounded-[8px] text-[26px] font-extrabold shadow-[0_10px_30px_rgba(0,0,0,.35)]"
+                  style={{ background: b.color, color: stageOnAccent(b.color) }}
                 >
                   {b.elem}
-                  <span className="absolute -top-2 -right-2 flex size-6 items-center justify-center rounded-full bg-white text-[12px] font-extrabold text-navy">
+                  <span className="absolute -top-2 -right-2 flex size-6 items-center justify-center rounded-[4px] bg-white text-[12px] font-extrabold text-core-indigo">
                     {i + 1}
                   </span>
                 </div>
-                <div className="mt-3 text-center text-[14px] leading-tight font-bold text-[#BFEFFF]">{b.lab}</div>
+                <div className="mt-3 text-center text-[14px] leading-tight font-bold text-white/75">{b.lab}</div>
               </div>
             ))}
           </div>
@@ -305,26 +317,33 @@ function PresentDeck() {
 
       {/* 8 · 多入口路径 */}
       <section className={show(7)}>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,#0A1232,#101C52)]" />
+        <div className="absolute inset-0 bg-reverse-background" />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
           <h2 className="text-[32px] font-extrabold tracking-[2px] sm:text-[44px] lg:text-[52px] lg:tracking-[3px]">
-            多入口 · <em className="not-italic text-cyan">殊途同归</em>
+            多入口 · <em className="not-italic text-signal-coral">殊途同归</em>
           </h2>
           <div className="mt-8 space-y-5 sm:mt-12 sm:space-y-8">
             {GROWTH_ENTRIES.map((e, i) => (
               <div key={e.key} className="flex items-center gap-6">
-                <span
-                  className="rounded-2xl px-4 py-3 text-[16px] font-extrabold text-white sm:px-6 sm:py-4 sm:text-[22px] lg:text-[24px]"
-                  style={{ background: i === 0 ? "#FF7A45" : "#A79BFF" }}
-                >
-                  {e.key}
-                </span>
-                <span className="text-[20px] text-cyan sm:text-[26px] lg:text-[28px]">→</span>
+                {(() => {
+                  const color = i === 0 ? CORECOORD_STAGES["00"].accent : CORECOORD_STAGES["04"].accent;
+                  return (
+                    <span
+                      className="rounded-[4px] px-4 py-3 text-[16px] font-extrabold sm:px-6 sm:py-4 sm:text-[22px] lg:text-[24px]"
+                      style={{ background: color, color: stageOnAccent(color) }}
+                    >
+                      {e.key}
+                    </span>
+                  );
+                })()}
+                <span className="text-[20px] text-signal-coral sm:text-[26px] lg:text-[28px]">→</span>
                 <span className="text-[17px] font-bold text-white sm:text-[22px] lg:text-[26px]">{e.path}</span>
               </div>
             ))}
           </div>
-          <div className="mt-8 w-fit rounded-2xl bg-cyan/10 px-5 py-3 text-[16px] font-extrabold text-cyan sm:mt-12 sm:px-8 sm:py-4 sm:text-[22px] lg:text-[24px]">
+          <div className="mt-8 w-fit rounded-[4px] border border-signal-coral/35 bg-signal-coral/10 px-5 py-3 text-[16px] font-extrabold text-signal-coral sm:mt-12 sm:px-8 sm:py-4 sm:text-[22px] lg:text-[24px]">
             {GROWTH_ENTRIES_NOTE}
           </div>
         </div>
@@ -334,42 +353,35 @@ function PresentDeck() {
       <section className={show(8)}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/assets/img/mkt-hero-poster.png"
+          src={VIDEO_COVER_PREVIEW}
           alt=""
           loading={idx === 8 ? "eager" : "lazy"}
           fetchPriority={idx === 8 ? "high" : "low"}
           className="absolute inset-0 h-full w-full object-cover opacity-35"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,14,40,.92),rgba(8,14,40,.4))]" />
+        <div className="absolute inset-0 bg-reverse-background/80" />
         <div className="relative flex h-full items-center px-6 sm:px-10 lg:px-24">
           <div>
+            <BrandLogo variant="mark-reverse" alt={brandLogoAlt} width={80} height={80} className="mb-8 size-16 sm:size-20" priority />
             <h2 className="text-[36px] leading-tight font-extrabold tracking-[2px] sm:text-[52px] lg:text-[64px] lg:tracking-[4px]">
-              体验课<em className="not-italic text-cyan">免费预约</em>
+              体验课<em className="not-italic text-signal-coral">预约</em>
             </h2>
-            <div className="mt-4 text-[15px] leading-relaxed text-[#BFEFFF] sm:mt-6 sm:text-[21px] lg:text-[26px]">
-              3 节体验课 · AI 绘本生成 / 数字人 / 计算机视觉
+            <div className="mt-4 text-[15px] leading-relaxed text-white/80 sm:mt-6 sm:text-[21px] lg:text-[26px]">
+              理解 AI，创造作品，形成判断。
               <br />
-              让孩子先点亮第一项能力认证
+              看见过程，也看见成长。
             </div>
-            <div className="mt-6 inline-flex rounded-2xl bg-orange px-5 py-3 text-[18px] font-extrabold tracking-[2px] text-white sm:mt-10 sm:px-8 sm:py-4 sm:text-[25px] lg:px-10 lg:py-5 lg:text-[30px] lg:tracking-[3px]">
-              扫码或到店咨询 · 0 元预约
+            <div className="mt-6 inline-flex rounded-[4px] bg-signal-coral px-5 py-3 text-[18px] font-extrabold tracking-[2px] text-[#171C25] sm:mt-10 sm:px-8 sm:py-4 sm:text-[25px] lg:px-10 lg:py-5 lg:text-[30px] lg:tracking-[3px]">
+              查看课程项目
             </div>
           </div>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/img/mascot/cube-pair-standard.png"
-            alt=""
-            loading={idx === 8 ? "eager" : "lazy"}
-            fetchPriority={idx === 8 ? "high" : "low"}
-            className="ml-auto hidden w-[280px] drop-shadow-[0_20px_50px_rgba(0,229,255,.3)] md:block lg:w-[380px]"
-          />
         </div>
       </section>
 
       {/* 页码指示器 */}
       <div
         aria-live="polite"
-        className="fixed right-8 bottom-6 rounded-full bg-white/10 px-5 py-2 text-[15px] font-extrabold tracking-[3px] text-white/85 backdrop-blur-sm"
+        className="fixed right-8 bottom-6 rounded-[4px] border border-white/20 bg-reverse-background/90 px-5 py-2 text-[15px] font-extrabold tracking-[3px] text-white/85"
       >
         {idx + 1} / {TOTAL}
       </div>

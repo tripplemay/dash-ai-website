@@ -29,6 +29,7 @@ import {
   needsLevel,
   recommend,
 } from "@/lib/wizard";
+import { stageOnAccent } from "@/lib/brand";
 
 const AGES: WizardAge[] = ["a1", "a2", "a3", "a4"];
 const INTERESTS: { key: WizardInterest; icon: typeof Palette }[] = [
@@ -164,8 +165,8 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
 
   /** 问题卡大按钮（iPad 可点） */
   const optionCls = (selected: boolean) =>
-    `flex min-h-[64px] w-full items-center gap-3 rounded-2xl border-2 bg-card px-5 py-4 text-left text-[16px] font-extrabold text-navy transition-colors ${
-      selected ? "border-cyan-print bg-[#F0F5FC]" : "border-[#E4EAF7] hover:border-[#B9CFEE] hover:bg-[#F8FBFF]"
+    `flex min-h-[64px] w-full items-center gap-3 rounded-lg border-2 bg-card px-5 py-4 text-left text-[16px] font-extrabold text-indigo-800 transition-colors ${
+      selected ? "border-coral-700 bg-indigo-50" : "border-neutral-200 hover:border-indigo-300 hover:bg-neutral-50"
     }`;
 
   return (
@@ -177,8 +178,8 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
             {[1, 2, 3].map((i) => (
               <span
                 key={i}
-                className={`h-1.5 flex-1 rounded-full transition-colors ${
-                  i <= step + 1 ? "bg-navy" : "bg-[#E4EAF7]"
+                className={`h-1.5 flex-1 rounded-sm transition-colors ${
+                  i <= step + 1 ? "bg-indigo-700" : "bg-neutral-200"
                 } ${i > total ? "opacity-25" : ""}`}
               />
             ))}
@@ -188,7 +189,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
         {(step > 0 || done) && (
           <button
             onClick={back}
-            className="inline-flex items-center gap-1.5 rounded-[10px] border border-[#D6E2F8] bg-card px-4 py-2 text-[12.5px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
+            className="inline-flex items-center gap-1.5 rounded-md border border-neutral-200 bg-card px-4 py-2 text-[12.5px] font-extrabold text-indigo-800 transition-colors hover:border-coral-700 hover:text-coral-700"
           >
             <ArrowLeft className="size-3.5" />
             {t("back")}
@@ -196,7 +197,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
         )}
       </div>
       {!done && (
-        <div className="mt-2.5 text-[12.5px] font-bold tracking-wider text-subtext">
+        <div className="mt-2.5 text-[12.5px] font-bold tracking-wider text-neutral-600">
           {t("step", { n: step + 1, total })}
         </div>
       )}
@@ -209,7 +210,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
             {AGES.map((a, i) => (
               <button key={a} onClick={() => pickAge(a)} className={optionCls(age === a)}>
                 {ages[i]}
-                <ArrowRight className="ml-auto size-4 text-subtext" />
+                <ArrowRight className="ml-auto size-4 text-neutral-600" />
               </button>
             ))}
           </div>
@@ -223,9 +224,9 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {INTERESTS.map(({ key, icon: Icon }, i) => (
               <button key={key} onClick={() => pickInterest(key)} className={optionCls(interest === key)}>
-                <Icon className="size-5 shrink-0 text-cyan-print" />
+                <Icon className="size-5 shrink-0 text-coral-700" />
                 {interests[i]}
-                <ArrowRight className="ml-auto size-4 text-subtext" />
+                <ArrowRight className="ml-auto size-4 text-neutral-600" />
               </button>
             ))}
           </div>
@@ -239,9 +240,9 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
           <div className="mt-5 grid gap-3 sm:grid-cols-3">
             {LEVELS.map(({ key, icon: Icon }, i) => (
               <button key={key} onClick={() => pickLevel(key)} className={optionCls(level === key)}>
-                <Icon className="size-5 shrink-0 text-cyan-print" />
+                <Icon className="size-5 shrink-0 text-coral-700" />
                 {levels[i]}
-                <ArrowRight className="ml-auto size-4 text-subtext" />
+                <ArrowRight className="ml-auto size-4 text-neutral-600" />
               </button>
             ))}
           </div>
@@ -252,46 +253,46 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
       {result && (
         <div className="mt-6">
           {/* 推荐起点卡 */}
-          <div className="text-[12px] font-extrabold tracking-[3px] text-subtext">{t("resultTag")}</div>
-          <div className="relative mt-2.5 overflow-hidden rounded-2xl border border-[#E4EAF7] bg-card p-[22px_24px]">
+          <div className="text-[12px] font-extrabold tracking-[3px] text-neutral-600">{t("resultTag")}</div>
+          <div className="relative mt-2.5 overflow-hidden rounded-lg border border-neutral-200 bg-card p-[22px_24px]">
             <span
               className="absolute top-0 bottom-0 left-0 w-1.5"
               style={{ background: result.primary.lab.color }}
             />
             <div className="flex flex-wrap items-center gap-2.5">
               <span
-                className="rounded-[9px] px-3 py-1 text-[11px] font-extrabold tracking-widest text-white"
-                style={{ background: result.primary.lab.color }}
+                className="rounded-md px-3 py-1 text-[11px] font-extrabold tracking-widest"
+                style={{ background: result.primary.lab.color, color: stageOnAccent(result.primary.lab.color) }}
               >
                 {result.primary.lab.en}
               </span>
-              <span className="text-[14px] font-extrabold text-navy">{result.primary.lab.name}</span>
+              <span className="text-[14px] font-extrabold text-indigo-800">{result.primary.lab.name}</span>
             </div>
             <div className="mt-3 flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <h2 className="text-[30px] font-extrabold tracking-[2px] text-navy">
+              <h2 className="text-[30px] font-extrabold tracking-[2px] text-indigo-800">
                 {result.primary.course.name}
               </h2>
-              <span className="rounded-[9px] bg-[#EEF4FE] px-3 py-1 text-[12.5px] font-extrabold text-navy">
+              <span className="rounded-md bg-indigo-50 px-3 py-1 text-[12.5px] font-extrabold text-indigo-800">
                 {result.primary.course.age}
               </span>
-              <span className="rounded-[9px] bg-navy px-3 py-1 text-[12.5px] font-extrabold text-white">
+              <span className="rounded-md bg-indigo-700 px-3 py-1 text-[12.5px] font-extrabold text-white">
                 {result.primary.course.count}
               </span>
             </div>
-            <p className="mt-3.5 text-[14px] leading-[1.9] text-subtext">{result.reason}</p>
+            <p className="mt-3.5 text-[14px] leading-[1.9] text-neutral-600">{result.reason}</p>
             {result.secondary && (
-              <div className="mt-4 flex flex-wrap items-center gap-2.5 rounded-xl bg-[#F0F5FC] px-4 py-3">
-                <span className="text-[12px] font-extrabold tracking-wider text-subtext">
+              <div className="mt-4 flex flex-wrap items-center gap-2.5 rounded-lg bg-indigo-50 px-4 py-3">
+                <span className="text-[12px] font-extrabold tracking-wider text-neutral-600">
                   {result.secondaryLabel}
                 </span>
                 <Link
                   href={`/courses/${result.secondary.course.slug}`}
-                  className="rounded-[9px] px-3 py-1.5 text-[12.5px] font-extrabold text-white transition-opacity hover:opacity-85"
-                  style={{ background: result.secondary.lab.color }}
+                  className="rounded-md px-3 py-1.5 text-[12.5px] font-extrabold transition-opacity hover:opacity-85"
+                  style={{ background: result.secondary.lab.color, color: stageOnAccent(result.secondary.lab.color) }}
                 >
                   {result.secondary.course.name}
                 </Link>
-                <span className="text-[12px] text-subtext">
+                <span className="text-[12px] text-neutral-600">
                   {result.secondary.course.age} · {result.secondary.course.count}
                 </span>
               </div>
@@ -307,16 +308,16 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
                   <Link
                     key={l.en}
                     href="/courses"
-                    className="rounded-2xl border border-[#E4EAF7] bg-card p-4 transition-shadow hover:shadow-card"
+                    className="rounded-lg border border-neutral-200 bg-card p-4 transition-shadow hover:shadow-card"
                   >
                     <span
-                      className="rounded-[8px] px-2.5 py-1 text-[10.5px] font-extrabold tracking-widest text-white"
-                      style={{ background: l.color }}
+                      className="rounded-sm px-2.5 py-1 text-[10.5px] font-extrabold tracking-widest"
+                      style={{ background: l.color, color: stageOnAccent(l.color) }}
                     >
                       {l.en}
                     </span>
-                    <div className="mt-2.5 text-[15px] font-extrabold text-navy">{l.name}</div>
-                    <div className="mt-1 text-[12px] leading-relaxed text-subtext">{l.desc}</div>
+                    <div className="mt-2.5 text-[15px] font-extrabold text-indigo-800">{l.name}</div>
+                    <div className="mt-1 text-[12px] leading-relaxed text-neutral-600">{l.desc}</div>
                   </Link>
                 ))}
               </div>
@@ -330,29 +331,31 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
               {result.path.map((p, i) => (
                 <span key={p} className="flex items-center gap-2">
                   <span
-                    className={`rounded-xl px-4 py-2.5 text-[13px] font-extrabold ${
+                    className={`rounded-md px-4 py-2.5 text-[13px] font-extrabold ${
                       i === result.path.length - 1
-                        ? "text-white"
-                        : "border border-[#E4EAF7] bg-card text-navy"
+                        ? ""
+                        : "border border-neutral-200 bg-card text-indigo-800"
                     }`}
                     style={
-                      i === result.path.length - 1 ? { background: result.primary.lab.color } : undefined
+                      i === result.path.length - 1
+                        ? { background: result.primary.lab.color, color: stageOnAccent(result.primary.lab.color) }
+                        : undefined
                     }
                   >
                     {p}
                   </span>
-                  {i < result.path.length - 1 && <ArrowRight className="size-4 text-subtext" />}
+                  {i < result.path.length - 1 && <ArrowRight className="size-4 text-neutral-600" />}
                 </span>
               ))}
             </div>
           </section>
 
           {/* 快捷动作 */}
-          <section className="mt-8 flex flex-wrap gap-2.5 border-t-2 border-[#E4EAF7] pt-6">
+          <section className="mt-8 flex flex-wrap gap-2.5 border-t-2 border-neutral-200 pt-6">
             <Link
               href={`/courses/${result.primary.course.slug}`}
-              className="inline-flex items-center gap-2 rounded-[10px] px-5 py-3 text-[13.5px] font-extrabold text-white transition-opacity hover:opacity-85"
-              style={{ background: result.primary.lab.color }}
+              className="inline-flex items-center gap-2 rounded-md px-5 py-3 text-[13.5px] font-extrabold transition-opacity hover:opacity-85"
+              style={{ background: result.primary.lab.color, color: stageOnAccent(result.primary.lab.color) }}
             >
               {t("actDetail")}
               <ArrowRight className="size-4" />
@@ -360,7 +363,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
             {(() => {
               const hit = matchTemplate(templates, result.tplKey);
               const cls =
-                "inline-flex items-center gap-2 rounded-[10px] border border-[#D6E2F8] bg-card px-5 py-3 text-[13.5px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print";
+                "inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-card px-5 py-3 text-[13.5px] font-extrabold text-indigo-800 transition-colors hover:border-coral-700 hover:text-coral-700";
               return hit ? (
                 <a href={hit} className={cls}>
                   <Download className="size-4" />
@@ -375,14 +378,14 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
             })()}
             <Link
               href="/presentations/course"
-              className="inline-flex items-center gap-2 rounded-[10px] border border-[#D6E2F8] bg-card px-5 py-3 text-[13.5px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
+              className="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-card px-5 py-3 text-[13.5px] font-extrabold text-indigo-800 transition-colors hover:border-coral-700 hover:text-coral-700"
             >
               <MonitorPlay className="size-4" />
               {t("actPresent")}
             </Link>
             <button
               onClick={restart}
-              className="inline-flex items-center gap-2 rounded-[10px] px-5 py-3 text-[13.5px] font-extrabold text-subtext transition-colors hover:text-navy"
+              className="inline-flex items-center gap-2 rounded-md px-5 py-3 text-[13.5px] font-extrabold text-neutral-600 transition-colors hover:text-indigo-800"
             >
               <RotateCcw className="size-4" />
               {t("actRestart")}

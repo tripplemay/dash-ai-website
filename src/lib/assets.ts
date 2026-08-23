@@ -1,7 +1,9 @@
+import { CORECOORD_ASSET_ROOT } from "@/lib/brand";
+
 /**
  * Encode public asset URLs before rendering them in HTML.
  *
- * Some of the maintained marketing filenames contain CJK characters. React's
+ * Some maintained asset filenames contain CJK characters. React's
  * server renderer may promote early images into the HTTP Link preload header,
  * which only accepts ASCII header values. URI-encoding the path keeps the
  * public filename unchanged while making both HTML and preload headers valid.
@@ -33,10 +35,13 @@ export function isSafeObjectKey(value: string): boolean {
   );
 }
 
-/** Only allow the two same-origin preview roots maintained by the app. */
-export function resourcePreviewUrl(preview: string | null | undefined, fallback = "/assets/img/mkt-hero-poster.png") {
+/** Only allow the current same-origin CORECOORD preview root. */
+export function resourcePreviewUrl(
+  preview: string | null | undefined,
+  fallback = "/assets/brand/corecoord/2026.1/vi-system-2026/deliverables/previews/corecoord-presentation-cover-16x9.png"
+) {
   const candidate = preview?.trim();
-  if (candidate?.startsWith("/assets/")) {
+  if (candidate?.startsWith(`${CORECOORD_ASSET_ROOT}/`)) {
     const segments = candidate.slice(1).split("/");
     if (
       segments.length >= 2 &&

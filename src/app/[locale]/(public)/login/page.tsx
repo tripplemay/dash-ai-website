@@ -4,7 +4,8 @@ import { useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { authClient } from "@/lib/auth-client";
 import { getSafeReturnTo } from "@/lib/return-to";
-import { BackgroundBeams } from "@/components/aceternity/background-beams";
+import { BrandLogo } from "@/components/brand-logo";
+import { CoordinateField } from "@/components/coordinate-field";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -36,25 +37,21 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[linear-gradient(135deg,#0A1232,#1B2A6B)] px-6">
-      <BackgroundBeams />
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-reverse-background px-6">
+      <CoordinateField className="absolute inset-0 h-full w-full object-cover opacity-15 mix-blend-screen" />
+      <div className="absolute inset-0 bg-reverse-background/80" />
       <div className="relative z-10 w-full max-w-[400px]">
         <div className="mb-6 flex flex-col items-center">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/img/logo/DASH-mark-dark_1024.png"
-            alt="DASH AI"
-            className="logo-rounded size-16 object-cover shadow-card"
-          />
+          <BrandLogo variant="mark-reverse" width={72} height={72} decorative priority className="size-[72px]" />
           <div className="mt-4 text-2xl font-extrabold tracking-[2px] text-white">{t("title")}</div>
-          <div className="mt-1 text-[13px] tracking-widest text-[#9FB3E8]">{t("sub")}</div>
+          <div className="mt-1 text-[13px] tracking-widest text-neutral-300">{t("sub")}</div>
         </div>
 
         <form
           onSubmit={submit}
-          className="rounded-2xl bg-white/95 p-7 shadow-[0_24px_60px_rgba(4,10,32,.45)] backdrop-blur"
+          className="rounded-lg border border-neutral-200 bg-white/95 p-7 shadow-[0_24px_60px_rgba(14,18,25,.35)] backdrop-blur"
         >
-          <p className="text-[13px] leading-relaxed text-subtext">{t("desc")}</p>
+          <p className="text-[13px] leading-relaxed text-neutral-600">{t("desc")}</p>
           <div className="mt-5 space-y-1.5">
             <Label htmlFor="username">{t("username")}</Label>
             <Input

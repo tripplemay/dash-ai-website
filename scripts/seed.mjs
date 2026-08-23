@@ -1,4 +1,4 @@
-// DASH AI 营销资源站 · 种子脚本（账号 + 资源元数据）
+// CORECOORD / 芯坐标资源站 · 种子脚本（账号 + 资源元数据）
 // 用法：BETTER_AUTH_SECRET=... BETTER_AUTH_URL=... DASH_PUBLIC_ORIGIN=... \
 //   SEED_INITIAL_PASSWORD=... SEED_ADMIN_PASSWORD=... node scripts/seed.mjs
 // DB 路径由 DASH_AUTH_DB 指定，默认 ./dash-auth.db
@@ -89,12 +89,12 @@ if (!adminPassword || adminPassword.length < 8) {
 }
 
 const auth = betterAuth({
-  appName: "DASH AI Marketing Hub",
+  appName: "芯坐标 CORECOORD",
   database: (() => {
-    const database = new Database(dbPath, { timeout: 5000 });
+    const database = new Database(dbPath, { timeout: 30000 });
+    database.pragma("busy_timeout = 30000");
     database.pragma("journal_mode = WAL");
     database.pragma("foreign_keys = ON");
-    database.pragma("busy_timeout = 5000");
     return database;
   })(),
   emailAndPassword: { enabled: true },
@@ -137,10 +137,10 @@ for (const a of ACCOUNTS) {
 }
 
 // 校正既有账号的角色（createUser 已存在会跳过；老库里的 role 可能是 user/NULL）
-const fixDb = new Database(dbPath, { timeout: 5000 });
+const fixDb = new Database(dbPath, { timeout: 30000 });
+fixDb.pragma("busy_timeout = 30000");
 fixDb.pragma("journal_mode = WAL");
 fixDb.pragma("foreign_keys = ON");
-fixDb.pragma("busy_timeout = 5000");
 restrictDatabaseFiles();
 runResourceMigrations(fixDb);
 const fixStmt = fixDb.prepare("UPDATE user SET role = ? WHERE username = ? AND (role IS NULL OR role != ?)");
@@ -169,20 +169,23 @@ if (count > 0) {
   const seedFile = path.join(process.cwd(), "scripts", "resources-seed.json");
   const items = JSON.parse(fs.readFileSync(seedFile, "utf8"));
   const categoryKeys = {
+    "品牌系统": "brand-system",
+    "使用指南": "guides",
+    "视觉预览": "visual-previews",
+    "课件模板": "course-templates",
     "课程海报": "course-posters",
     "招募物料": "recruitment",
     "证书手册": "certificates",
     社媒: "social-media",
     "品牌资产": "brand-assets",
     吉祥物: "mascots",
-    "课件模板": "course-templates",
   };
   const ins = fixDb.prepare(`
     INSERT INTO resources (title, category, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
     VALUES (@title, @category, @category_key, @kind, @format, @size, @dimensions, @print_advice, @file_key, @preview, @sort)`);
   const rows = items.map((item) => ({
     ...item,
-    category_key: categoryKeys[item.category] || "unknown",
+    category_key: item.category_key || categoryKeys[item.category] || "unknown",
   }));
   const tx = fixDb.transaction((seedRows) => seedRows.forEach((r) => ins.run(r)));
   tx(rows);

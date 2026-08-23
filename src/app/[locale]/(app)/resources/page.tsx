@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
-import { Spotlight } from "@/components/aceternity/spotlight";
+import { CoordinateField } from "@/components/coordinate-field";
 import { ResourceCenter } from "@/components/resource-center";
 import { listEnabledResourcesPage } from "@/lib/db";
 import { getPageMetadata } from "@/lib/page-metadata";
@@ -35,14 +35,14 @@ export default async function ResourcesPage({
   });
   return (
     <>
-      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#101C52,#1B2A6B)] pt-11 pb-8.5 text-white">
-        <Spotlight className="-top-24 left-1/3" fill="#00E5FF" />
+      <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
+        <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
         <div className="relative z-10 mx-auto max-w-[1200px] px-7">
           <h1 className="text-[32px] font-extrabold tracking-[2px]">
             {t("title1")}
-            <em className="not-italic text-cyan">{t("title2")}</em>
+            <em className="not-italic text-coral-300">{t("title2")}</em>
           </h1>
-          <div className="mt-2 text-[13.5px] tracking-wide text-[#9FB3E8]">{t("sub")}</div>
+          <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
         </div>
       </section>
       <Suspense>

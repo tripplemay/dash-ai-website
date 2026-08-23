@@ -32,6 +32,7 @@ jobs:
           set -euo pipefail
           pnpm run lint
           pnpm exec tsc --noEmit --pretty false
+          pnpm brand:check
           node --check scripts/package-seed-runtime.mjs
           node --check scripts/migrate-auth.mjs
           node --check scripts/check-db.mjs
@@ -40,7 +41,12 @@ jobs:
           test "$(grep -Ec 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
           grep -Eq 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
           grep -Eq '^upstream dash_pr_release_app' deploy/nginx/dash-pr.conf
-          test "$(grep -Ec 'auth_request /_dash_auth_check' deploy/nginx/dash-pr.conf)" -eq 2
+          test "$(grep -Ec 'auth_request /_dash_auth_check' deploy/nginx/dash-pr.conf)" -eq 4
+          for retired_prefix in ext img icons; do
+            grep -Eq "location \\^~ /assets/${retired_prefix}/" deploy/nginx/dash-pr.conf
+          done
+          grep -Fq '    location ^~ /assets/ {' deploy/nginx/dash-pr.conf
+          grep -A8 -F '    location ^~ /assets/ {' deploy/nginx/dash-pr.conf | grep -Fq 'return 410'
           awk '/location = \/files|location \^~ \/files\// { inside=1 } inside { print } inside && /^    }$/ { inside=0 }' deploy/nginx/dash-pr.conf \
             | grep -Eq 'root|try_files' && {
               echo 'The production /files locations must not expose a filesystem root' >&2
@@ -67,6 +73,9 @@ jobs:
           set -euo pipefail
           rm -rf "$RUNNER_TEMP/dash-auth-ci"
           mkdir -p "$RUNNER_TEMP/dash-auth-ci"
+          # Pre-create the build database and switch it to WAL before Next's
+          # static workers import auth/db modules in parallel.
+          DASH_AUTH_DB="$RUNNER_TEMP/dash-auth-ci/dash-auth.db" pnpm migrate
           pnpm build
 
           # standalone 不得携带任何 SQLite 主库或 journal/WAL/SHM 文件。
@@ -94,7 +103,7 @@ jobs:
       - name: Package standalone
         run: |
           set -euo pipefail
-          rm -rf release release.tar.gz
+          rm -rf release release.tar.gz brand-release brand-assets.tar.gz
           mkdir -p release/app/.next release/app/scripts release/app/deploy/nginx
           cp -R .next/standalone/. release/app/
           # Next bundles Better Auth for request handlers, but seed.mjs runs as
@@ -102,8 +111,8 @@ jobs:
           # shipping the complete development node_modules tree.
           node scripts/package-seed-runtime.mjs release/app/node_modules
           node -e "const fs=require('fs'); const h=process.report?.getReport?.().header || {}; fs.writeFileSync('release/app/.runtime-abi.json', JSON.stringify({platform:process.platform,arch:process.arch,modules:process.versions.modules,libc:h.glibcVersionRuntime||null})+'\\n',{mode:0o644})"
-          # public/ is a separately managed 183MB asset volume on the VPS;
-          # never duplicate it inside the application release archive.
+          # public/ is a separately managed asset volume on the VPS; never
+          # duplicate it inside the application release archive.
           rm -rf release/app/public
           cp -R .next/static release/app/.next/static
           cp scripts/seed.mjs release/app/scripts/seed.mjs
@@ -234,6 +243,62 @@ jobs:
           fi
           ls -lh release.tar.gz
 
+          # Brand assets are versioned independently from the standalone app so
+          # the external public volume can be updated atomically and archived.
+          mkdir -p brand-release/assets/brand/corecoord
+          cp -R deploy/brand/2026.1 brand-release/assets/brand/corecoord/2026.1
+          CORECOORD_RESOURCE_ROOT=brand-release pnpm brand:materialize
+          tar -czf brand-assets.tar.gz -C brand-release .
+          brand_verify="$RUNNER_TEMP/corecoord-brand-verify"
+          rm -rf "$brand_verify"
+          mkdir -p "$brand_verify"
+          if tar -tzf brand-assets.tar.gz | grep -Eiq '(^|/)(campaigns?|maker)(/|$)|(^|/)\.\.(/|$)|^/'; then
+            echo "Refusing unsafe or excluded path in brand archive" >&2
+            exit 1
+          fi
+          tar -xzf brand-assets.tar.gz -C "$brand_verify"
+          brand_verify_root="$brand_verify/assets/brand/corecoord/2026.1"
+          test -r "$brand_verify_root/manifest.json"
+          test -r "$brand_verify_root/runtime-map.json"
+          test -r "$brand_verify_root/checksums.sha256"
+          (cd "$brand_verify_root" && sha256sum --quiet -c checksums.sha256)
+          BRAND_VERIFY_ROOT="$brand_verify_root" BRAND_VERIFY_PACKAGE_ROOT="$brand_verify" node - <<'NODE'
+          const crypto = require("crypto");
+          const fs = require("fs");
+          const path = require("path");
+          const manifest = JSON.parse(fs.readFileSync(process.env.BRAND_VERIFY_ROOT + "/manifest.json", "utf8"));
+          const map = JSON.parse(fs.readFileSync(process.env.BRAND_VERIFY_ROOT + "/runtime-map.json", "utf8"));
+          if (manifest.brand !== "CORECOORD" || manifest.release !== "2026.1") {
+            throw new Error("invalid CORECOORD archive manifest");
+          }
+          const staticOnlyKinds = new Set(["font", "font-license", "font-documentation", "manual"]);
+          const downloadable = new Set(manifest.files.filter((record) => !staticOnlyKinds.has(record.kind)).map((record) => record.path));
+          const packageRoot = path.resolve(process.env.BRAND_VERIFY_PACKAGE_ROOT);
+          let count = 0;
+          const sources = new Set();
+          for (const category of Object.values(map.categories || {})) {
+            for (const copy of category.copies || []) {
+              if (!downloadable.has(copy.sourcePath) || sources.has(copy.sourcePath)) {
+                throw new Error("invalid or duplicate materialized resource source: " + copy.sourcePath);
+              }
+              sources.add(copy.sourcePath);
+              const target = path.resolve(packageRoot, copy.fileKey);
+              const targetStat = fs.lstatSync(target);
+              if (!target.startsWith(path.join(packageRoot, "files") + path.sep) || !targetStat.isFile() || targetStat.isSymbolicLink() || targetStat.nlink > 1) {
+                throw new Error("missing materialized resource: " + copy.fileKey);
+              }
+              const digest = crypto.createHash("sha256").update(fs.readFileSync(target)).digest("hex");
+              if (targetStat.size !== Number(copy.bytes) || digest !== copy.sha256) {
+                throw new Error("materialized resource checksum mismatch: " + copy.fileKey);
+              }
+              count += 1;
+            }
+          }
+          if (count === 0 || sources.size !== downloadable.size) throw new Error("brand archive resource map is incomplete");
+          console.log(`verified ${count} materialized CORECOORD resources`);
+          NODE
+          ls -lh brand-assets.tar.gz
+
       - name: Deploy to VPS
         env:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
@@ -256,11 +321,58 @@ jobs:
           printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/deploy_known_hosts
           chmod 600 ~/.ssh/deploy_known_hosts
           ssh_opts=(-i "$HOME/.ssh/deploy_key" -o "UserKnownHostsFile=$HOME/.ssh/deploy_known_hosts" -o StrictHostKeyChecking=yes)
-          scp "${ssh_opts[@]}" release.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/opt/dash-pr/release.tar.gz"
+          # Upload both artifacts into a run-specific directory. Fixed paths
+          # allowed a failed second SCP to pair a new app with an old brand
+          # archive on the next retry.
+          bundle_id="${GITHUB_SHA:-unknown}-${GITHUB_RUN_ID:-0}-${GITHUB_RUN_ATTEMPT:-0}"
+          bundle_id="${bundle_id//[^A-Za-z0-9_.-]/-}"
+          incoming_dir="/opt/dash-pr/incoming/${bundle_id}"
+          # The path is deliberately expanded on the runner before SSH.
+          # shellcheck disable=SC2029
+          ssh "${ssh_opts[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "umask 077; mkdir -p -- '$incoming_dir'"
+          sha256sum release.tar.gz brand-assets.tar.gz > bundle.sha256
+          scp "${ssh_opts[@]}" release.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:$incoming_dir/release.tar.gz"
+          scp "${ssh_opts[@]}" brand-assets.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:$incoming_dir/brand-assets.tar.gz"
+          scp "${ssh_opts[@]}" bundle.sha256 "$DEPLOY_USER@$DEPLOY_HOST:$incoming_dir/bundle.sha256"
           health_override_b64="$(printf '%s' "${DASH_HEALTH_URL:-}" | base64 -w 0)"
-          ssh "${ssh_opts[@]}" "$DEPLOY_USER@$DEPLOY_HOST" bash -s -- "$health_override_b64" <<'REMOTE_EOF'
+          ssh "${ssh_opts[@]}" "$DEPLOY_USER@$DEPLOY_HOST" bash -s -- "$health_override_b64" "$incoming_dir" <<'REMOTE_EOF'
           set -e
           HEALTH_OVERRIDE="$(printf '%s' "${1:-}" | base64 --decode)"
+          INCOMING_DIR="${2:-}"
+          case "$INCOMING_DIR" in
+            /opt/dash-pr/incoming/*) ;;
+            *) echo "invalid deployment incoming directory" >&2; exit 1 ;;
+          esac
+          RELEASE_ARCHIVE="$INCOMING_DIR/release.tar.gz"
+          BRAND_ARCHIVE="$INCOMING_DIR/brand-assets.tar.gz"
+          BUNDLE_DIGEST="$INCOMING_DIR/bundle.sha256"
+          cleanup_incoming_bundle() {
+            local status="$?"
+            if [[ "$#" -gt 0 ]]; then status="$1"; fi
+            trap - EXIT INT TERM HUP
+            case "$INCOMING_DIR" in
+              /opt/dash-pr/incoming/*) rm -rf -- "$INCOMING_DIR" 2>/dev/null || true ;;
+            esac
+            exit "$status"
+          }
+          trap cleanup_incoming_bundle EXIT
+          trap 'cleanup_incoming_bundle 130' INT
+          trap 'cleanup_incoming_bundle 143' TERM
+          trap 'cleanup_incoming_bundle 129' HUP
+          if [[ ! -r "$RELEASE_ARCHIVE" || ! -r "$BRAND_ARCHIVE" || ! -r "$BUNDLE_DIGEST" ]]; then
+            echo "deployment bundle is incomplete" >&2
+            exit 1
+          fi
+          mapfile -t bundle_files < <(awk '{print $2}' "$BUNDLE_DIGEST")
+          if [[ "${#bundle_files[@]}" -ne 2 ]] || {
+            [[ "${bundle_files[0]}" != "release.tar.gz" && "${bundle_files[0]}" != "brand-assets.tar.gz" ]] ||
+            [[ "${bundle_files[1]}" != "release.tar.gz" && "${bundle_files[1]}" != "brand-assets.tar.gz" ]] ||
+            [[ "${bundle_files[0]}" == "${bundle_files[1]}" ]]
+          }; then
+            echo "deployment bundle digest must cover exactly release.tar.gz and brand-assets.tar.gz" >&2
+            exit 1
+          fi
+          (cd "$INCOMING_DIR" && sha256sum --quiet -c bundle.sha256)
           case "$HEALTH_OVERRIDE" in
             https://*) ;;
             *) echo "DASH_HEALTH_URL must be a public HTTPS origin" >&2; exit 1 ;;
@@ -271,6 +383,45 @@ jobs:
             exit 1
           fi
           umask 077
+          mkdir -p /opt/dash-pr/incoming
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is required to serialize deployments" >&2
+            exit 1
+          fi
+          exec 9>/opt/dash-pr/deploy.lock
+          if ! flock -n 9; then
+            echo "another deployment is already running" >&2
+            exit 1
+          fi
+          # A brand release is briefly present in three forms: the uploaded
+          # archive, the verified extraction, and the staged copy. Clean up
+          # abandoned staging directories first, then fail early when the
+          # volume cannot absorb the peak instead of failing mid-commit.
+          if [[ -d /opt/dash-pr/public ]]; then
+            find /opt/dash-pr/public -xdev -mindepth 1 -maxdepth 1 -type d \
+              -name '.corecoord-stage.*' -mmin +60 -print -exec rm -rf -- {} +
+          fi
+          if [[ -d /opt/dash-pr/brand-releases ]]; then
+            find /opt/dash-pr/brand-releases -xdev -mindepth 1 -maxdepth 1 -type d \
+              -name 'brand.*' -mmin +60 -print -exec rm -rf -- {} +
+          fi
+          if [[ -d /opt/dash-pr/incoming ]]; then
+            find /opt/dash-pr/incoming -xdev -mindepth 1 -maxdepth 1 -type d \
+              -mmin +1440 ! -path "$INCOMING_DIR" -print -exec rm -rf -- {} +
+          fi
+          available_kb="$(df -Pk /opt/dash-pr/public 2>/dev/null | awk 'NR == 2 {print $4}')"
+          release_archive_kb="$(du -k "$RELEASE_ARCHIVE" | awk '{print $1}')"
+          brand_archive_kb="$(du -k "$BRAND_ARCHIVE" | awk '{print $1}')"
+          if ! [[ "$available_kb" =~ ^[0-9]+$ && "$release_archive_kb" =~ ^[0-9]+$ && "$brand_archive_kb" =~ ^[0-9]+$ ]]; then
+            echo "could not determine free space for deployment volume" >&2
+            exit 1
+          fi
+          required_kb=$((262144 + release_archive_kb * 4 + brand_archive_kb * 4))
+          if (( available_kb < required_kb )); then
+            echo "insufficient free space on /opt/dash-pr/public: available=${available_kb}KiB required=${required_kb}KiB" >&2
+            exit 1
+          fi
+          echo "deployment volume capacity: available=${available_kb}KiB required=${required_kb}KiB"
           NODE_BIN=""
           for candidate in /opt/node22/bin/node /opt/node22/node /usr/local/bin/node; do
             if [[ -x "$candidate" ]]; then
@@ -307,10 +458,66 @@ jobs:
             echo "current points to a missing previous release: $PREV" >&2
             exit 1
           fi
+          BRAND_REL=""
+          BRAND_ROOT=""
+          BRAND_STAGE=""
+          BRAND_BACKUP_DIR="/opt/dash-pr/backups/brand/${RELEASE_ID}"
+          BRAND_STATIC_TARGET="/opt/dash-pr/public/assets/brand/corecoord/2026.1"
+          BRAND_RESOURCE_TARGET="/opt/dash-pr/public/files/corecoord"
+          BRAND_COMMITTED=0
+          BRAND_STATIC_BACKED_UP=0
+          BRAND_RESOURCE_BACKED_UP=0
+          BRAND_STATIC_INSTALLED=0
+          BRAND_RESOURCE_INSTALLED=0
+          restore_brand() {
+            if [[ "$BRAND_COMMITTED" -ne 1 ]]; then
+              return 0
+            fi
+            # Remove only paths installed by this release, then restore the
+            # archived paths. The backup remains on disk for manual recovery.
+            if [[ "$BRAND_STATIC_INSTALLED" -eq 1 ]]; then
+              rm -rf "$BRAND_STATIC_TARGET" || return 1
+            fi
+            if [[ "$BRAND_RESOURCE_INSTALLED" -eq 1 ]]; then
+              rm -rf "$BRAND_RESOURCE_TARGET" || return 1
+            fi
+            if [[ "$BRAND_STATIC_BACKED_UP" -eq 1 && ! -e "$BRAND_STATIC_TARGET" && ! -L "$BRAND_STATIC_TARGET" ]]; then
+              mv -T "$BRAND_BACKUP_DIR/static" "$BRAND_STATIC_TARGET" || return 1
+            fi
+            if [[ "$BRAND_RESOURCE_BACKED_UP" -eq 1 && ! -e "$BRAND_RESOURCE_TARGET" && ! -L "$BRAND_RESOURCE_TARGET" ]]; then
+              mv -T "$BRAND_BACKUP_DIR/resources" "$BRAND_RESOURCE_TARGET" || return 1
+            fi
+            BRAND_COMMITTED=0
+            BRAND_STATIC_BACKED_UP=0
+            BRAND_RESOURCE_BACKED_UP=0
+            BRAND_STATIC_INSTALLED=0
+            BRAND_RESOURCE_INSTALLED=0
+          }
+          commit_brand() {
+            BRAND_COMMITTED=1
+            mkdir -p "$BRAND_BACKUP_DIR" \
+              "$(dirname "$BRAND_STATIC_TARGET")" \
+              "$(dirname "$BRAND_RESOURCE_TARGET")" || return 1
+            if [[ -e "$BRAND_STATIC_TARGET" || -L "$BRAND_STATIC_TARGET" ]]; then
+              mv -T "$BRAND_STATIC_TARGET" "$BRAND_BACKUP_DIR/static" || return 1
+              BRAND_STATIC_BACKED_UP=1
+            fi
+            if [[ -e "$BRAND_RESOURCE_TARGET" || -L "$BRAND_RESOURCE_TARGET" ]]; then
+              mv -T "$BRAND_RESOURCE_TARGET" "$BRAND_BACKUP_DIR/resources" || return 1
+              BRAND_RESOURCE_BACKED_UP=1
+            fi
+            mv -T "$BRAND_STAGE/assets/brand/corecoord/2026.1" "$BRAND_STATIC_TARGET" || return 1
+            BRAND_STATIC_INSTALLED=1
+            mv -T "$BRAND_STAGE/files/corecoord" "$BRAND_RESOURCE_TARGET" || return 1
+            BRAND_RESOURCE_INSTALLED=1
+            rm -rf "$BRAND_STAGE" || return 1
+            BRAND_STAGE=""
+          }
           KEEP_RELEASE=0
           cleanup_failed_release() {
-            status=$?
-            trap - EXIT
+            local status="$?"
+            if [[ "$#" -gt 0 ]]; then status="$1"; fi
+            trap - EXIT INT TERM HUP
             if [[ "$status" -ne 0 && "${NGINX_BACKUP_DONE:-0}" -eq 1 ]] \
               && declare -F restore_nginx >/dev/null 2>&1; then
               if ! restore_nginx; then
@@ -318,20 +525,30 @@ jobs:
               fi
             fi
             if [[ "$status" -ne 0 && "$KEEP_RELEASE" -ne 1 ]]; then
+              if ! restore_brand; then
+                echo "automatic brand asset restoration from EXIT trap failed" >&2
+              fi
               # A failed rollback must not delete the release still referenced
               # by current; retain it for manual recovery and diagnostics.
               current_target="$(readlink -f /opt/dash-pr/current 2>/dev/null || true)"
               if [[ "$current_target" != "$REL" ]]; then
                 rm -rf "$REL" 2>/dev/null || true
               fi
-              rm -f /opt/dash-pr/release.tar.gz 2>/dev/null || true
+              rm -f "$RELEASE_ARCHIVE" "$BRAND_ARCHIVE" "$BUNDLE_DIGEST" 2>/dev/null || true
+            fi
+            rm -rf "${BRAND_STAGE:-}" "${BRAND_REL:-}" 2>/dev/null || true
+            if [[ -n "${INCOMING_DIR:-}" ]]; then
+              rm -rf -- "$INCOMING_DIR" 2>/dev/null || true
             fi
             rm -f "${PM2_CONFIG:-}" "${ROLLBACK_PM2_CONFIG:-}" 2>/dev/null || true
             exit "$status"
           }
           trap cleanup_failed_release EXIT
+          trap 'cleanup_failed_release 130' INT
+          trap 'cleanup_failed_release 143' TERM
+          trap 'cleanup_failed_release 129' HUP
           mkdir -p "$REL"
-          tar -xzf /opt/dash-pr/release.tar.gz -C "$REL"
+          tar --no-same-owner --no-same-permissions -xzf "$RELEASE_ARCHIVE" -C "$REL"
           "$NODE_BIN" -e "const fs=require('fs'); const f=process.argv[1]; const e=JSON.parse(fs.readFileSync(f,'utf8')); const a={platform:process.platform,arch:process.arch,modules:process.versions.modules}; for (const k of ['platform','arch','modules']) if (String(e[k])!==String(a[k])) throw new Error('native runtime mismatch for '+k+': build='+e[k]+' host='+a[k]); console.log('runtime ABI compatible:', JSON.stringify({build:e,host:a}))" "$REL/.runtime-abi.json"
           "$NODE_BIN" -e "const {createRequire}=require('module'); const r=createRequire(process.argv[1]); const Database=r('better-sqlite3'); const db=new Database(':memory:'); db.pragma('integrity_check'); db.close(); r('sharp'); console.log('native modules loaded: better-sqlite3, sharp')" "$REL/package.json"
           # The installed PM2 version recognizes .js/.mjs/.json ecosystem
@@ -350,12 +567,189 @@ jobs:
               exit 1
             fi
           done
-          write_probe="/opt/dash-pr/public/files/.dash-ready-${RELEASE_ID}-$$"
-          if ! (umask 077; printf 'dash-ready\n' > "$write_probe"); then
-            echo "asset volume is not writable: /opt/dash-pr/public/files" >&2
+          for asset_parent in /opt/dash-pr/public/assets /opt/dash-pr/public/files; do
+            write_probe="$asset_parent/.dash-ready-${RELEASE_ID}-$$"
+            if ! (umask 077; printf 'dash-ready\n' > "$write_probe"); then
+              echo "asset volume is not writable: $asset_parent" >&2
+              exit 1
+            fi
+            rm -f "$write_probe"
+          done
+
+          # The brand package is uploaded separately from the standalone app.
+          # Verify its archive, manifest, and every content checksum before it
+          # can touch the shared public volume.
+          if [[ ! -r "$BRAND_ARCHIVE" ]]; then
+            echo "brand asset archive is missing: $BRAND_ARCHIVE" >&2
             exit 1
           fi
-          rm -f "$write_probe"
+          if tar -tzf "$BRAND_ARCHIVE" | sed 's#^\./##' | grep -Eiq '(^/|(^|/)\.\.(/|$)|(^|/)(campaigns?|maker)(/|$))'; then
+            echo "brand asset archive contains an unsafe path" >&2
+            exit 1
+          fi
+          mkdir -p /opt/dash-pr/brand-releases
+          BRAND_REL="$(mktemp -d /opt/dash-pr/brand-releases/brand.XXXXXXXX)"
+          tar --no-same-owner --no-same-permissions -xzf "$BRAND_ARCHIVE" -C "$BRAND_REL"
+          BRAND_ROOT="$BRAND_REL/assets/brand/corecoord/2026.1"
+          if [[ ! -r "$BRAND_ROOT/manifest.json" || ! -r "$BRAND_ROOT/runtime-map.json" || ! -r "$BRAND_ROOT/checksums.sha256" ]]; then
+            echo "brand package is missing manifest/runtime-map/checksums" >&2
+            exit 1
+          fi
+          (
+            cd "$BRAND_ROOT"
+            sha256sum --quiet -c checksums.sha256
+          )
+          BRAND_ROOT="$BRAND_ROOT" BRAND_PACKAGE_ROOT="$BRAND_REL" "$NODE_BIN" - <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          const packageRoot = path.resolve(process.env.BRAND_PACKAGE_ROOT);
+          const brandRoot = path.resolve(process.env.BRAND_ROOT);
+          const fail = (message) => { throw new Error(message); };
+          const relative = (filePath) => path.relative(packageRoot, filePath).split(path.sep).join("/");
+          const inside = (base, candidate) => candidate === base || candidate.startsWith(base + path.sep);
+          const forbidden = /(?:^|[\\/])campaigns?(?:[\\/]|$)|maker/i;
+          const safeRelative = (value) => typeof value === "string" && value.length > 0 &&
+            !value.startsWith("/") && !value.includes("\\") && !value.split("/").some((part) => !part || part === "." || part === "..") &&
+            !forbidden.test(value);
+          const manifest = JSON.parse(fs.readFileSync(path.join(brandRoot, "manifest.json"), "utf8"));
+          const runtimeMap = JSON.parse(fs.readFileSync(path.join(brandRoot, "runtime-map.json"), "utf8"));
+          if (manifest.brand !== "CORECOORD" || manifest.release !== "2026.1" || manifest.policy?.approvedOnly !== true) {
+            fail("unexpected CORECOORD brand manifest");
+          }
+          if (runtimeMap.schemaVersion !== 1 || runtimeMap.brand !== "CORECOORD" || runtimeMap.release !== "2026.1" ||
+              runtimeMap.staticBase !== "/assets/brand/corecoord/2026.1" || runtimeMap.resourceBase !== "/files/corecoord") {
+            fail("unexpected CORECOORD runtime map");
+          }
+          if (!Array.isArray(manifest.files) || manifest.files.length === 0) fail("brand manifest has no files");
+          const manifestPaths = new Set();
+          const expectedFiles = new Set([
+            "assets/brand/corecoord/2026.1/README.md",
+            "assets/brand/corecoord/2026.1/manifest.json",
+            "assets/brand/corecoord/2026.1/checksums.sha256",
+            "assets/brand/corecoord/2026.1/runtime-map.json",
+          ]);
+          for (const record of manifest.files) {
+            if (!safeRelative(record.path) || manifestPaths.has(record.path)) fail("invalid or duplicate manifest path: " + record.path);
+            manifestPaths.add(record.path);
+            expectedFiles.add("assets/brand/corecoord/2026.1/" + record.path);
+          }
+          const staticOnlyKinds = new Set(["font", "font-license", "font-documentation", "manual"]);
+          const resourceManifestPaths = new Set(
+            manifest.files.filter((record) => !staticOnlyKinds.has(record.kind)).map((record) => record.path)
+          );
+          const requiredCategories = {
+            "brand-system": "files/corecoord/brand-system",
+            guides: "files/corecoord/guides",
+            "visual-previews": "files/corecoord/visual-previews",
+            "course-templates": "files/corecoord/course-templates",
+          };
+          if (JSON.stringify(Object.keys(runtimeMap.categories || {}).sort()) !== JSON.stringify(Object.keys(requiredCategories).sort())) {
+            fail("runtime map categories do not match the CORECOORD contract");
+          }
+          for (const [key, root] of Object.entries(requiredCategories)) {
+            if (runtimeMap.categories[key]?.root !== root || !Array.isArray(runtimeMap.categories[key]?.copies)) {
+              fail("invalid runtime map category: " + key);
+            }
+          }
+          const resourceCopies = Object.values(runtimeMap.categories).flatMap((category) => category.copies);
+          if (resourceCopies.length === 0) fail("runtime map contains no resource copies");
+          const resourceTargets = new Set();
+          const resourceSources = new Set();
+          for (const copy of resourceCopies) {
+            if (!safeRelative(copy.sourcePath) || !safeRelative(copy.fileKey) || !copy.fileKey.startsWith("files/corecoord/")) {
+              fail("invalid runtime-map path: " + (copy.fileKey || ""));
+            }
+            if (!resourceManifestPaths.has(copy.sourcePath)) fail("runtime-map points to a static-only asset: " + copy.sourcePath);
+            if (!manifestPaths.has(copy.sourcePath)) fail("runtime-map source is absent from manifest: " + copy.sourcePath);
+            if (resourceSources.has(copy.sourcePath)) fail("duplicate runtime-map source: " + copy.sourcePath);
+            resourceSources.add(copy.sourcePath);
+            if (resourceTargets.has(copy.fileKey)) fail("duplicate runtime-map target: " + copy.fileKey);
+            resourceTargets.add(copy.fileKey);
+            expectedFiles.add(copy.fileKey);
+          }
+          if (resourceSources.size !== resourceManifestPaths.size || [...resourceManifestPaths].some((file) => !resourceSources.has(file))) {
+            fail("runtime map does not cover every downloadable manifest asset exactly once");
+          }
+          const expectedDirs = new Set(["."]);
+          for (const file of expectedFiles) {
+            let current = path.posix.dirname(file);
+            while (current && current !== ".") {
+              expectedDirs.add(current);
+              current = path.posix.dirname(current);
+            }
+          }
+          const walk = (directory) => {
+            const dirRelative = relative(directory) || ".";
+            const dirStat = fs.lstatSync(directory);
+            if (!dirStat.isDirectory()) fail("brand package root is not a directory: " + dirRelative);
+            if (!expectedDirs.has(dirRelative)) fail("unexpected brand directory: " + dirRelative);
+            for (const entry of fs.readdirSync(directory, { withFileTypes: true })) {
+              const absolute = path.join(directory, entry.name);
+              const rel = relative(absolute);
+              const stat = fs.lstatSync(absolute);
+              if (stat.isSymbolicLink() || (!stat.isDirectory() && stat.nlink > 1) || stat.isBlockDevice() || stat.isCharacterDevice() || stat.isFIFO() || stat.isSocket()) {
+                fail("links or special files are not allowed in brand package: " + rel);
+              }
+              if (stat.isDirectory()) walk(absolute);
+              else if (!stat.isFile() || !expectedFiles.has(rel)) fail("unexpected brand package file: " + rel);
+            }
+          };
+          walk(packageRoot);
+          for (const file of expectedFiles) {
+            const absolute = path.join(packageRoot, file);
+            if (!inside(packageRoot, path.resolve(absolute)) || !fs.lstatSync(absolute).isFile()) {
+              fail("missing brand package file: " + file);
+            }
+          }
+          console.log("brand archive tree and allowlist verified");
+          NODE
+          BRAND_STAGE="$(mktemp -d /opt/dash-pr/public/.corecoord-stage.XXXXXXXX)"
+          mkdir -p "$BRAND_STAGE/assets/brand/corecoord" "$BRAND_STAGE/files"
+          cp -a "$BRAND_ROOT" "$BRAND_STAGE/assets/brand/corecoord/2026.1"
+          if [[ ! -d "$BRAND_REL/files/corecoord" ]]; then
+            echo "brand package is missing materialized files/corecoord" >&2
+            exit 1
+          fi
+          cp -a "$BRAND_REL/files/corecoord" "$BRAND_STAGE/files/corecoord"
+          BRAND_ROOT="$BRAND_ROOT" BRAND_STAGE="$BRAND_STAGE" "$NODE_BIN" - <<'NODE'
+          const crypto = require("crypto");
+          const fs = require("fs");
+          const path = require("path");
+          const root = path.resolve(process.env.BRAND_ROOT);
+          const stage = path.resolve(process.env.BRAND_STAGE);
+          const resourceRoot = path.join(stage, "files");
+          const map = JSON.parse(fs.readFileSync(path.join(root, "runtime-map.json"), "utf8"));
+          const copies = Object.values(map.categories || {}).flatMap((category) => category.copies || []);
+          if (copies.length === 0) throw new Error("runtime map contains no resource copies");
+          const seen = new Set();
+          const inside = (base, candidate) => candidate === base || candidate.startsWith(base + path.sep);
+          for (const copy of copies) {
+            if (typeof copy.sourcePath !== "string" || typeof copy.fileKey !== "string") {
+              throw new Error("invalid runtime-map copy");
+            }
+            const source = path.resolve(root, copy.sourcePath);
+            const target = path.resolve(stage, copy.fileKey);
+            if (!inside(root, source) || !inside(resourceRoot, target) || !copy.fileKey.startsWith("files/corecoord/")) {
+              throw new Error("runtime-map path escapes staged roots: " + copy.fileKey);
+            }
+            if (seen.has(copy.fileKey)) throw new Error("duplicate runtime-map target: " + copy.fileKey);
+            seen.add(copy.fileKey);
+            const sourceStat = fs.lstatSync(source);
+            const targetStat = fs.lstatSync(target);
+            if (!sourceStat.isFile() || !targetStat.isFile()) {
+              throw new Error("runtime-map source/target is not a regular file: " + copy.fileKey);
+            }
+            if (sourceStat.size !== Number(copy.bytes) || targetStat.size !== Number(copy.bytes)) {
+              throw new Error("size mismatch: " + copy.sourcePath);
+            }
+            const sourceDigest = crypto.createHash("sha256").update(fs.readFileSync(source)).digest("hex");
+            const targetDigest = crypto.createHash("sha256").update(fs.readFileSync(target)).digest("hex");
+            if (sourceDigest !== copy.sha256 || targetDigest !== copy.sha256) {
+              throw new Error("checksum mismatch: " + copy.fileKey);
+            }
+          }
+          console.log("materialized " + copies.length + " CORECOORD resource files");
+          NODE
           APP_NAME="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.name || 'dash-pr'))" "$PM2_CONFIG")"
           PM2_USER="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.uid ?? a?.user ?? ''))" "$PM2_CONFIG")"
           PM2_INSTANCES="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.instances ?? 1))" "$PM2_CONFIG")"
@@ -463,6 +857,10 @@ jobs:
           }
           console.log(JSON.stringify({ app: app?.name || "dash-pr", origin: publicOrigin.origin, release: env.DASH_RELEASE_ID || null }));
           NODE
+          # Publish the verified brand volume before database migration. The
+          # old static/resource trees are already archived and the EXIT trap
+          # restores them if any subsequent migration or health check fails.
+          commit_brand
           # 迁移在切换 current 前执行；已有数据库失败时发布中止并保留旧版本。
           # 首次部署没有 current 时，先把代码发布为 current，供运维执行
           # README 中的 seed；若已有 current 却丢了数据库，则拒绝覆盖现场。
@@ -474,7 +872,6 @@ jobs:
             ln -sfn "$REL" /opt/dash-pr/current.new
             mv -T /opt/dash-pr/current.new /opt/dash-pr/current
             KEEP_RELEASE=1
-            rm -f /opt/dash-pr/release.tar.gz
             echo "release staged at /opt/dash-pr/current; run the documented seed command, then rerun deployment" >&2
             exit 1
           fi
@@ -498,7 +895,6 @@ jobs:
           NGINX_AVAILABLE_BACKUP="$NGINX_BACKUP_DIR/${RELEASE_ID}.available"
           NGINX_ENABLED_BACKUP="$NGINX_BACKUP_DIR/${RELEASE_ID}.enabled"
           NGINX_BACKUP_DONE=0
-          NGINX_CHANGED=0
           backup_nginx() {
             if ! sudo -n true 2>/dev/null; then
               echo "deploy user does not have passwordless sudo for nginx installation" >&2
@@ -528,7 +924,6 @@ jobs:
               return 1
             fi
             sudo -n systemctl reload nginx
-            NGINX_CHANGED=0
           }
           install_nginx() {
             if [[ ! -r "$REL/deploy/nginx/dash-pr.conf" ]]; then
@@ -567,13 +962,16 @@ jobs:
               restore_nginx || true
               return 1
             fi
-            NGINX_CHANGED=1
           }
           restore_previous() {
             # A rollback can fail after PM2 has accepted a new process. Keep
             # the candidate release in that ambiguous state so it remains
             # available for manual recovery and diagnostics.
             KEEP_RELEASE=1
+            if ! restore_brand; then
+              echo "brand asset rollback failed" >&2
+              return 1
+            fi
             if ! restore_nginx; then
               echo "nginx rollback failed" >&2
               return 1
@@ -676,7 +1074,51 @@ jobs:
             fi
             exit 1
           fi
-          for protected_path in /files /files/__dash_auth_probe__; do
+          for public_path in \
+            /assets/brand/corecoord/2026.1/logo-final-2026/vector/corecoord-logo-horizontal-color.svg \
+            /assets/brand/corecoord/2026.1/vi-system-2026/manual/index.html \
+            /assets/brand/corecoord/2026.1/vi-system-2026/deliverables/tokens/corecoord.css; do
+            public_status="$(curl --silent --show-error --output /tmp/dash-brand-probe --write-out '%{http_code}' --max-time 5 "${HEALTH_URL}${public_path}" || true)"
+            if [[ "$public_status" != "200" ]]; then
+              echo "public CORECOORD asset probe failed for $public_path (status=$public_status)" >&2
+              diagnose_runtime
+              if ! restore_previous; then
+                echo "automatic PM2 rollback after brand probe failure failed; manual intervention is required" >&2
+              fi
+              exit 1
+            fi
+          done
+          # These deliverables are also materialized under /files/corecoord,
+          # so their public static aliases must remain behind auth_request.
+          # Probe without a session to catch location-order regressions that
+          # would otherwise expose the protected copy through /assets.
+          for protected_brand_path in \
+            /assets/brand/corecoord/2026.1/vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf \
+            /assets/brand/corecoord/2026.1/vi-system-2026/deliverables/templates/course/corecoord-presentation-cover-16x9.svg; do
+            protected_brand_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 5 "${HEALTH_URL}${protected_brand_path}" || true)"
+            if [[ "$protected_brand_status" != "401" ]]; then
+              echo "protected CORECOORD asset probe expected 401 without a session for $protected_brand_path, got $protected_brand_status" >&2
+              diagnose_runtime
+              if ! restore_previous; then
+                echo "automatic PM2 rollback after protected brand probe failure failed; manual intervention is required" >&2
+              fi
+              exit 1
+            fi
+          done
+          for legacy_path in /assets/legacy-brand-probe.png /assets/ext/legacy-brand-probe.png /assets/img/legacy-brand-probe.png /assets/icons/legacy-brand-probe.png; do
+            legacy_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 5 "${HEALTH_URL}${legacy_path}" || true)"
+            if [[ "$legacy_status" != "410" ]]; then
+              echo "retired legacy asset path was not blocked: $legacy_path (status=$legacy_status)" >&2
+              diagnose_runtime
+              if ! restore_previous; then
+                echo "automatic PM2 rollback after legacy asset probe failure failed; manual intervention is required" >&2
+              fi
+              exit 1
+            fi
+          done
+          for protected_path in \
+            /files \
+            /files/__dash_auth_probe__; do
             files_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}${protected_path}" || true)"
             if [[ "$files_status" != "401" ]]; then
               echo "protected $protected_path probe expected 401 without a session, got $files_status" >&2
@@ -692,7 +1134,8 @@ jobs:
           # process that is serving traffic.
           KEEP_RELEASE=1
           "$PM2_BIN" save
-          rm -f /opt/dash-pr/release.tar.gz
+          rm -rf "$INCOMING_DIR"
           "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const root='/opt/dash-pr/releases'; const keep=fs.readdirSync(root,{withFileTypes:true}).filter((e)=>e.isDirectory() && /^release\\.[A-Za-z0-9]+$/.test(e.name)).map((e)=>{const p=path.join(root,e.name); return {p,mtime:fs.statSync(p).mtimeMs};}).sort((a,b)=>b.mtime-a.mtime).slice(5); for(const item of keep) fs.rmSync(item.p,{recursive:true,force:true})"
+          "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const root='/opt/dash-pr/backups/brand'; if(fs.existsSync(root)){const keep=fs.readdirSync(root,{withFileTypes:true}).filter((e)=>e.isDirectory() && /^release\\.[A-Za-z0-9]+$/.test(e.name)).map((e)=>{const p=path.join(root,e.name); return {p,mtime:fs.statSync(p).mtimeMs};}).sort((a,b)=>b.mtime-a.mtime).slice(5); for(const item of keep) fs.rmSync(item.p,{recursive:true,force:true})}"
           echo "deployed: $REL"
           REMOTE_EOF

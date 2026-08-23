@@ -26,9 +26,9 @@ export default async function AppLayout({
     isAdmin = (session.user as { role?: string }).role === "admin";
   }
   return (
-    <div className="flex min-h-screen flex-col lg:pl-64">
+    <div className="flex min-h-screen min-w-0 flex-col lg:pl-64">
       <SiteHeader isAdmin={isAdmin} />
-      <main className="flex-1 pb-20 lg:pb-0">{children}</main>
+      <main className="min-w-0 flex-1 pb-20 lg:pb-0">{children}</main>
       <SiteFooter />
     </div>
   );

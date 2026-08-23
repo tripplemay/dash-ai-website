@@ -43,17 +43,17 @@ export default async function AdminDashboard({
   return (
     <>
       <h1 className="text-[24px] font-extrabold tracking-[2px]">{t("dash.title")}</h1>
-      <div className="mt-1.5 text-[13.5px] text-subtext">{t("dash.sub")}</div>
+      <div className="mt-1.5 text-[13.5px] text-muted-foreground">{t("dash.sub")}</div>
       <div className="mt-6 grid grid-cols-2 gap-5 lg:grid-cols-4">
         {cards.map((c) => (
           <Link
             key={c.label}
             href={c.href}
-            className="rounded-2xl bg-card p-6 shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover"
+            className="rounded-lg border border-neutral-200 bg-card p-6 shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover"
           >
-            <c.icon className="size-6 text-cyan-print" />
-            <div className="mt-3 text-[32px] font-extrabold text-navy">{c.value}</div>
-            <div className="mt-1 text-[13px] font-bold text-subtext">{c.label}</div>
+            <c.icon className="size-6 text-coral-700" />
+            <div className="mt-3 text-[32px] font-extrabold text-indigo-800">{c.value}</div>
+            <div className="mt-1 text-[13px] font-bold text-muted-foreground">{c.label}</div>
           </Link>
         ))}
       </div>

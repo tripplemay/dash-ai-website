@@ -18,6 +18,7 @@ import {
   X,
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { BrandLogo } from "@/components/brand-logo";
 import { cn } from "@/lib/utils";
 
 const PRIMARY_NAV = [
@@ -41,6 +42,7 @@ function isFullscreenPath(pathname: string) {
 export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
   const t = useTranslations("nav");
   const locale = useLocale();
+  const brandAccessibleName = locale === "zh" ? "芯坐标 CORECOORD" : "CORECOORD";
   const pathname = usePathname();
   const router = useRouter();
   const [moreOpen, setMoreOpen] = useState(false);
@@ -86,13 +88,13 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
   const navClass = (href: string, mobile = false) =>
     cn(
       mobile
-        ? "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-[10px] px-2 py-2 text-[10px] font-bold transition-colors"
-        : "flex items-center gap-3 rounded-[10px] px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors",
+        ? "flex min-w-0 flex-1 flex-col items-center gap-1 rounded-md px-2 py-2 text-[10px] font-bold transition-colors"
+        : "flex items-center gap-3 rounded-md px-3 py-2.5 text-[13px] font-bold tracking-wide transition-colors",
       isActive(href)
-        ? "bg-cyan/15 text-cyan"
+        ? cn("bg-coral-500/15", mobile ? "text-coral-700" : "text-coral-300")
         : mobile
-          ? "text-[#8FA3DC] hover:bg-white/10 hover:text-white"
-          : "text-[#BFEFFF] hover:bg-cyan/10 hover:text-cyan"
+          ? "text-neutral-500 hover:bg-neutral-50 hover:text-indigo-700"
+          : "text-neutral-300 hover:bg-white/10 hover:text-white"
     );
 
   const renderPrimary = (mobile = false) =>
@@ -105,7 +107,9 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
         onClick={() => setMoreOpen(false)}
       >
         <Icon aria-hidden="true" className={mobile ? "size-5" : "size-[17px]"} />
-        <span className={mobile ? "truncate" : ""}>{t(key)}</span>
+        <span className={mobile ? "truncate" : ""}>
+          {mobile && key === "presentations" ? t("presentationsShort") : t(key)}
+        </span>
       </Link>
     ));
 
@@ -125,27 +129,20 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
 
   return (
     <>
-      <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 flex-col border-r border-[#DCE6F7] bg-deep px-4 py-5 lg:flex">
+      <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 flex-col border-r border-white/15 bg-reverse-background px-4 py-5 lg:flex">
         <Link href="/workspace" aria-label={t("workspace")} className="flex items-center gap-3 px-2">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/assets/img/logo/DASH-mark-dark_1024.png"
-            alt="DASH AI"
-            className="logo-rounded size-10 object-cover"
-          />
-          <span className="text-[18px] font-extrabold tracking-[2px] text-white">
-            DASH <em className="not-italic text-cyan">AI</em>
-          </span>
+          <BrandLogo variant="mark-reverse" width={40} height={40} decorative priority className="size-10" />
+          <span className="sr-only">{brandAccessibleName}</span>
         </Link>
 
         <form onSubmit={submitSearch} role="search" className="relative mt-7">
-          <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-[#8FA3DC]" />
+          <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-400" />
           <input
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             placeholder={t("searchPlaceholder")}
             aria-label={t("search")}
-            className="h-10 w-full rounded-[10px] border border-white/15 bg-white/8 pr-3 pl-9 text-[12px] text-white outline-none placeholder:text-[#8FA3DC] focus:border-cyan"
+            className="h-10 w-full rounded-md border border-white/15 bg-white/8 pr-3 pl-9 text-[12px] text-white outline-none placeholder:text-neutral-400 focus:border-coral-300"
           />
         </form>
 
@@ -153,7 +150,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
           {renderPrimary()}
         </nav>
         <div className="my-5 border-t border-white/10" />
-        <div className="px-3 text-[10px] font-extrabold tracking-[2px] text-[#7186C1]">{t("more")}</div>
+        <div className="px-3 text-[10px] font-extrabold tracking-[2px] text-neutral-500">{t("more")}</div>
         <nav aria-label={t("secondaryNavigation")} className="mt-2 flex flex-col gap-1">
           {renderSecondary()}
           {isAdmin && (
@@ -172,7 +169,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
           <button
             type="button"
             onClick={() => switchLocale(locale === "zh" ? "en" : "zh")}
-            className="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-bold text-[#BFEFFF] transition-colors hover:bg-white/10 hover:text-white"
+            className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[13px] font-bold text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
           >
             <Languages aria-hidden="true" className="size-[17px]" />
             {locale === "zh" ? "English" : "中文"}
@@ -180,7 +177,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
           <button
             type="button"
             onClick={logout}
-            className="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-bold text-[#8FA3DC] transition-colors hover:bg-white/10 hover:text-white"
+            className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[13px] font-bold text-neutral-400 transition-colors hover:bg-white/10 hover:text-white"
           >
             <LogOut aria-hidden="true" className="size-[17px]" />
             {t("logout")}
@@ -188,32 +185,29 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
         </div>
       </aside>
 
-      <header className="sticky top-0 z-40 flex h-16 items-center border-b border-[#DCE6F7] bg-deep/95 px-4 backdrop-blur-md lg:hidden">
+      <header className="sticky top-0 z-40 flex h-16 items-center border-b border-white/15 bg-reverse-background/95 px-4 backdrop-blur-md lg:hidden">
         <Link href="/workspace" aria-label={t("workspace")} className="flex items-center gap-2.5">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/assets/img/logo/DASH-mark-dark_1024.png" alt="DASH AI" className="logo-rounded size-8 object-cover" />
-          <span className="text-[16px] font-extrabold tracking-[1.5px] text-white">
-            DASH <em className="not-italic text-cyan">AI</em>
-          </span>
+          <BrandLogo variant="mark-reverse" width={32} height={32} decorative priority className="size-8" />
+          <span className="sr-only">{brandAccessibleName}</span>
         </Link>
         <Sheet open={moreOpen} onOpenChange={setMoreOpen}>
           <SheetTrigger
             type="button"
             aria-label={t("more")}
-            className="ml-auto inline-flex size-10 items-center justify-center rounded-[10px] text-white hover:bg-white/10"
+            className="ml-auto inline-flex size-10 items-center justify-center rounded-md text-white hover:bg-white/10"
           >
             {moreOpen ? <X aria-hidden="true" className="size-5" /> : <Menu aria-hidden="true" className="size-5" />}
           </SheetTrigger>
-          <SheetContent side="right" className="w-[min(22rem,88vw)] bg-deep text-white">
+          <SheetContent side="right" className="w-[min(22rem,88vw)] border-white/15 bg-reverse-background text-white">
             <SheetTitle className="text-white">{t("more")}</SheetTitle>
             <form onSubmit={submitSearch} role="search" className="relative mt-5">
-              <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-[#8FA3DC]" />
+              <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-400" />
               <input
                 value={query}
                 onChange={(event) => setQuery(event.target.value)}
                 placeholder={t("searchPlaceholder")}
                 aria-label={t("search")}
-                className="h-10 w-full rounded-[10px] border border-white/15 bg-white/8 pr-3 pl-9 text-[12px] text-white outline-none placeholder:text-[#8FA3DC] focus:border-cyan"
+                className="h-10 w-full rounded-md border border-white/15 bg-white/8 pr-3 pl-9 text-[12px] text-white outline-none placeholder:text-neutral-400 focus:border-coral-300"
               />
             </form>
             <nav aria-label={t("secondaryNavigation")} className="mt-6 flex flex-col gap-1">
@@ -229,7 +223,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
               <button
                 type="button"
                 onClick={() => switchLocale(locale === "zh" ? "en" : "zh")}
-                className="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-bold text-[#BFEFFF] hover:bg-white/10"
+                className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[13px] font-bold text-neutral-300 hover:bg-white/10"
               >
                 <Languages aria-hidden="true" className="size-[17px]" />
                 {locale === "zh" ? "English" : "中文"}
@@ -237,7 +231,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
               <button
                 type="button"
                 onClick={logout}
-                className="flex w-full items-center gap-3 rounded-[10px] px-3 py-2.5 text-left text-[13px] font-bold text-[#8FA3DC] hover:bg-white/10 hover:text-white"
+                className="flex w-full items-center gap-3 rounded-md px-3 py-2.5 text-left text-[13px] font-bold text-neutral-400 hover:bg-white/10 hover:text-white"
               >
                 <LogOut aria-hidden="true" className="size-[17px]" />
                 {t("logout")}
@@ -249,13 +243,13 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
 
       <nav
         aria-label={t("primaryNavigation")}
-        className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-[#DCE6F7] bg-white/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_rgba(27,42,107,.08)] backdrop-blur-md lg:hidden"
+        className="fixed right-0 bottom-0 left-0 z-40 flex border-t border-neutral-200 bg-white/95 px-2 pb-[env(safe-area-inset-bottom)] pt-1 shadow-[0_-8px_24px_rgba(34,54,123,.12)] backdrop-blur-md lg:hidden"
       >
         {renderPrimary(true)}
         <button
           type="button"
           onClick={() => setMoreOpen(true)}
-          className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-[10px] px-2 py-2 text-[10px] font-bold text-[#8FA3DC] hover:bg-[#F0F5FC] hover:text-navy"
+          className="flex min-w-0 flex-1 flex-col items-center gap-1 rounded-md px-2 py-2 text-[10px] font-bold text-neutral-500 hover:bg-neutral-50 hover:text-indigo-700"
           aria-label={t("more")}
         >
           <MoreHorizontal aria-hidden="true" className="size-5" />

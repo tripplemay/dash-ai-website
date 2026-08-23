@@ -15,6 +15,13 @@ export async function generateMetadata({
   return {
     title: { default: t("title"), template: t("template") },
     description: t("description"),
+    icons: {
+      icon: [
+        { url: "/assets/brand/corecoord/2026.1/logo-final-2026/icons/favicon.ico" },
+        { url: "/assets/brand/corecoord/2026.1/logo-final-2026/icons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      ],
+      apple: "/assets/brand/corecoord/2026.1/logo-final-2026/icons/apple-touch-icon.png",
+    },
   };
 }
 

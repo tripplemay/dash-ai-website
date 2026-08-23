@@ -69,7 +69,7 @@ export function UploadForm() {
   };
 
   return (
-    <form onSubmit={submit} className="rounded-2xl bg-card p-6 shadow-card">
+    <form onSubmit={submit} className="rounded-lg border border-neutral-200 bg-card p-6 shadow-card">
       <h2 className="text-[16px] font-extrabold">{t("uploadTitle")}</h2>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="space-y-1.5">
@@ -78,7 +78,7 @@ export function UploadForm() {
             ref={fileRef}
             type="file"
             required
-            className="w-full rounded-lg border border-input px-2.5 py-1.5 text-sm file:mr-2 file:rounded-md file:border-0 file:bg-mist file:px-2 file:py-1 file:text-xs file:font-bold file:text-navy"
+            className="w-full rounded-md border border-input px-2.5 py-1.5 text-sm file:mr-2 file:rounded-sm file:border-0 file:bg-indigo-50 file:px-2 file:py-1 file:text-xs file:font-bold file:text-indigo-800"
           />
         </div>
         <div className="space-y-1.5">
@@ -110,7 +110,7 @@ export function UploadForm() {
           {busy ? t("submitting") : t("uploadSubmit")}
         </Button>
         {msg && (
-          <span className={cn("text-[13px] font-bold", msg.ok ? "text-cyan-print" : "text-destructive")}>
+          <span className={cn("text-[13px] font-bold", msg.ok ? "text-coral-700" : "text-destructive")}>
             {msg.text}
           </span>
         )}
@@ -161,7 +161,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
   };
 
   return (
-    <tr className="border-b border-[#F0F5FC] align-middle last:border-0 hover:bg-[#FAFCFF]">
+    <tr className="border-b border-neutral-100 align-middle last:border-0 hover:bg-neutral-50">
       <td className="px-4 py-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -171,14 +171,14 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
           height={80}
           loading="lazy"
           decoding="async"
-          className="h-10 w-16 rounded-lg bg-deep object-cover"
+          className="h-10 w-16 rounded-lg bg-reverse-background object-cover"
         />
       </td>
       <td className="min-w-[180px] px-4 py-3">
         {editing ? (
           <Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
         ) : (
-          <span className="font-extrabold text-navy">{row.title}</span>
+          <span className="font-extrabold text-indigo-800">{row.title}</span>
         )}
       </td>
       <td className="px-4 py-3">
@@ -195,13 +195,13 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             ))}
           </select>
         ) : (
-          <span className="rounded-lg bg-mist px-2.5 py-1 text-[11px] font-extrabold text-navy">
+          <span className="rounded-md bg-indigo-50 px-2.5 py-1 text-[11px] font-extrabold text-indigo-800">
             {categoryLabels[RESOURCE_CATS_STORE.indexOf(row.category)] ?? row.category}
           </span>
         )}
       </td>
-      <td className="px-4 py-3 text-subtext">{row.format || "—"}</td>
-      <td className="max-w-[220px] truncate px-4 py-3 text-[12px] text-subtext" title={row.file_key}>
+      <td className="px-4 py-3 text-muted-foreground">{row.format || "—"}</td>
+      <td className="max-w-[220px] truncate px-4 py-3 text-[12px] text-muted-foreground" title={row.file_key}>
         /{row.file_key}
       </td>
       <td className="min-w-[180px] px-4 py-3">
@@ -212,7 +212,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             placeholder={t("advicePh")}
           />
         ) : (
-          <span className="text-[12px] text-subtext">{row.print_advice || "—"}</span>
+          <span className="text-[12px] text-muted-foreground">{row.print_advice || "—"}</span>
         )}
       </td>
       <td className="w-[72px] px-4 py-3">
@@ -223,10 +223,10 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             onChange={(e) => setForm({ ...form, sort: Number(e.target.value) })}
           />
         ) : (
-          <span className="text-subtext">{row.sort}</span>
+          <span className="text-muted-foreground">{row.sort}</span>
         )}
       </td>
-      <td className="px-4 py-3 text-[12px] whitespace-nowrap text-subtext">{row.updated_at}</td>
+      <td className="px-4 py-3 text-[12px] whitespace-nowrap text-muted-foreground">{row.updated_at}</td>
       <td className="px-4 py-3">
         <div className="flex items-center gap-2">
           <button
@@ -236,7 +236,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             aria-checked={!!row.enabled}
             className={cn(
               "relative h-5.5 w-10 rounded-full transition-colors",
-              row.enabled ? "bg-[#0E9F6E]" : "bg-[#C9D6F2]"
+              row.enabled ? "bg-green-600" : "bg-neutral-300"
             )}
             title={row.enabled ? t("disable") : t("enable")}
           >
@@ -253,14 +253,14 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
                 onClick={save}
                 disabled={busy}
                 title={t("save")}
-                className="rounded-lg bg-[#E8F9F0] p-1.5 text-[#0E9F6E]"
+                className="rounded-md bg-[#EAF8F0] p-1.5 text-[#17613B]"
               >
                 <Check className="size-4" />
               </button>
               <button
                 onClick={() => setEditing(false)}
                 title={t("cancel")}
-                className="rounded-lg bg-mist p-1.5 text-subtext"
+                className="rounded-lg bg-muted p-1.5 text-muted-foreground"
               >
                 <X className="size-4" />
               </button>
@@ -269,7 +269,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             <button
               onClick={() => setEditing(true)}
               title={t("edit")}
-              className="rounded-lg bg-[#EEF4FE] p-1.5 text-navy"
+              className="rounded-md bg-indigo-50 p-1.5 text-indigo-800"
             >
               <Pencil className="size-4" />
             </button>
@@ -278,7 +278,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
             onClick={del}
             disabled={busy}
             title={t("delete")}
-            className="rounded-lg bg-[#FDEDEA] p-1.5 text-destructive"
+            className="rounded-md bg-[#FDE8E5] p-1.5 text-destructive"
           >
             <Trash2 className="size-4" />
           </button>

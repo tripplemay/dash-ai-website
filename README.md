@@ -1,13 +1,13 @@
-# DASH AI 实验室 · 营销资源中心
+# 芯坐标 CORECOORD · 合作伙伴工作台
 
-Next.js 全栈工程，为 DASH AI 少儿 AI 素养课程的合作伙伴提供营销资源下载、课程介绍与大屏播放。
+Next.js 全栈工程，为芯坐标 CORECOORD 少儿 AI 素养课程的合作伙伴提供品牌资源、课程项目与大屏播放。
 
-> 本仓库仅含代码。营销资源文件（海报、课件模板、品牌资产等约 183MB）为内部资产，不随仓库公开，部署时单独分发。
+> CORECOORD Logo Final 2026.1 与 VI System 2026.1 的批准资产已版本化收录在 `deploy/brand/2026.1/`；部署工作流会独立校验并物化到 VPS 的 `/assets/brand/corecoord/2026.1` 与 `/files/corecoord`。两个大字体以 `deploy/brand-chunks/2026.1/` 的无损 gzip 分片存储，检查/构建前自动还原为原始 TTF。旧数据库记录和品牌目录会在发布备份中保留，旧公网静态路径则由 nginx 返回 410。
 
 ## 技术栈
 
 - Next.js 16（App Router，`output: 'standalone'`）+ TypeScript strict + Tailwind CSS v4 + pnpm
-- shadcn/ui + Aceternity UI（`src/components/aceternity/`）
+- shadcn/ui + Lucide React 图标
 - next-intl 中英双语：`[locale]` 路由段，`zh` 默认，`en` 预留
 - better-auth + better-sqlite3：username + password 登录，会话 cookie 守卫
 
@@ -15,6 +15,8 @@ Next.js 全栈工程，为 DASH AI 少儿 AI 素养课程的合作伙伴提供�
 
 ```bash
 pnpm install
+pnpm brand:check
+pnpm brand:materialize --resource-root ./public
 NODE_ENV=development BETTER_AUTH_SECRET=dev-secret-local-012345678901234567890123 SEED_INITIAL_PASSWORD=<初始密码> SEED_ADMIN_PASSWORD=<管理员密码> pnpm seed
 pnpm dev
 ```
@@ -31,6 +33,8 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/migrate.mjs
 ```
 
 `scripts/seed.mjs` 已内置同一迁移步骤；首次建库仍应使用 seed，以同时创建 Better Auth 表和初始账号。
+
+品牌资产同步与检查：`pnpm brand:sync` 从相邻 `dashpr/品牌商标-芯坐标` 源目录更新批准清单并生成字体分片；`pnpm brand:assemble` 可单独还原两个 TTF；`pnpm brand:check` 会自动还原并校验 manifest、SHA256、分片清单和排除规则；`pnpm brand:materialize` 将公开静态包与受保护下载资源复制到指定的 `public` 根目录。发布时不应把旧 `public/files` 目录直接清空。
 
 若迁移提示历史 `file_key` 重复，先备份数据库，再人工确认并执行审计式去重（保留最新 `updated_at` 的记录，不删除磁盘文件）：
 
@@ -84,8 +88,10 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 
 ```
 ├── messages/            # zh.json / en.json 文案
-├── public/              # 不进 git：assets/ files/ brand/（部署时单独分发）
-├── scripts/{migrate,migrate-auth,seed,backup-db,dedupe-resources,check-db,prepare-pm2-config}.mjs # 迁移、播种、备份、校验与发布配置
+├── deploy/brand/2026.1/ # CORECOORD 批准 Logo、VI、字体、预览、模板与发布清单
+├── deploy/brand-chunks/  # 大字体的无损传输分片（运行前自动还原，不直接对外提供）
+├── public/              # 不进 git：运行时 assets/ 与 files/（部署时由品牌包物化）
+├── scripts/{sync-brand-assets,migrate,migrate-auth,seed,backup-db,dedupe-resources,check-db,prepare-pm2-config}.mjs # 资产同步、迁移、播种、备份、校验与发布配置
 ├── deploy/nginx/dash-pr.conf                         # 可直接安装的生产 vhost（含 /files 鉴权）
 ├── deploy/nginx/{dash-pr-upstream,dash-pr-files}.conf # 可组合的 /files 受保护反代片段
 ├── src/
@@ -121,7 +127,10 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 /opt/dash-pr/
 ├── releases/<时间戳>/   # 每次部署一个目录，自动保留最近 5 个
 ├── current -> releases/…  # 软链切换即发布/回滚
-├── public/            # 静态资产卷（/assets、/brand 可直出；/files 必须禁止 nginx 直出）
+├── public/            # 静态资产卷（/assets/brand/corecoord/2026.1 可直出；/files 必须禁止 nginx 直出）
+│   ├── assets/brand/corecoord/2026.1/ # 发布拥有的公开 CORECOORD 包
+│   └── files/corecoord/               # 发布拥有的受保护资源副本，不放手工上传
+├── backups/brand/     # 每次 CORECOORD 资源切换前的旧目录归档（保留最近 5 个）
 ├── dash-auth.db       # 账号库（持久化，不随发布变更）
 └── ecosystem.config.js# pm2 配置（含生产环境变量，仅存在于服务器，chmod 600）
 ```
@@ -163,7 +172,8 @@ NODE_ENV=production BETTER_AUTH_SECRET=<与ecosystem一致> \
 - 健康检查：`GET /api/health/live` 仅检查进程响应；`GET /api/health/ready` 检查 SQLite、核心表、`public/assets`/`public/files` 资产卷可读，并对 `public/files` 做受控临时写入/删除探针。两者均返回 `Cache-Control: no-store`，ready 失败时返回 `503`，不暴露数据库路径或错误详情。
 - `dash-auth.db` 含账号数据，已 gitignore，勿提交。
 - 若数据库或其 WAL/SHM 文件曾进入 Git 历史，仅新增忽略规则不能撤回历史内容；应先轮换账号密码与 `BETTER_AUTH_SECRET`，再按仓库保密流程清理历史。
-- 回滚：部署脚本会在新版本 live/ready 或 `/files` 探针失败时切回旧 release，并再次验证旧版本健康；资源迁移是前向兼容的，旧代码回滚前仍需按备份恢复数据库或确认旧版本兼容新 schema。若 PM2/nginx 回滚状态不明确，脚本会保留候选 release 和 nginx 备份供人工恢复，不会删除可能仍被进程引用的目录。
+- 回滚：部署脚本会在新版本 live/ready 或 `/files` 探针失败时切回旧 release，并同时恢复 `backups/brand/<release-id>/` 中的旧 CORECOORD 静态与下载资源；资源迁移是前向兼容的，旧代码回滚前仍需按备份恢复数据库或确认旧版本兼容新 schema。若 PM2/nginx 回滚状态不明确，脚本会保留候选 release、品牌归档和 nginx 备份供人工恢复，不会删除可能仍被进程引用的目录。
 - 备份目录需配置保留策略（例如仅保留最近 14 天并同步到独立对象存储），避免长期部署占满 VPS 磁盘。
+- 品牌发布前会清理超过 60 分钟的 `.corecoord-stage.*`/`brand.*` 暂存目录，并按归档、解包和 staged copy 的峰值做磁盘预检；若 `/opt/dash-pr/public` 可用空间不足会在切换前中止。
 - 当前本地存储覆盖写入使用进程内 object-key 锁，PM2 必须保持单实例 fork；扩容到多进程/多副本时应切换到带条件写入的对象存储驱动并把元数据迁移到 PostgreSQL。
 - 部署 SSH 用户应与 PM2 ecosystem 的运行用户一致，并使用 Node 22（默认探测 `/opt/node22/bin/node`）；部署脚本会在切换软链前拒绝用户或 Node ABI 不匹配。

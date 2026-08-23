@@ -20,14 +20,14 @@ export default async function AdminResourcesPage({
   return (
     <>
       <h1 className="text-[24px] font-extrabold tracking-[2px]">{t("title")}</h1>
-      <div className="mt-1.5 mb-5 text-[13.5px] text-subtext">{t("sub")}</div>
+      <div className="mt-1.5 mb-5 text-[13.5px] text-muted-foreground">{t("sub")}</div>
 
       <UploadForm />
 
-      <div className="mt-5 overflow-x-auto rounded-2xl bg-card shadow-card">
+      <div className="mt-5 overflow-x-auto rounded-lg border border-neutral-200 bg-card shadow-card">
         <table className="w-full text-left text-[13px]">
           <thead>
-            <tr className="border-b border-[#E4EAF7] text-[12px] tracking-wider text-subtext">
+            <tr className="border-b border-neutral-200 text-[12px] tracking-wider text-muted-foreground">
               <th className="px-4 py-3.5 font-extrabold">{t("colPreview")}</th>
               <th className="px-4 py-3.5 font-extrabold">{t("colTitle")}</th>
               <th className="px-4 py-3.5 font-extrabold">{t("colCategory")}</th>
@@ -50,7 +50,7 @@ export default async function AdminResourcesPage({
         <div className="mt-6 flex justify-center">
           <Link
             href={`?cursor=${encodeURIComponent(page.nextCursor)}`}
-            className="inline-flex items-center gap-2 rounded-[10px] border border-[#C9D6F2] bg-card px-5 py-2.5 text-[13px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
+            className="inline-flex items-center gap-2 rounded-md border border-neutral-200 bg-card px-5 py-2.5 text-[13px] font-extrabold text-indigo-800 transition-colors hover:border-coral-700 hover:text-coral-700"
           >
             {t("nextPage")}
             <ArrowRight aria-hidden="true" className="size-4" />

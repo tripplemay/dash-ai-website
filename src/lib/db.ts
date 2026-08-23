@@ -75,7 +75,7 @@ export function getDb(): Database.Database {
   if (!_db) {
     let db: Database.Database;
     try {
-      db = new Database(DB_PATH, { timeout: 5000 });
+      db = new Database(DB_PATH, { timeout: 30000 });
     } catch (error) {
       if ((error as NodeJS.ErrnoException).code === "ENOENT") {
         throw new Error(`Database not found at ${DB_PATH}; run scripts/seed.mjs or scripts/migrate.mjs first.`);
@@ -83,9 +83,9 @@ export function getDb(): Database.Database {
       throw error;
     }
     try {
+      db.pragma("busy_timeout = 30000");
       db.pragma("journal_mode = WAL");
       db.pragma("foreign_keys = ON");
-      db.pragma("busy_timeout = 5000");
       assertMigrated(db);
       _db = db;
     } catch (error) {

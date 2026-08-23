@@ -1,11 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { ArrowLeft, Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { BrandLogo } from "@/components/brand-logo";
 
 const ADMIN_NAV = [
   { href: "/admin", key: "dashboard" },
@@ -15,6 +16,8 @@ const ADMIN_NAV = [
 
 export function AdminNav() {
   const t = useTranslations("admin");
+  const locale = useLocale();
+  const brandAccessibleName = locale === "zh" ? "芯坐标 CORECOORD" : "CORECOORD";
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
@@ -23,22 +26,17 @@ export function AdminNav() {
 
   const linkClassName = (href: (typeof ADMIN_NAV)[number]["href"]) =>
     cn(
-      "rounded-[10px] px-3.5 py-2 text-sm tracking-wide text-[#BFEFFF] transition-colors hover:bg-cyan/15 hover:text-cyan",
-      isActive(href) && "bg-cyan/15 text-cyan"
+      "rounded-md px-3.5 py-2 text-sm tracking-wide text-neutral-300 transition-colors hover:bg-coral-500/15 hover:text-coral-300",
+      isActive(href) && "bg-coral-500/15 text-coral-300"
     );
 
   return (
-    <header className="sticky top-0 z-50 flex items-center gap-3.5 bg-deep/95 px-4 py-3 backdrop-blur-md md:px-7">
+    <header className="sticky top-0 z-50 flex items-center gap-3.5 border-b border-white/15 bg-reverse-background/95 px-4 py-3 backdrop-blur-md md:px-7">
       <Link href="/admin" aria-label={t("console")} className="flex min-w-0 items-center gap-3.5">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/assets/img/logo/DASH-mark-dark_1024.png"
-          alt="DASH AI"
-          className="logo-rounded h-[34px] w-[34px] shrink-0 object-cover"
-        />
-        <span className="truncate text-[17px] font-extrabold tracking-[2px] text-white">
-          DASH <em className="not-italic text-cyan">AI</em>
-          <span className="ml-2 rounded-md bg-cyan/15 px-2 py-0.5 text-[11px] tracking-widest text-cyan">
+        <BrandLogo variant="mark-reverse" width={34} height={34} decorative priority className="size-[34px]" />
+        <span className="truncate text-[17px] font-extrabold tracking-[1px] text-white">
+          <span className="sr-only">{brandAccessibleName}</span>
+          <span className="ml-2 rounded-sm bg-coral-500/15 px-2 py-0.5 text-[11px] tracking-widest text-coral-300">
             {t("console")}
           </span>
         </span>
@@ -60,7 +58,7 @@ export function AdminNav() {
       <div className="ml-auto">
         <Link
           href="/workspace"
-          className="hidden items-center gap-1.5 rounded-[10px] border border-cyan/40 px-3 py-1.5 text-xs font-bold tracking-widest text-cyan md:flex"
+          className="hidden items-center gap-1.5 rounded-md border border-coral-300/60 px-3 py-1.5 text-xs font-bold tracking-widest text-coral-300 md:flex"
         >
           <ArrowLeft className="size-3.5" />
           {t("backToSite")}
@@ -71,11 +69,11 @@ export function AdminNav() {
         <SheetTrigger
           type="button"
           aria-label={t("console")}
-          className="ml-auto inline-flex size-10 items-center justify-center rounded-[10px] text-white transition-colors hover:bg-cyan/15 hover:text-cyan md:hidden"
+          className="ml-auto inline-flex size-10 items-center justify-center rounded-md text-white transition-colors hover:bg-coral-500/15 hover:text-coral-300 md:hidden"
         >
           <Menu aria-hidden="true" className="size-6" />
         </SheetTrigger>
-        <SheetContent side="right" className="w-[min(20rem,85vw)] bg-deep text-white">
+        <SheetContent side="right" className="w-[min(20rem,85vw)] border-white/15 bg-reverse-background text-white">
           <SheetTitle className="text-white">{t("console")}</SheetTitle>
           <nav aria-label={t("console")} className="mt-6 flex flex-col gap-2">
             {ADMIN_NAV.map((n) => (
@@ -92,7 +90,7 @@ export function AdminNav() {
             <Link
               href="/workspace"
               onClick={() => setOpen(false)}
-              className="mt-3 flex items-center gap-1.5 rounded-[10px] border border-cyan/40 px-3.5 py-2 text-sm font-bold tracking-wide text-cyan transition-colors hover:bg-cyan/15"
+              className="mt-3 flex items-center gap-1.5 rounded-md border border-coral-300/60 px-3.5 py-2 text-sm font-bold tracking-wide text-coral-300 transition-colors hover:bg-coral-500/15"
             >
               <ArrowLeft aria-hidden="true" className="size-3.5" />
               {t("backToSite")}

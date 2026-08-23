@@ -1,83 +1,257 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* DASH AI · VI 设计令牌（v2.1）+ shadcn 语义色 */
-@theme {
-  /* 品牌色板 */
-  --color-navy: #1b2a6b; /* 主品牌蓝 */
-  --color-midnight: #0a1232; /* 深空蓝底（渐变起） */
-  --color-deep: #0d1740; /* 深空蓝底（顶栏/页脚） */
-  --color-cyan: #00e5ff; /* 电光青 · 深底强调 */
-  --color-cyan-print: #00b8d9; /* 电光青 · 浅底文字修正 */
-  --color-orange: #ff7a45; /* 活力橙 · 辅强调 */
-  --color-mist: #e8f0fe; /* 雾蓝 · 浅色卡片底 */
-  --color-subtext: #5a6b9c; /* 次级文字 */
-  /* 三实验室主题色 */
-  --color-lab-create: #ff7a45;
-  --color-lab-build: #a79bff;
-  --color-lab-explore: #5e9bff;
+/* CORECOORD / 芯坐标 VI 2026.1. Values mirror the approved token package. */
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("/assets/brand/corecoord/2026.1/vi-system-2026/deliverables/fonts/NotoSansSC-VF.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
-  /* shadcn 语义色（映射到品牌体系） */
-  --color-background: #f4f7fd;
-  --color-foreground: #1b2a6b;
-  --color-card: #ffffff;
-  --color-card-foreground: #1b2a6b;
-  --color-popover: #ffffff;
-  --color-popover-foreground: #1b2a6b;
-  --color-primary: #1b2a6b;
-  --color-primary-foreground: #ffffff;
-  --color-secondary: #eef4fe;
-  --color-secondary-foreground: #1b2a6b;
-  --color-muted: #eef4fe;
-  --color-muted-foreground: #5a6b9c;
-  --color-accent: #e8f0fe;
-  --color-accent-foreground: #1b2a6b;
-  --color-destructive: #e5484d;
-  --color-border: #dce6f7;
-  --color-input: #dce6f7;
-  --color-ring: #00b8d9;
+@font-face {
+  font-family: "Noto Sans Mono CJK SC";
+  src: url("/assets/brand/corecoord/2026.1/vi-system-2026/deliverables/fonts/NotoSansMonoCJKsc-VF.ttf") format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
 
-  --radius-lg: 12px;
-  --radius-md: 10px;
-  --radius-sm: 8px;
-  --radius-xl: 16px;
+:root {
+  color-scheme: light;
 
-  --font-sans: "PingFang SC", "Source Han Sans SC", "Microsoft YaHei", "Helvetica Neue", sans-serif;
+  --cc-color-neutral-0: #ffffff;
+  --cc-color-neutral-50: #f7f8fc;
+  --cc-color-neutral-100: #eff1f7;
+  --cc-color-neutral-200: #dde1eb;
+  --cc-color-neutral-300: #c5cbd8;
+  --cc-color-neutral-400: #9ba4b5;
+  --cc-color-neutral-500: #727c8e;
+  --cc-color-neutral-600: #525c6d;
+  --cc-color-neutral-700: #3b4453;
+  --cc-color-neutral-800: #252c38;
+  --cc-color-neutral-900: #171c25;
+  --cc-color-neutral-950: #0e1219;
 
-  --shadow-card: 0 10px 30px rgba(27, 42, 107, 0.12);
-  --shadow-card-hover: 0 18px 44px rgba(27, 42, 107, 0.2);
+  --cc-color-indigo-50: #f4f6fc;
+  --cc-color-indigo-100: #e8ecf8;
+  --cc-color-indigo-200: #cdd6ef;
+  --cc-color-indigo-300: #aab9e2;
+  --cc-color-indigo-400: #8198d2;
+  --cc-color-indigo-500: #5e76bc;
+  --cc-color-indigo-600: #40549c;
+  --cc-color-indigo-700: #22367b;
+  --cc-color-indigo-800: #1b2a5f;
+  --cc-color-indigo-900: #141f46;
+  --cc-color-indigo-950: #0d142f;
 
-  /* Aceternity Spotlight 动画 */
-  --animate-spotlight: spotlight 2s ease 0.75s 1 forwards;
-  @keyframes spotlight {
-    0% {
-      opacity: 0;
-      transform: translate(-72%, -62%) scale(0.5);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(-50%, -40%) scale(1);
-    }
-  }
+  --cc-color-coral-50: #fff5f2;
+  --cc-color-coral-100: #ffe9e4;
+  --cc-color-coral-200: #ffd0c7;
+  --cc-color-coral-300: #ffab9a;
+  --cc-color-coral-400: #ff8a72;
+  --cc-color-coral-500: #fc7358;
+  --cc-color-coral-600: #e45740;
+  --cc-color-coral-700: #b83b2a;
+  --cc-color-coral-800: #8f2d22;
+  --cc-color-coral-900: #67231c;
+  --cc-color-coral-950: #3d1411;
+
+  --cc-color-orange-50: #fff5f0;
+  --cc-color-orange-100: #ffe8dd;
+  --cc-color-orange-200: #ffd0bd;
+  --cc-color-orange-300: #ffae8a;
+  --cc-color-orange-400: #fa875d;
+  --cc-color-orange-500: #f16c3e;
+  --cc-color-orange-600: #d55227;
+  --cc-color-orange-700: #a83b1b;
+  --cc-color-orange-800: #7f2d17;
+  --cc-color-orange-900: #5b2216;
+  --cc-color-orange-950: #35120b;
+
+  --cc-color-core-indigo: #22367b;
+  --cc-color-signal-coral: #fc7358;
+  --cc-color-wordmark-orange: #f16c3e;
+  --cc-color-reverse-background: #121a33;
+  --cc-color-mono-ink: #111318;
+
+  --cc-bg: #ffffff;
+  --cc-bg-subtle: #f7f8fc;
+  --cc-surface: #ffffff;
+  --cc-text: #171c25;
+  --cc-text-secondary: #525c6d;
+  --cc-heading: #1b2a5f;
+  --cc-border: #dde1eb;
+  --cc-action: #22367b;
+  --cc-on-action: #ffffff;
+  --cc-focus: #b83b2a;
+  --cc-font-sans: "Noto Sans SC", "Noto Sans", Arial, sans-serif;
+  --cc-font-mono: "Noto Sans Mono CJK SC", "Noto Sans Mono", monospace;
+  --cc-radius-sm: 2px;
+  --cc-radius-md: 4px;
+  --cc-radius-lg: 8px;
+  --cc-motion-standard: 240ms cubic-bezier(0.2, 0, 0, 1);
+}
+
+[data-cc-theme="dark"] {
+  color-scheme: dark;
+  --cc-bg: #121a33;
+  --cc-bg-subtle: #0d142f;
+  --cc-surface: #141f46;
+  --cc-text: #ffffff;
+  --cc-text-secondary: #c5cbd8;
+  --cc-heading: #ffffff;
+  --cc-border: #40549c;
+  --cc-action: #ff8a72;
+  --cc-on-action: #0e1219;
+  --cc-focus: #ffab9a;
+}
+
+/* Tailwind utilities mapped to semantic variables. */
+@theme inline {
+  --color-neutral-0: var(--cc-color-neutral-0);
+  --color-neutral-50: var(--cc-color-neutral-50);
+  --color-neutral-100: var(--cc-color-neutral-100);
+  --color-neutral-200: var(--cc-color-neutral-200);
+  --color-neutral-300: var(--cc-color-neutral-300);
+  --color-neutral-400: var(--cc-color-neutral-400);
+  --color-neutral-500: var(--cc-color-neutral-500);
+  --color-neutral-600: var(--cc-color-neutral-600);
+  --color-neutral-700: var(--cc-color-neutral-700);
+  --color-neutral-800: var(--cc-color-neutral-800);
+  --color-neutral-900: var(--cc-color-neutral-900);
+  --color-neutral-950: var(--cc-color-neutral-950);
+
+  --color-indigo-50: var(--cc-color-indigo-50);
+  --color-indigo-100: var(--cc-color-indigo-100);
+  --color-indigo-200: var(--cc-color-indigo-200);
+  --color-indigo-300: var(--cc-color-indigo-300);
+  --color-indigo-400: var(--cc-color-indigo-400);
+  --color-indigo-500: var(--cc-color-indigo-500);
+  --color-indigo-600: var(--cc-color-indigo-600);
+  --color-indigo-700: var(--cc-color-indigo-700);
+  --color-indigo-800: var(--cc-color-indigo-800);
+  --color-indigo-900: var(--cc-color-indigo-900);
+  --color-indigo-950: var(--cc-color-indigo-950);
+
+  --color-coral-50: var(--cc-color-coral-50);
+  --color-coral-100: var(--cc-color-coral-100);
+  --color-coral-200: var(--cc-color-coral-200);
+  --color-coral-300: var(--cc-color-coral-300);
+  --color-coral-400: var(--cc-color-coral-400);
+  --color-coral-500: var(--cc-color-coral-500);
+  --color-coral-600: var(--cc-color-coral-600);
+  --color-coral-700: var(--cc-color-coral-700);
+  --color-coral-800: var(--cc-color-coral-800);
+  --color-coral-900: var(--cc-color-coral-900);
+  --color-coral-950: var(--cc-color-coral-950);
+
+  --color-orange-50: var(--cc-color-orange-50);
+  --color-orange-100: var(--cc-color-orange-100);
+  --color-orange-200: var(--cc-color-orange-200);
+  --color-orange-300: var(--cc-color-orange-300);
+  --color-orange-400: var(--cc-color-orange-400);
+  --color-orange-500: var(--cc-color-orange-500);
+  --color-orange-600: var(--cc-color-orange-600);
+  --color-orange-700: var(--cc-color-orange-700);
+  --color-orange-800: var(--cc-color-orange-800);
+  --color-orange-900: var(--cc-color-orange-900);
+  --color-orange-950: var(--cc-color-orange-950);
+
+  --color-core-indigo: var(--cc-color-core-indigo);
+  --color-signal-coral: var(--cc-color-signal-coral);
+  --color-wordmark-orange: var(--cc-color-wordmark-orange);
+  --color-reverse-background: var(--cc-color-reverse-background);
+  --color-mono-ink: var(--cc-color-mono-ink);
+
+  --color-background: var(--cc-bg-subtle);
+  --color-foreground: var(--cc-text);
+  --color-card: var(--cc-surface);
+  --color-card-foreground: var(--cc-text);
+  --color-popover: var(--cc-surface);
+  --color-popover-foreground: var(--cc-text);
+  --color-primary: var(--cc-action);
+  --color-primary-foreground: var(--cc-on-action);
+  --color-secondary: var(--cc-color-neutral-100);
+  --color-secondary-foreground: var(--cc-color-indigo-800);
+  --color-muted: var(--cc-color-neutral-100);
+  --color-muted-foreground: var(--cc-text-secondary);
+  --color-accent: var(--cc-color-indigo-100);
+  --color-accent-foreground: var(--cc-color-indigo-800);
+  --color-destructive: var(--cc-color-coral-700);
+  --color-border: var(--cc-border);
+  --color-input: var(--cc-border);
+  --color-ring: var(--cc-focus);
+
+  --color-orange: var(--cc-color-wordmark-orange);
+
+  --radius-sm: var(--cc-radius-sm);
+  --radius-md: var(--cc-radius-md);
+  --radius-lg: var(--cc-radius-lg);
+  --radius-xl: var(--cc-radius-lg);
+  --radius-2xl: var(--cc-radius-lg);
+  --radius-3xl: var(--cc-radius-lg);
+  --radius-card: var(--cc-radius-lg);
+  --font-sans: var(--cc-font-sans);
+  --font-mono: var(--cc-font-mono);
+  --shadow-card: 0 8px 24px rgb(17 19 24 / 8%);
+  --shadow-card-hover: 0 12px 32px rgb(17 19 24 / 14%);
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  text-rendering: optimizeLegibility;
+}
+
 body {
-  background: var(--color-background);
-  color: var(--color-foreground);
-  font-family: var(--font-sans);
+  background: var(--cc-bg-subtle);
+  color: var(--cc-text);
+  font-family: var(--cc-font-sans);
   -webkit-text-size-adjust: 100%;
 }
 
-/* logo 圆角比例 22% */
-.logo-rounded {
-  border-radius: 22%;
+button,
+a,
+input,
+textarea,
+select {
+  -webkit-tap-highlight-color: transparent;
 }
 
-/* 成长体系阶梯：桌面端逐级抬升 */
+:where(button, a, input, textarea, select):focus-visible {
+  outline: 3px solid var(--cc-focus);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--cc-color-coral-200);
+  color: var(--cc-color-neutral-950);
+}
+
+/* Compatibility hook; official marks must never be clipped. */
+.logo-rounded {
+  border-radius: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --cc-motion-standard: 0ms linear;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 @media (min-width: 768px) {
   .stair-item {
     transform: translateY(calc((3 - var(--i)) * 16px));

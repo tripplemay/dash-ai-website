@@ -11,7 +11,11 @@
     "migrate:auth": "node scripts/migrate-auth.mjs",
     "backup": "node scripts/backup-db.mjs",
     "dedupe": "node scripts/dedupe-resources.mjs",
-    "seed": "node scripts/seed.mjs"
+    "seed": "node scripts/seed.mjs",
+    "brand:sync": "node scripts/sync-brand-assets.mjs sync",
+    "brand:assemble": "node scripts/sync-brand-assets.mjs assemble",
+    "brand:check": "node scripts/sync-brand-assets.mjs check",
+    "brand:materialize": "node scripts/sync-brand-assets.mjs materialize"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

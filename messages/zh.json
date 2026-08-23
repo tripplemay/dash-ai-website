@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "DASH AI 实验室 · 营销资源中心",
-    "template": "%s · DASH AI 营销资源中心",
-    "description": "DASH AI 实验室合作伙伴营销资源中心：宣传物料下载、课程介绍、校区大屏播放",
+    "title": "芯坐标 CORECOORD · 合作伙伴工作台",
+    "template": "%s · 芯坐标 CORECOORD",
+    "description": "芯坐标 CORECOORD 合作伙伴工作台：品牌系统、课程项目、视觉预览与演示工具",
     "pages": {
       "workspace": "工作台",
       "courses": "课程中心",
@@ -25,6 +25,7 @@
     "courses": "课程中心",
     "player": "大屏播放",
     "presentations": "演示中心",
+    "presentationsShort": "演示",
     "brand": "品牌规范",
     "logout": "退出登录",
     "admin": "管理",
@@ -41,23 +42,23 @@
     "retry": "重新加载"
   },
   "hero": {
-    "kick": "DASH AI 实验室 · 营销资源中心",
-    "title1": "合作伙伴的",
-    "title2": "营销资源站",
-    "sub": "提供宣传物料下载、课程在线介绍与校区大屏播放的一体化资源服务"
+    "kick": "合作伙伴工作台 · PARTNER WORKSPACE",
+    "title1": "有方向的",
+    "title2": "创造",
+    "sub": "从一个问题出发，查看课程项目、品牌素材与可验证的作品路径"
   },
   "roles": {
     "res": {
-      "title": "下载营销资源",
-      "desc": "海报、易拉宝、证书、手册、品牌资产与课件模板，均为印刷级高清文件，可直接交付制作"
+      "title": "使用品牌系统",
+      "desc": "Logo、字体、颜色、坐标图形与模板集中管理，按最新 VI 规范交付"
     },
     "course": {
       "title": "向家长介绍课程",
-      "desc": "课程体系、逐课详解、成长体系与家长 FAQ，支持网页演示与投屏讲解"
+      "desc": "课程项目、逐课详解、成长档案与家长 FAQ，支持网页演示与投屏讲解"
     },
     "player": {
       "title": "大屏循环播放",
-      "desc": "适用于校区大屏与 iPad，自动循环播放品牌与课程内容，无需人工操作"
+      "desc": "适用于校区大屏与 iPad，自动循环播放品牌与课程内容"
     },
     "enter": "进入 →"
   },
@@ -67,7 +68,13 @@
     "labsTitleEm": "实验室",
     "labsSub": "创想、工程、远征三大主题，9 大能力实验室，覆盖 5–16 岁",
     "viewAll": "查看全部",
-    "recentTitle": "最近更新"
+    "recentTitle": "最近更新",
+    "previewLabels": {
+      "cover": "品牌主视觉",
+      "stages": "阶段色彩系统",
+      "certificate": "成长认证样张",
+      "field": "坐标场图形"
+    }
   },
   "course": {
     "title1": "课程",
@@ -139,7 +146,7 @@
   "resources": {
     "title1": "资源",
     "title2": "下载中心",
-    "sub": "全部素材均为印刷级高清文件，附印刷规格建议，支持单件下载与分类打包",
+    "sub": "芯坐标 CORECOORD 2026.1 资源包，覆盖品牌系统、使用指南、视觉预览与课程模板，支持单件下载或分类打包。",
     "all": "全部",
     "suggest": "建议：",
     "download": "下载",
@@ -159,7 +166,7 @@
     "emptySub": "试试更短的关键词，或清除当前筛选条件。",
     "openDetail": "查看资源：{title}",
     "breadcrumb": "资源详情路径",
-    "categories": ["全部", "课程海报", "招募物料", "证书手册", "社媒", "品牌资产", "吉祥物", "课件模板"],
+    "categories": ["全部", "品牌系统", "使用指南", "视觉预览", "课件模板"],
     "dimensions": "规格",
     "adviceLabel": "使用建议",
     "format": "格式"
@@ -171,22 +178,24 @@
     "play": "播放"
   },
   "presentations": {
+    "kicker": "演示中心 · PRESENTATIONS",
+    "brandAlt": "芯坐标",
     "title": "演示中心",
     "sub": "按场景选择投屏播放或课程讲解模式，进入后可用链接参数恢复指定页。",
     "screenTitle": "校区大屏播放",
-    "screenDesc": "自动循环播放品牌、实验室和招募内容，适合校区大屏与 iPad。",
+    "screenDesc": "自动循环播放品牌主视觉、课程坐标与官方预览，适合校区大屏与 iPad。",
     "courseTitle": "课程讲解模式",
     "courseDesc": "按页讲解课程体系、成长认证和家长沟通内容，适合面对面演示。",
     "open": "打开模式"
   },
   "footer": {
-    "left": "DASH AI 实验室 · 少儿 AI 素养课程",
+    "left": "芯坐标 CORECOORD · 少儿 AI 素养课程",
     "right": "合作伙伴专区 · 需授权访问"
   },
   "login": {
     "title": "合作伙伴专区",
-    "sub": "DASH AI 实验室 · 营销资源中心",
-    "desc": "请使用授权账号登录，登录后可访问资源下载、课程介绍与大屏播放。",
+    "sub": "芯坐标 CORECOORD · 合作伙伴工作台",
+    "desc": "请使用授权账号登录，登录后可访问品牌系统、课程项目与演示工具。",
     "username": "用户名",
     "password": "密码",
     "usernamePh": "partner / teacher / guest",
@@ -255,7 +264,7 @@
       "colSort": "排序",
       "colUpdated": "更新于",
       "colOps": "操作",
-      "categories": ["课程海报", "招募物料", "证书手册", "社媒", "品牌资产", "吉祥物", "课件模板"],
+      "categories": ["品牌系统", "使用指南", "视觉预览", "课件模板"],
       "advicePh": "如：A3 打印 / 朋友圈长图",
       "uploadSubmit": "上传",
       "submitting": "上传中…",
@@ -276,83 +285,66 @@
   "guide": {
     "title1": "使用",
     "title2": "指南",
-    "sub": "印刷交付、大屏播放与内容更新的标准操作手册",
+    "sub": "品牌资产、课程演示与内容更新的标准操作手册",
     "anchorPrint": "印刷指南",
     "anchorPlayer": "播放指南",
     "anchorOps": "更新指南",
     "print": {
       "title": "印刷",
       "titleEm": "指南",
-      "sub": "按物料类型对照规格下单印刷，批量印制前请先打样确认",
+      "sub": "按 CORECOORD VI System 2026.1 的资产层级、尺寸和颜色规则交付",
       "items": [
         {
           "icon": "image",
-          "title": "课程海报",
+          "title": "Logo 与图形系统",
           "points": [
-            "A3 铜版纸",
-            "200DPI 以上",
-            "覆哑膜防反光"
-          ]
-        },
-        {
-          "icon": "users",
-          "title": "体验课招募海报",
-          "points": [
-            "A3 打印（线下张贴）",
-            "同一文件可直接作朋友圈长图"
-          ]
-        },
-        {
-          "icon": "upload",
-          "title": "易拉宝",
-          "points": [
-            "800×2000mm 成品",
-            "200DPI",
-            "写真覆膜，含支架安装"
-          ]
-        },
-        {
-          "icon": "calendar",
-          "title": "试听卡邀请函",
-          "points": [
-            "双面彩印",
-            "300g 铜版纸",
-            "圆角模切可选"
-          ]
-        },
-        {
-          "icon": "trophy",
-          "title": "结课证书",
-          "points": [
-            "A4 铜版纸或哑粉纸",
-            "单面彩印",
-            "预留手写签名区"
+            "横版、堆叠与图形标使用批准 SVG",
+            "数字横版最小 280 px，图形标最小 24 px",
+            "不得裁切、拉伸、重绘或改变颜色"
           ]
         },
         {
           "icon": "book",
-          "title": "家长手册",
+          "title": "字体与 Token",
           "points": [
-            "A4 骑马钉装订",
-            "封面 250g / 内页 157g 铜版纸",
-            "12 页套图按页序排列"
+            "使用 Noto Sans SC 与 Noto Sans Mono CJK SC",
+            "颜色从 CORECOORD token 文件读取",
+            "坐标标签保留等宽字与规范字距"
           ]
         },
         {
-          "icon": "chat",
-          "title": "公众号头图 / 招生长图",
+          "icon": "image",
+          "title": "官方预览图集",
           "points": [
-            "仅数字用途，无需印刷",
-            "公众号封面直接使用 900×383 标准图",
-            "长图适配朋友圈与私信转发"
+            "预览用于沟通、选型和投屏测试",
+            "生产交付请下载对应模板源文件",
+            "保持原始比例，不叠加未经批准的装饰"
+          ]
+        },
+        {
+          "icon": "calendar",
+          "title": "课程与印刷模板",
+          "points": [
+            "课程、印刷、社媒、视频四类 SVG 源文件",
+            "保留网格、阶段色和安全空间",
+            "只替换内容，不修改 Logo 结构"
+          ]
+        },
+        {
+          "icon": "book",
+          "title": "VI System 2026.1 手册",
+          "points": [
+            "品牌、字体、颜色、图形与模板的完整规范",
+            "资源中心提供 PDF 正式交付版",
+            "上线前确认版本号为 2026.1"
           ]
         }
       ],
-      "commonTitle": "交付印刷厂通用提示",
+      "commonTitle": "交付与发布检查",
       "common": [
-        "全部文件先转 CMYK 色彩模式",
-        "四边各留 3mm 出血",
-        "先打样确认色差，再批量印刷"
+        "只从批准的 CORECOORD 2026.1 目录下载资产",
+        "页面圆角遵循 2 / 4 / 8 px 级别",
+        "发布前检查 Logo、字体和 token URL 均可访问"
       ]
     },
     "player": {
@@ -363,7 +355,7 @@
         {
           "title": "校区大屏",
           "steps": [
-            "浏览器打开营销资源站并登录",
+            "浏览器打开合作伙伴工作台并登录",
             "进入「大屏播放」",
             "按 F11 进入全屏",
             "空格暂停 / 继续，← → 手动切换",

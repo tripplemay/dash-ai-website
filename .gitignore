@@ -49,10 +49,16 @@ dash-auth.db
 *.db-journal
 backups/
 
-# large binary assets — NOT in git (public repo). Deployed to VPS separately.
+# Runtime asset volumes are not in git; the approved release package under
+# deploy/brand/2026.1 is tracked and is deployed to the VPS separately.
 /public/assets
 /public/files
 /public/brand
+
+# Large approved fonts are transported as gzip chunks and reconstructed by
+# `pnpm brand:assemble` before checks, builds, and local materialization.
+/deploy/brand/2026.1/vi-system-2026/deliverables/fonts/NotoSansSC-VF.ttf
+/deploy/brand/2026.1/vi-system-2026/deliverables/fonts/NotoSansMonoCJKsc-VF.ttf
 
 # next dev auto-generated agent notes
 AGENTS.md
