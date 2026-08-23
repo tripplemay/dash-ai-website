@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 
 const base = (process.env.SMOKE_BASE_URL || "http://127.0.0.1:4318").replace(/\/$/, "");
 const release = process.env.SMOKE_RELEASE_ID || "unknown";
-const fileKey = process.env.SMOKE_FILE_KEY || "files/品牌资产/ci-smoke.txt";
+const fileKey = process.env.SMOKE_FILE_KEY || "files/corecoord/brand-system/logo/ci-smoke.txt";
 const fileUrl = `/${fileKey.split("/").map(encodeURIComponent).join("/")}`;
 
 async function request(path, init) {
@@ -59,11 +59,11 @@ assert.equal(await file.text(), "standalone smoke file\n", "protected file body"
 const direct = await request(fileUrl, { headers: { Cookie: cookie } });
 expectStatus(direct, 200, "rewritten direct file");
 
-const browse = await request("/api/browse/files/%E5%93%81%E7%89%8C%E8%B5%84%E4%BA%A7", { headers: { Cookie: cookie } });
+const browse = await request("/api/browse/files/corecoord/brand-system/logo", { headers: { Cookie: cookie } });
 expectStatus(browse, 200, "directory browser");
 assert.match(await browse.text(), /ci-smoke\.txt/, "directory entry");
 
-const archive = await request("/api/download/category/brand-assets", { headers: { Cookie: cookie } });
+const archive = await request("/api/download/category/brand-system", { headers: { Cookie: cookie } });
 expectStatus(archive, 200, "category archive");
 assert.ok((await archive.arrayBuffer()).byteLength > 0, "empty category archive");
 
@@ -71,7 +71,7 @@ const pngBytes = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 0]);
 const form = () => {
   const data = new FormData();
   data.append("title", `CI smoke ${Date.now()}`);
-  data.append("category", "brand-assets");
+  data.append("category", "brand-system");
   data.append("file", new Blob([pngBytes], { type: "image/png" }), `ci-smoke-${process.pid}.png`);
   return data;
 };

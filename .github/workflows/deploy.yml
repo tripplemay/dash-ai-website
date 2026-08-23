@@ -157,8 +157,8 @@ jobs:
           # Start the exact packaged server with a tiny private asset volume and
           # exercise auth, protected files, direct /files rewrites, browsing,
           # ZIP streaming, and the multipart upload boundary.
-          mkdir -p release/app/public/assets release/app/public/files/品牌资产
-          printf 'standalone smoke file\n' > release/app/public/files/品牌资产/ci-smoke.txt
+          mkdir -p release/app/public/assets release/app/public/files/corecoord/brand-system/logo
+          printf 'standalone smoke file\n' > release/app/public/files/corecoord/brand-system/logo/ci-smoke.txt
           DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
           const Database = require('better-sqlite3');
           const db = new Database(process.env.DASH_AUTH_DB);
@@ -166,7 +166,7 @@ jobs:
             INSERT INTO resources
               (title, category, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
             VALUES (?, ?, ?, 'file', ?, ?, NULL, NULL, ?, NULL, 9999)
-          `).run('CI smoke file', '品牌资产', 'brand-assets', 'TXT', 23, 'files/品牌资产/ci-smoke.txt');
+          `).run('CI smoke file', '品牌系统', 'brand-system', 'TXT', 22, 'files/corecoord/brand-system/logo/ci-smoke.txt');
           db.close();
           NODE
           smoke_release=ci-standalone-smoke
