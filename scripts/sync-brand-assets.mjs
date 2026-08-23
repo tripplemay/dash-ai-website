@@ -33,7 +33,8 @@ const RELEASE = "2026.1";
 const BRAND = "CORECOORD";
 const CHUNK_ROOT = path.join(REPO_ROOT, "deploy", "brand-chunks", RELEASE);
 const CHUNK_MANIFEST_PATH = path.join(CHUNK_ROOT, "manifest.json");
-const CHUNK_BYTES = 512 * 1024;
+// Keep individual transport objects below common reverse-proxy request limits.
+const CHUNK_BYTES = 128 * 1024;
 const FONT_PATHS = [
   "vi-system-2026/deliverables/fonts/NotoSansMonoCJKsc-VF.ttf",
   "vi-system-2026/deliverables/fonts/NotoSansSC-VF.ttf",
