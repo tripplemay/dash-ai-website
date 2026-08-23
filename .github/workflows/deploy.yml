@@ -1074,13 +1074,37 @@ jobs:
             fi
             exit 1
           fi
+          # The public origin is fronted by Cloudflare. A previous release
+          # cached the pre-cutover 404 for the unversioned asset URL, so every
+          # release probe uses a unique query key and exercises local nginx
+          # before trusting the edge response.
+          probe_release_path() {
+            local path="$1"
+            local expected="$2"
+            local label="$3"
+            local probe_url="https://pr.dashedu.net${path}?__dash_release=${RELEASE_ID}"
+            local local_status
+            local public_status
+            if [[ "$expected" == "200" && ! -f "/opt/dash-pr/public${path}" ]]; then
+              echo "${label} is missing from the persistent public volume: /opt/dash-pr/public${path}" >&2
+              return 1
+            fi
+            local_status="$(curl --silent --show-error --insecure --output /tmp/dash-local-brand-probe --write-out '%{http_code}' --max-time 5 --resolve pr.dashedu.net:443:127.0.0.1 "$probe_url" || true)"
+            if [[ "$local_status" != "$expected" ]]; then
+              echo "local nginx ${label} probe failed for $path (expected=$expected status=$local_status)" >&2
+              return 1
+            fi
+            public_status="$(curl --silent --show-error --output /tmp/dash-brand-probe --write-out '%{http_code}' --max-time 5 -H 'Cache-Control: no-cache' "$HEALTH_URL${path}?__dash_release=${RELEASE_ID}" || true)"
+            if [[ "$public_status" != "$expected" ]]; then
+              echo "public ${label} probe failed for $path (expected=$expected status=$public_status; cache-busted)" >&2
+              return 1
+            fi
+          }
           for public_path in \
             /assets/brand/corecoord/2026.1/logo-final-2026/vector/corecoord-logo-horizontal-color.svg \
             /assets/brand/corecoord/2026.1/vi-system-2026/manual/index.html \
             /assets/brand/corecoord/2026.1/vi-system-2026/deliverables/tokens/corecoord.css; do
-            public_status="$(curl --silent --show-error --output /tmp/dash-brand-probe --write-out '%{http_code}' --max-time 5 "${HEALTH_URL}${public_path}" || true)"
-            if [[ "$public_status" != "200" ]]; then
-              echo "public CORECOORD asset probe failed for $public_path (status=$public_status)" >&2
+            if ! probe_release_path "$public_path" 200 "public CORECOORD asset"; then
               diagnose_runtime
               if ! restore_previous; then
                 echo "automatic PM2 rollback after brand probe failure failed; manual intervention is required" >&2
@@ -1095,9 +1119,7 @@ jobs:
           for protected_brand_path in \
             /assets/brand/corecoord/2026.1/vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf \
             /assets/brand/corecoord/2026.1/vi-system-2026/deliverables/templates/course/corecoord-presentation-cover-16x9.svg; do
-            protected_brand_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 5 "${HEALTH_URL}${protected_brand_path}" || true)"
-            if [[ "$protected_brand_status" != "401" ]]; then
-              echo "protected CORECOORD asset probe expected 401 without a session for $protected_brand_path, got $protected_brand_status" >&2
+            if ! probe_release_path "$protected_brand_path" 401 "protected CORECOORD asset"; then
               diagnose_runtime
               if ! restore_previous; then
                 echo "automatic PM2 rollback after protected brand probe failure failed; manual intervention is required" >&2
@@ -1106,9 +1128,7 @@ jobs:
             fi
           done
           for legacy_path in /assets/legacy-brand-probe.png /assets/ext/legacy-brand-probe.png /assets/img/legacy-brand-probe.png /assets/icons/legacy-brand-probe.png; do
-            legacy_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 5 "${HEALTH_URL}${legacy_path}" || true)"
-            if [[ "$legacy_status" != "410" ]]; then
-              echo "retired legacy asset path was not blocked: $legacy_path (status=$legacy_status)" >&2
+            if ! probe_release_path "$legacy_path" 410 "retired legacy asset"; then
               diagnose_runtime
               if ! restore_previous; then
                 echo "automatic PM2 rollback after legacy asset probe failure failed; manual intervention is required" >&2
@@ -1119,9 +1139,7 @@ jobs:
           for protected_path in \
             /files \
             /files/__dash_auth_probe__; do
-            files_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}${protected_path}" || true)"
-            if [[ "$files_status" != "401" ]]; then
-              echo "protected $protected_path probe expected 401 without a session, got $files_status" >&2
+            if ! probe_release_path "$protected_path" 401 "protected resource"; then
               diagnose_runtime
               if ! restore_previous; then
                 echo "automatic PM2 rollback failed; manual intervention is required" >&2
