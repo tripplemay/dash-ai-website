@@ -359,6 +359,13 @@ jobs:
               echo "recent PM2 error lines:" >&2
               tail -n 60 "$log_file" | grep -Ei 'error|exception|listen|EADDR|module|cannot|missing|invalid|fatal' | tail -n 30 >&2 || true
             fi
+            if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
+              echo "nginx config summary:" >&2
+              sudo -n nginx -T 2>&1 | grep -E 'configuration file|server_name|upstream|dash_pr|3517|3000|pr\.dashedu\.net' | tail -n 100 >&2 || true
+              sudo -n systemctl is-active nginx >&2 || true
+            else
+              echo "nginx diagnostics unavailable to deploy user (no passwordless sudo)" >&2
+            fi
           }
           # Older PM2 files predate DASH_PUBLIC_ORIGIN. Keep their existing
           # secret-bearing config intact, derive the public origin from the
