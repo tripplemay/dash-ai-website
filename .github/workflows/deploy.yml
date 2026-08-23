@@ -323,7 +323,9 @@ jobs:
           tar -xzf /opt/dash-pr/release.tar.gz -C "$REL"
           "$NODE_BIN" -e "const fs=require('fs'); const f=process.argv[1]; const e=JSON.parse(fs.readFileSync(f,'utf8')); const a={platform:process.platform,arch:process.arch,modules:process.versions.modules}; for (const k of ['platform','arch','modules']) if (String(e[k])!==String(a[k])) throw new Error('native runtime mismatch for '+k+': build='+e[k]+' host='+a[k]); console.log('runtime ABI compatible:', JSON.stringify({build:e,host:a}))" "$REL/.runtime-abi.json"
           "$NODE_BIN" -e "const {createRequire}=require('module'); const r=createRequire(process.argv[1]); const Database=r('better-sqlite3'); const db=new Database(':memory:'); db.pragma('integrity_check'); db.close(); r('sharp'); console.log('native modules loaded: better-sqlite3, sharp')" "$REL/package.json"
-          PM2_CONFIG="/tmp/dash-pr-${RELEASE_ID}.ecosystem.cjs"
+          # The installed PM2 version recognizes .js/.mjs/.json ecosystem
+          # files, but treats .cjs as an unsupported format.
+          PM2_CONFIG="/tmp/dash-pr-${RELEASE_ID}.ecosystem.config.js"
           if [[ ! -r /opt/dash-pr/ecosystem.config.js ]]; then
             echo "PM2 ecosystem config is missing: /opt/dash-pr/ecosystem.config.js" >&2
             exit 1
@@ -545,7 +547,7 @@ jobs:
             if [[ -n "$PREV" ]]; then
               previous_release_id="$(basename "$PREV")"
               ln -sfn "$PREV" /opt/dash-pr/current
-              ROLLBACK_PM2_CONFIG="/tmp/dash-pr-${previous_release_id}.ecosystem.cjs"
+              ROLLBACK_PM2_CONFIG="/tmp/dash-pr-${previous_release_id}.ecosystem.config.js"
               if ! "$NODE_BIN" "$REL/scripts/prepare-pm2-config.mjs" \
                 /opt/dash-pr/ecosystem.config.js "$ROLLBACK_PM2_CONFIG" "$HEALTH_URL" "$previous_release_id"; then
                 echo "could not generate PM2 rollback config" >&2
