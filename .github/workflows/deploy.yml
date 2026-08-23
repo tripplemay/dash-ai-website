@@ -36,9 +36,9 @@ jobs:
           node --check scripts/migrate-auth.mjs
           node --check scripts/check-db.mjs
           node --check scripts/smoke-standalone.mjs
-          test "$(rg -c 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
-          rg -q 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
-          if rg -n '^[[:space:]]*(root|try_files)[[:space:]]' deploy/nginx/dash-pr-files.conf; then
+          test "$(grep -Ec 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
+          grep -Eq 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
+          if grep -En '^[[:space:]]*(root|try_files)[[:space:]]' deploy/nginx/dash-pr-files.conf; then
             echo 'The protected /files nginx snippet must not expose a filesystem root' >&2
             exit 1
           fi
