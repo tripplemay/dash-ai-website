@@ -33,10 +33,14 @@ const RELEASE = "2026.1";
 const BRAND = "CORECOORD";
 const CHUNK_ROOT = path.join(REPO_ROOT, "deploy", "brand-chunks", RELEASE);
 const CHUNK_MANIFEST_PATH = path.join(CHUNK_ROOT, "manifest.json");
-const FONT_CHUNK_BYTES = 4 * 1024 * 1024;
+const CHUNK_BYTES = 512 * 1024;
 const FONT_PATHS = [
   "vi-system-2026/deliverables/fonts/NotoSansMonoCJKsc-VF.ttf",
   "vi-system-2026/deliverables/fonts/NotoSansSC-VF.ttf",
+];
+const CHUNKED_PATHS = [
+  ...FONT_PATHS,
+  "vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf",
 ];
 const GENERATED_FILES = new Set(["README.md", "manifest.json", "checksums.sha256", "runtime-map.json"]);
 const FORBIDDEN_PATH = /(?:^|[\\/])campaigns?(?:[\\/]|$)|maker/i;
@@ -236,17 +240,17 @@ function writeFontChunks(records) {
   rmSync(CHUNK_ROOT, { recursive: true, force: true });
   mkdirSync(CHUNK_ROOT, { recursive: true });
 
-  const fonts = FONT_PATHS.map((fontPath) => {
-    const record = recordByPath.get(fontPath);
-    if (!record) throw new Error(`Font is missing from the brand manifest: ${fontPath}`);
-    const sourcePath = resolveInside(DEST_ROOT, fontPath);
+  const files = CHUNKED_PATHS.map((targetPath) => {
+    const record = recordByPath.get(targetPath);
+    if (!record) throw new Error(`Chunked asset is missing from the brand manifest: ${targetPath}`);
+    const sourcePath = resolveInside(DEST_ROOT, targetPath);
     const compressed = gzipSync(readFileSync(sourcePath), { level: 9, mtime: 0 });
     const chunks = [];
-    for (let offset = 0, index = 0; offset < compressed.length; offset += FONT_CHUNK_BYTES, index += 1) {
-      const chunk = compressed.subarray(offset, Math.min(offset + FONT_CHUNK_BYTES, compressed.length));
+    for (let offset = 0, index = 0; offset < compressed.length; offset += CHUNK_BYTES, index += 1) {
+      const chunk = compressed.subarray(offset, Math.min(offset + CHUNK_BYTES, compressed.length));
       const chunkPath = path.posix.join(
-        "fonts",
-        `${path.basename(fontPath)}.gz.part-${String(index + 1).padStart(3, "0")}`,
+        "files",
+        `${path.basename(targetPath)}.gz.part-${String(index + 1).padStart(3, "0")}`,
       );
       const absolutePath = resolveInside(CHUNK_ROOT, chunkPath);
       mkdirSync(path.dirname(absolutePath), { recursive: true });
@@ -254,7 +258,7 @@ function writeFontChunks(records) {
       chunks.push({ path: chunkPath, bytes: chunk.length, sha256: sha256Bytes(chunk) });
     }
     return {
-      path: fontPath,
+      path: targetPath,
       bytes: record.bytes,
       sha256: record.sha256,
       compression: "gzip",
@@ -267,9 +271,9 @@ function writeFontChunks(records) {
     schemaVersion: 1,
     brand: BRAND,
     release: RELEASE,
-    chunkBytes: FONT_CHUNK_BYTES,
+    chunkBytes: CHUNK_BYTES,
     generatedBy: "scripts/sync-brand-assets.mjs",
-    fonts,
+    files,
   };
   writeJson(CHUNK_MANIFEST_PATH, manifest);
   return manifest;
@@ -292,20 +296,20 @@ function assembleFonts() {
     manifest.brand !== BRAND
     || manifest.release !== RELEASE
     || manifest.schemaVersion !== 1
-    || manifest.chunkBytes !== FONT_CHUNK_BYTES
-    || !Array.isArray(manifest.fonts)
-    || manifest.fonts.length !== FONT_PATHS.length
+    || manifest.chunkBytes !== CHUNK_BYTES
+    || !Array.isArray(manifest.files)
+    || manifest.files.length !== CHUNKED_PATHS.length
   ) {
     throw new Error("Font chunk manifest contract does not match CORECOORD 2026.1");
   }
 
   const expectedChunkFiles = new Set(["manifest.json"]);
-  const seenFonts = new Set();
-  for (const font of manifest.fonts) {
-    if (!FONT_PATHS.includes(font.path) || seenFonts.has(font.path)) {
-      throw new Error(`Invalid or duplicate font chunk target: ${font.path || "(empty)"}`);
+  const seenFiles = new Set();
+  for (const font of manifest.files) {
+    if (!CHUNKED_PATHS.includes(font.path) || seenFiles.has(font.path)) {
+      throw new Error(`Invalid or duplicate chunk target: ${font.path || "(empty)"}`);
     }
-    seenFonts.add(font.path);
+    seenFiles.add(font.path);
     if (
       font.compression !== "gzip"
       || !Number.isInteger(font.bytes)
@@ -329,7 +333,7 @@ function assembleFonts() {
       }
       const chunkBytes = readFileSync(chunkPath);
       if (chunkBytes.length !== chunk.bytes || sha256Bytes(chunkBytes) !== chunk.sha256) {
-        throw new Error(`Font chunk checksum mismatch: ${chunk.path}`);
+        throw new Error(`Chunk checksum mismatch: ${chunk.path}`);
       }
       compressedChunks.push(chunkBytes);
       compressedBytes += chunkBytes.length;
@@ -342,16 +346,16 @@ function assembleFonts() {
     try {
       content = gunzipSync(Buffer.concat(compressedChunks));
     } catch (error) {
-      throw new Error(`Cannot decompress font ${font.path}: ${error.message}`);
+      throw new Error(`Cannot decompress asset ${font.path}: ${error.message}`);
     }
     if (content.length !== font.bytes || sha256Bytes(content) !== font.sha256) {
-      throw new Error(`Assembled font checksum mismatch: ${font.path}`);
+      throw new Error(`Assembled asset checksum mismatch: ${font.path}`);
     }
     const targetPath = resolveInside(DEST_ROOT, font.path);
     mkdirSync(path.dirname(targetPath), { recursive: true });
     writeFileSync(targetPath, content);
   }
-  if (seenFonts.size !== FONT_PATHS.length) throw new Error("Font chunk manifest does not cover every approved font");
+  if (seenFiles.size !== CHUNKED_PATHS.length) throw new Error("Chunk manifest does not cover every approved asset");
 
   const actualChunkFiles = collectFiles(CHUNK_ROOT).sort(comparePath);
   const expected = [...expectedChunkFiles].sort(comparePath);
@@ -544,7 +548,7 @@ function checkAssets(sourceRoot) {
     throw new Error("Manifest has no files");
   }
 
-  for (const font of chunkManifest.fonts) {
+  for (const font of chunkManifest.files) {
     const record = manifest.files.find((candidate) => candidate.path === font.path);
     if (!record || record.bytes !== font.bytes || record.sha256 !== font.sha256) {
       throw new Error(`Font chunk metadata does not match manifest: ${font.path}`);

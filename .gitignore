@@ -59,6 +59,7 @@ backups/
 # `pnpm brand:assemble` before checks, builds, and local materialization.
 /deploy/brand/2026.1/vi-system-2026/deliverables/fonts/NotoSansSC-VF.ttf
 /deploy/brand/2026.1/vi-system-2026/deliverables/fonts/NotoSansMonoCJKsc-VF.ttf
+/deploy/brand/2026.1/vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf
 
 # next dev auto-generated agent notes
 AGENTS.md
