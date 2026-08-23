@@ -338,7 +338,10 @@ jobs:
             echo "PM2 must run one forked instance while local storage is enabled (instances=$PM2_INSTANCES, exec_mode=$PM2_EXEC_MODE)" >&2
             exit 1
           fi
-          "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; const fail=(m)=>{console.error(m); process.exit(1)}; const s=e.BETTER_AUTH_SECRET||''; if(s.length<32) fail('PM2 production BETTER_AUTH_SECRET must be at least 32 characters'); if(e.NODE_ENV!=='production') fail('PM2 production NODE_ENV must be production'); if(e.DASH_AUTH_DB!=='/opt/dash-pr/dash-auth.db') fail('PM2 production DASH_AUTH_DB must be /opt/dash-pr/dash-auth.db'); const cwd=String(a?.cwd||'').replace(/\\/+$/, ''); if(!['/opt/dash-pr/current','/opt/dash-pr'].includes(cwd)) fail('PM2 cwd must be /opt/dash-pr/current or /opt/dash-pr'); const interpreter=String(a?.interpreter||''); const selected=process.argv[2]; if(!interpreter||!path.isAbsolute(interpreter)) fail('PM2 interpreter must explicitly point to the selected Node 22 binary'); let selectedReal, interpreterReal; try{selectedReal=fs.realpathSync(selected); interpreterReal=fs.realpathSync(interpreter)}catch{fail('PM2 interpreter path is not available')} if(interpreterReal!==selectedReal) fail('PM2 interpreter must use the selected Node 22 binary'); const origin=(name)=>{let u; try{u=new URL(e[name]||'')}catch{fail('PM2 production '+name+' is missing or invalid')} if(u.protocol!=='https:'||u.pathname!=='/'||u.search||u.hash) fail('PM2 production '+name+' must be an HTTPS origin'); return u.origin}; const publicOrigin=origin('DASH_PUBLIC_ORIGIN'); if(origin('BETTER_AUTH_URL')!==publicOrigin) fail('PM2 production BETTER_AUTH_URL and DASH_PUBLIC_ORIGIN must match'); let health; try{health=new URL(process.argv[1])}catch{fail('DASH_HEALTH_URL is invalid')} if(health.origin!==publicOrigin||health.pathname!=='/'||health.search||health.hash) fail('DASH_HEALTH_URL must match DASH_PUBLIC_ORIGIN origin')" "$HEALTH_OVERRIDE" "$NODE_BIN"
+          # Older PM2 files predate DASH_PUBLIC_ORIGIN. Keep their existing
+          # secret-bearing config intact, derive the public origin from the
+          # validated Better Auth origin, and inject the explicit value below.
+          "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; const fail=(m)=>{console.error(m); process.exit(1)}; const s=e.BETTER_AUTH_SECRET||''; if(s.length<32) fail('PM2 production BETTER_AUTH_SECRET must be at least 32 characters'); if(e.NODE_ENV!=='production') fail('PM2 production NODE_ENV must be production'); if(e.DASH_AUTH_DB!=='/opt/dash-pr/dash-auth.db') fail('PM2 production DASH_AUTH_DB must be /opt/dash-pr/dash-auth.db'); const cwd=String(a?.cwd||'').replace(/\\/+$/, ''); if(!['/opt/dash-pr/current','/opt/dash-pr'].includes(cwd)) fail('PM2 cwd must be /opt/dash-pr/current or /opt/dash-pr'); const interpreter=String(a?.interpreter||''); const selected=process.argv[2]; if(!interpreter||!path.isAbsolute(interpreter)) fail('PM2 interpreter must explicitly point to the selected Node 22 binary'); let selectedReal, interpreterReal; try{selectedReal=fs.realpathSync(selected); interpreterReal=fs.realpathSync(interpreter)}catch{fail('PM2 interpreter path is not available')} if(interpreterReal!==selectedReal) fail('PM2 interpreter must use the selected Node 22 binary'); const origin=(name,fallback)=>{let u; try{u=new URL(e[name]||fallback||'')}catch{fail('PM2 production '+name+' is missing or invalid')} if(u.protocol!=='https:'||u.pathname!=='/'||u.search||u.hash) fail('PM2 production '+name+' must be an HTTPS origin'); return u.origin}; const publicOrigin=origin('DASH_PUBLIC_ORIGIN',e.BETTER_AUTH_URL||process.argv[1]); if(origin('BETTER_AUTH_URL',publicOrigin)!==publicOrigin) fail('PM2 production BETTER_AUTH_URL and DASH_PUBLIC_ORIGIN must match'); let health; try{health=new URL(process.argv[1])}catch{fail('DASH_HEALTH_URL is invalid')} if(health.origin!==publicOrigin||health.pathname!=='/'||health.search||health.hash) fail('DASH_HEALTH_URL must match DASH_PUBLIC_ORIGIN origin')" "$HEALTH_OVERRIDE" "$NODE_BIN"
           # 迁移在切换 current 前执行；已有数据库失败时发布中止并保留旧版本。
           # 首次部署没有 current 时，先把代码发布为 current，供运维执行
           # README 中的 seed；若已有 current 却丢了数据库，则拒绝覆盖现场。
@@ -372,7 +375,8 @@ jobs:
             if [[ -n "$PREV" ]]; then
               previous_release_id="$(basename "$PREV")"
               ln -sfn "$PREV" /opt/dash-pr/current
-              if ! NODE_ENV=production DASH_RELEASE_ID="$(basename "$PREV")" \
+              if ! NODE_ENV=production BETTER_AUTH_URL="$HEALTH_URL" DASH_PUBLIC_ORIGIN="$HEALTH_URL" \
+                DASH_AUTH_DB=/opt/dash-pr/dash-auth.db DASH_RELEASE_ID="$(basename "$PREV")" \
                 "$PM2_BIN" startOrReload /opt/dash-pr/ecosystem.config.js --env production --update-env; then
                 echo "PM2 rollback failed for previous release" >&2
                 return 1
@@ -417,7 +421,8 @@ jobs:
           }
           ln -sfn "$REL" /opt/dash-pr/current.new
           mv -T /opt/dash-pr/current.new /opt/dash-pr/current
-          if NODE_ENV=production DASH_RELEASE_ID="$RELEASE_ID" \
+          if NODE_ENV=production BETTER_AUTH_URL="$HEALTH_URL" DASH_PUBLIC_ORIGIN="$HEALTH_URL" \
+            DASH_AUTH_DB=/opt/dash-pr/dash-auth.db DASH_RELEASE_ID="$RELEASE_ID" \
             "$PM2_BIN" startOrReload /opt/dash-pr/ecosystem.config.js --env production --update-env; then
             :
           else
