@@ -1,0 +1,1742 @@
+{
+  "$schema": "https://www.designtokens.org/schemas/2025.10/format.json",
+  "$description": "CORECOORD / 芯坐标 design tokens. Source of truth for brand and product communication, version 2026.1.",
+  "primitive": {
+    "color": {
+      "neutral": {
+        "0": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              1,
+              1
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 0 (#FFFFFF)"
+        },
+        "50": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.968627,
+              0.972549,
+              0.988235
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 50 (#F7F8FC)"
+        },
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.937255,
+              0.945098,
+              0.968627
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 100 (#EFF1F7)"
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.866667,
+              0.882353,
+              0.921569
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 200 (#DDE1EB)"
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.772549,
+              0.796078,
+              0.847059
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 300 (#C5CBD8)"
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.607843,
+              0.643137,
+              0.709804
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 400 (#9BA4B5)"
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.447059,
+              0.486275,
+              0.556863
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 500 (#727C8E)"
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.321569,
+              0.360784,
+              0.427451
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 600 (#525C6D)"
+        },
+        "700": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.231373,
+              0.266667,
+              0.32549
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 700 (#3B4453)"
+        },
+        "800": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.145098,
+              0.172549,
+              0.219608
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 800 (#252C38)"
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.090196,
+              0.109804,
+              0.145098
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 900 (#171C25)"
+        },
+        "950": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.054902,
+              0.070588,
+              0.098039
+            ],
+            "alpha": 1
+          },
+          "$description": "neutral 950 (#0E1219)"
+        }
+      },
+      "indigo": {
+        "50": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.956863,
+              0.964706,
+              0.988235
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 50 (#F4F6FC)"
+        },
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.909804,
+              0.92549,
+              0.972549
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 100 (#E8ECF8)"
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.803922,
+              0.839216,
+              0.937255
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 200 (#CDD6EF)"
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.666667,
+              0.72549,
+              0.886275
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 300 (#AAB9E2)"
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.505882,
+              0.596078,
+              0.823529
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 400 (#8198D2)"
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.368627,
+              0.462745,
+              0.737255
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 500 (#5E76BC)"
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.25098,
+              0.329412,
+              0.611765
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 600 (#40549C)"
+        },
+        "700": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.133333,
+              0.211765,
+              0.482353
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 700 (#22367B)"
+        },
+        "800": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.105882,
+              0.164706,
+              0.372549
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 800 (#1B2A5F)"
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.078431,
+              0.121569,
+              0.27451
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 900 (#141F46)"
+        },
+        "950": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.05098,
+              0.078431,
+              0.184314
+            ],
+            "alpha": 1
+          },
+          "$description": "indigo 950 (#0D142F)"
+        }
+      },
+      "coral": {
+        "50": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.960784,
+              0.94902
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 50 (#FFF5F2)"
+        },
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.913725,
+              0.894118
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 100 (#FFE9E4)"
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.815686,
+              0.780392
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 200 (#FFD0C7)"
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.670588,
+              0.603922
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 300 (#FFAB9A)"
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.541176,
+              0.447059
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 400 (#FF8A72)"
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.988235,
+              0.45098,
+              0.345098
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 500 (#FC7358)"
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.894118,
+              0.341176,
+              0.25098
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 600 (#E45740)"
+        },
+        "700": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.721569,
+              0.231373,
+              0.164706
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 700 (#B83B2A)"
+        },
+        "800": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.560784,
+              0.176471,
+              0.133333
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 800 (#8F2D22)"
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.403922,
+              0.137255,
+              0.109804
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 900 (#67231C)"
+        },
+        "950": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.239216,
+              0.078431,
+              0.066667
+            ],
+            "alpha": 1
+          },
+          "$description": "coral 950 (#3D1411)"
+        }
+      },
+      "orange": {
+        "50": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.960784,
+              0.941176
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 50 (#FFF5F0)"
+        },
+        "100": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.909804,
+              0.866667
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 100 (#FFE8DD)"
+        },
+        "200": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.815686,
+              0.741176
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 200 (#FFD0BD)"
+        },
+        "300": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              1,
+              0.682353,
+              0.541176
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 300 (#FFAE8A)"
+        },
+        "400": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.980392,
+              0.529412,
+              0.364706
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 400 (#FA875D)"
+        },
+        "500": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.945098,
+              0.423529,
+              0.243137
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 500 (#F16C3E)"
+        },
+        "600": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.835294,
+              0.321569,
+              0.152941
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 600 (#D55227)"
+        },
+        "700": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.658824,
+              0.231373,
+              0.105882
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 700 (#A83B1B)"
+        },
+        "800": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.498039,
+              0.176471,
+              0.090196
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 800 (#7F2D17)"
+        },
+        "900": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.356863,
+              0.133333,
+              0.086275
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 900 (#5B2216)"
+        },
+        "950": {
+          "$type": "color",
+          "$value": {
+            "colorSpace": "srgb",
+            "components": [
+              0.207843,
+              0.070588,
+              0.043137
+            ],
+            "alpha": 1
+          },
+          "$description": "orange 950 (#35120B)"
+        }
+      }
+    },
+    "font": {
+      "sans": {
+        "$type": "fontFamily",
+        "$value": [
+          "Noto Sans SC",
+          "Noto Sans",
+          "Arial",
+          "sans-serif"
+        ],
+        "$description": "Bilingual interface and communication family"
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": [
+          "Noto Sans Mono CJK SC",
+          "Noto Sans Mono",
+          "monospace"
+        ],
+        "$description": "Code, coordinates, data, and technical labels"
+      },
+      "weight": {
+        "regular": {
+          "$type": "fontWeight",
+          "$value": 400
+        },
+        "medium": {
+          "$type": "fontWeight",
+          "$value": 500
+        },
+        "semibold": {
+          "$type": "fontWeight",
+          "$value": 600
+        },
+        "bold": {
+          "$type": "fontWeight",
+          "$value": 700
+        }
+      }
+    },
+    "space": {
+      "0": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "2": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "4": {
+        "$type": "dimension",
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "8": {
+        "$type": "dimension",
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "12": {
+        "$type": "dimension",
+        "$value": {
+          "value": 12,
+          "unit": "px"
+        }
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "20": {
+        "$type": "dimension",
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      },
+      "24": {
+        "$type": "dimension",
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        }
+      },
+      "32": {
+        "$type": "dimension",
+        "$value": {
+          "value": 32,
+          "unit": "px"
+        }
+      },
+      "40": {
+        "$type": "dimension",
+        "$value": {
+          "value": 40,
+          "unit": "px"
+        }
+      },
+      "48": {
+        "$type": "dimension",
+        "$value": {
+          "value": 48,
+          "unit": "px"
+        }
+      },
+      "64": {
+        "$type": "dimension",
+        "$value": {
+          "value": 64,
+          "unit": "px"
+        }
+      },
+      "80": {
+        "$type": "dimension",
+        "$value": {
+          "value": 80,
+          "unit": "px"
+        }
+      },
+      "96": {
+        "$type": "dimension",
+        "$value": {
+          "value": 96,
+          "unit": "px"
+        }
+      },
+      "128": {
+        "$type": "dimension",
+        "$value": {
+          "value": 128,
+          "unit": "px"
+        }
+      }
+    },
+    "radius": {
+      "none": {
+        "$type": "dimension",
+        "$value": {
+          "value": 0,
+          "unit": "px"
+        }
+      },
+      "small": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "medium": {
+        "$type": "dimension",
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "round": {
+        "$type": "dimension",
+        "$value": {
+          "value": 999,
+          "unit": "px"
+        }
+      }
+    },
+    "stroke": {
+      "hairline": {
+        "$type": "dimension",
+        "$value": {
+          "value": 1,
+          "unit": "px"
+        }
+      },
+      "standard": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "emphasis": {
+        "$type": "dimension",
+        "$value": {
+          "value": 3,
+          "unit": "px"
+        }
+      }
+    },
+    "motion": {
+      "instant": {
+        "$type": "duration",
+        "$value": {
+          "value": 80,
+          "unit": "ms"
+        },
+        "$description": "Immediate feedback"
+      },
+      "quick": {
+        "$type": "duration",
+        "$value": {
+          "value": 160,
+          "unit": "ms"
+        },
+        "$description": "Small state change"
+      },
+      "standard": {
+        "$type": "duration",
+        "$value": {
+          "value": 240,
+          "unit": "ms"
+        },
+        "$description": "Default transition"
+      },
+      "deliberate": {
+        "$type": "duration",
+        "$value": {
+          "value": 400,
+          "unit": "ms"
+        },
+        "$description": "Teaching step or panel transition"
+      },
+      "narrative": {
+        "$type": "duration",
+        "$value": {
+          "value": 700,
+          "unit": "ms"
+        },
+        "$description": "Brand narrative beat"
+      },
+      "ease": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.2,
+          0,
+          0,
+          1
+        ],
+        "$description": "Decisive, non-bouncy standard easing"
+      },
+      "ease-exit": {
+        "$type": "cubicBezier",
+        "$value": [
+          0.4,
+          0,
+          1,
+          1
+        ],
+        "$description": "Exit easing"
+      }
+    }
+  },
+  "brand": {
+    "core-indigo": {
+      "$type": "color",
+      "$value": "{primitive.color.indigo.700}",
+      "$description": "Approved logo Core Indigo"
+    },
+    "signal-coral": {
+      "$type": "color",
+      "$value": "{primitive.color.coral.500}",
+      "$description": "Approved logo Signal Coral"
+    },
+    "wordmark-orange": {
+      "$type": "color",
+      "$value": "{primitive.color.orange.500}",
+      "$description": "Approved English wordmark orange"
+    },
+    "reverse-background": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.070588,
+          0.101961,
+          0.2
+        ],
+        "alpha": 1
+      },
+      "$description": "Approved reverse logo background (#121A33)"
+    },
+    "mono-ink": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.066667,
+          0.07451,
+          0.094118
+        ],
+        "alpha": 1
+      },
+      "$description": "Approved monochrome logo ink (#111318)"
+    }
+  },
+  "semantic": {
+    "light": {
+      "background": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.0}",
+        "$description": "Primary canvas"
+      },
+      "background-subtle": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.50}",
+        "$description": "Quiet canvas band"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.0}",
+        "$description": "Primary surface"
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.0}",
+        "$description": "Raised surface; use sparingly"
+      },
+      "surface-selected": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.50}",
+        "$description": "Selected surface"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.900}",
+        "$description": "Primary text"
+      },
+      "text-secondary": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.600}",
+        "$description": "Secondary text"
+      },
+      "text-muted": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.500}",
+        "$description": "Large or non-essential labels only"
+      },
+      "heading": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.800}",
+        "$description": "Brand heading"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.700}",
+        "$description": "Link text; underline required in paragraphs"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.200}",
+        "$description": "Standard divider and border"
+      },
+      "border-strong": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.400}",
+        "$description": "Strong divider and input boundary"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.700}",
+        "$description": "3 px focus indicator"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.700}",
+        "$description": "Primary action fill"
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.0}",
+        "$description": "Content on primary action"
+      },
+      "accent": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.500}",
+        "$description": "Decorative accent; not body text on white"
+      },
+      "accent-strong": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.800}",
+        "$description": "Accessible coral-family text"
+      }
+    },
+    "dark": {
+      "background": {
+        "$type": "color",
+        "$value": "{brand.reverse-background}",
+        "$description": "Dark canvas"
+      },
+      "background-subtle": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.950}",
+        "$description": "Deep dark canvas"
+      },
+      "surface": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.900}",
+        "$description": "Dark surface"
+      },
+      "surface-raised": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.800}",
+        "$description": "Raised dark surface"
+      },
+      "text": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.0}",
+        "$description": "Primary text on dark"
+      },
+      "text-secondary": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.300}",
+        "$description": "Secondary text on dark"
+      },
+      "heading": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.0}",
+        "$description": "Heading on dark"
+      },
+      "link": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.300}",
+        "$description": "Link on dark"
+      },
+      "border": {
+        "$type": "color",
+        "$value": "{primitive.color.indigo.600}",
+        "$description": "Dark mode divider"
+      },
+      "focus": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.300}",
+        "$description": "Focus indicator on dark"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.400}",
+        "$description": "Primary dark-mode action"
+      },
+      "on-action": {
+        "$type": "color",
+        "$value": "{primitive.color.neutral.950}",
+        "$description": "Content on dark-mode action"
+      }
+    },
+    "state": {
+      "success": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.380392,
+            0.231373
+          ],
+          "alpha": 1
+        },
+        "$description": "Accessible success text on light (#17613B)"
+      },
+      "success-surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.917647,
+            0.972549,
+            0.941176
+          ],
+          "alpha": 1
+        },
+        "$description": "Success surface (#EAF8F0)"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.458824,
+            0.294118,
+            0
+          ],
+          "alpha": 1
+        },
+        "$description": "Accessible warning text on light (#754B00)"
+      },
+      "warning-surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.968627,
+            0.894118
+          ],
+          "alpha": 1
+        },
+        "$description": "Warning surface (#FFF7E4)"
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.800}",
+        "$description": "Accessible danger text on light"
+      },
+      "danger-surface": {
+        "$type": "color",
+        "$value": "{primitive.color.coral.50}",
+        "$description": "Danger surface"
+      },
+      "info": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.082353,
+            0.352941,
+            0.568627
+          ],
+          "alpha": 1
+        },
+        "$description": "Accessible information text on light (#155A91)"
+      },
+      "info-surface": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.92549,
+            0.964706,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "Information surface (#ECF6FF)"
+      }
+    }
+  },
+  "stage": {
+    "00-experience": {
+      "$description": "AI 初体验 / Experience",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.988235,
+            0.45098,
+            0.345098
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 初体验 accent (#FC7358)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.560784,
+            0.176471,
+            0.133333
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 初体验 accessible text and line (#8F2D22)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.941176,
+            0.92549
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 初体验 soft surface (#FFF0EC)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.109804,
+            0.145098
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 初体验 content on accent (#171C25)"
+      }
+    },
+    "01-visual": {
+      "$description": "视觉创作 / Visual",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.788235,
+            0.247059,
+            0.470588
+          ],
+          "alpha": 1
+        },
+        "$description": "视觉创作 accent (#C93F78)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.556863,
+            0.145098,
+            0.333333
+          ],
+          "alpha": 1
+        },
+        "$description": "视觉创作 accessible text and line (#8E2555)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.992157,
+            0.92549,
+            0.952941
+          ],
+          "alpha": 1
+        },
+        "$description": "视觉创作 soft surface (#FDECF3)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "视觉创作 content on accent (#FFFFFF)"
+      }
+    },
+    "02-voice": {
+      "$description": "声音表达 / Voice",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.447059,
+            0.341176,
+            0.85098
+          ],
+          "alpha": 1
+        },
+        "$description": "声音表达 accent (#7257D9)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.286275,
+            0.196078,
+            0.631373
+          ],
+          "alpha": 1
+        },
+        "$description": "声音表达 accessible text and line (#4932A1)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.945098,
+            0.933333,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "声音表达 soft surface (#F1EEFF)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "声音表达 content on accent (#FFFFFF)"
+      }
+    },
+    "03-motion": {
+      "$description": "动态叙事 / Motion",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.105882,
+            0.470588,
+            0.772549
+          ],
+          "alpha": 1
+        },
+        "$description": "动态叙事 accent (#1B78C5)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.082353,
+            0.352941,
+            0.568627
+          ],
+          "alpha": 1
+        },
+        "$description": "动态叙事 accessible text and line (#155A91)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.92549,
+            0.964706,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "动态叙事 soft surface (#ECF6FF)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "动态叙事 content on accent (#FFFFFF)"
+      }
+    },
+    "04-app": {
+      "$description": "应用构建 / App",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.25098,
+            0.329412,
+            0.611765
+          ],
+          "alpha": 1
+        },
+        "$description": "应用构建 accent (#40549C)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.133333,
+            0.211765,
+            0.482353
+          ],
+          "alpha": 1
+        },
+        "$description": "应用构建 accessible text and line (#22367B)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.933333,
+            0.945098,
+            0.984314
+          ],
+          "alpha": 1
+        },
+        "$description": "应用构建 soft surface (#EEF1FB)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            1,
+            1
+          ],
+          "alpha": 1
+        },
+        "$description": "应用构建 content on accent (#FFFFFF)"
+      }
+    },
+    "05-maker": {
+      "$description": "智能硬件 / Maker",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.117647,
+            0.603922,
+            0.568627
+          ],
+          "alpha": 1
+        },
+        "$description": "智能硬件 accent (#1E9A91)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.066667,
+            0.415686,
+            0.396078
+          ],
+          "alpha": 1
+        },
+        "$description": "智能硬件 accessible text and line (#116A65)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.905882,
+            0.972549,
+            0.964706
+          ],
+          "alpha": 1
+        },
+        "$description": "智能硬件 soft surface (#E7F8F6)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.109804,
+            0.145098
+          ],
+          "alpha": 1
+        },
+        "$description": "智能硬件 content on accent (#171C25)"
+      }
+    },
+    "06-code": {
+      "$description": "编程创造 / Code",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.168627,
+            0.603922,
+            0.384314
+          ],
+          "alpha": 1
+        },
+        "$description": "编程创造 accent (#2B9A62)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.380392,
+            0.231373
+          ],
+          "alpha": 1
+        },
+        "$description": "编程创造 accessible text and line (#17613B)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.917647,
+            0.972549,
+            0.941176
+          ],
+          "alpha": 1
+        },
+        "$description": "编程创造 soft surface (#EAF8F0)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.109804,
+            0.145098
+          ],
+          "alpha": 1
+        },
+        "$description": "编程创造 content on accent (#171C25)"
+      }
+    },
+    "07-data": {
+      "$description": "数据推理 / Data",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.905882,
+            0.635294,
+            0.105882
+          ],
+          "alpha": 1
+        },
+        "$description": "数据推理 accent (#E7A21B)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.458824,
+            0.294118,
+            0
+          ],
+          "alpha": 1
+        },
+        "$description": "数据推理 accessible text and line (#754B00)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.968627,
+            0.894118
+          ],
+          "alpha": 1
+        },
+        "$description": "数据推理 soft surface (#FFF7E4)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.109804,
+            0.145098
+          ],
+          "alpha": 1
+        },
+        "$description": "数据推理 content on accent (#171C25)"
+      }
+    },
+    "08-literacy": {
+      "$description": "AI 素养 / Literacy",
+      "accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.945098,
+            0.423529,
+            0.243137
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 素养 accent (#F16C3E)"
+      },
+      "strong": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.498039,
+            0.176471,
+            0.090196
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 素养 accessible text and line (#7F2D17)"
+      },
+      "soft": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            1,
+            0.941176,
+            0.913725
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 素养 soft surface (#FFF0E9)"
+      },
+      "on-accent": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.090196,
+            0.109804,
+            0.145098
+          ],
+          "alpha": 1
+        },
+        "$description": "AI 素养 content on accent (#171C25)"
+      }
+    }
+  },
+  "component": {
+    "focus-ring": {
+      "width": {
+        "$type": "dimension",
+        "$value": {
+          "value": 3,
+          "unit": "px"
+        }
+      },
+      "offset": {
+        "$type": "dimension",
+        "$value": {
+          "value": 2,
+          "unit": "px"
+        }
+      },
+      "color": {
+        "$type": "color",
+        "$value": "{semantic.light.focus}",
+        "$description": "Default focus ring"
+      }
+    },
+    "touch-target": {
+      "minimum": {
+        "$type": "dimension",
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        },
+        "$description": "WCAG 2.2 AA minimum target"
+      },
+      "preferred": {
+        "$type": "dimension",
+        "$value": {
+          "value": 44,
+          "unit": "px"
+        },
+        "$description": "CORECOORD child-friendly regular target"
+      }
+    },
+    "icon": {
+      "small": {
+        "$type": "dimension",
+        "$value": {
+          "value": 16,
+          "unit": "px"
+        }
+      },
+      "standard": {
+        "$type": "dimension",
+        "$value": {
+          "value": 20,
+          "unit": "px"
+        }
+      },
+      "large": {
+        "$type": "dimension",
+        "$value": {
+          "value": 24,
+          "unit": "px"
+        }
+      },
+      "display": {
+        "$type": "dimension",
+        "$value": {
+          "value": 40,
+          "unit": "px"
+        }
+      }
+    },
+    "layout-grid": {
+      "base": {
+        "$type": "dimension",
+        "$value": {
+          "value": 8,
+          "unit": "px"
+        }
+      },
+      "micro": {
+        "$type": "dimension",
+        "$value": {
+          "value": 4,
+          "unit": "px"
+        }
+      },
+      "stroke": {
+        "$type": "dimension",
+        "$value": "{primitive.stroke.standard}",
+        "$description": "Coordinate graphic standard stroke"
+      }
+    }
+  }
+}
