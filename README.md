@@ -85,7 +85,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 ```
 ├── messages/            # zh.json / en.json 文案
 ├── public/              # 不进 git：assets/ files/ brand/（部署时单独分发）
-├── scripts/{migrate,migrate-auth,seed,backup-db,dedupe-resources,check-db}.mjs # Better Auth/资源迁移、播种、备份与校验
+├── scripts/{migrate,migrate-auth,seed,backup-db,dedupe-resources,check-db,prepare-pm2-config}.mjs # 迁移、播种、备份、校验与发布配置
 ├── deploy/nginx/dash-pr.conf                         # 可直接安装的生产 vhost（含 /files 鉴权）
 ├── deploy/nginx/{dash-pr-upstream,dash-pr-files}.conf # 可组合的 /files 受保护反代片段
 ├── src/
@@ -113,7 +113,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 | `DEPLOY_HOST`    | VPS 地址                 |
 | `DEPLOY_USER`    | SSH 用户                 |
 | `DEPLOY_KNOWN_HOSTS` | 固定的 VPS `known_hosts` 行，发布启用严格主机密钥校验 |
-| `DASH_HEALTH_URL` | 必填的部署后公网 HTTPS origin，例如 `https://pr.dashedu.net` |
+| `DASH_HEALTH_URL` | 必填且必须为 `https://pr.dashedu.net`；部署后用于验证公网边界 |
 
 ### VPS 侧一次性初始化（已固化在服务器，无需重复）
 
@@ -128,7 +128,11 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 
 部署工作流会将 `deploy/nginx/dash-pr.conf` 安装为 `/etc/nginx/sites-available/dash-pr`，并更新
 `sites-enabled/dash-pr`；切换前会在 `/opt/dash-pr/backups/nginx/` 留存旧文件。该 vhost 已内联
-upstream 和 `/files` `auth_request` 规则，不要在同一 server/http 上重复 include 两个片段。
+upstream 和 `/files` `auth_request` 规则，不要在同一 server 中重复 include `dash-pr-files.conf`。
+目标机需要 Debian/Ubuntu 风格的 `sites-available`/`sites-enabled`、systemd、免密 sudo，且在首次
+部署前已经为 `pr.dashedu.net` 配置可读的 Let's Encrypt 证书（`fullchain.pem` 与 `privkey.pem`）。
+若 nginx 的其它文件仍声明 `server_name pr.dashedu.net`，请先停用旧 vhost；工作流会在写入前检测
+重复声明并拒绝继续，避免公网请求落到旧的 `/files` 规则。
 
 `ecosystem.config.js` 的 production app 必须显式设置 `NODE_ENV=production`、
 `DASH_AUTH_DB=/opt/dash-pr/dash-auth.db`，并将 `cwd` 固定为 `/opt/dash-pr/current`
@@ -159,7 +163,7 @@ NODE_ENV=production BETTER_AUTH_SECRET=<与ecosystem一致> \
 - 健康检查：`GET /api/health/live` 仅检查进程响应；`GET /api/health/ready` 检查 SQLite、核心表、`public/assets`/`public/files` 资产卷可读，并对 `public/files` 做受控临时写入/删除探针。两者均返回 `Cache-Control: no-store`，ready 失败时返回 `503`，不暴露数据库路径或错误详情。
 - `dash-auth.db` 含账号数据，已 gitignore，勿提交。
 - 若数据库或其 WAL/SHM 文件曾进入 Git 历史，仅新增忽略规则不能撤回历史内容；应先轮换账号密码与 `BETTER_AUTH_SECRET`，再按仓库保密流程清理历史。
-- 回滚：部署脚本会在新版本 live/ready 或 `/files` 探针失败时切回旧 release，并再次验证旧版本健康；资源迁移是前向兼容的，旧代码回滚前仍需按备份恢复数据库或确认旧版本兼容新 schema。
+- 回滚：部署脚本会在新版本 live/ready 或 `/files` 探针失败时切回旧 release，并再次验证旧版本健康；资源迁移是前向兼容的，旧代码回滚前仍需按备份恢复数据库或确认旧版本兼容新 schema。若 PM2/nginx 回滚状态不明确，脚本会保留候选 release 和 nginx 备份供人工恢复，不会删除可能仍被进程引用的目录。
 - 备份目录需配置保留策略（例如仅保留最近 14 天并同步到独立对象存储），避免长期部署占满 VPS 磁盘。
 - 当前本地存储覆盖写入使用进程内 object-key 锁，PM2 必须保持单实例 fork；扩容到多进程/多副本时应切换到带条件写入的对象存储驱动并把元数据迁移到 PostgreSQL。
 - 部署 SSH 用户应与 PM2 ecosystem 的运行用户一致，并使用 Node 22（默认探测 `/opt/node22/bin/node`）；部署脚本会在切换软链前拒绝用户或 Node ABI 不匹配。

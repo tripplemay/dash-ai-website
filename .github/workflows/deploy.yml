@@ -36,9 +36,10 @@ jobs:
           node --check scripts/migrate-auth.mjs
           node --check scripts/check-db.mjs
           node --check scripts/smoke-standalone.mjs
+          node --check scripts/prepare-pm2-config.mjs
           test "$(grep -Ec 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
           grep -Eq 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
-          grep -Eq '^upstream dash_pr_app' deploy/nginx/dash-pr.conf
+          grep -Eq '^upstream dash_pr_release_app' deploy/nginx/dash-pr.conf
           test "$(grep -Ec 'auth_request /_dash_auth_check' deploy/nginx/dash-pr.conf)" -eq 2
           awk '/location = \/files|location \^~ \/files\// { inside=1 } inside { print } inside && /^    }$/ { inside=0 }' deploy/nginx/dash-pr.conf \
             | grep -Eq 'root|try_files' && {
@@ -265,6 +266,10 @@ jobs:
             *) echo "DASH_HEALTH_URL must be a public HTTPS origin" >&2; exit 1 ;;
           esac
           HEALTH_OVERRIDE="${HEALTH_OVERRIDE%/}"
+          if [[ "$HEALTH_OVERRIDE" != "https://pr.dashedu.net" ]]; then
+            echo "DASH_HEALTH_URL must be exactly https://pr.dashedu.net for this vhost" >&2
+            exit 1
+          fi
           umask 077
           NODE_BIN=""
           for candidate in /opt/node22/bin/node /opt/node22/node /usr/local/bin/node; do
@@ -306,6 +311,12 @@ jobs:
           cleanup_failed_release() {
             status=$?
             trap - EXIT
+            if [[ "$status" -ne 0 && "${NGINX_BACKUP_DONE:-0}" -eq 1 ]] \
+              && declare -F restore_nginx >/dev/null 2>&1; then
+              if ! restore_nginx; then
+                echo "automatic nginx restoration from EXIT trap failed" >&2
+              fi
+            fi
             if [[ "$status" -ne 0 && "$KEEP_RELEASE" -ne 1 ]]; then
               # A failed rollback must not delete the release still referenced
               # by current; retain it for manual recovery and diagnostics.
@@ -524,6 +535,25 @@ jobs:
               echo "release is missing deploy/nginx/dash-pr.conf" >&2
               return 1
             fi
+            if ! sudo -n test -d /etc/nginx/sites-available || ! sudo -n test -d /etc/nginx/sites-enabled; then
+              echo "nginx Debian sites-available/sites-enabled directories are required" >&2
+              return 1
+            fi
+            for certificate in /etc/letsencrypt/live/pr.dashedu.net/fullchain.pem /etc/letsencrypt/live/pr.dashedu.net/privkey.pem; do
+              if ! sudo -n test -r "$certificate"; then
+                echo "TLS certificate is missing or unreadable: $certificate; provision the pr.dashedu.net certificate before deploying" >&2
+                return 1
+              fi
+            done
+            conflicting_vhosts=""
+            while IFS= read -r candidate; do
+              [[ "$candidate" == "$NGINX_AVAILABLE" || "$candidate" == "$NGINX_ENABLED" ]] && continue
+              conflicting_vhosts+=" $candidate"
+            done < <(sudo -n grep -RIl --exclude='*.bak' -E 'server_name[[:space:]]+pr\.dashedu\.net([;[:space:]])' /etc/nginx/sites-enabled /etc/nginx/conf.d 2>/dev/null || true)
+            if [[ -n "$conflicting_vhosts" ]]; then
+              echo "another nginx vhost already declares pr.dashedu.net:$conflicting_vhosts; disable it before deploying" >&2
+              return 1
+            fi
             backup_nginx || return 1
             sudo -n install -m 0644 "$REL/deploy/nginx/dash-pr.conf" "$NGINX_AVAILABLE"
             sudo -n ln -sfn "$NGINX_AVAILABLE" "$NGINX_ENABLED"
@@ -540,6 +570,10 @@ jobs:
             NGINX_CHANGED=1
           }
           restore_previous() {
+            # A rollback can fail after PM2 has accepted a new process. Keep
+            # the candidate release in that ambiguous state so it remains
+            # available for manual recovery and diagnostics.
+            KEEP_RELEASE=1
             if ! restore_nginx; then
               echo "nginx rollback failed" >&2
               return 1
@@ -589,12 +623,15 @@ jobs:
                 return 1
               fi
               rm -f "$ROLLBACK_PM2_CONFIG"
+              KEEP_RELEASE=0
             else
               if [[ "$(readlink -f /opt/dash-pr/current 2>/dev/null || true)" == "$REL" ]]; then
                 rm -f /opt/dash-pr/current
               fi
               "$PM2_BIN" delete "$APP_NAME" >/dev/null 2>&1 || true
+              KEEP_RELEASE=0
             fi
+            return 0
           }
           ln -sfn "$REL" /opt/dash-pr/current.new
           mv -T /opt/dash-pr/current.new /opt/dash-pr/current
