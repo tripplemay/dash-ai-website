@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="900" viewBox="0 0 1080 900">
+  <rect width="1080" height="900" fill="#FFFFFF"/>
+  <path d="M80 96H1000M80 160H1000" stroke="#DDE1EB" stroke-width="1"/>
+  <circle cx="80" cy="96" r="7" fill="#FC7358"/>
+  <text x="80" y="68" fill="#22367B" font-family="Noto Sans SC,Arial,sans-serif" font-size="34" font-weight="700">芯坐标色彩系统</text>
+  <text x="80" y="132" fill="#525C6D" font-family="Noto Sans,Arial,sans-serif" font-size="14">CORECOORD COLOR SYSTEM / 2026.1</text>
+  <g transform="translate(80 176)">
+    <rect width="220" height="32" rx="4" fill="#22367B"/><rect x="230" width="220" height="32" rx="4" fill="#FC7358"/>
+    <rect x="460" width="220" height="32" rx="4" fill="#F16C3E"/><rect x="690" width="230" height="32" rx="4" fill="#121A33"/>
+  </g>
+  <g transform="translate(80 230)">
+    <rect width="920" height="48" rx="4" fill="#FFF0EC"/>
+    <rect width="180" height="48" rx="4" fill="#FC7358"/>
+    <text x="24" y="31" fill="#171C25" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">00</text>
+    <text x="204" y="21" fill="#8F2D22" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">AI 初体验</text>
+    <text x="204" y="38" fill="#8F2D22" font-family="Noto Sans,Arial,sans-serif" font-size="11">Experience</text>
+    <text x="590" y="29" fill="#8F2D22" font-family="Noto Sans Mono,monospace" font-size="12">#FC7358 / #8F2D22 / #FFF0EC</text>
+  </g>
+<g transform="translate(80 294)">
+    <rect width="920" height="48" rx="4" fill="#FDECF3"/>
+    <rect width="180" height="48" rx="4" fill="#C93F78"/>
+    <text x="24" y="31" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">01</text>
+    <text x="204" y="21" fill="#8E2555" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">视觉创作</text>
+    <text x="204" y="38" fill="#8E2555" font-family="Noto Sans,Arial,sans-serif" font-size="11">Visual</text>
+    <text x="590" y="29" fill="#8E2555" font-family="Noto Sans Mono,monospace" font-size="12">#C93F78 / #8E2555 / #FDECF3</text>
+  </g>
+<g transform="translate(80 358)">
+    <rect width="920" height="48" rx="4" fill="#F1EEFF"/>
+    <rect width="180" height="48" rx="4" fill="#7257D9"/>
+    <text x="24" y="31" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">02</text>
+    <text x="204" y="21" fill="#4932A1" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">声音表达</text>
+    <text x="204" y="38" fill="#4932A1" font-family="Noto Sans,Arial,sans-serif" font-size="11">Voice</text>
+    <text x="590" y="29" fill="#4932A1" font-family="Noto Sans Mono,monospace" font-size="12">#7257D9 / #4932A1 / #F1EEFF</text>
+  </g>
+<g transform="translate(80 422)">
+    <rect width="920" height="48" rx="4" fill="#ECF6FF"/>
+    <rect width="180" height="48" rx="4" fill="#1B78C5"/>
+    <text x="24" y="31" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">03</text>
+    <text x="204" y="21" fill="#155A91" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">动态叙事</text>
+    <text x="204" y="38" fill="#155A91" font-family="Noto Sans,Arial,sans-serif" font-size="11">Motion</text>
+    <text x="590" y="29" fill="#155A91" font-family="Noto Sans Mono,monospace" font-size="12">#1B78C5 / #155A91 / #ECF6FF</text>
+  </g>
+<g transform="translate(80 486)">
+    <rect width="920" height="48" rx="4" fill="#EEF1FB"/>
+    <rect width="180" height="48" rx="4" fill="#40549C"/>
+    <text x="24" y="31" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">04</text>
+    <text x="204" y="21" fill="#22367B" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">应用构建</text>
+    <text x="204" y="38" fill="#22367B" font-family="Noto Sans,Arial,sans-serif" font-size="11">App</text>
+    <text x="590" y="29" fill="#22367B" font-family="Noto Sans Mono,monospace" font-size="12">#40549C / #22367B / #EEF1FB</text>
+  </g>
+<g transform="translate(80 550)">
+    <rect width="920" height="48" rx="4" fill="#E7F8F6"/>
+    <rect width="180" height="48" rx="4" fill="#1E9A91"/>
+    <text x="24" y="31" fill="#171C25" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">05</text>
+    <text x="204" y="21" fill="#116A65" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">智能硬件</text>
+    <text x="204" y="38" fill="#116A65" font-family="Noto Sans,Arial,sans-serif" font-size="11">Maker</text>
+    <text x="590" y="29" fill="#116A65" font-family="Noto Sans Mono,monospace" font-size="12">#1E9A91 / #116A65 / #E7F8F6</text>
+  </g>
+<g transform="translate(80 614)">
+    <rect width="920" height="48" rx="4" fill="#EAF8F0"/>
+    <rect width="180" height="48" rx="4" fill="#2B9A62"/>
+    <text x="24" y="31" fill="#171C25" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">06</text>
+    <text x="204" y="21" fill="#17613B" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">编程创造</text>
+    <text x="204" y="38" fill="#17613B" font-family="Noto Sans,Arial,sans-serif" font-size="11">Code</text>
+    <text x="590" y="29" fill="#17613B" font-family="Noto Sans Mono,monospace" font-size="12">#2B9A62 / #17613B / #EAF8F0</text>
+  </g>
+<g transform="translate(80 678)">
+    <rect width="920" height="48" rx="4" fill="#FFF7E4"/>
+    <rect width="180" height="48" rx="4" fill="#E7A21B"/>
+    <text x="24" y="31" fill="#171C25" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">07</text>
+    <text x="204" y="21" fill="#754B00" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">数据推理</text>
+    <text x="204" y="38" fill="#754B00" font-family="Noto Sans,Arial,sans-serif" font-size="11">Data</text>
+    <text x="590" y="29" fill="#754B00" font-family="Noto Sans Mono,monospace" font-size="12">#E7A21B / #754B00 / #FFF7E4</text>
+  </g>
+<g transform="translate(80 742)">
+    <rect width="920" height="48" rx="4" fill="#FFF0E9"/>
+    <rect width="180" height="48" rx="4" fill="#F16C3E"/>
+    <text x="24" y="31" fill="#171C25" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">08</text>
+    <text x="204" y="21" fill="#7F2D17" font-family="Noto Sans SC,Arial,sans-serif" font-size="15" font-weight="700">AI 素养</text>
+    <text x="204" y="38" fill="#7F2D17" font-family="Noto Sans,Arial,sans-serif" font-size="11">Literacy</text>
+    <text x="590" y="29" fill="#7F2D17" font-family="Noto Sans Mono,monospace" font-size="12">#F16C3E / #7F2D17 / #FFF0E9</text>
+  </g>
+  <text x="80" y="838" fill="#525C6D" font-family="Noto Sans SC,Arial,sans-serif" font-size="12">accent 用于识别与块面；strong 用于浅底正文和线条；soft 用于低强调背景。颜色不作为唯一信息线索。</text>
+</svg>

@@ -1,0 +1,139 @@
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("../fonts/NotoSansSC-VF.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Mono CJK SC";
+  src: url("../fonts/NotoSansMonoCJKsc-VF.ttf") format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --cc-color-neutral-0: #FFFFFF;
+  --cc-color-neutral-50: #F7F8FC;
+  --cc-color-neutral-100: #EFF1F7;
+  --cc-color-neutral-200: #DDE1EB;
+  --cc-color-neutral-300: #C5CBD8;
+  --cc-color-neutral-400: #9BA4B5;
+  --cc-color-neutral-500: #727C8E;
+  --cc-color-neutral-600: #525C6D;
+  --cc-color-neutral-700: #3B4453;
+  --cc-color-neutral-800: #252C38;
+  --cc-color-neutral-900: #171C25;
+  --cc-color-neutral-950: #0E1219;
+  --cc-color-indigo-50: #F4F6FC;
+  --cc-color-indigo-100: #E8ECF8;
+  --cc-color-indigo-200: #CDD6EF;
+  --cc-color-indigo-300: #AAB9E2;
+  --cc-color-indigo-400: #8198D2;
+  --cc-color-indigo-500: #5E76BC;
+  --cc-color-indigo-600: #40549C;
+  --cc-color-indigo-700: #22367B;
+  --cc-color-indigo-800: #1B2A5F;
+  --cc-color-indigo-900: #141F46;
+  --cc-color-indigo-950: #0D142F;
+  --cc-color-coral-50: #FFF5F2;
+  --cc-color-coral-100: #FFE9E4;
+  --cc-color-coral-200: #FFD0C7;
+  --cc-color-coral-300: #FFAB9A;
+  --cc-color-coral-400: #FF8A72;
+  --cc-color-coral-500: #FC7358;
+  --cc-color-coral-600: #E45740;
+  --cc-color-coral-700: #B83B2A;
+  --cc-color-coral-800: #8F2D22;
+  --cc-color-coral-900: #67231C;
+  --cc-color-coral-950: #3D1411;
+  --cc-color-orange-50: #FFF5F0;
+  --cc-color-orange-100: #FFE8DD;
+  --cc-color-orange-200: #FFD0BD;
+  --cc-color-orange-300: #FFAE8A;
+  --cc-color-orange-400: #FA875D;
+  --cc-color-orange-500: #F16C3E;
+  --cc-color-orange-600: #D55227;
+  --cc-color-orange-700: #A83B1B;
+  --cc-color-orange-800: #7F2D17;
+  --cc-color-orange-900: #5B2216;
+  --cc-color-orange-950: #35120B;
+  --cc-color-core-indigo: #22367B;
+  --cc-color-signal-coral: #FC7358;
+  --cc-color-wordmark-orange: #F16C3E;
+  --cc-color-reverse-background: #121A33;
+  --cc-color-mono-ink: #111318;
+  --cc-bg: #FFFFFF;
+  --cc-bg-subtle: #F7F8FC;
+  --cc-surface: #FFFFFF;
+  --cc-text: #171C25;
+  --cc-text-secondary: #525C6D;
+  --cc-heading: #1B2A5F;
+  --cc-border: #DDE1EB;
+  --cc-action: #22367B;
+  --cc-on-action: #FFFFFF;
+  --cc-focus: #B83B2A;
+  --cc-font-sans: "Noto Sans SC", "Noto Sans", Arial, sans-serif;
+  --cc-font-mono: "Noto Sans Mono CJK SC", "Noto Sans Mono", monospace;
+  --cc-radius-sm: 2px;
+  --cc-radius-md: 4px;
+  --cc-radius-lg: 8px;
+  --cc-motion-standard: 240ms cubic-bezier(.2, 0, 0, 1);
+  --cc-stage-00-accent: #FC7358;
+  --cc-stage-00-strong: #8F2D22;
+  --cc-stage-00-soft: #FFF0EC;
+  --cc-stage-00-on-accent: #171C25;
+  --cc-stage-01-accent: #C93F78;
+  --cc-stage-01-strong: #8E2555;
+  --cc-stage-01-soft: #FDECF3;
+  --cc-stage-01-on-accent: #FFFFFF;
+  --cc-stage-02-accent: #7257D9;
+  --cc-stage-02-strong: #4932A1;
+  --cc-stage-02-soft: #F1EEFF;
+  --cc-stage-02-on-accent: #FFFFFF;
+  --cc-stage-03-accent: #1B78C5;
+  --cc-stage-03-strong: #155A91;
+  --cc-stage-03-soft: #ECF6FF;
+  --cc-stage-03-on-accent: #FFFFFF;
+  --cc-stage-04-accent: #40549C;
+  --cc-stage-04-strong: #22367B;
+  --cc-stage-04-soft: #EEF1FB;
+  --cc-stage-04-on-accent: #FFFFFF;
+  --cc-stage-05-accent: #1E9A91;
+  --cc-stage-05-strong: #116A65;
+  --cc-stage-05-soft: #E7F8F6;
+  --cc-stage-05-on-accent: #171C25;
+  --cc-stage-06-accent: #2B9A62;
+  --cc-stage-06-strong: #17613B;
+  --cc-stage-06-soft: #EAF8F0;
+  --cc-stage-06-on-accent: #171C25;
+  --cc-stage-07-accent: #E7A21B;
+  --cc-stage-07-strong: #754B00;
+  --cc-stage-07-soft: #FFF7E4;
+  --cc-stage-07-on-accent: #171C25;
+  --cc-stage-08-accent: #F16C3E;
+  --cc-stage-08-strong: #7F2D17;
+  --cc-stage-08-soft: #FFF0E9;
+  --cc-stage-08-on-accent: #171C25;
+}
+
+[data-cc-theme="dark"] {
+  color-scheme: dark;
+  --cc-bg: #121A33;
+  --cc-bg-subtle: #0D142F;
+  --cc-surface: #141F46;
+  --cc-text: #FFFFFF;
+  --cc-text-secondary: #C5CBD8;
+  --cc-heading: #FFFFFF;
+  --cc-border: #40549C;
+  --cc-action: #FF8A72;
+  --cc-on-action: #0E1219;
+  --cc-focus: #FFAB9A;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --cc-motion-standard: 0ms linear; }
+}

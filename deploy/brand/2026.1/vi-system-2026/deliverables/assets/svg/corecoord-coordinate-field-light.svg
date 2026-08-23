@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">芯坐标活性坐标图形</title>
+  <desc id="desc">由坐标点、开放路径和课程阶段色构成的品牌辅助图形，不包含文字或标志。</desc>
+  <rect width="1600" height="900" fill="#F7F8FC"/>
+  <g stroke="#DDE1EB" stroke-width="1">
+    <path d="M160 0V900M320 0V900M480 0V900M640 0V900M800 0V900M960 0V900M1120 0V900M1280 0V900M1440 0V900"/>
+    <path d="M0 150H1600M0 300H1600M0 450H1600M0 600H1600M0 750H1600"/>
+  </g>
+  <path d="M160 690 C300 650 330 520 480 540 S680 690 800 540 S990 240 1120 330 S1280 540 1460 210" fill="none" stroke="#22367B" stroke-width="12" stroke-linecap="round"/>
+  <path d="M160 690 C300 650 330 520 480 540" fill="none" stroke="#FC7358" stroke-width="12" stroke-linecap="round"/>
+  <g fill="#FFFFFF" stroke-width="10">
+    <circle cx="160" cy="690" r="18" stroke="#FC7358"/>
+    <circle cx="480" cy="540" r="18" stroke="#C93F78"/>
+    <circle cx="800" cy="540" r="18" stroke="#7257D9"/>
+    <circle cx="1120" cy="330" r="18" stroke="#1E9A91"/>
+    <circle cx="1460" cy="210" r="18" stroke="#E7A21B"/>
+  </g>
+  <circle cx="1460" cy="210" r="7" fill="#E7A21B"/>
+</svg>
