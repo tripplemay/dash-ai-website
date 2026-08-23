@@ -1,4 +1,4 @@
-import { CORECOORD_ASSET_ROOT } from "@/lib/brand";
+import { CORECOORD_ASSET_ROOT, CORECOORD_LOGO } from "@/lib/brand";
 
 /**
  * Encode public asset URLs before rendering them in HTML.
@@ -42,6 +42,9 @@ export function resourcePreviewUrl(
 ) {
   const candidate = preview?.trim();
   if (candidate?.startsWith(`${CORECOORD_ASSET_ROOT}/`)) {
+    if (candidate === `${CORECOORD_ASSET_ROOT}/logo-final-2026/vector/corecoord-logo-horizontal-color.svg`) {
+      return assetUrl(CORECOORD_LOGO.horizontal);
+    }
     const segments = candidate.slice(1).split("/");
     if (
       segments.length >= 2 &&

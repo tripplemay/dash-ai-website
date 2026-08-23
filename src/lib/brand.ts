@@ -36,8 +36,11 @@ export const CORECOORD_STAGES: Record<CourseStageId, CourseStage> = {
 };
 
 export const CORECOORD_ASSET_ROOT = "/assets/brand/corecoord/2026.1";
+const CORECOORD_RELEASE_QUERY = "?__corecoord_release=2026.1";
+const CORECOORD_HORIZONTAL_LOGO_PATH = `${CORECOORD_ASSET_ROOT}/logo-final-2026/vector/corecoord-logo-horizontal-color.svg`;
 export const CORECOORD_LOGO = {
-  horizontal: `${CORECOORD_ASSET_ROOT}/logo-final-2026/vector/corecoord-logo-horizontal-color.svg`,
+  // Keep the primary lockup on a fresh edge-cache key while legacy negative entries age out.
+  horizontal: `${CORECOORD_HORIZONTAL_LOGO_PATH}${CORECOORD_RELEASE_QUERY}`,
   horizontalReverse: `${CORECOORD_ASSET_ROOT}/logo-final-2026/vector/corecoord-logo-horizontal-reverse.svg`,
   stacked: `${CORECOORD_ASSET_ROOT}/logo-final-2026/vector/corecoord-logo-stacked-color.svg`,
   stackedReverse: `${CORECOORD_ASSET_ROOT}/logo-final-2026/vector/corecoord-logo-stacked-reverse.svg`,
