@@ -361,6 +361,7 @@ jobs:
             fi
             if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
               echo "nginx config summary:" >&2
+              sudo -n -l >&2 || true
               sudo -n nginx -T 2>&1 | grep -E 'configuration file|server_name|upstream|dash_pr|3517|3000|pr\.dashedu\.net' | tail -n 100 >&2 || true
               echo "dash-pr server block:" >&2
               sudo -n sed -n '1,240p' /etc/nginx/sites-enabled/dash-pr >&2 || true
@@ -372,6 +373,9 @@ jobs:
               local_code="$(curl --silent --output /tmp/dash-local-probe --write-out '%{http_code}' --max-time 3 -H 'Host: pr.dashedu.net' "http://127.0.0.1${path}" || true)"
               local_body="$(head -c 240 /tmp/dash-local-probe 2>/dev/null | tr '\\n' ' ' || true)"
               echo "local nginx ${path}: ${local_code:-000} ${local_body}" >&2
+              tls_code="$(curl --silent --insecure --output /tmp/dash-local-tls-probe --write-out '%{http_code}' --max-time 3 --resolve pr.dashedu.net:443:127.0.0.1 "https://pr.dashedu.net${path}" || true)"
+              tls_body="$(head -c 240 /tmp/dash-local-tls-probe 2>/dev/null | tr '\\n' ' ' || true)"
+              echo "local nginx TLS ${path}: ${tls_code:-000} ${tls_body}" >&2
             done
           }
           # Older PM2 files predate DASH_PUBLIC_ORIGIN. Keep their existing
