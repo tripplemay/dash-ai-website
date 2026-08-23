@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc" shape-rendering="geometricPrecision">
+  <title id="title">芯坐标 CORECOORD symbol - color</title>
+  <desc id="desc">Standalone CORECOORD symbol with protected clear space.</desc>
+  <metadata>CORECOORD final identity 2026.1, edge-refined vector master. Approved from 02-orange-wide-tracking.png. Palette: #22367B, #FC7358, #F16C3E.</metadata>
+  <g id="corecoord-mark" transform="translate(-204.3 -115.31) scale(1.03)"><path id="mark-primary" d="M472.32 174.25H356.5C301.55 174.25 257 218.8 257 273.75V512.5C257 523.1 263.1 531.1 273.25 535.5L379.33 431.3A92.25 92.25 0 0 1 472.32 282.49ZM541.66 382.44H636.5V466.5C636.5 519.4 593.65 562.25 540.75 562.25H290.25L400.43 449.8A92.25 92.25 0 0 0 541.66 382.44Z" fill="#22367B" fill-rule="evenodd" clip-rule="evenodd"/><path id="mark-accent" d="M481.55 285.31L604.6 161.75C616.45 149.9 636.5 158.15 636.5 176V354.4H540.56A92.25 92.25 0 0 0 481.55 285.31Z" fill="#FC7358" fill-rule="evenodd" clip-rule="evenodd"/></g>
+</svg>
