@@ -38,6 +38,13 @@ jobs:
           node --check scripts/smoke-standalone.mjs
           test "$(grep -Ec 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
           grep -Eq 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
+          grep -Eq '^upstream dash_pr_app' deploy/nginx/dash-pr.conf
+          test "$(grep -Ec 'auth_request /_dash_auth_check' deploy/nginx/dash-pr.conf)" -eq 2
+          awk '/location = \/files|location \^~ \/files\// { inside=1 } inside { print } inside && /^    }$/ { inside=0 }' deploy/nginx/dash-pr.conf \
+            | grep -Eq 'root|try_files' && {
+              echo 'The production /files locations must not expose a filesystem root' >&2
+              exit 1
+            } || true
           if grep -En '^[[:space:]]*(root|try_files)[[:space:]]' deploy/nginx/dash-pr-files.conf; then
             echo 'The protected /files nginx snippet must not expose a filesystem root' >&2
             exit 1
@@ -87,7 +94,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf release release.tar.gz
-          mkdir -p release/app/.next release/app/scripts
+          mkdir -p release/app/.next release/app/scripts release/app/deploy/nginx
           cp -R .next/standalone/. release/app/
           # Next bundles Better Auth for request handlers, but seed.mjs runs as
           # a separate Node process. Add its small dependency closure without
@@ -104,7 +111,9 @@ jobs:
           cp scripts/backup-db.mjs release/app/scripts/backup-db.mjs
           cp scripts/dedupe-resources.mjs release/app/scripts/dedupe-resources.mjs
           cp scripts/check-db.mjs release/app/scripts/check-db.mjs
+          cp scripts/prepare-pm2-config.mjs release/app/scripts/prepare-pm2-config.mjs
           cp scripts/resources-seed.json release/app/scripts/resources-seed.json
+          cp deploy/nginx/dash-pr.conf release/app/deploy/nginx/dash-pr.conf
 
           # Exercise the exact scripts and dependency tree that will be used
           # for first-time VPS initialization, rather than only testing the
@@ -306,6 +315,7 @@ jobs:
               fi
               rm -f /opt/dash-pr/release.tar.gz 2>/dev/null || true
             fi
+            rm -f "${PM2_CONFIG:-}" "${ROLLBACK_PM2_CONFIG:-}" 2>/dev/null || true
             exit "$status"
           }
           trap cleanup_failed_release EXIT
@@ -313,6 +323,13 @@ jobs:
           tar -xzf /opt/dash-pr/release.tar.gz -C "$REL"
           "$NODE_BIN" -e "const fs=require('fs'); const f=process.argv[1]; const e=JSON.parse(fs.readFileSync(f,'utf8')); const a={platform:process.platform,arch:process.arch,modules:process.versions.modules}; for (const k of ['platform','arch','modules']) if (String(e[k])!==String(a[k])) throw new Error('native runtime mismatch for '+k+': build='+e[k]+' host='+a[k]); console.log('runtime ABI compatible:', JSON.stringify({build:e,host:a}))" "$REL/.runtime-abi.json"
           "$NODE_BIN" -e "const {createRequire}=require('module'); const r=createRequire(process.argv[1]); const Database=r('better-sqlite3'); const db=new Database(':memory:'); db.pragma('integrity_check'); db.close(); r('sharp'); console.log('native modules loaded: better-sqlite3, sharp')" "$REL/package.json"
+          PM2_CONFIG="/tmp/dash-pr-${RELEASE_ID}.ecosystem.cjs"
+          if [[ ! -r /opt/dash-pr/ecosystem.config.js ]]; then
+            echo "PM2 ecosystem config is missing: /opt/dash-pr/ecosystem.config.js" >&2
+            exit 1
+          fi
+          "$NODE_BIN" "$REL/scripts/prepare-pm2-config.mjs" \
+            /opt/dash-pr/ecosystem.config.js "$PM2_CONFIG" "$HEALTH_OVERRIDE" "$RELEASE_ID"
           ln -sfn /opt/dash-pr/public "$REL/public"
           for asset_dir in /opt/dash-pr/public/assets /opt/dash-pr/public/files; do
             if [[ ! -d "$asset_dir" || ! -r "$asset_dir" || ! -x "$asset_dir" ]]; then
@@ -326,10 +343,10 @@ jobs:
             exit 1
           fi
           rm -f "$write_probe"
-          APP_NAME="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.name || 'dash-pr'))")"
-          PM2_USER="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.uid ?? a?.user ?? ''))")"
-          PM2_INSTANCES="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.instances ?? 1))")"
-          PM2_EXEC_MODE="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.exec_mode || 'fork').toLowerCase())")"
+          APP_NAME="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.name || 'dash-pr'))" "$PM2_CONFIG")"
+          PM2_USER="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.uid ?? a?.user ?? ''))" "$PM2_CONFIG")"
+          PM2_INSTANCES="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.instances ?? 1))" "$PM2_CONFIG")"
+          PM2_EXEC_MODE="$("$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.exec_mode || 'fork').toLowerCase())" "$PM2_CONFIG")"
           if [[ -n "$PM2_USER" && "$PM2_USER" != "$(id -un)" && "$PM2_USER" != "$(id -u)" ]]; then
             echo "PM2 ecosystem user ($PM2_USER) differs from deploy user ($(id -un)); refusing a permission-mismatched release" >&2
             exit 1
@@ -345,9 +362,9 @@ jobs:
             "$PM2_BIN" describe "$APP_NAME" 2>/dev/null | grep -E 'script path|exec cwd|interpreter|exec mode|status|restarts' >&2 || true
             if [[ -n "$app_pid" ]]; then
               ps -o pid=,user=,stat=,cmd= -p "$app_pid" >&2 || true
-              "$NODE_BIN" -e "const fs=require('fs'); const Database=require('better-sqlite3'); const pid=process.argv[1]; const raw=fs.readFileSync('/proc/'+pid+'/environ','utf8'); const env=Object.fromEntries(raw.split('\\0').filter(Boolean).map((v)=>{const i=v.indexOf('='); return [v.slice(0,i),v.slice(i+1)]})); const picked={NODE_ENV:env.NODE_ENV||null,PORT:env.PORT||null,HOSTNAME:env.HOSTNAME||null,DASH_AUTH_DB:env.DASH_AUTH_DB||null,BETTER_AUTH_URL:env.BETTER_AUTH_URL||null,DASH_PUBLIC_ORIGIN:env.DASH_PUBLIC_ORIGIN||null,DASH_RELEASE_ID:env.DASH_RELEASE_ID||null}; console.error(JSON.stringify(picked)); const p=env.DASH_AUTH_DB; if(p){try{const db=new Database(p,{readonly:true}); const integrity=db.pragma('integrity_check',{simple:true}); const sessions=db.prepare('SELECT COUNT(*) AS count FROM session').get().count; console.error(JSON.stringify({dbIntegrity:integrity,sessionRows:sessions})); db.close()}catch(error){console.error(JSON.stringify({dbError:String(error?.message||error)}))}}" "$app_pid" >&2 || true
+              "$NODE_BIN" -e "const fs=require('fs'); const {createRequire}=require('module'); const r=createRequire('/opt/dash-pr/current/package.json'); const Database=r('better-sqlite3'); const pid=process.argv[1]; const raw=fs.readFileSync('/proc/'+pid+'/environ','utf8'); const env=Object.fromEntries(raw.split('\\0').filter(Boolean).map((v)=>{const i=v.indexOf('='); return [v.slice(0,i),v.slice(i+1)]})); const picked={NODE_ENV:env.NODE_ENV||null,PORT:env.PORT||null,HOSTNAME:env.HOSTNAME||null,DASH_AUTH_DB:env.DASH_AUTH_DB||null,BETTER_AUTH_URL:env.BETTER_AUTH_URL||null,DASH_PUBLIC_ORIGIN:env.DASH_PUBLIC_ORIGIN||null,DASH_RELEASE_ID:env.DASH_RELEASE_ID||null}; console.error(JSON.stringify(picked)); const p=env.DASH_AUTH_DB; if(p){try{const db=new Database(p,{readonly:true}); const integrity=db.pragma('integrity_check',{simple:true}); const sessions=db.prepare('SELECT COUNT(*) AS count FROM session').get().count; console.error(JSON.stringify({dbIntegrity:integrity,sessionRows:sessions})); db.close()}catch(error){console.error(JSON.stringify({dbError:String(error?.message||error)}))}}" "$app_pid" >&2 || true
             fi
-            "$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; console.error(JSON.stringify({cwd:a?.cwd||null,script:a?.script||null,interpreter:a?.interpreter||null,port:e.PORT||null,hostname:e.HOSTNAME||null,nodeEnv:e.NODE_ENV||null,authUrl:e.BETTER_AUTH_URL||null,publicOrigin:e.DASH_PUBLIC_ORIGIN||null,hasAuthSecret:Boolean(e.BETTER_AUTH_SECRET)}))" >&2 || true
+            "$NODE_BIN" -e "const c=require(process.argv[1]); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; console.error(JSON.stringify({cwd:a?.cwd||null,script:a?.script||null,interpreter:a?.interpreter||null,port:e.PORT||null,hostname:e.HOSTNAME||null,nodeEnv:e.NODE_ENV||null,authUrl:e.BETTER_AUTH_URL||null,publicOrigin:e.DASH_PUBLIC_ORIGIN||null,release:e.DASH_RELEASE_ID||null,hasAuthSecret:Boolean(e.BETTER_AUTH_SECRET)}))" "$PM2_CONFIG" >&2 || true
             if command -v ss >/dev/null 2>&1; then
               ss -ltnp 2>/dev/null | grep -E ':(3517|3000|3001|3002|3003)([[:space:]]|$)' >&2 || true
             fi
@@ -379,10 +396,60 @@ jobs:
               echo "local nginx TLS ${path}: ${tls_code:-000} ${tls_body}" >&2
             done
           }
-          # Older PM2 files predate DASH_PUBLIC_ORIGIN. Keep their existing
-          # secret-bearing config intact, derive the public origin from the
-          # validated Better Auth origin, and inject the explicit value below.
-          "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; const fail=(m)=>{console.error(m); process.exit(1)}; const s=e.BETTER_AUTH_SECRET||''; if(s.length<32) fail('PM2 production BETTER_AUTH_SECRET must be at least 32 characters'); if(e.NODE_ENV!=='production') fail('PM2 production NODE_ENV must be production'); if(e.DASH_AUTH_DB!=='/opt/dash-pr/dash-auth.db') fail('PM2 production DASH_AUTH_DB must be /opt/dash-pr/dash-auth.db'); const cwd=String(a?.cwd||'').replace(/\\/+$/, ''); if(!['/opt/dash-pr/current','/opt/dash-pr'].includes(cwd)) fail('PM2 cwd must be /opt/dash-pr/current or /opt/dash-pr'); const interpreter=String(a?.interpreter||''); const selected=process.argv[2]; if(!interpreter||!path.isAbsolute(interpreter)) fail('PM2 interpreter must explicitly point to the selected Node 22 binary'); let selectedReal, interpreterReal; try{selectedReal=fs.realpathSync(selected); interpreterReal=fs.realpathSync(interpreter)}catch{fail('PM2 interpreter path is not available')} if(interpreterReal!==selectedReal) fail('PM2 interpreter must use the selected Node 22 binary'); const origin=(name,fallback)=>{let u; try{u=new URL(e[name]||fallback||'')}catch{fail('PM2 production '+name+' is missing or invalid')} if(u.protocol!=='https:'||u.pathname!=='/'||u.search||u.hash) fail('PM2 production '+name+' must be an HTTPS origin'); return u.origin}; const publicOrigin=origin('DASH_PUBLIC_ORIGIN',e.BETTER_AUTH_URL||process.argv[1]); if(origin('BETTER_AUTH_URL',publicOrigin)!==publicOrigin) fail('PM2 production BETTER_AUTH_URL and DASH_PUBLIC_ORIGIN must match'); let health; try{health=new URL(process.argv[1])}catch{fail('DASH_HEALTH_URL is invalid')} if(health.origin!==publicOrigin||health.pathname!=='/'||health.search||health.hash) fail('DASH_HEALTH_URL must match DASH_PUBLIC_ORIGIN origin')" "$HEALTH_OVERRIDE" "$NODE_BIN"
+          # Validate the generated config, including the values that PM2 will
+          # actually pass to the child process. Secret contents are never logged.
+          PM2_CONFIG="$PM2_CONFIG" HEALTH_OVERRIDE="$HEALTH_OVERRIDE" SELECTED_NODE="$NODE_BIN" \
+            "$NODE_BIN" - <<'NODE'
+          const fs = require("fs");
+          const path = require("path");
+          const configPath = process.env.PM2_CONFIG;
+          const health = new URL(process.env.HEALTH_OVERRIDE);
+          const selected = process.env.SELECTED_NODE;
+          const config = require(configPath);
+          const app = Array.isArray(config.apps) ? config.apps[0] : config;
+          const env = { ...(app?.env || {}), ...(app?.env_production || {}) };
+          const fail = (message) => {
+            console.error(message);
+            process.exit(1);
+          };
+          if (String(env.BETTER_AUTH_SECRET || "").length < 32) {
+            fail("PM2 production BETTER_AUTH_SECRET must be at least 32 characters");
+          }
+          if (env.NODE_ENV !== "production") fail("PM2 production NODE_ENV must be production");
+          if (env.DASH_AUTH_DB !== "/opt/dash-pr/dash-auth.db") {
+            fail("PM2 production DASH_AUTH_DB must be /opt/dash-pr/dash-auth.db");
+          }
+          const cwd = String(app?.cwd || "").replace(/\/+$/, "");
+          if (!["/opt/dash-pr/current", "/opt/dash-pr"].includes(cwd)) {
+            fail("PM2 cwd must be /opt/dash-pr/current or /opt/dash-pr");
+          }
+          const interpreter = String(app?.interpreter || "");
+          if (!interpreter || !path.isAbsolute(interpreter)) {
+            fail("PM2 interpreter must explicitly point to the selected Node 22 binary");
+          }
+          let selectedReal;
+          let interpreterReal;
+          try {
+            selectedReal = fs.realpathSync(selected);
+            interpreterReal = fs.realpathSync(interpreter);
+          } catch {
+            fail("PM2 interpreter path is not available");
+          }
+          if (interpreterReal !== selectedReal) {
+            fail("PM2 interpreter must use the selected Node 22 binary");
+          }
+          const publicOrigin = new URL(env.DASH_PUBLIC_ORIGIN || "");
+          const authOrigin = new URL(env.BETTER_AUTH_URL || "");
+          for (const [name, origin] of [["DASH_PUBLIC_ORIGIN", publicOrigin], ["BETTER_AUTH_URL", authOrigin]]) {
+            if (origin.protocol !== "https:" || origin.pathname !== "/" || origin.search || origin.hash) {
+              fail(`PM2 production ${name} must be an HTTPS origin`);
+            }
+          }
+          if (publicOrigin.origin !== authOrigin.origin || publicOrigin.origin !== health.origin || health.pathname !== "/" || health.search || health.hash) {
+            fail("DASH_HEALTH_URL, BETTER_AUTH_URL, and DASH_PUBLIC_ORIGIN must match");
+          }
+          console.log(JSON.stringify({ app: app?.name || "dash-pr", origin: publicOrigin.origin, release: env.DASH_RELEASE_ID || null }));
+          NODE
           # 迁移在切换 current 前执行；已有数据库失败时发布中止并保留旧版本。
           # 首次部署没有 current 时，先把代码发布为 current，供运维执行
           # README 中的 seed；若已有 current 却丢了数据库，则拒绝覆盖现场。
@@ -412,13 +479,79 @@ jobs:
           DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
             DASH_CHECK_DB_REQUIRE_RESOURCES=1 "$NODE_BIN" "$REL/scripts/check-db.mjs"
           HEALTH_URL="$HEALTH_OVERRIDE"
+          NGINX_BACKUP_DIR="/opt/dash-pr/backups/nginx"
+          NGINX_AVAILABLE="/etc/nginx/sites-available/dash-pr"
+          NGINX_ENABLED="/etc/nginx/sites-enabled/dash-pr"
+          NGINX_AVAILABLE_BACKUP="$NGINX_BACKUP_DIR/${RELEASE_ID}.available"
+          NGINX_ENABLED_BACKUP="$NGINX_BACKUP_DIR/${RELEASE_ID}.enabled"
+          NGINX_BACKUP_DONE=0
+          NGINX_CHANGED=0
+          backup_nginx() {
+            if ! sudo -n true 2>/dev/null; then
+              echo "deploy user does not have passwordless sudo for nginx installation" >&2
+              return 1
+            fi
+            sudo -n mkdir -p "$NGINX_BACKUP_DIR"
+            sudo -n rm -f "$NGINX_AVAILABLE_BACKUP" "$NGINX_ENABLED_BACKUP"
+            if sudo -n test -e "$NGINX_AVAILABLE" || sudo -n test -L "$NGINX_AVAILABLE"; then
+              sudo -n cp -a "$NGINX_AVAILABLE" "$NGINX_AVAILABLE_BACKUP"
+            fi
+            if sudo -n test -e "$NGINX_ENABLED" || sudo -n test -L "$NGINX_ENABLED"; then
+              sudo -n cp -a "$NGINX_ENABLED" "$NGINX_ENABLED_BACKUP"
+            fi
+            NGINX_BACKUP_DONE=1
+          }
+          restore_nginx() {
+            if [[ "$NGINX_BACKUP_DONE" -ne 1 ]]; then return 0; fi
+            sudo -n rm -f "$NGINX_ENABLED" "$NGINX_AVAILABLE"
+            if sudo -n test -e "$NGINX_AVAILABLE_BACKUP" || sudo -n test -L "$NGINX_AVAILABLE_BACKUP"; then
+              sudo -n cp -a "$NGINX_AVAILABLE_BACKUP" "$NGINX_AVAILABLE"
+            fi
+            if sudo -n test -e "$NGINX_ENABLED_BACKUP" || sudo -n test -L "$NGINX_ENABLED_BACKUP"; then
+              sudo -n cp -a "$NGINX_ENABLED_BACKUP" "$NGINX_ENABLED"
+            fi
+            if ! sudo -n nginx -t; then
+              echo "restored nginx configuration is invalid" >&2
+              return 1
+            fi
+            sudo -n systemctl reload nginx
+            NGINX_CHANGED=0
+          }
+          install_nginx() {
+            if [[ ! -r "$REL/deploy/nginx/dash-pr.conf" ]]; then
+              echo "release is missing deploy/nginx/dash-pr.conf" >&2
+              return 1
+            fi
+            backup_nginx || return 1
+            sudo -n install -m 0644 "$REL/deploy/nginx/dash-pr.conf" "$NGINX_AVAILABLE"
+            sudo -n ln -sfn "$NGINX_AVAILABLE" "$NGINX_ENABLED"
+            if ! sudo -n nginx -t; then
+              echo "new nginx configuration is invalid; restoring previous files" >&2
+              restore_nginx || true
+              return 1
+            fi
+            if ! sudo -n systemctl reload nginx; then
+              echo "nginx reload failed; restoring previous files" >&2
+              restore_nginx || true
+              return 1
+            fi
+            NGINX_CHANGED=1
+          }
           restore_previous() {
+            if ! restore_nginx; then
+              echo "nginx rollback failed" >&2
+              return 1
+            fi
             if [[ -n "$PREV" ]]; then
               previous_release_id="$(basename "$PREV")"
               ln -sfn "$PREV" /opt/dash-pr/current
-              if ! NODE_ENV=production BETTER_AUTH_URL="$HEALTH_URL" DASH_PUBLIC_ORIGIN="$HEALTH_URL" \
-                DASH_AUTH_DB=/opt/dash-pr/dash-auth.db DASH_RELEASE_ID="$(basename "$PREV")" \
-                "$PM2_BIN" startOrReload /opt/dash-pr/ecosystem.config.js --env production --update-env; then
+              ROLLBACK_PM2_CONFIG="/tmp/dash-pr-${previous_release_id}.ecosystem.cjs"
+              if ! "$NODE_BIN" "$REL/scripts/prepare-pm2-config.mjs" \
+                /opt/dash-pr/ecosystem.config.js "$ROLLBACK_PM2_CONFIG" "$HEALTH_URL" "$previous_release_id"; then
+                echo "could not generate PM2 rollback config" >&2
+                return 1
+              fi
+              if ! "$PM2_BIN" startOrReload "$ROLLBACK_PM2_CONFIG" --env production --update-env; then
                 echo "PM2 rollback failed for previous release" >&2
                 return 1
               fi
@@ -453,6 +586,7 @@ jobs:
                 echo "previous release failed post-rollback health checks: $previous_release_id" >&2
                 return 1
               fi
+              rm -f "$ROLLBACK_PM2_CONFIG"
             else
               if [[ "$(readlink -f /opt/dash-pr/current 2>/dev/null || true)" == "$REL" ]]; then
                 rm -f /opt/dash-pr/current
@@ -462,15 +596,20 @@ jobs:
           }
           ln -sfn "$REL" /opt/dash-pr/current.new
           mv -T /opt/dash-pr/current.new /opt/dash-pr/current
-          if NODE_ENV=production BETTER_AUTH_URL="$HEALTH_URL" DASH_PUBLIC_ORIGIN="$HEALTH_URL" \
-            DASH_AUTH_DB=/opt/dash-pr/dash-auth.db DASH_RELEASE_ID="$RELEASE_ID" \
-            "$PM2_BIN" startOrReload /opt/dash-pr/ecosystem.config.js --env production --update-env; then
+          if "$PM2_BIN" startOrReload "$PM2_CONFIG" --env production --update-env; then
             :
           else
             if restore_previous; then
               echo "pm2 failed; previous release restored" >&2
             else
               echo "pm2 failed; manual rollback is required" >&2
+            fi
+            exit 1
+          fi
+          if ! install_nginx; then
+            echo "nginx installation failed; restoring previous application" >&2
+            if ! restore_previous; then
+              echo "automatic rollback after nginx failure failed; manual intervention is required" >&2
             fi
             exit 1
           fi

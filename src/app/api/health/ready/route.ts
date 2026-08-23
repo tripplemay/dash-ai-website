@@ -52,8 +52,10 @@ export async function GET() {
   try {
     // Import inside the guarded block so missing production auth settings turn
     // into a generic readiness failure instead of an uncaught route exception.
-    const { auth } = await import("@/lib/auth");
-    await auth.api.getSession({ headers: new Headers() });
+    // Do not perform an anonymous session lookup here: that needlessly reads
+    // the session table on every probe and makes readiness depend on stale
+    // session rows rather than on schema/storage availability.
+    await import("@/lib/auth");
     const db = getDb();
     const tables = db
       .prepare(

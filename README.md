@@ -86,7 +86,8 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 ├── messages/            # zh.json / en.json 文案
 ├── public/              # 不进 git：assets/ files/ brand/（部署时单独分发）
 ├── scripts/{migrate,migrate-auth,seed,backup-db,dedupe-resources,check-db}.mjs # Better Auth/资源迁移、播种、备份与校验
-├── deploy/nginx/{dash-pr-upstream,dash-pr-files}.conf # /files 受保护反代模板（禁止 nginx 直出）
+├── deploy/nginx/dash-pr.conf                         # 可直接安装的生产 vhost（含 /files 鉴权）
+├── deploy/nginx/{dash-pr-upstream,dash-pr-files}.conf # 可组合的 /files 受保护反代片段
 ├── src/
 │   ├── proxy.ts         # locale 路由 + 登录守卫
 │   ├── i18n/ lib/ components/   # lib/db.ts 资源表 · lib/storage.ts 存储抽象 · lib/admin-guard.ts
@@ -102,7 +103,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 
 ## CI/CD（GitHub Actions → VPS）
 
-推送 `main` 分支即自动部署。工作流：安装依赖 → 使用 runner 临时目录中的隔离 SQLite 路径执行 `pnpm build` → 打包 standalone、seed 运行时依赖和 `.next/static` → 对打包后的 seed/server 做 smoke 与数据库/资产断言 → 在切换软链前备份并迁移 VPS 数据库 → scp/解压为新 release → 校验 native runtime ABI → 切换 `current` → `pm2 startOrReload`。构建期占位 `BETTER_AUTH_SECRET` 不参与运行时。
+推送 `main` 分支即自动部署。工作流：安装依赖 → 使用 runner 临时目录中的隔离 SQLite 路径执行 `pnpm build` → 打包 standalone、seed 运行时依赖、`.next/static` 和生产 nginx vhost → 对打包后的 seed/server 做 smoke 与数据库/资产断言 → 在切换软链前备份并迁移 VPS 数据库 → scp/解压为新 release → 校验 native runtime ABI 与 PM2 运行环境 → 切换 `current` → 使用发布专用 PM2 配置 reload → 安装并校验 nginx → 通过公网 live/ready 与 `/files` 鉴权探针后 `pm2 save`。构建期占位 `BETTER_AUTH_SECRET` 不参与运行时，nginx 配置和 PM2 配置失败都会自动回滚。
 
 需要在仓库 Settings → Secrets 中配置：
 
@@ -124,6 +125,10 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 ├── dash-auth.db       # 账号库（持久化，不随发布变更）
 └── ecosystem.config.js# pm2 配置（含生产环境变量，仅存在于服务器，chmod 600）
 ```
+
+部署工作流会将 `deploy/nginx/dash-pr.conf` 安装为 `/etc/nginx/sites-available/dash-pr`，并更新
+`sites-enabled/dash-pr`；切换前会在 `/opt/dash-pr/backups/nginx/` 留存旧文件。该 vhost 已内联
+upstream 和 `/files` `auth_request` 规则，不要在同一 server/http 上重复 include 两个片段。
 
 `ecosystem.config.js` 的 production app 必须显式设置 `NODE_ENV=production`、
 `DASH_AUTH_DB=/opt/dash-pr/dash-auth.db`，并将 `cwd` 固定为 `/opt/dash-pr/current`
@@ -150,7 +155,7 @@ NODE_ENV=production BETTER_AUTH_SECRET=<与ecosystem一致> \
 
 ## 备注
 
-- 目录型资源通过 `/api/browse/<路径>` 渲染文件清单页；文件统一经 `/api/file/<路径>` 流式输出并校验真实会话和上架状态。`/files/*` 在 standalone 中由 proxy 重写到该端点。生产 nginx 不得用 `root`/`try_files` 直出 `/files`；请在 `http {}` 引入 `deploy/nginx/dash-pr-upstream.conf`、在对应 `server {}` 引入 `deploy/nginx/dash-pr-files.conf`（其中 `auth_request` 会同时校验会话和 `resources.enabled`），并将 upstream 端口与 PM2 对齐，或完全移除 `/files` 直出规则。
+- 目录型资源通过 `/api/browse/<路径>` 渲染文件清单页；文件统一经 `/api/file/<路径>` 流式输出并校验真实会话和上架状态。`/files/*` 在 standalone 中由 proxy 重写到该端点。生产 nginx 不得用 `root`/`try_files` 直出 `/files`；默认部署使用自包含的 `deploy/nginx/dash-pr.conf`。若采用组合式 nginx 配置，则在 `http {}` 引入 `deploy/nginx/dash-pr-upstream.conf`、在对应 `server {}` 引入 `deploy/nginx/dash-pr-files.conf`（其中 `auth_request` 会同时校验会话和 `resources.enabled`），并将 upstream 端口与 PM2 对齐。
 - 健康检查：`GET /api/health/live` 仅检查进程响应；`GET /api/health/ready` 检查 SQLite、核心表、`public/assets`/`public/files` 资产卷可读，并对 `public/files` 做受控临时写入/删除探针。两者均返回 `Cache-Control: no-store`，ready 失败时返回 `503`，不暴露数据库路径或错误详情。
 - `dash-auth.db` 含账号数据，已 gitignore，勿提交。
 - 若数据库或其 WAL/SHM 文件曾进入 Git 历史，仅新增忽略规则不能撤回历史内容；应先轮换账号密码与 `BETTER_AUTH_SECRET`，再按仓库保密流程清理历史。
