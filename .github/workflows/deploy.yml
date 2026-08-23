@@ -513,6 +513,10 @@ jobs:
             # The public volume may have been created by an older deploy user
             # with restrictive umasks. Normalize only the newly installed
             # static tree so nginx can traverse and serve every approved file.
+            chmod 755 \
+              /opt/dash-pr/public/assets \
+              "$(dirname "$BRAND_STATIC_TARGET")" \
+              "$(dirname "$(dirname "$BRAND_STATIC_TARGET")")" || return 1
             find "$BRAND_STATIC_TARGET" -type d -exec chmod 755 {} + || return 1
             find "$BRAND_STATIC_TARGET" -type f -exec chmod 644 {} + || return 1
             rm -rf "$BRAND_STAGE" || return 1
