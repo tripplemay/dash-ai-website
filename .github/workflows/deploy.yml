@@ -338,6 +338,28 @@ jobs:
             echo "PM2 must run one forked instance while local storage is enabled (instances=$PM2_INSTANCES, exec_mode=$PM2_EXEC_MODE)" >&2
             exit 1
           fi
+          diagnose_runtime() {
+            echo "runtime diagnostics (secret values omitted):" >&2
+            app_pid="$($PM2_BIN pid "$APP_NAME" 2>/dev/null || true)"
+            echo "pm2 app=$APP_NAME pid=${app_pid:-none}" >&2
+            "$PM2_BIN" describe "$APP_NAME" 2>/dev/null | grep -E 'script path|exec cwd|interpreter|exec mode|status|restarts' >&2 || true
+            if [[ -n "$app_pid" ]]; then
+              ps -o pid=,user=,stat=,cmd= -p "$app_pid" >&2 || true
+            fi
+            "$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; console.error(JSON.stringify({cwd:a?.cwd||null,script:a?.script||null,interpreter:a?.interpreter||null,port:e.PORT||null,hostname:e.HOSTNAME||null,nodeEnv:e.NODE_ENV||null,authUrl:e.BETTER_AUTH_URL||null,publicOrigin:e.DASH_PUBLIC_ORIGIN||null,hasAuthSecret:Boolean(e.BETTER_AUTH_SECRET)}))" >&2 || true
+            if command -v ss >/dev/null 2>&1; then
+              ss -ltnp 2>/dev/null | grep -E ':(3517|3000|3001|3002|3003)([[:space:]]|$)' >&2 || true
+            fi
+            for port in 3517 3000 3001 3002 3003; do
+              code="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 2 "http://127.0.0.1:${port}/api/health/live" || true)"
+              echo "loopback ${port}: ${code:-000}" >&2
+            done
+            log_file="$HOME/.pm2/logs/${APP_NAME}-error.log"
+            if [[ -r "$log_file" ]]; then
+              echo "recent PM2 error lines:" >&2
+              tail -n 60 "$log_file" | grep -Ei 'error|exception|listen|EADDR|module|cannot|missing|invalid|fatal' | tail -n 30 >&2 || true
+            fi
+          }
           # Older PM2 files predate DASH_PUBLIC_ORIGIN. Keep their existing
           # secret-bearing config intact, derive the public origin from the
           # validated Better Auth origin, and inject the explicit value below.
@@ -451,6 +473,7 @@ jobs:
           done
           if [[ "$healthy" -ne 1 ]]; then
             echo "health check failed after deploy; backup remains in /opt/dash-pr/backups" >&2
+            diagnose_runtime
             if ! restore_previous; then
               echo "automatic PM2 rollback failed; manual intervention is required" >&2
             fi
@@ -460,6 +483,7 @@ jobs:
             files_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}${protected_path}" || true)"
             if [[ "$files_status" != "401" ]]; then
               echo "protected $protected_path probe expected 401 without a session, got $files_status" >&2
+              diagnose_runtime
               if ! restore_previous; then
                 echo "automatic PM2 rollback failed; manual intervention is required" >&2
               fi
