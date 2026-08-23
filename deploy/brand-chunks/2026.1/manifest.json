@@ -1,0 +1,1331 @@
+{
+  "schemaVersion": 1,
+  "brand": "CORECOORD",
+  "release": "2026.1",
+  "chunkBytes": 131072,
+  "generatedBy": "scripts/sync-brand-assets.mjs",
+  "files": [
+    {
+      "path": "vi-system-2026/deliverables/fonts/NotoSansMonoCJKsc-VF.ttf",
+      "bytes": 35375144,
+      "sha256": "9fe57a71eb48e50cccb77903123d08857edefcf289c7b309462c4c3d82208126",
+      "compression": "gzip",
+      "compressedBytes": 19087242,
+      "chunks": [
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-001",
+          "bytes": 131072,
+          "sha256": "1106f0dd9cb2803097654c09c8f35fd8834b1d173d16c8469fbc4f70999c3cb9"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-002",
+          "bytes": 131072,
+          "sha256": "a2bd8fae8ccacdbbf4dc8f7ace0811ab8eb86553225cac3a8f7443f4fbc7a307"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-003",
+          "bytes": 131072,
+          "sha256": "02aa40362060f07915b31add3739462f1789dbdbcbd188ed9dad81766d4e333b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-004",
+          "bytes": 131072,
+          "sha256": "dd079bed11ecba8d69d58358d67c5bfacbab2309ad523396083d6322179ab8ac"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-005",
+          "bytes": 131072,
+          "sha256": "a89235a9d1f8b8f0764757f14d08eb470dbfae20a457cb7598605b58513d95f2"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-006",
+          "bytes": 131072,
+          "sha256": "03c3f505a1270092c8a909e191829480a8c5bbb7de223eb91d0b99644f95f029"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-007",
+          "bytes": 131072,
+          "sha256": "06002edfaafb6932e3f6ebaf8d74797dfca209f4dd29ee1acc1b0e1acdd80f97"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-008",
+          "bytes": 131072,
+          "sha256": "fe1cf2c44b03df440ce468dc2706074c026c8c08850c93f67a7508775fcf0188"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-009",
+          "bytes": 131072,
+          "sha256": "36108ddd49e0184f54f4c40720fb1a263b5d234c9624e195070c4cbe749dadd9"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-010",
+          "bytes": 131072,
+          "sha256": "90a34671ca3f9e6cffe242481c2d3454f6d567c846c79ed448ec61ab7e6cd19b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-011",
+          "bytes": 131072,
+          "sha256": "a0100d50f22f51a5a6c76febbf0a2609a5bd9c7b406291e3ede2c256ef1a0b35"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-012",
+          "bytes": 131072,
+          "sha256": "9491ac5b71ca214954dc3193f617791e84e73ba32c7ae5f010de7179cf95274d"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-013",
+          "bytes": 131072,
+          "sha256": "3c8daa55d2fc2782a5bc52ba39b93fbb28f742900fd8fc9b2929e841c4be920b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-014",
+          "bytes": 131072,
+          "sha256": "c35a826b215cdc5e9792ac50ed27488a8ff290882135da8770cc5ee02c84f1f6"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-015",
+          "bytes": 131072,
+          "sha256": "7205ceaad6a61335893089ea7383f916c46199312e102bf3021a0be16ff2416a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-016",
+          "bytes": 131072,
+          "sha256": "edcb50be46425159ee27b97c157cb1c92d2b1e0650b21d881d95fd1799c89a29"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-017",
+          "bytes": 131072,
+          "sha256": "4c82c582e8ff86cc792efd7c68d919d207e53b56d96ae3119c7f074bf27eab2f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-018",
+          "bytes": 131072,
+          "sha256": "8536fe55cfa0a2f0edfebfbb789736b1b39f8bdd941e7bfd3c35990ac213ed8c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-019",
+          "bytes": 131072,
+          "sha256": "d9b4d2991b1361d3978f731c47ed741a9d84ca55ff28d569d13efe092e0ad85b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-020",
+          "bytes": 131072,
+          "sha256": "dddbf7c041433113668c617426e7e686e3e7a24bdf4a9d2f7bd4e55dcb22fb18"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-021",
+          "bytes": 131072,
+          "sha256": "1ac46e47e226a2183e7428fe759972b67cff561140dfeae2e4a822104f5aa078"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-022",
+          "bytes": 131072,
+          "sha256": "a6bda8a488b08f92e226994430d9b4981158b9350c18317715f785eb33052c0c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-023",
+          "bytes": 131072,
+          "sha256": "08cca6f348daf8369c7cd6bb46c49866c556643527957d9933c232cbbe4b19ca"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-024",
+          "bytes": 131072,
+          "sha256": "fae5b67e09a90be9628f3c5fab7e1c83a671f9af1185b0c5b1429929f5f58fa1"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-025",
+          "bytes": 131072,
+          "sha256": "3c03b8b3114c0f60b75d8127d1c5c3c184e387d3f1b16a92e9eccfcbc5bcc283"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-026",
+          "bytes": 131072,
+          "sha256": "0dc49d6cc6c903f28afd61db3d34ec1549e9742a2c06b8a3dff9a57b629db60b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-027",
+          "bytes": 131072,
+          "sha256": "8d67a862bf30aa529cc34fb684c74e6b921892f53dc61e8c74a5ed5988b3b745"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-028",
+          "bytes": 131072,
+          "sha256": "d19546aa2a93004d60627ad69e8cfcf22e460bab5f224e0f001a3e85cede1523"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-029",
+          "bytes": 131072,
+          "sha256": "325aaca5c4a90940fa43d0b371f0a836953af19579c085033f8e525ba30e8c6b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-030",
+          "bytes": 131072,
+          "sha256": "f3bdd9638729f9066d4ec68ea5a7554b849d05931d6b8e26faa6abf7ee2b248f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-031",
+          "bytes": 131072,
+          "sha256": "116768ef29daa167f67d3b4509c4174e7ff63b6ee2fd97342c801068b72bda11"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-032",
+          "bytes": 131072,
+          "sha256": "5e4401d7da32cc6bd5c1a9610e116399f119069514b33ba8a6f2a85261cc9c7c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-033",
+          "bytes": 131072,
+          "sha256": "3762b3ac247bbb7a118b7137a4f459f693f3049f3921d0fdaf7e9fd14aee6e58"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-034",
+          "bytes": 131072,
+          "sha256": "5b5311f1b61d983bbbf2ffe3cf642f7eaeca0d768a83632baf7a362702e2e2bd"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-035",
+          "bytes": 131072,
+          "sha256": "bf84be17907e01990edcaf04246e2d4f6991481d6db4931e84579997a37789fd"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-036",
+          "bytes": 131072,
+          "sha256": "9b6f3c4d4f58ed97d533c16baf4049eb5ef83c77b079418aa51e103025de77f0"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-037",
+          "bytes": 131072,
+          "sha256": "ee65d319d68bfe3a302e203c40757819fdd19665852d8dd1af5382ca110bbf99"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-038",
+          "bytes": 131072,
+          "sha256": "0b09079d05cb0d9d7bbb390284334c143e2cdfa1164a536aac10bc305ec26ca8"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-039",
+          "bytes": 131072,
+          "sha256": "2bb06c5fe64317e44b64ceec458b31e4839ea19e9b3aa027f177187c0de30977"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-040",
+          "bytes": 131072,
+          "sha256": "0f5135da591257f83d83bb571b107a05b6d2077c649e717cac0089a680bfaeec"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-041",
+          "bytes": 131072,
+          "sha256": "36212e00a77ddc6de93dfd1cd97c113b4d21e44589115de18314e87bb7501084"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-042",
+          "bytes": 131072,
+          "sha256": "299e07cd30b9cf1af3f868ca1025278b9849a48a185dd664d1ae2bcec79461b5"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-043",
+          "bytes": 131072,
+          "sha256": "28596265b6146b5ca0996908dbaf0aa04c58f2423115f7a3ed70ef1355eb929a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-044",
+          "bytes": 131072,
+          "sha256": "79a57842fd52e565cb1a08dd4267e35e8f714f399c735d0ef851155ef1eb5e23"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-045",
+          "bytes": 131072,
+          "sha256": "afa656dfbd4a52656a058892a5f5ba849fd9d20182ee95cd338cd139f4d2dc2b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-046",
+          "bytes": 131072,
+          "sha256": "8f905d1801833cb070c1dde0e97035e2733b768ca2b05126ea9b6b5b2e12c033"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-047",
+          "bytes": 131072,
+          "sha256": "eba193af332ad2c9a26411f1689a8b5fc944664a447eb06957f47bd0d73fedcb"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-048",
+          "bytes": 131072,
+          "sha256": "9f047b866b2277610f27e6a21e1b4ebe8e1352743f8e327838629ff73ea74ef5"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-049",
+          "bytes": 131072,
+          "sha256": "0013dbc874e7c69766f97db84b243fc8ff7d50eb72e3a5bd5a172358350d458a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-050",
+          "bytes": 131072,
+          "sha256": "ff9cdfc7ab8191531f47a1f1d47c164c3b116bf3c2dc27157ee189320b0785f1"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-051",
+          "bytes": 131072,
+          "sha256": "f834f2e3bc50b9d75b921144c14b752fce221030b30a6fc640b5dafd7aea0947"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-052",
+          "bytes": 131072,
+          "sha256": "3a8e8f65f2ec7b4b4cc226236bcf8eea703f3fceadb65d783c84427636b833be"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-053",
+          "bytes": 131072,
+          "sha256": "af534135bd3a48387bb1f76e2aa1ac4d21bad53109cdd5a2ed616963816dd310"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-054",
+          "bytes": 131072,
+          "sha256": "4aface3d575d5bfaf14fa4377bd3ab859506ff1e3af804a72fc565f2b6102fcc"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-055",
+          "bytes": 131072,
+          "sha256": "6d83f33a44d14c05e91958daa2e66181374c8aaccd1bbe31b30c9849af38724e"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-056",
+          "bytes": 131072,
+          "sha256": "dc27b54f5e0d8e8ad140be092a2102d9174f6d27c825757537efe36346ba27cc"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-057",
+          "bytes": 131072,
+          "sha256": "6dd4d77c0e96e0f8d5956438ed3f786cc3d8daf6d52e19619582d7edb6b39a16"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-058",
+          "bytes": 131072,
+          "sha256": "4f51f4a5e0381afd8f969c4bd7ea874364597b9de462c0806457c41b4723f675"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-059",
+          "bytes": 131072,
+          "sha256": "be790527190b9e48c17306871924bc3fe6b1081a552d7f30f9f5e078858386d5"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-060",
+          "bytes": 131072,
+          "sha256": "db8e8e67cade965e6a212deb10ecd1a26b99bcccd94c5ae44e3914b0b54f01ed"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-061",
+          "bytes": 131072,
+          "sha256": "78820d2ee61df64f69ca2ab912fae52f6e8859fc4ee5ad6f2997de9f9e61fa25"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-062",
+          "bytes": 131072,
+          "sha256": "08e962a3112773429053e9651d07f50335aacad53be75524ef6cb38c9dc5c95b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-063",
+          "bytes": 131072,
+          "sha256": "45386691c3210fd80950ce26b0324436c43ce164bb0418337487aeca5fc1016a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-064",
+          "bytes": 131072,
+          "sha256": "19c471054fe2c631f4e51e2f55a8796a4bfd01d377e4bd377a1a10d00e429d2d"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-065",
+          "bytes": 131072,
+          "sha256": "3d3afc0139ef28ac20e81ec9efc9448c19350b05c71879cc9f3bc4c50164c362"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-066",
+          "bytes": 131072,
+          "sha256": "1f7b745750726765a94674aa0e7a2217e6afc0b48bb8b06b2f1da6af68a62fd0"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-067",
+          "bytes": 131072,
+          "sha256": "9ee78ce44d00e8c9b575676764a57a7d815b94f21013295d2f9b510ee7cf6c5e"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-068",
+          "bytes": 131072,
+          "sha256": "b419925938176c66852dd984a474c4da25779d521a95d24472b41a7aefa403d3"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-069",
+          "bytes": 131072,
+          "sha256": "b1535f85daaa73f840c77308c4fe90f2051bb41af0afcca4b735a4c7de857950"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-070",
+          "bytes": 131072,
+          "sha256": "77c4b3edb2076edcca258534156aa6b2c85dde632087b6dbae37024ee1d90c4c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-071",
+          "bytes": 131072,
+          "sha256": "abd9a8acd6f4a3659190eec7f1542e09700f1982a1c80ffa0eba076b4d045fa7"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-072",
+          "bytes": 131072,
+          "sha256": "2202af163762cf84305bbb639a13c19b4c959bc6fff8327109a98982fb47f4bc"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-073",
+          "bytes": 131072,
+          "sha256": "188cc8f72c4a030710eb6b61b8956ae09f50ffc3161265a507870d3cab8ae42c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-074",
+          "bytes": 131072,
+          "sha256": "1c008d19d6bb61f43c4f405f96331ce9406343c80f5fd405e2d6fe0df5f183ec"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-075",
+          "bytes": 131072,
+          "sha256": "e7bbe41df4a0a67e1eb584a0e0b7e4faea2886513a9a72eca250d6b3e6a3d795"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-076",
+          "bytes": 131072,
+          "sha256": "1b7065ffb0fbe93242214d1b7f1488a78d70e3f3580d716762c2fb9ac70a3d4a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-077",
+          "bytes": 131072,
+          "sha256": "ac0fa8794d39ba0523091c67415fbe6c6684728c5a40486cbd58303a25a6a31c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-078",
+          "bytes": 131072,
+          "sha256": "4cf29be7ae20b680c389933e83ecc81164c68ffe351d63027f3731ee56f85fdb"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-079",
+          "bytes": 131072,
+          "sha256": "c966755bfde7437ed6048c3d6d548d999a810bd49e1a28fdf9c8e98e5b43ca67"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-080",
+          "bytes": 131072,
+          "sha256": "ff31036319a6acfc04675384dace55b69a432f1a65c25391ccfd7a4f5ef0e77c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-081",
+          "bytes": 131072,
+          "sha256": "f474832b1b43b7547199006623047b2fa7c7938a65b8990c64c365dc392073c9"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-082",
+          "bytes": 131072,
+          "sha256": "51c5823a70a9d58680f2c8a2c7325ae44f0df3a4d781d51809929c9e297a6fb3"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-083",
+          "bytes": 131072,
+          "sha256": "b1cd17deb1dc4adb7820c2794275124442733f4e1586377023ed0fae1333256a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-084",
+          "bytes": 131072,
+          "sha256": "206e1423d9b9bfee486363576e9698cb4d56f343d3a810d14de8f7b3a5e02cd0"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-085",
+          "bytes": 131072,
+          "sha256": "9e5618019e9fa62294b0227c41a89846964093fb5bfcbc67b4ff53441b868d81"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-086",
+          "bytes": 131072,
+          "sha256": "cd22fd72c58a583a455bec9f12273a77d3a0cbb272af8d3e7b530958d83f4457"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-087",
+          "bytes": 131072,
+          "sha256": "7b1240d3414784ca2fa71e4a953015c9b0b5eba17019fc6c048ca150faaf9ca8"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-088",
+          "bytes": 131072,
+          "sha256": "3944b5b20d6d208f737d56b1ad85dc5c36b38660d0bccac66cbc0efca7a23057"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-089",
+          "bytes": 131072,
+          "sha256": "2bc86a32ab43cd3452c341a36bd41d58729c3e055a0a7af9666967f230b4c8c3"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-090",
+          "bytes": 131072,
+          "sha256": "7395ed0512c4375a8d82caee76f996414ffc6c16bf88e55d4d9a415451974d76"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-091",
+          "bytes": 131072,
+          "sha256": "43d883bfd74d1e96c02bb88293a412d46ef0885e4b719cd24cfffdaeec34614e"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-092",
+          "bytes": 131072,
+          "sha256": "a582f83325c21a52613c4e9e87739782f776e7f6e2a400332942318ada429750"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-093",
+          "bytes": 131072,
+          "sha256": "22f0a84cf2d34165b114a32fbbef3cee909b09c57b4f7c3bae0f1564a6a2c46c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-094",
+          "bytes": 131072,
+          "sha256": "9676b87cbd7606de3a4c7d789124e8d20f46288e5616a1e915cb99ad47b86275"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-095",
+          "bytes": 131072,
+          "sha256": "f74642a210fd9127ed1e58fb7258b1079e126cfe5865b5d572059197e0c081be"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-096",
+          "bytes": 131072,
+          "sha256": "02e912881fae32a2c43b29c362488c061a0a9e402e2926f81535f0c04fc9fa47"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-097",
+          "bytes": 131072,
+          "sha256": "6152bf7d52a23ed8135f8ad3a4aa112d1a0e99ac387190f68b2d24481eedbfdf"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-098",
+          "bytes": 131072,
+          "sha256": "5965931787d51fbec9b37efa5c3245a816d6275df4370186ba81bef90d3d0738"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-099",
+          "bytes": 131072,
+          "sha256": "447e57137709836ea9371da8dcf24c2b489b2d52984c7642b9de6b46f4ff54dd"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-100",
+          "bytes": 131072,
+          "sha256": "8df7a8f6f10fdafa5043561201bb26b5f86c3da53e25bfa6ecaceec32feb8e4f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-101",
+          "bytes": 131072,
+          "sha256": "f18c5acfa19b092c15628cc35298424f42323696a99a20d57ef3433e06748bcb"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-102",
+          "bytes": 131072,
+          "sha256": "119450bf4d80b4ec56f072be2a3fdf77006cb27adec8b53b603c260a552b3c85"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-103",
+          "bytes": 131072,
+          "sha256": "a31a09067affb3ce683284ef4334cbb17e5e7aefbbb802e71a7335d435498a4f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-104",
+          "bytes": 131072,
+          "sha256": "50f85e267ad27e0f07bae9bfd9f9e174332d7de677b08d36c8ffd2e934bd2d3b"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-105",
+          "bytes": 131072,
+          "sha256": "4f0f9a8576ccb3763cb6b005a4966fb2d41026fae3eb747e1683157f72e12aa2"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-106",
+          "bytes": 131072,
+          "sha256": "ae9efae3497c0cff75b6f92537d8331dcce9c31e70199a3882e1962396d2676f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-107",
+          "bytes": 131072,
+          "sha256": "6832047ea628c527162535a0802fa1f74903d9114c71fbc49ab6d7bb08167af8"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-108",
+          "bytes": 131072,
+          "sha256": "88b6f8da24c599ba625402441b07f37a7d5d37f2d536b8133969e1a4897d9aff"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-109",
+          "bytes": 131072,
+          "sha256": "b1637c0968e07695f0a3a90fa0630fff3eaf4f65f85b78483fa1c50a4399c618"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-110",
+          "bytes": 131072,
+          "sha256": "3f4f666d4ee845c969c536266816440ed897fa99f50efd367c22e33f32883a36"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-111",
+          "bytes": 131072,
+          "sha256": "59e808a6bc7bf9233fc26dcde43d4b7a7511add21b5b94cf0b2d610f281a0c0c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-112",
+          "bytes": 131072,
+          "sha256": "ab19dcd6e23a00f1417242f3a67a9a3ba2bca96d077addfc9e99a4b3d05cc8cd"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-113",
+          "bytes": 131072,
+          "sha256": "c5a3833a19d7d386b5a9d668071bb9585f633e7a205bf7ab46f8976782e1340d"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-114",
+          "bytes": 131072,
+          "sha256": "389719f7cfa6931f3c2039ff2c8df797db4385aabfb3254a1c43aea278370014"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-115",
+          "bytes": 131072,
+          "sha256": "3524403629d2bc8ebca94f3e64bd9c4815fa1fa36166cc950441e45f2d65cd69"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-116",
+          "bytes": 131072,
+          "sha256": "6f9d570803f68c76de533771a67936784573b8b9fa338741c1703b9d9cf8acbb"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-117",
+          "bytes": 131072,
+          "sha256": "d0b3ff4f1574a997f7e10f4f77af878ce280dddcf23f83835458f7254ac3035e"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-118",
+          "bytes": 131072,
+          "sha256": "c66355c97022c936afaf2a39586cfeae56585c8d7406632b6de58aa74e7bfc97"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-119",
+          "bytes": 131072,
+          "sha256": "4c1352a3bd458ff928bfbd90e4cbe111e5a39273ce1aab6893b09c5536f524f1"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-120",
+          "bytes": 131072,
+          "sha256": "48b16a14cd4fe76061e6133f34fce0f717e323194721e7ec2fb0eadec543c870"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-121",
+          "bytes": 131072,
+          "sha256": "7be354afa16aec4cceffd32d198218605b5a892d74be4d60537710d6d855ec98"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-122",
+          "bytes": 131072,
+          "sha256": "09ce0cff02f5df363b4211c2c5ed23030d15af3ce625685a1ea8b9fca4e2f5b5"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-123",
+          "bytes": 131072,
+          "sha256": "b5c52176968d5cf9002e45626406f9eb45e7fc8f7ffae0584a61a78761bf0975"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-124",
+          "bytes": 131072,
+          "sha256": "bdb95cd0423b7013e83b9c1a537aa063227bda626031ab96f6227df12c5e1820"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-125",
+          "bytes": 131072,
+          "sha256": "953393e46f646b65b981c99d9729a7ccb0466a3c0cf744f9b8e289c226cc7db4"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-126",
+          "bytes": 131072,
+          "sha256": "ce0131cd66049af7daf4d653e4bbcfd350c5e15c67da8c71322dddc082b550f0"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-127",
+          "bytes": 131072,
+          "sha256": "3737d50f620441a28eb09a65940c960d571a5a2805695649186b7740b4f070de"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-128",
+          "bytes": 131072,
+          "sha256": "dde46039bd31a4d08c503990a3c7f2efe0ba0fadb96eccc8d290459dafe38239"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-129",
+          "bytes": 131072,
+          "sha256": "26e9a15f3f765a75c6e507f7ab911492a1d0be379d835bb90331e2a11552b178"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-130",
+          "bytes": 131072,
+          "sha256": "5155f3abadcdfa425b8575e30d257ccebf72f179b0602b2e146a63bec9773e9c"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-131",
+          "bytes": 131072,
+          "sha256": "fe27fb87f36c4702a1c89fe787edc3abf92e8b42b07fde37e6e5bdfd22fb3bce"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-132",
+          "bytes": 131072,
+          "sha256": "2b813fdd7555f5858416d5d33ae67c745ef47ade8b7a895f2c24dfca5bb0ca08"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-133",
+          "bytes": 131072,
+          "sha256": "9cd19a6eed5040924dd053ef47468f7310b383ce22da5c5c83fbc37472633874"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-134",
+          "bytes": 131072,
+          "sha256": "03b3f342a2ee54ed259d6fa953417adbeace9e824aefe486c678c84e34c23c32"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-135",
+          "bytes": 131072,
+          "sha256": "f9a746cc2ed8d446be2e0aba9c0a34ef3aac49c03b50c1f466fd2ab3e505d86f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-136",
+          "bytes": 131072,
+          "sha256": "8f61d411e1371c3cde830d2f65027f602bcc99578e9dd93b4068e97aa91b7269"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-137",
+          "bytes": 131072,
+          "sha256": "b4e70f74e2ed2cec0571dce8ba04a38434e8ea1e51f0c81dc66acf70261236c3"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-138",
+          "bytes": 131072,
+          "sha256": "0821e2630012a145b4c198e99969bbb8342ad2472dfda2f6dd127d2c9ec20691"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-139",
+          "bytes": 131072,
+          "sha256": "cd3aa8ae508c8cd0830789f883331a4fbe43ba384ab8377aac629721c554d12a"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-140",
+          "bytes": 131072,
+          "sha256": "c5c3f11b0821fffd8f08cb45bf214478bf6b678a10bd71d9dd7b0469207cdd8d"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-141",
+          "bytes": 131072,
+          "sha256": "3a983501bdcaf37fbcc8fd93af8241660bb2def93b77c565a3d68a8989328c7f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-142",
+          "bytes": 131072,
+          "sha256": "f5040d217eb4605382aa57dc077985bc84ae67ad3f937269dbdbda1c7c959942"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-143",
+          "bytes": 131072,
+          "sha256": "4eea4206cc67997b4363a0e2d0da817123a302bc05ac183a24e63ee9634d6791"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-144",
+          "bytes": 131072,
+          "sha256": "9214ab76b877bdeda786e3c3edfc43ae3292f601f4c249d1b9cb6f37cc09f24f"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-145",
+          "bytes": 131072,
+          "sha256": "7d3ec720ae8a5b6864595331411dba8c83a5a57178ccfb005c7acebbe7d2b628"
+        },
+        {
+          "path": "files/NotoSansMonoCJKsc-VF.ttf.gz.part-146",
+          "bytes": 81802,
+          "sha256": "b94729f03a859fac10e6ed0df5a633b1ef6d385fd975b08c45580810a02bed2e"
+        }
+      ]
+    },
+    {
+      "path": "vi-system-2026/deliverables/fonts/NotoSansSC-VF.ttf",
+      "bytes": 17773132,
+      "sha256": "d68bafcb48a2707749396aa12bbbd833cb70401f3a9a689fd2902c7e0d295964",
+      "compression": "gzip",
+      "compressedBytes": 11276764,
+      "chunks": [
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-001",
+          "bytes": 131072,
+          "sha256": "ba4f53ffca7365a251b095a8cace32dbd5dc074fd438913df28befec95c0ee10"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-002",
+          "bytes": 131072,
+          "sha256": "59aa83163f89131e939730c47d4996f593e7e16e6de2f238a5ca19a626aebcdc"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-003",
+          "bytes": 131072,
+          "sha256": "bc914a2a6d718f36f122e4bdcb88dd6a3dd79c5ade9125f0c9bd5f3121454211"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-004",
+          "bytes": 131072,
+          "sha256": "cfdf812481958186f5fcdf3df35ddcf88c8f69d585b869d44c53aa8c40d52d4e"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-005",
+          "bytes": 131072,
+          "sha256": "e6adbb37d124806348349b818bfd55649c184c889cffc6d342fc90a14bd1a77a"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-006",
+          "bytes": 131072,
+          "sha256": "f7ff567f54c67b05ea722ce13e48261ab1758b7cb1fe1898eade030c61078c1d"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-007",
+          "bytes": 131072,
+          "sha256": "732f1bcef947a6f99c86376fb029ecaa6f7bd225cf57d69011369aaa8bc0d96f"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-008",
+          "bytes": 131072,
+          "sha256": "86ae2b7b99f2a5dadaa3a540b776db8c8928b66e9a3c0473660dc9d6e33e933b"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-009",
+          "bytes": 131072,
+          "sha256": "71e2cbda9ee31f2de403157c50ea1ed9a2ecb9cd8eed01b7ac0be04c1750d71a"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-010",
+          "bytes": 131072,
+          "sha256": "dd2a9444fc594c3f2c7bd38276329975c69ce85b2770f435c072bd1dc862f477"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-011",
+          "bytes": 131072,
+          "sha256": "6bf60dbd6ba52490e6dcb4b1548cd8e88d9e5d02741e60d112d8be2e76dbc738"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-012",
+          "bytes": 131072,
+          "sha256": "d38ed7f818bbc3ed0892ab9b8813fcf8c930fb6af4f0f56ca2f88f371b969beb"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-013",
+          "bytes": 131072,
+          "sha256": "48997685d44327020ee3b38917930448cf3e5c8114355f815192bc1285a28162"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-014",
+          "bytes": 131072,
+          "sha256": "e7c92b21ee422fa541fd19703bd349d6a8e4161a3ada899236978ef6d6229083"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-015",
+          "bytes": 131072,
+          "sha256": "54725dd366db6be6d00d73a059b6247ec945dea206bb8acce209ae287d31b279"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-016",
+          "bytes": 131072,
+          "sha256": "93923dc86cbc8698ff064242531906be9335cc9142a391ce0ff9c0a2192a6c4b"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-017",
+          "bytes": 131072,
+          "sha256": "8fa2684adba5b39a7db99f8091c25b46a9bf02e12496fae2b2d87dfba9461be5"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-018",
+          "bytes": 131072,
+          "sha256": "37987f5b0a6cb2f7ce110955da9d684de11cd0bd3dbd8758e806fa8a23e3a667"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-019",
+          "bytes": 131072,
+          "sha256": "4b5774449ea761d818e33c849070634788706537e950510b9e349e9c05bb9f04"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-020",
+          "bytes": 131072,
+          "sha256": "dc69c0f35de244c09ec22d7242d4076c3fe6048b5bc29a1f18583d44922aba0d"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-021",
+          "bytes": 131072,
+          "sha256": "f598238797257b004c6df63154204ca16edf42313df6bdf4cc4db995973facc2"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-022",
+          "bytes": 131072,
+          "sha256": "5f4747c86ec851ab9305eed332fd12058f0a2bd2b67e7b86a9468b2b41539b1f"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-023",
+          "bytes": 131072,
+          "sha256": "cc13e0f9b46ee54d149adeec53709a2926e62111fea9cf7a8029c6ef265273c8"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-024",
+          "bytes": 131072,
+          "sha256": "56d80ba07f696debc752170f110f2258ca4b560884d44f458607af76c92706d8"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-025",
+          "bytes": 131072,
+          "sha256": "71ebdf44682ee7c337e844c9b516defe26e7868f4956e23324434aade56f6bc3"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-026",
+          "bytes": 131072,
+          "sha256": "46f4d94a5d24a7e1431b64008f2b2296b1da0b941081fba490975121803dec76"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-027",
+          "bytes": 131072,
+          "sha256": "2793605617053966e4451254040b0fc64dbad905ed32634442af263f0b8267ae"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-028",
+          "bytes": 131072,
+          "sha256": "b4089ad6c01626ae103f9c20fde7ffe3808e0d1dab8088a3d5f1f66a188bd2c5"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-029",
+          "bytes": 131072,
+          "sha256": "811b3cf279a5b5b0f755f4187f5bc768ad4ef29778512af2fba5cc014112d65a"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-030",
+          "bytes": 131072,
+          "sha256": "decf33c1d9181715c89b66264259fd2ab428f270c9c1eb795449c9feaf1407d5"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-031",
+          "bytes": 131072,
+          "sha256": "9cc8f4eea5017d86e514fd57f94fa6b6bbc3e34c1c75d93730070918b109db46"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-032",
+          "bytes": 131072,
+          "sha256": "6e1a340158104c7f6dd0b38e8ada9c8da16405b714067130a7fcc0a8755bec08"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-033",
+          "bytes": 131072,
+          "sha256": "f5e6035b865d88bc3fe6c23755a228f2ae03ca857e8472e248227ed9739607f1"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-034",
+          "bytes": 131072,
+          "sha256": "7bcbd594f0b446d71167c4ed286f1a4b2a9757415330b282a6a48ec35402586d"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-035",
+          "bytes": 131072,
+          "sha256": "8599453859b7fff19b065b2330e93b57be0f9e287a82092b028843f46db517dc"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-036",
+          "bytes": 131072,
+          "sha256": "f18dd98023324adb1025023bfc5030fc45a1d549e595fc2fa1b41dcdd0348465"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-037",
+          "bytes": 131072,
+          "sha256": "1ec7bb64cef653473f13802a4b1ce673ebee931936d9b9424e72e22da73ecd79"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-038",
+          "bytes": 131072,
+          "sha256": "15eaeb526e993f59d244fd16b9ca3d0039873795591f1f45533b5375c139b0e3"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-039",
+          "bytes": 131072,
+          "sha256": "8ef209c998147a555a2d700879d60b40b1eaa1f8a069f0acc64bd65eee4971f7"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-040",
+          "bytes": 131072,
+          "sha256": "5480ec633f807b0c3255f4a72ebbc80867b0caf70b9ab025fd46b81b606f39a2"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-041",
+          "bytes": 131072,
+          "sha256": "3627b9b34fe008cdade31e1ca4bc24e0f111185129f601c7970669caf6ecd6fd"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-042",
+          "bytes": 131072,
+          "sha256": "eb5ed144d2b9930dce822dfa3c415eb32a6cdfd14405ee2a16f39286b0611efd"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-043",
+          "bytes": 131072,
+          "sha256": "68242ff64e4ecc376e30e1db62ce4b32d14eb9bbd42e179e97f3f3c51a68022a"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-044",
+          "bytes": 131072,
+          "sha256": "ea634df946394a6993a2ed9ba900f24636d8fbc7c2c8eb7a164e6323e63978e2"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-045",
+          "bytes": 131072,
+          "sha256": "1b7312412cf9601ba198ff503c911e6b72c36b410b4bf74bc7c4a51ee29f5f63"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-046",
+          "bytes": 131072,
+          "sha256": "7d31842afbd7cf4b6e1af982ea967d07137ba3fc4be29a93a4b2d2a734cb2cdb"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-047",
+          "bytes": 131072,
+          "sha256": "d2e61be2d650c487681a1e6eeed09b1d7cb61a6358a01fbb6605d27efa825dcd"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-048",
+          "bytes": 131072,
+          "sha256": "1eb03119727e0eae893971ed58bc2811623f6e04a284d895b17fa59648740b13"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-049",
+          "bytes": 131072,
+          "sha256": "c99ecbfbe0679aebd0672bc8f7fa00e5e257541fdd5c1e55945d311e87ea0167"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-050",
+          "bytes": 131072,
+          "sha256": "1e27a2943dc81be92bdd3747118a471414312d8de7bb923797dbc0f3ae1d991c"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-051",
+          "bytes": 131072,
+          "sha256": "8f3fce2d5b104a70694bff46abf1aa46468d47fbddd1f94f40005a02a5a46a29"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-052",
+          "bytes": 131072,
+          "sha256": "6e5621c75a22b9fe0615fbe35e46832d2ee53de78b6701bb57994a91d8d2bfa5"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-053",
+          "bytes": 131072,
+          "sha256": "515ec4dde688c36c1b21739db830257adfc463e2877de92d922464e8ce9d580d"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-054",
+          "bytes": 131072,
+          "sha256": "40cc9ecf2da6a8a5841cc133d579285ecaaee000bba4c7631c7d9207654ef5a4"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-055",
+          "bytes": 131072,
+          "sha256": "70e9844e3847278cc4a2b76cefb7d3bc67e26b804b526fbeb8f091a9edd0eca2"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-056",
+          "bytes": 131072,
+          "sha256": "7719651ffa806ec8357f7159782d381e429d122df681545f7ba2f3c9b216a899"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-057",
+          "bytes": 131072,
+          "sha256": "732e68f22269632d1d05f9345ec559595437b78fa38dc1715b36e952c44a60cf"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-058",
+          "bytes": 131072,
+          "sha256": "4708dc9f7ef566675c54297c3e16aeddbed5beb66df357e2ee42d93db232b1b6"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-059",
+          "bytes": 131072,
+          "sha256": "741273570913d8de610090516eea4fbe9277e352ff7c616451e353a2c0a116e8"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-060",
+          "bytes": 131072,
+          "sha256": "ef980b048fe62b9d804cacc77fb2c874f0e295ebb849e55438e88faee119cec7"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-061",
+          "bytes": 131072,
+          "sha256": "92f793ae7c342f421d8fe9ee18dccb55cb6206517821b0bad787719feaa9f3bc"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-062",
+          "bytes": 131072,
+          "sha256": "624b4e0ab7f77a01807a1f2d574c4f92d913e5b0962e8fbbf08d6462af14383c"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-063",
+          "bytes": 131072,
+          "sha256": "d3d5cea32e54ee369281b23442a0a991a9dd3b1b3335385ea1b83102e6eceb3d"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-064",
+          "bytes": 131072,
+          "sha256": "957158e98832b8c2125f05a289fb3b327acd5f22e69ca38781327cd3e2c47cf8"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-065",
+          "bytes": 131072,
+          "sha256": "1ed1b85541a18e83f60f8ae6e120a841b87b1da8f50441bdf18b6498cb329dfa"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-066",
+          "bytes": 131072,
+          "sha256": "184cdb78250edd717224a1086ece84b450dd27cc0e1a4515b3954969ebc98d16"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-067",
+          "bytes": 131072,
+          "sha256": "c5f62ed6c44b6d711ed5447cbe790d2adaea9a2fa5135554bdecf4ee3ff7baf6"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-068",
+          "bytes": 131072,
+          "sha256": "fe812f3d71563a14b951d81bc1843e2aca3b80209df834c1350cb9f0688c7674"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-069",
+          "bytes": 131072,
+          "sha256": "0d526327a5987857206738fcd9057a1544f8ad8e5ba75ee4faba08e20d0f6305"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-070",
+          "bytes": 131072,
+          "sha256": "e455325667aeafd7eb99cfd6396a0efb89f20f37de705102c202f049c5d730d7"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-071",
+          "bytes": 131072,
+          "sha256": "b2a06793c83fe868977faafd42578ae3635fd70839ce70c934930ad02ca1785a"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-072",
+          "bytes": 131072,
+          "sha256": "a5ade94e58e406d65b4f5785fbbb48638a33817f687641d3a41ba30a0ccf2987"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-073",
+          "bytes": 131072,
+          "sha256": "b14b08ea1070ef7a092671130e2b3ea8d9c878a0fc4281d768e863a16d7f936f"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-074",
+          "bytes": 131072,
+          "sha256": "39a83f57a29390d88f90b79248b509c5df92037137f893b53efb708aeb5b334c"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-075",
+          "bytes": 131072,
+          "sha256": "996466433e4f21d0d3597fc3591ebdc805208a296be76d25cca7caada153a706"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-076",
+          "bytes": 131072,
+          "sha256": "a65950dbc6de1fa27fa7b55231720925d79de492d7208980bd2eda70e588b97e"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-077",
+          "bytes": 131072,
+          "sha256": "32c2b29ca81c947ad5f16a33e891973ec2f885887fb124956b84422c7d0570ca"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-078",
+          "bytes": 131072,
+          "sha256": "da38f53c49c134e8e6e8cc4c374d70e4f07fe034afa103e2a59ef7cd09ddff80"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-079",
+          "bytes": 131072,
+          "sha256": "0470ef6d09f571de2408fcb9159d5e992ae3de6f375a1de18910167a593d7d0f"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-080",
+          "bytes": 131072,
+          "sha256": "3d0311678bfe4a213f1e815883c5e7ddd5d549d6453ea025a21fdf959956218e"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-081",
+          "bytes": 131072,
+          "sha256": "069d81a00ebb01dba1f9582c520d1a95d295daf8f46ea2a863c9a59c02532304"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-082",
+          "bytes": 131072,
+          "sha256": "1f776dadd26eec2ed388fd4b75afadaa484583d90dc737eb8b827f83ee84bbe6"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-083",
+          "bytes": 131072,
+          "sha256": "ab1e604e29a541c15abc66221bd99f619b1e2fb613d1a1fa9df6bb80301230ac"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-084",
+          "bytes": 131072,
+          "sha256": "51c8dfbcca9e7993d56f5e0dfc9e00c26e93f95bd9ff09d403dcbd151d00c63a"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-085",
+          "bytes": 131072,
+          "sha256": "2469c464fbe07fb2ebeeb362c98b2c7c891746f5bcbae95846f00d925ece57e4"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-086",
+          "bytes": 131072,
+          "sha256": "a73b2663013fcf06f0f480a937ec8c9237df0dcec7200f78e34d9617ebd4c090"
+        },
+        {
+          "path": "files/NotoSansSC-VF.ttf.gz.part-087",
+          "bytes": 4572,
+          "sha256": "cd77cfd6001253525bf614aa6c2b66921dcd52f5d36bf9815b6460a56bf75514"
+        }
+      ]
+    },
+    {
+      "path": "vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf",
+      "bytes": 4713169,
+      "sha256": "78b12bb5fc43692e491297091351a0f7a18cdb5a59694de4b4e70f203badccc4",
+      "compression": "gzip",
+      "compressedBytes": 3373519,
+      "chunks": [
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-001",
+          "bytes": 131072,
+          "sha256": "dffaf71b7de7b55cb72f8def90ab412073cd022b488ec244693281f77d05a7b4"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-002",
+          "bytes": 131072,
+          "sha256": "1e356cc43ad8e4d5ffc6bbad36aef2a951fcd9ce7f4b066d0aee32d74db2eee1"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-003",
+          "bytes": 131072,
+          "sha256": "78fa336c6ff3e9c321dc7ddb374c794223de5af86e91fee5718ad5593e5b624b"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-004",
+          "bytes": 131072,
+          "sha256": "f7f28dbbbd10c1b8736d48efd6eecae23425c0f5b78c71f0193fe8cd8137b0d7"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-005",
+          "bytes": 131072,
+          "sha256": "42c8be7fd0333a59eaa8afcfbd74ad5b3dadc48d962b37dedfcdd3b0e62b28bd"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-006",
+          "bytes": 131072,
+          "sha256": "56676229b5c7dec61c95a08ce3e43a50299b9f7efd8cc2309c1d8d10bdea7b1a"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-007",
+          "bytes": 131072,
+          "sha256": "1ac1540d76508763fb7cce661f686af29208770b9fd6eaea1721ff615482d01f"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-008",
+          "bytes": 131072,
+          "sha256": "ab69276e034267ae996b52612d0d506e6f0ef657b7f126d11666cf718b3ad124"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-009",
+          "bytes": 131072,
+          "sha256": "f356c9f5a8579a0dbf6944e1c7f3208f76001192309cef3766505ad9cd945161"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-010",
+          "bytes": 131072,
+          "sha256": "4d2ddc47dd20bf73e7ddd1a8a723b9f375424b6709e6f40504712d28b71f99f7"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-011",
+          "bytes": 131072,
+          "sha256": "b14cf8cd83be9a07a9c870ce3fe17713c8645471562836b8577df1f66dfb6756"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-012",
+          "bytes": 131072,
+          "sha256": "254a2e7e8bbda5f003612bf2354087675e1653483936b24281a338bca2ca53a0"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-013",
+          "bytes": 131072,
+          "sha256": "2e0f5a3412eaaa83202716711dbfb9b606392a531015b17c4e5967910efe9ba8"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-014",
+          "bytes": 131072,
+          "sha256": "3f803196428d928e3fe72ba25fda858121800d19dc73326875691bd3c5728dd7"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-015",
+          "bytes": 131072,
+          "sha256": "b49321e2dd8842f4913b3d97578ec832713b501df17b5dc4ad9c98ea0c53a495"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-016",
+          "bytes": 131072,
+          "sha256": "7bd30625afdfa97c79e7f373f553b53f7965a19c66461ef27e479866142a49dd"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-017",
+          "bytes": 131072,
+          "sha256": "cf85d7e9f0f0f126e42c3fbdb133437919c7075438c7111eaeb2698b4a38d69a"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-018",
+          "bytes": 131072,
+          "sha256": "54b9f6e80d79568fe39ef6478f336a8c6df50792e0d0a840a6094a277f4b7f85"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-019",
+          "bytes": 131072,
+          "sha256": "42770b05e01ecf89da56ad226204f1feecf6b5efe28f3a65eb088c77fb3f744b"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-020",
+          "bytes": 131072,
+          "sha256": "28c40ca1a95bfc8fec0720f3a37ea6931c8f56cb43464ec45f9d24df4b7643c1"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-021",
+          "bytes": 131072,
+          "sha256": "a37cc1a093ec9c4a5c774a78039897096ed0007a1b5975815e96fdebfa7e43bb"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-022",
+          "bytes": 131072,
+          "sha256": "efaf62d01cb3603979f06c80285668efcd476ff1f801a5d3d08a004eb031a152"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-023",
+          "bytes": 131072,
+          "sha256": "d9360665362b9b4ab13d989f8d6a8553dd33c52fc246d423b6cae99469c6a73a"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-024",
+          "bytes": 131072,
+          "sha256": "33f50dbc7e33fc60598fe23f31d931251d3b49bb878265e98d908aaed0843cbd"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-025",
+          "bytes": 131072,
+          "sha256": "bb33f1a50d701cdc43b35263422c205e051504c7577bb9407edf06af4da98314"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-026",
+          "bytes": 96719,
+          "sha256": "bac35d48f3601bad7eee76d676b67402a39f59f55b4b36892cabf75c05603aa1"
+        }
+      ]
+    }
+  ]
+}
