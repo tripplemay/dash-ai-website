@@ -510,6 +510,11 @@ jobs:
             BRAND_STATIC_INSTALLED=1
             mv -T "$BRAND_STAGE/files/corecoord" "$BRAND_RESOURCE_TARGET" || return 1
             BRAND_RESOURCE_INSTALLED=1
+            # The public volume may have been created by an older deploy user
+            # with restrictive umasks. Normalize only the newly installed
+            # static tree so nginx can traverse and serve every approved file.
+            find "$BRAND_STATIC_TARGET" -type d -exec chmod 755 {} + || return 1
+            find "$BRAND_STATIC_TARGET" -type f -exec chmod 644 {} + || return 1
             rm -rf "$BRAND_STAGE" || return 1
             BRAND_STAGE=""
           }
@@ -1092,6 +1097,9 @@ jobs:
             local_status="$(curl --silent --show-error --insecure --output /tmp/dash-local-brand-probe --write-out '%{http_code}' --max-time 5 --resolve pr.dashedu.net:443:127.0.0.1 "$probe_url" || true)"
             if [[ "$local_status" != "$expected" ]]; then
               echo "local nginx ${label} probe failed for $path (expected=$expected status=$local_status)" >&2
+              echo "brand filesystem diagnostics:" >&2
+              namei -l "/opt/dash-pr/public${path}" >&2 || true
+              stat -Lc '%A %U:%G %s %n' "/opt/dash-pr/public${path}" >&2 || true
               return 1
             fi
             public_status="$(curl --silent --show-error --output /tmp/dash-brand-probe --write-out '%{http_code}' --max-time 5 -H 'Cache-Control: no-cache' "$HEALTH_URL${path}?__dash_release=${RELEASE_ID}" || true)"
