@@ -1,14 +1,14 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Download, Eye, FolderOpen, Package, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, Download, Eye, FolderOpen, Package, Search, SlidersHorizontal, X } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { RESOURCE_CATS } from "@/lib/data";
+import { RESOURCE_CATS, RESOURCE_CATEGORIES, resolveResourceCategory } from "@/lib/data";
 import type { ResourceRow } from "@/lib/db";
 import { cn } from "@/lib/utils";
-import { assetUrl } from "@/lib/assets";
+import { resourceFileUrl, resourcePreviewUrl } from "@/lib/assets";
 
 /** 资源卡片数据（服务端从 resources 表查出后传入） */
 export type ResourceItem = Pick<
@@ -18,11 +18,13 @@ export type ResourceItem = Pick<
 
 export function ResourceCenter({
   items,
+  nextCursor = null,
   initialQuery = "",
   initialCategory = "全部",
   initialSort = "default",
 }: {
   items: ResourceItem[];
+  nextCursor?: string | null;
   initialQuery?: string;
   initialCategory?: string;
   initialSort?: string;
@@ -32,20 +34,21 @@ export function ResourceCenter({
   const sp = useSearchParams();
   const pathname = usePathname();
   const router = useRouter();
-  const [query, setQuery] = useState(initialQuery);
+  const queryParam = sp.get("q") ?? initialQuery;
+  const [queryDraft, setQueryDraft] = useState({ source: queryParam, value: queryParam });
+  // A router navigation replaces the source value during render; local edits
+  // remain independent until the next URL update.
+  const query = queryDraft.source === queryParam ? queryDraft.value : queryParam;
+  const setQuery = (value: string) => setQueryDraft({ source: queryParam, value });
   const catParam = sp.get("cat") ?? initialCategory;
-  const cat = RESOURCE_CATS.includes(catParam) ? catParam : "全部";
+  const resolvedCategory = resolveResourceCategory(catParam);
+  const cat = resolvedCategory?.label ?? "全部";
   const sortParam = sp.get("sort") ?? initialSort;
   const sort = sortParam === "recent" || sortParam === "name" ? sortParam : "default";
 
-  useEffect(() => {
-    const syncQuery = () => setQuery(new URLSearchParams(window.location.search).get("q") ?? "");
-    window.addEventListener("popstate", syncQuery);
-    return () => window.removeEventListener("popstate", syncQuery);
-  }, []);
-
   const updateUrl = (updates: Record<string, string | null>) => {
     const next = new URLSearchParams(sp.toString());
+    if (!("cursor" in updates)) next.delete("cursor");
     Object.entries(updates).forEach(([key, value]) => {
       if (!value || (key === "cat" && value === "全部") || (key === "sort" && value === "default")) next.delete(key);
       else next.set(key, value);
@@ -105,7 +108,7 @@ export function ResourceCenter({
           <button
             key={c}
             type="button"
-            onClick={() => updateUrl({ cat: c === "全部" ? null : c })}
+            onClick={() => updateUrl({ cat: c === "全部" ? null : RESOURCE_CATEGORIES[index - 1]?.key || null })}
             aria-pressed={cat === c}
             className={cn(
               "rounded-full border border-[#DCE6F7] bg-card px-4 py-2 text-[13px] font-bold tracking-wide text-subtext transition-colors",
@@ -118,7 +121,7 @@ export function ResourceCenter({
         <span className="ml-auto text-[12px] font-bold text-subtext">{t("resultCount", { count: list.length })}</span>
         {cat !== "全部" && (
           <a
-            href={`/api/download/category/${encodeURIComponent(cat)}`}
+            href={`/api/download/category/${encodeURIComponent(resolvedCategory?.key || cat)}`}
             className="ml-auto flex items-center gap-1.5 rounded-full bg-navy px-4 py-2 text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-[#24348A]"
           >
             <Package className="size-4" />
@@ -136,8 +139,12 @@ export function ResourceCenter({
             <Link href={`/resources/${r.id}`} aria-label={t("openDetail", { title: r.title })}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={assetUrl(r.preview || "/assets/img/mkt-hero-poster.png")}
+                src={resourcePreviewUrl(r.preview)}
                 alt={r.title}
+                width={640}
+                height={400}
+                loading="lazy"
+                decoding="async"
                 className="aspect-[16/10] w-full bg-deep object-cover"
               />
             </Link>
@@ -174,7 +181,7 @@ export function ResourceCenter({
                       {t("download")}
                     </a>
                     <a
-                      href={assetUrl(`/${r.file_key.replace(/^\//, "")}`)}
+                      href={resourceFileUrl(r.file_key) || `/api/download/${r.id}`}
                       target="_blank"
                       rel="noreferrer"
                       className="flex flex-1 items-center justify-center gap-1.5 rounded-[10px] bg-[#EEF4FE] py-2.5 text-center text-[13px] font-extrabold tracking-wider text-navy"
@@ -195,6 +202,18 @@ export function ResourceCenter({
           <p className="mt-1.5 text-[13px] text-subtext">{t("emptySub")}</p>
           <button type="button" onClick={clearFilters} className="mt-4 rounded-[10px] bg-navy px-4 py-2.5 text-[12px] font-extrabold text-white">
             {t("clearFilters")}
+          </button>
+        </div>
+      )}
+      {nextCursor && (
+        <div className="mt-7 flex justify-center">
+          <button
+            type="button"
+            onClick={() => updateUrl({ cursor: nextCursor })}
+            className="inline-flex items-center gap-2 rounded-[10px] border border-[#C9D6F2] bg-card px-5 py-2.5 text-[13px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
+          >
+            {t("nextPage")}
+            <ArrowRight aria-hidden="true" className="size-4" />
           </button>
         </div>
       )}

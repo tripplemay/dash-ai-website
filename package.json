@@ -7,6 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "migrate": "node scripts/migrate.mjs",
+    "migrate:auth": "node scripts/migrate-auth.mjs",
+    "backup": "node scripts/backup-db.mjs",
+    "dedupe": "node scripts/dedupe-resources.mjs",
     "seed": "node scripts/seed.mjs"
   },
   "dependencies": {
@@ -14,6 +18,7 @@
     "archiver": "^8.0.0",
     "better-auth": "^1.6.28",
     "better-sqlite3": "^13.0.3",
+    "busboy": "^1.6.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "framer-motion": "^13.1.0",
@@ -30,6 +35,7 @@
     "@tailwindcss/postcss": "^4",
     "@types/archiver": "^8.0.0",
     "@types/better-sqlite3": "^9.6.0",
+    "@types/busboy": "^1.5.4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",

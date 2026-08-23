@@ -4,7 +4,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Download, Eye, FolderOpen } from "lucide-react";
 import { getResource } from "@/lib/db";
-import { assetUrl } from "@/lib/assets";
+import { resourceFileUrl, resourcePreviewUrl } from "@/lib/assets";
 import { RESOURCE_CATS } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
@@ -29,7 +29,7 @@ export default async function ResourceDetailPage({
   if (!resource || !resource.enabled) notFound();
   const t = await getTranslations({ locale, namespace: "resources" });
   const categoryLabels = t.raw("categories") as string[];
-  const fileHref = assetUrl(`/${resource.file_key.replace(/^\/+/, "")}`);
+  const fileHref = resourceFileUrl(resource.file_key) || `/api/download/${resource.id}`;
 
   return (
     <div className="mx-auto max-w-[1000px] px-5 py-7 sm:px-7 lg:py-10">
@@ -41,7 +41,15 @@ export default async function ResourceDetailPage({
       <div className="mt-5 grid gap-6 md:grid-cols-[minmax(0,1fr)_320px]">
         <div className="overflow-hidden rounded-[14px] border border-[#E4EAF7] bg-card shadow-card">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={assetUrl(resource.preview || "/assets/img/mkt-hero-poster.png")} alt="" className="aspect-[16/10] w-full bg-deep object-cover" />
+          <img
+            src={resourcePreviewUrl(resource.preview)}
+            alt=""
+            width={1200}
+            height={750}
+            fetchPriority="high"
+            decoding="async"
+            className="aspect-[16/10] w-full bg-deep object-cover"
+          />
         </div>
         <section>
           <div className="text-[11px] font-extrabold tracking-[2px] text-cyan-print">

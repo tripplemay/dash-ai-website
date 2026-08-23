@@ -27,19 +27,201 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Quality and migration smoke test
+        run: |
+          set -euo pipefail
+          pnpm run lint
+          pnpm exec tsc --noEmit --pretty false
+          node --check scripts/package-seed-runtime.mjs
+          node --check scripts/migrate-auth.mjs
+          node --check scripts/check-db.mjs
+          node --check scripts/smoke-standalone.mjs
+          test "$(rg -c 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
+          rg -q 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
+          if rg -n '^[[:space:]]*(root|try_files)[[:space:]]' deploy/nginx/dash-pr-files.conf; then
+            echo 'The protected /files nginx snippet must not expose a filesystem root' >&2
+            exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/dash-ai-migration"
+          DASH_AUTH_DB="$RUNNER_TEMP/dash-ai-migration/check.db" pnpm migrate
+
       - name: Build
         # BETTER_AUTH_SECRET 仅为构建期占位（生产构建要求该变量存在）；
         # 运行时真实密钥只存在于 VPS 的 pm2 ecosystem 配置中。
-        run: BETTER_AUTH_SECRET=ci-build-placeholder pnpm build
+        env:
+          BETTER_AUTH_SECRET: ci-build-placeholder-012345678901234567890123
+          BETTER_AUTH_URL: https://pr.dashedu.net
+          DASH_PUBLIC_ORIGIN: https://pr.dashedu.net
+          # Next 的静态分析可能初始化 better-auth/db。把构建期数据库放到
+          # runner 临时目录，避免在 checkout 或 standalone 输出中生成生产数据库。
+          DASH_AUTH_DB: ${{ runner.temp }}/dash-auth-ci/dash-auth.db
+        run: |
+          set -euo pipefail
+          rm -rf "$RUNNER_TEMP/dash-auth-ci"
+          mkdir -p "$RUNNER_TEMP/dash-auth-ci"
+          pnpm build
+
+          # standalone 不得携带任何 SQLite 主库或 journal/WAL/SHM 文件。
+          db_artifact="$(find .next/standalone \( -type f -o -type l \) \( \
+            -name '*.db' -o -name '*.db-wal' -o -name '*.db-shm' -o -name '*.db-journal' \
+          \) -print -quit)"
+          if [[ -n "$db_artifact" ]]; then
+            echo "Refusing to package SQLite artifact: $db_artifact" >&2
+            find .next/standalone \( -type f -o -type l \) \( \
+              -name '*.db' -o -name '*.db-wal' -o -name '*.db-shm' -o -name '*.db-journal' \
+            \) -print >&2
+            exit 1
+          fi
+          source_artifact="$(find .next/standalone -maxdepth 2 -type f \( -name 'AGENTS.md' -o -name 'CLAUDE.md' \) -print -quit)"
+          if [[ -n "$source_artifact" ]]; then
+            echo "Refusing to package source/documentation artifact: $source_artifact" >&2
+            exit 1
+          fi
+          standalone_kb="$(du -sk .next/standalone | cut -f1)"
+          if (( standalone_kb > 122880 )); then
+            echo "Refusing oversized standalone artifact: ${standalone_kb} KiB" >&2
+            exit 1
+          fi
 
       - name: Package standalone
         run: |
+          set -euo pipefail
+          rm -rf release release.tar.gz
           mkdir -p release/app/.next release/app/scripts
           cp -R .next/standalone/. release/app/
+          # Next bundles Better Auth for request handlers, but seed.mjs runs as
+          # a separate Node process. Add its small dependency closure without
+          # shipping the complete development node_modules tree.
+          node scripts/package-seed-runtime.mjs release/app/node_modules
+          node -e "const fs=require('fs'); const h=process.report?.getReport?.().header || {}; fs.writeFileSync('release/app/.runtime-abi.json', JSON.stringify({platform:process.platform,arch:process.arch,modules:process.versions.modules,libc:h.glibcVersionRuntime||null})+'\\n',{mode:0o644})"
+          # public/ is a separately managed 183MB asset volume on the VPS;
+          # never duplicate it inside the application release archive.
+          rm -rf release/app/public
           cp -R .next/static release/app/.next/static
           cp scripts/seed.mjs release/app/scripts/seed.mjs
+          cp scripts/migrate-auth.mjs release/app/scripts/migrate-auth.mjs
+          cp scripts/migrate.mjs release/app/scripts/migrate.mjs
+          cp scripts/backup-db.mjs release/app/scripts/backup-db.mjs
+          cp scripts/dedupe-resources.mjs release/app/scripts/dedupe-resources.mjs
+          cp scripts/check-db.mjs release/app/scripts/check-db.mjs
           cp scripts/resources-seed.json release/app/scripts/resources-seed.json
+
+          # Exercise the exact scripts and dependency tree that will be used
+          # for first-time VPS initialization, rather than only testing the
+          # source checkout's hoisted node_modules.
+          seed_smoke_dir="$RUNNER_TEMP/dash-seed-smoke"
+          smoke_port=4318
+          rm -rf "$seed_smoke_dir"
+          mkdir -p "$seed_smoke_dir"
+          (
+            cd release/app
+            NODE_ENV=production \
+              BETTER_AUTH_SECRET=ci-seed-smoke-secret-012345678901234567890123 \
+              BETTER_AUTH_URL="http://127.0.0.1:${smoke_port}" \
+              DASH_PUBLIC_ORIGIN="http://127.0.0.1:${smoke_port}" \
+              DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" \
+              SEED_INITIAL_PASSWORD=ci-initial-pass-123 \
+              SEED_ADMIN_PASSWORD=ci-admin-pass-123 \
+              node scripts/seed.mjs
+          )
+          DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" \
+            DASH_CHECK_DB_REQUIRE_RESOURCES=1 node release/app/scripts/check-db.mjs
+          DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
+          const Database = require('better-sqlite3');
+          const db = new Database(process.env.DASH_AUTH_DB, { readonly: true, fileMustExist: true });
+          const users = db.prepare('SELECT COUNT(*) AS count FROM user').get().count;
+          const resources = db.prepare('SELECT COUNT(*) AS count FROM resources').get().count;
+          if (users < 4 || resources < 1) throw new Error(`seed smoke failed: users=${users}, resources=${resources}`);
+          db.close();
+          NODE
+
+          # Start the exact packaged server with a tiny private asset volume and
+          # exercise auth, protected files, direct /files rewrites, browsing,
+          # ZIP streaming, and the multipart upload boundary.
+          mkdir -p release/app/public/assets release/app/public/files/品牌资产
+          printf 'standalone smoke file\n' > release/app/public/files/品牌资产/ci-smoke.txt
+          DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
+          const Database = require('better-sqlite3');
+          const db = new Database(process.env.DASH_AUTH_DB);
+          db.prepare(`
+            INSERT INTO resources
+              (title, category, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
+            VALUES (?, ?, ?, 'file', ?, ?, NULL, NULL, ?, NULL, 9999)
+          `).run('CI smoke file', '品牌资产', 'brand-assets', 'TXT', 23, 'files/品牌资产/ci-smoke.txt');
+          db.close();
+          NODE
+          smoke_release=ci-standalone-smoke
+          smoke_log="$RUNNER_TEMP/dash-standalone-smoke.log"
+          smoke_pid=""
+          cleanup_smoke() {
+            if [[ -n "$smoke_pid" ]]; then
+              kill "$smoke_pid" 2>/dev/null || true
+              wait "$smoke_pid" 2>/dev/null || true
+            fi
+            rm -rf release/app/public
+          }
+          trap cleanup_smoke EXIT
+          (
+            cd release/app
+            NODE_ENV=production \
+              BETTER_AUTH_SECRET=ci-seed-smoke-secret-012345678901234567890123 \
+              BETTER_AUTH_URL="http://127.0.0.1:${smoke_port}" \
+              DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" \
+              DASH_RELEASE_ID="$smoke_release" \
+              DASH_PUBLIC_ORIGIN="http://127.0.0.1:${smoke_port}" \
+              PORT="$smoke_port" \
+              exec node server.js > "$smoke_log" 2>&1
+          ) &
+          smoke_pid=$!
+          smoke_ready=0
+          attempt=0
+          while (( attempt < 20 )); do
+            attempt=$((attempt + 1))
+            if curl --fail --silent --max-time 2 "http://127.0.0.1:${smoke_port}/api/health/live" >/dev/null 2>&1; then
+              smoke_ready=1
+              break
+            fi
+            sleep 1
+          done
+          if [[ "$smoke_ready" -ne 1 ]]; then
+            tail -n 80 "$smoke_log" >&2 || true
+            exit 1
+          fi
+          SMOKE_BASE_URL="http://127.0.0.1:${smoke_port}" \
+            SMOKE_RELEASE_ID="$smoke_release" \
+            SMOKE_ADMIN_PASSWORD=ci-admin-pass-123 \
+            node scripts/smoke-standalone.mjs
+          cleanup_smoke
+          trap - EXIT
+
+          # 二次断言放在 tar 之前，防止后续复制步骤重新带入数据库文件。
+          db_artifact="$(find release/app \( -type f -o -type l \) \( \
+            -name '*.db' -o -name '*.db-wal' -o -name '*.db-shm' -o -name '*.db-journal' \
+          \) -print -quit)"
+          if [[ -n "$db_artifact" ]]; then
+            echo "Refusing to package SQLite artifact: $db_artifact" >&2
+            find release/app \( -type f -o -type l \) \( \
+              -name '*.db' -o -name '*.db-wal' -o -name '*.db-shm' -o -name '*.db-journal' \
+            \) -print >&2
+            exit 1
+          fi
+          source_artifact="$(find release/app -maxdepth 2 -type f \( -name 'AGENTS.md' -o -name 'CLAUDE.md' \) -print -quit)"
+          if [[ -n "$source_artifact" ]]; then
+            echo "Refusing to package source/documentation artifact: $source_artifact" >&2
+            exit 1
+          fi
+          release_kb="$(du -sk release/app | cut -f1)"
+          if (( release_kb > 122880 )); then
+            echo "Refusing oversized release artifact: ${release_kb} KiB" >&2
+            exit 1
+          fi
+
           tar -czf release.tar.gz -C release/app .
+          if tar -tzf release.tar.gz | grep -Eq '(^|/)[^/]+\.db(-wal|-shm|-journal)?$'; then
+            echo "Refusing to deploy an archive containing SQLite artifacts" >&2
+            tar -tzf release.tar.gz | grep -E '(^|/)[^/]+\.db(-wal|-shm|-journal)?$' >&2
+            exit 1
+          fi
           ls -lh release.tar.gz
 
       - name: Deploy to VPS
@@ -47,23 +229,244 @@ jobs:
           DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
           DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
           DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DASH_HEALTH_URL: ${{ secrets.DASH_HEALTH_URL }}
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          if [[ -z "$DASH_HEALTH_URL" ]]; then
+            echo "DASH_HEALTH_URL must be a public HTTPS origin so the deployed nginx boundary is probed" >&2
+            exit 1
+          fi
+          if [[ -z "$DEPLOY_KNOWN_HOSTS" ]]; then
+            echo "DEPLOY_KNOWN_HOSTS must contain the pinned VPS host key" >&2
+            exit 1
+          fi
           printf '%s\n' "$DEPLOY_SSH_KEY" > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$DEPLOY_HOST" >> ~/.ssh/known_hosts 2>/dev/null
-          scp -i ~/.ssh/deploy_key release.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/opt/dash-pr/release.tar.gz"
-          ssh -i ~/.ssh/deploy_key "$DEPLOY_USER@$DEPLOY_HOST" bash -s <<'REMOTE_EOF'
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > ~/.ssh/deploy_known_hosts
+          chmod 600 ~/.ssh/deploy_known_hosts
+          ssh_opts=(-i "$HOME/.ssh/deploy_key" -o "UserKnownHostsFile=$HOME/.ssh/deploy_known_hosts" -o StrictHostKeyChecking=yes)
+          scp "${ssh_opts[@]}" release.tar.gz "$DEPLOY_USER@$DEPLOY_HOST:/opt/dash-pr/release.tar.gz"
+          health_override_b64="$(printf '%s' "${DASH_HEALTH_URL:-}" | base64 -w 0)"
+          ssh "${ssh_opts[@]}" "$DEPLOY_USER@$DEPLOY_HOST" bash -s -- "$health_override_b64" <<'REMOTE_EOF'
           set -e
-          REL=/opt/dash-pr/releases/$(date +%Y%m%d%H%M%S)
+          HEALTH_OVERRIDE="$(printf '%s' "${1:-}" | base64 --decode)"
+          case "$HEALTH_OVERRIDE" in
+            https://*) ;;
+            *) echo "DASH_HEALTH_URL must be a public HTTPS origin" >&2; exit 1 ;;
+          esac
+          HEALTH_OVERRIDE="${HEALTH_OVERRIDE%/}"
+          umask 077
+          NODE_BIN=""
+          for candidate in /opt/node22/bin/node /opt/node22/node /usr/local/bin/node; do
+            if [[ -x "$candidate" ]]; then
+              NODE_BIN="$candidate"
+              break
+            fi
+          done
+          if [[ -z "$NODE_BIN" ]]; then
+            NODE_BIN="$(command -v node 2>/dev/null || true)"
+          fi
+          if [[ -z "$NODE_BIN" || ! -x "$NODE_BIN" ]]; then
+            echo "Node.js runtime not found; install Node 22 under /opt/node22 or expose it in PATH" >&2
+            exit 1
+          fi
+          NODE_MAJOR="$("$NODE_BIN" -p "process.versions.node.split('.')[0]")"
+          if [[ "$NODE_MAJOR" != "22" ]]; then
+            echo "Node.js 22 is required for the packaged native modules (found $NODE_MAJOR)" >&2
+            exit 1
+          fi
+          node_bin_dir="$(dirname "$NODE_BIN")"
+          export PATH="$node_bin_dir:$PATH"
+          PM2_BIN="$(dirname "$NODE_BIN")/pm2"
+          if [[ ! -x "$PM2_BIN" ]]; then
+            PM2_BIN="$(command -v pm2 2>/dev/null || true)"
+          fi
+          if [[ -z "$PM2_BIN" || ! -x "$PM2_BIN" ]]; then
+            echo "PM2 executable not found for the selected Node.js runtime" >&2
+            exit 1
+          fi
+          REL="$(mktemp -d /opt/dash-pr/releases/release.XXXXXXXX)"
+          RELEASE_ID="$(basename "$REL")"
+          PREV="$(readlink -f /opt/dash-pr/current 2>/dev/null || true)"
+          if [[ -n "$PREV" && ! -d "$PREV" ]]; then
+            echo "current points to a missing previous release: $PREV" >&2
+            exit 1
+          fi
+          KEEP_RELEASE=0
+          cleanup_failed_release() {
+            status=$?
+            trap - EXIT
+            if [[ "$status" -ne 0 && "$KEEP_RELEASE" -ne 1 ]]; then
+              # A failed rollback must not delete the release still referenced
+              # by current; retain it for manual recovery and diagnostics.
+              current_target="$(readlink -f /opt/dash-pr/current 2>/dev/null || true)"
+              if [[ "$current_target" != "$REL" ]]; then
+                rm -rf "$REL" 2>/dev/null || true
+              fi
+              rm -f /opt/dash-pr/release.tar.gz 2>/dev/null || true
+            fi
+            exit "$status"
+          }
+          trap cleanup_failed_release EXIT
           mkdir -p "$REL"
           tar -xzf /opt/dash-pr/release.tar.gz -C "$REL"
+          "$NODE_BIN" -e "const fs=require('fs'); const f=process.argv[1]; const e=JSON.parse(fs.readFileSync(f,'utf8')); const a={platform:process.platform,arch:process.arch,modules:process.versions.modules}; for (const k of ['platform','arch','modules']) if (String(e[k])!==String(a[k])) throw new Error('native runtime mismatch for '+k+': build='+e[k]+' host='+a[k]); console.log('runtime ABI compatible:', JSON.stringify({build:e,host:a}))" "$REL/.runtime-abi.json"
+          "$NODE_BIN" -e "const {createRequire}=require('module'); const r=createRequire(process.argv[1]); const Database=r('better-sqlite3'); const db=new Database(':memory:'); db.pragma('integrity_check'); db.close(); r('sharp'); console.log('native modules loaded: better-sqlite3, sharp')" "$REL/package.json"
           ln -sfn /opt/dash-pr/public "$REL/public"
+          for asset_dir in /opt/dash-pr/public/assets /opt/dash-pr/public/files; do
+            if [[ ! -d "$asset_dir" || ! -r "$asset_dir" || ! -x "$asset_dir" ]]; then
+              echo "asset volume is unavailable: $asset_dir" >&2
+              exit 1
+            fi
+          done
+          write_probe="/opt/dash-pr/public/files/.dash-ready-${RELEASE_ID}-$$"
+          if ! (umask 077; printf 'dash-ready\n' > "$write_probe"); then
+            echo "asset volume is not writable: /opt/dash-pr/public/files" >&2
+            exit 1
+          fi
+          rm -f "$write_probe"
+          APP_NAME="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.name || 'dash-pr'))")"
+          PM2_USER="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.uid ?? a?.user ?? ''))")"
+          PM2_INSTANCES="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.instances ?? 1))")"
+          PM2_EXEC_MODE="$("$NODE_BIN" -e "const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; process.stdout.write(String(a?.exec_mode || 'fork').toLowerCase())")"
+          if [[ -n "$PM2_USER" && "$PM2_USER" != "$(id -un)" && "$PM2_USER" != "$(id -u)" ]]; then
+            echo "PM2 ecosystem user ($PM2_USER) differs from deploy user ($(id -un)); refusing a permission-mismatched release" >&2
+            exit 1
+          fi
+          if [[ "$PM2_INSTANCES" != "1" || "$PM2_EXEC_MODE" == "cluster" ]]; then
+            echo "PM2 must run one forked instance while local storage is enabled (instances=$PM2_INSTANCES, exec_mode=$PM2_EXEC_MODE)" >&2
+            exit 1
+          fi
+          "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const c=require('/opt/dash-pr/ecosystem.config.js'); const a=Array.isArray(c.apps)?c.apps[0]:c; const e={...(a?.env||{}), ...(a?.env_production||{})}; const fail=(m)=>{console.error(m); process.exit(1)}; const s=e.BETTER_AUTH_SECRET||''; if(s.length<32) fail('PM2 production BETTER_AUTH_SECRET must be at least 32 characters'); if(e.NODE_ENV!=='production') fail('PM2 production NODE_ENV must be production'); if(e.DASH_AUTH_DB!=='/opt/dash-pr/dash-auth.db') fail('PM2 production DASH_AUTH_DB must be /opt/dash-pr/dash-auth.db'); const cwd=String(a?.cwd||'').replace(/\\/+$/, ''); if(!['/opt/dash-pr/current','/opt/dash-pr'].includes(cwd)) fail('PM2 cwd must be /opt/dash-pr/current or /opt/dash-pr'); const interpreter=String(a?.interpreter||''); const selected=process.argv[2]; if(!interpreter||!path.isAbsolute(interpreter)) fail('PM2 interpreter must explicitly point to the selected Node 22 binary'); let selectedReal, interpreterReal; try{selectedReal=fs.realpathSync(selected); interpreterReal=fs.realpathSync(interpreter)}catch{fail('PM2 interpreter path is not available')} if(interpreterReal!==selectedReal) fail('PM2 interpreter must use the selected Node 22 binary'); const origin=(name)=>{let u; try{u=new URL(e[name]||'')}catch{fail('PM2 production '+name+' is missing or invalid')} if(u.protocol!=='https:'||u.pathname!=='/'||u.search||u.hash) fail('PM2 production '+name+' must be an HTTPS origin'); return u.origin}; const publicOrigin=origin('DASH_PUBLIC_ORIGIN'); if(origin('BETTER_AUTH_URL')!==publicOrigin) fail('PM2 production BETTER_AUTH_URL and DASH_PUBLIC_ORIGIN must match'); let health; try{health=new URL(process.argv[1])}catch{fail('DASH_HEALTH_URL is invalid')} if(health.origin!==publicOrigin||health.pathname!=='/'||health.search||health.hash) fail('DASH_HEALTH_URL must match DASH_PUBLIC_ORIGIN origin')" "$HEALTH_OVERRIDE" "$NODE_BIN"
+          # 迁移在切换 current 前执行；已有数据库失败时发布中止并保留旧版本。
+          # 首次部署没有 current 时，先把代码发布为 current，供运维执行
+          # README 中的 seed；若已有 current 却丢了数据库，则拒绝覆盖现场。
+          if [[ ! -f /opt/dash-pr/dash-auth.db ]]; then
+            if [[ -n "$PREV" ]]; then
+              echo "database is missing while a previous release exists; refusing deployment" >&2
+              exit 1
+            fi
+            ln -sfn "$REL" /opt/dash-pr/current.new
+            mv -T /opt/dash-pr/current.new /opt/dash-pr/current
+            KEEP_RELEASE=1
+            rm -f /opt/dash-pr/release.tar.gz
+            echo "release staged at /opt/dash-pr/current; run the documented seed command, then rerun deployment" >&2
+            exit 1
+          fi
+          chmod 600 /opt/dash-pr/dash-auth.db
+          for db_sidecar in /opt/dash-pr/dash-auth.db-wal /opt/dash-pr/dash-auth.db-shm /opt/dash-pr/dash-auth.db-journal; do
+            [[ -e "$db_sidecar" ]] && chmod 600 "$db_sidecar"
+          done
+          DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
+            DASH_CHECK_DB_AUTH_ONLY=1 "$NODE_BIN" "$REL/scripts/check-db.mjs"
+          DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
+            DASH_BACKUP_DIR=/opt/dash-pr/backups \
+            "$NODE_BIN" "$REL/scripts/backup-db.mjs"
+          DASH_AUTH_DB=/opt/dash-pr/dash-auth.db "$NODE_BIN" "$REL/scripts/migrate-auth.mjs"
+          DASH_AUTH_DB=/opt/dash-pr/dash-auth.db "$NODE_BIN" "$REL/scripts/migrate.mjs"
+          DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
+            DASH_CHECK_DB_REQUIRE_RESOURCES=1 "$NODE_BIN" "$REL/scripts/check-db.mjs"
+          HEALTH_URL="$HEALTH_OVERRIDE"
+          restore_previous() {
+            if [[ -n "$PREV" ]]; then
+              previous_release_id="$(basename "$PREV")"
+              ln -sfn "$PREV" /opt/dash-pr/current
+              if ! NODE_ENV=production DASH_RELEASE_ID="$(basename "$PREV")" \
+                "$PM2_BIN" startOrReload /opt/dash-pr/ecosystem.config.js --env production --update-env; then
+                echo "PM2 rollback failed for previous release" >&2
+                return 1
+              fi
+              restored=0
+              rollback_attempt=0
+              while (( rollback_attempt < 20 )); do
+                rollback_attempt=$((rollback_attempt + 1))
+                rollback_live="$(curl --fail --silent --show-error --max-time 3 "${HEALTH_URL}/api/health/live" || true)"
+                rollback_ready="$(curl --fail --silent --show-error --max-time 3 "${HEALTH_URL}/api/health/ready" || true)"
+                rollback_live_code="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}/api/health/live" || true)"
+                rollback_ready_code="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}/api/health/ready" || true)"
+                if [[ "$rollback_live_code" == "200" && "$rollback_ready_code" == "200" ]] \
+                  && { [[ "$rollback_live" == *"\"release\":\"$previous_release_id\""* ]] \
+                    || [[ "$rollback_live" == *'"status":"ok"'* ]]; } \
+                  && [[ "$rollback_ready" == *'"status":"ok"'* ]]; then
+                  restored=1
+                  break
+                fi
+                # Releases created before the health routes were introduced
+                # legitimately return 404. Verify their public login page so
+                # the first upgrade can still roll back safely.
+                if [[ "$rollback_live_code" == "404" || "$rollback_ready_code" == "404" ]]; then
+                  legacy_code="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}/zh/login" || true)"
+                  if [[ "$legacy_code" =~ ^[23][0-9][0-9]$ ]]; then
+                    restored=1
+                    break
+                  fi
+                fi
+                sleep 1
+              done
+              if [[ "$restored" -ne 1 ]]; then
+                echo "previous release failed post-rollback health checks: $previous_release_id" >&2
+                return 1
+              fi
+            else
+              if [[ "$(readlink -f /opt/dash-pr/current 2>/dev/null || true)" == "$REL" ]]; then
+                rm -f /opt/dash-pr/current
+              fi
+              "$PM2_BIN" delete "$APP_NAME" >/dev/null 2>&1 || true
+            fi
+          }
           ln -sfn "$REL" /opt/dash-pr/current.new
           mv -T /opt/dash-pr/current.new /opt/dash-pr/current
-          pm2 startOrReload /opt/dash-pr/ecosystem.config.js
-          pm2 save
+          if NODE_ENV=production DASH_RELEASE_ID="$RELEASE_ID" \
+            "$PM2_BIN" startOrReload /opt/dash-pr/ecosystem.config.js --env production --update-env; then
+            :
+          else
+            if restore_previous; then
+              echo "pm2 failed; previous release restored" >&2
+            else
+              echo "pm2 failed; manual rollback is required" >&2
+            fi
+            exit 1
+          fi
+          # Do not leave current pointing at a process that failed after PM2
+          # accepted the reload. The required public health URL also exercises
+          # the nginx /files authentication boundary.
+          healthy=0
+          attempt=0
+          while (( attempt < 20 )); do
+            attempt=$((attempt + 1))
+            live_body="$(curl --fail --silent --show-error --max-time 3 "${HEALTH_URL}/api/health/live" || true)"
+            ready_body="$(curl --fail --silent --show-error --max-time 3 "${HEALTH_URL}/api/health/ready" || true)"
+            if [[ "$live_body" == *"\"release\":\"$RELEASE_ID\""* ]] \
+              && [[ "$ready_body" == *"\"release\":\"$RELEASE_ID\""* ]]; then
+              healthy=1
+              break
+            fi
+            sleep 1
+          done
+          if [[ "$healthy" -ne 1 ]]; then
+            echo "health check failed after deploy; backup remains in /opt/dash-pr/backups" >&2
+            if ! restore_previous; then
+              echo "automatic PM2 rollback failed; manual intervention is required" >&2
+            fi
+            exit 1
+          fi
+          for protected_path in /files /files/__dash_auth_probe__; do
+            files_status="$(curl --silent --output /dev/null --write-out '%{http_code}' --max-time 3 "${HEALTH_URL}${protected_path}" || true)"
+            if [[ "$files_status" != "401" ]]; then
+              echo "protected $protected_path probe expected 401 without a session, got $files_status" >&2
+              if ! restore_previous; then
+                echo "automatic PM2 rollback failed; manual intervention is required" >&2
+              fi
+              exit 1
+            fi
+          done
+          # From this point current/PM2 is healthy. Keep the release even if a
+          # later housekeeping command fails; deleting it would invalidate the
+          # process that is serving traffic.
+          KEEP_RELEASE=1
+          "$PM2_BIN" save
           rm -f /opt/dash-pr/release.tar.gz
-          cd /opt/dash-pr/releases && ls -1t | tail -n +6 | xargs -r rm -rf
+          "$NODE_BIN" -e "const fs=require('fs'); const path=require('path'); const root='/opt/dash-pr/releases'; const keep=fs.readdirSync(root,{withFileTypes:true}).filter((e)=>e.isDirectory() && /^release\\.[A-Za-z0-9]+$/.test(e.name)).map((e)=>{const p=path.join(root,e.name); return {p,mtime:fs.statSync(p).mtimeMs};}).sort((a,b)=>b.mtime-a.mtime).slice(5); for(const item of keep) fs.rmSync(item.p,{recursive:true,force:true})"
           echo "deployed: $REL"
           REMOTE_EOF

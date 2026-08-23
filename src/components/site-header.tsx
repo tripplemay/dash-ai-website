@@ -3,7 +3,6 @@
 import { FormEvent, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
-import { authClient } from "@/lib/auth-client";
 import {
   BookOpen,
   CircleHelp,
@@ -39,16 +38,13 @@ function isFullscreenPath(pathname: string) {
   return FULLSCREEN_PATHS.some((path) => pathname === path || pathname.startsWith(`${path}/`));
 }
 
-export function SiteHeader() {
+export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
   const t = useTranslations("nav");
   const locale = useLocale();
   const pathname = usePathname();
   const router = useRouter();
   const [moreOpen, setMoreOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const { data: session } = authClient.useSession();
-  const isAdmin = (session?.user as { role?: string } | undefined)?.role === "admin";
-
   if (isFullscreenPath(pathname)) return null;
 
   const isActive = (href: string) => {
@@ -70,7 +66,12 @@ export function SiteHeader() {
   };
 
   const logout = async () => {
-    await authClient.signOut();
+    await fetch("/api/auth/sign-out", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      credentials: "include",
+      body: "{}",
+    }).catch(() => undefined);
     router.push("/login");
     router.refresh();
   };

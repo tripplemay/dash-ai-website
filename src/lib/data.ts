@@ -90,12 +90,33 @@ export const FAQ: [string, string][] = [
   ["费用与退费政策？", "体验课免费；正式课按阶段报名，开课前全额退，开课后按剩余课时比例退。"],
 ];
 
-// 资源分类 key（筛选项 / 后台表单共用）。
-// 资源条目本身已入库（resources 表），种子数据见 scripts/resources-seed.json。
-export const RESOURCE_CATS = ["全部", "课程海报", "招募物料", "证书手册", "社媒", "品牌资产", "吉祥物", "课件模板"];
+// 资源分类使用稳定 ASCII key 持久化，label 仅作为兼容旧库和中文展示值。
+export const RESOURCE_CATEGORIES = [
+  { key: "course-posters", label: "课程海报" },
+  { key: "recruitment", label: "招募物料" },
+  { key: "certificates", label: "证书手册" },
+  { key: "social-media", label: "社媒" },
+  { key: "brand-assets", label: "品牌资产" },
+  { key: "mascots", label: "吉祥物" },
+  { key: "course-templates", label: "课件模板" },
+] as const;
 
-// 除「全部」外的可入库分类
-export const RESOURCE_CATS_STORE = RESOURCE_CATS.slice(1);
+export type ResourceCategoryKey = (typeof RESOURCE_CATEGORIES)[number]["key"];
+
+// Export as string arrays because values arrive from URL/form input and must be
+// validated at runtime rather than forcing every consumer to cast user input.
+export const RESOURCE_CATS: string[] = ["全部", ...RESOURCE_CATEGORIES.map(({ label }) => label)];
+export const RESOURCE_CATS_STORE: string[] = RESOURCE_CATEGORIES.map(({ label }) => label);
+export const RESOURCE_CATEGORY_KEYS: string[] = RESOURCE_CATEGORIES.map(({ key }) => key);
+
+/** 同时接受稳定 key 与旧版中文 label，供 URL、后台表单和旧数据库平滑过渡。 */
+export function resolveResourceCategory(value: string | null | undefined) {
+  const normalized = value?.trim();
+  if (!normalized) return undefined;
+  return RESOURCE_CATEGORIES.find(
+    (category) => category.key === normalized || category.label === normalized
+  );
+}
 
 /**
  * 大屏轮播 slide：判别联合。

@@ -12,8 +12,7 @@ export const dynamic = "force-dynamic";
 
 export default function CourseWizardPage() {
   const t = useTranslations("wizard");
-  const templates = listEnabledResources()
-    .filter((r) => r.category === "课件模板")
+  const templates = listEnabledResources({ categoryKey: "course-templates" })
     .map(({ id, title, kind, file_key }) => ({ id, title, kind, file_key }));
 
   return (

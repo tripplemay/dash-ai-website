@@ -1,12 +1,21 @@
-import { useTranslations } from "next-intl";
-import { listAllResources } from "@/lib/db";
+import { getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
+import { ArrowRight } from "lucide-react";
+import { listAllResourcesPage } from "@/lib/db";
 import { UploadForm, ResourceRow } from "@/components/admin/resources-client";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminResourcesPage() {
-  const t = useTranslations("admin.resources");
-  const rows = listAllResources();
+export default async function AdminResourcesPage({
+  searchParams,
+}: {
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
+}) {
+  const t = await getTranslations("admin.resources");
+  const params = (await searchParams) ?? {};
+  const rawCursor = params.cursor;
+  const cursor = Array.isArray(rawCursor) ? rawCursor[0] : rawCursor;
+  const page = listAllResourcesPage({ cursor });
 
   return (
     <>
@@ -31,12 +40,23 @@ export default function AdminResourcesPage() {
             </tr>
           </thead>
           <tbody>
-            {rows.map((r) => (
+            {page.items.map((r) => (
               <ResourceRow key={r.id} row={r} />
             ))}
           </tbody>
         </table>
       </div>
+      {page.nextCursor && (
+        <div className="mt-6 flex justify-center">
+          <Link
+            href={`?cursor=${encodeURIComponent(page.nextCursor)}`}
+            className="inline-flex items-center gap-2 rounded-[10px] border border-[#C9D6F2] bg-card px-5 py-2.5 text-[13px] font-extrabold text-navy transition-colors hover:border-cyan-print hover:text-cyan-print"
+          >
+            {t("nextPage")}
+            <ArrowRight aria-hidden="true" className="size-4" />
+          </Link>
+        </div>
+      )}
     </>
   );
 }

@@ -35,6 +35,11 @@
     "primaryNavigation": "主导航",
     "secondaryNavigation": "帮助与工具"
   },
+  "errors": {
+    "title": "页面暂时无法加载",
+    "description": "服务正在恢复，稍后重试即可。",
+    "retry": "重新加载"
+  },
   "hero": {
     "kick": "DASH AI 实验室 · 营销资源中心",
     "title1": "合作伙伴的",
@@ -148,7 +153,8 @@
     "sortRecent": "最近更新",
     "sortName": "按名称",
     "clearFilters": "清除筛选",
-    "resultCount": "共 {count} 项",
+    "resultCount": "本页 {count} 项",
+    "nextPage": "加载下一页",
     "emptyTitle": "没有匹配的资源",
     "emptySub": "试试更短的关键词，或清除当前筛选条件。",
     "openDetail": "查看资源：{title}",
@@ -263,7 +269,8 @@
       "delete": "删除",
       "enable": "上架",
       "disable": "下架",
-      "deleteConfirm": "确认删除资源「{title}」的记录？（不会删除磁盘文件）"
+      "deleteConfirm": "确认删除资源「{title}」的记录？（不会删除磁盘文件）",
+      "nextPage": "下一页"
     }
   },
   "guide": {

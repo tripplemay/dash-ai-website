@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { requireAdmin } from "@/lib/admin-guard";
 import { getDb } from "@/lib/db";
-import { RESOURCE_CATS_STORE } from "@/lib/data";
+import { RESOURCE_CATS_STORE, resolveResourceCategory } from "@/lib/data";
 
 export type ActionResult = { ok: boolean; error?: string };
 
@@ -84,13 +84,16 @@ export async function updateResourceMeta(
 ): Promise<ActionResult> {
   try {
     await requireAdmin();
-    if (!input.title.trim()) return { ok: false, error: "标题不能为空" };
-    if (!RESOURCE_CATS_STORE.includes(input.category)) return { ok: false, error: "非法分类" };
+    if (!Number.isSafeInteger(id) || id <= 0) return { ok: false, error: "非法资源" };
+    if (!input.title.trim() || input.title.trim().length > 200) return { ok: false, error: "标题不能为空或过长" };
+    const category = resolveResourceCategory(input.category);
+    if (!category || !RESOURCE_CATS_STORE.includes(category.label)) return { ok: false, error: "非法分类" };
+    const sort = Number.isFinite(input.sort) ? Math.max(0, Math.min(1_000_000, Math.trunc(input.sort))) : 0;
     getDb()
       .prepare(
-        "UPDATE resources SET title = ?, category = ?, print_advice = ?, sort = ?, updated_at = datetime('now') WHERE id = ?"
+        "UPDATE resources SET title = ?, category = ?, category_key = ?, print_advice = ?, sort = ?, updated_at = datetime('now') WHERE id = ?"
       )
-      .run(input.title.trim(), input.category, input.print_advice.trim() || null, input.sort | 0, id);
+      .run(input.title.trim(), category.label, category.key, input.print_advice.trim().slice(0, 1000) || null, sort, id);
     return { ok: true };
   } catch (e) {
     return { ok: false, error: msg(e) };
@@ -100,6 +103,7 @@ export async function updateResourceMeta(
 export async function setResourceEnabled(id: number, enabled: boolean): Promise<ActionResult> {
   try {
     await requireAdmin();
+    if (!Number.isSafeInteger(id) || id <= 0) return { ok: false, error: "非法资源" };
     getDb()
       .prepare("UPDATE resources SET enabled = ?, updated_at = datetime('now') WHERE id = ?")
       .run(enabled ? 1 : 0, id);
@@ -112,6 +116,7 @@ export async function setResourceEnabled(id: number, enabled: boolean): Promise<
 export async function deleteResource(id: number): Promise<ActionResult> {
   try {
     await requireAdmin();
+    if (!Number.isSafeInteger(id) || id <= 0) return { ok: false, error: "非法资源" };
     getDb().prepare("DELETE FROM resources WHERE id = ?").run(id);
     return { ok: true };
   } catch (e) {

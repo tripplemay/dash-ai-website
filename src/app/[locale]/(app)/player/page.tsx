@@ -16,6 +16,11 @@ function slideFromSearch(search: string, total: number): number {
   return Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), total) : 1;
 }
 
+function isNearbySlide(index: number, active: number, total: number) {
+  const distance = Math.abs(index - active);
+  return distance <= 1 || distance >= total - 1;
+}
+
 /* ---------- content 型 slide（数据均引自 data.ts） ---------- */
 
 function LabSlide({ lab, poster, active }: { lab: Lab; poster: string; active: boolean }) {
@@ -341,28 +346,34 @@ function PlayerDeck() {
 
       {/* 轮播舞台 */}
       <div className="absolute inset-0">
-        {SLIDES.map((s, i) => (
-          <div
-            key={i}
-            className={cn(
-              "absolute inset-0 transition-opacity duration-900 ease-in-out",
-              i === idx ? "opacity-100" : "pointer-events-none opacity-0"
-            )}
-          >
-            {s.type === "image" ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={s.img}
-                alt={s.cap}
-                loading={i === idx ? "eager" : "lazy"}
-                fetchPriority={i === idx ? "high" : "low"}
-                className="absolute inset-0 h-full w-full object-cover"
-              />
-            ) : (
-              <ContentSlide contentKey={s.content} active={i === idx} />
-            )}
-          </div>
-        ))}
+        {SLIDES.map((s, i) => {
+          if (!isNearbySlide(i, idx, SLIDES.length)) return null;
+          return (
+            <div
+              key={i}
+              className={cn(
+                "absolute inset-0 transition-opacity duration-900 ease-in-out",
+                i === idx ? "opacity-100" : "pointer-events-none opacity-0"
+              )}
+            >
+              {s.type === "image" ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={s.img}
+                  alt={s.cap}
+                  width={1920}
+                  height={1080}
+                  loading={i === idx ? "eager" : "lazy"}
+                  fetchPriority={i === idx ? "high" : "low"}
+                  decoding="async"
+                  className="absolute inset-0 h-full w-full object-cover"
+                />
+              ) : (
+                <ContentSlide contentKey={s.content} active={i === idx} />
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* 指示点 */}

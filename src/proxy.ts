@@ -14,6 +14,15 @@ export default function proxy(req: NextRequest) {
   const { pathname } = req.nextUrl;
   if (AUTH_DISABLED) return intlMiddleware(req);
 
+  // Resource files live under public/ for the current local-storage driver.
+  // Rewrite direct requests to the authenticated stream endpoint so a stale
+  // or hand-crafted /files URL cannot bypass enabled-state checks.
+  if (pathname === "/files" || pathname.startsWith("/files/")) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/api/file${pathname}`;
+    return NextResponse.rewrite(url);
+  }
+
   const m = pathname.match(/^\/(zh|en)(\/.*)?$/);
   // 无 locale 前缀的路径交给 next-intl 重定向
   if (!m) return intlMiddleware(req);
@@ -44,6 +53,7 @@ export default function proxy(req: NextRequest) {
 }
 
 export const config = {
-  // 跳过 api / next 内部资源 / 品牌手册静态页 / 带扩展名的静态文件（public 下资源）
-  matcher: ["/((?!api|_next|_vercel|brand|.*\\..*).*)"],
+  // api / next 内部资源 / 品牌手册仍不走 locale 守卫；files 单独纳入
+  // matcher，确保 standalone 直出资源不会绕过登录检查。
+  matcher: ["/files/:path*", "/((?!api|_next|_vercel|brand|.*\\..*).*)"],
 };

@@ -24,7 +24,7 @@ export function WorksWall() {
             </span>
             <span className="flex size-16 items-center justify-center rounded-2xl bg-[#F0F5FC]">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={`/assets/icons/${w.icon}.png`} alt="" className="size-9 opacity-80" />
+              <img src={`/assets/icons/${w.icon}.png`} alt="" width={36} height={36} loading="lazy" decoding="async" className="size-9 opacity-80" />
             </span>
             <h3 className="mt-4 text-[15px] font-extrabold text-navy">{w.title}</h3>
             <p className="mt-1.5 text-[12px] leading-relaxed text-subtext">{w.desc}</p>

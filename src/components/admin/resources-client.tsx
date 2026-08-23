@@ -15,7 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Upload, Pencil, Trash2, Check, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { assetUrl } from "@/lib/assets";
+import { resourcePreviewUrl } from "@/lib/assets";
 
 // ---------- 上传新资源 ----------
 
@@ -165,8 +165,12 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
       <td className="px-4 py-3">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={assetUrl(row.preview || "/assets/img/mkt-hero-poster.png")}
+          src={resourcePreviewUrl(row.preview)}
           alt=""
+          width={128}
+          height={80}
+          loading="lazy"
+          decoding="async"
           className="h-10 w-16 rounded-lg bg-deep object-cover"
         />
       </td>

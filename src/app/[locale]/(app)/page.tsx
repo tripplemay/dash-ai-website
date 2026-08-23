@@ -43,6 +43,10 @@ export default function HomePage() {
         <img
           src="/assets/img/mkt-hero-poster.png"
           alt=""
+          width={1920}
+          height={1080}
+          fetchPriority="high"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-cover object-[center_30%]"
         />
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,14,40,.88),rgba(8,14,40,.35)_60%,rgba(8,14,40,.15))]" />
@@ -113,7 +117,7 @@ export default function HomePage() {
                 style={{ background: r.iconBg }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={r.icon} alt="" className="size-[38px]" />
+                <img src={r.icon} alt="" width={38} height={38} loading="lazy" decoding="async" className="size-[38px]" />
               </div>
               <h3 className="text-[19px] font-extrabold tracking-wide">{t(`roles.${r.key}.title`)}</h3>
               <p className="mt-2 flex-1 text-[13px] leading-[1.75] text-subtext">{t(`roles.${r.key}.desc`)}</p>
@@ -151,6 +155,10 @@ export default function HomePage() {
                 <img
                   src={assetUrl(`/assets/ext/实验室海报-${lab.en === "CREATE LAB" ? 1 : lab.en === "BUILD LAB" ? 2 : 3}.png`)}
                   alt={lab.name}
+                  width={640}
+                  height={360}
+                  loading="lazy"
+                  decoding="async"
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
                 <div
@@ -187,7 +195,15 @@ export default function HomePage() {
               className="overflow-hidden rounded-2xl bg-card shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={m.img} alt={m.label} className="aspect-[16/10] w-full object-cover" />
+              <img
+                src={m.img}
+                alt={m.label}
+                width={640}
+                height={400}
+                loading="lazy"
+                decoding="async"
+                className="aspect-[16/10] w-full object-cover"
+              />
               <span className="block px-3 py-2.5 text-[13px] font-bold">{m.label}</span>
             </Link>
           ))}

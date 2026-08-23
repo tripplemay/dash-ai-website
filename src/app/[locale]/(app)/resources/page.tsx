@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import { Spotlight } from "@/components/aceternity/spotlight";
 import { ResourceCenter } from "@/components/resource-center";
-import { listEnabledResources } from "@/lib/db";
+import { listEnabledResourcesPage } from "@/lib/db";
 import { getPageMetadata } from "@/lib/page-metadata";
 
 export const dynamic = "force-dynamic";
@@ -26,10 +26,12 @@ export default async function ResourcesPage({
   const cat = value("cat");
   const q = value("q");
   const sort = value("sort");
-  const items = listEnabledResources({
+  const cursor = value("cursor");
+  const page = listEnabledResourcesPage({
     category: cat,
     query: q,
     sort: sort === "recent" || sort === "name" ? sort : "default",
+    cursor,
   });
   return (
     <>
@@ -44,7 +46,13 @@ export default async function ResourcesPage({
         </div>
       </section>
       <Suspense>
-        <ResourceCenter items={items} initialQuery={q ?? ""} initialCategory={cat ?? "全部"} initialSort={sort ?? "default"} />
+        <ResourceCenter
+          items={page.items}
+          nextCursor={page.nextCursor}
+          initialQuery={q ?? ""}
+          initialCategory={cat ?? "全部"}
+          initialSort={sort ?? "default"}
+        />
       </Suspense>
     </>
   );

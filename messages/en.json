@@ -35,6 +35,11 @@
     "primaryNavigation": "Primary navigation",
     "secondaryNavigation": "Help and tools"
   },
+  "errors": {
+    "title": "This page could not load",
+    "description": "The service is recovering. Please try again in a moment.",
+    "retry": "Try again"
+  },
   "hero": {
     "kick": "DASH AI LAB · MARKETING HUB",
     "title1": "The Marketing Hub",
@@ -148,7 +153,8 @@
     "sortRecent": "Recently updated",
     "sortName": "Name",
     "clearFilters": "Clear filters",
-    "resultCount": "{count} items",
+    "resultCount": "{count} items on this page",
+    "nextPage": "Next page",
     "emptyTitle": "No matching resources",
     "emptySub": "Try a shorter keyword or clear the active filters.",
     "openDetail": "Open resource: {title}",
@@ -263,7 +269,8 @@
       "delete": "Delete",
       "enable": "Publish",
       "disable": "Unpublish",
-      "deleteConfirm": "Delete the record for “{title}”? (The disk file will remain.)"
+      "deleteConfirm": "Delete the record for “{title}”? (The disk file will remain.)",
+      "nextPage": "Next page"
     }
   },
   "guide": {

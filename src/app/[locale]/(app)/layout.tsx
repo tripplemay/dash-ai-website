@@ -13,6 +13,7 @@ export default async function AppLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  let isAdmin = false;
   if (!AUTH_DISABLED) {
     const requestHeaders = await headers();
     const session = await auth.api.getSession({ headers: requestHeaders });
@@ -22,10 +23,11 @@ export default async function AppLayout({
       if (returnTo) loginUrl.searchParams.set("returnTo", returnTo);
       redirect(`${loginUrl.pathname}${loginUrl.search}`);
     }
+    isAdmin = (session.user as { role?: string }).role === "admin";
   }
   return (
     <div className="flex min-h-screen flex-col lg:pl-64">
-      <SiteHeader />
+      <SiteHeader isAdmin={isAdmin} />
       <main className="flex-1 pb-20 lg:pb-0">{children}</main>
       <SiteFooter />
     </div>

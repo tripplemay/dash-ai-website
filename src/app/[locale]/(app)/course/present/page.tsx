@@ -16,6 +16,11 @@ function slideFromSearch(search: string, total: number): number {
   return Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), total) : 1;
 }
 
+function isNearbySlide(index: number, active: number, total: number) {
+  const distance = Math.abs(index - active);
+  return distance <= 1 || distance >= total - 1;
+}
+
 function PresentDeck() {
   const router = useRouter();
   const locale = useLocale();
@@ -114,7 +119,10 @@ function PresentDeck() {
 
   const show = (i: number) => cn(
     "absolute inset-0 transition-opacity duration-700 ease-in-out",
-    i === idx ? "opacity-100" : "pointer-events-none opacity-0"
+    // Keep only adjacent slides in the render tree's layout/paint path. The
+    // deck contains large poster assets, so this prevents hidden slides from
+    // competing for memory while preserving the cross-fade to the next slide.
+    isNearbySlide(i, idx, TOTAL) ? (i === idx ? "opacity-100" : "pointer-events-none opacity-0") : "hidden"
   );
 
   return (
@@ -180,7 +188,6 @@ function PresentDeck() {
           <div className="mt-7 inline-flex w-fit rounded-2xl border border-cyan/40 bg-cyan/10 px-5 py-3 text-[20px] font-extrabold tracking-[2px] text-cyan sm:mt-12 sm:px-8 sm:py-4 sm:text-[28px] lg:text-[32px] lg:tracking-[4px]">
             兴趣是入口，能力是出口
           </div>
-          <div className="absolute bottom-7 left-6 text-[11px] tracking-widest text-[#8FA3DC] sm:left-10 sm:text-sm lg:bottom-10 lg:left-24">← → 翻页 · ESC 退出</div>
         </div>
       </section>
 

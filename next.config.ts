@@ -6,6 +6,20 @@ const withNextIntl = createNextIntlPlugin();
 const nextConfig: NextConfig = {
   output: "standalone",
   serverExternalPackages: ["better-sqlite3"],
+  // SQLite is a runtime data volume, never a deploy artifact. Production
+  // points DASH_AUTH_DB at /opt/dash-pr/dash-auth.db outside the release tree.
+  outputFileTracingExcludes: {
+    "/*": [
+      "./*.db",
+      "./*.db-*",
+      "./**/*.db",
+      "./**/*.db-*",
+      "./public/**/*",
+      "./src/**/*",
+      "./*.md",
+      "./**/*.md",
+    ],
+  },
   async redirects() {
     return [
       { source: "/:locale(zh|en)", destination: "/:locale/workspace", permanent: true },
