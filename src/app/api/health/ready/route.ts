@@ -61,12 +61,13 @@ export async function GET() {
       .prepare(
         `SELECT name FROM sqlite_master
          WHERE type = 'table' AND name IN (
-           'resources', 'user', 'session', 'account', 'verification', 'workspace_course_activity'
+           'resources', 'user', 'session', 'account', 'verification', 'workspace_course_activity',
+           'content_entries', 'content_revisions', 'content_references', 'audit_events', 'learning_events'
          )`
       )
       .all() as Array<{ name: string }>;
 
-    if (tables.length < 6) {
+    if (tables.length < 11) {
       throw new Error("required database tables are unavailable");
     }
     const resourceColumns = db.prepare("PRAGMA table_info(resources)").all() as Array<{ name: string }>;

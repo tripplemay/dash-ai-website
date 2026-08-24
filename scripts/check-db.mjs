@@ -16,7 +16,17 @@ try {
   const authOnly = process.env.DASH_CHECK_DB_AUTH_ONLY === "1";
   const required = authOnly ? ["user"] : ["user", "session", "account", "verification"];
   const requireWorkspaceSchema = !authOnly && process.env.DASH_CHECK_DB_REQUIRE_RESOURCES === "1";
-  if (requireWorkspaceSchema) required.push("resources", "workspace_course_activity");
+  if (requireWorkspaceSchema) {
+    required.push(
+      "resources",
+      "workspace_course_activity",
+      "content_entries",
+      "content_revisions",
+      "content_references",
+      "audit_events",
+      "learning_events",
+    );
+  }
   const placeholders = required.map(() => "?").join(",");
   const present = new Set(
     db

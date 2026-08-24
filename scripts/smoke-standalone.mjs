@@ -59,6 +59,17 @@ assert.match(adminHtml, /Admin console/, "admin context navigation");
 assert.match(adminHtml, /Primary navigation/, "shared site navigation");
 assert.match(adminHtml, /Admin overview/, "admin dashboard content");
 
+const contentPage = await request("/en/admin/content", { headers: { Cookie: cookie } });
+expectStatus(contentPage, 200, "content governance page");
+const contentHtml = await contentPage.text();
+assert.match(contentHtml, /Content governance|内容治理/i, "content governance page content");
+
+const unauthenticatedContent = await request("/api/v1/content?type=course");
+expectStatus(unauthenticatedContent, 401, "unauthenticated content catalogue");
+
+const unauthenticatedLearning = await request("/api/v1/learning-events?courseSlug=drawing");
+expectStatus(unauthenticatedLearning, 401, "unauthenticated learning events");
+
 const file = await request(`/api/file${fileUrl}`, { headers: { Cookie: cookie } });
 expectStatus(file, 200, "authenticated file");
 assert.equal(await file.text(), "standalone smoke file\n", "protected file body");
@@ -69,6 +80,115 @@ expectStatus(direct, 200, "rewritten direct file");
 const browse = await request("/api/browse/files/corecoord/brand-system/logo", { headers: { Cookie: cookie } });
 expectStatus(browse, 200, "directory browser");
 assert.match(await browse.text(), /ci-smoke\.txt/, "directory entry");
+
+const contentCatalogue = await request("/api/v1/content?type=course&locale=zh&status=all&limit=5", {
+  headers: { Cookie: cookie },
+});
+expectStatus(contentCatalogue, 200, "content catalogue");
+const contentCatalogueBody = await contentCatalogue.json();
+assert.ok(Array.isArray(contentCatalogueBody.data), "content catalogue data array");
+
+const contentSlug = `ci-smoke-${Date.now()}-${process.pid}`;
+const contentPayload = {
+  kind: "smoke",
+  title: "Standalone smoke content",
+  checkedAt: new Date().toISOString(),
+};
+const contentCsrf = await request("/api/v1/content", {
+  method: "POST",
+  headers: { Cookie: cookie, "Content-Type": "application/json" },
+  body: JSON.stringify({ type: "work", slug: contentSlug, locale: "en", payload: contentPayload }),
+});
+expectStatus(contentCsrf, 403, "content csrf");
+const contentCreate = await request("/api/v1/content", {
+  method: "POST",
+  headers: { Cookie: cookie, Origin: base, "Content-Type": "application/json" },
+  body: JSON.stringify({ type: "work", slug: contentSlug, locale: "en", payload: contentPayload }),
+});
+expectStatus(contentCreate, 201, "content draft create");
+const contentCreateBody = await contentCreate.json();
+assert.equal(contentCreateBody.data?.status, "draft", "content draft status");
+assert.equal(contentCreateBody.data?.revision, 1, "content draft revision");
+const contentId = contentCreateBody.data?.id;
+assert.equal(typeof contentId, "string", "content draft id");
+
+const contentUpdateCsrf = await request(`/api/v1/content/${encodeURIComponent(contentId)}`, {
+  method: "PATCH",
+  headers: { Cookie: cookie, "Content-Type": "application/json" },
+  body: JSON.stringify({ payload: { ...contentPayload, revisionCheck: true }, expectedRevision: 1 }),
+});
+expectStatus(contentUpdateCsrf, 403, "content update csrf");
+const contentUpdate = await request(`/api/v1/content/${encodeURIComponent(contentId)}`, {
+  method: "PATCH",
+  headers: { Cookie: cookie, Origin: base, "Content-Type": "application/json" },
+  body: JSON.stringify({ payload: { ...contentPayload, revisionCheck: true }, expectedRevision: 1 }),
+});
+expectStatus(contentUpdate, 200, "content revision update");
+const contentUpdateBody = await contentUpdate.json();
+assert.equal(contentUpdateBody.data?.revision, 2, "content revision number");
+
+for (const status of ["review", "published"]) {
+  const transition = await request(`/api/v1/content/${encodeURIComponent(contentId)}`, {
+    method: "PATCH",
+    headers: { Cookie: cookie, Origin: base, "Content-Type": "application/json" },
+    body: JSON.stringify({ status }),
+  });
+  expectStatus(transition, 200, `content ${status} transition`);
+  assert.equal((await transition.json()).data?.status, status, `content ${status} status`);
+}
+
+const contentDetail = await request(`/api/v1/content/${encodeURIComponent(contentId)}`, {
+  headers: { Cookie: cookie },
+});
+expectStatus(contentDetail, 200, "content detail");
+const contentDetailBody = await contentDetail.json();
+assert.equal(contentDetailBody.data?.latestRevision?.revision, 2, "content latest revision");
+
+const learningBefore = await request("/api/v1/learning-events?courseSlug=drawing&includeProgress=1", {
+  headers: { Cookie: cookie },
+});
+expectStatus(learningBefore, 200, "learning events catalogue");
+const learningBeforeBody = await learningBefore.json();
+assert.ok(Array.isArray(learningBeforeBody.data), "learning events data array");
+
+const idempotencyKey = `ci-smoke-learning-${Date.now()}-${process.pid}`;
+const learningBody = {
+  courseSlug: "drawing",
+  lessonNumber: 1,
+  eventType: "lesson_started",
+  idempotencyKey,
+  payload: { source: "standalone-smoke" },
+};
+const learningCsrf = await request("/api/v1/learning-events", {
+  method: "POST",
+  headers: { Cookie: cookie, "Content-Type": "application/json" },
+  body: JSON.stringify(learningBody),
+});
+expectStatus(learningCsrf, 403, "learning events csrf");
+const learningCreate = await request("/api/v1/learning-events", {
+  method: "POST",
+  headers: { Cookie: cookie, Origin: base, "Content-Type": "application/json" },
+  body: JSON.stringify(learningBody),
+});
+expectStatus(learningCreate, 201, "learning event create");
+const learningCreateBody = await learningCreate.json();
+assert.equal(learningCreateBody.replayed, false, "learning event first write");
+assert.equal(learningCreateBody.data?.idempotencyKey, idempotencyKey, "learning event idempotency key");
+const learningReplay = await request("/api/v1/learning-events", {
+  method: "POST",
+  headers: { Cookie: cookie, Origin: base, "Content-Type": "application/json" },
+  body: JSON.stringify(learningBody),
+});
+expectStatus(learningReplay, 200, "learning event replay");
+assert.equal((await learningReplay.json()).replayed, true, "learning event replay flag");
+
+const learningAfter = await request("/api/v1/learning-events?courseSlug=drawing&includeProgress=1", {
+  headers: { Cookie: cookie },
+});
+expectStatus(learningAfter, 200, "learning events after write");
+const learningAfterBody = await learningAfter.json();
+assert.ok(learningAfterBody.data.some((event) => event.idempotencyKey === idempotencyKey), "learning event persisted");
+assert.equal(learningAfterBody.progress?.courseSlug, "drawing", "learning progress course");
 
 const archive = await request("/api/download/category/brand-system", { headers: { Cookie: cookie } });
 expectStatus(archive, 200, "category archive");

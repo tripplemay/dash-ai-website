@@ -1,4 +1,4 @@
-// CORECOORD / 芯坐标资源站 · 种子脚本（账号 + 资源元数据）
+// CORECOORD / 芯坐标资源站 · 种子脚本（账号 + 资源元数据 + 内容目录）
 // 用法：BETTER_AUTH_SECRET=... BETTER_AUTH_URL=... DASH_PUBLIC_ORIGIN=... \
 //   SEED_INITIAL_PASSWORD=... SEED_ADMIN_PASSWORD=... node scripts/seed.mjs
 // DB 路径由 DASH_AUTH_DB 指定，默认 ./dash-auth.db
@@ -6,6 +6,7 @@
 // - partner / teacher / guest 三账号共用 SEED_INITIAL_PASSWORD（必填，≥8 位）
 // - 脚本可重复执行：已存在的账号跳过（不重置密码），已存在的账号角色会被校正为预期值；
 //   resources 表仅在为空时播种（不覆盖运营后来的改动）。
+// - 内容治理目录默认同步一次；设置 SEED_CONTENT=0 可跳过静态内容导入。
 import { betterAuth } from "better-auth";
 import { username, admin } from "better-auth/plugins";
 import Database from "better-sqlite3";
@@ -196,4 +197,13 @@ if (count > 0) {
 
 fixDb.close();
 restrictDatabaseFiles();
+
+// Keep the content import as a separate script so it can be replayed during a
+// controlled migration without coupling editorial data to account creation.
+// The imported module is idempotent and only creates a new revision when the
+// checked-in source payload changed.
+if (process.env.SEED_CONTENT !== "0") {
+  await import("./seed-content.mjs");
+}
+
 console.log("seed finished");

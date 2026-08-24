@@ -2,13 +2,14 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-import { FolderDown, LayoutDashboard, Users } from "lucide-react";
+import { FileStack, FolderDown, LayoutDashboard, Users } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const ADMIN_NAV = [
   { href: "/admin", key: "dashboard", icon: LayoutDashboard },
   { href: "/admin/accounts", key: "accounts", icon: Users },
   { href: "/admin/resources", key: "resources", icon: FolderDown },
+  { href: "/admin/content", key: "content", icon: FileStack },
 ] as const;
 
 /** Contextual navigation for admin pages inside the shared site shell. */

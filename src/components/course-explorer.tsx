@@ -22,6 +22,15 @@ function splitStep(step: string): [string, string] {
   return i === -1 ? [step, ""] : [step.slice(0, i), step.slice(i + 1)];
 }
 
+/** Browser-generated key keeps each navigation fact replay-safe without exposing user data. */
+function learningIdempotencyKey(courseSlug: string, lesson: number) {
+  const random =
+    typeof crypto !== "undefined" && typeof crypto.randomUUID === "function"
+      ? crypto.randomUUID()
+      : Math.random().toString(36).slice(2);
+  return `course-explorer:${courseSlug}:${lesson}:${Date.now()}:${random}`;
+}
+
 export function CourseExplorer({ lab, course, lessons, siblings, initial }: Props) {
   const t = useTranslations("course");
   const [cur, setCur] = useState(initial);
@@ -34,6 +43,28 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
     (lesson: number) => {
       if (activityTimerRef.current) clearTimeout(activityTimerRef.current);
       activityTimerRef.current = setTimeout(() => {
+        const eventType = lesson > 0 ? "lesson_viewed" : "course_started";
+        const idempotencyKey = learningIdempotencyKey(course.slug, lesson);
+
+        // The event stream is additive. A failed/new endpoint must never
+        // prevent the legacy workspace activity reader from being updated.
+        void fetch("/api/v1/learning-events", {
+          method: "POST",
+          credentials: "include",
+          keepalive: true,
+          headers: {
+            "content-type": "application/json",
+            "idempotency-key": idempotencyKey,
+          },
+          body: JSON.stringify({
+            courseSlug: course.slug,
+            lessonNumber: lesson,
+            eventType,
+            idempotencyKey,
+            payload: { source: "course-explorer" },
+          }),
+        }).catch(() => undefined);
+
         void fetch("/api/workspace/activity", {
           method: "POST",
           credentials: "include",

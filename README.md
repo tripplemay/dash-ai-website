@@ -37,6 +37,21 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/migrate.mjs
 
 `scripts/seed.mjs` 已内置同一迁移步骤；首次建库仍应使用 seed，以同时创建 Better Auth 表和初始账号。
 
+内容目录和学习事件由应用迁移 `010_content_governance`、`011_resources_search`、
+`012_learning_events`、`013_learning_progress_indexes` 建立。内容种子默认导入 9 门课程、135 节课和 FAQ，采用幂等修订写入，
+不会删除历史版本；可单独执行或跳过：
+
+```bash
+DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs
+SEED_CONTENT=0 ... node scripts/seed.mjs
+node scripts/validate-content.mjs
+```
+
+管理员可在 `/{locale}/admin/content` 创建草稿、编辑修订、提交审核、发布/归档并查看审计记录。
+版本化接口为 `GET/POST /api/v1/content`、`GET/PATCH /api/v1/content/:id`、
+`GET /api/v1/audit` 和 `GET/POST /api/v1/learning-events`；普通登录用户只能读取当前已发布且未过期的内容，
+学习事件写入按 `Idempotency-Key` 去重并兼容旧的 `workspace_course_activity` 进度表。
+
 品牌资产同步与检查：`pnpm brand:sync` 从相邻 `dashpr/品牌商标-芯坐标` 源目录更新批准清单并生成字体分片；`pnpm brand:assemble` 可单独还原两个 TTF；`pnpm brand:check` 会自动还原并校验 manifest、SHA256、分片清单和排除规则；`pnpm brand:materialize` 将公开静态包与受保护下载资源复制到指定的 `public` 根目录。发布时不应把旧 `public/files` 目录直接清空。
 
 若迁移提示历史 `file_key` 重复，先备份数据库，再人工确认并执行审计式去重（保留最新 `updated_at` 的记录，不删除磁盘文件）：
@@ -48,7 +63,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 
 部署前可用 `scripts/check-db.mjs` 检查 Better Auth 核心表和数据库完整性；发布脚本在
 Better Auth 迁移前使用 `DASH_CHECK_DB_AUTH_ONLY=1` 只验证旧库仍有用户表，迁移完成后再用
-`DASH_CHECK_DB_REQUIRE_RESOURCES=1` 将资源双语字段和工作台课程活动表也纳入检查：
+`DASH_CHECK_DB_REQUIRE_RESOURCES=1` 将资源双语字段、工作台课程活动、内容治理和学习事件表也纳入检查：
 
 ```bash
 DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/check-db.mjs
@@ -85,6 +100,8 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 | `DASH_BROWSE_MAX_HTML_BYTES` | 单目录清单 HTML 上限，默认 2 MiB                            |
 | `SEED_INITIAL_PASSWORD` | 仅 seed 脚本使用：partner/teacher/guest 的初始密码（≥8 位）     |
 | `SEED_ADMIN_PASSWORD`   | 仅 seed 脚本使用：admin 账号的初始密码（≥8 位）                 |
+| `CONTENT_LOCALE`        | `seed-content.mjs` 导入内容的语言，默认 `zh`                  |
+| `SEED_CONTENT`          | 设为 `0` 时跳过 `seed.mjs` 内置的内容目录导入                  |
 | `DASH_AUTH_DISABLED`    | `=1` 且 `NODE_ENV=development` 时跳过登录守卫（本地预览用）      |
 
 ## 目录结构
@@ -94,7 +111,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 ├── deploy/brand/2026.1/ # CORECOORD 批准 Logo、VI、字体、预览、模板与发布清单
 ├── deploy/brand-chunks/  # 大字体的无损传输分片（运行前自动还原，不直接对外提供）
 ├── public/              # 不进 git：运行时 assets/ 与 files/（部署时由品牌包物化）
-├── scripts/{sync-brand-assets,migrate,migrate-auth,seed,backup-db,dedupe-resources,check-db,prepare-pm2-config}.mjs # 资产同步、迁移、播种、备份、校验与发布配置
+├── scripts/{sync-brand-assets,migrate,migrate-auth,seed,seed-content,validate-content,backup-db,dedupe-resources,check-db,prepare-pm2-config}.mjs # 资产同步、迁移、内容播种/校验、备份与发布配置
 ├── deploy/nginx/dash-pr.conf                         # 可直接安装的生产 vhost（含 /files 鉴权）
 ├── deploy/nginx/{dash-pr-upstream,dash-pr-files}.conf # 可组合的 /files 受保护反代片段
 ├── src/
@@ -102,11 +119,12 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 │   ├── i18n/ lib/ components/   # lib/db.ts 资源表 · lib/storage.ts 存储抽象 · lib/admin-guard.ts
 │   └── app/
 │       ├── api/auth/[...all]/    # better-auth 处理器
+│       ├── api/v1/{content,audit,learning-events}/ # 版本化内容治理、审计与学习事件接口
 │       ├── api/browse/[...path]/ # 目录浏览清单（需登录）
 │       ├── api/file/[...path]/   # 文件流（真实会话 + 上架状态校验）
 │       ├── api/download/[id]/    # 资源下载端点（登录校验 → 302）
 │       ├── api/admin/upload/     # 资源上传（admin，multipart 流式写盘）
-│       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (app)/admin{,/accounts,/resources}
+│       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (app)/admin{,/accounts,/resources,/content}
 └── .github/workflows/deploy.yml  # 推送 main 自动构建并部署到 VPS
 ```
 

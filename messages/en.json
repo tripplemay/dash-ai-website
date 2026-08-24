@@ -329,7 +329,8 @@
     "nav": {
       "dashboard": "Overview",
       "accounts": "Accounts",
-      "resources": "Resources"
+      "resources": "Resources",
+      "content": "Content governance"
     },
     "forbiddenTitle": "Access denied",
     "forbiddenDesc": "This account is not an administrator and cannot access the console. Contact central operations to request access.",
@@ -339,7 +340,9 @@
       "users": "Total accounts",
       "resources": "Total resources",
       "enabled": "Published resources",
-      "disabled": "Unpublished resources"
+      "disabled": "Unpublished resources",
+      "content": "Content entries",
+      "publishedContent": "Published content"
     },
     "accounts": {
       "title": "Account management",
@@ -398,6 +401,49 @@
       "enable": "Publish",
       "disable": "Unpublish",
       "deleteConfirm": "Delete the record for “{title}”? (The disk file will remain.)",
+      "nextPage": "Next page"
+    },
+    "content": {
+      "title": "Content governance",
+      "sub": "Manage versions and publishing states for courses, lessons, FAQs, and brand content",
+      "createTitle": "Create content draft",
+      "type": "Content type",
+      "slug": "Stable identifier",
+      "locale": "Locale",
+      "payload": "Content JSON",
+      "create": "Create draft",
+      "creating": "Creating…",
+      "created": "Draft created",
+      "load": "Load content",
+      "save": "Save revision",
+      "cancel": "Cancel",
+      "saving": "Saving…",
+      "submitReview": "Submit for review",
+      "publish": "Publish",
+      "archive": "Archive",
+      "draft": "Draft",
+      "review": "In review",
+      "published": "Published",
+      "archived": "Archived",
+      "allStatuses": "All statuses",
+      "allTypes": "All types",
+      "allLocales": "All locales",
+      "updated": "Updated",
+      "revision": "Revision",
+      "empty": "No content entries",
+      "invalidJson": "Content must be valid JSON",
+      "operationFailed": "Content operation failed",
+      "revisionConflict": "This content changed elsewhere. Reload and try again.",
+      "audit": "Change history",
+      "typeOptions": {
+        "course": "Course",
+        "lesson": "Lesson",
+        "faq": "FAQ",
+        "brand-guideline": "Brand guideline",
+        "presentation": "Presentation",
+        "work": "Work",
+        "badge-definition": "Badge definition"
+      },
       "nextPage": "Next page"
     }
   },

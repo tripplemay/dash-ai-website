@@ -32,12 +32,15 @@ jobs:
           set -euo pipefail
           pnpm run lint
           pnpm exec tsc --noEmit --pretty false
+          pnpm content:validate
           pnpm brand:check
           node --check scripts/package-seed-runtime.mjs
           node --check scripts/migrate-auth.mjs
           node --check scripts/check-db.mjs
           node --check scripts/smoke-standalone.mjs
           node --check scripts/prepare-pm2-config.mjs
+          node --check scripts/seed-content.mjs
+          node --check scripts/validate-content.mjs
           test "$(grep -Ec 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
           grep -Eq 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
           grep -Eq '^upstream dash_pr_release_app' deploy/nginx/dash-pr.conf
@@ -122,7 +125,10 @@ jobs:
           cp scripts/dedupe-resources.mjs release/app/scripts/dedupe-resources.mjs
           cp scripts/check-db.mjs release/app/scripts/check-db.mjs
           cp scripts/prepare-pm2-config.mjs release/app/scripts/prepare-pm2-config.mjs
+          cp scripts/smoke-standalone.mjs release/app/scripts/smoke-standalone.mjs
+          cp scripts/seed-content.mjs release/app/scripts/seed-content.mjs
           cp scripts/resources-seed.json release/app/scripts/resources-seed.json
+          cp scripts/lessons-content.json release/app/scripts/lessons-content.json
           cp deploy/nginx/dash-pr.conf release/app/deploy/nginx/dash-pr.conf
 
           # Exercise the exact scripts and dependency tree that will be used
@@ -150,7 +156,10 @@ jobs:
           const db = new Database(process.env.DASH_AUTH_DB, { readonly: true, fileMustExist: true });
           const users = db.prepare('SELECT COUNT(*) AS count FROM user').get().count;
           const resources = db.prepare('SELECT COUNT(*) AS count FROM resources').get().count;
-          if (users < 4 || resources < 1) throw new Error(`seed smoke failed: users=${users}, resources=${resources}`);
+          const contentEntries = db.prepare('SELECT COUNT(*) AS count FROM content_entries').get().count;
+          if (users < 4 || resources < 1 || contentEntries < 1) {
+            throw new Error(`seed smoke failed: users=${users}, resources=${resources}, content=${contentEntries}`);
+          }
           db.close();
           NODE
 
@@ -895,6 +904,10 @@ jobs:
             "$NODE_BIN" "$REL/scripts/backup-db.mjs"
           DASH_AUTH_DB=/opt/dash-pr/dash-auth.db "$NODE_BIN" "$REL/scripts/migrate-auth.mjs"
           DASH_AUTH_DB=/opt/dash-pr/dash-auth.db "$NODE_BIN" "$REL/scripts/migrate.mjs"
+          content_count="$("$NODE_BIN" -e "const Database=require('$REL/node_modules/better-sqlite3'); const db=new Database('/opt/dash-pr/dash-auth.db',{readonly:true}); process.stdout.write(String(db.prepare('SELECT COUNT(*) AS count FROM content_entries').get().count)); db.close();")"
+          if [[ "$content_count" == "0" ]]; then
+            DASH_AUTH_DB=/opt/dash-pr/dash-auth.db "$NODE_BIN" "$REL/scripts/seed-content.mjs"
+          fi
           DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
             DASH_CHECK_DB_REQUIRE_RESOURCES=1 "$NODE_BIN" "$REL/scripts/check-db.mjs"
           HEALTH_URL="$HEALTH_OVERRIDE"

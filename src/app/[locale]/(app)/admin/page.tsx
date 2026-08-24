@@ -3,7 +3,7 @@ import { headers } from "next/headers";
 import { Link } from "@/i18n/navigation";
 import { auth, AUTH_DISABLED } from "@/lib/auth";
 import { getDb } from "@/lib/db";
-import { Users, FolderDown, Eye, EyeOff } from "lucide-react";
+import { Users, FolderDown, Eye, EyeOff, FileStack, FileCheck2 } from "lucide-react";
 
 export const dynamic = "force-dynamic";
 
@@ -17,6 +17,8 @@ export default async function AdminDashboard({
   const db = getDb();
   const resTotal = (db.prepare("SELECT COUNT(*) AS c FROM resources").get() as { c: number }).c;
   const resEnabled = (db.prepare("SELECT COUNT(*) AS c FROM resources WHERE enabled = 1").get() as { c: number }).c;
+  const contentTotal = (db.prepare("SELECT COUNT(*) AS c FROM content_entries").get() as { c: number }).c;
+  const contentPublished = (db.prepare("SELECT COUNT(*) AS c FROM content_entries WHERE status = 'published'").get() as { c: number }).c;
 
   let userTotal = 0;
   try {
@@ -38,13 +40,15 @@ export default async function AdminDashboard({
     { icon: FolderDown, label: t("dash.resources"), value: resTotal, href: "/admin/resources" },
     { icon: Eye, label: t("dash.enabled"), value: resEnabled, href: "/admin/resources" },
     { icon: EyeOff, label: t("dash.disabled"), value: resTotal - resEnabled, href: "/admin/resources" },
+    { icon: FileStack, label: t("dash.content"), value: contentTotal, href: "/admin/content" },
+    { icon: FileCheck2, label: t("dash.publishedContent"), value: contentPublished, href: "/admin/content?status=published" },
   ];
 
   return (
     <>
       <h1 className="text-[24px] font-extrabold tracking-[2px]">{t("dash.title")}</h1>
       <div className="mt-1.5 text-[13.5px] text-muted-foreground">{t("dash.sub")}</div>
-      <div className="mt-6 grid grid-cols-2 gap-5 lg:grid-cols-4">
+      <div className="mt-6 grid grid-cols-2 gap-5 lg:grid-cols-3 xl:grid-cols-6">
         {cards.map((c) => (
           <Link
             key={c.label}

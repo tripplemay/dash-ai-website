@@ -329,7 +329,8 @@
     "nav": {
       "dashboard": "概览",
       "accounts": "账号管理",
-      "resources": "资源管理"
+      "resources": "资源管理",
+      "content": "内容治理"
     },
     "forbiddenTitle": "无访问权限",
     "forbiddenDesc": "当前账号不是管理员，无法访问管理后台。如需权限请联系总部运营。",
@@ -339,7 +340,9 @@
       "users": "账号总数",
       "resources": "资源总数",
       "enabled": "已上架资源",
-      "disabled": "已下架资源"
+      "disabled": "已下架资源",
+      "content": "内容条目",
+      "publishedContent": "已发布内容"
     },
     "accounts": {
       "title": "账号管理",
@@ -398,6 +401,49 @@
       "enable": "上架",
       "disable": "下架",
       "deleteConfirm": "确认删除资源「{title}」的记录？（不会删除磁盘文件）",
+      "nextPage": "下一页"
+    },
+    "content": {
+      "title": "内容治理",
+      "sub": "统一管理课程、课节、FAQ 与品牌内容的版本和发布状态",
+      "createTitle": "创建内容草稿",
+      "type": "内容类型",
+      "slug": "稳定标识",
+      "locale": "语言",
+      "payload": "内容 JSON",
+      "create": "创建草稿",
+      "creating": "创建中…",
+      "created": "草稿已创建",
+      "load": "加载内容",
+      "save": "保存修订",
+      "cancel": "取消",
+      "saving": "保存中…",
+      "submitReview": "提交审核",
+      "publish": "发布",
+      "archive": "归档",
+      "draft": "草稿",
+      "review": "审核中",
+      "published": "已发布",
+      "archived": "已归档",
+      "allStatuses": "全部状态",
+      "allTypes": "全部类型",
+      "allLocales": "全部语言",
+      "updated": "更新时间",
+      "revision": "版本",
+      "empty": "暂无内容条目",
+      "invalidJson": "内容必须是有效 JSON",
+      "operationFailed": "内容操作失败",
+      "revisionConflict": "内容已被其他人更新，请重新加载后再试",
+      "audit": "变更记录",
+      "typeOptions": {
+        "course": "课程",
+        "lesson": "课节",
+        "faq": "FAQ",
+        "brand-guideline": "品牌规范",
+        "presentation": "演示内容",
+        "work": "作品",
+        "badge-definition": "徽章定义"
+      },
       "nextPage": "下一页"
     }
   },

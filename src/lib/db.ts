@@ -112,6 +112,8 @@ export function closeDb() {
     _db.close();
     _db = null;
   }
+  resourceFtsAvailable = null;
+  resourceNormalizedSearchAvailable = null;
 }
 
 export interface ResourceListOptions {
@@ -169,6 +171,36 @@ function escapeLike(value: string) {
   return value.replace(/[\\%_]/g, (character) => `\\${character}`);
 }
 
+let resourceFtsAvailable: boolean | null = null;
+let resourceNormalizedSearchAvailable: boolean | null = null;
+
+function hasResourceFts(db: Database.Database) {
+  if (resourceFtsAvailable !== null) return resourceFtsAvailable;
+  resourceFtsAvailable = Boolean(
+    (db
+      .prepare("SELECT 1 AS ok FROM sqlite_master WHERE type = 'table' AND name = 'resources_fts'")
+      .get() as { ok?: number } | undefined)?.ok,
+  );
+  return resourceFtsAvailable;
+}
+
+function hasNormalizedResourceSearch(db: Database.Database) {
+  if (resourceNormalizedSearchAvailable !== null) return resourceNormalizedSearchAvailable;
+  resourceNormalizedSearchAvailable = (db.prepare("PRAGMA table_info(resources)").all() as Array<{ name: string }>).some(
+    (column) => column.name === "normalized_search",
+  );
+  return resourceNormalizedSearchAvailable;
+}
+
+function toFtsQuery(value: string) {
+  const tokens = value
+    .trim()
+    .split(/\s+/)
+    .map((token) => token.replaceAll('"', '""'))
+    .filter(Boolean);
+  return tokens.map((token) => `"${token}"*`).join(" AND ");
+}
+
 function encodeCursor(value: Record<string, string | number>) {
   return Buffer.from(JSON.stringify(value), "utf8").toString("base64url");
 }
@@ -207,10 +239,23 @@ function listEnabledResourcesPageInternal(options: ResourceListOptions = {}, max
   }
   if (query) {
     const pattern = `%${escapeLike(query)}%`;
-    where.push(
-      "(title LIKE ? ESCAPE '\\' OR title_en LIKE ? ESCAPE '\\' OR category LIKE ? ESCAPE '\\' OR category_en LIKE ? ESCAPE '\\' OR dimensions LIKE ? ESCAPE '\\' OR print_advice LIKE ? ESCAPE '\\')"
-    );
-    args.push(pattern, pattern, pattern, pattern, pattern, pattern);
+    const likeClause =
+      "(title LIKE ? ESCAPE '\\' OR title_en LIKE ? ESCAPE '\\' OR category LIKE ? ESCAPE '\\' OR category_en LIKE ? ESCAPE '\\' OR dimensions LIKE ? ESCAPE '\\' OR print_advice LIKE ? ESCAPE '\\')";
+    const ftsQuery = toFtsQuery(query);
+    if (ftsQuery && hasResourceFts(getDb())) {
+      // Keep LIKE as a correctness fallback for CJK and punctuation, while
+      // letting FTS5 satisfy ordinary Latin/number searches without scanning
+      // every catalogue row.
+      where.push(`(id IN (SELECT rowid FROM resources_fts WHERE resources_fts MATCH ?) OR ${likeClause})`);
+      args.push(ftsQuery, pattern, pattern, pattern, pattern, pattern, pattern);
+    } else if (hasNormalizedResourceSearch(getDb())) {
+      const normalizedPattern = `%${escapeLike(query.toLowerCase())}%`;
+      where.push(`(normalized_search LIKE ? ESCAPE '\\' OR ${likeClause})`);
+      args.push(normalizedPattern, pattern, pattern, pattern, pattern, pattern, pattern);
+    } else {
+      where.push(likeClause);
+      args.push(pattern, pattern, pattern, pattern, pattern, pattern);
+    }
   }
 
   const sort = options.sort || "default";
@@ -376,10 +421,10 @@ export function upsertCourseActivity(userId: string, courseSlug: string, lesson:
 
   const db = getDb();
   db.prepare(
-    `INSERT INTO workspace_course_activity (user_id, course_slug, last_lesson, last_viewed_at)
-     VALUES (?, ?, ?, datetime('now'))
+     `INSERT INTO workspace_course_activity (user_id, course_slug, last_lesson, last_viewed_at)
+      VALUES (?, ?, ?, datetime('now'))
      ON CONFLICT(user_id, course_slug) DO UPDATE SET
-       last_lesson = excluded.last_lesson,
+       last_lesson = MAX(workspace_course_activity.last_lesson, excluded.last_lesson),
        last_viewed_at = excluded.last_viewed_at`
   ).run(userId, courseSlug, lesson);
   const row = db
@@ -407,6 +452,21 @@ export function listRecentCourseActivity(userId: string, limit = WORKSPACE_RECEN
     )
     .all(userId, safeLimit) as Array<{ course_slug: string; last_lesson: number; last_viewed_at: string }>;
   return rows.map(mapCourseActivity);
+}
+
+/** Read one course's compatibility progress without the recent-list cap. */
+export function getCourseActivity(userId: string, courseSlug: string): WorkspaceCourseActivity | undefined {
+  if (!isValidActivityUserId(userId)) throw new TypeError("invalid user id");
+  if (!isValidCourseSlug(courseSlug)) throw new TypeError("invalid course slug");
+  const row = getDb()
+    .prepare(
+      `SELECT course_slug, last_lesson, last_viewed_at
+       FROM workspace_course_activity
+       WHERE user_id = ? AND course_slug = ?
+       LIMIT 1`,
+    )
+    .get(userId, courseSlug) as { course_slug: string; last_lesson: number; last_viewed_at: string } | undefined;
+  return row ? mapCourseActivity(row) : undefined;
 }
 
 // Keep the shorter name available for the workspace page contract.
