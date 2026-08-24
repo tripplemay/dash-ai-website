@@ -1,10 +1,4 @@
-/** Shared navigation contract for the CORECOORD VI manual and its host shell. */
-
-export const BRAND_MANUAL_PATH = "/assets/brand/corecoord/2026.1/vi-system-2026/manual/index.html";
-export const BRAND_MANUAL_EMBED_URL = `${BRAND_MANUAL_PATH}?embed=site&__corecoord_release=2026.1&__corecoord_shell=sidebar-v2`;
-
-export const BRAND_MANUAL_NAVIGATE_EVENT = "corecoord-manual:navigate";
-export const BRAND_MANUAL_ACTIVE_EVENT = "corecoord-manual:active";
+/** Shared chapter contract for the directly rendered CORECOORD VI manual. */
 
 export const BRAND_MANUAL_SECTIONS = [
   { id: "cover", zh: "封面", en: "Cover" },

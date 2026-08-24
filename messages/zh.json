@@ -39,7 +39,7 @@
   "brandManual": {
     "title": "品牌规范目录",
     "navigation": "品牌规范章节",
-    "iframeTitle": "CORECOORD 芯坐标品牌视觉识别规范手册"
+    "contentLabel": "CORECOORD 芯坐标品牌视觉识别规范手册"
   },
   "errors": {
     "title": "页面暂时无法加载",

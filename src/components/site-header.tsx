@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import {
@@ -21,9 +21,6 @@ import {
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { BrandLogo } from "@/components/brand-logo";
 import {
-  BRAND_MANUAL_ACTIVE_EVENT,
-  BRAND_MANUAL_EMBED_URL,
-  BRAND_MANUAL_NAVIGATE_EVENT,
   BRAND_MANUAL_SECTIONS,
   isBrandManualSectionId,
   type BrandManualSectionId,
@@ -65,43 +62,128 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
   const [activeBrandSection, setActiveBrandSection] = useState<BrandManualSectionId>("cover");
   const brandNavigationScrollRef = useRef<HTMLDivElement>(null);
   const brandNavigationRef = useRef<HTMLDivElement>(null);
-  const brandNavigationReadyRef = useRef(false);
 
   useEffect(() => {
-    if (!isBrandPage) return;
-    const onActiveSection = (event: Event) => {
-      const id = (event as CustomEvent<{ id?: unknown }>).detail?.id;
-      if (isBrandManualSectionId(id)) setActiveBrandSection(id);
-    };
-    const onHashChange = () => {
+    if (!isBrandPage) {
+      return;
+    }
+
+    let frame = 0;
+    let elements: Array<{ id: BrandManualSectionId; element: HTMLElement }> = [];
+    let layoutReady = false;
+    let initialLayoutSettled = false;
+    let disposed = false;
+    let settleTimer = 0;
+
+    const readHash = () => {
       let value = window.location.hash.replace(/^#/, "");
       try {
         value = decodeURIComponent(value);
       } catch {
-        return;
+        return null;
       }
-      const id = value;
-      if (isBrandManualSectionId(id)) setActiveBrandSection(id);
+      return isBrandManualSectionId(value) ? value : null;
+    };
+
+    const initialHash = readHash();
+
+    const collectElements = () => {
+      if (elements.length < BRAND_MANUAL_SECTIONS.length) {
+        elements = BRAND_MANUAL_SECTIONS.flatMap((section) => {
+          const element = document.getElementById(section.id);
+          return element ? [{ id: section.id, element }] : [];
+        });
+      }
+      return elements;
+    };
+
+    const hasStableLayout = () => {
+      const current = collectElements();
+      if (current.length < 2) return false;
+      const documentTops = current.map(({ element }) => element.getBoundingClientRect().top + window.scrollY);
+      return documentTops.every((top, index) => index === 0 || top > documentTops[index - 1] + 8);
+    };
+
+    const onHashChange = () => {
+      const id = readHash();
+      if (id) setActiveBrandSection(id);
       else if (window.location.hash === "") setActiveBrandSection("cover");
     };
-    window.addEventListener(BRAND_MANUAL_ACTIVE_EVENT, onActiveSection);
+
+    const syncFromScroll = () => {
+      frame = 0;
+      collectElements();
+      if (!elements.length) return;
+
+      const documentTops = elements.map(({ element }) => element.getBoundingClientRect().top + window.scrollY);
+      layoutReady = documentTops.every((top, index) => index === 0 || top > documentTops[index - 1] + 8);
+      if (!layoutReady) {
+        setActiveBrandSection(readHash() ?? "cover");
+        return;
+      }
+
+      const threshold = Math.max(120, Math.min(220, window.innerHeight * 0.3));
+      let current = elements[0].id;
+      for (const item of elements) {
+        if (item.element.getBoundingClientRect().top <= threshold) current = item.id;
+        else break;
+      }
+      const documentHeight = document.documentElement.scrollHeight;
+      const atDocumentEnd =
+        documentHeight > window.innerHeight + 120 && window.scrollY + window.innerHeight >= documentHeight - 4;
+      if (atDocumentEnd) current = elements[elements.length - 1].id;
+
+      setActiveBrandSection(current);
+    };
+
+    const scheduleScrollSync = () => {
+      if (!frame) frame = window.requestAnimationFrame(syncFromScroll);
+    };
+
+    const settleInitialLayout = () => {
+      if (disposed || initialLayoutSettled) return;
+      if (!document.querySelector("[data-brand-manual]") || (initialHash && !document.getElementById(initialHash)) || !hasStableLayout()) {
+        settleTimer = window.setTimeout(settleInitialLayout, 50);
+        return;
+      }
+      initialLayoutSettled = true;
+      layoutReady = true;
+      if (initialHash && window.location.hash === `#${initialHash}`) {
+        document.getElementById(initialHash)?.scrollIntoView({ block: "start" });
+        setActiveBrandSection(initialHash);
+      }
+      scheduleScrollSync();
+    };
+
     window.addEventListener("hashchange", onHashChange);
     window.addEventListener("popstate", onHashChange);
+    window.addEventListener("scroll", scheduleScrollSync, { passive: true });
+    window.addEventListener("resize", scheduleScrollSync);
     onHashChange();
+    scheduleScrollSync();
+    const scheduleInitialSettle = () => {
+      if (disposed || settleTimer) return;
+      settleTimer = window.setTimeout(() => {
+        settleTimer = 0;
+        settleInitialLayout();
+      }, 50);
+    };
+    scheduleInitialSettle();
+    document.fonts?.ready.then(scheduleInitialSettle).catch(() => undefined);
+    window.requestAnimationFrame(() => window.requestAnimationFrame(scheduleInitialSettle));
     return () => {
-      window.removeEventListener(BRAND_MANUAL_ACTIVE_EVENT, onActiveSection);
+      disposed = true;
       window.removeEventListener("hashchange", onHashChange);
       window.removeEventListener("popstate", onHashChange);
+      window.removeEventListener("scroll", scheduleScrollSync);
+      window.removeEventListener("resize", scheduleScrollSync);
+      if (settleTimer) window.clearTimeout(settleTimer);
+      if (frame) window.cancelAnimationFrame(frame);
     };
   }, [isBrandPage]);
 
   useEffect(() => {
     if (!isBrandPage) {
-      brandNavigationReadyRef.current = false;
-      return;
-    }
-    if (!brandNavigationReadyRef.current) {
-      brandNavigationReadyRef.current = true;
       return;
     }
     const scrollContainer = brandNavigationScrollRef.current;
@@ -199,15 +281,29 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
       </Link>
     ));
 
-  const navigateManualSection = (event: MouseEvent<HTMLAnchorElement>, id: BrandManualSectionId) => {
-    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    event.preventDefault();
-    const hash = id === "cover" ? "" : `#${id}`;
-    const next = `${window.location.pathname}${window.location.search}${hash}`;
-    if (window.location.hash !== hash) window.history.pushState(null, "", next);
-    setActiveBrandSection(id);
-    window.dispatchEvent(new CustomEvent(BRAND_MANUAL_NAVIGATE_EVENT, { detail: { id } }));
-  };
+  const renderBrandManualChapterLinks = (mobile = false) =>
+    BRAND_MANUAL_SECTIONS.map((section) => {
+      const active = activeBrandSection === section.id;
+      return (
+        <a
+          key={section.id}
+          href={`#${section.id}`}
+          data-brand-section={section.id}
+          aria-current={active ? "location" : undefined}
+          onClick={() => setMoreOpen(false)}
+          className={cn(
+            "block rounded-md px-3 py-1.5 text-[12px] font-semibold leading-5 transition-colors",
+            active
+              ? "bg-coral-500/15 text-coral-200"
+              : mobile
+                ? "text-neutral-300 hover:bg-white/10 hover:text-white"
+                : "text-neutral-400 hover:bg-white/10 hover:text-white",
+          )}
+        >
+          {locale === "zh" ? section.zh : section.en}
+        </a>
+      );
+    });
 
   const renderBrandManualNavigation = () => (
     <div ref={brandNavigationRef} className="mt-1">
@@ -222,25 +318,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
       <div className="mt-3 border-t border-white/10 pt-4">
         <div className="px-3 text-[10px] font-extrabold tracking-[1.6px] text-coral-300">{brandManualT("title")}</div>
         <nav aria-label={brandManualT("navigation")} className="mt-2 flex flex-col gap-0.5">
-          {BRAND_MANUAL_SECTIONS.map((section) => {
-            const active = activeBrandSection === section.id;
-            return (
-              <a
-                key={section.id}
-                href={`${BRAND_MANUAL_EMBED_URL}#${section.id}`}
-                target="brand-manual"
-                data-brand-section={section.id}
-                aria-current={active ? "location" : undefined}
-                onClick={(event) => navigateManualSection(event, section.id)}
-                className={cn(
-                  "block rounded-md px-3 py-1.5 text-[12px] font-semibold leading-5 transition-colors",
-                  active ? "bg-coral-500/15 text-coral-200" : "text-neutral-400 hover:bg-white/10 hover:text-white",
-                )}
-              >
-                {locale === "zh" ? section.zh : section.en}
-              </a>
-            );
-          })}
+          {renderBrandManualChapterLinks()}
         </nav>
       </div>
       {isAdmin && (
@@ -349,15 +427,40 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
                 className="h-10 w-full rounded-md border border-white/15 bg-white/8 pr-3 pl-9 text-[12px] text-white outline-none placeholder:text-neutral-400 focus:border-coral-300"
               />
             </form>
-            <nav aria-label={t("secondaryNavigation")} className="mt-6 flex flex-col gap-1">
-              {renderSecondary()}
-              {isAdmin && (
-                <Link href="/admin" onClick={() => setMoreOpen(false)} className={navClass("/admin")}>
-                  <Settings2 aria-hidden="true" className="size-[17px]" />
-                  {t("admin")}
+            {isBrandPage ? (
+              <div className="mt-6">
+                <Link
+                  href="/help/guide"
+                  className="flex items-center gap-2 rounded-md px-3 py-2 text-[12px] font-bold text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+                  onClick={() => setMoreOpen(false)}
+                >
+                  <ArrowLeft aria-hidden="true" className="size-3.5" />
+                  {t("guide")}
                 </Link>
-              )}
-            </nav>
+                <div className="mt-3 border-t border-white/10 pt-4">
+                  <div className="px-3 text-[10px] font-extrabold tracking-[1.6px] text-coral-300">{brandManualT("title")}</div>
+                  <nav aria-label={brandManualT("navigation")} className="mt-2 flex flex-col gap-0.5">
+                    {renderBrandManualChapterLinks(true)}
+                  </nav>
+                </div>
+                {isAdmin && (
+                  <Link href="/admin" onClick={() => setMoreOpen(false)} className={cn(navClass("/admin"), "mt-3")}>
+                    <Settings2 aria-hidden="true" className="size-[17px]" />
+                    {t("admin")}
+                  </Link>
+                )}
+              </div>
+            ) : (
+              <nav aria-label={t("secondaryNavigation")} className="mt-6 flex flex-col gap-1">
+                {renderSecondary()}
+                {isAdmin && (
+                  <Link href="/admin" onClick={() => setMoreOpen(false)} className={navClass("/admin")}>
+                    <Settings2 aria-hidden="true" className="size-[17px]" />
+                    {t("admin")}
+                  </Link>
+                )}
+              </nav>
+            )}
             <div className="mt-5 border-t border-white/10 pt-3">
               <button
                 type="button"

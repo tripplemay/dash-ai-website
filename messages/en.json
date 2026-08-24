@@ -39,7 +39,7 @@
   "brandManual": {
     "title": "Brand guidelines",
     "navigation": "Brand guideline sections",
-    "iframeTitle": "CORECOORD visual identity guidelines"
+    "contentLabel": "CORECOORD visual identity guidelines"
   },
   "errors": {
     "title": "This page could not load",
