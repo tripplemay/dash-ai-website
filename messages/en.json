@@ -324,6 +324,7 @@
   },
   "admin": {
     "console": "Admin console",
+    "contextDescription": "Site configuration and content operations for administrators",
     "backToSite": "Back to site",
     "nav": {
       "dashboard": "Overview",

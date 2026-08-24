@@ -15,7 +15,7 @@ export default async function AppLayout({
 }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "nav" });
-  let isAdmin = false;
+  let isAdmin = AUTH_DISABLED;
   if (!AUTH_DISABLED) {
     const requestHeaders = await getRequestHeaders();
     const session = await getRequestSession();

@@ -7,7 +7,7 @@ import {
   updateResourceMeta,
   setResourceEnabled,
   deleteResource,
-} from "@/app/[locale]/(admin)/admin/actions";
+} from "@/app/[locale]/(app)/admin/actions";
 import { RESOURCE_CATS_STORE } from "@/lib/data";
 import type { ResourceRow } from "@/lib/db";
 import { Button } from "@/components/ui/button";

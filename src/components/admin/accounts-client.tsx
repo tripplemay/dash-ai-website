@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import { createAccount, resetPassword, setAccountBanned } from "@/app/[locale]/(admin)/admin/actions";
+import { createAccount, resetPassword, setAccountBanned } from "@/app/[locale]/(app)/admin/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

@@ -52,6 +52,13 @@ const cookie = cookieHeader(login);
 assert.ok(cookie, "login did not return a session cookie");
 assert.match(setCookieValues(login).join("; "), /HttpOnly/i, "session cookie must be HttpOnly");
 
+const adminPage = await request("/en/admin", { headers: { Cookie: cookie } });
+expectStatus(adminPage, 200, "admin page");
+const adminHtml = await adminPage.text();
+assert.match(adminHtml, /Admin console/, "admin context navigation");
+assert.match(adminHtml, /Primary navigation/, "shared site navigation");
+assert.match(adminHtml, /Admin overview/, "admin dashboard content");
+
 const file = await request(`/api/file${fileUrl}`, { headers: { Cookie: cookie } });
 expectStatus(file, 200, "authenticated file");
 assert.equal(await file.text(), "standalone smoke file\n", "protected file body");

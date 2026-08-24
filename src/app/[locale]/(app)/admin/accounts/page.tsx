@@ -51,8 +51,8 @@ export default async function AdminAccountsPage({
 
       <CreateAccountForm />
 
-      <div className="mt-5 overflow-hidden rounded-lg border border-neutral-200 bg-card shadow-card">
-        <table className="w-full text-left text-[13px]">
+      <div className="mt-5 overflow-x-auto rounded-lg border border-neutral-200 bg-card shadow-card">
+        <table className="min-w-[720px] w-full text-left text-[13px]">
           <thead>
             <tr className="border-b border-neutral-200 text-[12px] tracking-wider text-muted-foreground">
               <th className="px-5 py-3.5 font-extrabold">{t("colUsername")}</th>

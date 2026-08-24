@@ -324,6 +324,7 @@
   },
   "admin": {
     "console": "管理后台",
+    "contextDescription": "仅管理员可用的站点配置与内容操作",
     "backToSite": "返回主站",
     "nav": {
       "dashboard": "概览",

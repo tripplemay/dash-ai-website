@@ -106,7 +106,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 │       ├── api/file/[...path]/   # 文件流（真实会话 + 上架状态校验）
 │       ├── api/download/[id]/    # 资源下载端点（登录校验 → 302）
 │       ├── api/admin/upload/     # 资源上传（admin，multipart 流式写盘）
-│       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (admin)/admin{,/accounts,/resources}
+│       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (app)/admin{,/accounts,/resources}
 └── .github/workflows/deploy.yml  # 推送 main 自动构建并部署到 VPS
 ```
 
