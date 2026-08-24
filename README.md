@@ -2,7 +2,7 @@
 
 Next.js 全栈工程，为芯坐标 CORECOORD 少儿 AI 素养课程的合作伙伴提供品牌资源、课程项目与大屏播放。
 
-> CORECOORD Logo Final 2026.1 与 VI System 2026.1 的批准资产已版本化收录在 `deploy/brand/2026.1/`；部署工作流会独立校验并物化到 VPS 的 `/assets/brand/corecoord/2026.1` 与 `/files/corecoord`。两个大字体以 `deploy/brand-chunks/2026.1/` 的无损 gzip 分片存储，检查/构建前自动还原为原始 TTF。旧数据库记录和品牌目录会在发布备份中保留，旧公网静态路径则由 nginx 返回 410。
+> CORECOORD Logo Final 2026.1 与 VI System 2026.1 的批准资产已版本化收录在 `deploy/brand/2026.1/`；首批正式营销资源通过管理员上传到 VPS 的 `public/files`，并在网站资源中心按「营销认知」「营销转化」「体验课物料」分类提供浏览与打包下载。部署工作流会独立校验并物化品牌包到 VPS 的 `/assets/brand/corecoord/2026.1` 与 `/files/corecoord`，不会用 GitHub 同步运营上传的营销资源。两个大字体以 `deploy/brand-chunks/2026.1/` 的无损 gzip 分片存储，检查/构建前自动还原为原始 TTF。旧数据库记录和品牌目录会在发布备份中保留，旧公网静态路径则由 nginx 返回 410。
 
 ## 技术栈
 

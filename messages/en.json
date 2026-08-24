@@ -267,7 +267,7 @@
   "resources": {
     "title1": "Resource",
     "title2": "Download Center",
-    "sub": "A maintained CORECOORD release for identity, guides, previews, and course templates. Download a single file or a complete category bundle.",
+    "sub": "A maintained CORECOORD 2026.1 release for identity, course materials, and approved marketing deliverables. Download a single file or a complete category bundle.",
     "all": "All",
     "suggest": "Tip: ",
     "download": "Download",
@@ -287,7 +287,7 @@
     "emptySub": "Try a shorter keyword or clear the active filters.",
     "openDetail": "Open resource: {title}",
     "breadcrumb": "Resource detail path",
-    "categories": ["All", "Brand system", "Guides", "Visual previews", "Course templates"],
+    "categories": ["All", "Brand system", "Guides", "Visual previews", "Course templates", "Marketing awareness", "Marketing conversion", "Trial materials"],
     "dimensions": "Specs",
     "adviceLabel": "Usage advice",
     "format": "Format"
@@ -390,7 +390,7 @@
       "colSort": "Order",
       "colUpdated": "Updated",
       "colOps": "Actions",
-      "categories": ["Brand system", "Guides", "Visual previews", "Course templates"],
+      "categories": ["Brand system", "Guides", "Visual previews", "Course templates", "Marketing awareness", "Marketing conversion", "Trial materials"],
       "advicePh": "e.g. A3 print / social long image",
       "uploadSubmit": "Upload",
       "submitting": "Uploading…",

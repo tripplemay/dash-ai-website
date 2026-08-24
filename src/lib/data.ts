@@ -109,6 +109,9 @@ export const RESOURCE_CATEGORIES = [
   { key: "guides", label: "使用指南" },
   { key: "visual-previews", label: "视觉预览" },
   { key: "course-templates", label: "课件模板" },
+  { key: "marketing-awareness", label: "营销认知" },
+  { key: "marketing-conversion", label: "营销转化" },
+  { key: "trial-materials", label: "体验课物料" },
 ] as const;
 
 /** Stable English labels for resource metadata; the key remains the persisted contract. */
@@ -117,6 +120,9 @@ export const RESOURCE_CATEGORY_EN: Record<string, string> = {
   "使用指南": "Guides",
   "视觉预览": "Visual previews",
   "课件模板": "Course templates",
+  营销认知: "Marketing awareness",
+  营销转化: "Marketing conversion",
+  "体验课物料": "Trial course materials",
   "课程海报": "Course posters",
   "招募物料": "Recruitment",
   "证书手册": "Certificates",
