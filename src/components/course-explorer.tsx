@@ -268,7 +268,13 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
                 <div className="text-[12px] font-extrabold tracking-[3px] text-signal-coral">
                   {t("detailOutcome")}
                 </div>
-                <div className="mt-2 text-[17px] font-extrabold tracking-wide">{course.outcome}</div>
+                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                  {course.outputs.map((output) => (
+                    <li key={output} className="rounded-md border border-white/15 bg-white/10 px-3 py-2.5 text-[13px] font-extrabold tracking-wide">
+                      {output}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </section>
 

@@ -4,7 +4,7 @@ import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale } from "next-intl";
 import { useRouter } from "@/i18n/navigation";
-import { LABS, GROWTH_LAYERS, GROWTH_BADGES, GROWTH_ENTRIES, GROWTH_ENTRIES_NOTE } from "@/lib/data";
+import { LABS, GROWTH_LAYERS, LEARNING_LOOP, GROWTH_ENTRIES, GROWTH_ENTRIES_NOTE } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/brand-logo";
 import { CORECOORD_ASSET_ROOT, CORECOORD_STAGES, stageOnAccent } from "@/lib/brand";
@@ -197,7 +197,7 @@ function PresentDeck() {
         </div>
       </section>
 
-      {/* 2 · 数字总览 */}
+      {/* 2 · 课程体系总览 */}
       <section className={show(1)}>
         <div className="absolute inset-0 bg-reverse-background" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -206,9 +206,9 @@ function PresentDeck() {
           <div className="text-[22px] font-extrabold tracking-[8px] text-white/65">课程体系总览</div>
           <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-14 sm:gap-10 lg:gap-24">
             {[
-              { n: "9", u: "大能力实验室" },
-              { n: "132", u: "课时" },
-              { n: "5–16", u: "岁覆盖" },
+              { n: "9", u: "大课程域" },
+              { n: "135", u: "课次" },
+              { n: "4", u: "项能力轴" },
             ].map((s) => (
               <div key={s.u} className="text-center">
                 <div className="text-[48px] leading-none font-extrabold text-signal-coral sm:text-[80px] lg:text-[120px]">{s.n}</div>
@@ -216,11 +216,11 @@ function PresentDeck() {
               </div>
             ))}
           </div>
-          <div className="mt-8 px-5 text-center text-[15px] text-white/75 sm:mt-14 sm:text-[22px] lg:text-[24px]">AI 创作 · 编程工程 · 智能硬件三大方向</div>
+          <div className="mt-8 px-5 text-center text-[15px] text-white/75 sm:mt-14 sm:text-[22px] lg:text-[24px]">创作 · 工程 · 素养三大方向 · 五步闭环</div>
         </div>
       </section>
 
-      {/* 3–5 · 三大实验室 */}
+      {/* 3–5 · 三大方向 */}
       {LABS.map((lab, i) => (
         <section key={lab.en} className={show(2 + i)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -258,15 +258,15 @@ function PresentDeck() {
         </section>
       ))}
 
-      {/* 6 · 成长体系阶梯 */}
+      {/* 6 · 四项能力轴 */}
       <section className={show(5)}>
         <div className="absolute inset-0 bg-reverse-background" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
-          <div className="text-[22px] font-extrabold tracking-[8px] text-white/65">成长体系</div>
+          <div className="text-[22px] font-extrabold tracking-[8px] text-white/65">课程框架</div>
           <h2 className="mt-3 text-[34px] font-extrabold tracking-[2px] sm:mt-4 sm:text-[44px] lg:text-[52px] lg:tracking-[3px]">
-            能力认证<em className="not-italic text-signal-coral">阶梯</em>
+            四项<em className="not-italic text-signal-coral">能力轴</em>
           </h2>
           <div className="mt-8 flex flex-col items-stretch gap-3 sm:mt-14 lg:flex-row lg:gap-6">
             {GROWTH_LAYERS.map((l, i) => (
@@ -286,43 +286,37 @@ function PresentDeck() {
         </div>
       </section>
 
-      {/* 7 · 九枚认证徽章 */}
+      {/* 7 · 五步闭环 */}
       <section className={show(6)}>
         <div className="absolute inset-0 bg-reverse-background" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
           <h2 className="text-[32px] font-extrabold tracking-[2px] sm:text-[44px] lg:text-[52px] lg:tracking-[3px]">
-            九枚<em className="not-italic text-signal-coral">实验室认证徽章</em>
+            课堂<em className="not-italic text-signal-coral">五步闭环</em>
           </h2>
-          <div className="mt-3 text-[22px] text-white/75">每通过一座实验室的项目评估，即点亮一项能力认证</div>
-          <div className="mt-8 grid grid-cols-3 gap-3 sm:mt-12 sm:grid-cols-5 sm:gap-4 lg:grid-cols-9 lg:gap-5">
-            {GROWTH_BADGES.map((b, i) => (
-              <div key={b.elem} className="flex flex-col items-center">
-                <div
-                  className="relative flex size-[84px] items-center justify-center rounded-[8px] text-[26px] font-extrabold shadow-[0_10px_30px_rgba(0,0,0,.35)]"
-                  style={{ background: b.color, color: stageOnAccent(b.color) }}
-                >
-                  {b.elem}
-                  <span className="absolute -top-2 -right-2 flex size-6 items-center justify-center rounded-[4px] bg-white text-[12px] font-extrabold text-core-indigo">
-                    {i + 1}
-                  </span>
+          <div className="mt-3 text-[22px] text-white/75">明确目标 → 设计提示 → 协作生成 → 评估迭代 → 展示发布</div>
+          <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-12 sm:grid-cols-5 sm:gap-4">
+            {LEARNING_LOOP.map((step, i) => (
+              <div key={step} className="flex flex-col items-center rounded-[8px] border border-white/15 bg-white/10 px-3 py-5 text-center">
+                <div className="flex size-[58px] items-center justify-center rounded-full border-2 border-signal-coral text-[22px] font-extrabold text-signal-coral">
+                  {i + 1}
                 </div>
-                <div className="mt-3 text-center text-[14px] leading-tight font-bold text-white/75">{b.lab}</div>
+                <div className="mt-3 text-[15px] font-bold text-white">{step}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 8 · 多入口路径 */}
+      {/* 8 · 课程进阶路径 */}
       <section className={show(7)}>
         <div className="absolute inset-0 bg-reverse-background" />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={COORDINATE_FIELD_PREVIEW} alt="" className="absolute inset-0 h-full w-full object-cover opacity-10" />
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
           <h2 className="text-[32px] font-extrabold tracking-[2px] sm:text-[44px] lg:text-[52px] lg:tracking-[3px]">
-            多入口 · <em className="not-italic text-signal-coral">殊途同归</em>
+            课程进阶 · <em className="not-italic text-signal-coral">不绑定年龄</em>
           </h2>
           <div className="mt-8 space-y-5 sm:mt-12 sm:space-y-8">
             {GROWTH_ENTRIES.map((e, i) => (

@@ -75,9 +75,9 @@ function GrowthSlide() {
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={`${PREVIEW_ROOT}/corecoord-coordinate-field-light.png`} alt="" className="absolute inset-0 h-full w-full object-cover opacity-15" />
       <div className="relative flex h-full flex-col justify-center p-10 lg:px-24">
-        <div className="text-[13px] font-extrabold tracking-[6px] text-white/65 lg:text-[20px]">成长体系</div>
+        <div className="text-[13px] font-extrabold tracking-[6px] text-white/65 lg:text-[20px]">课程框架</div>
         <h2 className="mt-3 text-[32px] font-extrabold tracking-[3px] text-white lg:text-[52px]">
-          能力认证<em className="not-italic text-signal-coral">阶梯</em>
+          四项<em className="not-italic text-signal-coral">能力轴</em>
         </h2>
         <div className="mt-8 flex flex-col gap-4 lg:mt-14 lg:flex-row lg:items-stretch lg:gap-6">
           {GROWTH_LAYERS.map((l, i) => (
@@ -115,7 +115,7 @@ function WorksSlide() {
           学员<em className="not-italic text-signal-coral">作品</em>
         </h2>
         <div className="mt-3 text-[15px] text-white/75 lg:text-[22px]">
-          每个阶段以真实作品结业：绘本 / 有声剧 / 小程序 / 无人机
+          135 个课次对应 135 个作品节点：绘本 / 配音 / 短片 / App / 无人机 / 代码 / 数据看板 / 模型实验
         </div>
         <div className="mt-8 grid grid-cols-2 gap-4 lg:mt-12 lg:grid-cols-4 lg:gap-6">
           {WORK_SLOTS.map((w) => (

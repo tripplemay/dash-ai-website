@@ -14,15 +14,8 @@ import { Link } from "@/i18n/navigation";
 import { CourseGrowth } from "@/components/course-growth";
 import { WorksWall } from "@/components/works-wall";
 import { MonitorPlay, Wand2 } from "lucide-react";
-import { LABS, FAQ } from "@/lib/data";
+import { COURSE_ENTRIES, FAQ } from "@/lib/data";
 import { stageOnAccent } from "@/lib/brand";
-
-const PATH = [
-  { name: "体验中心", color: "#FC7358", href: "#pilot" },
-  { name: "创想实验室", color: "#C93F78", href: "#create" },
-  { name: "工程实验室", color: "#40549C", href: "#build" },
-  { name: "远征实验室", color: "#1E9A91", href: "#explore" },
-];
 
 /** 把 **加粗** 渲染为高亮 */
 function rich(text: string) {
@@ -73,87 +66,51 @@ export default function CoursePage() {
         </div>
       </section>
 
-      {/* 进阶路径 */}
-      <section id="pilot" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 py-8.5">
+      {/* 课程体系总览 */}
+      <section id="curriculum" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 py-8.5">
         <h2 className="text-[26px] font-extrabold tracking-[2px]">
-          {t("pathTitle")} <em className="not-italic text-coral-700">{t("pathEm")}</em>
+          {t("systemTitle")} <em className="not-italic text-coral-700">{t("systemEm")}</em>
         </h2>
-        <div className="mt-4.5 mb-1.5 flex items-center gap-2 overflow-x-auto pb-2 sm:gap-0 sm:overflow-visible sm:pb-0">
-          {PATH.map((p, i) => (
-            <div key={p.name} className="flex min-w-[132px] shrink-0 items-center sm:min-w-0 sm:flex-1 sm:last:flex-none">
-              <a
-                href={p.href}
-                className="rounded-md px-3 py-2.5 text-[13px] font-extrabold whitespace-nowrap sm:px-4 sm:text-[13.5px]"
-                style={{ background: p.color, color: stageOnAccent(p.color) }}
-              >
-                {p.name}
-              </a>
-              {i < PATH.length - 1 && <div className="h-0.5 min-w-4 flex-1 bg-indigo-200 sm:min-w-6" />}
-            </div>
+        <div className="mt-1.5 text-[13.5px] text-neutral-600">{t("systemSub")}</div>
+        <div className="mt-5 grid gap-3">
+          {COURSE_ENTRIES.map(({ course }) => (
+            <Link
+              key={course.slug}
+              href={`/courses/${course.slug}`}
+              id={course.stageId === "01" ? "create" : course.stageId === "04" ? "build" : course.stageId === "08" ? "explore" : undefined}
+              className="relative block rounded-lg border border-neutral-200 bg-card p-[16px_18px] transition-shadow hover:border-indigo-300 hover:shadow-card"
+            >
+              <div className="absolute top-3.5 bottom-3.5 left-0 w-1 rounded-sm" style={{ background: course.color }} />
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="flex size-7 items-center justify-center rounded-md text-[11px] font-extrabold" style={{ background: course.color, color: stageOnAccent(course.color) }}>
+                  {course.stageId}
+                </span>
+                <span className="text-[17px] font-extrabold">{course.name}</span>
+                <Badge variant="secondary" className="bg-indigo-50 text-[11px] font-bold text-neutral-600">
+                  {course.age}
+                </Badge>
+                <span className="ml-auto rounded-md bg-indigo-700 px-3 py-1 text-[12.5px] font-extrabold text-white">
+                  {course.count}
+                </span>
+              </div>
+              <div className="mt-2.5 text-[12.5px] leading-[1.8] text-neutral-600">{course.intro}</div>
+              <div className="mt-2.5 flex flex-wrap gap-1.5">
+                {course.modules.map((module) => (
+                  <span key={module} className="rounded-sm border border-indigo-100 bg-indigo-50 px-2.5 py-[3px] text-[11px] text-indigo-800">
+                    {module}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-2.5 text-[12.5px] font-extrabold text-coral-700">
+                {t("outcome")}
+                <b className="text-indigo-800">{course.outputs.join(" · ")}</b>
+              </div>
+            </Link>
           ))}
         </div>
-        <div className="mt-1.5 text-[13.5px] text-neutral-600">{t("pathSub")}</div>
       </section>
 
-      {/* 实验室与课程 */}
-      <div className="mx-auto max-w-[1200px] px-7">
-        {LABS.map((lab, index) => (
-          <section key={lab.en} id={["create", "build", "explore"][index]} className="mt-8.5 scroll-mt-24">
-            <div className="flex items-center gap-3 border-b-2 border-neutral-200 pb-3">
-              <span
-                className="rounded-md px-3.5 py-1.5 text-xs font-extrabold tracking-widest"
-                style={{ background: lab.color, color: stageOnAccent(lab.color) }}
-              >
-                {lab.en}
-              </span>
-              <h2 className="text-[22px] font-extrabold tracking-wide">{lab.name}</h2>
-              <span className="ml-auto rounded-md bg-indigo-50 px-3.5 py-1.5 text-[13px] font-extrabold text-indigo-800">
-                {lab.hours}
-              </span>
-            </div>
-            <div className="mt-2 text-[13.5px] text-neutral-600">{lab.desc}</div>
-
-            {lab.courses.map((c) => (
-              <Link
-                key={c.name}
-                href={`/courses/${c.slug}`}
-                className="relative mt-3.5 block rounded-lg border border-neutral-200 bg-card p-[16px_18px] transition-shadow hover:border-indigo-300 hover:shadow-card"
-              >
-                <div
-                  className="absolute top-3.5 bottom-3.5 left-0 w-1 rounded-sm"
-                  style={{ background: lab.color }}
-                />
-                <div className="flex flex-wrap items-center gap-2.5">
-                  <span className="text-[17px] font-extrabold">{c.name}</span>
-                  <Badge variant="secondary" className="bg-indigo-50 text-[11px] font-bold text-neutral-600">
-                    {c.age}
-                  </Badge>
-                  <span className="ml-auto rounded-md bg-indigo-700 px-3 py-1 text-[12.5px] font-extrabold text-white">
-                    {c.count}
-                  </span>
-                </div>
-                <div className="mt-2.5 text-[12.5px] leading-[1.8] text-neutral-600">{c.intro}</div>
-                <div className="mt-2.5 flex flex-wrap gap-1.5">
-                  {c.modules.map((m) => (
-                    <span
-                      key={m}
-                      className="rounded-sm border border-indigo-100 bg-indigo-50 px-2.5 py-[3px] text-[11px] text-indigo-800"
-                    >
-                      {m}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-2.5 text-[12.5px] font-extrabold text-coral-700">
-                  {t("outcome")}
-                  <b className="text-indigo-800">{c.outcome}</b>
-                </div>
-              </Link>
-            ))}
-          </section>
-        ))}
-      </div>
-
-      {/* 成长体系 · 能力认证阶梯 */}
+      {/* 课程框架 · 能力轴与学习闭环 */}
       <CourseGrowth />
 
       {/* 学员作品墙（占位） */}

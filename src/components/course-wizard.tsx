@@ -299,7 +299,7 @@ export function CourseWizard({ templates }: { templates: WizardTemplate[] }) {
             )}
           </div>
 
-          {/* 三大实验室速览（兴趣=还不确定） */}
+          {/* 三大方向速览（兴趣=还不确定） */}
           {result.showLabs && (
             <section className="mt-7">
               <h3 className="text-[16px] font-extrabold tracking-[2px]">{t("labsTitle")}</h3>

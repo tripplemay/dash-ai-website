@@ -1,8 +1,19 @@
 import { useTranslations } from "next-intl";
 import { WORK_SLOTS } from "@/lib/data";
-import { AppWindow, Brush, Mic, Plane } from "lucide-react";
+import { AppWindow, BarChart3, BookOpen, Brush, ChartNoAxesCombined, Code2, Mic, Plane, ShieldCheck, Video } from "lucide-react";
 
-const WORK_ICONS = { brush: Brush, mic: Mic, app: AppWindow, drone: Plane } as const;
+const WORK_ICONS = {
+  brush: Brush,
+  mic: Mic,
+  video: Video,
+  app: AppWindow,
+  drone: Plane,
+  code: Code2,
+  chart: ChartNoAxesCombined,
+  shield: ShieldCheck,
+  book: BookOpen,
+  bars: BarChart3,
+} as const;
 
 /** 学员作品墙（占位：结课后替换为真实作品） */
 export function WorksWall() {

@@ -1,4 +1,4 @@
-// 逐课详情数据源：scripts/lessons-content.json（10 门课 × 全量 135 节）
+// 逐课详情数据源：scripts/lessons-content.json（9 大课程域 × 全量 135 课次）
 // 与 lessons.ts（标题列表）并存；课程详情页的右侧内容区使用本数据。
 
 import raw from "../../scripts/lessons-content.json";
