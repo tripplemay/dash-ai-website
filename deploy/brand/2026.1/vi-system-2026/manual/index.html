@@ -5,6 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="芯坐标 CORECOORD 视觉识别系统与生成式营销生产规范，版本 2026.1。">
   <title>芯坐标 CORECOORD 视觉识别系统 2026.1</title>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("embed") !== "site" || window.parent === window) return;
+      document.documentElement.classList.add("is-embedded");
+
+      const parentOrigin = window.location.origin;
+      const sectionIds = new Set([
+        "cover", "system-map", "brand", "education", "visual-concept", "logo", "color", "type", "layout",
+        "graphics", "imagery", "motion", "course", "marketing", "llm", "qa", "standards", "assets",
+      ]);
+      let scheduled = false;
+      let navigationTimer = 0;
+      let programmaticNavigation = false;
+
+      const post = (type, id, extra = {}) => {
+        window.parent.postMessage({ type, version: 1, ...extra, ...(id ? { id } : {}) }, parentOrigin);
+      };
+
+      const activeSection = () => {
+        const sections = [...document.querySelectorAll("main.manual > section[id]")].filter((section) => sectionIds.has(section.id));
+        const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+        if (sections.length && window.scrollY >= Math.max(0, maxScroll - 4)) return sections[sections.length - 1].id;
+        const threshold = Math.max(100, window.innerHeight * 0.33);
+        let active = sections[0]?.id || "cover";
+        for (const section of sections) {
+          if (section.getBoundingClientRect().top <= threshold) active = section.id;
+          else break;
+        }
+        return active;
+      };
+
+      const announce = (navigationComplete = false) =>
+        post("corecoord-manual:active", activeSection(), navigationComplete ? { navigationComplete: true } : {});
+
+      const settleNavigation = () => {
+        window.clearTimeout(navigationTimer);
+        navigationTimer = window.setTimeout(() => {
+          programmaticNavigation = false;
+          announce(true);
+        }, 180);
+      };
+
+      const scheduleAnnounce = () => {
+        if (programmaticNavigation) {
+          settleNavigation();
+          return;
+        }
+        if (scheduled) return;
+        scheduled = true;
+        window.requestAnimationFrame(() => {
+          scheduled = false;
+          if (!programmaticNavigation) announce();
+        });
+      };
+
+      window.addEventListener("message", (event) => {
+        if (event.origin !== parentOrigin || event.source !== window.parent) return;
+        const data = event.data;
+        if (data?.type !== "corecoord-manual:navigate" || data.version !== 1 || !sectionIds.has(data.id)) return;
+        const target = document.getElementById(data.id);
+        if (!target) return;
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        programmaticNavigation = true;
+        const targetTop = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: targetTop, behavior: reduceMotion ? "auto" : "smooth" });
+        settleNavigation();
+      });
+
+      window.addEventListener("scroll", scheduleAnnounce, { passive: true });
+      document.addEventListener("DOMContentLoaded", () => {
+        post("corecoord-manual:ready");
+        announce();
+      });
+    })();
+  </script>
   <link rel="stylesheet" href="manual.css">
 </head>
 <body>

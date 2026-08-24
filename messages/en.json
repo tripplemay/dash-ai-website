@@ -36,6 +36,11 @@
     "primaryNavigation": "Primary navigation",
     "secondaryNavigation": "Help and tools"
   },
+  "brandManual": {
+    "title": "Brand guidelines",
+    "navigation": "Brand guideline sections",
+    "iframeTitle": "CORECOORD visual identity guidelines"
+  },
   "errors": {
     "title": "This page could not load",
     "description": "The service is recovering. Please try again in a moment.",

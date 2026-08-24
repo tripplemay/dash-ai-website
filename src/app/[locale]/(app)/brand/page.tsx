@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { BrandManualViewer } from "@/components/brand-manual-viewer";
 
 export const metadata: Metadata = { title: "品牌规范" };
 
-// VI 手册使用版本化、可复现的发布资产；手册自身在 iframe 内滚动。
+// VI 手册使用版本化、可复现的发布资产；嵌入时由网站侧栏统一承载章节导航。
 export default async function BrandPage({
   params,
 }: {
@@ -22,15 +23,7 @@ export default async function BrandPage({
         </Link>
         <span className="text-[18px] font-extrabold text-indigo-800">{t("brand")}</span>
       </div>
-      <div className="overflow-x-auto border-y border-neutral-200 bg-neutral-100">
-        <iframe
-          src="/assets/brand/corecoord/2026.1/vi-system-2026/manual/index.html"
-          title="CORECOORD 芯坐标品牌视觉识别规范手册"
-          loading="lazy"
-          className="block w-full border-0 bg-white"
-          style={{ height: "calc(100vh - 132px)" }}
-        />
-      </div>
+      <BrandManualViewer />
     </div>
   );
 }

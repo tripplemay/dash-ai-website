@@ -1,12 +1,13 @@
 "use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, MouseEvent, useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import {
   BookOpen,
   CircleHelp,
   FolderDown,
+  ArrowLeft,
   Languages,
   LayoutDashboard,
   LogOut,
@@ -19,6 +20,14 @@ import {
 } from "lucide-react";
 import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { BrandLogo } from "@/components/brand-logo";
+import {
+  BRAND_MANUAL_ACTIVE_EVENT,
+  BRAND_MANUAL_EMBED_URL,
+  BRAND_MANUAL_NAVIGATE_EVENT,
+  BRAND_MANUAL_SECTIONS,
+  isBrandManualSectionId,
+  type BrandManualSectionId,
+} from "@/lib/brand-manual";
 import { cn } from "@/lib/utils";
 
 const PRIMARY_NAV = [
@@ -39,14 +48,76 @@ function isFullscreenPath(pathname: string) {
   return FULLSCREEN_PATHS.some((path) => pathname === path || pathname.startsWith(`${path}/`));
 }
 
+function isBrandManualPath(pathname: string) {
+  return pathname === "/brand" || pathname.startsWith("/brand/") || pathname === "/help/brand" || pathname.startsWith("/help/brand/");
+}
+
 export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
   const t = useTranslations("nav");
   const locale = useLocale();
   const brandAccessibleName = locale === "zh" ? "芯坐标 CORECOORD" : "CORECOORD";
   const pathname = usePathname();
   const router = useRouter();
+  const brandManualT = useTranslations("brandManual");
   const [moreOpen, setMoreOpen] = useState(false);
   const [query, setQuery] = useState("");
+  const isBrandPage = isBrandManualPath(pathname);
+  const [activeBrandSection, setActiveBrandSection] = useState<BrandManualSectionId>("cover");
+  const brandNavigationScrollRef = useRef<HTMLDivElement>(null);
+  const brandNavigationRef = useRef<HTMLDivElement>(null);
+  const brandNavigationReadyRef = useRef(false);
+
+  useEffect(() => {
+    if (!isBrandPage) return;
+    const onActiveSection = (event: Event) => {
+      const id = (event as CustomEvent<{ id?: unknown }>).detail?.id;
+      if (isBrandManualSectionId(id)) setActiveBrandSection(id);
+    };
+    const onHashChange = () => {
+      let value = window.location.hash.replace(/^#/, "");
+      try {
+        value = decodeURIComponent(value);
+      } catch {
+        return;
+      }
+      const id = value;
+      if (isBrandManualSectionId(id)) setActiveBrandSection(id);
+      else if (window.location.hash === "") setActiveBrandSection("cover");
+    };
+    window.addEventListener(BRAND_MANUAL_ACTIVE_EVENT, onActiveSection);
+    window.addEventListener("hashchange", onHashChange);
+    window.addEventListener("popstate", onHashChange);
+    onHashChange();
+    return () => {
+      window.removeEventListener(BRAND_MANUAL_ACTIVE_EVENT, onActiveSection);
+      window.removeEventListener("hashchange", onHashChange);
+      window.removeEventListener("popstate", onHashChange);
+    };
+  }, [isBrandPage]);
+
+  useEffect(() => {
+    if (!isBrandPage) {
+      brandNavigationReadyRef.current = false;
+      return;
+    }
+    if (!brandNavigationReadyRef.current) {
+      brandNavigationReadyRef.current = true;
+      return;
+    }
+    const scrollContainer = brandNavigationScrollRef.current;
+    const link = brandNavigationRef.current?.querySelector<HTMLElement>(
+      `[data-brand-section="${activeBrandSection}"]`,
+    );
+    if (!scrollContainer || !link) return;
+    const containerRect = scrollContainer.getBoundingClientRect();
+    const linkRect = link.getBoundingClientRect();
+    if (linkRect.top < containerRect.top) {
+      scrollContainer.scrollTop -= containerRect.top - linkRect.top;
+    } else if (linkRect.bottom > containerRect.bottom) {
+      scrollContainer.scrollTop += linkRect.bottom - containerRect.bottom;
+    }
+  }, [activeBrandSection, isBrandPage]);
+
   if (isFullscreenPath(pathname)) return null;
 
   const isActive = (href: string) => {
@@ -58,6 +129,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
     if (href === "/presentations") {
       return pathname === "/player" || pathname === "/course/present" || pathname === "/presentations" || pathname.startsWith("/presentations/");
     }
+    if (href === "/help/brand") return isBrandPage;
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
@@ -127,6 +199,64 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
       </Link>
     ));
 
+  const navigateManualSection = (event: MouseEvent<HTMLAnchorElement>, id: BrandManualSectionId) => {
+    if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    const hash = id === "cover" ? "" : `#${id}`;
+    const next = `${window.location.pathname}${window.location.search}${hash}`;
+    if (window.location.hash !== hash) window.history.pushState(null, "", next);
+    setActiveBrandSection(id);
+    window.dispatchEvent(new CustomEvent(BRAND_MANUAL_NAVIGATE_EVENT, { detail: { id } }));
+  };
+
+  const renderBrandManualNavigation = () => (
+    <div ref={brandNavigationRef} className="mt-1">
+      <Link
+        href="/help/guide"
+        className="flex items-center gap-2 rounded-md px-3 py-2 text-[12px] font-bold text-neutral-300 transition-colors hover:bg-white/10 hover:text-white"
+        onClick={() => setMoreOpen(false)}
+      >
+        <ArrowLeft aria-hidden="true" className="size-3.5" />
+        {t("guide")}
+      </Link>
+      <div className="mt-3 border-t border-white/10 pt-4">
+        <div className="px-3 text-[10px] font-extrabold tracking-[1.6px] text-coral-300">{brandManualT("title")}</div>
+        <nav aria-label={brandManualT("navigation")} className="mt-2 flex flex-col gap-0.5">
+          {BRAND_MANUAL_SECTIONS.map((section) => {
+            const active = activeBrandSection === section.id;
+            return (
+              <a
+                key={section.id}
+                href={`${BRAND_MANUAL_EMBED_URL}#${section.id}`}
+                target="brand-manual"
+                data-brand-section={section.id}
+                aria-current={active ? "location" : undefined}
+                onClick={(event) => navigateManualSection(event, section.id)}
+                className={cn(
+                  "block rounded-md px-3 py-1.5 text-[12px] font-semibold leading-5 transition-colors",
+                  active ? "bg-coral-500/15 text-coral-200" : "text-neutral-400 hover:bg-white/10 hover:text-white",
+                )}
+              >
+                {locale === "zh" ? section.zh : section.en}
+              </a>
+            );
+          })}
+        </nav>
+      </div>
+      {isAdmin && (
+        <Link
+          href="/admin"
+          className={cn(navClass("/admin"), "mt-3")}
+          aria-current={isActive("/admin") ? "page" : undefined}
+          onClick={() => setMoreOpen(false)}
+        >
+          <Settings2 aria-hidden="true" className="size-[17px]" />
+          {t("admin")}
+        </Link>
+      )}
+    </div>
+  );
+
   return (
     <>
       <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 flex-col border-r border-white/15 bg-reverse-background px-4 py-5 lg:flex">
@@ -135,7 +265,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
           <span className="sr-only">{brandAccessibleName}</span>
         </Link>
 
-        <form onSubmit={submitSearch} role="search" className="relative mt-7">
+        <form onSubmit={submitSearch} role="search" className="relative mt-7 shrink-0">
           <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-neutral-400" />
           <input
             value={query}
@@ -146,24 +276,33 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
           />
         </form>
 
-        <nav aria-label={t("primaryNavigation")} className="mt-7 flex flex-col gap-1">
+        <nav aria-label={t("primaryNavigation")} className="mt-7 flex shrink-0 flex-col gap-1">
           {renderPrimary()}
         </nav>
-        <div className="my-5 border-t border-white/10" />
-        <div className="px-3 text-[10px] font-extrabold tracking-[2px] text-neutral-500">{t("more")}</div>
-        <nav aria-label={t("secondaryNavigation")} className="mt-2 flex flex-col gap-1">
-          {renderSecondary()}
-          {isAdmin && (
-            <Link
-              href="/admin"
-              className={navClass("/admin")}
-              aria-current={isActive("/admin") ? "page" : undefined}
-            >
-              <Settings2 aria-hidden="true" className="size-[17px]" />
-              {t("admin")}
-            </Link>
+        <div className="my-5 shrink-0 border-t border-white/10" />
+
+        <div ref={brandNavigationScrollRef} className="min-h-0 flex-1 overflow-y-auto pr-1">
+          {isBrandPage ? (
+            renderBrandManualNavigation()
+          ) : (
+            <>
+              <div className="px-3 text-[10px] font-extrabold tracking-[2px] text-neutral-500">{t("more")}</div>
+              <nav aria-label={t("secondaryNavigation")} className="mt-2 flex flex-col gap-1">
+                {renderSecondary()}
+                {isAdmin && (
+                  <Link
+                    href="/admin"
+                    className={navClass("/admin")}
+                    aria-current={isActive("/admin") ? "page" : undefined}
+                  >
+                    <Settings2 aria-hidden="true" className="size-[17px]" />
+                    {t("admin")}
+                  </Link>
+                )}
+              </nav>
+            </>
           )}
-        </nav>
+        </div>
 
         <div className="mt-auto border-t border-white/10 pt-4">
           <button
