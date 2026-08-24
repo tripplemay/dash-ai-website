@@ -70,7 +70,9 @@ assert.ok((await archive.arrayBuffer()).byteLength > 0, "empty category archive"
 const pngBytes = new Uint8Array([137, 80, 78, 71, 13, 10, 26, 10, 0, 0, 0, 0]);
 const form = () => {
   const data = new FormData();
-  data.append("title", `CI smoke ${Date.now()}`);
+  const label = `CI smoke ${Date.now()}`;
+  data.append("title", label);
+  data.append("title_en", label);
   data.append("category", "brand-system");
   data.append("file", new Blob([pngBytes], { type: "image/png" }), `ci-smoke-${process.pid}.png`);
   return data;

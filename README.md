@@ -32,6 +32,9 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/migrate-auth.mjs
 DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/migrate.mjs
 ```
 
+资源迁移还会建立双语资源元数据（`title_en`、`category_en`）和按用户隔离的课程最近访问表
+（`workspace_course_activity`）；发布前的 ready 检查会验证这些结构已经存在。
+
 `scripts/seed.mjs` 已内置同一迁移步骤；首次建库仍应使用 seed，以同时创建 Better Auth 表和初始账号。
 
 品牌资产同步与检查：`pnpm brand:sync` 从相邻 `dashpr/品牌商标-芯坐标` 源目录更新批准清单并生成字体分片；`pnpm brand:assemble` 可单独还原两个 TTF；`pnpm brand:check` 会自动还原并校验 manifest、SHA256、分片清单和排除规则；`pnpm brand:materialize` 将公开静态包与受保护下载资源复制到指定的 `public` 根目录。发布时不应把旧 `public/files` 目录直接清空。
@@ -45,7 +48,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 
 部署前可用 `scripts/check-db.mjs` 检查 Better Auth 核心表和数据库完整性；发布脚本在
 Better Auth 迁移前使用 `DASH_CHECK_DB_AUTH_ONLY=1` 只验证旧库仍有用户表，迁移完成后再用
-`DASH_CHECK_DB_REQUIRE_RESOURCES=1` 将 `resources` 表也纳入检查：
+`DASH_CHECK_DB_REQUIRE_RESOURCES=1` 将资源双语字段和工作台课程活动表也纳入检查：
 
 ```bash
 DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/check-db.mjs
@@ -68,7 +71,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 | `BETTER_AUTH_SECRET`    | 会话密钥，生产必须设置且至少 32 字符（不满足时运行会拒绝启动）          |
 | `BETTER_AUTH_URL`       | 生产必填的站点对外 base URL（公网使用 `https://pr.dashedu.net`）                  |
 | `DASH_AUTH_DB`          | SQLite 文件路径，默认 `./dash-auth.db`                          |
-| `DASH_PUBLIC_ORIGIN`    | 生产必填：反向代理后的公开 origin（上传 CSRF 校验；如 `https://pr.dashedu.net`） |
+| `DASH_PUBLIC_ORIGIN`    | 生产必填：反向代理后的公开 origin（上传与课程活动 CSRF 校验；如 `https://pr.dashedu.net`） |
 | `DASH_HEALTH_URL`       | 生产必填的公网 HTTPS origin；部署后通过该地址验证应用和 `/files` 鉴权边界 |
 | `DASH_UPLOAD_MAX_BYTES` | 单文件上传上限，默认 64 MiB                                     |
 | `DASH_ZIP_MAX_BYTES`    | 分类 ZIP 总大小上限，默认 512 MiB                               |

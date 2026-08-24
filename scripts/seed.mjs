@@ -181,10 +181,12 @@ if (count > 0) {
     吉祥物: "mascots",
   };
   const ins = fixDb.prepare(`
-    INSERT INTO resources (title, category, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
-    VALUES (@title, @category, @category_key, @kind, @format, @size, @dimensions, @print_advice, @file_key, @preview, @sort)`);
+    INSERT INTO resources (title, title_en, category, category_en, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
+    VALUES (@title, @title_en, @category, @category_en, @category_key, @kind, @format, @size, @dimensions, @print_advice, @file_key, @preview, @sort)`);
   const rows = items.map((item) => ({
     ...item,
+    title_en: item.title_en || item.title,
+    category_en: item.category_en || item.category,
     category_key: item.category_key || categoryKeys[item.category] || "unknown",
   }));
   const tx = fixDb.transaction((seedRows) => seedRows.forEach((r) => ins.run(r)));

@@ -32,14 +32,126 @@
     "guide": "使用指南",
     "more": "更多",
     "search": "搜索资源",
-    "searchPlaceholder": "搜索资源、课程或关键词",
+    "searchPlaceholder": "搜索已发布资源或关键词",
     "primaryNavigation": "主导航",
-    "secondaryNavigation": "帮助与工具"
+    "secondaryNavigation": "帮助与工具",
+    "skipToContent": "跳转到主要内容"
   },
   "brandManual": {
     "title": "品牌规范目录",
     "navigation": "品牌规范章节",
     "contentLabel": "CORECOORD 芯坐标品牌视觉识别规范手册"
+  },
+  "workspace": {
+    "eyebrow": "合作伙伴工作台 · CORECOORD",
+    "title": "从这里开始工作",
+    "subtitle": "快速进入品牌资源、课程内容与演示工具，让每一次交付都有清晰路径。",
+    "headerAction": "打开课件向导",
+    "roleHint": "当前工作台面向：{role}",
+    "roles": {
+      "default": "工作台成员",
+      "admin": "管理员",
+      "partner": "合作伙伴",
+      "teacher": "教师",
+      "guest": "访客"
+    },
+    "release": {
+      "ariaLabel": "当前品牌版本",
+      "label": "当前发布",
+      "version": "CORECOORD VI System 2026.1",
+      "status": "品牌资产与课程目录已同步",
+      "updated": "最近更新：{date}",
+      "catalogReady": "目录正常在线",
+      "catalogUnavailable": "目录暂时不可用"
+    },
+    "actionsTitle": "快捷入口",
+    "actionsSubtitle": "从一个明确的工作场景开始。",
+    "actions": {
+      "resources": {
+        "title": "资源中心",
+        "description": "Logo、色彩、模板与预览资产，按分类快速查找。",
+        "cta": "浏览资源"
+      },
+      "courses": {
+        "title": "课程中心",
+        "description": "查看实验室路径、课程项目与逐课内容。",
+        "cta": "查看课程"
+      },
+      "presentations": {
+        "title": "演示中心",
+        "description": "选择大屏播放或课程讲解，直接进入展示模式。",
+        "cta": "选择演示"
+      },
+      "brand": {
+        "title": "品牌规范",
+        "description": "交付前核对 Logo、字体、色彩、版式与版本规则。",
+        "cta": "查看规范"
+      }
+    },
+    "continue": {
+      "title": "继续阅读",
+      "subtitle": "回到最近打开的课程和课节。",
+      "open": "继续",
+      "lesson": "第 {n} 课",
+      "overview": "课程总览",
+      "emptyTitle": "从工作台开始",
+      "emptySubtitle": "打开课程后，最近访问记录会显示在这里。",
+      "emptyBody": "选择一条课程路径，查看项目、课节大纲和可直接演示的内容。",
+      "emptyAction": "探索课程"
+    },
+    "activity": {
+      "title": "最近更新",
+      "subtitle": "从最新发布的资源继续工作。",
+      "open": "打开资源：{title}",
+      "emptyTitle": "暂无最近更新",
+      "emptySubtitle": "资源发布后会显示在这里。",
+      "showAll": "查看全部",
+      "showLess": "收起"
+    },
+    "resources": {
+      "title": "最近资源",
+      "subtitle": "当前工作台可用的最新官方资产。",
+      "open": "打开资源：{title}",
+      "emptyTitle": "暂无已上架资源",
+      "emptySubtitle": "已发布资产会显示在这里。",
+      "unavailableTitle": "资源目录暂时不可用",
+      "unavailableSubtitle": "工作台其他内容仍可使用，请稍后再试资源中心。",
+      "showAll": "查看全部",
+      "showLess": "收起"
+    },
+    "catalog": {
+      "title": "内容目录",
+      "subtitle": "当前工作台可用内容。",
+      "resources": "资源",
+      "resourcesDetail": "已上架资产",
+      "labs": "实验室",
+      "labsDetail": "{count} 条学习路径",
+      "courses": "课程",
+      "coursesDetail": "{core} 门核心课 + 体验课",
+      "lessons": "课节",
+      "lessonsDetail": "{core} 节核心课 + 体验课"
+    },
+    "labs": {
+      "title": "课程路径",
+      "subtitle": "按能力方向进入对应实验室。",
+      "viewAll": "查看课程中心",
+      "courseCount": "{count} 门课程",
+      "hours": "{count} 课时"
+    },
+    "featured": {
+      "title": "精选资源",
+      "subtitle": "用于沟通、选型与现场展示的官方预览。",
+      "viewAll": "查看全部资源",
+      "viewPreviews": "浏览预览",
+      "viewGuidelines": "阅读规范",
+      "open": "查看资源分类：{title}",
+      "labels": {
+        "cover": "品牌主视觉",
+        "stages": "阶段色彩系统",
+        "certificate": "成长认证样张",
+        "field": "坐标场图形"
+      }
+    }
   },
   "errors": {
     "title": "页面暂时无法加载",
@@ -261,6 +373,7 @@
       "uploadTitle": "上传新资源",
       "colFile": "文件",
       "colTitle": "标题",
+      "colTitleEn": "英文标题",
       "colCategory": "分类",
       "colAdvice": "印刷建议",
       "colPreview": "预览",

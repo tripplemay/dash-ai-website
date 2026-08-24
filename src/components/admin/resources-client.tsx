@@ -25,6 +25,7 @@ export function UploadForm() {
   const router = useRouter();
   const fileRef = useRef<HTMLInputElement>(null);
   const [title, setTitle] = useState("");
+  const [titleEn, setTitleEn] = useState("");
   const [category, setCategory] = useState(RESOURCE_CATS_STORE[0]);
   const [advice, setAdvice] = useState("");
   const [msg, setMsg] = useState<{ ok: boolean; text: string } | null>(null);
@@ -39,6 +40,7 @@ export function UploadForm() {
     const fd = new FormData();
     fd.append("file", file);
     fd.append("title", title);
+    fd.append("title_en", titleEn);
     fd.append("category", category);
     fd.append("print_advice", advice);
     if (overwrite) fd.append("overwrite", "1");
@@ -51,6 +53,7 @@ export function UploadForm() {
     }
     setMsg({ ok: true, text: t("uploadOk") });
     setTitle("");
+    setTitleEn("");
     setAdvice("");
     if (fileRef.current) fileRef.current.value = "";
     router.refresh();
@@ -84,6 +87,10 @@ export function UploadForm() {
         <div className="space-y-1.5">
           <Label>{t("colTitle")}</Label>
           <Input value={title} onChange={(e) => setTitle(e.target.value)} required />
+        </div>
+        <div className="space-y-1.5">
+          <Label>{t("colTitleEn")}</Label>
+          <Input value={titleEn} onChange={(e) => setTitleEn(e.target.value)} required />
         </div>
         <div className="space-y-1.5">
           <Label>{t("colCategory")}</Label>
@@ -128,6 +135,7 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
   const [editing, setEditing] = useState(false);
   const [form, setForm] = useState({
     title: row.title,
+    title_en: row.title_en || row.title,
     category: row.category,
     print_advice: row.print_advice || "",
     sort: row.sort,
@@ -176,9 +184,15 @@ export function ResourceRow({ row }: { row: ResourceRow }) {
       </td>
       <td className="min-w-[180px] px-4 py-3">
         {editing ? (
-          <Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+          <div className="space-y-1.5">
+            <Input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} />
+            <Input value={form.title_en} onChange={(e) => setForm({ ...form, title_en: e.target.value })} />
+          </div>
         ) : (
-          <span className="font-extrabold text-indigo-800">{row.title}</span>
+          <div>
+            <span className="font-extrabold text-indigo-800">{row.title}</span>
+            <span className="mt-1 block text-[11px] text-muted-foreground">{row.title_en || row.title}</span>
+          </div>
         )}
       </td>
       <td className="px-4 py-3">

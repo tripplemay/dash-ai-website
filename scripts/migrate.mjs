@@ -1,6 +1,6 @@
 // 应用数据库迁移（Better Auth 的迁移由 seed/部署脚本单独负责）。
 // 运行：DASH_AUTH_DB=/path/to/dash-auth.db node scripts/migrate.mjs
-// 该脚本是唯一负责创建/修改 resources 表结构的入口；请求处理不会执行 DDL。
+// 该脚本是唯一负责创建/修改应用数据表结构的入口；请求处理不会执行 DDL。
 import Database from "better-sqlite3";
 import fs from "node:fs";
 import path from "node:path";
@@ -73,7 +73,9 @@ const MIGRATIONS = [
         CREATE TABLE IF NOT EXISTS resources (
           id           INTEGER PRIMARY KEY AUTOINCREMENT,
           title        TEXT NOT NULL CHECK(length(trim(title)) > 0),
+          title_en     TEXT,
           category     TEXT NOT NULL CHECK(length(trim(category)) > 0),
+          category_en  TEXT,
           category_key TEXT NOT NULL DEFAULT 'unknown',
           kind         TEXT NOT NULL DEFAULT 'file' CHECK(kind IN ('file', 'folder')),
           format       TEXT,
@@ -206,6 +208,13 @@ const MIGRATIONS = [
   {
     id: "006_corecoord_brand_release",
     up(db) {
+      // Databases created before the bilingual catalogue fields reach this
+      // migration before 008; add the nullable columns here so the release
+      // seed can be applied in one pass on both old and fresh databases.
+      const columns = new Set(db.prepare("PRAGMA table_info(resources)").all().map((row) => row.name));
+      if (!columns.has("title_en")) db.exec("ALTER TABLE resources ADD COLUMN title_en TEXT");
+      if (!columns.has("category_en")) db.exec("ALTER TABLE resources ADD COLUMN category_en TEXT");
+
       // Keep the historical rows for audit/rollback, but remove them from the
       // public catalogue before publishing the versioned CORECOORD package.
       db.prepare("UPDATE resources SET enabled = 0 WHERE file_key NOT LIKE 'files/corecoord/%'").run();
@@ -213,17 +222,19 @@ const MIGRATIONS = [
       const { items, currentKeys } = readCorecoordSeed();
       const insert = db.prepare(`
         INSERT INTO resources (
-          title, category, category_key, kind, format, size, dimensions,
+          title, title_en, category, category_en, category_key, kind, format, size, dimensions,
           print_advice, file_key, preview, sort, enabled
         )
-        SELECT @title, @category, @category_key, @kind, @format, @size, @dimensions,
+        SELECT @title, @title_en, @category, @category_en, @category_key, @kind, @format, @size, @dimensions,
           @print_advice, @file_key, @preview, @sort, 1
         WHERE NOT EXISTS (SELECT 1 FROM resources WHERE file_key = @file_key)
       `);
       const update = db.prepare(`
         UPDATE resources SET
           title = @title,
+          title_en = @title_en,
           category = @category,
+          category_en = @category_en,
           category_key = @category_key,
           kind = @kind,
           format = @format,
@@ -242,12 +253,16 @@ const MIGRATIONS = [
         // must not remain downloadable or visible in the catalogue.
         disableStaleCorecoordResources(db, currentKeys);
         for (const item of rows) {
-          const row = { ...item, category_key: item.category_key || CATEGORY_KEYS[item.category] || "unknown" };
-          update.run(row);
-          insert.run(row);
+          update.run(item);
+          insert.run(item);
         }
       });
-      tx(items);
+      tx(items.map((item) => ({
+        ...item,
+        title_en: item.title_en || item.title,
+        category_en: item.category_en || item.category,
+        category_key: item.category_key || CATEGORY_KEYS[item.category] || "unknown",
+      })));
     },
   },
   {
@@ -258,6 +273,37 @@ const MIGRATIONS = [
       // one of its resource rows. Historical rows remain available for audit.
       const { currentKeys } = readCorecoordSeed();
       disableStaleCorecoordResources(db, currentKeys);
+    },
+  },
+  {
+    id: "008_resources_bilingual_fields",
+    up(db) {
+      const columns = new Set(db.prepare("PRAGMA table_info(resources)").all().map((row) => row.name));
+      if (!columns.has("title_en")) db.exec("ALTER TABLE resources ADD COLUMN title_en TEXT");
+      if (!columns.has("category_en")) db.exec("ALTER TABLE resources ADD COLUMN category_en TEXT");
+
+      // Existing catalogue rows predate bilingual metadata. Keep the current
+      // label as a deterministic fallback until an English translation is
+      // supplied by the catalogue owner.
+      db.prepare("UPDATE resources SET title_en = title WHERE title_en IS NULL OR trim(title_en) = ''").run();
+      db.prepare("UPDATE resources SET category_en = category WHERE category_en IS NULL OR trim(category_en) = ''").run();
+    },
+  },
+  {
+    id: "009_workspace_course_activity",
+    up(db) {
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS workspace_course_activity (
+          user_id        TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
+          course_slug    TEXT NOT NULL CHECK(length(trim(course_slug)) BETWEEN 1 AND 64),
+          last_lesson    INTEGER NOT NULL DEFAULT 0 CHECK(last_lesson >= 0),
+          last_viewed_at TEXT NOT NULL DEFAULT (datetime('now')),
+          PRIMARY KEY (user_id, course_slug)
+        );
+
+        CREATE INDEX IF NOT EXISTS workspace_course_activity_user_viewed_idx
+          ON workspace_course_activity (user_id, last_viewed_at DESC, course_slug ASC);
+      `);
     },
   },
 ];

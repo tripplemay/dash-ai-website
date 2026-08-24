@@ -100,6 +100,20 @@ export const RESOURCE_CATEGORIES = [
   { key: "course-templates", label: "课件模板" },
 ] as const;
 
+/** Stable English labels for resource metadata; the key remains the persisted contract. */
+export const RESOURCE_CATEGORY_EN: Record<string, string> = {
+  "品牌系统": "Brand system",
+  "使用指南": "Guides",
+  "视觉预览": "Visual previews",
+  "课件模板": "Course templates",
+  "课程海报": "Course posters",
+  "招募物料": "Recruitment",
+  "证书手册": "Certificates",
+  社媒: "Social media",
+  "品牌资产": "Brand assets",
+  吉祥物: "Mascots",
+};
+
 export type ResourceCategoryKey = (typeof RESOURCE_CATEGORIES)[number]["key"];
 
 // Export as string arrays because values arrive from URL/form input and must be

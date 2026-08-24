@@ -1,7 +1,9 @@
 [
   {
     "title": "CORECOORD Logo 套件",
+    "title_en": "CORECOORD logo kit",
     "category": "品牌系统",
+    "category_en": "Brand system",
     "category_key": "brand-system",
     "kind": "folder",
     "format": "SVG",
@@ -14,7 +16,9 @@
   },
   {
     "title": "CORECOORD 图标与应用图标",
+    "title_en": "CORECOORD icons and app icons",
     "category": "品牌系统",
+    "category_en": "Brand system",
     "category_key": "brand-system",
     "kind": "folder",
     "format": "PNG / ICO",
@@ -27,7 +31,9 @@
   },
   {
     "title": "CORECOORD 色彩与坐标图形",
+    "title_en": "CORECOORD colors and coordinate graphics",
     "category": "品牌系统",
+    "category_en": "Brand system",
     "category_key": "brand-system",
     "kind": "folder",
     "format": "SVG / CSS / JSON",
@@ -40,7 +46,9 @@
   },
   {
     "title": "CORECOORD VI System 2026.1 手册",
+    "title_en": "CORECOORD VI System 2026.1 manual",
     "category": "使用指南",
+    "category_en": "Guides",
     "category_key": "guides",
     "kind": "file",
     "format": "PDF",
@@ -53,7 +61,9 @@
   },
   {
     "title": "CORECOORD VI 预览图集",
+    "title_en": "CORECOORD VI preview collection",
     "category": "视觉预览",
+    "category_en": "Visual previews",
     "category_key": "visual-previews",
     "kind": "folder",
     "format": "PNG",
@@ -66,7 +76,9 @@
   },
   {
     "title": "CORECOORD 课件与印刷模板",
+    "title_en": "CORECOORD course and print templates",
     "category": "课件模板",
+    "category_en": "Course templates",
     "category_key": "course-templates",
     "kind": "folder",
     "format": "SVG",

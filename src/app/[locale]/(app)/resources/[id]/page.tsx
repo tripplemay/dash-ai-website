@@ -6,6 +6,7 @@ import { Download, Eye, FolderOpen } from "lucide-react";
 import { getResource } from "@/lib/db";
 import { resourceFileUrl, resourcePreviewUrl } from "@/lib/assets";
 import { RESOURCE_CATS } from "@/lib/data";
+import { localizedResourceTitle } from "@/lib/workspace-copy";
 
 export const dynamic = "force-dynamic";
 
@@ -14,9 +15,15 @@ export async function generateMetadata({
 }: {
   params: Promise<{ locale: string; id: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
+  const { id, locale } = await params;
   const resource = getResource(Number(id));
-  return { title: resource?.title ?? "资源详情" };
+  return {
+    title: resource
+      ? localizedResourceTitle(resource, locale === "en" ? "en" : "zh")
+      : locale === "en"
+        ? "Resource detail"
+        : "资源详情",
+  };
 }
 
 export default async function ResourceDetailPage({
@@ -30,13 +37,14 @@ export default async function ResourceDetailPage({
   const t = await getTranslations({ locale, namespace: "resources" });
   const categoryLabels = t.raw("categories") as string[];
   const fileHref = resourceFileUrl(resource.file_key) || `/api/download/${resource.id}`;
+  const resourceTitle = localizedResourceTitle(resource, locale === "en" ? "en" : "zh");
 
   return (
     <div className="mx-auto max-w-[1000px] px-5 py-7 sm:px-7 lg:py-10">
       <nav aria-label={t("breadcrumb")} className="flex flex-wrap items-center gap-2 text-[12px] font-bold text-neutral-600">
         <Link href="/resources" className="hover:text-coral-700">{t("title1")} {t("title2")}</Link>
         <span aria-hidden="true">/</span>
-        <span className="truncate text-indigo-800">{resource.title}</span>
+        <span className="truncate text-indigo-800">{resourceTitle}</span>
       </nav>
       <div className="mt-5 grid gap-6 md:grid-cols-[minmax(0,1fr)_320px]">
         <div className="overflow-hidden rounded-lg border border-neutral-200 bg-card shadow-card">
@@ -55,7 +63,7 @@ export default async function ResourceDetailPage({
           <div className="text-[11px] font-extrabold tracking-[2px] text-coral-700">
             {categoryLabels[RESOURCE_CATS.indexOf(resource.category)] ?? resource.category}
           </div>
-          <h1 className="mt-2 text-[28px] font-extrabold tracking-wide text-indigo-800">{resource.title}</h1>
+          <h1 className="mt-2 text-[28px] font-extrabold tracking-wide text-indigo-800">{resourceTitle}</h1>
           <dl className="mt-5 space-y-2 rounded-lg border border-neutral-200 bg-card p-4 text-[13px]">
             {resource.dimensions && <div className="flex justify-between gap-4"><dt className="text-neutral-600">{t("dimensions")}</dt><dd className="text-right font-bold text-indigo-800">{resource.dimensions}</dd></div>}
             {resource.print_advice && <div className="flex justify-between gap-4"><dt className="text-neutral-600">{t("adviceLabel")}</dt><dd className="text-right font-bold text-indigo-800">{resource.print_advice}</dd></div>}

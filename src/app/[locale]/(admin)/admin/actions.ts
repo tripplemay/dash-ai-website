@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { requireAdmin } from "@/lib/admin-guard";
 import { getDb } from "@/lib/db";
-import { RESOURCE_CATS_STORE, resolveResourceCategory } from "@/lib/data";
+import { RESOURCE_CATEGORY_EN, RESOURCE_CATS_STORE, resolveResourceCategory } from "@/lib/data";
 
 export type ActionResult = { ok: boolean; error?: string };
 
@@ -80,20 +80,22 @@ export async function setAccountBanned(userId: string, banned: boolean): Promise
 
 export async function updateResourceMeta(
   id: number,
-  input: { title: string; category: string; print_advice: string; sort: number }
+  input: { title: string; title_en: string; category: string; print_advice: string; sort: number }
 ): Promise<ActionResult> {
   try {
     await requireAdmin();
     if (!Number.isSafeInteger(id) || id <= 0) return { ok: false, error: "非法资源" };
     if (!input.title.trim() || input.title.trim().length > 200) return { ok: false, error: "标题不能为空或过长" };
+    if (!input.title_en.trim() || input.title_en.trim().length > 200) return { ok: false, error: "英文标题不能为空或过长" };
     const category = resolveResourceCategory(input.category);
     if (!category || !RESOURCE_CATS_STORE.includes(category.label)) return { ok: false, error: "非法分类" };
+    const categoryEn = RESOURCE_CATEGORY_EN[category.label] || category.label;
     const sort = Number.isFinite(input.sort) ? Math.max(0, Math.min(1_000_000, Math.trunc(input.sort))) : 0;
     getDb()
       .prepare(
-        "UPDATE resources SET title = ?, category = ?, category_key = ?, print_advice = ?, sort = ?, updated_at = datetime('now') WHERE id = ?"
+        "UPDATE resources SET title = ?, title_en = ?, category = ?, category_en = ?, category_key = ?, print_advice = ?, sort = ?, updated_at = datetime('now') WHERE id = ?"
       )
-      .run(input.title.trim(), category.label, category.key, input.print_advice.trim().slice(0, 1000) || null, sort, id);
+      .run(input.title.trim(), input.title_en.trim(), category.label, categoryEn, category.key, input.print_advice.trim().slice(0, 1000) || null, sort, id);
     return { ok: true };
   } catch (e) {
     return { ok: false, error: msg(e) };

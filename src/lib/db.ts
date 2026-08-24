@@ -1,6 +1,7 @@
 import Database from "better-sqlite3";
 import path from "node:path";
-import { resolveResourceCategory } from "./data";
+import { COURSE_ENTRIES, LABS, resolveResourceCategory } from "./data";
+import { LESSONS } from "./lessons";
 
 /**
  * 应用数据库（与 Better Auth 共用文件）。数据库结构由 scripts/migrate.mjs
@@ -10,11 +11,16 @@ export const DB_PATH = process.env.DASH_AUTH_DB || path.join(process.cwd(), "das
 export const RESOURCE_PAGE_LIMIT = 48;
 export const RESOURCE_ADMIN_LIMIT = 200;
 export const RESOURCE_ZIP_LIMIT = 2000;
+export const WORKSPACE_RECENT_RESOURCE_LIMIT = 6;
+export const WORKSPACE_RECENT_COURSE_LIMIT = 4;
+const CORECOORD_RELEASE = "2026.1";
 
 export interface ResourceRow {
   id: number;
   title: string;
+  title_en: string | null;
   category: string;
+  category_en: string | null;
   category_key: string;
   kind: "file" | "folder";
   format: string | null;
@@ -33,7 +39,9 @@ export interface ResourceRow {
 export interface ResourceDTO {
   id: number;
   title: string;
+  titleEn: string | null;
   category: string;
+  categoryEn: string | null;
   categoryKey: string;
   kind: ResourceRow["kind"];
   format: string | null;
@@ -49,7 +57,7 @@ export interface ResourceDTO {
 }
 
 const RESOURCE_COLUMNS = `
-  id, title, category, category_key, kind, format, size, dimensions,
+  id, title, title_en, category, category_en, category_key, kind, format, size, dimensions,
   print_advice, file_key, preview, sort, enabled, updated_at, created_at
 `;
 
@@ -66,8 +74,10 @@ function assertMigrated(db: Database.Database) {
     );
   }
   const columns = db.prepare("PRAGMA table_info(resources)").all() as Array<{ name: string }>;
-  if (!columns.some((column) => column.name === "category_key")) {
-    throw new Error("resources table is missing category_key; run scripts/migrate.mjs");
+  const requiredColumns = ["category_key", "title_en", "category_en"];
+  const missing = requiredColumns.filter((name) => !columns.some((column) => column.name === name));
+  if (missing.length) {
+    throw new Error(`resources table is missing ${missing.join(", ")}; run scripts/migrate.mjs`);
   }
 }
 
@@ -119,6 +129,37 @@ export interface ResourcePage {
   nextCursor: string | null;
 }
 
+export interface WorkspaceCatalogSnapshot {
+  enabledResources: number;
+  resourcesByCategory: Record<string, number>;
+  labCount: number;
+  coreCourseCount: number;
+  totalCourseCount: number;
+  coreLessonCount: number;
+  totalLessonCount: number;
+}
+
+export interface WorkspaceCourseActivity {
+  courseSlug: string;
+  lastLesson: number;
+  lastViewedAt: string;
+}
+
+export interface WorkspaceRelease {
+  version: string;
+  label: string;
+}
+
+export type WorkspaceResourceStatus = "ready" | "unavailable";
+
+export interface WorkspaceSnapshot {
+  catalog: WorkspaceCatalogSnapshot;
+  recentResources: ResourceDTO[];
+  recentCourses: WorkspaceCourseActivity[];
+  release: WorkspaceRelease;
+  resourceStatus: WorkspaceResourceStatus;
+}
+
 function clampLimit(value: number | undefined, fallback: number, maximum: number) {
   if (!Number.isFinite(value)) return fallback;
   return Math.min(maximum, Math.max(1, Math.floor(value as number)));
@@ -167,9 +208,9 @@ function listEnabledResourcesPageInternal(options: ResourceListOptions = {}, max
   if (query) {
     const pattern = `%${escapeLike(query)}%`;
     where.push(
-      "(title LIKE ? ESCAPE '\\' OR category LIKE ? ESCAPE '\\' OR dimensions LIKE ? ESCAPE '\\' OR print_advice LIKE ? ESCAPE '\\')"
+      "(title LIKE ? ESCAPE '\\' OR title_en LIKE ? ESCAPE '\\' OR category LIKE ? ESCAPE '\\' OR category_en LIKE ? ESCAPE '\\' OR dimensions LIKE ? ESCAPE '\\' OR print_advice LIKE ? ESCAPE '\\')"
     );
-    args.push(pattern, pattern, pattern, pattern);
+    args.push(pattern, pattern, pattern, pattern, pattern, pattern);
   }
 
   const sort = options.sort || "default";
@@ -297,11 +338,171 @@ export function listRecentResources(limit = 4): ResourceRow[] {
     .all(safeLimit) as ResourceRow[];
 }
 
+const COURSE_SLUG_PATTERN = /^[a-z0-9][a-z0-9-]{0,63}$/;
+const WORKSPACE_ACTIVITY_LIMIT = 12;
+const VALID_COURSE_SLUGS = new Set(COURSE_ENTRIES.map(({ course }) => String(course.slug)));
+
+function isValidActivityUserId(userId: string) {
+  return typeof userId === "string" && userId.trim().length > 0 && userId.length <= 255;
+}
+
+export function isValidCourseSlug(value: unknown): value is string {
+  return typeof value === "string" && COURSE_SLUG_PATTERN.test(value) && VALID_COURSE_SLUGS.has(value);
+}
+
+export function isValidLessonNumber(value: unknown, courseSlug?: string): value is number {
+  if (typeof value !== "number" || !Number.isSafeInteger(value) || value < 0) return false;
+  if (!courseSlug || !isValidCourseSlug(courseSlug)) return value <= 10000;
+  return value <= (LESSONS[courseSlug as keyof typeof LESSONS]?.length ?? -1);
+}
+
+function mapCourseActivity(row: {
+  course_slug: string;
+  last_lesson: number;
+  last_viewed_at: string;
+}): WorkspaceCourseActivity {
+  return {
+    courseSlug: row.course_slug,
+    lastLesson: row.last_lesson,
+    lastViewedAt: row.last_viewed_at,
+  };
+}
+
+/** Record the latest viewed lesson for one user/course pair. */
+export function upsertCourseActivity(userId: string, courseSlug: string, lesson: number): WorkspaceCourseActivity {
+  if (!isValidActivityUserId(userId)) throw new TypeError("invalid user id");
+  if (!isValidCourseSlug(courseSlug)) throw new TypeError("invalid course slug");
+  if (!isValidLessonNumber(lesson, courseSlug)) throw new TypeError("invalid lesson number");
+
+  const db = getDb();
+  db.prepare(
+    `INSERT INTO workspace_course_activity (user_id, course_slug, last_lesson, last_viewed_at)
+     VALUES (?, ?, ?, datetime('now'))
+     ON CONFLICT(user_id, course_slug) DO UPDATE SET
+       last_lesson = excluded.last_lesson,
+       last_viewed_at = excluded.last_viewed_at`
+  ).run(userId, courseSlug, lesson);
+  const row = db
+    .prepare(
+      `SELECT course_slug, last_lesson, last_viewed_at
+       FROM workspace_course_activity
+       WHERE user_id = ? AND course_slug = ?`
+    )
+    .get(userId, courseSlug) as { course_slug: string; last_lesson: number; last_viewed_at: string } | undefined;
+  if (!row) throw new Error("course activity write could not be read back");
+  return mapCourseActivity(row);
+}
+
+/** Return the most recently viewed courses for one authenticated user. */
+export function listRecentCourseActivity(userId: string, limit = WORKSPACE_RECENT_COURSE_LIMIT): WorkspaceCourseActivity[] {
+  if (!isValidActivityUserId(userId)) throw new TypeError("invalid user id");
+  const safeLimit = clampLimit(limit, WORKSPACE_RECENT_COURSE_LIMIT, WORKSPACE_ACTIVITY_LIMIT);
+  const rows = getDb()
+    .prepare(
+      `SELECT course_slug, last_lesson, last_viewed_at
+       FROM workspace_course_activity
+       WHERE user_id = ?
+       ORDER BY last_viewed_at DESC, course_slug ASC
+       LIMIT ?`
+    )
+    .all(userId, safeLimit) as Array<{ course_slug: string; last_lesson: number; last_viewed_at: string }>;
+  return rows.map(mapCourseActivity);
+}
+
+// Keep the shorter name available for the workspace page contract.
+export const listRecent = listRecentCourseActivity;
+
+const CORE_COURSE_SLUGS = LABS.flatMap((lab) => lab.courses.map((course) => course.slug));
+const ALL_COURSE_SLUGS = COURSE_ENTRIES.map(({ course }) => course.slug);
+
+function lessonCount(slugs: readonly string[]) {
+  return slugs.reduce((total, slug) => total + (LESSONS[slug as keyof typeof LESSONS]?.length ?? 0), 0);
+}
+
+const STATIC_WORKSPACE_CATALOG: Omit<WorkspaceCatalogSnapshot, "enabledResources" | "resourcesByCategory"> = {
+  labCount: LABS.length,
+  coreCourseCount: CORE_COURSE_SLUGS.length,
+  totalCourseCount: COURSE_ENTRIES.length,
+  coreLessonCount: lessonCount(CORE_COURSE_SLUGS),
+  totalLessonCount: lessonCount(ALL_COURSE_SLUGS),
+};
+
+function emptyWorkspaceCatalog(): WorkspaceCatalogSnapshot {
+  return {
+    enabledResources: 0,
+    resourcesByCategory: {},
+    ...STATIC_WORKSPACE_CATALOG,
+  };
+}
+
+const WORKSPACE_RELEASE: WorkspaceRelease = {
+  version: CORECOORD_RELEASE,
+  label: `CORECOORD ${CORECOORD_RELEASE}`,
+};
+
+/**
+ * Read the data-backed workspace summary in one server-side call. Resource
+ * metadata is allowed to fail independently from static course content so a
+ * catalogue outage does not blank the entire workspace shell.
+ */
+export function getWorkspaceSnapshot(userId?: string | null): WorkspaceSnapshot {
+  let recentCourses: WorkspaceCourseActivity[] = [];
+  if (userId && isValidActivityUserId(userId)) {
+    try {
+      recentCourses = listRecentCourseActivity(userId);
+    } catch {
+      // The activity table is optional to the static catalogue fallback.
+    }
+  }
+
+  try {
+    const db = getDb();
+    const enabled = db.prepare("SELECT COUNT(*) AS count FROM resources WHERE enabled = 1").get() as { count: number };
+    const categoryRows = db
+      .prepare(
+        `SELECT category_key AS categoryKey, COUNT(*) AS count
+         FROM resources
+         WHERE enabled = 1
+         GROUP BY category_key
+         ORDER BY category_key ASC`
+      )
+      .all() as Array<{ categoryKey: string; count: number }>;
+    const recentRows = db
+      .prepare(`SELECT ${RESOURCE_COLUMNS} FROM resources WHERE enabled = 1 ORDER BY updated_at DESC, id DESC LIMIT ?`)
+      .all(WORKSPACE_RECENT_RESOURCE_LIMIT) as ResourceRow[];
+
+    const resourcesByCategory = Object.fromEntries(
+      categoryRows.map((row) => [row.categoryKey, Number(row.count)])
+    );
+    return {
+      catalog: {
+        ...emptyWorkspaceCatalog(),
+        enabledResources: Number(enabled.count),
+        resourcesByCategory,
+      },
+      recentResources: recentRows.map(toResourceDTO),
+      recentCourses,
+      release: WORKSPACE_RELEASE,
+      resourceStatus: "ready",
+    };
+  } catch {
+    return {
+      catalog: emptyWorkspaceCatalog(),
+      recentResources: [],
+      recentCourses,
+      release: WORKSPACE_RELEASE,
+      resourceStatus: "unavailable",
+    };
+  }
+}
+
 export function toResourceDTO(row: ResourceRow): ResourceDTO {
   return {
     id: row.id,
     title: row.title,
+    titleEn: row.title_en,
     category: row.category,
+    categoryEn: row.category_en,
     categoryKey: row.category_key,
     kind: row.kind,
     format: row.format,

@@ -164,9 +164,9 @@ jobs:
           const db = new Database(process.env.DASH_AUTH_DB);
           db.prepare(`
             INSERT INTO resources
-              (title, category, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
-            VALUES (?, ?, ?, 'file', ?, ?, NULL, NULL, ?, NULL, 9999)
-          `).run('CI smoke file', '品牌系统', 'brand-system', 'TXT', 22, 'files/corecoord/brand-system/logo/ci-smoke.txt');
+              (title, title_en, category, category_en, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
+            VALUES (?, ?, ?, ?, ?, 'file', ?, ?, NULL, NULL, ?, NULL, 9999)
+          `).run('CI smoke file', 'CI smoke file', '品牌系统', 'Brand system', 'brand-system', 'TXT', 22, 'files/corecoord/brand-system/logo/ci-smoke.txt');
           db.close();
           NODE
           smoke_release=ci-standalone-smoke

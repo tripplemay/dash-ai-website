@@ -8,7 +8,7 @@ import { pipeline } from "node:stream/promises";
 import { Readable } from "node:stream";
 import { auth, AUTH_DISABLED } from "@/lib/auth";
 import { getDb, getResourceByFileKey } from "@/lib/db";
-import { RESOURCE_CATS_STORE, resolveResourceCategory } from "@/lib/data";
+import { RESOURCE_CATEGORY_EN, RESOURCE_CATS_STORE, resolveResourceCategory } from "@/lib/data";
 import { getStorage, StorageError } from "@/lib/storage";
 import type { StoredObject } from "@/lib/storage";
 
@@ -218,7 +218,7 @@ async function validateUpload(input: { size: number; mimeType: string; tempPath:
 }
 
 /**
- * 资源上传：POST multipart/form-data { file, title, category, print_advice?, overwrite? }。
+ * 资源上传：POST multipart/form-data { file, title, title_en, category, print_advice?, overwrite? }。
  * 文件先写入同目录临时文件，再原子替换；数据库失败会回滚替换。
  */
 export async function POST(req: NextRequest) {
@@ -246,14 +246,17 @@ export async function POST(req: NextRequest) {
   }
   try {
     const title = String(upload.fields.title || "").trim();
+    const titleEn = String(upload.fields.title_en || "").trim();
     const categoryInput = String(upload.fields.category || "").trim();
     const printAdvice = String(upload.fields.print_advice || "").trim();
     const overwrite = upload.fields.overwrite === "1";
 
     if (!title || title.length > 200) return NextResponse.json({ error: "INVALID_TITLE" }, { status: 400 });
+    if (!titleEn || titleEn.length > 200) return NextResponse.json({ error: "INVALID_TITLE_EN" }, { status: 400 });
     if (printAdvice.length > 1000) return NextResponse.json({ error: "INVALID_ADVICE" }, { status: 400 });
     const category = resolveResourceCategory(categoryInput);
     if (!category || !RESOURCE_CATS_STORE.includes(category.label)) return NextResponse.json({ error: "INVALID_CATEGORY" }, { status: 400 });
+    const categoryEn = RESOURCE_CATEGORY_EN[category.label] || category.label;
 
     // basename 后再清理控制字符和危险符号；拒绝点文件和无扩展名上传。
     const original = path.basename(upload.filename.replaceAll("\\", "/")).normalize("NFC");
@@ -290,19 +293,19 @@ export async function POST(req: NextRequest) {
         if (existing) {
           db.prepare(
             `UPDATE resources
-             SET title = ?, category = ?, category_key = ?, kind = 'file', format = ?, size = ?,
+             SET title = ?, title_en = ?, category = ?, category_en = ?, category_key = ?, kind = 'file', format = ?, size = ?,
                  print_advice = ?, file_key = ?, preview = ?, enabled = 1, updated_at = datetime('now')
              WHERE id = ?`
-          ).run(title, category.label, category.key, extLabel, stored.bytes, printAdvice || null, fileKey, preview, existing.id);
+          ).run(title, titleEn, category.label, categoryEn, category.key, extLabel, stored.bytes, printAdvice || null, fileKey, preview, existing.id);
           return existing.id;
         }
         const maxSort = (db.prepare("SELECT COALESCE(MAX(sort), 0) AS m FROM resources").get() as { m: number }).m;
         const info = db
           .prepare(
-            `INSERT INTO resources (title, category, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
-             VALUES (?, ?, ?, 'file', ?, ?, NULL, ?, ?, ?, ?)`
+            `INSERT INTO resources (title, title_en, category, category_en, category_key, kind, format, size, dimensions, print_advice, file_key, preview, sort)
+             VALUES (?, ?, ?, ?, ?, 'file', ?, ?, NULL, ?, ?, ?, ?)`
           )
-          .run(title, category.label, category.key, extLabel, stored.bytes, printAdvice || null, fileKey, preview, maxSort + 10);
+          .run(title, titleEn, category.label, categoryEn, category.key, extLabel, stored.bytes, printAdvice || null, fileKey, preview, maxSort + 10);
         return Number(info.lastInsertRowid);
       })();
       try {
@@ -319,13 +322,15 @@ export async function POST(req: NextRequest) {
             if (existing) {
               db.prepare(
                 `UPDATE resources
-                 SET title = ?, category = ?, category_key = ?, kind = ?, format = ?, size = ?,
+                 SET title = ?, title_en = ?, category = ?, category_en = ?, category_key = ?, kind = ?, format = ?, size = ?,
                      dimensions = ?, print_advice = ?, file_key = ?, preview = ?, sort = ?,
                      enabled = ?, updated_at = ?
                  WHERE id = ?`
               ).run(
                 existing.title,
+                existing.title_en,
                 existing.category,
+                existing.category_en,
                 existing.category_key,
                 existing.kind,
                 existing.format,

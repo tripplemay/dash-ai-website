@@ -2,18 +2,19 @@
 
 import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, Download, Eye, FolderOpen, Package, Search, SlidersHorizontal, X } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { RESOURCE_CATS, RESOURCE_CATEGORIES, resolveResourceCategory } from "@/lib/data";
 import type { ResourceRow } from "@/lib/db";
 import { cn } from "@/lib/utils";
 import { resourceFileUrl, resourcePreviewUrl } from "@/lib/assets";
+import { localizedResourceTitle } from "@/lib/workspace-copy";
 
 /** 资源卡片数据（服务端从 resources 表查出后传入） */
 export type ResourceItem = Pick<
   ResourceRow,
-  "id" | "title" | "category" | "kind" | "dimensions" | "print_advice" | "file_key" | "preview"
+  "id" | "title" | "title_en" | "category" | "kind" | "dimensions" | "print_advice" | "file_key" | "preview"
 >;
 
 export function ResourceCenter({
@@ -30,6 +31,7 @@ export function ResourceCenter({
   initialSort?: string;
 }) {
   const t = useTranslations("resources");
+  const locale = useLocale() === "en" ? "en" : "zh";
   const categoryLabels = t.raw("categories") as string[];
   const sp = useSearchParams();
   const pathname = usePathname();
@@ -136,11 +138,11 @@ export function ResourceCenter({
             key={r.id}
             className="flex flex-col overflow-hidden rounded-lg border border-neutral-200 bg-card shadow-card transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover"
           >
-            <Link href={`/resources/${r.id}`} aria-label={t("openDetail", { title: r.title })}>
+            <Link href={`/resources/${r.id}`} aria-label={t("openDetail", { title: localizedResourceTitle(r, locale) })}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={resourcePreviewUrl(r.preview)}
-                alt={r.title}
+                alt={localizedResourceTitle(r, locale)}
                 width={640}
                 height={400}
                 loading="lazy"
@@ -149,7 +151,7 @@ export function ResourceCenter({
               />
             </Link>
             <div className="flex flex-1 flex-col p-[14px_16px_16px]">
-              <h3 className="text-[16.5px] font-extrabold">{r.title}</h3>
+              <h3 className="text-[16.5px] font-extrabold">{localizedResourceTitle(r, locale)}</h3>
               <div className="mt-1.5 text-[11.5px] leading-[1.7] text-muted-foreground">
                 {r.dimensions}
                 {r.dimensions && r.print_advice ? <br /> : null}

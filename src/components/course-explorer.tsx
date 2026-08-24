@@ -28,6 +28,30 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
   const [lessonQuery, setLessonQuery] = useState("");
   const contentRef = useRef<HTMLDivElement>(null);
   const sidebarRef = useRef<HTMLElement>(null);
+  const activityTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const reportActivity = useCallback(
+    (lesson: number) => {
+      if (activityTimerRef.current) clearTimeout(activityTimerRef.current);
+      activityTimerRef.current = setTimeout(() => {
+        void fetch("/api/workspace/activity", {
+          method: "POST",
+          credentials: "include",
+          keepalive: true,
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ courseSlug: course.slug, lesson }),
+        }).catch(() => undefined);
+      }, 350);
+    },
+    [course.slug]
+  );
+
+  useEffect(() => {
+    reportActivity(initial);
+    return () => {
+      if (activityTimerRef.current) clearTimeout(activityTimerRef.current);
+    };
+  }, [initial, reportActivity]);
 
   // 深链直达（如 drone ?lesson=25）时，把左栏滚动到当前选中项
   useEffect(() => {
@@ -41,6 +65,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
     (i: number) => {
       const next = Math.max(0, Math.min(i, lessons.length));
       setCur(next);
+      reportActivity(next);
       const params = new URLSearchParams(window.location.search);
       if (next === 0) params.delete("lesson");
       else params.set("lesson", String(next));
@@ -49,7 +74,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
       window.history.pushState(null, "", url);
       contentRef.current?.scrollIntoView({ block: "start" });
     },
-    [lessons.length]
+    [lessons.length, reportActivity]
   );
 
   const onKeyDown = useCallback(
@@ -71,10 +96,11 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
       const raw = Number(new URLSearchParams(window.location.search).get("lesson"));
       const next = Number.isFinite(raw) && raw >= 1 ? Math.min(Math.floor(raw), lessons.length) : 0;
       setCur(next);
+      reportActivity(next);
     };
     window.addEventListener("popstate", onPopState);
     return () => window.removeEventListener("popstate", onPopState);
-  }, [lessons.length]);
+  }, [lessons.length, reportActivity]);
 
   /** 左栏/顶部条共用的导航项 */
   const navButton = (item: { n: number; title: string }, mobile: boolean) => {

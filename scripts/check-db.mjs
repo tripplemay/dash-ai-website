@@ -15,7 +15,8 @@ try {
   // non-empty user set before allowing an upgrade to proceed.
   const authOnly = process.env.DASH_CHECK_DB_AUTH_ONLY === "1";
   const required = authOnly ? ["user"] : ["user", "session", "account", "verification"];
-  if (!authOnly && process.env.DASH_CHECK_DB_REQUIRE_RESOURCES === "1") required.push("resources");
+  const requireWorkspaceSchema = !authOnly && process.env.DASH_CHECK_DB_REQUIRE_RESOURCES === "1";
+  if (requireWorkspaceSchema) required.push("resources", "workspace_course_activity");
   const placeholders = required.map(() => "?").join(",");
   const present = new Set(
     db
@@ -28,6 +29,13 @@ try {
 
   const users = db.prepare("SELECT COUNT(*) AS count FROM user").get().count;
   if (users < 1) throw new Error("database is not initialized; no user account exists");
+  if (requireWorkspaceSchema) {
+    const resourceColumns = new Set(db.prepare("PRAGMA table_info(resources)").all().map((row) => row.name));
+    const missingResourceColumns = ["title_en", "category_en"].filter((name) => !resourceColumns.has(name));
+    if (missingResourceColumns.length) {
+      throw new Error(`database is not ready; resources is missing columns: ${missingResourceColumns.join(", ")}`);
+    }
+  }
   console.log(`database ready: ${dbPath} (${users} users)`);
 } finally {
   db.close();

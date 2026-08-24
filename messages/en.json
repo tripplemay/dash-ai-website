@@ -32,14 +32,126 @@
     "guide": "Guide",
     "more": "More",
     "search": "Search resources",
-    "searchPlaceholder": "Search resources, courses, or keywords",
+    "searchPlaceholder": "Search approved resources or keywords",
     "primaryNavigation": "Primary navigation",
-    "secondaryNavigation": "Help and tools"
+    "secondaryNavigation": "Help and tools",
+    "skipToContent": "Skip to main content"
   },
   "brandManual": {
     "title": "Brand guidelines",
     "navigation": "Brand guideline sections",
     "contentLabel": "CORECOORD visual identity guidelines"
+  },
+  "workspace": {
+    "eyebrow": "PARTNER WORKSPACE · CORECOORD",
+    "title": "Start from here",
+    "subtitle": "Move quickly between brand assets, course content, and presentation tools with one clear path to delivery.",
+    "headerAction": "Open courseware wizard",
+    "roleHint": "Workspace view for {role}",
+    "roles": {
+      "default": "workspace member",
+      "admin": "admin",
+      "partner": "partner",
+      "teacher": "teacher",
+      "guest": "guest"
+    },
+    "release": {
+      "ariaLabel": "Current brand release",
+      "label": "CURRENT RELEASE",
+      "version": "CORECOORD VI System 2026.1",
+      "status": "Brand assets and course catalogue are in sync",
+      "updated": "Updated {date}",
+      "catalogReady": "Catalogue online",
+      "catalogUnavailable": "Catalogue temporarily unavailable"
+    },
+    "actionsTitle": "Quick access",
+    "actionsSubtitle": "Start with the work context in front of you.",
+    "actions": {
+      "resources": {
+        "title": "Resource center",
+        "description": "Find approved logos, colors, templates, and previews by category.",
+        "cta": "Browse resources"
+      },
+      "courses": {
+        "title": "Course center",
+        "description": "Explore lab pathways, course projects, and lesson details.",
+        "cta": "View courses"
+      },
+      "presentations": {
+        "title": "Presentation center",
+        "description": "Choose screen playback or course walkthrough mode for a live session.",
+        "cta": "Choose a mode"
+      },
+      "brand": {
+        "title": "Brand guidelines",
+        "description": "Check logo, type, color, layout, and release rules before delivery.",
+        "cta": "Open guidelines"
+      }
+    },
+    "continue": {
+      "title": "Continue reading",
+      "subtitle": "Return to the course and lesson you opened most recently.",
+      "open": "Continue",
+      "lesson": "Lesson {n}",
+      "overview": "Course overview",
+      "emptyTitle": "Start your workspace",
+      "emptySubtitle": "Your recent course activity will appear here after you open a course.",
+      "emptyBody": "Choose a course pathway to explore projects, lesson outlines, and presentation-ready material.",
+      "emptyAction": "Explore courses"
+    },
+    "activity": {
+      "title": "Recently updated",
+      "subtitle": "Pick up from the latest published resources.",
+      "open": "Open resource: {title}",
+      "emptyTitle": "No recent updates",
+      "emptySubtitle": "Published resources will appear here.",
+      "showAll": "Show all",
+      "showLess": "Show less"
+    },
+    "resources": {
+      "title": "Recent resources",
+      "subtitle": "The latest approved assets available to your workspace.",
+      "open": "Open resource: {title}",
+      "emptyTitle": "No published resources",
+      "emptySubtitle": "Published assets will appear here.",
+      "unavailableTitle": "Resource catalogue unavailable",
+      "unavailableSubtitle": "The static workspace is still available. Try the resource center again shortly.",
+      "showAll": "Show all",
+      "showLess": "Show less"
+    },
+    "catalog": {
+      "title": "Content catalogue",
+      "subtitle": "What is available in this workspace.",
+      "resources": "Resources",
+      "resourcesDetail": "Published assets",
+      "labs": "Labs",
+      "labsDetail": "{count} learning paths",
+      "courses": "Courses",
+      "coursesDetail": "{core} core + pilot",
+      "lessons": "Lessons",
+      "lessonsDetail": "{core} core + pilot"
+    },
+    "labs": {
+      "title": "Course pathways",
+      "subtitle": "Enter a lab by capability and project direction.",
+      "viewAll": "View course center",
+      "courseCount": "{count} courses",
+      "hours": "{count} hours"
+    },
+    "featured": {
+      "title": "Featured resources",
+      "subtitle": "Official previews for conversations, selection, and live presentation.",
+      "viewAll": "View all resources",
+      "viewPreviews": "Browse previews",
+      "viewGuidelines": "Read guidelines",
+      "open": "View resource category: {title}",
+      "labels": {
+        "cover": "Brand key visual",
+        "stages": "Stage color system",
+        "certificate": "Growth certificate sample",
+        "field": "Coordinate field graphic"
+      }
+    }
   },
   "errors": {
     "title": "This page could not load",
@@ -261,6 +373,7 @@
       "uploadTitle": "Upload resource",
       "colFile": "File",
       "colTitle": "Title",
+      "colTitleEn": "English title",
       "colCategory": "Category",
       "colAdvice": "Usage advice",
       "colPreview": "Preview",

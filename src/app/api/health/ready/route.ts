@@ -60,12 +60,20 @@ export async function GET() {
     const tables = db
       .prepare(
         `SELECT name FROM sqlite_master
-         WHERE type = 'table' AND name IN ('resources', 'user', 'session', 'account', 'verification')`
+         WHERE type = 'table' AND name IN (
+           'resources', 'user', 'session', 'account', 'verification', 'workspace_course_activity'
+         )`
       )
       .all() as Array<{ name: string }>;
 
-    if (tables.length < 5) {
+    if (tables.length < 6) {
       throw new Error("required database tables are unavailable");
+    }
+    const resourceColumns = db.prepare("PRAGMA table_info(resources)").all() as Array<{ name: string }>;
+    const hasBilingualResources =
+      resourceColumns.some(({ name }) => name === "title_en") && resourceColumns.some(({ name }) => name === "category_en");
+    if (!hasBilingualResources) {
+      throw new Error("resource bilingual columns are unavailable");
     }
     if (!assetVolumeIsReady()) {
       throw new Error("required asset volume is unavailable");

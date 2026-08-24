@@ -1,5 +1,5 @@
-import { headers } from "next/headers";
-import { auth, AUTH_DISABLED } from "@/lib/auth";
+import { AUTH_DISABLED } from "@/lib/auth";
+import { getRequestSession } from "@/lib/request-session";
 
 /**
  * 管理端守卫：校验登录且 role === "admin"。
@@ -8,7 +8,7 @@ import { auth, AUTH_DISABLED } from "@/lib/auth";
  */
 export async function requireAdmin() {
   if (AUTH_DISABLED) return null;
-  const session = await auth.api.getSession({ headers: await headers() });
+  const session = await getRequestSession();
   if (!session) throw new Error("UNAUTHORIZED");
   if ((session.user as { role?: string }).role !== "admin") throw new Error("FORBIDDEN");
   return session;
@@ -16,5 +16,5 @@ export async function requireAdmin() {
 
 export async function getAdminSession() {
   if (AUTH_DISABLED) return null;
-  return auth.api.getSession({ headers: await headers() });
+  return getRequestSession();
 }
