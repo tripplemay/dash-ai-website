@@ -16,7 +16,26 @@ const REPO_ROOT = path.resolve(SCRIPT_DIR, "..");
 const LESSON_SEED_PATH = path.join(SCRIPT_DIR, "lessons-seed.json");
 const LESSON_CONTENT_PATH = path.join(SCRIPT_DIR, "lessons-content.json");
 const RESOURCE_SEED_PATH = path.join(SCRIPT_DIR, "resources-seed.json");
+const PARENT_FAQ_PATH = path.join(REPO_ROOT, "content", "parent-faq.zh.json");
 const EXPECTED_TOTAL_LESSONS = 135;
+const EXPECTED_FAQ_VERSION = "2026.1";
+const EXPECTED_FAQ_GROUPS = [
+  ["why-learn", "为什么学"],
+  ["how-learn", "如何学"],
+  ["what-learners-build", "学到什么"],
+];
+const EXPECTED_FAQ_ITEMS = 10;
+const FORBIDDEN_FAQ_PHRASES = [
+  "20–25",
+  "20-25",
+  "青少年过滤",
+  "持证讲师",
+  "平行班插班",
+  "一对一",
+  "全额退",
+  "剩余课时",
+  "体验课免费",
+];
 const RESOURCE_BILINGUAL_FIELDS = ["title", "title_en", "category", "category_en"];
 
 function usage() {
@@ -187,11 +206,133 @@ function validateResources(value, errors) {
   return { count: value.length, uniqueFileKeys, bilingualFieldsComplete };
 }
 
+function validateParentFaq(value, errors) {
+  const summary = {
+    version: null,
+    locale: null,
+    groups: 0,
+    items: 0,
+    uniqueSlugs: false,
+    structureComplete: false,
+    unsupportedClaimsAbsent: false,
+  };
+  if (!isRecord(value)) {
+    errors.push({ code: "INVALID_PARENT_FAQ", path: "content/parent-faq.zh.json", message: "FAQ source must be a JSON object" });
+    return summary;
+  }
+
+  summary.version = value.version ?? null;
+  summary.locale = value.locale ?? null;
+  if (value.version !== EXPECTED_FAQ_VERSION) {
+    errors.push({ code: "FAQ_VERSION_MISMATCH", path: "content/parent-faq.zh.json.version", message: `expected ${EXPECTED_FAQ_VERSION}` });
+  }
+  if (value.locale !== "zh") {
+    errors.push({ code: "FAQ_LOCALE_MISMATCH", path: "content/parent-faq.zh.json.locale", message: "this source must use locale zh" });
+  }
+  if (!nonEmptyString(value.source)) {
+    errors.push({ code: "MISSING_FAQ_SOURCE", path: "content/parent-faq.zh.json.source", message: "source must be a non-empty string" });
+  }
+  if (!Array.isArray(value.groups)) {
+    errors.push({ code: "INVALID_FAQ_GROUPS", path: "content/parent-faq.zh.json.groups", message: "groups must be an array" });
+    return summary;
+  }
+
+  summary.groups = value.groups.length;
+  if (value.groups.length !== EXPECTED_FAQ_GROUPS.length) {
+    errors.push({ code: "UNEXPECTED_FAQ_GROUP_COUNT", path: "content/parent-faq.zh.json.groups", message: `expected ${EXPECTED_FAQ_GROUPS.length} groups, found ${value.groups.length}` });
+  }
+
+  const groupIds = new Set();
+  const slugs = new Set();
+  const questions = new Set();
+  let structureComplete = true;
+  for (const [groupIndex, group] of value.groups.entries()) {
+    const groupPath = `content/parent-faq.zh.json.groups[${groupIndex}]`;
+    if (!isRecord(group)) {
+      structureComplete = false;
+      errors.push({ code: "INVALID_FAQ_GROUP", path: groupPath, message: "group must be an object" });
+      continue;
+    }
+
+    const expectedGroup = EXPECTED_FAQ_GROUPS[groupIndex];
+    if (!expectedGroup || group.id !== expectedGroup[0] || group.title !== expectedGroup[1]) {
+      structureComplete = false;
+      errors.push({ code: "FAQ_GROUP_ORDER_MISMATCH", path: groupPath, message: expectedGroup ? `expected ${expectedGroup[0]} / ${expectedGroup[1]}` : "unexpected group" });
+    }
+    if (!nonEmptyString(group.id) || groupIds.has(group.id)) {
+      structureComplete = false;
+      errors.push({ code: "INVALID_FAQ_GROUP_ID", path: `${groupPath}.id`, message: "group id must be non-empty and unique" });
+    } else {
+      groupIds.add(group.id);
+    }
+    if (!nonEmptyString(group.title)) {
+      structureComplete = false;
+      errors.push({ code: "MISSING_FAQ_GROUP_TITLE", path: `${groupPath}.title`, message: "group title must be a non-empty string" });
+    }
+    if (!Array.isArray(group.items)) {
+      structureComplete = false;
+      errors.push({ code: "INVALID_FAQ_ITEMS", path: `${groupPath}.items`, message: "items must be an array" });
+      continue;
+    }
+
+    summary.items += group.items.length;
+    for (const [itemIndex, item] of group.items.entries()) {
+      const itemPath = `${groupPath}.items[${itemIndex}]`;
+      if (!isRecord(item)) {
+        structureComplete = false;
+        errors.push({ code: "INVALID_FAQ_ITEM", path: itemPath, message: "item must be an object" });
+        continue;
+      }
+      if (!nonEmptyString(item.slug) || !/^[a-z0-9][a-z0-9-]*$/.test(item.slug) || slugs.has(item.slug)) {
+        structureComplete = false;
+        errors.push({ code: "INVALID_FAQ_SLUG", path: `${itemPath}.slug`, message: "slug must be unique kebab-case" });
+      } else {
+        slugs.add(item.slug);
+      }
+      if (!nonEmptyString(item.question) || questions.has(item.question)) {
+        structureComplete = false;
+        errors.push({ code: "INVALID_FAQ_QUESTION", path: `${itemPath}.question`, message: "question must be non-empty and unique" });
+      } else {
+        questions.add(item.question);
+      }
+      if (!nonEmptyString(item.lead)) {
+        structureComplete = false;
+        errors.push({ code: "MISSING_FAQ_LEAD", path: `${itemPath}.lead`, message: "lead must be a non-empty string" });
+      }
+      if (!Array.isArray(item.paragraphs) || item.paragraphs.length !== 2 || item.paragraphs.some((paragraph) => !nonEmptyString(paragraph))) {
+        structureComplete = false;
+        errors.push({ code: "INVALID_FAQ_PARAGRAPHS", path: `${itemPath}.paragraphs`, message: "paragraphs must contain exactly two non-empty strings" });
+      }
+      if (!nonEmptyString(item.parentTip)) {
+        structureComplete = false;
+        errors.push({ code: "MISSING_FAQ_PARENT_TIP", path: `${itemPath}.parentTip`, message: "parentTip must be a non-empty string" });
+      }
+    }
+  }
+
+  if (summary.items !== EXPECTED_FAQ_ITEMS) {
+    structureComplete = false;
+    errors.push({ code: "UNEXPECTED_FAQ_ITEM_COUNT", path: "content/parent-faq.zh.json.groups", message: `expected ${EXPECTED_FAQ_ITEMS} items, found ${summary.items}` });
+  }
+
+  const serialized = JSON.stringify(value);
+  const matchedForbiddenPhrases = FORBIDDEN_FAQ_PHRASES.filter((phrase) => serialized.includes(phrase));
+  if (matchedForbiddenPhrases.length) {
+    errors.push({ code: "UNSUPPORTED_FAQ_CLAIM", path: "content/parent-faq.zh.json", message: `contains unsupported claims: ${matchedForbiddenPhrases.join(", ")}` });
+  }
+
+  summary.uniqueSlugs = slugs.size === summary.items;
+  summary.structureComplete = structureComplete && summary.items === EXPECTED_FAQ_ITEMS;
+  summary.unsupportedClaimsAbsent = matchedForbiddenPhrases.length === 0;
+  return summary;
+}
+
 function validate() {
   const errors = [];
   const seed = readJson(LESSON_SEED_PATH, "lessons-seed.json", errors);
   const content = readJson(LESSON_CONTENT_PATH, "lessons-content.json", errors);
   const resources = readJson(RESOURCE_SEED_PATH, "resources-seed.json", errors);
+  const parentFaq = readJson(PARENT_FAQ_PATH, "content/parent-faq.zh.json", errors);
 
   const seedCounts = validateLessonMap(seed, "lessons-seed.json", errors);
   const contentCounts = validateLessonMap(content, "lessons-content.json", errors);
@@ -199,6 +340,7 @@ function validate() {
     ? validateLessonParity(seed, content, seedCounts, contentCounts, errors)
     : { seedKeys: Object.keys(seedCounts), contentKeys: Object.keys(contentCounts), seedTotal: 0, contentTotal: 0 };
   const resourceSummary = validateResources(resources, errors);
+  const faqSummary = validateParentFaq(parentFaq, errors);
 
   return {
     ok: errors.length === 0,
@@ -218,6 +360,7 @@ function validate() {
       contentTotal: parity.contentTotal,
     },
     resources: resourceSummary,
+    parentFaq: faqSummary,
     errors,
   };
 }
@@ -228,6 +371,7 @@ function printHuman(report) {
     console.log(`- courses: ${report.courses.seedCount}`);
     console.log(`- lessons: ${report.lessons.seedTotal} (seed/content)`);
     console.log(`- resources: ${report.resources.count} (unique file_key; bilingual fields complete)`);
+    console.log(`- parent FAQ: ${report.parentFaq.items} items in ${report.parentFaq.groups} groups (${report.parentFaq.version})`);
     return;
   }
 
@@ -249,6 +393,7 @@ try {
     courses: null,
     lessons: null,
     resources: null,
+    parentFaq: null,
     errors: [{ code: "INVALID_ARGUMENT", path: "arguments", message: error.message }],
   };
   if (jsonMode) console.log(JSON.stringify(report, null, 2));

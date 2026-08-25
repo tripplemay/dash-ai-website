@@ -1,7 +1,8 @@
 // 将当前静态课程内容导入内容治理表。
-// 用法：DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs
+// 用法：DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs [--faq-only] [--publish-release]
 // 默认导入 zh；可通过 CONTENT_LOCALE=en 等覆盖 locale（翻译内容应在后续编辑流程中补齐）。
 import Database from "better-sqlite3";
+import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,6 +15,31 @@ const locale = (process.env.CONTENT_LOCALE || "zh").trim();
 if (!/^[A-Za-z]{2,8}(?:[-_][A-Za-z0-9]{2,8})?$/.test(locale)) {
   throw new Error("CONTENT_LOCALE must be a BCP-47-like locale (for example zh or en-US)");
 }
+
+function usage() {
+  return "Usage: node scripts/seed-content.mjs [--faq-only] [--publish-release]";
+}
+
+function parseArgs(argv) {
+  let faqOnly = false;
+  let publishRelease = false;
+  for (const arg of argv) {
+    if (arg === "--faq-only") faqOnly = true;
+    else if (arg === "--publish-release") publishRelease = true;
+    else if (arg === "--help" || arg === "-h") {
+      console.log(usage());
+      process.exit(0);
+    } else {
+      throw new Error(`Unknown option: ${arg}\n${usage()}`);
+    }
+  }
+  if (publishRelease && !faqOnly) {
+    throw new Error(`--publish-release requires --faq-only\n${usage()}`);
+  }
+  return { faqOnly, publishRelease };
+}
+
+const options = parseArgs(process.argv.slice(2));
 
 const COURSE_CATALOG = [
   {
@@ -117,51 +143,36 @@ const COURSE_CATALOG = [
   },
 ];
 
-const FAQ = [
-  ["孩子这么小，有必要学 AI 吗？", "AI 正在成为基础能力。我们不教背概念，而是让孩子**用 AI 做出真实作品**——绘本、短片、小程序。"],
-  ["AI 课和编程课有什么区别？", "课程覆盖创作、工程与素养三大方向：既用 AI 做作品，也用代码和硬件构建作品，并理解 AI 的原理与边界。"],
-  ["和传统机器人课比优势在哪？", "九大课程域从体验、创作、工程到智能原理逐步进阶，135 个课次贯穿同一套五步闭环，每课都留下真实作品与过程证据。"],
-  ["九大课程域分别是什么？", "00 AI 体验、01 AI 绘图、02 AI 配音、03 AI 视频、04 AI App 开发、05 AI 无人机创客、06 Python 基础、07 AI 数据分析、08 AI 素养与智能原理。"],
-  ["课程按年龄固定吗？", "不绑定固定年龄，课程按内容与能力进阶编排；具体适配建议由课程顾问根据孩子情况给出。"],
-  ["需要编程或电脑基础吗？", "不需要。所有课程均从零基础设计，只需要好奇心。"],
-  ["上课用什么工具？安全合规吗？", "主流且适合青少年的 AI 工具与编程环境，教研预先筛选并做内容过滤；无人机配安全规范。"],
-  ["孩子学完能得到什么？", "带走原创绘本、配音作品、多镜头短片、可上线 App、组装无人机、可运行代码、数据看板与模型实验记录。"],
-  ["课程如何培养通用能力？", "四项能力轴贯穿全部课程：创意表达、计算构建、证据推理、责任判断。"],
-  ["如何知道孩子学得怎么样？", "每课记录做了什么、怎么想的、如何改进，形成作品、过程与证据三件套。"],
-  ["长时间看屏幕伤眼睛吗？", "屏幕+动手交替设计，连续用眼不超过 20–25 分钟，大量实操环节。"],
-  ["AI 生成的内容安全吗？", "工具启用青少年过滤，教师全程引导，课程专设版权与合规模块。"],
-  ["孩子会沉迷吗？", "以创作任务驱动而非游戏化刺激，把屏幕时间从消费转为生产。"],
-  ["老师是什么背景？", "计算机/设计背景教研 + 持证讲师，无人机课由硬件工程经验导师授课。"],
-  ["缺课了怎么办？", "支持提前请假与补课（平行班插班或一对一），课件同步给家长。"],
-  ["费用与退费政策？", "体验课免费；正式课按阶段报名，开课前全额退，开课后按剩余课时比例退。"],
-];
-
-function readJson(file) {
-  return JSON.parse(fs.readFileSync(path.join(ROOT, "scripts", file), "utf8"));
+function readJson(relativePath) {
+  return JSON.parse(fs.readFileSync(path.join(ROOT, relativePath), "utf8"));
 }
+
+const parentFaq = readJson("content/parent-faq.zh.json");
+const FAQ_SOURCE_PATH = "content/parent-faq.zh.json";
+const RELEASE_FAQ_SOURCES = new Set([FAQ_SOURCE_PATH, "src/lib/data.ts"]);
 
 function stableJson(value) {
   return JSON.stringify(value);
 }
 
-function entryId(type, slug) {
-  return `${type}:${slug}:${locale}`;
+function entryId(type, slug, entryLocale = locale) {
+  return `${type}:${slug}:${entryLocale}`;
 }
 
-function upsertEntry(db, { type, slug, payload }) {
-  const id = entryId(type, slug);
+function upsertEntry(db, { type, slug, payload, entryLocale = locale }) {
+  const id = entryId(type, slug, entryLocale);
   const current = db
     .prepare("SELECT id, status, revision FROM content_entries WHERE content_type = ? AND slug = ? AND locale = ?")
-    .get(type, slug, locale);
+    .get(type, slug, entryLocale);
   if (!current) {
     db.prepare(
       `INSERT INTO content_entries (id, content_type, slug, locale, status, revision)
        VALUES (?, ?, ?, ?, 'draft', 1)`
-    ).run(id, type, slug, locale);
+    ).run(id, type, slug, entryLocale);
     db.prepare(
       `INSERT INTO content_revisions (id, entry_id, revision, locale, payload, status)
        VALUES (?, ?, 1, ?, ?, 'draft')`
-    ).run(`${id}:r1`, id, locale, stableJson(payload));
+    ).run(`${id}:r1`, id, entryLocale, stableJson(payload));
     db.prepare(
       `INSERT INTO audit_events (id, entity_type, entity_id, action, revision, to_status, metadata)
        VALUES (?, ?, ?, 'seed.imported', 1, 'draft', '{}')`
@@ -179,7 +190,7 @@ function upsertEntry(db, { type, slug, payload }) {
   db.prepare(
     `INSERT INTO content_revisions (id, entry_id, revision, locale, payload, status)
      VALUES (?, ?, ?, ?, ?, 'draft')`
-  ).run(`${id}:r${revision}`, current.id, revision, locale, serialized);
+  ).run(`${current.id}:r${revision}`, current.id, revision, entryLocale, serialized);
   db.prepare(
     `UPDATE content_entries
      SET status = 'draft', revision = ?, reviewer_id = NULL, published_at = NULL, updated_at = datetime('now')
@@ -188,12 +199,254 @@ function upsertEntry(db, { type, slug, payload }) {
   db.prepare(
     `INSERT OR IGNORE INTO audit_events (id, entity_type, entity_id, action, revision, from_status, to_status, metadata)
      VALUES (?, ?, ?, 'seed.updated', ?, ?, 'draft', '{}')`
-  ).run(`${id}:audit:r${revision}`, type, current.id, revision, current.status);
+  ).run(`${current.id}:audit:r${revision}`, type, current.id, revision, current.status);
   return { id: current.id, changed: true, revision };
 }
 
+function parsePayload(payload) {
+  try {
+    const value = JSON.parse(payload);
+    return value && typeof value === "object" && !Array.isArray(value) ? value : null;
+  } catch {
+    return null;
+  }
+}
+
+function isReleaseOwnedFaq(payload) {
+  return typeof payload?.source === "string" && RELEASE_FAQ_SOURCES.has(payload.source);
+}
+
+function buildFaqRecords() {
+  if (!parentFaq || typeof parentFaq !== "object" || !Array.isArray(parentFaq.groups)) {
+    throw new Error(`${FAQ_SOURCE_PATH} must contain a groups array`);
+  }
+  if (typeof parentFaq.locale !== "string" || !parentFaq.locale.trim()) {
+    throw new Error(`${FAQ_SOURCE_PATH} must define locale`);
+  }
+
+  let order = 0;
+  return parentFaq.groups.flatMap((group) => {
+    if (!group || typeof group !== "object" || !Array.isArray(group.items)) {
+      throw new Error(`${FAQ_SOURCE_PATH} contains an invalid FAQ group`);
+    }
+    return group.items.map((item) => {
+      order += 1;
+      return {
+        slug: item.slug,
+        payload: {
+          kind: "faq",
+          slug: item.slug,
+          group: group.id,
+          groupTitle: group.title,
+          order,
+          question: item.question,
+          lead: item.lead,
+          paragraphs: item.paragraphs,
+          parentTip: item.parentTip,
+          source: FAQ_SOURCE_PATH,
+          sourceDocument: parentFaq.source,
+          sourceVersion: parentFaq.version,
+        },
+      };
+    });
+  });
+}
+
+const FAQ_RECORDS = buildFaqRecords();
+const faqLocale = parentFaq.locale.trim();
+
+function latestRevision(db, entryIdValue) {
+  return db
+    .prepare(
+      `SELECT revision, payload, status
+       FROM content_revisions
+       WHERE entry_id = ?
+       ORDER BY revision DESC
+       LIMIT 1`
+    )
+    .get(entryIdValue);
+}
+
+function insertReleaseAudit(db, { entityId, action, revision, fromStatus, toStatus }) {
+  db.prepare(
+    `INSERT INTO audit_events
+     (id, entity_type, entity_id, action, revision, from_status, to_status, metadata)
+     VALUES (?, 'faq', ?, ?, ?, ?, ?, ?)`
+  ).run(
+    `audit:${randomUUID()}`,
+    entityId,
+    action,
+    revision,
+    fromStatus,
+    toStatus,
+    stableJson({ source: FAQ_SOURCE_PATH, sourceVersion: parentFaq.version })
+  );
+}
+
+function assertFaqEntryIsReleaseOwned(db, entry) {
+  if (!entry) return null;
+  const latest = latestRevision(db, entry.id);
+  if (!latest || !isReleaseOwnedFaq(parsePayload(latest.payload))) {
+    throw new Error(`FAQ slug ${entry.slug} is already owned by manually managed content`);
+  }
+  return latest;
+}
+
+function upsertPublishedFaq(db, record) {
+  const id = entryId("faq", record.slug, faqLocale);
+  const current = db
+    .prepare("SELECT id, slug, status, revision FROM content_entries WHERE content_type = 'faq' AND slug = ? AND locale = ?")
+    .get(record.slug, faqLocale);
+  const serialized = stableJson(record.payload);
+
+  if (!current) {
+    db.prepare(
+      `INSERT INTO content_entries
+       (id, content_type, slug, locale, status, revision, published_at)
+       VALUES (?, 'faq', ?, ?, 'published', 1, datetime('now'))`
+    ).run(id, record.slug, faqLocale);
+    db.prepare(
+      `INSERT INTO content_revisions
+       (id, entry_id, revision, locale, payload, status, published_at)
+       VALUES (?, ?, 1, ?, ?, 'published', datetime('now'))`
+    ).run(`${id}:r1`, id, faqLocale, serialized);
+    insertReleaseAudit(db, {
+      entityId: id,
+      action: "release.faq_imported",
+      revision: 1,
+      fromStatus: null,
+      toStatus: "published",
+    });
+    return { id, changed: true, revision: 1, action: "imported" };
+  }
+
+  const latest = assertFaqEntryIsReleaseOwned(db, current);
+  if (latest.payload !== serialized) {
+    const revision = Math.max(Number(current.revision) || 0, Number(latest.revision) || 0) + 1;
+    db.prepare(
+      `INSERT INTO content_revisions
+       (id, entry_id, revision, locale, payload, status, published_at)
+       VALUES (?, ?, ?, ?, ?, 'published', datetime('now'))`
+    ).run(`${current.id}:r${revision}`, current.id, revision, faqLocale, serialized);
+    db.prepare(
+      `UPDATE content_entries
+       SET status = 'published', revision = ?, reviewer_id = NULL,
+           published_at = datetime('now'), updated_at = datetime('now')
+       WHERE id = ?`
+    ).run(revision, current.id);
+    insertReleaseAudit(db, {
+      entityId: current.id,
+      action: "release.faq_updated",
+      revision,
+      fromStatus: current.status,
+      toStatus: "published",
+    });
+    return { id: current.id, changed: true, revision, action: "updated" };
+  }
+
+  if (current.status === "published" && latest.status === "published" && Number(current.revision) === Number(latest.revision)) {
+    return { id: current.id, changed: false, revision: latest.revision, action: "unchanged" };
+  }
+
+  db.prepare(
+    `UPDATE content_entries
+     SET status = 'published', revision = ?, reviewer_id = NULL,
+         published_at = datetime('now'), updated_at = datetime('now')
+     WHERE id = ?`
+  ).run(latest.revision, current.id);
+  db.prepare(
+    `UPDATE content_revisions
+     SET status = 'published', reviewer_id = NULL, published_at = datetime('now')
+     WHERE entry_id = ? AND revision = ?`
+  ).run(current.id, latest.revision);
+  insertReleaseAudit(db, {
+    entityId: current.id,
+    action: "release.faq_published",
+    revision: latest.revision,
+    fromStatus: current.status,
+    toStatus: "published",
+  });
+  return { id: current.id, changed: true, revision: latest.revision, action: "published" };
+}
+
+function archiveStaleReleaseFaq(db, currentSlugs) {
+  const rows = db
+    .prepare(
+      `SELECT e.id, e.slug, e.locale, e.status, r.revision AS latest_revision,
+              r.payload, r.status AS revision_status
+       FROM content_entries e
+       LEFT JOIN content_revisions r
+         ON r.entry_id = e.id
+        AND r.revision = (
+          SELECT MAX(latest.revision) FROM content_revisions latest WHERE latest.entry_id = e.id
+        )
+       WHERE e.content_type = 'faq'`
+    )
+    .all();
+  let archived = 0;
+  for (const row of rows) {
+    const isCurrentFaq = row.locale === faqLocale && currentSlugs.has(row.slug);
+    if (isCurrentFaq || !isReleaseOwnedFaq(parsePayload(row.payload))) continue;
+    if (row.status === "archived" && row.revision_status === "archived") continue;
+
+    db.prepare(
+      `UPDATE content_entries
+       SET status = 'archived', updated_at = datetime('now')
+       WHERE id = ?`
+    ).run(row.id);
+    if (Number(row.latest_revision) > 0) {
+      db.prepare(
+        `UPDATE content_revisions
+         SET status = 'archived'
+         WHERE entry_id = ? AND revision = ?`
+      ).run(row.id, row.latest_revision);
+    }
+    insertReleaseAudit(db, {
+      entityId: row.id,
+      action: "release.faq_archived",
+      revision: row.latest_revision,
+      fromStatus: row.status,
+      toStatus: "archived",
+    });
+    archived += 1;
+  }
+  return archived;
+}
+
+function seedFaqDrafts(db) {
+  const summary = { faq: 0, revisions: 0, archived: 0 };
+  for (const record of FAQ_RECORDS) {
+    const current = db
+      .prepare("SELECT id, slug FROM content_entries WHERE content_type = 'faq' AND slug = ? AND locale = ?")
+      .get(record.slug, faqLocale);
+    assertFaqEntryIsReleaseOwned(db, current);
+    const result = upsertEntry(db, {
+      type: "faq",
+      slug: record.slug,
+      payload: record.payload,
+      entryLocale: faqLocale,
+    });
+    summary.faq += 1;
+    if (result.changed) summary.revisions += 1;
+  }
+  summary.archived = archiveStaleReleaseFaq(db, new Set(FAQ_RECORDS.map((record) => record.slug)));
+  return summary;
+}
+
+function publishFaqRelease(db) {
+  const summary = { faq: 0, revisions: 0, imported: 0, updated: 0, published: 0, archived: 0 };
+  for (const record of FAQ_RECORDS) {
+    const result = upsertPublishedFaq(db, record);
+    summary.faq += 1;
+    if (result.changed) summary.revisions += 1;
+    if (result.action in summary) summary[result.action] += 1;
+  }
+  summary.archived = archiveStaleReleaseFaq(db, new Set(FAQ_RECORDS.map((record) => record.slug)));
+  return summary;
+}
+
 function seedContent(db) {
-  const summary = { course: 0, lesson: 0, faq: 0, revisions: 0, references: 0 };
+  const summary = { course: 0, lesson: 0, faq: 0, revisions: 0, references: 0, archived: 0 };
   const courseIds = new Map();
   for (const course of COURSE_CATALOG) {
     const result = upsertEntry(db, {
@@ -206,7 +459,7 @@ function seedContent(db) {
     if (result.changed) summary.revisions += 1;
   }
 
-  const lessons = readJson("lessons-content.json");
+  const lessons = readJson("scripts/lessons-content.json");
   for (const [courseSlug, courseLessons] of Object.entries(lessons)) {
     const courseId = courseIds.get(courseSlug) || entryId("course", courseSlug);
     for (const lesson of courseLessons) {
@@ -228,15 +481,10 @@ function seedContent(db) {
     }
   }
 
-  FAQ.forEach(([question, answer], index) => {
-    const result = upsertEntry(db, {
-      type: "faq",
-      slug: `faq-${String(index + 1).padStart(2, "0")}`,
-      payload: { kind: "faq", order: index + 1, question, answer, source: "src/lib/data.ts" },
-    });
-    summary.faq += 1;
-    if (result.changed) summary.revisions += 1;
-  });
+  const faqSummary = seedFaqDrafts(db);
+  summary.faq = faqSummary.faq;
+  summary.revisions += faqSummary.revisions;
+  summary.archived = faqSummary.archived;
   return summary;
 }
 
@@ -254,8 +502,12 @@ try {
     .prepare("SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'user'")
     .get();
   if (!hasUserTable) database.pragma("foreign_keys = OFF");
-  const summary = database.transaction(() => seedContent(database))();
-  console.log(JSON.stringify({ locale, ...summary }, null, 2));
+  const summary = database.transaction(() => {
+    if (options.publishRelease) return publishFaqRelease(database);
+    if (options.faqOnly) return seedFaqDrafts(database);
+    return seedContent(database);
+  })();
+  console.log(JSON.stringify({ locale, faqLocale, mode: options.publishRelease ? "faq-release" : options.faqOnly ? "faq-draft" : "full", ...summary }, null, 2));
 } finally {
   database.close();
 }

@@ -107,7 +107,7 @@ jobs:
         run: |
           set -euo pipefail
           rm -rf release release.tar.gz brand-release brand-assets.tar.gz
-          mkdir -p release/app/.next release/app/scripts release/app/deploy/nginx
+          mkdir -p release/app/.next release/app/content release/app/scripts release/app/deploy/nginx
           cp -R .next/standalone/. release/app/
           # Next bundles Better Auth for request handlers, but seed.mjs runs as
           # a separate Node process. Add its small dependency closure without
@@ -129,6 +129,7 @@ jobs:
           cp scripts/seed-content.mjs release/app/scripts/seed-content.mjs
           cp scripts/resources-seed.json release/app/scripts/resources-seed.json
           cp scripts/lessons-content.json release/app/scripts/lessons-content.json
+          cp content/parent-faq.zh.json release/app/content/parent-faq.zh.json
           cp deploy/nginx/dash-pr.conf release/app/deploy/nginx/dash-pr.conf
 
           # Exercise the exact scripts and dependency tree that will be used
@@ -149,6 +150,58 @@ jobs:
               SEED_ADMIN_PASSWORD=ci-admin-pass-123 \
               node scripts/seed.mjs
           )
+          DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
+          const Database = require('better-sqlite3');
+          const db = new Database(process.env.DASH_AUTH_DB);
+          const insertEntry = db.prepare(`
+            INSERT INTO content_entries (id, content_type, slug, locale, status, revision, published_at)
+            VALUES (?, 'faq', ?, 'zh', 'published', 1, datetime('now'))
+          `);
+          const insertRevision = db.prepare(`
+            INSERT INTO content_revisions (id, entry_id, revision, locale, payload, status, published_at)
+            VALUES (?, ?, 1, 'zh', ?, 'published', datetime('now'))
+          `);
+          insertEntry.run('faq:faq-01:zh', 'faq-01');
+          insertRevision.run('faq:faq-01:zh:r1', 'faq:faq-01:zh', JSON.stringify({ kind: 'faq', source: 'src/lib/data.ts' }));
+          insertEntry.run('faq:manual-parent-question:zh', 'manual-parent-question');
+          insertRevision.run('faq:manual-parent-question:zh:r1', 'faq:manual-parent-question:zh', JSON.stringify({ kind: 'faq', source: 'admin', question: 'Manual FAQ' }));
+          db.close();
+          NODE
+          DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" \
+            node release/app/scripts/seed-content.mjs --faq-only --publish-release
+          faq_release_state_before="$(DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
+          const Database = require('better-sqlite3');
+          const db = new Database(process.env.DASH_AUTH_DB, { readonly: true, fileMustExist: true });
+          const current = db.prepare(`
+            SELECT COUNT(*) AS count
+            FROM content_entries e
+            JOIN content_revisions r ON r.entry_id = e.id AND r.revision = e.revision
+            WHERE e.content_type = 'faq' AND e.locale = 'zh' AND e.status = 'published'
+              AND json_extract(r.payload, '$.source') = 'content/parent-faq.zh.json'
+          `).get().count;
+          const legacy = db.prepare("SELECT status FROM content_entries WHERE id = 'faq:faq-01:zh'").get()?.status;
+          const manual = db.prepare("SELECT status FROM content_entries WHERE id = 'faq:manual-parent-question:zh'").get()?.status;
+          if (current !== 10 || legacy !== 'archived' || manual !== 'published') {
+            throw new Error(`FAQ release smoke failed: current=${current}, legacy=${legacy}, manual=${manual}`);
+          }
+          const revisions = db.prepare("SELECT COUNT(*) AS count FROM content_revisions WHERE entry_id LIKE 'faq:%:zh'").get().count;
+          const audits = db.prepare("SELECT COUNT(*) AS count FROM audit_events WHERE action LIKE 'release.faq_%'").get().count;
+          process.stdout.write(`${revisions}:${audits}`);
+          db.close();
+          NODE
+          )"
+          DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" \
+            node release/app/scripts/seed-content.mjs --faq-only --publish-release
+          faq_release_state_after="$(DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
+          const Database = require('better-sqlite3');
+          const db = new Database(process.env.DASH_AUTH_DB, { readonly: true, fileMustExist: true });
+          const revisions = db.prepare("SELECT COUNT(*) AS count FROM content_revisions WHERE entry_id LIKE 'faq:%:zh'").get().count;
+          const audits = db.prepare("SELECT COUNT(*) AS count FROM audit_events WHERE action LIKE 'release.faq_%'").get().count;
+          process.stdout.write(`${revisions}:${audits}`);
+          db.close();
+          NODE
+          )"
+          test "$faq_release_state_before" = "$faq_release_state_after"
           DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" \
             DASH_CHECK_DB_REQUIRE_RESOURCES=1 node release/app/scripts/check-db.mjs
           DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
@@ -908,6 +961,8 @@ jobs:
           if [[ "$content_count" == "0" ]]; then
             DASH_AUTH_DB=/opt/dash-pr/dash-auth.db "$NODE_BIN" "$REL/scripts/seed-content.mjs"
           fi
+          DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
+            "$NODE_BIN" "$REL/scripts/seed-content.mjs" --faq-only --publish-release
           DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
             DASH_CHECK_DB_REQUIRE_RESOURCES=1 "$NODE_BIN" "$REL/scripts/check-db.mjs"
           HEALTH_URL="$HEALTH_OVERRIDE"

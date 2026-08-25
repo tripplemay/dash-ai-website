@@ -38,11 +38,12 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db node scripts/migrate.mjs
 `scripts/seed.mjs` 已内置同一迁移步骤；首次建库仍应使用 seed，以同时创建 Better Auth 表和初始账号。
 
 内容目录和学习事件由应用迁移 `010_content_governance`、`011_resources_search`、
-`012_learning_events`、`013_learning_progress_indexes` 建立。内容种子默认导入 9 门课程、135 节课和 FAQ，采用幂等修订写入，
-不会删除历史版本；可单独执行或跳过：
+`012_learning_events`、`013_learning_progress_indexes` 建立。内容种子默认导入 9 门课程、135 节课和
+`content/parent-faq.zh.json` 中的家长 FAQ，采用幂等修订写入，不会删除历史版本。发布部署会在数据库备份后同步并发布当前 FAQ，归档旧版发布种子，但不改动后台人工创建的 FAQ。可单独执行或跳过：
 
 ```bash
 DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs
+DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs --faq-only --publish-release
 SEED_CONTENT=0 ... node scripts/seed.mjs
 node scripts/validate-content.mjs
 ```
