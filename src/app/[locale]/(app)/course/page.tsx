@@ -4,19 +4,12 @@ import { CoordinateField } from "@/components/coordinate-field";
 import { Badge } from "@/components/ui/badge";
 
 export const metadata: Metadata = { title: "课程介绍中心" };
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Link } from "@/i18n/navigation";
 import { CourseGrowth } from "@/components/course-growth";
 import { WorksWall } from "@/components/works-wall";
-import { ArrowRight, Eye, MonitorPlay, Wand2 } from "lucide-react";
+import { MonitorPlay, Wand2 } from "lucide-react";
 import { COURSE_ENTRIES } from "@/lib/data";
 import { stageOnAccent } from "@/lib/brand";
-import { PARENT_FAQ } from "@/lib/parent-faq";
 
 export default function CoursePage() {
   const t = useTranslations("course");
@@ -104,86 +97,6 @@ export default function CoursePage() {
       {/* 学员作品墙（占位） */}
       <WorksWall />
 
-      {/* 家长 FAQ */}
-      <section className="mx-auto max-w-[960px] px-7 py-10 sm:py-12">
-        <h2 className="text-[26px] font-extrabold">{t("faqTitle")}</h2>
-        <div className="mt-1.5 text-[13.5px] leading-6 text-neutral-600">{t("faqSub")}</div>
-        <Accordion className="mt-7 gap-8">
-          {PARENT_FAQ.groups.map((group, groupIndex) => (
-            <section key={group.id} aria-labelledby={`faq-group-${group.id}`}>
-              <div className="flex items-center gap-3 border-b border-neutral-200 pb-2.5">
-                <span className="text-[11px] font-extrabold text-coral-700">
-                  {String(groupIndex + 1).padStart(2, "0")}
-                </span>
-                <h3 id={`faq-group-${group.id}`} className="text-[18px] font-extrabold text-indigo-900">
-                  {group.title}
-                </h3>
-              </div>
-              <div className="mt-3 space-y-2.5">
-                {group.items.map((item) => (
-                  <AccordionItem
-                    key={item.slug}
-                    value={item.slug}
-                    className="overflow-hidden rounded-lg border border-neutral-200 bg-card px-0"
-                  >
-                    <AccordionTrigger className="min-w-0 gap-3 px-4 py-3.5 text-[15px] font-extrabold leading-6 text-indigo-800 hover:no-underline sm:px-4.5">
-                      <span className="flex min-w-0 items-start gap-2.5 pr-2">
-                        <span
-                          aria-hidden="true"
-                          className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-sm bg-indigo-700 text-xs text-white"
-                        >
-                          Q
-                        </span>
-                        <span className="min-w-0 break-words">{item.question}</span>
-                      </span>
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 pb-5 text-[13.5px] leading-[1.85] text-neutral-600 sm:px-4.5 sm:pl-[52px]">
-                      <p className="font-extrabold text-neutral-900">{item.lead}</p>
-                      {item.paragraphs.map((paragraph) => (
-                        <p key={paragraph}>{paragraph}</p>
-                      ))}
-                      <aside className="mt-5 border-l-2 border-coral-500 bg-coral-50 px-3.5 py-3 text-neutral-700">
-                        <div className="flex items-start gap-2.5">
-                          <Eye aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-coral-700" />
-                          <div>
-                            <div className="text-[12px] font-extrabold text-coral-700">{t("faqTipLabel")}</div>
-                            <p className="mt-1 mb-0">{item.parentTip}</p>
-                          </div>
-                        </div>
-                      </aside>
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </div>
-            </section>
-          ))}
-        </Accordion>
-      </section>
-
-      <section className="border-y border-indigo-200 bg-indigo-50">
-        <div className="flex w-full flex-col gap-6 px-7 py-8 sm:py-10 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-[720px]">
-            <h2 className="text-[22px] font-extrabold leading-8 text-indigo-950">{t("faqCtaTitle")}</h2>
-            <p className="mt-2 text-[13.5px] leading-6 text-neutral-600">{t("faqCtaDescription")}</p>
-          </div>
-          <div className="flex shrink-0 flex-col gap-2.5 sm:flex-row">
-            <Link
-              href="/courses/s0"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-coral-500 px-4.5 py-2.5 text-[13px] font-extrabold text-neutral-950 transition-colors hover:bg-coral-300"
-            >
-              {t("faqPrimaryAction")}
-              <ArrowRight aria-hidden="true" className="size-4" />
-            </Link>
-            <Link
-              href="/courses/wizard"
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-indigo-300 bg-white px-4.5 py-2.5 text-[13px] font-extrabold text-indigo-900 transition-colors hover:border-indigo-500 hover:bg-indigo-100"
-            >
-              <Wand2 aria-hidden="true" className="size-4" />
-              {t("faqSecondaryAction")}
-            </Link>
-          </div>
-        </div>
-      </section>
     </>
   );
 }

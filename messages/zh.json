@@ -11,6 +11,7 @@
       "screen": "大屏播放",
       "coursePresentation": "课程讲解",
       "resources": "资源下载中心",
+      "parentFaq": "家长问答",
       "guide": "使用指南",
       "brand": "品牌规范",
       "admin": "管理后台",
@@ -23,6 +24,8 @@
     "resources": "资源下载",
     "course": "课程介绍",
     "courses": "课程中心",
+    "parentFaq": "家长问答",
+    "parentFaqShort": "问答",
     "player": "大屏播放",
     "presentations": "演示中心",
     "presentationsShort": "演示",
@@ -171,7 +174,7 @@
     },
     "course": {
       "title": "向家长介绍课程",
-      "desc": "课程项目、逐课详解、成长档案与家长 FAQ，支持网页演示与投屏讲解"
+      "desc": "课程项目、逐课详解与成长档案，支持网页演示与投屏讲解"
     },
     "player": {
       "title": "大屏循环播放",
@@ -203,13 +206,6 @@
     "pathTitle": "课程体系",
     "pathEm": "九大课程域",
     "pathSub": "从 AI 体验到创作、工程与智能原理，统一使用明确目标、设计提示、协作生成、评估迭代、展示发布五步闭环。",
-    "faqTitle": "家长最关心的问题",
-    "faqSub": "围绕学习价值、学习方式与成长结果，给出可以结合孩子实际情况判断的回答。",
-    "faqTipLabel": "家长可以关注",
-    "faqCtaTitle": "先从 3 个体验项目，看见孩子如何使用 AI",
-    "faqCtaDescription": "了解动态绘本、数字人和人脸识别项目分别做什么、怎样完成、留下什么成果，再根据兴趣和基础选择后续课程方向。",
-    "faqPrimaryAction": "查看 AI 体验课",
-    "faqSecondaryAction": "匹配课程起点",
     "outcome": "结业产出：",
     "presentEntry": "演示模式",
     "growthTitle": "课程框架",
@@ -248,6 +244,18 @@
     "lessonPagination": "课节翻页",
     "previousLesson": "上一课",
     "nextLesson": "下一课"
+  },
+  "parentFaq": {
+    "eyebrow": "给家长的课程参考",
+    "title": "家长问答",
+    "subtitle": "围绕学习价值、学习方式与成长结果，帮助家长了解孩子如何学习 AI、如何完成项目，以及怎样判断真实成长。",
+    "sectionTitle": "家长最关心的问题",
+    "sectionSubtitle": "从学习价值、学习方式与成长结果出发，给出可以结合孩子实际情况判断的回答。",
+    "tipLabel": "家长可以关注",
+    "ctaTitle": "先从 3 个体验项目，看见孩子如何使用 AI",
+    "ctaDescription": "了解动态绘本、数字人和人脸识别项目分别做什么、怎样完成、留下什么成果，再根据兴趣和基础选择后续课程方向。",
+    "primaryAction": "查看 AI 体验课",
+    "secondaryAction": "匹配课程起点"
   },
   "wizard": {
     "title": "课件向导",

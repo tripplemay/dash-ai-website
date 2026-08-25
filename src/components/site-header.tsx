@@ -13,6 +13,7 @@ import {
   LogOut,
   Menu,
   MonitorPlay,
+  MessageCircleQuestion,
   MoreHorizontal,
   Search,
   Settings2,
@@ -31,6 +32,7 @@ const PRIMARY_NAV = [
   { href: "/workspace", key: "workspace", icon: LayoutDashboard },
   { href: "/resources", key: "resources", icon: FolderDown },
   { href: "/courses", key: "courses", icon: BookOpen },
+  { href: "/parent-faq", key: "parentFaq", icon: MessageCircleQuestion },
   { href: "/presentations", key: "presentations", icon: MonitorPlay },
 ] as const;
 
@@ -262,7 +264,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
       >
         <Icon aria-hidden="true" className={mobile ? "size-5" : "size-[17px]"} />
         <span className={mobile ? "truncate" : ""}>
-          {mobile && key === "presentations" ? t("presentationsShort") : t(key)}
+          {mobile && key === "presentations" ? t("presentationsShort") : mobile && key === "parentFaq" ? t("parentFaqShort") : t(key)}
         </span>
       </Link>
     ));

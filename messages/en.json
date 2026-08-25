@@ -11,6 +11,7 @@
       "screen": "Screen Player",
       "coursePresentation": "Course Walkthrough",
       "resources": "Resource Center",
+      "parentFaq": "Parent Q&A",
       "guide": "User Guide",
       "brand": "Brand Guidelines",
       "admin": "Admin Console",
@@ -23,6 +24,8 @@
     "resources": "Resources",
     "course": "Courses",
     "courses": "Courses",
+    "parentFaq": "Parent Q&A",
+    "parentFaqShort": "Q&A",
     "player": "Screen Player",
     "presentations": "Presentations",
     "presentationsShort": "Present",
@@ -171,7 +174,7 @@
     },
     "course": {
       "title": "Present Courses",
-      "desc": "Projects, lesson details, growth records, and parent FAQ, ready for browser presentation."
+      "desc": "Projects, lesson details, and growth records, ready for browser presentation."
     },
     "player": {
       "title": "Screen Player",
@@ -203,13 +206,6 @@
     "pathTitle": "Learning Path",
     "pathEm": "Multiple Entries",
     "pathSub": "From AI Experience through creative work, engineering, and intelligent systems, every course uses the same five-step learning loop.",
-    "faqTitle": "Questions parents care about most",
-    "faqSub": "Answers about learning value, learning methods, and growth outcomes that parents can assess against their child's situation.",
-    "faqTipLabel": "What parents can observe",
-    "faqCtaTitle": "Start with three experience projects and see how your child uses AI",
-    "faqCtaDescription": "Explore what the animated picture book, digital human, and face recognition projects involve, how they are completed, and what outcomes they leave before choosing the next course direction.",
-    "faqPrimaryAction": "View AI Experience",
-    "faqSecondaryAction": "Find a starting point",
     "outcome": "Course outcome:",
     "presentEntry": "Presentation mode",
     "growthTitle": "Course framework",
@@ -248,6 +244,18 @@
     "lessonPagination": "Lesson pagination",
     "previousLesson": "Previous lesson",
     "nextLesson": "Next lesson"
+  },
+  "parentFaq": {
+    "eyebrow": "A guide for parents",
+    "title": "Parent Q&A",
+    "subtitle": "Understand how learners study AI, build real projects, and show meaningful growth through clear answers about value, methods, and outcomes.",
+    "sectionTitle": "Questions parents care about most",
+    "sectionSubtitle": "Answers about learning value, learning methods, and growth outcomes that parents can assess against their child's situation.",
+    "tipLabel": "What parents can observe",
+    "ctaTitle": "Start with three experience projects and see how your child uses AI",
+    "ctaDescription": "Explore what the animated picture book, digital human, and face recognition projects involve, how they are completed, and what outcomes they leave before choosing the next course direction.",
+    "primaryAction": "View AI Experience",
+    "secondaryAction": "Find a starting point"
   },
   "wizard": {
     "title": "Courseware wizard",
