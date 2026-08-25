@@ -219,9 +219,10 @@ jobs:
           # Start the exact packaged server with a tiny private asset volume and
           # exercise auth, protected files, direct /files rewrites, resource entries,
           # ZIP streaming, and the multipart upload boundary.
-          mkdir -p release/app/public/assets release/app/public/files/corecoord/brand-system/logo
+          mkdir -p release/app/public/assets release/app/public/files/corecoord/brand-system/logo/nested
           printf 'standalone smoke file\n' > release/app/public/files/corecoord/brand-system/logo/ci-smoke.txt
           printf '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2"><path d="M0 0h2v2H0z" fill="#111827"/></svg>\n' > release/app/public/files/corecoord/brand-system/logo/ci-smoke.svg
+          printf 'nested standalone smoke file\n' > release/app/public/files/corecoord/brand-system/logo/nested/ci-nested.txt
           DASH_AUTH_DB="$seed_smoke_dir/dash-auth.db" node - <<'NODE'
           const Database = require('better-sqlite3');
           const db = new Database(process.env.DASH_AUTH_DB);

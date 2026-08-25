@@ -92,9 +92,11 @@ for (const candidate of Array.from({ length: 64 }, (_, index) => index + 1)) {
 assert.ok(folderId, "seeded folder resource was not found");
 assert.ok(entriesBody.entries.some((entry) => entry.name === "ci-smoke.txt"), "directory entry");
 assert.equal(entriesBody.entries.find((entry) => entry.name === "ci-smoke.txt").previewKind, "text", "text preview metadata");
-const nested = await request(`/api/resources/${folderId}/entries?path=logo`, { headers: { Cookie: cookie } });
+const nestedDirectory = entriesBody.entries.find((entry) => entry.kind === "directory");
+assert.ok(nestedDirectory, "nested directory metadata");
+const nested = await request(`/api/resources/${folderId}/entries?path=${encodeURIComponent(nestedDirectory.relativePath)}`, { headers: { Cookie: cookie } });
 expectStatus(nested, 200, "nested directory entries");
-assert.match(JSON.stringify(await nested.json()), /ci-smoke\.txt/, "nested directory entry");
+assert.match(JSON.stringify(await nested.json()), /ci-nested\.txt/, "nested directory entry");
 const oldBrowse = await request("/api/browse/files/corecoord/brand-system/logo", { headers: { Cookie: cookie } });
 expectStatus(oldBrowse, 404, "legacy directory browser removed");
 
