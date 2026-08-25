@@ -409,15 +409,15 @@
       "path": "vi-system-2026/deliverables/previews/corecoord-badge-90x54mm.png",
       "source": "vi-system-2026/deliverables/previews/corecoord-badge-90x54mm.png",
       "kind": "preview",
-      "bytes": 39245,
-      "sha256": "d9ac0f2d821dab6f2dc9dd7b676e783aedd7cd725052ea39b45e2916ddee3ab4"
+      "bytes": 40047,
+      "sha256": "c0f5661d5b65f1b214008891cf210c78450a2973b034a60cc5c42bf65140db95"
     },
     {
       "path": "vi-system-2026/deliverables/previews/corecoord-certificate-a4-landscape.png",
       "source": "vi-system-2026/deliverables/previews/corecoord-certificate-a4-landscape.png",
       "kind": "preview",
-      "bytes": 67639,
-      "sha256": "7c070782533edeca307609b2d4d96518e6f71941f7f064ef133317d19cae49a9"
+      "bytes": 68307,
+      "sha256": "d5144e69dad231bdce8a33fe153c1bdeac777b935634bc03a500c3b316aa4f35"
     },
     {
       "path": "vi-system-2026/deliverables/previews/corecoord-coordinate-field-light.png",
@@ -444,8 +444,8 @@
       "path": "vi-system-2026/deliverables/previews/corecoord-social-4x5.png",
       "source": "vi-system-2026/deliverables/previews/corecoord-social-4x5.png",
       "kind": "preview",
-      "bytes": 89561,
-      "sha256": "c43346634c28b370d368ef7c139669f087ea3fd6be4e3203cec791e538fed06b"
+      "bytes": 90489,
+      "sha256": "c7c0c006a84437fd89c78e4373da014e0054d3ec4dc4dd1bfc62744d3dbbbcf7"
     },
     {
       "path": "vi-system-2026/deliverables/previews/corecoord-stage-palette.png",
@@ -458,22 +458,22 @@
       "path": "vi-system-2026/deliverables/previews/corecoord-story-9x16.png",
       "source": "vi-system-2026/deliverables/previews/corecoord-story-9x16.png",
       "kind": "preview",
-      "bytes": 106593,
-      "sha256": "e301d1d680c2e62a6b45969cb0b32506840a02fed9a0b18f11122f6b4a378b8e"
+      "bytes": 105766,
+      "sha256": "e0c000c7295a67ca7b2172e5f6abe847f676c064dec01b19e85ae5b8c1a114dc"
     },
     {
       "path": "vi-system-2026/deliverables/previews/corecoord-video-cover-16x9.png",
       "source": "vi-system-2026/deliverables/previews/corecoord-video-cover-16x9.png",
       "kind": "preview",
-      "bytes": 90183,
-      "sha256": "ac9f2e7482ae70adb1bd2fa5ee1a1ec2dbd8a291429a8b0bc2dc9fd9fa2c9a6a"
+      "bytes": 89280,
+      "sha256": "3e71ec8d526bb330c373d006759bd4937aea1c366b5ed85417a10a774ceabc5a"
     },
     {
       "path": "vi-system-2026/deliverables/previews/corecoord-worksheet-a4.png",
       "source": "vi-system-2026/deliverables/previews/corecoord-worksheet-a4.png",
       "kind": "preview",
-      "bytes": 150754,
-      "sha256": "f1bb6b17009dd372cb394c0161e78ef26927556185fdffb0e7525fe8ba34cb0e"
+      "bytes": 151373,
+      "sha256": "14eaf2b7f346fb29a0a10cd37d120025ea6c877bb15659e4379d1d584c2e401e"
     },
     {
       "path": "vi-system-2026/deliverables/templates/course/corecoord-presentation-cover-16x9.svg",
@@ -486,22 +486,22 @@
       "path": "vi-system-2026/deliverables/templates/course/corecoord-worksheet-a4.svg",
       "source": "vi-system-2026/deliverables/templates/course/corecoord-worksheet-a4.svg",
       "kind": "course-template",
-      "bytes": 12852,
-      "sha256": "c90bb06d5002422ae3a019bf2d10fdee18bed40ff1e22e80215356e9a3f3691a"
+      "bytes": 12865,
+      "sha256": "d4e06b5fce9de1c4dfdf4c488989adf2a4979e2ab06571a7293af96f707eba55"
     },
     {
       "path": "vi-system-2026/deliverables/templates/print/corecoord-badge-90x54mm.svg",
       "source": "vi-system-2026/deliverables/templates/print/corecoord-badge-90x54mm.svg",
       "kind": "print-template",
-      "bytes": 12038,
-      "sha256": "76e49500fcf521fd8ad8afe7b9525632611ad94322d2bd75466863f5d43f61e4"
+      "bytes": 12045,
+      "sha256": "20a7d6370e15447bfe9a55bd07f45f0c0a587ac5049a5a2a59c05f1a6ab80322"
     },
     {
       "path": "vi-system-2026/deliverables/templates/print/corecoord-certificate-a4-landscape.svg",
       "source": "vi-system-2026/deliverables/templates/print/corecoord-certificate-a4-landscape.svg",
       "kind": "print-template",
-      "bytes": 12080,
-      "sha256": "815fb659e3d01fc31f75ec6bfc4ea91bfa400e825abcd93a7c5d1fc9e7368b41"
+      "bytes": 12086,
+      "sha256": "cf5cac5c1508fbe8bdbc01a3f1c0954e2480fb36e1e16f6cadb5b7e0ab219fee"
     },
     {
       "path": "vi-system-2026/deliverables/templates/print/corecoord-poster-a3.svg",
@@ -514,22 +514,22 @@
       "path": "vi-system-2026/deliverables/templates/social/corecoord-social-4x5.svg",
       "source": "vi-system-2026/deliverables/templates/social/corecoord-social-4x5.svg",
       "kind": "social-template",
-      "bytes": 11941,
-      "sha256": "f44b61b3616ee1daeab71da05af712b721b84bc28a30c78a66c15918d482fdf0"
+      "bytes": 11948,
+      "sha256": "3746b43a22a15752ad615ca27948f9b707564a0d277a5c8fcff89c056458dd99"
     },
     {
       "path": "vi-system-2026/deliverables/templates/social/corecoord-story-9x16.svg",
       "source": "vi-system-2026/deliverables/templates/social/corecoord-story-9x16.svg",
       "kind": "social-template",
-      "bytes": 11809,
-      "sha256": "d4b329b6f9f15a9ec0be5e1b27151891a98409c8d7dad24c0e71672dd2466857"
+      "bytes": 11808,
+      "sha256": "833df791b199aaae509c2547608ea246a79e29c8c1f539c6da684e195318a2c9"
     },
     {
       "path": "vi-system-2026/deliverables/templates/video/corecoord-video-cover-16x9.svg",
       "source": "vi-system-2026/deliverables/templates/video/corecoord-video-cover-16x9.svg",
       "kind": "video-template",
-      "bytes": 11291,
-      "sha256": "3396ae084caad5c54e32219f7024b480008dd951f5a7e2be94c0368221fe63f6"
+      "bytes": 11297,
+      "sha256": "3e19546eea31a6064e74f7452feeb58272aea53e9876c998a51a9d03204b5fdd"
     },
     {
       "path": "vi-system-2026/deliverables/tokens/corecoord.css",
@@ -549,8 +549,8 @@
       "path": "vi-system-2026/manual/index.html",
       "source": "vi-system-2026/manual/index.html",
       "kind": "manual",
-      "bytes": 38760,
-      "sha256": "bcaf1c84edfb33abbfd0584d3e68dff3284f4c2ce12935c901a90292b363730c"
+      "bytes": 39349,
+      "sha256": "3247f6c028c093c4ae6e7b5633d3e49097a1c7f9fd9b1426da695258a790ec76"
     },
     {
       "path": "vi-system-2026/manual/manual.css",
@@ -563,8 +563,8 @@
       "path": "vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf",
       "source": "vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf",
       "kind": "guide-document",
-      "bytes": 4713169,
-      "sha256": "78b12bb5fc43692e491297091351a0f7a18cdb5a59694de4b4e70f203badccc4"
+      "bytes": 4771283,
+      "sha256": "7683b426437469a471184857e1c80fadb26a4cdc40f2060577b3d32629b85451"
     }
   ]
 }

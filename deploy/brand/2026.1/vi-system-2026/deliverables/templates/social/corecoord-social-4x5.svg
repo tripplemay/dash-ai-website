@@ -29,5 +29,5 @@
     <rect x="728" y="-22" width="224" height="64" rx="4" fill="#22367B"/>
     <text x="840" y="18" text-anchor="middle" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="22" font-weight="600">查看项目</text>
   </g>
-  <text x="64" y="1304" fill="#727C8E" font-family="Noto Sans Mono,monospace" font-size="14">LOCATE / MAP / BUILD / CALIBRATE / SHARE</text>
+  <text x="64" y="1304" fill="#727C8E" font-family="Noto Sans Mono,monospace" font-size="14">DEFINE / PROMPT / GENERATE / EVALUATE / PUBLISH</text>
 </svg>

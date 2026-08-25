@@ -160,7 +160,7 @@ export type Slide =
 
 // 叙事顺序：品牌主视觉 → 三大方向 → 课程体系全景 → 能力框架 → 学员作品 → 证书/展台 → 招募收尾
 export const SLIDES: Slide[] = [
-  { type: "image", img: "/assets/brand/corecoord/2026.1/vi-system-2026/deliverables/previews/corecoord-presentation-cover-16x9.png", cap: "芯坐标 · 有方向的创造" },
+  { type: "image", img: "/assets/brand/corecoord/2026.1/vi-system-2026/deliverables/previews/corecoord-presentation-cover-16x9.png", cap: "芯坐标 · 让 AI 成为孩子的超能力" },
   { type: "content", content: "lab-0", cap: "创作方向 · 创意表达" },
   { type: "content", content: "lab-1", cap: "工程方向 · 计算构建" },
   { type: "content", content: "lab-2", cap: "素养方向 · 理解与负责" },

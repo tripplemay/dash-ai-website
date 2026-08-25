@@ -1190,140 +1190,145 @@
     },
     {
       "path": "vi-system-2026/manual/output/pdf/CORECOORD-VI-System-2026.1-zh-CN.pdf",
-      "bytes": 4713169,
-      "sha256": "78b12bb5fc43692e491297091351a0f7a18cdb5a59694de4b4e70f203badccc4",
+      "bytes": 4771283,
+      "sha256": "7683b426437469a471184857e1c80fadb26a4cdc40f2060577b3d32629b85451",
       "compression": "gzip",
-      "compressedBytes": 3373519,
+      "compressedBytes": 3421058,
       "chunks": [
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-001",
           "bytes": 131072,
-          "sha256": "dffaf71b7de7b55cb72f8def90ab412073cd022b488ec244693281f77d05a7b4"
+          "sha256": "42218faadd0266abbc49796a5368657575410cfe30fd6d8c06a6a27ebe7b31aa"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-002",
           "bytes": 131072,
-          "sha256": "1e356cc43ad8e4d5ffc6bbad36aef2a951fcd9ce7f4b066d0aee32d74db2eee1"
+          "sha256": "0e5f991975ae0308c7f0a06a014b70013ad0e83e10ab772f0d5251424b706ff4"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-003",
           "bytes": 131072,
-          "sha256": "78fa336c6ff3e9c321dc7ddb374c794223de5af86e91fee5718ad5593e5b624b"
+          "sha256": "d4c6406b198f3e96f7c0e1c8fb968d2c21cbdf4690fd0f71bd6047532e5cf9c4"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-004",
           "bytes": 131072,
-          "sha256": "f7f28dbbbd10c1b8736d48efd6eecae23425c0f5b78c71f0193fe8cd8137b0d7"
+          "sha256": "f01ba6c15616a5ba09ba2293b0f628078d611d8b28e993ca10dc401ad9be71ca"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-005",
           "bytes": 131072,
-          "sha256": "42c8be7fd0333a59eaa8afcfbd74ad5b3dadc48d962b37dedfcdd3b0e62b28bd"
+          "sha256": "640d26a9beab65153fb21c50d1ea489914fa4b54344466906946a032230799cf"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-006",
           "bytes": 131072,
-          "sha256": "56676229b5c7dec61c95a08ce3e43a50299b9f7efd8cc2309c1d8d10bdea7b1a"
+          "sha256": "719fcfbe327429b4fe68fbb4f3a690d36102614198e28010d5b75b5eefd93328"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-007",
           "bytes": 131072,
-          "sha256": "1ac1540d76508763fb7cce661f686af29208770b9fd6eaea1721ff615482d01f"
+          "sha256": "d40e8551464aefe7bc8a5f4899f504a06b84b7cad8da1ee25660dfdb03001462"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-008",
           "bytes": 131072,
-          "sha256": "ab69276e034267ae996b52612d0d506e6f0ef657b7f126d11666cf718b3ad124"
+          "sha256": "c028c4eab2085b51b0250460c5b743b2ec152e51e0705b00f0e858866756d952"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-009",
           "bytes": 131072,
-          "sha256": "f356c9f5a8579a0dbf6944e1c7f3208f76001192309cef3766505ad9cd945161"
+          "sha256": "a32408580c1f376e8bd4a4a1ed48f5a8aa4deba17beedece4702f4ea3cc31199"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-010",
           "bytes": 131072,
-          "sha256": "4d2ddc47dd20bf73e7ddd1a8a723b9f375424b6709e6f40504712d28b71f99f7"
+          "sha256": "018d745d5c1bd9d6fe30d02a8331a2bceb9e13bfadfc6be363f0f79c55a6558f"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-011",
           "bytes": 131072,
-          "sha256": "b14cf8cd83be9a07a9c870ce3fe17713c8645471562836b8577df1f66dfb6756"
+          "sha256": "56eec218fc486a91524b502e52ce57cd368e2ea4838fdb92f9b867eec8533160"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-012",
           "bytes": 131072,
-          "sha256": "254a2e7e8bbda5f003612bf2354087675e1653483936b24281a338bca2ca53a0"
+          "sha256": "bb94a690fe1018f107c442c72733cea63ed6adbbfa58c0b50c8c04980659d2b3"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-013",
           "bytes": 131072,
-          "sha256": "2e0f5a3412eaaa83202716711dbfb9b606392a531015b17c4e5967910efe9ba8"
+          "sha256": "14ab1f3c7a1a82305a4c02caca3942a4f89dfa61f68ad778ea80aa677b6ec131"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-014",
           "bytes": 131072,
-          "sha256": "3f803196428d928e3fe72ba25fda858121800d19dc73326875691bd3c5728dd7"
+          "sha256": "f612a15445977c1382a1936837002dd0cef7423c6a7b290e3314313e527f6e11"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-015",
           "bytes": 131072,
-          "sha256": "b49321e2dd8842f4913b3d97578ec832713b501df17b5dc4ad9c98ea0c53a495"
+          "sha256": "d5792fd449c5b0c0208a379732180057be3fa8881da697b654cd1cfc47d01424"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-016",
           "bytes": 131072,
-          "sha256": "7bd30625afdfa97c79e7f373f553b53f7965a19c66461ef27e479866142a49dd"
+          "sha256": "1fa35686afc74cd8a0b20d35e9a928646549e9be95075965993d1e74f89ba440"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-017",
           "bytes": 131072,
-          "sha256": "cf85d7e9f0f0f126e42c3fbdb133437919c7075438c7111eaeb2698b4a38d69a"
+          "sha256": "114c6bee0d9e908b896f030d23ef8f3887f7f71699d6420a79c5fccab1fc50eb"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-018",
           "bytes": 131072,
-          "sha256": "54b9f6e80d79568fe39ef6478f336a8c6df50792e0d0a840a6094a277f4b7f85"
+          "sha256": "dd58502b2ea56539375f2bbbd283fd4fc54084b650419a07c45b2413e2e6387c"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-019",
           "bytes": 131072,
-          "sha256": "42770b05e01ecf89da56ad226204f1feecf6b5efe28f3a65eb088c77fb3f744b"
+          "sha256": "3a37f77fcf0540b6a6d3ce13e9b1f7288bc2adf25804610061d3b3a89faa81c3"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-020",
           "bytes": 131072,
-          "sha256": "28c40ca1a95bfc8fec0720f3a37ea6931c8f56cb43464ec45f9d24df4b7643c1"
+          "sha256": "288395a93af611584df1aac6ddbaf1430ea5ba4441a0ca4dd7be45364718b95a"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-021",
           "bytes": 131072,
-          "sha256": "a37cc1a093ec9c4a5c774a78039897096ed0007a1b5975815e96fdebfa7e43bb"
+          "sha256": "5b6f1ed57e8d041561a4c912036363ca735e507cb489b419abba66c4afc0e2c1"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-022",
           "bytes": 131072,
-          "sha256": "efaf62d01cb3603979f06c80285668efcd476ff1f801a5d3d08a004eb031a152"
+          "sha256": "ea0bbdd12adeddc39c1a238293b84616d7dbd52a6251c5c2531b554d305f66bd"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-023",
           "bytes": 131072,
-          "sha256": "d9360665362b9b4ab13d989f8d6a8553dd33c52fc246d423b6cae99469c6a73a"
+          "sha256": "5a0638ed5cdadbe125c070a06177ef3051ec527c00a0e19bc099f22407965d96"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-024",
           "bytes": 131072,
-          "sha256": "33f50dbc7e33fc60598fe23f31d931251d3b49bb878265e98d908aaed0843cbd"
+          "sha256": "f664b239da23f2e2572756c235ee1791cec876a9939035bfef8734298fb93586"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-025",
           "bytes": 131072,
-          "sha256": "bb33f1a50d701cdc43b35263422c205e051504c7577bb9407edf06af4da98314"
+          "sha256": "2885a414ddf916c761ba815770750de159fb49b55c61deef00102b7935c5693c"
         },
         {
           "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-026",
-          "bytes": 96719,
-          "sha256": "bac35d48f3601bad7eee76d676b67402a39f59f55b4b36892cabf75c05603aa1"
+          "bytes": 131072,
+          "sha256": "b1e9c07b32ec3bf63fd720ef3833bac05b8d2c62a2dc81e716c3001403dc42a6"
+        },
+        {
+          "path": "files/CORECOORD-VI-System-2026.1-zh-CN.pdf.gz.part-027",
+          "bytes": 13186,
+          "sha256": "c1212bef0e58ee44a190c395fc306a857735b3d3b196b483751c14119bb049bf"
         }
       ]
     }

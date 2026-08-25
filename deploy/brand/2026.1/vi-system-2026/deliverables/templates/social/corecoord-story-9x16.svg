@@ -20,8 +20,8 @@
   </g>
   <rect x="0" y="1574" width="1080" height="346" fill="#121A33"/>
   <g transform="translate(64 1652)">
-    <text x="0" y="0" fill="#FFAB9A" font-family="Noto Sans Mono,monospace" font-size="18" font-weight="700">CALIBRATE / 04</text>
-    <text x="0" y="62" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="30" font-weight="600">比较两个版本，再决定保留什么。</text>
+    <text x="0" y="0" fill="#FFAB9A" font-family="Noto Sans Mono,monospace" font-size="18" font-weight="700">EVALUATE / 04</text>
+    <text x="0" y="62" fill="#FFFFFF" font-family="Noto Sans SC,Arial,sans-serif" font-size="30" font-weight="600">评估两个版本，再决定保留什么。</text>
     <text x="0" y="130" fill="#C5CBD8" font-family="Noto Sans SC,Arial,sans-serif" font-size="21">字幕、账号信息与主要操作避开上下平台界面区。</text>
     <text x="0" y="220" fill="#FFAB9A" font-family="Noto Sans SC,Arial,sans-serif" font-size="23" font-weight="600">查看动态叙事课程 →</text>
   </g>

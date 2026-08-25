@@ -2,6 +2,7 @@ import type { ImgHTMLAttributes, ReactNode } from "react";
 import {
   CORECOORD_ASSET_ROOT,
   CORECOORD_COORDINATE_FIELD,
+  CORECOORD_LEARNING_LOOP,
   CORECOORD_LOGO,
 } from "@/lib/brand";
 import styles from "./brand-manual-content.module.css";
@@ -92,7 +93,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
             Visual identity &amp; generative content system
           </p>
           <p className={joinClasses(styles.coverMeta, styles.mono)}>
-            APPROVED / 2026.1 · 2026-08-22
+            APPROVED / 2026.1 · 2026-08-24
           </p>
         </div>
         <ManualImage
@@ -115,9 +116,10 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
             </p>
             <div className={styles.grid3}>
               <div><span className={styles.stat}>265</span><p className={styles.small}>Office 课程文件完整提取</p></div>
-              <div><span className={styles.stat}>135</span><p className={styles.small}>课程单元 / 9 个内容域</p></div>
+              <div><span className={styles.stat}>135</span><p className={styles.small}>课次 / 9 个课程域</p></div>
               <div><span className={styles.stat}>42+</span><p className={styles.small}>自动审计检查项</p></div>
             </div>
+            <p className={styles.small}>正式课程域与课次：00 AI 体验 3 · 01 AI 绘图 8 · 02 AI 配音 8 · 03 AI 视频 12 · 04 AI App 开发 20 · 05 AI 无人机创客 40 · 06 Python 基础 11 · 07 AI 数据分析 20 · 08 AI 素养与智能原理 13。</p>
           </div>
           <ol className={styles.contentsList} aria-label="章节列表">
             <li><b>01</b><span>品牌战略与人格</span></li>
@@ -135,18 +137,19 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
 
       <Page id="brand" chapter="brand" labelledBy="brand-title" number={3} tone="soft">
         <Kicker>01 / Brand definition</Kicker>
-        <h2 id="brand-title">让学习者在 AI 世界中找到方向</h2>
+        <h2 id="brand-title">让 AI 成为孩子的超能力</h2>
         <div className={styles.gridWide}>
           <div>
             <p className={styles.lead}>
-              芯坐标是一套以真实创作项目为载体的少儿 AI 教育体系，帮助学习者理解 AI、运用 AI、检验 AI，并用可展示的作品建立自己的能力坐标。
+              芯坐标是一套以真实创作项目为载体的少儿 AI 素养教育体系，帮助学习者理解 AI、创造真实作品、负责任地使用 AI，让学习者在 AI 世界中找到方向，用真实作品建立自己的能力坐标。
             </p>
             <p className={styles.quote}>有方向的创造<br /><span className={styles.mono} lang="en">Create with direction.</span></p>
+            <p className={styles.small}><b>课程主张</b><br />理解 AI · 创造作品 · 负责任地使用 AI</p>
           </div>
           <div>
             <div className={joinClasses(styles.panel, styles.softIndigo)}>
               <h3>不是工具速成</h3>
-              <p>从问题、选择、构建和验证出发，而不是把提示词输入与一次成品当作完整学习。</p>
+              <p>从明确目标、设计提示、协作生成、评估迭代和展示发布出发，而不是把提示词输入与一次成品当作完整学习。</p>
             </div>
             <div className={joinClasses(styles.panel, styles.softCoral, styles.panelGap)}>
               <h3>不是结果许诺</h3>
@@ -161,7 +164,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
         <h2 id="name-title">“芯”是核心，“坐标”是方向与证据</h2>
         <div className={styles.grid2}>
           <div className={styles.panel}><h3>芯 / CORE</h3><p>AI、计算与智能硬件的技术核心；每位学习者作为判断中心；好奇、创造与责任形成的能力内核。</p></div>
-          <div className={styles.panel}><h3>坐标 / COORD</h3><p>定位问题、规划路径、测量进步、连接他人，并以作品、版本、测试和表达留下可见证据。</p></div>
+          <div className={styles.panel}><h3>坐标 / COORD</h3><p>明确目标、设计路径、测量进步、连接他人，并以作品、版本、测试和表达留下可见证据。</p></div>
         </div>
         <Rule />
         <div className={styles.grid4}>
@@ -176,13 +179,15 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
       <Page id="education" chapter="education" labelledBy="loop-title" number={5}>
         <Kicker>02 / Learning loop</Kicker>
         <h2 id="loop-title">五步学习闭环，把创造过程变得可见</h2>
-        <p className={styles.lead}>每个项目不必平均占用五步，但必须让目标、行动、校准与证据之间的关系清楚。</p>
+        <p className={styles.lead}>每个项目不必平均占用五步，但必须让目标、提示、生成、评估和发布之间的关系清楚。</p>
         <div className={styles.stepRow}>
-          <div className={styles.step}><b>定位</b><span className={styles.mono}>LOCATE</span><p className={styles.small}>观察情境，发现问题，明确目标与限制。</p></div>
-          <div className={styles.step}><b>规划</b><span className={styles.mono}>MAP</span><p className={styles.small}>拆解任务，选择方法，安排角色与路径。</p></div>
-          <div className={styles.step}><b>构建</b><span className={styles.mono}>BUILD</span><p className={styles.small}>创作、编程、制作或组合可工作的初版。</p></div>
-          <div className={styles.step}><b>校准</b><span className={styles.mono}>CALIBRATE</span><p className={styles.small}>测试、比较、修正，并说明选择依据。</p></div>
-          <div className={styles.step}><b>分享</b><span className={styles.mono}>SHARE</span><p className={styles.small}>展示成果与过程，把方法迁移到新问题。</p></div>
+          {CORECOORD_LEARNING_LOOP.map((step) => (
+            <div className={styles.step} key={step.id}>
+              <b>{step.zh}</b>
+              <span className={styles.mono}>{step.en.toUpperCase()}</span>
+              <p className={styles.small}>{step.descriptionZh}</p>
+            </div>
+          ))}
         </div>
       </Page>
 
@@ -333,8 +338,8 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
         <div className={styles.gridWide}>
           <div>
             <p className={styles.typeHero}>找到问题，<br />构建可以验证的作品。</p>
-            <p className={styles.typeEnglish} lang="en">Find the problem.<br />Build work you can test.</p>
-            <p className={joinClasses(styles.mono, styles.typeMono)}>LOCATE / MAP / BUILD / CALIBRATE / SHARE</p>
+            <p className={styles.typeEnglish} lang="en">Define the goal.<br />Build work you can test.</p>
+            <p className={joinClasses(styles.mono, styles.typeMono)}>DEFINE / PROMPT / GENERATE / EVALUATE / PUBLISH</p>
           </div>
           <div>
             <table>
@@ -415,7 +420,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
           <div className={styles.do}>
             <h3>优先捕捉</h3>
             <ul>
-              <li>手、眼神、材料、代码、测试与具体作品。</li><li>讨论、规划、组装、调试、比较和展示。</li><li>动作发生前后与版本之间的可见变化。</li><li>学习者高度、自然肤色、真实材质与负空间。</li><li>多样而自然的角色与协作关系。</li>
+              <li>手、眼神、材料、代码、测试与具体作品。</li><li>明确目标、设计提示、协作生成、评估迭代和展示发布。</li><li>动作发生前后与版本之间的可见变化。</li><li>学习者高度、自然肤色、真实材质与负空间。</li><li>多样而自然的角色与协作关系。</li>
             </ul>
           </div>
           <div className={styles.dont}>
@@ -425,7 +430,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
             </ul>
           </div>
         </div>
-        <FooterNote>画面至少能辨认 Locate / Map / Build / Calibrate / Share 中的一种动作。</FooterNote>
+        <FooterNote>画面至少能辨认 Define / Prompt / Generate / Evaluate / Publish 中的一种动作。</FooterNote>
       </Page>
 
       <Page id="imagery-graphics" chapter="imagery" labelledBy="content-graphics-title" number={18}>
@@ -467,7 +472,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
           <div>
             <h3>学习单与项目档案</h3>
             <p>显示闭环步骤、预计时间、输入、产出和检查方式；为书写、草图、版本比较与反思留真实空间。</p>
-            <p>项目档案至少包含：问题、计划、初版、一次校准、最终版、学习者说明和权限状态。</p>
+            <p>项目档案至少包含：目标、提示、初版、一次评估迭代、最终版、学习者说明和权限状态。</p>
             <h3>年龄密度</h3>
             <p>启蒙用大形状与短句；进阶创作增加角色与版本；工程/数据允许参数、代码和测试点。课程编号不自动等于年级。</p>
           </div>
@@ -480,7 +485,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
         <h2 id="course-template-title">课程与学习证据模板</h2>
         <div className={styles.templateGrid}>
           <div className={styles.templateItem}><ManualImage src={asset("deliverables/previews/corecoord-presentation-cover-16x9.png")} width={640} height={360} alt="智能硬件课程演示封面模板" /><p><b>Presentation 16:9</b><br />课程域、任务、版本与主视觉。</p></div>
-          <div className={styles.templateItem}><ManualImage src={asset("deliverables/previews/corecoord-worksheet-a4.png")} width={640} height={905} alt="数据推理项目学习单模板" /><p><b>Worksheet A4</b><br />五步闭环、草图区与校准记录。</p></div>
+          <div className={styles.templateItem}><ManualImage src={asset("deliverables/previews/corecoord-worksheet-a4.png")} width={640} height={905} alt="数据推理项目学习单模板" /><p><b>Worksheet A4</b><br />五步闭环、草图区与评估迭代记录。</p></div>
           <div className={styles.templateItem}><ManualImage src={asset("deliverables/previews/corecoord-certificate-a4-landscape.png")} width={640} height={452} alt="项目学习证书模板" /><p><b>Certificate A4</b><br />证书记录作品证据，不宣称模糊等级。</p></div>
         </div>
       </Page>
@@ -510,7 +515,7 @@ export function BrandManualContent({ ariaLabel }: { ariaLabel?: string } = {}) {
           </div>
           <div>
             <div className={joinClasses(styles.flow, styles.formatFlow)}>
-              <div><b>主体</b><span>真实项目或清楚概念</span></div><div><b>行动</b><span>观察、构建或校准</span></div><div><b>能力</b><span>最多两条能力轴</span></div><div><b>证据 + CTA</b><span>可核验事实与一个入口</span></div>
+              <div><b>主体</b><span>真实项目或清楚概念</span></div><div><b>行动</b><span>明确目标、协作生成或评估迭代</span></div><div><b>能力</b><span>最多两条能力轴</span></div><div><b>证据 + CTA</b><span>可核验事实与一个入口</span></div>
             </div>
             <p className={styles.formatNote}>不以巨型抽象口号覆盖第一视口；一张静态图或一个短视频只保留一个主 CTA。</p>
           </div>

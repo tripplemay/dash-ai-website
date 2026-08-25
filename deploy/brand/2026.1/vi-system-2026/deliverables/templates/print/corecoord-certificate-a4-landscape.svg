@@ -15,7 +15,7 @@
   <text x="794" y="670" text-anchor="middle" fill="#252C38" font-family="Noto Sans SC,Arial,sans-serif" font-size="24">完成「项目名称」，并提交以下学习证据：</text>
   <g transform="translate(394 730)">
     <circle cx="10" cy="10" r="10" fill="#FC7358"/><text x="36" y="18" fill="#252C38" font-family="Noto Sans SC,Arial,sans-serif" font-size="20">项目作品</text>
-    <circle cx="230" cy="10" r="10" fill="#7257D9"/><text x="256" y="18" fill="#252C38" font-family="Noto Sans SC,Arial,sans-serif" font-size="20">校准记录</text>
+    <circle cx="230" cy="10" r="10" fill="#7257D9"/><text x="256" y="18" fill="#252C38" font-family="Noto Sans SC,Arial,sans-serif" font-size="20">评估迭代记录</text>
     <circle cx="460" cy="10" r="10" fill="#1E9A91"/><text x="486" y="18" fill="#252C38" font-family="Noto Sans SC,Arial,sans-serif" font-size="20">创作说明</text>
     <circle cx="690" cy="10" r="10" fill="#E7A21B"/><text x="716" y="18" fill="#252C38" font-family="Noto Sans SC,Arial,sans-serif" font-size="20">展示反馈</text>
   </g>

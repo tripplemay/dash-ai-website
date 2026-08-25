@@ -7,7 +7,7 @@ import { useRouter } from "@/i18n/navigation";
 import { LABS, GROWTH_LAYERS, LEARNING_LOOP, GROWTH_ENTRIES, GROWTH_ENTRIES_NOTE } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { BrandLogo } from "@/components/brand-logo";
-import { CORECOORD_ASSET_ROOT, CORECOORD_STAGES, stageOnAccent } from "@/lib/brand";
+import { BRAND, CORECOORD_ASSET_ROOT, CORECOORD_STAGES, stageOnAccent } from "@/lib/brand";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 const TOTAL = 9;
@@ -188,9 +188,9 @@ function PresentDeck() {
         <div className="relative flex h-full flex-col justify-center px-6 sm:px-10 lg:px-24">
           <BrandLogo variant="stacked-reverse" alt={brandLogoAlt} width={176} height={176} className="h-28 w-28 sm:h-36 sm:w-36" priority />
           <h1 className="mt-5 text-[36px] leading-tight font-extrabold tracking-[2px] sm:mt-8 sm:text-[52px] lg:text-[72px] lg:tracking-[4px]">
-            {locale === "zh" ? "有方向的创造" : "Create with direction"}
+            {locale === "zh" ? BRAND.courseTaglineZh : BRAND.courseTaglineEn}
           </h1>
-          <div className="mt-4 text-[16px] font-bold tracking-[2px] text-white/80 sm:mt-6 sm:text-[22px] sm:tracking-[4px] lg:text-[28px] lg:tracking-[6px]">有方向的创造 · 合作伙伴课程介绍</div>
+          <div className="mt-4 text-[16px] font-bold tracking-[2px] text-white/80 sm:mt-6 sm:text-[22px] sm:tracking-[4px] lg:text-[28px] lg:tracking-[6px]">{BRAND.courseTaglineZh} · 合作伙伴课程介绍</div>
           <div className="mt-7 inline-flex w-fit rounded-[4px] border border-signal-coral/60 bg-signal-coral/15 px-5 py-3 text-[20px] font-extrabold tracking-[2px] text-signal-coral sm:mt-12 sm:px-8 sm:py-4 sm:text-[28px] lg:text-[32px] lg:tracking-[4px]">
             在 AI 世界，找到自己的坐标。
           </div>

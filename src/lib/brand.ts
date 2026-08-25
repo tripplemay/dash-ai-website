@@ -5,6 +5,9 @@ export const BRAND = {
   nameEn: "CORECOORD",
   taglineZh: "有方向的创造",
   taglineEn: "Create with direction.",
+  courseTaglineZh: "让 AI 成为孩子的超能力",
+  courseTaglineEn: "Turn AI into your child's superpower.",
+  valuePropositionZh: "让学习者在 AI 世界中找到方向，用真实作品建立自己的能力坐标。",
   reverseBackground: "#121A33",
   coreIndigo: "#22367B",
   signalCoral: "#FC7358",
@@ -34,6 +37,14 @@ export const CORECOORD_STAGES: Record<CourseStageId, CourseStage> = {
   "07": { id: "07", nameZh: "数据推理", nameEn: "Data", accent: "#E7A21B", strong: "#754B00", soft: "#FFF7E4", onAccent: "#171C25" },
   "08": { id: "08", nameZh: "AI 素养", nameEn: "Literacy", accent: "#F16C3E", strong: "#7F2D17", soft: "#FFF0E9", onAccent: "#171C25" },
 };
+
+export const CORECOORD_LEARNING_LOOP = [
+  { id: "define", zh: "明确目标", en: "Define", descriptionZh: "理解情境、问题、限制与风险，明确任务。" },
+  { id: "prompt", zh: "设计提示", en: "Prompt", descriptionZh: "把意图表达给 AI，拆解任务并设计提示。" },
+  { id: "generate", zh: "协作生成", en: "Generate", descriptionZh: "与 AI 协作，创作、编程、分析或组装可工作的初版。" },
+  { id: "evaluate", zh: "评估迭代", en: "Evaluate", descriptionZh: "按标准评估结果，选择、反馈并持续迭代。" },
+  { id: "publish", zh: "展示发布", en: "Publish", descriptionZh: "展示作品与证据，解释决策并迁移方法。" },
+] as const;
 
 export const CORECOORD_ASSET_ROOT = "/assets/brand/corecoord/2026.1";
 const CORECOORD_RELEASE_QUERY = "?__corecoord_release=2026.1";
