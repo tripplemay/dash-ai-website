@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { ArrowLeft } from "lucide-react";
-import { CoordinateField } from "@/components/coordinate-field";
+import { AppPageHero } from "@/components/app-page-hero";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
 import { CourseExplorer } from "@/components/course-explorer";
@@ -53,42 +53,39 @@ export default async function CourseDetailPage({
   return (
     <>
       {/* 页头：课程域 + 课程名 + 进阶方式/课次 */}
-      <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
-        <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 w-full px-7">
-          <nav aria-label={t("breadcrumb")} className="flex flex-wrap items-center gap-2 text-[12px] font-bold text-neutral-300">
-            <Link href="/courses" className="transition-colors hover:text-coral-300">{t("breadcrumbCourses")}</Link>
-            <span aria-hidden="true">/</span>
-            <span>课程域 {course.stageId}</span>
-            <span aria-hidden="true">/</span>
-            <span className="text-white">{course.name}</span>
-          </nav>
-          <Link
-            href="/courses"
-            className="inline-flex items-center gap-1.5 text-[12.5px] font-bold tracking-wider text-neutral-300 transition-colors hover:text-coral-300"
+      <AppPageHero>
+        <nav aria-label={t("breadcrumb")} className="flex flex-wrap items-center gap-2 text-[12px] font-bold text-neutral-300">
+          <Link href="/courses" className="transition-colors hover:text-coral-300">{t("breadcrumbCourses")}</Link>
+          <span aria-hidden="true">/</span>
+          <span>课程域 {course.stageId}</span>
+          <span aria-hidden="true">/</span>
+          <span className="text-white">{course.name}</span>
+        </nav>
+        <Link
+          href="/courses"
+          className="inline-flex items-center gap-1.5 text-[12.5px] font-bold tracking-wider text-neutral-300 transition-colors hover:text-coral-300"
+        >
+          <ArrowLeft className="size-3.5" />
+          {t("detailBack")}
+        </Link>
+        <div className="mt-4 flex flex-wrap items-center gap-3">
+          <span
+            className="rounded-md px-3.5 py-1.5 text-xs font-extrabold tracking-widest"
+            style={{ background: course.color, color: stageOnAccent(course.color) }}
           >
-            <ArrowLeft className="size-3.5" />
-            {t("detailBack")}
-          </Link>
-          <div className="mt-4 flex flex-wrap items-center gap-3">
-            <span
-              className="rounded-md px-3.5 py-1.5 text-xs font-extrabold tracking-widest"
-              style={{ background: course.color, color: stageOnAccent(course.color) }}
-            >
-              {`COURSE DOMAIN ${course.stageId}`}
-            </span>
-          </div>
-          <h1 className="mt-3 text-[34px] font-extrabold tracking-[2px]">{course.name}</h1>
-          <div className="mt-3.5 flex flex-wrap items-center gap-2.5">
-            <Badge variant="secondary" className="rounded-md border border-white/20 bg-white/10 text-[12px] font-bold text-white">
-              {course.age}
-            </Badge>
-            <span className="rounded-md bg-white/10 px-3 py-1 text-[12.5px] font-extrabold text-white">
-              {course.count}
-            </span>
-          </div>
+            {`COURSE DOMAIN ${course.stageId}`}
+          </span>
         </div>
-      </section>
+        <h1 className="mt-3 text-[34px] font-extrabold tracking-[2px]">{course.name}</h1>
+        <div className="mt-3.5 flex flex-wrap items-center gap-2.5">
+          <Badge variant="secondary" className="rounded-md border border-white/20 bg-white/10 text-[12px] font-bold text-white">
+            {course.age}
+          </Badge>
+          <span className="rounded-md bg-white/10 px-3 py-1 text-[12.5px] font-extrabold text-white">
+            {course.count}
+          </span>
+        </div>
+      </AppPageHero>
 
       {/* 左栏课表 + 右侧详情（客户端交互，URL 同步 ?lesson=N） */}
       <CourseExplorer

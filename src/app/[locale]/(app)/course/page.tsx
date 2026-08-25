@@ -1,51 +1,50 @@
 import { useTranslations } from "next-intl";
-import type { Metadata } from "next";
-import { CoordinateField } from "@/components/coordinate-field";
+import { AppPageHero } from "@/components/app-page-hero";
 import { Badge } from "@/components/ui/badge";
-
-export const metadata: Metadata = { title: "课程介绍中心" };
 import { Link } from "@/i18n/navigation";
 import { CourseGrowth } from "@/components/course-growth";
 import { WorksWall } from "@/components/works-wall";
 import { MonitorPlay, Wand2 } from "lucide-react";
 import { COURSE_ENTRIES } from "@/lib/data";
 import { stageOnAccent } from "@/lib/brand";
+import { getPageMetadata } from "@/lib/page-metadata";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return getPageMetadata(params, "courses");
+}
 
 export default function CoursePage() {
   const t = useTranslations("course");
 
   return (
     <>
-      <section className="relative overflow-hidden bg-reverse-background px-0 pt-11 pb-8.5 text-white">
-        <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 w-full px-7">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h1 className="text-[32px] font-extrabold tracking-[2px]">
-                {t("title1")}
-                <em className="not-italic text-coral-300">{t("title2")}</em>
-              </h1>
-              <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
-            </div>
-            <div className="flex items-center gap-2.5">
-              <Link
-                href="/courses/wizard"
-                className="flex items-center gap-2 rounded-md border border-coral-300/60 bg-coral-500/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-coral-300 transition-colors hover:bg-coral-500/20"
-              >
-                <Wand2 className="size-4" />
-                {t("wizardEntry")}
-              </Link>
-              <Link
-                href="/presentations/course"
-                className="flex items-center gap-2 rounded-md border border-coral-300/60 bg-coral-500/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-coral-300 transition-colors hover:bg-coral-500/20"
-              >
-                <MonitorPlay className="size-4" />
-                {t("presentEntry")}
-              </Link>
-            </div>
+      <AppPageHero>
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <h1 className="text-[32px] font-extrabold tracking-[2px]">
+              {t("title1")}
+              <em className="not-italic text-coral-300">{t("title2")}</em>
+            </h1>
+            <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
+          </div>
+          <div className="flex items-center gap-2.5">
+            <Link
+              href="/courses/wizard"
+              className="flex items-center gap-2 rounded-md border border-coral-300/60 bg-coral-500/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-coral-300 transition-colors hover:bg-coral-500/20"
+            >
+              <Wand2 className="size-4" />
+              {t("wizardEntry")}
+            </Link>
+            <Link
+              href="/presentations/course"
+              className="flex items-center gap-2 rounded-md border border-coral-300/60 bg-coral-500/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-coral-300 transition-colors hover:bg-coral-500/20"
+            >
+              <MonitorPlay className="size-4" />
+              {t("presentEntry")}
+            </Link>
           </div>
         </div>
-      </section>
+      </AppPageHero>
 
       {/* 课程体系总览 */}
       <section id="curriculum" className="w-full scroll-mt-24 px-7 py-8.5">

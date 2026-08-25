@@ -1,6 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { ArrowRight, Eye, Wand2 } from "lucide-react";
-import { CoordinateField } from "@/components/coordinate-field";
+import { AppPageHero } from "@/components/app-page-hero";
 import {
   Accordion,
   AccordionContent,
@@ -20,16 +20,13 @@ export default async function ParentFaqPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
-        <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 w-full px-7">
-          <div className="font-mono text-[11px] font-extrabold tracking-[2.5px] text-coral-300">{t("eyebrow")}</div>
-          <h1 className="mt-2 text-[32px] font-extrabold tracking-[2px]">{t("title")}</h1>
-          <div className="mt-2 max-w-[720px] text-[13.5px] leading-6 tracking-wide text-neutral-300">{t("subtitle")}</div>
-        </div>
-      </section>
+      <AppPageHero>
+        <div className="font-mono text-[11px] font-extrabold tracking-[2.5px] text-coral-300">{t("eyebrow")}</div>
+        <h1 className="mt-2 text-[32px] font-extrabold tracking-[2px]">{t("title")}</h1>
+        <div className="mt-2 max-w-[720px] text-[13.5px] leading-6 tracking-wide text-neutral-300">{t("subtitle")}</div>
+      </AppPageHero>
 
-      <section className="mx-auto w-full max-w-[960px] px-5 py-10 sm:px-7 sm:py-12">
+      <section className="w-full px-5 py-10 sm:px-7 sm:py-12">
         <h2 className="text-[26px] font-extrabold text-indigo-900">{t("sectionTitle")}</h2>
         <div className="mt-1.5 text-[13.5px] leading-6 text-neutral-600">{t("sectionSubtitle")}</div>
         <Accordion className="mt-7 gap-8">

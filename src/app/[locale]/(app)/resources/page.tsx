@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Suspense } from "react";
 
-import { CoordinateField } from "@/components/coordinate-field";
+import { AppPageHero } from "@/components/app-page-hero";
 import { ResourceCenter } from "@/components/resource-center";
 import { listEnabledResourcesPage } from "@/lib/db";
 import { getPageMetadata } from "@/lib/page-metadata";
@@ -35,16 +35,13 @@ export default async function ResourcesPage({
   });
   return (
     <>
-      <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
-        <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 w-full px-7">
-          <h1 className="text-[32px] font-extrabold tracking-[2px]">
-            {t("title1")}
-            <em className="not-italic text-coral-300">{t("title2")}</em>
-          </h1>
-          <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
-        </div>
-      </section>
+      <AppPageHero>
+        <h1 className="text-[32px] font-extrabold tracking-[2px]">
+          {t("title1")}
+          <em className="not-italic text-coral-300">{t("title2")}</em>
+        </h1>
+        <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
+      </AppPageHero>
       <Suspense>
         <ResourceCenter
           items={page.items}

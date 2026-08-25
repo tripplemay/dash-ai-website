@@ -1,9 +1,7 @@
 import { useTranslations } from "next-intl";
-import type { Metadata } from "next";
-import { CoordinateField } from "@/components/coordinate-field";
+import { AppPageHero } from "@/components/app-page-hero";
+import { getPageMetadata } from "@/lib/page-metadata";
 import { stageOnAccent } from "@/lib/brand";
-
-export const metadata: Metadata = { title: "使用指南" };
 import {
   BookOpen,
   CalendarDays,
@@ -16,6 +14,10 @@ import {
   Upload,
   Users,
 } from "lucide-react";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
+  return getPageMetadata(params, "guide");
+}
 
 interface PrintItem { icon: string; title: string; points: string[] }
 interface StepBlock { title: string; steps: string[] }
@@ -66,28 +68,25 @@ export default function GuidePage() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
-        <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 w-full px-7">
-          <h1 className="text-[32px] font-extrabold tracking-[2px]">
-            {t("title1")}
-            <em className="not-italic text-coral-300">{t("title2")}</em>
-          </h1>
-          <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
-          <div className="mt-5 flex flex-wrap gap-2.5">
-            {anchors.map((a) => (
-              <a
-                key={a.href}
-                href={a.href}
-                className="flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-2 text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-coral-500/20 hover:text-coral-300"
-              >
-                <a.icon className="size-4" style={{ color: a.color }} />
-                {a.label}
-              </a>
-            ))}
-          </div>
+      <AppPageHero>
+        <h1 className="text-[32px] font-extrabold tracking-[2px]">
+          {t("title1")}
+          <em className="not-italic text-coral-300">{t("title2")}</em>
+        </h1>
+        <div className="mt-2 text-[13.5px] tracking-wide text-neutral-300">{t("sub")}</div>
+        <div className="mt-5 flex flex-wrap gap-2.5">
+          {anchors.map((a) => (
+            <a
+              key={a.href}
+              href={a.href}
+              className="flex items-center gap-2 rounded-md border border-white/25 bg-white/10 px-4 py-2 text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-coral-500/20 hover:text-coral-300"
+            >
+              <a.icon className="size-4" style={{ color: a.color }} />
+              {a.label}
+            </a>
+          ))}
         </div>
-      </section>
+      </AppPageHero>
 
       {/* 板块一 · 印刷指南 */}
       <section id="print" className="w-full scroll-mt-24 px-7 pt-8.5">
