@@ -13,8 +13,7 @@ function escapeRegExp(value: string) {
  */
 export function getSafeReturnTo(
   value: string | null | undefined,
-  locale: string,
-  options: { allowBrowseApi?: boolean } = {}
+  locale: string
 ): string | null {
   if (!value || !value.startsWith("/") || value.startsWith("//") || value.includes("\\")) {
     return null;
@@ -51,8 +50,7 @@ export function getSafeReturnTo(
 
   const localePrefix = new RegExp(`^/${escapeRegExp(locale)}(?:/|$)`);
   const isLocalizedPath = localePrefix.test(decodedPathname);
-  const isBrowseApiPath = options.allowBrowseApi && /^\/api\/browse(?:\/|$)/.test(decodedPathname);
-  if (!isLocalizedPath && !isBrowseApiPath) return null;
+  if (!isLocalizedPath) return null;
 
   const loginPath = `/${locale}/login`;
   if (isLocalizedPath && (decodedPathname === loginPath || decodedPathname.startsWith(`${loginPath}/`))) {

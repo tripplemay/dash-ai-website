@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth, AUTH_DISABLED } from "@/lib/auth";
 import { getResource } from "@/lib/db";
+import { createResourceArchiveResponse } from "@/lib/resource-archive";
 import { getStorage, StorageError } from "@/lib/storage";
 
 export const runtime = "nodejs";
 
 /**
  * 资源下载/打开端点。
- * file 型：302 到受保护的 /api/file/<file_key> 流端点
- * folder 型：302 到 /api/browse/<file_key> 清单页
+ * file 型：302 到受保护的下载流端点
+ * folder 型：直接流式返回有大小与数量上限的 ZIP
  */
 export async function GET(
   req: NextRequest,
@@ -28,10 +29,27 @@ export async function GET(
     return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
   }
 
+  if (row.kind === "folder") {
+    try {
+      return await createResourceArchiveResponse({ rows: [row], filename: `${row.title}.zip`, signal: req.signal });
+    } catch (error) {
+      if (error instanceof StorageError) {
+        const status = error.message === "archive busy" ? 429 : error.message === "archive unsupported" ? 501 : error.code === "NOT_FOUND" ? 404 : error.code === "TOO_LARGE" ? 413 : error.code === "FORBIDDEN" ? 403 : 503;
+        const busy = error.message === "archive busy";
+        return NextResponse.json(busy ? { error: "ARCHIVE_BUSY" } : { error: error.code }, {
+          status,
+          ...(busy ? { headers: { "Retry-After": "5" } } : {}),
+        });
+      }
+      return NextResponse.json({ error: "STORAGE_UNAVAILABLE" }, { status: 503 });
+    }
+  }
+
   const storage = getStorage();
   let target: string;
   try {
-    target = row.kind === "folder" ? await storage.getFolderUrl({ objectKey: row.file_key }) : await storage.getReadUrl({ objectKey: row.file_key });
+    target = await storage.getReadUrl({ objectKey: row.file_key });
+    target = `${target}${target.includes("?") ? "&" : "?"}mode=download`;
   } catch (error) {
     if (error instanceof StorageError) {
       const status = error.code === "FORBIDDEN" ? 403 : error.code === "NOT_FOUND" ? 404 : 400;

@@ -3,12 +3,12 @@
 import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { ArrowRight, Download, Eye, FolderOpen, Package, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowRight, Download, Eye, Package, Search, SlidersHorizontal, X } from "lucide-react";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { RESOURCE_CATS, RESOURCE_CATEGORIES, resolveResourceCategory } from "@/lib/data";
 import type { ResourceRow } from "@/lib/db";
 import { cn } from "@/lib/utils";
-import { resourceFileUrl, resourcePreviewUrl } from "@/lib/assets";
+import { resourcePreviewUrl } from "@/lib/assets";
 import { localizedResourceTitle } from "@/lib/workspace-copy";
 
 /** 资源卡片数据（服务端从 resources 表查出后传入） */
@@ -163,36 +163,14 @@ export function ResourceCenter({
                 ) : null}
               </div>
               <div className="mt-3 flex gap-2">
-                {r.kind === "folder" ? (
-                  <a
-                    href={`/api/download/${r.id}`}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-indigo-700 py-2.5 text-center text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-indigo-800"
-                  >
-                    <FolderOpen className="size-4" />
-                    {t("openDir")}
-                  </a>
-                ) : (
-                  <>
-                    <a
-                      href={`/api/download/${r.id}`}
-                      className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-indigo-700 py-2.5 text-center text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-indigo-800"
-                    >
-                      <Download className="size-4" />
-                      {t("download")}
-                    </a>
-                    <a
-                      href={resourceFileUrl(r.file_key) || `/api/download/${r.id}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-indigo-50 py-2.5 text-center text-[13px] font-extrabold tracking-wider text-indigo-800"
-                    >
-                      <Eye className="size-4" />
-                      {t("preview")}
-                    </a>
-                  </>
-                )}
+                <Link href={`/resources/${r.id}`} className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-indigo-700 py-2.5 text-center text-[13px] font-extrabold tracking-wider text-white transition-colors hover:bg-indigo-800">
+                  <Eye className="size-4" aria-hidden="true" />
+                  {r.kind === "folder" ? t("browse") : t("preview")}
+                </Link>
+                <a href={`/api/download/${r.id}`} className="flex flex-1 items-center justify-center gap-1.5 rounded-md bg-indigo-50 py-2.5 text-center text-[13px] font-extrabold tracking-wider text-indigo-800 hover:bg-indigo-100">
+                  <Download className="size-4" aria-hidden="true" />
+                  {r.kind === "folder" ? t("downloadFolder") : t("download")}
+                </a>
               </div>
             </div>
           </div>

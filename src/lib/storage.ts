@@ -9,7 +9,7 @@ import { isSafeObjectKey } from "./assets";
 /**
  * 存储抽象层。所有方法都是 async，应用层不依赖本地路径；当前只实现 local
  * 驱动，未来可将同一契约替换为 S3/OSS/COS。local 驱动额外提供 getLocalPath
- * 给 ZIP/目录浏览这类必须在应用进程读取目录的兼容功能。
+ * 给 ZIP/资源目录浏览这类必须在应用进程读取目录的功能。
  */
 export interface PutObjectInput {
   objectKey: string;
@@ -39,16 +39,14 @@ export interface StorageDriver {
   commitObject?(stored: StoredObject): Promise<void>;
   rollbackObject?(stored: StoredObject): Promise<void>;
   getReadUrl(input: { objectKey: string }): Promise<string>;
-  getFolderUrl(input: { objectKey: string }): Promise<string>;
   /** Stream a protected object; external drivers can implement this without exposing local paths. */
   getObject?(objectKey: string): Promise<ReadObject>;
   deleteObject(objectKey: string): Promise<void>;
   getDerivative(objectKey: string, preset: string): Promise<string | null>;
   /** 仅 local 驱动实现；调用方必须先确认驱动支持此能力。 */
   getLocalPath?(objectKey: string, options?: { mustExist?: boolean; directory?: boolean }): Promise<string>;
-  // 旧调用名保留为兼容别名；新代码应使用 getReadUrl/getFolderUrl。
+  // 旧调用名保留为兼容别名；新代码应使用 getReadUrl。
   resolveFileUrl(fileKey: string): Promise<string>;
-  resolveFolderUrl(fileKey: string): Promise<string>;
 }
 
 export class StorageError extends Error {
@@ -291,12 +289,6 @@ const localDriver: StorageDriver = {
     return { body: fs.createReadStream(/*turbopackIgnore: true*/ absolute), bytes: stat.size };
   },
 
-  async getFolderUrl({ objectKey }) {
-    await resolveLocalObjectPath(objectKey, { mustExist: true, directory: true });
-    const key = normalizeObjectKey(objectKey);
-    return `/api/browse/${key.split("/").map(encodeURIComponent).join("/")}/`;
-  },
-
   async deleteObject(objectKey) {
     const absolute = await resolveLocalObjectPath(objectKey, { mustExist: true, directory: false });
     await fsp.unlink(absolute);
@@ -314,9 +306,6 @@ const localDriver: StorageDriver = {
     return this.getReadUrl({ objectKey: fileKey });
   },
 
-  async resolveFolderUrl(fileKey) {
-    return this.getFolderUrl({ objectKey: fileKey });
-  },
 };
 
 export function getStorage(): StorageDriver {

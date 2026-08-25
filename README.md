@@ -96,9 +96,9 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 | `DASH_ZIP_MAX_DEPTH`     | ZIP 递归深度上限，默认 12                                         |
 | `DASH_ZIP_MAX_SCANNED_ENTRIES` | ZIP 扫描条目上限，默认 10000                               |
 | `DASH_ZIP_MAX_CONCURRENT` | 单进程并行 ZIP 任务上限，默认 2                                  |
-| `DASH_BROWSE_MAX_ENTRIES` | 单目录清单条目上限，默认 1000                                  |
-| `DASH_BROWSE_MAX_SCANNED_ENTRIES` | 单目录扫描条目上限，默认 10000                         |
-| `DASH_BROWSE_MAX_HTML_BYTES` | 单目录清单 HTML 上限，默认 2 MiB                            |
+| `DASH_RESOURCE_MAX_ENTRIES` | 单目录资源条目上限，默认 1000                                  |
+| `DASH_RESOURCE_MAX_SCANNED_ENTRIES` | 单目录扫描条目上限，默认 10000                         |
+| `DASH_TEXT_PREVIEW_MAX_BYTES` | 文本在线预览上限，默认 1 MiB                            |
 | `SEED_INITIAL_PASSWORD` | 仅 seed 脚本使用：partner/teacher/guest 的初始密码（≥8 位）     |
 | `SEED_ADMIN_PASSWORD`   | 仅 seed 脚本使用：admin 账号的初始密码（≥8 位）                 |
 | `CONTENT_LOCALE`        | `seed-content.mjs` 导入内容的语言，默认 `zh`                  |
@@ -121,7 +121,7 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 │   └── app/
 │       ├── api/auth/[...all]/    # better-auth 处理器
 │       ├── api/v1/{content,audit,learning-events}/ # 版本化内容治理、审计与学习事件接口
-│       ├── api/browse/[...path]/ # 目录浏览清单（需登录）
+│       ├── api/resources/[id]/entries/ # 受保护的目录 JSON（需登录）
 │       ├── api/file/[...path]/   # 文件流（真实会话 + 上架状态校验）
 │       ├── api/download/[id]/    # 资源下载端点（登录校验 → 302）
 │       ├── api/admin/upload/     # 资源上传（admin，multipart 流式写盘）
@@ -190,7 +190,7 @@ NODE_ENV=production BETTER_AUTH_SECRET=<与ecosystem一致> \
 
 ## 备注
 
-- 目录型资源通过 `/api/browse/<路径>` 渲染文件清单页；文件统一经 `/api/file/<路径>` 流式输出并校验真实会话和上架状态。`/files/*` 在 standalone 中由 proxy 重写到该端点。生产 nginx 不得用 `root`/`try_files` 直出 `/files`；默认部署使用自包含的 `deploy/nginx/dash-pr.conf`。若采用组合式 nginx 配置，则在 `http {}` 引入 `deploy/nginx/dash-pr-upstream.conf`、在对应 `server {}` 引入 `deploy/nginx/dash-pr-files.conf`（其中 `auth_request` 会同时校验会话和 `resources.enabled`），并将 upstream 端口与 PM2 对齐。
+- 目录型资源详情页通过 `/api/resources/<id>/entries?path=<相对目录>` 懒加载 JSON 条目，在页面内以网格、面包屑和选中预览呈现；文件统一经 `/api/file/<路径>?mode=preview|download` 流式输出并校验真实会话和上架状态。图片、SVG、PDF、音视频和文本可在线预览，Office/压缩包等格式提供下载回退；文件夹下载端点直接输出受限 ZIP。`/files/*` 在 standalone 中由 proxy 重写到该端点。生产 nginx 不得用 `root`/`try_files` 直出 `/files`；默认部署使用自包含的 `deploy/nginx/dash-pr.conf`。若采用组合式 nginx 配置，则在 `http {}` 引入 `deploy/nginx/dash-pr-upstream.conf`、在对应 `server {}` 引入 `deploy/nginx/dash-pr-files.conf`（其中 `auth_request` 会同时校验会话和 `resources.enabled`），并将 upstream 端口与 PM2 对齐。
 - 健康检查：`GET /api/health/live` 仅检查进程响应；`GET /api/health/ready` 检查 SQLite、核心表、`public/assets`/`public/files` 资产卷可读，并对 `public/files` 做受控临时写入/删除探针。两者均返回 `Cache-Control: no-store`，ready 失败时返回 `503`，不暴露数据库路径或错误详情。
 - `dash-auth.db` 含账号数据，已 gitignore，勿提交。
 - 若数据库或其 WAL/SHM 文件曾进入 Git 历史，仅新增忽略规则不能撤回历史内容；应先轮换账号密码与 `BETTER_AUTH_SECRET`，再按仓库保密流程清理历史。

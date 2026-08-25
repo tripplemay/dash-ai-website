@@ -64,8 +64,9 @@ export function resourcePreviewUrl(
   return assetUrl(fallback);
 }
 
-export function resourceFileUrl(fileKey: string): string | null {
+export function resourceFileUrl(fileKey: string, mode?: "preview" | "download"): string | null {
   if (!isSafeObjectKey(fileKey)) return null;
   const key = fileKey.replace(/^\/+/, "");
-  return `/api/file/${key.split("/").map(encodeURIComponent).join("/")}`;
+  const url = `/api/file/${key.split("/").map(encodeURIComponent).join("/")}`;
+  return mode ? `${url}?mode=${mode}` : url;
 }

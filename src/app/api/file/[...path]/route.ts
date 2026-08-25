@@ -5,26 +5,9 @@ import { auth, AUTH_DISABLED } from "@/lib/auth";
 import { getResourceByFileKey, listEnabledFolderResources, RESOURCE_ZIP_LIMIT } from "@/lib/db";
 import { getStorage, StorageError } from "@/lib/storage";
 import type { ReadObject } from "@/lib/storage";
+import { mimeTypeForResource, previewKindForResource } from "@/lib/resource-types";
 
 export const runtime = "nodejs";
-
-const MIME_TYPES: Record<string, string> = {
-  css: "text/css; charset=utf-8",
-  gif: "image/gif",
-  jpeg: "image/jpeg",
-  jpg: "image/jpeg",
-  mp3: "audio/mpeg",
-  mp4: "video/mp4",
-  pdf: "application/pdf",
-  png: "image/png",
-  ppt: "application/vnd.ms-powerpoint",
-  pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation",
-  webm: "video/webm",
-  webp: "image/webp",
-  xls: "application/vnd.ms-excel",
-  xlsx: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-  zip: "application/zip",
-};
 
 function decodeSegment(value: string) {
   try {
@@ -45,13 +28,12 @@ function isAllowedResourceFile(key: string) {
     .some((root) => key.startsWith(`${root}/`));
 }
 
-function contentType(filePath: string) {
-  const ext = path.extname(filePath).slice(1).toLowerCase();
-  return MIME_TYPES[ext] || "application/octet-stream";
-}
+const TEXT_PREVIEW_MAX_BYTES = Number.isFinite(Number(process.env.DASH_TEXT_PREVIEW_MAX_BYTES))
+  ? Math.min(Math.max(1, Number(process.env.DASH_TEXT_PREVIEW_MAX_BYTES)), 4 * 1024 * 1024)
+  : 1024 * 1024;
 
 function isInlineType(type: string) {
-  return type.startsWith("image/") && type !== "image/svg+xml" || type.startsWith("audio/") || type.startsWith("video/");
+  return type.startsWith("image/") || type.startsWith("audio/") || type.startsWith("video/") || type === "application/pdf" || type.startsWith("text/") || type === "application/json" || type === "application/xml";
 }
 
 /**
@@ -84,6 +66,16 @@ export async function GET(
   }
   if (!allowed) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
+  const requestedMode = req.nextUrl.searchParams.get("mode");
+  if (requestedMode && requestedMode !== "preview" && requestedMode !== "download") {
+    return NextResponse.json({ error: "INVALID_MODE" }, { status: 400 });
+  }
+  const mode = requestedMode as "preview" | "download" | null;
+  const previewKind = previewKindForResource(key);
+  if (mode === "preview" && previewKind === "download") {
+    return NextResponse.json({ error: "PREVIEW_UNSUPPORTED" }, { status: 415 });
+  }
+
   const storage = getStorage();
   if (!storage.getObject) return NextResponse.json({ error: "FILE_STREAM_UNSUPPORTED" }, { status: 501 });
   let object: ReadObject;
@@ -97,9 +89,17 @@ export async function GET(
     return NextResponse.json({ error: "STORAGE_UNAVAILABLE" }, { status: 503 });
   }
 
+  if (mode === "preview" && previewKind === "text" && object.bytes > TEXT_PREVIEW_MAX_BYTES) {
+    object.body.destroy();
+    return NextResponse.json({ error: "PREVIEW_TOO_LARGE" }, { status: 413 });
+  }
+
   const encodedName = encodeURIComponent(path.basename(key));
-  const type = contentType(key);
-  const disposition = isInlineType(type) ? "inline" : "attachment";
+  const type = mimeTypeForResource(key);
+  const disposition = mode === "download" ? "attachment" : mode === "preview" ? "inline" : isInlineType(type) ? "inline" : "attachment";
+  const contentSecurityPolicy = previewKind === "svg" && mode === "preview"
+    ? "default-src 'none'; img-src 'self' data:; style-src 'unsafe-inline'"
+    : "sandbox";
   const stream = object.body;
   req.signal.addEventListener("abort", () => stream.destroy(), { once: true });
   return new Response(Readable.toWeb(stream) as ReadableStream, {
@@ -110,7 +110,7 @@ export async function GET(
       "Cache-Control": "private, no-store",
       "X-Content-Type-Options": "nosniff",
       "X-Frame-Options": "SAMEORIGIN",
-      "Content-Security-Policy": "sandbox",
+      "Content-Security-Policy": contentSecurityPolicy,
     },
   });
 }

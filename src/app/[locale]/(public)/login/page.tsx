@@ -28,11 +28,7 @@ export default function LoginPage() {
       setError(t("failed"));
       return;
     }
-    const returnTo = getSafeReturnTo(
-      new URLSearchParams(window.location.search).get("returnTo"),
-      locale,
-      { allowBrowseApi: true }
-    );
+    const returnTo = getSafeReturnTo(new URLSearchParams(window.location.search).get("returnTo"), locale);
     window.location.replace(returnTo ?? `/${locale}`);
   };
 

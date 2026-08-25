@@ -77,9 +77,44 @@ assert.equal(await file.text(), "standalone smoke file\n", "protected file body"
 const direct = await request(fileUrl, { headers: { Cookie: cookie } });
 expectStatus(direct, 200, "rewritten direct file");
 
-const browse = await request("/api/browse/files/corecoord/brand-system/logo", { headers: { Cookie: cookie } });
-expectStatus(browse, 200, "directory browser");
-assert.match(await browse.text(), /ci-smoke\.txt/, "directory entry");
+let folderId = null;
+let entriesBody = null;
+for (const candidate of [19, 20, 21, 23, 24, 25, 26, 27, 28, 29]) {
+  const entries = await request(`/api/resources/${candidate}/entries`, { headers: { Cookie: cookie } });
+  if (entries.status !== 200) continue;
+  const body = await entries.json();
+  if (body.entries?.some((entry) => entry.name === "ci-smoke.txt")) {
+    folderId = candidate;
+    entriesBody = body;
+    break;
+  }
+}
+assert.ok(folderId, "seeded folder resource was not found");
+assert.ok(entriesBody.entries.some((entry) => entry.name === "ci-smoke.txt"), "directory entry");
+assert.equal(entriesBody.entries.find((entry) => entry.name === "ci-smoke.txt").previewKind, "text", "text preview metadata");
+const nested = await request(`/api/resources/${folderId}/entries?path=logo`, { headers: { Cookie: cookie } });
+expectStatus(nested, 200, "nested directory entries");
+assert.match(JSON.stringify(await nested.json()), /ci-smoke\.txt/, "nested directory entry");
+const oldBrowse = await request("/api/browse/files/corecoord/brand-system/logo", { headers: { Cookie: cookie } });
+expectStatus(oldBrowse, 404, "legacy directory browser removed");
+
+const textPreview = await request(`/api/file${fileUrl}?mode=preview`, { headers: { Cookie: cookie } });
+expectStatus(textPreview, 200, "text preview");
+assert.match(textPreview.headers.get("content-type") || "", /text\/plain/i, "text preview content type");
+assert.match(textPreview.headers.get("content-disposition") || "", /^inline/i, "text preview disposition");
+assert.equal(await textPreview.text(), "standalone smoke file\n", "text preview body");
+
+const svgKey = "files/corecoord/brand-system/logo/ci-smoke.svg";
+const svgUrl = `/${svgKey.split("/").map(encodeURIComponent).join("/")}`;
+const svgPreview = await request(`/api/file${svgUrl}?mode=preview`, { headers: { Cookie: cookie } });
+expectStatus(svgPreview, 200, "svg preview");
+assert.match(svgPreview.headers.get("content-type") || "", /image\/svg\+xml/i, "svg preview content type");
+assert.match(svgPreview.headers.get("content-disposition") || "", /^inline/i, "svg preview disposition");
+
+const folderArchive = await request(`/api/download/${folderId}`, { headers: { Cookie: cookie } });
+expectStatus(folderArchive, 200, "folder archive");
+assert.match(folderArchive.headers.get("content-type") || "", /application\/zip/i, "folder archive type");
+assert.ok((await folderArchive.arrayBuffer()).byteLength > 0, "empty folder archive");
 
 const contentCatalogue = await request("/api/v1/content?type=course&locale=zh&status=all&limit=5", {
   headers: { Cookie: cookie },
