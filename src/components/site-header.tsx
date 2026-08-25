@@ -339,7 +339,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
     <>
       <aside className="fixed inset-y-0 left-0 z-50 hidden w-64 flex-col border-r border-white/15 bg-reverse-background px-4 py-5 lg:flex">
         <Link href="/workspace" aria-label={t("workspace")} className="flex items-center gap-3 px-2">
-          <BrandLogo variant="mark-reverse" width={40} height={40} decorative priority className="size-10" />
+          <BrandLogo variant="horizontal-reverse" width={144} height={58} decorative priority />
           <span className="sr-only">{brandAccessibleName}</span>
         </Link>
 
@@ -404,7 +404,7 @@ export function SiteHeader({ isAdmin = false }: { isAdmin?: boolean }) {
 
       <header className="sticky top-0 z-40 flex h-16 items-center border-b border-white/15 bg-reverse-background/95 px-4 backdrop-blur-md lg:hidden">
         <Link href="/workspace" aria-label={t("workspace")} className="flex items-center gap-2.5">
-          <BrandLogo variant="mark-reverse" width={32} height={32} decorative priority className="size-8" />
+          <BrandLogo variant="horizontal-reverse" width={128} height={51} decorative priority />
           <span className="sr-only">{brandAccessibleName}</span>
         </Link>
         <Sheet open={moreOpen} onOpenChange={setMoreOpen}>
