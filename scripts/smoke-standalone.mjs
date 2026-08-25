@@ -118,6 +118,21 @@ expectStatus(folderArchive, 200, "folder archive");
 assert.match(folderArchive.headers.get("content-type") || "", /application\/zip/i, "folder archive type");
 assert.ok((await folderArchive.arrayBuffer()).byteLength > 0, "empty folder archive");
 
+const selectionArchive = await request(`/api/download/${folderId}/selection`, {
+  method: "POST",
+  headers: { Cookie: cookie, "Content-Type": "application/json" },
+  body: JSON.stringify({ paths: ["ci-smoke.txt", "ci-smoke.svg"] }),
+});
+expectStatus(selectionArchive, 200, "selected file archive");
+assert.match(selectionArchive.headers.get("content-type") || "", /application\/zip/i, "selected archive type");
+assert.ok((await selectionArchive.arrayBuffer()).byteLength > 0, "empty selected archive");
+const invalidSelection = await request(`/api/download/${folderId}/selection`, {
+  method: "POST",
+  headers: { Cookie: cookie, "Content-Type": "application/json" },
+  body: JSON.stringify({ paths: ["../ci-smoke.txt"] }),
+});
+expectStatus(invalidSelection, 400, "invalid selected path");
+
 const contentCatalogue = await request("/api/v1/content?type=course&locale=zh&status=all&limit=5", {
   headers: { Cookie: cookie },
 });

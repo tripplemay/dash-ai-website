@@ -284,7 +284,10 @@
     "suggest": "Tip: ",
     "download": "Download",
     "downloadFile": "Download file",
+    "downloadCurrent": "Download current file",
     "downloadFolder": "Download ZIP",
+    "downloadSelected": "Download selected",
+    "downloadPreparing": "Preparing ZIP…",
     "preview": "Preview",
     "view": "View resource",
     "browse": "Browse files",
@@ -321,7 +324,13 @@
     "fileCount": "{count} items",
     "searchFiles": "Filter files in this folder",
     "noFiles": "No matching files",
-    "openOriginal": "Open in new window"
+    "openOriginal": "Open in new window",
+    "selectedCount": "{count} files selected",
+    "selectFileForDownload": "Select file: {name}",
+    "selectAllVisible": "Select visible files",
+    "clearVisibleSelection": "Clear visible selection",
+    "clearSelection": "Clear selection",
+    "selectedDownloadFailed": "The selected files could not be packaged. Try again."
   },
   "player": {
     "prev": "‹ Prev",

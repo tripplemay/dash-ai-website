@@ -123,7 +123,8 @@ DASH_AUTH_DB=/opt/dash-pr/dash-auth.db \
 │       ├── api/v1/{content,audit,learning-events}/ # 版本化内容治理、审计与学习事件接口
 │       ├── api/resources/[id]/entries/ # 受保护的目录 JSON（需登录）
 │       ├── api/file/[...path]/   # 文件流（真实会话 + 上架状态校验）
-│       ├── api/download/[id]/    # 资源下载端点（登录校验 → 302）
+│       ├── api/download/[id]/    # 资源下载端点（文件/文件夹 ZIP）
+│       ├── api/download/[id]/selection/ # 选择文件打包端点（需登录）
 │       ├── api/admin/upload/     # 资源上传（admin，multipart 流式写盘）
 │       └── [locale]/ (public)/login · (app)/{page,course,resources,player} · (app)/admin{,/accounts,/resources,/content}
 └── .github/workflows/deploy.yml  # 推送 main 自动构建并部署到 VPS
@@ -190,7 +191,7 @@ NODE_ENV=production BETTER_AUTH_SECRET=<与ecosystem一致> \
 
 ## 备注
 
-- 目录型资源详情页通过 `/api/resources/<id>/entries?path=<相对目录>` 懒加载 JSON 条目，在页面内以网格、面包屑和选中预览呈现；文件统一经 `/api/file/<路径>?mode=preview|download` 流式输出并校验真实会话和上架状态。图片、SVG、PDF、音视频和文本可在线预览，Office/压缩包等格式提供下载回退；文件夹下载端点直接输出受限 ZIP。`/files/*` 在 standalone 中由 proxy 重写到该端点。生产 nginx 不得用 `root`/`try_files` 直出 `/files`；默认部署使用自包含的 `deploy/nginx/dash-pr.conf`。若采用组合式 nginx 配置，则在 `http {}` 引入 `deploy/nginx/dash-pr-upstream.conf`、在对应 `server {}` 引入 `deploy/nginx/dash-pr-files.conf`（其中 `auth_request` 会同时校验会话和 `resources.enabled`），并将 upstream 端口与 PM2 对齐。
+- 目录型资源详情页通过 `/api/resources/<id>/entries?path=<相对目录>` 懒加载 JSON 条目，在页面内以网格、面包屑和选中预览呈现；当前文件可直接下载，也可通过 `POST /api/download/<id>/selection` 提交相对路径列表打包下载所选文件。文件统一经 `/api/file/<路径>?mode=preview|download` 流式输出并校验真实会话和上架状态。图片、SVG、PDF、音视频和文本可在线预览，Office/压缩包等格式提供下载回退；文件夹下载端点直接输出受限 ZIP。`/files/*` 在 standalone 中由 proxy 重写到该端点。生产 nginx 不得用 `root`/`try_files` 直出 `/files`；默认部署使用自包含的 `deploy/nginx/dash-pr.conf`。若采用组合式 nginx 配置，则在 `http {}` 引入 `deploy/nginx/dash-pr-upstream.conf`、在对应 `server {}` 引入 `deploy/nginx/dash-pr-files.conf`（其中 `auth_request` 会同时校验会话和 `resources.enabled`），并将 upstream 端口与 PM2 对齐。
 - 健康检查：`GET /api/health/live` 仅检查进程响应；`GET /api/health/ready` 检查 SQLite、核心表、`public/assets`/`public/files` 资产卷可读，并对 `public/files` 做受控临时写入/删除探针。两者均返回 `Cache-Control: no-store`，ready 失败时返回 `503`，不暴露数据库路径或错误详情。
 - `dash-auth.db` 含账号数据，已 gitignore，勿提交。
 - 若数据库或其 WAL/SHM 文件曾进入 Git 历史，仅新增忽略规则不能撤回历史内容；应先轮换账号密码与 `BETTER_AUTH_SECRET`，再按仓库保密流程清理历史。

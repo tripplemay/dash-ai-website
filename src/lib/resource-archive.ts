@@ -33,6 +33,21 @@ function acquireZipSlot() {
 
 type ZipEntry = { absolute: string; name: string; bytes: number };
 
+function normalizeSelectionPath(value: string) {
+  const raw = value.trim().replaceAll("\\", "/");
+  const segments = raw.split("/");
+  if (
+    !raw ||
+    raw.length > 1024 ||
+    raw.startsWith("/") ||
+    raw.endsWith("/") ||
+    segments.some((segment) => !segment || segment === "." || segment === ".." || /[\0\r\n?#]/.test(segment))
+  ) {
+    throw new StorageError("invalid selection path", "INVALID_KEY");
+  }
+  return segments.join("/");
+}
+
 async function collectDirectory(
   absolute: string,
   archiveName: string,
@@ -85,6 +100,32 @@ function uniqueName(name: string, id: number, used: Set<string>) {
   return candidate;
 }
 
+function streamArchive(entries: ZipEntry[], filename: string, signal: AbortSignal | undefined, releaseSlot: () => void) {
+  const archive = new ZipArchive({ zlib: { level: 6 } });
+  const pass = new PassThrough();
+  archive.on("error", () => {
+    releaseSlot();
+    pass.destroy();
+  });
+  pass.once("close", releaseSlot);
+  pass.once("end", releaseSlot);
+  archive.pipe(pass);
+  signal?.addEventListener("abort", () => {
+    releaseSlot();
+    archive.abort();
+  }, { once: true });
+  for (const entry of entries) archive.file(entry.absolute, { name: entry.name });
+  archive.finalize().catch(() => pass.destroy());
+  return new Response(Readable.toWeb(pass) as ReadableStream, {
+    headers: {
+      "Content-Type": "application/zip",
+      "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(filename)}`,
+      "Cache-Control": "private, no-store",
+      "X-Content-Type-Options": "nosniff",
+    },
+  });
+}
+
 export interface ResourceArchiveOptions {
   rows: ResourceRow[];
   filename: string;
@@ -128,32 +169,50 @@ export async function createResourceArchiveResponse({ rows, filename, signal }: 
     }
     if (entries.length === 0) throw new StorageError("no files", "NOT_FOUND");
 
-    const archive = new ZipArchive({ zlib: { level: 6 } });
-    const pass = new PassThrough();
-    const releaseStream = () => releaseSlot();
-    archive.on("error", () => {
-      releaseStream();
-      pass.destroy();
-    });
-    pass.once("close", releaseStream);
-    pass.once("end", releaseStream);
-    archive.pipe(pass);
-    signal?.addEventListener("abort", () => {
-      releaseStream();
-      archive.abort();
-    }, { once: true });
-    for (const entry of entries) archive.file(entry.absolute, { name: entry.name });
-    archive.finalize().catch(() => pass.destroy());
-
+    const response = streamArchive(entries, filename, signal, releaseSlot);
     handedOff = true;
-    return new Response(Readable.toWeb(pass) as ReadableStream, {
-      headers: {
-        "Content-Type": "application/zip",
-        "Content-Disposition": `attachment; filename*=UTF-8''${encodeURIComponent(filename)}`,
-        "Cache-Control": "private, no-store",
-        "X-Content-Type-Options": "nosniff",
-      },
-    });
+    return response;
+  } finally {
+    if (!handedOff) releaseSlot();
+  }
+}
+
+export interface ResourceSelectionArchiveOptions {
+  row: ResourceRow;
+  relativePaths: string[];
+  filename: string;
+  signal?: AbortSignal;
+}
+
+/** Stream a bounded ZIP containing only selected files from one folder resource. */
+export async function createResourceSelectionArchiveResponse({ row, relativePaths, filename, signal }: ResourceSelectionArchiveOptions): Promise<Response> {
+  const storage = getStorage();
+  if (!storage.getLocalPath) throw new StorageError("archive unsupported", "FORBIDDEN");
+  const releaseSlot = acquireZipSlot();
+  if (!releaseSlot) throw new StorageError("archive busy", "CONFLICT");
+
+  let handedOff = false;
+  try {
+    const rootKey = row.file_key.replace(/^\/+|\/+$/g, "");
+    const used = new Set<string>();
+    const entries: ZipEntry[] = [];
+    let bytes = 0;
+    for (const input of relativePaths) {
+      const relativePath = normalizeSelectionPath(input);
+      if (used.has(relativePath)) throw new StorageError("duplicate selection path", "CONFLICT");
+      used.add(relativePath);
+      const absolute = await storage.getLocalPath(`${rootKey}/${relativePath}`, { mustExist: true, directory: false });
+      const stat = await fsp.stat(absolute);
+      if (entries.length >= MAX_ZIP_FILES || bytes + stat.size > MAX_ZIP_BYTES) {
+        throw new StorageError("archive exceeds limit", "TOO_LARGE");
+      }
+      bytes += stat.size;
+      entries.push({ absolute, name: relativePath, bytes: stat.size });
+    }
+    if (entries.length === 0) throw new StorageError("no files", "NOT_FOUND");
+    const response = streamArchive(entries, filename, signal, releaseSlot);
+    handedOff = true;
+    return response;
   } finally {
     if (!handedOff) releaseSlot();
   }

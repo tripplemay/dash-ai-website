@@ -42,30 +42,44 @@ export function ResourcePreview({ entry, className }: { entry: ResourceEntry | n
     return <PreviewFallback entry={entry} message={t("previewFailed")} />;
   }
 
-  const frameClass = cn("min-h-[360px] w-full bg-neutral-50", className);
   if (entry.previewKind === "image" || entry.previewKind === "svg") {
     return (
-      <div className={cn("flex min-h-[360px] items-center justify-center overflow-auto bg-neutral-50 p-6", className)}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={entry.previewUrl || ""} alt={entry.name} className="max-h-[min(72vh,680px)] max-w-full object-contain" />
-      </div>
+      <PreviewChrome entry={entry} className={className}>
+        <div className="flex min-h-[360px] items-center justify-center overflow-auto bg-neutral-50 p-6">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={entry.previewUrl || ""} alt={entry.name} className="max-h-[min(72vh,680px)] max-w-full object-contain" />
+        </div>
+      </PreviewChrome>
     );
   }
   if (entry.previewKind === "pdf") {
-    return <iframe title={entry.name} src={entry.previewUrl || ""} className={frameClass} />;
+    return <PreviewChrome entry={entry} className={className}><iframe title={entry.name} src={entry.previewUrl || ""} className="min-h-[360px] w-full bg-neutral-50" /></PreviewChrome>;
   }
   if (entry.previewKind === "audio") {
-    return <div className={cn("flex min-h-[360px] items-center justify-center bg-neutral-50 p-8", className)}><audio controls className="w-full max-w-xl" src={entry.previewUrl || ""} /></div>;
+    return <PreviewChrome entry={entry} className={className}><div className="flex min-h-[360px] items-center justify-center bg-neutral-50 p-8"><audio controls className="w-full max-w-xl" src={entry.previewUrl || ""} /></div></PreviewChrome>;
   }
   if (entry.previewKind === "video") {
-    return <div className={cn("flex min-h-[360px] items-center justify-center bg-neutral-950 p-4", className)}><video controls className="max-h-[min(72vh,680px)] max-w-full" src={entry.previewUrl || ""} /></div>;
+    return <PreviewChrome entry={entry} className={className}><div className="flex min-h-[360px] items-center justify-center bg-neutral-950 p-4"><video controls className="max-h-[min(72vh,680px)] max-w-full" src={entry.previewUrl || ""} /></div></PreviewChrome>;
   }
   if (entry.previewKind === "text") {
-    if (state === "loading" || textUrl !== entry.previewUrl) return <div className={cn("flex min-h-[360px] items-center justify-center bg-neutral-50", className)}><LoaderCircle className="size-5 animate-spin text-coral-700" aria-label={t("loading")} /></div>;
+    if (state === "loading" || textUrl !== entry.previewUrl) return <PreviewChrome entry={entry} className={className}><div className="flex min-h-[360px] items-center justify-center bg-neutral-50"><LoaderCircle className="size-5 animate-spin text-coral-700" aria-label={t("loading")} /></div></PreviewChrome>;
     if (state === "error") return <PreviewFallback entry={entry} message={t("previewFailed")} />;
-    return <pre className={cn("min-h-[360px] max-h-[min(72vh,680px)] overflow-auto whitespace-pre-wrap break-words bg-neutral-950 p-5 text-left font-mono text-xs leading-relaxed text-neutral-100", className)}>{text}</pre>;
+    return <PreviewChrome entry={entry} className={className}><pre className="min-h-[360px] max-h-[min(72vh,680px)] overflow-auto whitespace-pre-wrap break-words bg-neutral-950 p-5 text-left font-mono text-xs leading-relaxed text-neutral-100">{text}</pre></PreviewChrome>;
   }
   return <PreviewFallback entry={entry} message={t("unsupportedPreview")} />;
+}
+
+function PreviewChrome({ entry, className, children }: { entry: ResourceEntry; className?: string; children: React.ReactNode }) {
+  const t = useTranslations("resources");
+  return (
+    <div className={cn("min-w-0", className)}>
+      <div className="flex min-h-12 items-center justify-between gap-3 border-b border-neutral-200 bg-white px-4 py-2.5">
+        <span className="min-w-0 truncate text-[12px] font-extrabold text-indigo-800" title={entry.name}>{entry.name}</span>
+        {entry.downloadUrl && <a href={entry.downloadUrl} className="inline-flex shrink-0 items-center gap-1.5 rounded-md bg-indigo-700 px-3 py-2 text-[12px] font-extrabold text-white hover:bg-indigo-800"><Download className="size-3.5" aria-hidden="true" />{t("downloadCurrent")}</a>}
+      </div>
+      {children}
+    </div>
+  );
 }
 
 function PreviewFallback({ entry, message }: { entry: ResourceEntry; message: string }) {

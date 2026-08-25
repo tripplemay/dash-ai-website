@@ -284,7 +284,10 @@
     "suggest": "建议：",
     "download": "下载",
     "downloadFile": "下载文件",
+    "downloadCurrent": "下载当前文件",
     "downloadFolder": "下载整包",
+    "downloadSelected": "下载所选文件",
+    "downloadPreparing": "正在打包…",
     "preview": "预览",
     "view": "查看资源",
     "browse": "浏览文件",
@@ -321,7 +324,13 @@
     "fileCount": "{count} 项",
     "searchFiles": "筛选当前目录文件",
     "noFiles": "没有匹配的文件",
-    "openOriginal": "在新窗口打开"
+    "openOriginal": "在新窗口打开",
+    "selectedCount": "已选 {count} 个文件",
+    "selectFileForDownload": "选择文件：{name}",
+    "selectAllVisible": "全选当前文件",
+    "clearVisibleSelection": "取消当前全选",
+    "clearSelection": "清空选择",
+    "selectedDownloadFailed": "所选文件打包失败，请稍后重试。"
   },
   "player": {
     "prev": "‹ 上一张",
