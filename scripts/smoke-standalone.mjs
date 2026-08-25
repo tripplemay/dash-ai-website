@@ -79,7 +79,7 @@ expectStatus(direct, 200, "rewritten direct file");
 
 let folderId = null;
 let entriesBody = null;
-for (const candidate of [19, 20, 21, 23, 24, 25, 26, 27, 28, 29]) {
+for (const candidate of Array.from({ length: 64 }, (_, index) => index + 1)) {
   const entries = await request(`/api/resources/${candidate}/entries`, { headers: { Cookie: cookie } });
   if (entries.status !== 200) continue;
   const body = await entries.json();
