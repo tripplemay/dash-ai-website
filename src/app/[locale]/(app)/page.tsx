@@ -124,7 +124,7 @@ export default async function HomePage({
 
   return (
     <div className="min-w-0">
-      <div className="mx-auto max-w-[1200px] px-5 py-7 sm:px-7 lg:py-10">
+      <div className="w-full px-5 py-7 sm:px-7 lg:py-10">
         <header aria-labelledby="workspace-title" className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-[760px]">
             <p className="font-mono text-[11px] font-extrabold tracking-[2.5px] text-coral-700">{t("eyebrow")}</p>

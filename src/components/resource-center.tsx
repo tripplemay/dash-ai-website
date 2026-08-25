@@ -72,7 +72,7 @@ export function ResourceCenter({
   const list = items;
 
   return (
-    <section className="mx-auto max-w-[1200px] px-7 py-8.5">
+    <section className="w-full px-7 py-8.5">
       <form onSubmit={submitSearch} role="search" className="mt-1 flex flex-col gap-3 rounded-lg border border-neutral-200 bg-card p-3.5 sm:flex-row sm:items-center">
         <div className="relative min-w-0 flex-1">
           <Search aria-hidden="true" className="absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
@@ -132,7 +132,7 @@ export function ResourceCenter({
         )}
       </div>
 
-      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
         {list.map((r) => (
           <div
             key={r.id}

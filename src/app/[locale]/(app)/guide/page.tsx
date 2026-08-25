@@ -68,7 +68,7 @@ export default function GuidePage() {
     <>
       <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
         <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-7">
+        <div className="relative z-10 w-full px-7">
           <h1 className="text-[32px] font-extrabold tracking-[2px]">
             {t("title1")}
             <em className="not-italic text-coral-300">{t("title2")}</em>
@@ -90,7 +90,7 @@ export default function GuidePage() {
       </section>
 
       {/* 板块一 · 印刷指南 */}
-      <section id="print" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 pt-8.5">
+      <section id="print" className="w-full scroll-mt-24 px-7 pt-8.5">
         <h2 className="text-[26px] font-extrabold tracking-[2px]">
           {print.title} <em className="not-italic text-coral-700">{print.titleEm}</em>
         </h2>
@@ -130,7 +130,7 @@ export default function GuidePage() {
       </section>
 
       {/* 板块二 · 播放指南 */}
-      <section id="player" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 pt-8.5">
+      <section id="player" className="w-full scroll-mt-24 px-7 pt-8.5">
         <h2 className="text-[26px] font-extrabold tracking-[2px]">
           {player.title} <em className="not-italic text-coral-700">{player.titleEm}</em>
         </h2>
@@ -146,7 +146,7 @@ export default function GuidePage() {
       </section>
 
       {/* 板块三 · 更新指南 */}
-      <section id="ops" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 py-8.5">
+      <section id="ops" className="w-full scroll-mt-24 px-7 py-8.5">
         <h2 className="text-[26px] font-extrabold tracking-[2px]">
           {ops.title} <em className="not-italic text-coral-700">{ops.titleEm}</em>
         </h2>

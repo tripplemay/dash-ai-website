@@ -37,7 +37,7 @@ export default async function ResourcesPage({
     <>
       <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
         <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-7">
+        <div className="relative z-10 w-full px-7">
           <h1 className="text-[32px] font-extrabold tracking-[2px]">
             {t("title1")}
             <em className="not-italic text-coral-300">{t("title2")}</em>

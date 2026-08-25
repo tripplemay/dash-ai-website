@@ -1,6 +1,6 @@
 export default function AppLoading() {
   return (
-    <div className="mx-auto w-full max-w-[1200px] px-5 py-7 sm:px-7 lg:py-10" aria-busy="true">
+    <div className="w-full px-5 py-7 sm:px-7 lg:py-10" aria-busy="true">
       <div className="animate-pulse space-y-8" aria-hidden="true">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div className="space-y-3">

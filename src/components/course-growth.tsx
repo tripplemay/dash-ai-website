@@ -6,7 +6,7 @@ export function CourseGrowth() {
   const t = useTranslations("course");
 
   return (
-    <section className="mx-auto max-w-[1200px] px-7 py-8.5">
+    <section className="w-full px-7 py-8.5">
       <h2 className="text-[26px] font-extrabold tracking-[2px]">
         {t("growthTitle")} <em className="not-italic text-coral-700">{t("growthEm")}</em>
       </h2>

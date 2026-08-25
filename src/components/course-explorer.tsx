@@ -185,7 +185,7 @@ export function CourseExplorer({ lab, course, lessons, siblings, initial }: Prop
   const next = cur < lessons.length ? cur + 1 : null;
 
   return (
-    <div className="mx-auto max-w-[1200px] px-5 py-7 sm:px-7 sm:py-8.5 md:flex md:items-start md:gap-6">
+    <div className="w-full px-5 py-7 sm:px-7 sm:py-8.5 md:flex md:items-start md:gap-6">
       {/* 移动端：搜索 + 原生选择器，避免 135 个横向 chips 难以定位 */}
       <div className="mb-5 md:hidden">
         <label className="relative block">

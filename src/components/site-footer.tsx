@@ -20,7 +20,7 @@ export function SiteFooter() {
 
   return (
     <footer className="mt-10 border-t border-white/15 bg-reverse-background py-6 text-[12.5px] tracking-wide text-neutral-400">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap items-center justify-between gap-4 px-7">
+      <div className="flex w-full flex-wrap items-center justify-between gap-4 px-7">
         <div className="flex min-w-0 items-center gap-3">
           <BrandLogo variant="mark-reverse" width={24} height={24} decorative className="size-6" />
           <div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-1">

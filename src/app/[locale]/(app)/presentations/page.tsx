@@ -33,7 +33,7 @@ export default async function PresentationsPage({
   ];
 
   return (
-    <div className="mx-auto max-w-[1000px] px-5 py-8 sm:px-7 lg:py-12">
+    <div className="w-full px-5 py-8 sm:px-7 lg:py-12">
       <div className="max-w-[680px]">
         <div className="flex items-center gap-2 text-coral-700">
           <BrandLogo variant="mark-color" alt={t("brandAlt")} width={28} height={28} className="size-7" priority />

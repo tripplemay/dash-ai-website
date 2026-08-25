@@ -31,7 +31,7 @@ export default async function AdminLayout({
   }
 
   return (
-    <div className="mx-auto w-full max-w-[1200px] px-5 py-6 sm:px-7 lg:py-8">
+    <div className="w-full px-5 py-6 sm:px-7 lg:py-8">
       <AdminContextNav />
       <div className="mt-7 min-w-0">{children}</div>
     </div>

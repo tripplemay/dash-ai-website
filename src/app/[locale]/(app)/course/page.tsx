@@ -25,7 +25,7 @@ export default function CoursePage() {
     <>
       <section className="relative overflow-hidden bg-reverse-background px-0 pt-11 pb-8.5 text-white">
         <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-7">
+        <div className="relative z-10 w-full px-7">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
               <h1 className="text-[32px] font-extrabold tracking-[2px]">
@@ -55,7 +55,7 @@ export default function CoursePage() {
       </section>
 
       {/* 课程体系总览 */}
-      <section id="curriculum" className="mx-auto max-w-[1200px] scroll-mt-24 px-7 py-8.5">
+      <section id="curriculum" className="w-full scroll-mt-24 px-7 py-8.5">
         <h2 className="text-[26px] font-extrabold tracking-[2px]">
           {t("systemTitle")} <em className="not-italic text-coral-700">{t("systemEm")}</em>
         </h2>
@@ -161,7 +161,7 @@ export default function CoursePage() {
       </section>
 
       <section className="border-y border-indigo-200 bg-indigo-50">
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-6 px-7 py-8 sm:py-10 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex w-full flex-col gap-6 px-7 py-8 sm:py-10 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-[720px]">
             <h2 className="text-[22px] font-extrabold leading-8 text-indigo-950">{t("faqCtaTitle")}</h2>
             <p className="mt-2 text-[13.5px] leading-6 text-neutral-600">{t("faqCtaDescription")}</p>

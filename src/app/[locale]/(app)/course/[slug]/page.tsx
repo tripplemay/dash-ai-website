@@ -55,7 +55,7 @@ export default async function CourseDetailPage({
       {/* 页头：课程域 + 课程名 + 进阶方式/课次 */}
       <section className="relative overflow-hidden bg-reverse-background pt-11 pb-8.5 text-white">
         <CoordinateField className="absolute top-0 right-0 h-full w-1/2 object-cover opacity-15 mix-blend-screen" />
-        <div className="relative z-10 mx-auto max-w-[1200px] px-7">
+        <div className="relative z-10 w-full px-7">
           <nav aria-label={t("breadcrumb")} className="flex flex-wrap items-center gap-2 text-[12px] font-bold text-neutral-300">
             <Link href="/courses" className="transition-colors hover:text-coral-300">{t("breadcrumbCourses")}</Link>
             <span aria-hidden="true">/</span>

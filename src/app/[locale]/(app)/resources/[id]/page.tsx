@@ -40,7 +40,7 @@ export default async function ResourceDetailPage({
   const resourceTitle = localizedResourceTitle(resource, locale === "en" ? "en" : "zh");
 
   return (
-    <div className="mx-auto max-w-[1000px] px-5 py-7 sm:px-7 lg:py-10">
+    <div className="w-full px-5 py-7 sm:px-7 lg:py-10">
       <nav aria-label={t("breadcrumb")} className="flex flex-wrap items-center gap-2 text-[12px] font-bold text-neutral-600">
         <Link href="/resources" className="hover:text-coral-700">{t("title1")} {t("title2")}</Link>
         <span aria-hidden="true">/</span>

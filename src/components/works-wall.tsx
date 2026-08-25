@@ -20,7 +20,7 @@ export function WorksWall() {
   const t = useTranslations("course");
 
   return (
-    <section className="mx-auto max-w-[1200px] px-7 pt-2 pb-4">
+    <section className="w-full px-7 pt-2 pb-4">
       <h2 className="text-[26px] font-extrabold tracking-[2px]">
         {t("worksTitle")} <em className="not-italic text-coral-700">{t("worksEm")}</em>
       </h2>

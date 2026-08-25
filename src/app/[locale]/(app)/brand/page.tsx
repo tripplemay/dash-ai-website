@@ -17,7 +17,7 @@ export default async function BrandPage({
   const brandManualT = await getTranslations({ locale, namespace: "brandManual" });
   return (
     <div className="min-w-0">
-      <div className="mx-auto flex max-w-[1200px] items-center gap-4 px-5 py-4 sm:px-7">
+      <div className="flex w-full items-center gap-4 px-5 py-4 sm:px-7">
         <Link href="/help/guide" className="inline-flex items-center gap-1.5 text-[12px] font-bold text-neutral-600 hover:text-coral-700">
           <ArrowLeft className="size-3.5" />
           {t("guide")}
