@@ -118,6 +118,8 @@ jobs:
           # duplicate it inside the application release archive.
           rm -rf release/app/public
           cp -R .next/static release/app/.next/static
+          # Screen art is release-owned so code and images roll back together.
+          cp -R public/campus-screen release/app/.next/static/campus-screen
           cp scripts/seed.mjs release/app/scripts/seed.mjs
           cp scripts/migrate-auth.mjs release/app/scripts/migrate-auth.mjs
           cp scripts/migrate.mjs release/app/scripts/migrate.mjs
@@ -274,6 +276,10 @@ jobs:
             SMOKE_RELEASE_ID="$smoke_release" \
             SMOKE_ADMIN_PASSWORD=ci-admin-pass-123 \
             node scripts/smoke-standalone.mjs
+          NODE_ENV=production \
+            SMOKE_BASE_URL="http://127.0.0.1:${smoke_port}" \
+            SMOKE_ADMIN_PASSWORD=ci-admin-pass-123 \
+            node scripts/smoke-campus-screen.mjs
           cleanup_smoke
           trap - EXIT
 

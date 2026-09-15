@@ -1,12 +1,10 @@
 import CampusScreen from "@/components/campus-screen";
 import { getPageMetadata } from "@/lib/page-metadata";
 
-export const dynamic = "force-dynamic";
-
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   return getPageMetadata(params, "screen");
 }
 
-export default function ScreenPresentationPage() {
+export default function CampusLoopPreviewPage() {
   return <CampusScreen />;
 }

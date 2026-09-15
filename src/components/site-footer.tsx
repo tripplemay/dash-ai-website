@@ -15,6 +15,7 @@ export function SiteFooter() {
     pathname === "/player" ||
     pathname.startsWith("/course/present") ||
     pathname === "/presentations/screen" ||
+    pathname === "/presentations/screen-preview" ||
     pathname.startsWith("/presentations/course")
   ) return null;
 

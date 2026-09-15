@@ -41,7 +41,13 @@ const SECONDARY_NAV = [
   { href: "/help/brand", key: "brand", icon: Settings2 },
 ] as const;
 
-const FULLSCREEN_PATHS = ["/player", "/course/present", "/presentations/screen", "/presentations/course"];
+const FULLSCREEN_PATHS = [
+  "/player",
+  "/course/present",
+  "/presentations/screen",
+  "/presentations/screen-preview",
+  "/presentations/course",
+];
 
 function isFullscreenPath(pathname: string) {
   return FULLSCREEN_PATHS.some((path) => pathname === path || pathname.startsWith(`${path}/`));
