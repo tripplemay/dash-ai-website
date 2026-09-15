@@ -20,6 +20,7 @@
 .headerDivider { width: 1px; height: 20px; background: #bdd5fa40; }
 .headerEnglish { font-family: var(--cc-font-mono), monospace; font-size: 13px; letter-spacing: 1.5px; color: #8bafc7; }
 .heading { position: absolute; left: 88px; right: 88px; top: 168px; z-index: 2; }
+.headingMeta { display: flex; align-items: center; gap: 30px; }
 .headingKicker { display: flex; align-items: center; gap: 20px; color: var(--accent); font-family: var(--cc-font-mono), monospace; font-size: 17px; letter-spacing: 3px; font-weight: 500; }
 .headingKicker > span { color: #fc7358; font-size: 20px; letter-spacing: 1px; }
 .headingKicker > i { width: 38px; height: 1px; background: #8fbeda70; }
@@ -106,7 +107,12 @@
 .directionNodes svg { color: var(--accent); }
 .directionNodes strong { font-size: 24px; font-weight: 500; }
 
-.schoolContent { position: absolute; top: 402px; left: 88px; right: 88px; bottom: 157px; }
+.slide[data-kind="school"] .heading { top: 156px; }
+.slide[data-kind="school"] .headingKicker { width: 320px; flex-shrink: 0; white-space: nowrap; }
+.schoolStage { display: flex; align-items: center; gap: 20px; min-height: 68px; padding: 9px 24px; flex-shrink: 0; border: 1px solid var(--accent); border-left-width: 4px; background: linear-gradient(110deg, #193047f5, #0c1c31ef); box-shadow: 0 5px 28px #04091635; }
+.schoolStage > span { font-size: 21px; line-height: 1.3; letter-spacing: 3px; color: #c3d6e6; }
+.schoolStage > strong { font-size: 42px; line-height: 1.1; font-weight: 700; letter-spacing: 1px; color: var(--accent); }
+.schoolContent { position: absolute; top: 426px; left: 88px; right: 88px; bottom: 157px; }
 .courseRows { width: 860px; height: 100%; display: flex; flex-direction: column; }
 .courseRow { flex: 1; display: flex; align-items: center; gap: 21px; border-top: 1px solid #8abbdd38; position: relative; background: linear-gradient(90deg, #0c182ccb, #0b182f69 70%, transparent); }
 .courseRow:last-child { border-bottom: 1px solid #8abbdd38; }

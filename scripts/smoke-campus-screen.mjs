@@ -13,6 +13,8 @@ const { CAMPUS_SCREEN_SLIDES: slides, CAMPUS_SCREEN_ASSETS: assets } = await imp
 assert.equal(slides.length, 14);
 assert.equal(slides[9].id, "teaching-quality");
 assert.equal(slides[11].id, "global-competitions");
+assert.deepEqual(slides.slice(3, 6).map((slide) => slide.schoolStage), ["小学", "初中", "高中"]);
+assert.equal(slides.filter((slide) => slide.schoolStage).length, 3);
 assert.match(assets, /^\/_next\/static\/campus-screen\//);
 
 const screen = "/zh/presentations/screen";
@@ -37,6 +39,22 @@ for (const [index, slide] of slides.entries()) {
   assert.ok(html.includes(slide.title.split("\n")[0]), `${slide.id}: title`);
   assert.ok(html.includes(assets), `${slide.id}: release-owned images`);
   assert.ok(!html.includes("相关认证说明；具体认证主体"), `${slide.id}: removed note`);
+  const active = html.match(new RegExp(`<article[^>]*data-slide-id="${slide.id}"[^>]*data-active="true"[^>]*>`));
+  assert.ok(active, `${slide.id}: active slide`);
+  const titleStart = html.indexOf("<h1", active.index);
+  assert.ok(titleStart > active.index, `${slide.id}: heading`);
+  const heading = html.slice(active.index, titleStart);
+  const badge = heading.match(/<div[^>]*data-testid="campus-screen-school-stage"[^>]*>([\s\S]*?)<\/div>/);
+  if (slide.schoolStage) {
+    assert.ok(badge, `${slide.id}: stage badge`);
+    const stageText = `适合${slide.schoolStage}阶段`;
+    assert.equal(badge[1].replace(/<[^>]*>/g, ""), stageText);
+    const headingText = heading.replace(/<[^>]*>/g, "").replace(/&amp;/g, "&");
+    const themeIndex = headingText.indexOf(slide.english);
+    assert.ok(themeIndex >= 0 && themeIndex < headingText.indexOf(stageText), `${slide.id}: theme before stage`);
+  } else {
+    assert.equal(badge, null, `${slide.id}: no stage badge`);
+  }
 }
 const alias = await fetch(`${base}/zh/presentations/screen-preview?slide=12&paused=1`, { headers: { Cookie: cookie } });
 assert.equal(alias.status, 200);
@@ -53,3 +71,4 @@ for (const path of images) {
   assert.equal(sha(actual), sha(local), `${path}: packaged image checksum`);
 }
 console.log(`campus screen smoke passed: ${slides.length} slides, ${images.size} image checksums, protected routes`);
+console.log("campus screen stage badges passed: 3 labels, theme before stage");

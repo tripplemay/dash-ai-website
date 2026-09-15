@@ -18,6 +18,7 @@ export interface CampusScreenSlide {
   id: string;
   kind: ScreenKind;
   section: string;
+  schoolStage?: "小学" | "初中" | "高中";
   english: string;
   title: string;
   subtitle: string;
@@ -72,7 +73,7 @@ export const CAMPUS_SCREEN_SLIDES: readonly CampusScreenSlide[] = [
     ],
   },
   {
-    id: "primary", kind: "school", section: "小学学习", english: "IMAGINE & CREATE",
+    id: "primary", kind: "school", section: "小学学习", schoolStage: "小学", english: "IMAGINE & CREATE",
     title: "把奇思妙想，变成自己的作品", subtitle: "从好奇出发，在创作和游戏实验中认识 AI。",
     image: art("creative"), accent: "#FFB48A", duration: 13000,
     takeaway: "敢于想象，学会表达，也学会负责任地使用 AI。",
@@ -83,7 +84,7 @@ export const CAMPUS_SCREEN_SLIDES: readonly CampusScreenSlide[] = [
     ],
   },
   {
-    id: "middle", kind: "school", section: "初中学习", english: "CODE & BUILD",
+    id: "middle", kind: "school", section: "初中学习", schoolStage: "初中", english: "CODE & BUILD",
     title: "从会用工具，到做出真实项目", subtitle: "把代码、影像和硬件连接起来，让想法接受实践检验。",
     image: art("engineering"), accent: "#73E0DE", duration: 15000,
     takeaway: "不只问“能不能做出来”，也问“为什么这样设计”。",
@@ -95,7 +96,7 @@ export const CAMPUS_SCREEN_SLIDES: readonly CampusScreenSlide[] = [
     ],
   },
   {
-    id: "high", kind: "school", section: "高中学习", english: "DESIGN & DISCOVER",
+    id: "high", kind: "school", section: "高中学习", schoolStage: "高中", english: "DESIGN & DISCOVER",
     title: "让应用落地，让数据支持判断", subtitle: "基于已有编程基础，完成更完整的应用与研究项目。",
     image: art("research"), accent: "#68CFFF", duration: 13000,
     takeaway: "交付成果 · 保留过程 · 解释判断",

@@ -286,7 +286,10 @@ function ScreenSlide({ slide, index, active, running }: { slide: CampusScreenSli
       <div className={s.headerSection}><i /><span>{slide.section}</span><span className={s.headerDivider} /><span className={s.headerEnglish}>CORECOORD / LEARNING COORDINATES</span></div>
     </header>
     <div className={s.heading}>
-      <div className={s.headingKicker}><span>{String(index + 1).padStart(2, "0")}</span><i />{slide.english}</div>
+      <div className={s.headingMeta}>
+        <div className={s.headingKicker}><span>{String(index + 1).padStart(2, "0")}</span><i />{slide.english}</div>
+        {slide.schoolStage && <div className={s.schoolStage} data-testid="campus-screen-school-stage"><span>适合</span><strong>{slide.schoolStage}阶段</strong></div>}
+      </div>
       <h1 data-long={slide.title.length > 20}>{slide.title}</h1><p>{slide.subtitle}</p>
     </div>
     <SlideContent slide={slide} />
