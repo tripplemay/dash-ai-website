@@ -1,0 +1,65 @@
+{
+  "key": "cnao",
+  "name": "全国中学生天文知识竞赛",
+  "checkedAt": "2026-09-16T16:38:18.415Z",
+  "status": "unchanged",
+  "pages": {
+    "https://www.bjp.org.cn/qgzxstwzsjs/": {
+      "hash": "907992de182789927022fcd291671d7b9b4766ec",
+      "items": [
+        {
+          "title": "天文爱好者杂志",
+          "url": "https://www.bjp.org.cn/twahzzz/index.shtml"
+        },
+        {
+          "title": "天文馆专业委员会",
+          "url": "https://www.bjp.org.cn/twgzwh/js/zwhjs/index.shtml"
+        },
+        {
+          "title": "北京天文学会",
+          "url": "https://www.bjp.org.cn/bjtwxh/xhjs/xhjj/index.shtml"
+        },
+        {
+          "title": "2025-11-21 北京天文馆带队参加第四届国际远程天文奥林匹克竞赛斩获佳绩",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asry/4028c1369cab05ed019cad38980e001b.shtml",
+          "date": "2025-11-21"
+        },
+        {
+          "title": "2025-10-29 北京天文馆带队参加第四届国际天文与天体物理奥林匹克竞赛（低年级组）载誉归来",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asry/4028c1369cab05ed019cad38a54d001e.shtml",
+          "date": "2025-11-21"
+        },
+        {
+          "title": "2025-08-25 北京天文馆带队参加第十八届国际天文与天体物理奥林匹克竞赛载誉归来",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asry/4028c1369cab05ed019cad38b7bc0021.shtml",
+          "date": "2025-11-21"
+        },
+        {
+          "title": "2024-12-27 北京天文馆带队参加第三届国际远程天文奥林匹克竞赛荣耀凯旋",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asry/4028c1369cab05ed019cad38cb150024.shtml",
+          "date": "2025-11-21"
+        },
+        {
+          "title": "2026-07-27北京天文馆成功举办2026年国际天文奥赛国家队集训活动",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369fa00cb8019fa190f8c10022.shtml",
+          "date": "2026-07-27"
+        },
+        {
+          "title": "2026-07-062025-2026学年全国中学生天文知识竞赛优秀指导教师名单",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369f33e736019f35375a5a001a.shtml",
+          "date": "2026-07-06"
+        },
+        {
+          "title": "2026-06-032025-2026学年全国中学生天文知识竞赛优秀指导教师申请",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369e89f561019e8b0dbeef0009.shtml",
+          "date": "2026-06-03"
+        },
+        {
+          "title": "2026-05-192025-2026学年全国中学生天文知识竞赛圆满结束",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369e3cb5f6019e3eded9bb000f.shtml",
+          "date": "2026-05-19"
+        }
+      ]
+    }
+  }
+}

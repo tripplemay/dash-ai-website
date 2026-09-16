@@ -1,0 +1,23 @@
+{
+  "slug": "eco-essay",
+  "summary": "中华环保联合会主办的全国性公益征文活动，高中生（含职高、中专）提交环保作文与研究性学习报告，分省赛、国赛两阶段。",
+  "description": "全国中学生环境保护优秀作文征集活动由中华环保联合会主办、《中华环境》杂志社学术支持，面向高中学生（含职高、中专），公益免费。第八届以“美丽中国，双碳有我”为主题，参赛学生须用专用稿纸手写提交一篇原创环保作文（800—1500字）和一篇环保研究性学习报告（1500—3000字），分团体与个人报名。2026年9月20日起官网注册并提交作品，11月30日截稿；初赛（省赛）结果拟定12月25日公布，获一、二等奖者晋级决赛（国赛），拟定2027年2月末举行。适合关注生态文明、热爱写作与调研的高中生。",
+  "schedule": [
+    {"stage": "报名及作品提交（初赛/省赛）", "start": "2026-09-20", "end": "2026-11-30", "note": "官网注册建档，提交环保作文与环保研究性学习报告"},
+    {"stage": "初赛（省赛）评审", "start": null, "end": null, "note": "结果查询拟定2026年12月25日公布"},
+    {"stage": "决赛（国赛）", "start": null, "end": null, "note": "拟定2027年2月末线下举行，结果查询拟定2027年3月末；初赛一、二等奖获得者晋级"}
+  ],
+  "updates": [
+    {"date": "2026-09-10", "title": "第八届全国中学生环境保护优秀作文征集活动启动！", "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg9vkf4401e", "summary": "第八届活动启动，主题“美丽中国，双碳有我”，9月20日起报名提交作品", "source": "official"},
+    {"date": "2026-07-02", "title": "第七届环保作文大赛优秀指导教师证书查询通知", "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99cc6b8d2", "summary": "第七届优秀指导教师证书2026年7月5日开放查询", "source": "official"},
+    {"date": "2026-04-07", "title": "第七届环保作文大赛全国总决赛成绩查询通知", "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99p5608ad", "summary": "第七届完成线下全国总决赛，评奖结果2026年4月7日22:00开放查询", "source": "official"},
+    {"date": "2026-02-13", "title": "第七届环保作文大赛复赛成绩公布及全国总决赛考试通知", "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99x705a51", "summary": "复赛成绩2026年2月13日18:00公布", "source": "official"},
+    {"date": "2025-11-14", "title": "第七届全国中学生环境保护优秀作文征集活动启动通知", "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99i6742b6", "summary": "第七届活动正式启动，全国高中、中专、职高学生均可参加", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "http://www.huanbaozuowen.com/"}
+  ],
+  "tags": ["环境保护", "作文", "生态文明"],
+  "relatedCourses": [],
+  "sourceCheckedAt": "2026-09-16"
+}

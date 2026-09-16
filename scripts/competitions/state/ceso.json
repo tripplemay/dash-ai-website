@@ -1,0 +1,64 @@
+{
+  "key": "ceso",
+  "name": "全国中学生地球科学奥林匹克竞赛",
+  "checkedAt": "2026-09-16T16:38:32.051Z",
+  "status": "unchanged",
+  "pages": {
+    "https://ceso.ssoc.org.cn/": {
+      "hash": "b3b4fd159975b09e9914090ef07dc66150e177b5",
+      "items": [
+        {
+          "title": "国际地球科学奥林匹克竞赛中国赛区选拔赛",
+          "url": "https://ceso.ssoc.org.cn/"
+        },
+        {
+          "title": "其他活动通知",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/news.php?lang=cn&class2=303"
+        },
+        {
+          "title": "研究成果应用",
+          "url": "https://ceso.ssoc.org.cn/chengguo/news.php?lang=cn&class2=288"
+        },
+        {
+          "title": "探秘地球科学",
+          "url": "https://ceso.ssoc.org.cn/tanmi/"
+        },
+        {
+          "title": "中国代表队在第19届国际地球科学奥林匹克竞赛获佳绩",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=672",
+          "date": "2026-09-01"
+        },
+        {
+          "title": "2018—2026年全国中学生地球科学奥赛真题及解析发布通知",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=673",
+          "date": "2026-09-09"
+        },
+        {
+          "title": "2026年国际地球科学奥林匹克竞赛中国国家代表队队员和中国国家集训队优秀队员名单",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=671",
+          "date": "2026-05-25"
+        },
+        {
+          "title": "关于警惕虚假地球科学奥赛网站等平台的公告",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=670",
+          "date": "2026-04-28"
+        },
+        {
+          "title": "探海问地·智汇青岛 2025-2026学年全国中学生地球科学奥林匹克竞赛决赛圆满落幕",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=668",
+          "date": "2026-04-24"
+        },
+        {
+          "title": "2025-2026学年全国中学生地球科学奥林匹克竞赛预赛如期举行",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=664",
+          "date": "2026-03-29"
+        },
+        {
+          "title": "第十八届国际地球科学奥林匹克竞赛全球总决赛在济宁圆满落幕",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=651",
+          "date": "2025-08-19"
+        }
+      ]
+    }
+  }
+}

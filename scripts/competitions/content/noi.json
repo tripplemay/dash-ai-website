@@ -1,0 +1,27 @@
+{
+  "slug": "noi",
+  "summary": "中国计算机学会主办的国内最高水平中学生信息学竞赛，经CSP-J/S、NOIP、省选逐级选拔，优胜者入选国家队参加IOI。",
+  "description": "全国青少年信息学奥林匹克竞赛（NOI）由中国计算机学会（CCF）于1984年创办，是国内最高水平的中学生信息学赛事，2026年为第43届（7月18-24日在青岛市城阳第一高级中学举行，产生金牌54枚）。赛事以算法设计与程序设计为核心，选手沿CSP-J/S认证、NOIP联赛、省内选拔的路径晋级全国赛，按省组队参赛。NOI金牌前50名进入国家集训队，从中选拔4人代表中国参加国际信息学奥林匹克（IOI）。赛事适合编程与算法基础扎实、有志于计算机科学深造的中学生，在强基计划等高校选拔中认可度高。",
+  "schedule": [
+    {"stage": "CSP-J/S 2026第一轮报名", "start": "2026-07-06", "end": "2026-09-06", "note": "通过NOI报名系统（cspsjtest.noi.cn）注册报名，已截止"},
+    {"stage": "CSP-J/S 2026第一轮认证", "start": "2026-09-19", "end": "2026-09-19", "note": "在各省认证点举行"},
+    {"stage": "CSP-J/S 2026第二轮认证", "start": "2026-10-31", "end": "2026-10-31", "note": "在各省举行"},
+    {"stage": "NOIP 2026暨女生赛", "start": "2026-11-28", "end": "2026-11-28", "note": "在各省举行，为省选与NOI参赛资格的重要环节"},
+    {"stage": "NOI 2026全国赛（已结束）", "start": "2026-07-18", "end": "2026-07-24", "note": "第43届，青岛市城阳第一高级中学承办；NOI 2027将由中国人民大学附属中学承办"}
+  ],
+  "updates": [
+    {"date": "2026-09-11", "title": "关于自NOI 2029起取消A类选手加分政策的公告", "url": "https://www.noi.cn/xw/2026-09-11/930261.shtml", "summary": "CCF公告自NOI 2029起取消A类选手加分政策", "source": "official"},
+    {"date": "2026-09-11", "title": "CCF关于NOI 2027省内选拔的若干规定", "url": "https://www.noi.cn/xw/2026-09-11/930020.shtml", "summary": "明确NOI 2027省内选拔的组织与资格规定", "source": "official"},
+    {"date": "2026-09-09", "title": "关于CCF CSP-J/S认证等级名称规范的公告", "url": "https://www.noi.cn/xw/2026-09-09/930554.shtml", "summary": "规范CSP-J/S认证等级名称表述", "source": "official"},
+    {"date": "2026-07-27", "title": "代码逐光，筑梦青岛——NOI 2026在青岛市城阳第一高级中学圆满收官", "url": "https://www.noi.cn/xw/2026-07-27/918275.shtml", "summary": "第43届NOI落幕，产生金牌54枚、银牌146枚、铜牌83枚，江苏队获团体总分第一", "source": "official"},
+    {"date": "2026-07-23", "title": "CCF NOI 2026获奖名单公示", "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml", "summary": "公示NOI 2026金银铜牌获奖名单", "source": "official"},
+    {"date": "2026-07-06", "title": "CSP-J/S 2026 第一轮报名通知", "url": "https://www.noi.cn/xw/2026-07-06/908154.shtml", "summary": "CSP-J/S 2026第一轮9月19日举行，报名至9月6日15:00截止", "source": "official"},
+    {"date": "2026-02-12", "title": "2026 NOI系列活动和认证日历", "url": "https://www.noi.cn/xw/2026-02-12/861384.shtml", "summary": "公布2026年NOI冬令营、APIO、NOI、IOI、CSP-J/S、NOIP等全年活动时间安排", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://www.noi.cn/"}
+  ],
+  "tags": ["信息学", "编程", "奥林匹克"],
+  "relatedCourses": ["python"],
+  "sourceCheckedAt": "2026-09-16"
+}

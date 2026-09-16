@@ -1,0 +1,24 @@
+{
+  "slug": "soong-invention-award",
+  "summary": "中国宋庆龄基金会、中国发明协会主办，2026年为第二十一届，设发明、人工智能（编程）、创意三类作品奖。",
+  "description": "宋庆龄少年儿童发明奖由中国宋庆龄基金会与中国发明协会共同主办，2026年举办第二十一届。参赛对象为18周岁及以下的小学（四年级及以上）、初中、高中（含中专、职高）在校学生。竞赛设发明作品、人工智能（编程）作品、创意作品三类奖项，本届创意作品设“太空旅行”“未来能源”主题，另征集科技绘画作品。流程为各地选拔推荐、网络申报、全国初评、终评答辩与颁奖，评出金、银、铜奖。本届终评颁奖于2026年8月19日至22日在北京举办。赛事公益零收费，适合热衷发明创造的中小学生。",
+  "schedule": [
+    {"stage": "各地选拔推荐", "start": null, "end": null, "note": "2026年2月至3月，由各组织机构组织选拔推荐"},
+    {"stage": "作品申报及形式审核", "start": null, "end": null, "note": "2026年3月至4月，网络申报"},
+    {"stage": "全国初评", "start": null, "end": null, "note": "2026年5月至6月；入围终评名单7月公示"},
+    {"stage": "终评颁奖", "start": "2026-08-19", "end": "2026-08-22", "note": "北京首钢园、中国宋庆龄青少年科技文化交流中心；8月20日终评答辩，8月22日颁奖"}
+  ],
+  "updates": [
+    {"date": "2026-02-13", "title": "中国宋庆龄基金会、中国发明协会关于举办第二十一届宋庆龄少年儿童发明奖的通知", "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/911/frtid/20/Default.aspx", "summary": "公布第二十一届作品类别、申报要求与时间安排", "source": "official"},
+    {"date": "2026-07-22", "title": "第二十一届宋庆龄少年儿童发明奖入围作品名单和科技绘画作品展示名单公示", "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/916/frtid/20/Default.aspx", "source": "official"},
+    {"date": "2026-08-06", "title": "关于举办第二十一届宋庆龄少年儿童发明奖终评颁奖活动的通知", "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/917/frtid/20/Default.aspx", "summary": "终评颁奖活动8月19日至22日在北京首钢园等地举办，8月20日现场答辩", "source": "official"},
+    {"date": "2026-08-21", "title": "第二十一届宋庆龄少年儿童发明奖获奖名单公示", "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/923/frtid/20/Default.aspx", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://sclaci.sclc2017.org/"},
+    {"label": "通知公告", "url": "https://sclaci.sclc2017.org/tabid/47/Default.aspx"}
+  ],
+  "tags": ["发明创造", "人工智能", "科技创新"],
+  "relatedCourses": ["s0", "app", "drone"],
+  "sourceCheckedAt": "2026-09-16"
+}

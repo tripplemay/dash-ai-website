@@ -1,12 +1,14 @@
 // 将当前静态课程内容导入内容治理表。
-// 用法：DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs [--faq-only] [--publish-release]
+// 用法：DASH_AUTH_DB=/path/to/dash-auth.db node scripts/seed-content.mjs [--faq-only] [--publish-release] [--competitions-only]
 // 默认导入 zh；可通过 CONTENT_LOCALE=en 等覆盖 locale（翻译内容应在后续编辑流程中补齐）。
+// --competitions-only 仅同步 scripts/competitions-content.json 中的赛事与赛事动态。
 import Database from "better-sqlite3";
 import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { runMigrations } from "./migrate.mjs";
+import { competitionUpdateSlug } from "./competition-lib.mjs";
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(SCRIPT_DIR, "..");
@@ -17,15 +19,17 @@ if (!/^[A-Za-z]{2,8}(?:[-_][A-Za-z0-9]{2,8})?$/.test(locale)) {
 }
 
 function usage() {
-  return "Usage: node scripts/seed-content.mjs [--faq-only] [--publish-release]";
+  return "Usage: node scripts/seed-content.mjs [--faq-only] [--publish-release] [--competitions-only]";
 }
 
 function parseArgs(argv) {
   let faqOnly = false;
   let publishRelease = false;
+  let competitionsOnly = false;
   for (const arg of argv) {
     if (arg === "--faq-only") faqOnly = true;
     else if (arg === "--publish-release") publishRelease = true;
+    else if (arg === "--competitions-only") competitionsOnly = true;
     else if (arg === "--help" || arg === "-h") {
       console.log(usage());
       process.exit(0);
@@ -36,7 +40,10 @@ function parseArgs(argv) {
   if (publishRelease && !faqOnly) {
     throw new Error(`--publish-release requires --faq-only\n${usage()}`);
   }
-  return { faqOnly, publishRelease };
+  if (competitionsOnly && (faqOnly || publishRelease)) {
+    throw new Error(`--competitions-only cannot be combined with --faq-only/--publish-release\n${usage()}`);
+  }
+  return { faqOnly, publishRelease, competitionsOnly };
 }
 
 const options = parseArgs(process.argv.slice(2));
@@ -445,8 +452,118 @@ function publishFaqRelease(db) {
   return summary;
 }
 
+const COMPETITIONS_SOURCE = "scripts/competitions-content.json";
+
+function buildCompetitionRecords() {
+  const merged = readJson(COMPETITIONS_SOURCE);
+  if (!merged || typeof merged !== "object" || !Array.isArray(merged.competitions)) {
+    throw new Error(`${COMPETITIONS_SOURCE} must contain a competitions array`);
+  }
+  const competitions = [];
+  const updates = [];
+  for (const entry of merged.competitions) {
+    competitions.push({
+      slug: entry.slug,
+      payload: { kind: "competition", ...entry, seedSource: COMPETITIONS_SOURCE },
+    });
+    for (const update of entry.updates ?? []) {
+      updates.push({
+        slug: competitionUpdateSlug(entry.slug, update),
+        competitionSlug: entry.slug,
+        payload: {
+          kind: "competition-update",
+          competitionSlug: entry.slug,
+          competitionName: entry.nameZh,
+          ...update,
+          seedSource: COMPETITIONS_SOURCE,
+        },
+      });
+    }
+  }
+  return { competitions, updates };
+}
+
+function isSeedOwnedCompetitionPayload(payload) {
+  return payload?.seedSource === COMPETITIONS_SOURCE;
+}
+
+function archiveStaleCompetitionEntries(db, type, currentSlugs) {
+  const rows = db
+    .prepare(
+      `SELECT e.id, e.slug, e.status, r.revision AS latest_revision,
+              r.payload, r.status AS revision_status
+       FROM content_entries e
+       LEFT JOIN content_revisions r
+         ON r.entry_id = e.id
+        AND r.revision = (
+          SELECT MAX(latest.revision) FROM content_revisions latest WHERE latest.entry_id = e.id
+        )
+       WHERE e.content_type = ?`
+    )
+    .all(type);
+  let archived = 0;
+  for (const row of rows) {
+    if (currentSlugs.has(row.slug) || !isSeedOwnedCompetitionPayload(parsePayload(row.payload))) continue;
+    if (row.status === "archived" && row.revision_status === "archived") continue;
+
+    db.prepare(
+      `UPDATE content_entries
+       SET status = 'archived', updated_at = datetime('now')
+       WHERE id = ?`
+    ).run(row.id);
+    if (Number(row.latest_revision) > 0) {
+      db.prepare(
+        `UPDATE content_revisions
+         SET status = 'archived'
+         WHERE entry_id = ? AND revision = ?`
+      ).run(row.id, row.latest_revision);
+    }
+    db.prepare(
+      `INSERT INTO audit_events
+       (id, entity_type, entity_id, action, revision, from_status, to_status, metadata)
+       VALUES (?, ?, ?, 'release.competition_archived', ?, ?, 'archived', ?)`
+    ).run(
+      `audit:${randomUUID()}`,
+      type,
+      row.id,
+      row.latest_revision,
+      row.status,
+      stableJson({ source: COMPETITIONS_SOURCE })
+    );
+    archived += 1;
+  }
+  return archived;
+}
+
+function seedCompetitions(db) {
+  const summary = { competition: 0, competitionUpdate: 0, revisions: 0, references: 0, archived: 0 };
+  const { competitions, updates } = buildCompetitionRecords();
+  const competitionIds = new Map();
+  for (const record of competitions) {
+    const result = upsertEntry(db, { type: "competition", slug: record.slug, payload: record.payload });
+    competitionIds.set(record.slug, result.id);
+    summary.competition += 1;
+    if (result.changed) summary.revisions += 1;
+  }
+  for (const record of updates) {
+    const result = upsertEntry(db, { type: "competition-update", slug: record.slug, payload: record.payload });
+    summary.competitionUpdate += 1;
+    if (result.changed) summary.revisions += 1;
+    const competitionId = competitionIds.get(record.competitionSlug) || entryId("competition", record.competitionSlug);
+    db.prepare(
+      `INSERT OR IGNORE INTO content_references
+       (id, from_entry_id, to_entry_id, reference_type, metadata)
+       VALUES (?, ?, ?, 'contains', '{}')`
+    ).run(`ref:${competitionId}:${result.id}:contains`, competitionId, result.id);
+    summary.references += 1;
+  }
+  summary.archived += archiveStaleCompetitionEntries(db, "competition", new Set(competitions.map((record) => record.slug)));
+  summary.archived += archiveStaleCompetitionEntries(db, "competition-update", new Set(updates.map((record) => record.slug)));
+  return summary;
+}
+
 function seedContent(db) {
-  const summary = { course: 0, lesson: 0, faq: 0, revisions: 0, references: 0, archived: 0 };
+  const summary = { course: 0, lesson: 0, faq: 0, competition: 0, competitionUpdate: 0, revisions: 0, references: 0, archived: 0 };
   const courseIds = new Map();
   for (const course of COURSE_CATALOG) {
     const result = upsertEntry(db, {
@@ -485,6 +602,13 @@ function seedContent(db) {
   summary.faq = faqSummary.faq;
   summary.revisions += faqSummary.revisions;
   summary.archived = faqSummary.archived;
+
+  const competitionSummary = seedCompetitions(db);
+  summary.competition = competitionSummary.competition;
+  summary.competitionUpdate = competitionSummary.competitionUpdate;
+  summary.revisions += competitionSummary.revisions;
+  summary.references += competitionSummary.references;
+  summary.archived += competitionSummary.archived;
   return summary;
 }
 
@@ -505,9 +629,17 @@ try {
   const summary = database.transaction(() => {
     if (options.publishRelease) return publishFaqRelease(database);
     if (options.faqOnly) return seedFaqDrafts(database);
+    if (options.competitionsOnly) return seedCompetitions(database);
     return seedContent(database);
   })();
-  console.log(JSON.stringify({ locale, faqLocale, mode: options.publishRelease ? "faq-release" : options.faqOnly ? "faq-draft" : "full", ...summary }, null, 2));
+  const mode = options.publishRelease
+    ? "faq-release"
+    : options.faqOnly
+      ? "faq-draft"
+      : options.competitionsOnly
+        ? "competitions"
+        : "full";
+  console.log(JSON.stringify({ locale, faqLocale, mode, ...summary }, null, 2));
 } finally {
   database.close();
 }

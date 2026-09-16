@@ -1,0 +1,24 @@
+{
+  "slug": "traditional-sports",
+  "summary": "中国青少年宫协会主办的青少年传统体育公益赛事，设武术、棋类、跳绳项目，省级赛线上开展，总决赛实行晋级制。",
+  "description": "全国青少年传统体育项目比赛由中国青少年宫协会主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动之一，2026年由北京市少年宫、上海市青少年活动中心等十家青少年宫（活动中心）承办。比赛设武术（套路、散打）、棋类（围棋、象棋、国际象棋）和跳绳（线上积分赛、60秒竞速赛）三大项目，面向小学、初中、普通高中和中职在校学生分组竞技。赛事坚持公益“零收费”，成绩不作为中小学招生入学依据。2026年省级赛于7月线上开展，全国总决赛实行省级赛晋级制。适合热爱传统体育、希望以赛促练的中小学生参加。",
+  "schedule": [
+    {"stage": "报名", "start": null, "end": null, "note": "2026年6月10日赛事通知发布后开放报名，经赛事网站或微信公众号注册报名，截止时间以官方通知为准"},
+    {"stage": "省级赛", "start": "2026-07-05", "end": "2026-07-25", "note": "线上进行；武术项目7月5日至12日提交比赛视频，跳绳积分赛可于7月5日至8月20日间任选连续7天参赛"},
+    {"stage": "全国总决赛", "start": "2026-08-22", "end": "2026-08-23", "note": "跳绳项目总决赛8月22日至23日线上举行；棋类、武术项目总决赛安排见总决赛通知及各项目竞赛规程"}
+  ],
+  "updates": [
+    {"date": "2026-06-10", "title": "关于举办2026年全国青少年传统体育项目比赛的通知", "url": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml", "summary": "发布2026年赛事通知与竞赛规程，省级赛线上开展，总决赛实行省级赛晋级制", "source": "official"},
+    {"date": "2026-07-02", "title": "2026年全国青少年传统体育项目比赛省级赛比赛时间安排", "url": "https://npo052623.npoall.com/news/itemid-278267.html", "summary": "省级赛于2026年7月5日至25日线上进行", "source": "official"},
+    {"date": "2026-08-10", "title": "关于举办2026年全国青少年传统体育项目比赛总决赛的通知", "url": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml", "summary": "发布2026年全国总决赛安排", "source": "official"},
+    {"date": "2026-08-12", "title": "2026年全国青少年传统体育项目比赛总决赛竞赛规程（跳绳项目）", "url": "https://npo052623.npoall.com/news/itemid-293881.html", "summary": "跳绳项目总决赛8月22日至23日通过“勋然体育”App线上举行", "source": "official"},
+    {"date": "2026-08-28", "title": "奥运冠军来助力！全国青少年宫跆拳道比赛在杭落幕", "url": "https://npo052623.npoall.com/news/itemid-296060.html", "summary": "全国青少年宫跆拳道比赛8月9日至11日在杭州体育馆举办，15个城市近千名青少年参加", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml"},
+    {"label": "报名平台", "url": "https://www.qsnedu.com/eduplatform/html/gxjs/#/head/index"}
+  ],
+  "tags": ["传统体育", "武术", "棋类", "跳绳"],
+  "relatedCourses": [],
+  "sourceCheckedAt": "2026-09-16"
+}

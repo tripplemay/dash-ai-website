@@ -1,0 +1,448 @@
+{
+  "moeList": {
+    "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
+    "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
+    "publishedAt": "2025-10-22",
+    "totalCount": 47
+  },
+  "competitions": [
+    {
+      "slug": "nyaic",
+      "nameZh": "全国青少年人工智能创新挑战赛",
+      "category": "natural-science",
+      "organizer": "中国少年儿童发展服务中心",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://aiic.china61.org.cn/",
+      "moeListIndex": 1
+    },
+    {
+      "slug": "wrc-youth",
+      "nameZh": "世界机器人大会青少年机器人设计与信息素养大赛",
+      "category": "natural-science",
+      "organizer": "中国电子学会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.worldrobotconference.com/",
+      "newsPages": ["https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html"],
+      "moeListIndex": 2
+    },
+    {
+      "slug": "nqdrone",
+      "nameZh": "全国青少年无人机大赛",
+      "category": "natural-science",
+      "organizer": "中国航空学会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://www.int-ede.com/",
+      "moeListIndex": 3
+    },
+    {
+      "slug": "soong-invention-award",
+      "nameZh": "宋庆龄少年儿童发明奖",
+      "category": "natural-science",
+      "organizer": "中国宋庆龄基金会、中国发明协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://sclaci.sclc2017.org/",
+      "moeListIndex": 4
+    },
+    {
+      "slug": "cnao",
+      "nameZh": "全国中学生天文知识竞赛",
+      "category": "natural-science",
+      "organizer": "中国天文学会",
+      "grades": ["初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.bjp.org.cn/qgzxstwzsjs/",
+      "moeListIndex": 5
+    },
+    {
+      "slug": "geodoctor",
+      "nameZh": "“地球小博士”全国地理科普知识大赛活动",
+      "category": "natural-science",
+      "organizer": "中国地理学会",
+      "grades": ["高中"],
+      "officialSite": "http://www.geodoctor.cn/",
+      "moeListIndex": 6
+    },
+    {
+      "slug": "water-tech-invention",
+      "nameZh": "全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛",
+      "category": "natural-science",
+      "organizer": "生态环境部宣传教育中心、水利部宣传教育中心",
+      "grades": ["小学", "初中", "高中"],
+      "officialSite": "https://www.naturesch.cn/",
+      "newsPages": ["http://www.chinaeol.net/tzgga/"],
+      "moeListIndex": 7
+    },
+    {
+      "slug": "ceso",
+      "nameZh": "全国中学生地球科学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国地震学会、中国地球物理学会",
+      "grades": ["高中"],
+      "officialSite": "https://ceso.ssoc.org.cn/",
+      "moeListIndex": 8
+    },
+    {
+      "slug": "cmo",
+      "nameZh": "全国中学生数学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国数学会",
+      "grades": ["高中"],
+      "officialSite": "https://www.cms.org.cn/",
+      "moeListIndex": 9
+    },
+    {
+      "slug": "cpho",
+      "nameZh": "全国中学生物理奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国物理学会",
+      "grades": ["高中"],
+      "officialSite": "https://www.cps-net.org.cn/",
+      "moeListIndex": 10
+    },
+    {
+      "slug": "ccho",
+      "nameZh": "全国中学生化学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国化学会",
+      "grades": ["高中"],
+      "officialSite": "https://www.chemsoc.org.cn/",
+      "moeListIndex": 11
+    },
+    {
+      "slug": "chsbo",
+      "nameZh": "全国中学生生物学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国植物学会、中国动物学会",
+      "grades": ["高中"],
+      "officialSite": "http://www.botany.org.cn/swxjs/zchssxz/",
+      "newsPages": ["https://www.czs.org.cn/"],
+      "moeListIndex": 12
+    },
+    {
+      "slug": "noi",
+      "nameZh": "全国中学生信息学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国计算机学会",
+      "grades": ["高中"],
+      "officialSite": "https://www.noi.cn/",
+      "moeListIndex": 13
+    },
+    {
+      "slug": "castic",
+      "nameZh": "全国青少年科技创新大赛",
+      "category": "natural-science",
+      "organizer": "中国科协",
+      "grades": ["高中", "中专", "职高"],
+      "officialSite": "https://cyscc.org/castic/",
+      "moeListIndex": 14
+    },
+    {
+      "slug": "nysic",
+      "nameZh": "全国青少年航天创新大赛",
+      "category": "natural-science",
+      "organizer": "中国航天科技国际交流中心",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://nysic.declare.htgjjl.com/",
+      "moeListIndex": 15
+    },
+    {
+      "slug": "yau-awards",
+      "nameZh": "丘成桐中学科学奖",
+      "category": "natural-science",
+      "organizer": "清华大学",
+      "grades": ["高中"],
+      "officialSite": "https://www.yau-awards.com/",
+      "moeListIndex": 16
+    },
+    {
+      "slug": "icc-china",
+      "nameZh": "全球发明大会（中国）竞赛活动",
+      "category": "natural-science",
+      "organizer": "中国友好和平发展基金会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://icc.cffpd.org.cn/",
+      "moeListIndex": 17
+    },
+    {
+      "slug": "ny-ai-contest",
+      "nameZh": "全国青少年人工智能大赛",
+      "category": "natural-science",
+      "organizer": "中国福利会、中国妇女发展基金会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://aic.cwicp.cn/",
+      "moeListIndex": 18
+    },
+    {
+      "slug": "nysec",
+      "nameZh": "全国青少年科学实验能力大赛",
+      "category": "natural-science",
+      "organizer": "中国教育装备行业协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.ceeia.cn/",
+      "newsPages": ["https://www.ceeia.cn/news/1/"],
+      "moeListIndex": 19
+    },
+    {
+      "slug": "nysim",
+      "nameZh": "全国青少年科学探究建模能力大赛",
+      "category": "natural-science",
+      "organizer": "北京师范大学",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://simcc.bnu.edu.cn/sszn/index.htm",
+      "newsPages": ["https://simcc.bnu.edu.cn/ssgg/index.htm"],
+      "moeListIndex": 20
+    },
+    {
+      "slug": "youth-psy-innovation",
+      "nameZh": "全国青少年心理成长知识与应用创新大赛",
+      "category": "natural-science",
+      "organizer": "中国心理卫生协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.camh-edu.org.cn/",
+      "moeListIndex": 21
+    },
+    {
+      "slug": "nyseic",
+      "nameZh": "全国青少年安全与应急科普创新大赛",
+      "category": "natural-science",
+      "organizer": "中国灾害防御协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.nyseic.cn/",
+      "newsPages": ["https://www.nyseic.cn/home/preview"],
+      "moeListIndex": 22
+    },
+    {
+      "slug": "anti-drug-quiz",
+      "nameZh": "全国青少年禁毒知识竞赛",
+      "category": "humanities",
+      "organizer": "中国禁毒基金会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.2-class.com/",
+      "moeListIndex": 23
+    },
+    {
+      "slug": "zuowendasai",
+      "nameZh": "世界华人学生作文大赛",
+      "category": "humanities",
+      "organizer": "中华全国归国华侨联合会、中华全国台湾同胞联谊会",
+      "grades": ["高中"],
+      "officialSite": "http://www.zuowendasai.com/",
+      "moeListIndex": 24
+    },
+    {
+      "slug": "fltrp-cup",
+      "nameZh": "“外研社杯”全国中学生外语素养大赛",
+      "category": "humanities",
+      "organizer": "北京外国语大学",
+      "grades": ["高中", "中专", "职高"],
+      "officialSite": "https://events.fltrp.com/",
+      "moeListIndex": 25
+    },
+    {
+      "slug": "hs-innovation",
+      "nameZh": "高中生创新能力大赛",
+      "category": "humanities",
+      "organizer": "中国老教授协会",
+      "grades": ["高中"],
+      "officialSite": "https://www.iccedu.com.cn/",
+      "newsPages": ["https://www.iccedu.com.cn/cms/mingdan.html"],
+      "moeListIndex": 26
+    },
+    {
+      "slug": "eco-essay",
+      "nameZh": "全国中学生环境保护优秀作文征集活动",
+      "category": "humanities",
+      "organizer": "中华环保联合会",
+      "grades": ["高中", "中专", "职高"],
+      "officialSite": "http://www.huanbaozuowen.com/",
+      "moeListIndex": 27
+    },
+    {
+      "slug": "bantu-quiz",
+      "nameZh": "“美丽中国”全国版图知识竞赛（中小学组）",
+      "category": "humanities",
+      "organizer": "自然资源部宣传教育中心",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.pecmnr.cn/gjbt/",
+      "moeListIndex": 28
+    },
+    {
+      "slug": "aild",
+      "nameZh": "全国青少年劳动技能与智能设计大赛",
+      "category": "humanities",
+      "organizer": "中国自动化学会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://aild.org.cn/",
+      "newsPages": ["http://aild.org.cn/news.aspx", "https://aild.caa.org.cn/cn/web/index/20629_1798925"],
+      "moeListIndex": 29
+    },
+    {
+      "slug": "shici-meiyu",
+      "nameZh": "中华诗词美育大赛",
+      "category": "humanities",
+      "organizer": "中华诗词学会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://www.zhscmyds.com/",
+      "moeListIndex": 30
+    },
+    {
+      "slug": "luxunwenxue",
+      "nameZh": "鲁迅青少年文学大赛",
+      "category": "humanities",
+      "organizer": "鲁迅文化基金会",
+      "grades": ["高中"],
+      "officialSite": "https://www.luxunwenxue.com/",
+      "moeListIndex": 31
+    },
+    {
+      "slug": "red-culture-contest",
+      "nameZh": "全国青少年红色文化传承与实践创新大赛",
+      "category": "humanities",
+      "organizer": "中国红色文化研究会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.hswh.org.cn/",
+      "newsPages": ["https://www.hswh.org.cn/wzzx/hyzx/"],
+      "moeListIndex": 32
+    },
+    {
+      "slug": "china-story-contest",
+      "nameZh": "“讲好中国故事”全国中小学语言素养大赛",
+      "category": "humanities",
+      "organizer": "中国教育电视协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.centv.cn/",
+      "moeListIndex": 33
+    },
+    {
+      "slug": "tongsong-zhonghua",
+      "nameZh": "同颂中华·全国青少年志愿文学创作与诵读大赛",
+      "category": "humanities",
+      "organizer": "中国青年报社",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://h5.cyol.com/special/2025baimingdan/share/index.html",
+      "moeListIndex": 34
+    },
+    {
+      "slug": "painting-calligraphy",
+      "nameZh": "全国中小学生绘画书法作品比赛",
+      "category": "art-sports",
+      "organizer": "中国儿童中心（全国妇联儿童事业发展集团）",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.ccc.org.cn/",
+      "newsPages": ["https://www.ccc.org.cn/col/col283/"],
+      "moeListIndex": 35
+    },
+    {
+      "slug": "nautical-model",
+      "nameZh": "“我爱祖国海疆”全国青少年航海模型教育竞赛",
+      "category": "art-sports",
+      "organizer": "中国航海模型运动协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://cmma.sports.cn/jyjs/wazghj/",
+      "moeListIndex": 36
+    },
+    {
+      "slug": "vehicle-model",
+      "nameZh": "“驾驭未来”全国青少年车辆模型教育竞赛",
+      "category": "art-sports",
+      "organizer": "中国车辆模型运动协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://cmac.sports.cn/",
+      "newsPages": ["http://cmac.sports.cn/tzgg/"],
+      "moeListIndex": 37
+    },
+    {
+      "slug": "youth-flight-sim",
+      "nameZh": "全国青少年模拟飞行锦标赛",
+      "category": "art-sports",
+      "organizer": "国家体育总局航空无线电模型运动管理中心",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.sport.gov.cn/hgzx/",
+      "newsPages": ["https://www.sport.gov.cn/hgzx/n11026/index.html"],
+      "moeListIndex": 38
+    },
+    {
+      "slug": "feibei-aeromodel",
+      "nameZh": "“飞向北京·飞向太空”全国青少年航空航天模型教育竞赛活动",
+      "category": "art-sports",
+      "organizer": "中国航空运动协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://www.asfc.org.cn/",
+      "newsPages": ["http://www.asfc.org.cn/dynamic/announcement/"],
+      "moeListIndex": 39
+    },
+    {
+      "slug": "traditional-sports",
+      "nameZh": "全国青少年传统体育项目比赛",
+      "category": "art-sports",
+      "organizer": "中国青少年宫协会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml",
+      "moeListIndex": 40
+    },
+    {
+      "slug": "xiwangsong",
+      "nameZh": "“希望颂”——全国青少年书画艺术大展",
+      "category": "art-sports",
+      "organizer": "中国国际书画艺术研究会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://www.xiwangsong.com/",
+      "moeListIndex": 41
+    },
+    {
+      "slug": "ocean-design-contest",
+      "nameZh": "全国中小学生海洋文化创意设计大赛",
+      "category": "art-sports",
+      "organizer": "中国海洋发展基金会、中国海洋大学、自然资源部北海局",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://mcdnpss.com/",
+      "moeListIndex": 42
+    },
+    {
+      "slug": "national-defense-youth",
+      "nameZh": "全国青少年国防素养大赛",
+      "category": "art-sports",
+      "organizer": "南京理工大学",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.gfsy.org.cn/",
+      "moeListIndex": 43
+    },
+    {
+      "slug": "drama-china-contest",
+      "nameZh": "“戏剧中国”全国青少年戏剧文化艺术大赛",
+      "category": "art-sports",
+      "organizer": "中国戏剧文学学会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.zgxjwxxh.com/",
+      "newsPages": ["https://zgxjwxxh.com/list.html?section=news"],
+      "moeListIndex": 44
+    },
+    {
+      "slug": "ai-digital-art",
+      "nameZh": "全国青少年人工智能辅助生成数字艺术创作者大赛",
+      "category": "art-sports",
+      "organizer": "文化和旅游部艺术发展中心",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.mcasc.com.cn/",
+      "newsPages": ["https://www.mcasc.com.cn/tongzhis/"],
+      "moeListIndex": 45
+    },
+    {
+      "slug": "visual-art-workshop",
+      "nameZh": "学校美育助力行动——青少年视觉艺术传承与创新工作坊展示",
+      "category": "art-sports",
+      "organizer": "中国艺术教育促进会",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "https://www.ccpae.cn/",
+      "moeListIndex": 46
+    },
+    {
+      "slug": "ivy-campus-drama",
+      "nameZh": "“常青藤”全国青少年校园戏剧创意大赛",
+      "category": "art-sports",
+      "organizer": "中央戏剧学院",
+      "grades": ["小学", "初中", "高中", "中专", "职高"],
+      "officialSite": "http://cqtxj.org.cn/",
+      "moeListIndex": 47
+    }
+  ]
+}

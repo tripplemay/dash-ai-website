@@ -1,0 +1,81 @@
+{
+  "key": "zuowendasai",
+  "name": "世界华人学生作文大赛",
+  "checkedAt": "2026-09-16T16:39:34.339Z",
+  "status": "unchanged",
+  "pages": {
+    "http://www.zuowendasai.com/": {
+      "hash": "0c0172c30e0c424e21bd038727b268dcb0543a36",
+      "items": [
+        {
+          "title": "学生成绩查询",
+          "url": "https://zuowendasai.com/lists/26.html"
+        },
+        {
+          "title": "教师成绩查询",
+          "url": "https://zuowendasai.com/lists/27.html"
+        },
+        {
+          "title": "组织个人查询",
+          "url": "https://zuowendasai.com/lists/28.html"
+        },
+        {
+          "title": "组织团体查询",
+          "url": "https://zuowendasai.com/lists/29.html"
+        },
+        {
+          "title": "第二十六届世界华人学生作文大赛“中华文化国际传播”特别组获奖结果公布",
+          "url": "https://zuowendasai.com/shows/1/242.html"
+        },
+        {
+          "title": "第二十五届大赛",
+          "url": "https://zuowendasai.com/lists/30.html"
+        },
+        {
+          "title": "第二十四届大赛",
+          "url": "https://zuowendasai.com/lists/10.html"
+        },
+        {
+          "title": "第二十三届大赛",
+          "url": "https://zuowendasai.com/lists/11.html"
+        },
+        {
+          "title": "第二十二届大赛",
+          "url": "https://zuowendasai.com/lists/12.html"
+        },
+        {
+          "title": "第二十一届大赛",
+          "url": "https://zuowendasai.com/lists/13.html"
+        },
+        {
+          "title": "第二十届大赛",
+          "url": "https://zuowendasai.com/lists/14.html"
+        },
+        {
+          "title": "第十九届大赛",
+          "url": "https://zuowendasai.com/lists/15.html"
+        },
+        {
+          "title": "第十八届大赛",
+          "url": "https://zuowendasai.com/lists/16.html"
+        },
+        {
+          "title": "第十七届大赛",
+          "url": "https://zuowendasai.com/lists/17.html"
+        },
+        {
+          "title": "第十六届大赛",
+          "url": "https://zuowendasai.com/lists/18.html"
+        },
+        {
+          "title": "第十五届大赛",
+          "url": "https://zuowendasai.com/lists/19.html"
+        },
+        {
+          "title": "第十四届大赛",
+          "url": "https://zuowendasai.com/lists/20.html"
+        }
+      ]
+    }
+  }
+}

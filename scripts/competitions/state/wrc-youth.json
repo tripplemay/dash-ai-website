@@ -1,0 +1,133 @@
+{
+  "key": "wrc-youth",
+  "name": "世界机器人大会青少年机器人设计与信息素养大赛",
+  "checkedAt": "2026-09-16T16:38:10.974Z",
+  "status": "first-scan",
+  "pages": {
+    "https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html": {
+      "hash": "702cb088154b97c3106704f4b48cd1e88a05ab18",
+      "items": [
+        {
+          "title": "世界机器人大会论坛",
+          "url": "https://www.worldrobotconference.com/forum/"
+        },
+        {
+          "title": "世界机器人博览会",
+          "url": "https://www.worldrobotconference.com/expo/"
+        },
+        {
+          "title": "世界机器人大赛",
+          "url": "https://www.worldrobotconference.com/contest/"
+        },
+        {
+          "title": "青少年机器人设计大赛",
+          "url": "https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html"
+        },
+        {
+          "title": "机器人对抗赛项-VRC全域接管竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260630/1782784191141706.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-博弈前线竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260410/1775809783100953.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-攻无不克竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260410/1775811011107118.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-星途争锋竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260629/1782723362510927.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-FTC考古解码竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260519/1779159430974179.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-FRC发掘重建竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260519/1779162177197728.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-星海竞逐竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260629/1782723316592144.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-Future Space竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260629/1782723399206805.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-抢滩登陆竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775722947766219.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-脑机(未来 · 火星)竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260519/1779159545879003.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-智探数界竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260414/1776134850914023.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-星弈行动竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260811/1786428713189738.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-超燃行动竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260811/1786428671159975.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-量子世界竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775723556122098.pdf"
+        },
+        {
+          "title": "机器人对抗赛项-机器人格斗竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260714/1784012794207317.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-信号启源竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260410/1775811230115905.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-星际巡航竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775723668203810.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-智能晶造竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260629/1782723447773173.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-太空探索竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775723732358620.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-荣耀无界-PRO竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260811/1786428762179735.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-Future Explore竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260629/1782723526300610.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-智慧城市竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775724869107192.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-脑机星球竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775724898395233.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-RD深空探索竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775724937138344.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-逐星行动竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260811/1786428823412579.pdf"
+        },
+        {
+          "title": "具身智能挑战赛项-量子未来竞赛规则规程",
+          "url": "https://www.worldrobotconference.com/static/upload/file/20260409/1775725000315001.pdf"
+        }
+      ]
+    }
+  }
+}

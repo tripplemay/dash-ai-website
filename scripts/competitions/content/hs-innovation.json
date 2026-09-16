@@ -1,0 +1,28 @@
+{
+  "slug": "hs-innovation",
+  "summary": "中国老教授协会主办的高中生全国性赛事，设科学工程、人文社科、科研成果方向，经初赛、分赛区复赛晋级全国决赛。",
+  "description": "高中生创新能力大赛由中国老教授协会、高中生创新能力大赛竞赛委员会主办，中国教育发展战略学会高中教育专业委员会支持，面向高中在校学生，每年一届，坚持公益属性。大赛设科学工程、人文社科、科研成果等方向，经资格审查、全国初赛、全国复赛、全国决赛逐级选拔，考查学科素养与逻辑推理、审辩式思维等能力。2026年赛事2025年11月启动报名，初赛笔试2026年3月29日举行，复赛4月分赛区进行，全国决赛7月28日至30日举办，8月公布获奖名单，并设有“春雨计划”专项资助。适合学有余力、有志科创的高中生。",
+  "schedule": [
+    {"stage": "报名", "start": "2025-11-06", "end": "2026-02-27", "note": "2025年11月6日发布举办通知并启动报名，期间曾延长团体报名截止时间"},
+    {"stage": "全国初赛（笔试）", "start": "2026-03-29", "end": "2026-03-29", "note": "上午09:00—11:30笔试，由各考点学校组织"},
+    {"stage": "全国复赛", "start": null, "end": null, "note": "2026年4月分赛区举行（华东、中南、西北及西南联合、北部联合等赛区），5月3日全国复赛收官，5月22日公布复赛成绩及决赛晋级结果"},
+    {"stage": "全国决赛", "start": "2026-07-28", "end": "2026-07-30", "note": "7月28日开幕、7月30日圆满落幕，8月13日公布正式获奖名单"}
+  ],
+  "updates": [
+    {"date": "2026-08-27", "title": "2026年高中生创新能力大赛“春雨计划”名单公示", "url": "https://mp.weixin.qq.com/s/ttdufikhHt_wcqbJAwfTCg", "summary": "公示2026年大赛专项资助计划“春雨计划”入选名单", "source": "official"},
+    {"date": "2026-08-13", "title": "关于公布2026年高中生创新能力大赛全国决赛正式获奖名单的通知", "url": "https://mp.weixin.qq.com/s/doyDjd8505EiCfYkKGYZhQ", "summary": "公布2026年全国决赛正式获奖名单", "source": "official"},
+    {"date": "2026-08-02", "title": "2026年高中生创新能力大赛全国决赛拟获奖名单公示", "url": "https://mp.weixin.qq.com/s/QvZMyebx9fNRK5pdcidNEQ", "summary": "公示全国决赛拟获奖名单", "source": "official"},
+    {"date": "2026-07-30", "title": "2026年高中生创新能力大赛全国决赛圆满落幕", "url": "https://mp.weixin.qq.com/s/p12NQgCiwDN1py1b_916qw", "summary": "2026年全国决赛于7月28日开幕、7月30日结束", "source": "official"},
+    {"date": "2026-07-06", "title": "2026年高中生创新能力大赛全国决赛参赛通知", "url": "https://mp.weixin.qq.com/s/immQpFXIFCvO2hQiKRVtEw", "summary": "发布全国决赛参赛安排", "source": "official"},
+    {"date": "2026-05-22", "title": "2026年高中生创新能力大赛全国复赛成绩及全国决赛晋级结果查询通知", "url": "https://mp.weixin.qq.com/s/wA-wTaCUMlwTLOgTU-Hdxg", "summary": "开放复赛成绩与决赛晋级结果查询", "source": "official"},
+    {"date": "2026-04-03", "title": "2026年高中生创新能力大赛全国初赛成绩查询暨晋级结果公布通知", "url": "https://mp.weixin.qq.com/s/boATvJfX5kqYtK6k0AmUIQ", "summary": "公布初赛成绩及复赛晋级结果", "source": "official"},
+    {"date": "2026-03-13", "title": "关于组织2026年高中生创新能力大赛全国初赛考务工作的通知", "url": "https://mp.weixin.qq.com/s/4nlrs7lkAkxyF4KJlfx3Hg", "summary": "全国初赛2026年3月29日上午09:00—11:30笔试", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://www.iccedu.com.cn/"},
+    {"label": "通知公告", "url": "https://www.iccedu.com.cn/cms/mingdan.html"}
+  ],
+  "tags": ["创新能力", "科创", "综合素养"],
+  "relatedCourses": [],
+  "sourceCheckedAt": "2026-09-16"
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "shici-meiyu",
+  "summary": "中华诗词学会主办的全国性诗词美育赛事，设诵读、讲解、吟唱、创作、书法、绘画、演绎七大专项，面向中小学生。",
+  "description": "中华诗词美育大赛由中华诗词学会主办、中华诗词学会诗教委员会承办，入选教育部2025—2028学年中小学生全国性竞赛名单，主题为“以美育德，涵养诗心”，全程公益免费。大赛面向中小学在校学生（含中职），设诵读、讲解、吟唱、创作、书法、绘画六项个人赛和演绎团体赛，按学段分组评比。初赛为全国统一线上答题，复赛成绩由线上答题与专项作品各占50%构成。2026年赛季报名及初赛1月16日启动、顺延至8月10日截止，复赛6月1日至8月31日线上进行，全国总决赛时间另行通知。适合热爱中华诗词与传统文化的中小学生。",
+  "schedule": [
+    {"stage": "报名及初赛（线上答题）", "start": "2026-01-16", "end": "2026-08-10", "note": "原定7月31日截止，7月30日通知顺延10天至8月10日23:59，报名与初赛答题通道同步关闭"},
+    {"stage": "复赛（线上答题+作品提交）", "start": "2026-06-01", "end": "2026-08-31", "note": "全程线上进行，线上答题占50%、专项作品占50%；演绎团体赛直接提交专项作品"},
+    {"stage": "全国总决赛", "start": null, "end": null, "note": "具体时间、地点以《中华诗词美育大赛全国总决赛通知》为准，另行通知"},
+    {"stage": "公示与颁奖", "start": null, "end": null, "note": "具体时间另行通知"}
+  ],
+  "updates": [
+    {"date": "2026-08-11", "title": "关于打击假冒“‘中华诗词美育大赛’官方微信号”的公开声明", "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=624712077059055970", "summary": "组委会声明打击假冒官方微信号，提醒通过官网与正规公众号参赛", "source": "official"},
+    {"date": "2026-07-30", "title": "紧急通知：“中华诗词美育大赛”初赛截止时间调整了", "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=620340680820329850", "summary": "初赛截止顺延10天至2026年8月10日23:59", "source": "official"},
+    {"date": "2026-07-24", "title": "“中华诗词美育大赛”评审晋级说明", "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=618180926450749834", "summary": "说明大赛评审与晋级规则", "source": "official"},
+    {"date": "2026-05-29", "title": "2026年中华诗词美育大赛复赛通知", "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=597359934316750516", "summary": "复赛2026年6月1日至8月31日线上答题与作品提交", "source": "official"},
+    {"date": "2026-05-13", "title": "2026年中华诗词美育大赛初赛通知", "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=591303824270952333", "summary": "初赛为全国统一线上答题，报名及参赛至2026年7月31日（后顺延至8月10日）", "source": "official"},
+    {"date": "2026-04-27", "title": "“中华诗词美育大赛”启动仪式在京举行", "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=585427351232315535", "summary": "大赛启动仪式1月15日在京举行，正式面向全国中小学生启动", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "http://www.zhscmyds.com/"}
+  ],
+  "tags": ["中华诗词", "美育", "传统文化"],
+  "relatedCourses": [],
+  "sourceCheckedAt": "2026-09-16"
+}

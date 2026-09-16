@@ -1,0 +1,89 @@
+{
+  "key": "cpho",
+  "name": "全国中学生物理奥林匹克竞赛",
+  "checkedAt": "2026-09-16T16:38:50.952Z",
+  "status": "unchanged",
+  "pages": {
+    "https://www.cps-net.org.cn/": {
+      "hash": "a17c8123c1cbdd33d5e0fea7f53e0273d7670f65",
+      "items": [
+        {
+          "title": "2026年中国物理学会相关活动计划",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5613.do",
+          "date": "2026-02-05"
+        },
+        {
+          "title": "中国物理学会第十三届理事会第八次常务理事会议纪要",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5828.do",
+          "date": "2026-08-28"
+        },
+        {
+          "title": "量智融合，量子计算大会与产业大会在深圳成功举办",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5826.do",
+          "date": "2026-08-26"
+        },
+        {
+          "title": "中国物理学会关于非晶态物理专业委员会和电子显微镜分会换届报告的决定",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5825.do"
+        },
+        {
+          "title": "关于推荐及评选第十六届周培源物理奖的通知",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5730.do"
+        },
+        {
+          "title": "关于推荐及评选第五届中国物理学会萨本栋应用物理奖的通知",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5716.do"
+        },
+        {
+          "title": "二维异质结体系中激光制冷新机制",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5706.do",
+          "date": "2026-06-26"
+        },
+        {
+          "title": "量子计算求解复杂性难题领域取得重要进展",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5707.do",
+          "date": "2026-06-24"
+        },
+        {
+          "title": "基于量子存储的长基线光学干涉仪",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5715.do",
+          "date": "2026-06-22"
+        },
+        {
+          "title": "量子规范场论算符关联函数的对偶现象",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5708.do",
+          "date": "2026-06-18"
+        },
+        {
+          "title": "超导三进制量子逻辑门",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5714.do",
+          "date": "2026-06-18"
+        },
+        {
+          "title": "用自旋电子硬件给AI训练“减负”--激活函数概率梯度反向传播算法硬件加速",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5705.do",
+          "date": "2026-06-15"
+        },
+        {
+          "title": "量子模拟：观测精确量子临界态",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5709.do",
+          "date": "2026-06-15"
+        },
+        {
+          "title": "稀有铍原子核中幻数破缺机制",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5713.do",
+          "date": "2026-06-15"
+        },
+        {
+          "title": "探赜时空涟漪：高阶引力波的可观测",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5710.do",
+          "date": "2026-06-04"
+        },
+        {
+          "title": "九十周年专栏",
+          "url": "https://www.cps-net.org.cn/Special/Index/anniversary"
+        }
+      ]
+    }
+  }
+}

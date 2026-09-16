@@ -1,0 +1,3932 @@
+{
+  "generatedAt": "2026-09-16T16:47:40.406Z",
+  "moeList": {
+    "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
+    "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
+    "publishedAt": "2025-10-22",
+    "totalCount": 47
+  },
+  "competitions": [
+    {
+      "slug": "nyaic",
+      "nameZh": "全国青少年人工智能创新挑战赛",
+      "category": "natural-science",
+      "organizer": "中国少年儿童发展服务中心",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://aiic.china61.org.cn/",
+      "moeListIndex": 1,
+      "summary": "中国少年儿童发展服务中心主办的全国性人工智能竞赛，设四大方向10个专项赛，面向小学至中专职高学生。",
+      "description": "全国青少年人工智能创新挑战赛由中国少年儿童发展服务中心主办，中国计算机学会、中国科学院计算技术研究所等指导，2026年为第九届。赛事设智能机器人应用、人工智能场景设计、智能芯片及开源硬件、数字化与虚拟仿真创新四个方向共10个专项赛，按小学低年级至中专职高五个组别评奖。赛制为在线报名、线上选拔赛、全国决赛，决赛按赛、会、营模式举办。第九届决赛于2026年8月在浙江乌镇举行，8000名青少年线上线下参赛。赛事零收费，适合对人工智能、机器人、编程感兴趣的中小学生。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": "2026-05-06",
+          "end": "2026-05-31",
+          "note": "登录挑战赛专题站在线报名"
+        },
+        {
+          "stage": "选拔赛",
+          "start": "2026-06-05",
+          "end": "2026-07-05",
+          "note": "线上形式，作品征集、线上仿真、视频连线等方式，专家集中评审"
+        },
+        {
+          "stage": "全国决赛",
+          "start": "2026-08-14",
+          "end": "2026-08-16",
+          "note": "浙江省嘉兴市乌镇互联网之光博览中心，线上线下相结合"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-06",
+          "title": "第九届全国青少年人工智能创新挑战赛通知",
+          "url": "http://www.china61.org.cn/ggqs/2094686.jhtml",
+          "summary": "公布第九届赛程：5月6日至31日报名，6月5日至7月5日线上选拔赛，8月中旬全国决赛",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-29",
+          "title": "2026年第九届全国青少年人工智能创新挑战赛决赛通知",
+          "url": "https://www.zizzs.com/gk/jingsai/225995.html",
+          "summary": "发布决赛参赛须知，入围情况可登录挑战赛专题网站查询",
+          "source": "media"
+        },
+        {
+          "date": "2026-09-03",
+          "title": "第九届全国青少年人工智能创新挑战赛决赛获奖情况发布",
+          "url": "http://www.china61.org.cn/ggqs/2095466.jhtml",
+          "summary": "决赛8月14日至16日在乌镇举行，31个省（区、市）和港澳台地区8000名青少年参赛",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://aiic.china61.org.cn/"
+        },
+        {
+          "label": "主办单位：中国少年儿童发展服务中心",
+          "url": "http://www.china61.org.cn/"
+        }
+      ],
+      "tags": [
+        "人工智能",
+        "机器人",
+        "编程"
+      ],
+      "relatedCourses": [
+        "s0",
+        "python",
+        "app",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "wrc-youth",
+      "nameZh": "世界机器人大会青少年机器人设计与信息素养大赛",
+      "category": "natural-science",
+      "organizer": "中国电子学会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.worldrobotconference.com/",
+      "newsPages": [
+        "https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html"
+      ],
+      "moeListIndex": 2,
+      "summary": "中国电子学会主办的青少年机器人赛事，2025-2026学年以“2026世界机器人大赛—青少年机器人设计大赛”形式举办。",
+      "description": "世界机器人大会青少年机器人设计与信息素养大赛由中国电子学会主办，2025-2026学年赛季机器人设计项目以“2026世界机器人大赛—青少年机器人设计大赛”形式举办。赛事设机器人对抗、具身智能挑战、地空协同挑战、工程技能、智慧设计普及五类赛项，涵盖VRC、FTC、无人机、编程等数十个方向。赛制为省级选拔赛、锦标赛、总决赛三级。2026赛季各省选拔赛于5月至8月举办百余场，国内锦标赛在盘锦、常山、三亚举行，总决赛8月在北京亦庄与世界机器人大会同期举办。赛事零收费，适合喜爱机器人与编程的中小学生。",
+      "schedule": [
+        {
+          "stage": "省级选拔赛",
+          "start": "2026-05-05",
+          "end": "2026-08-09",
+          "note": "全国各省市陆续举办百余场，具体安排见官网选拔赛通知"
+        },
+        {
+          "stage": "东北锦标赛（盘锦）",
+          "start": "2026-06-17",
+          "end": "2026-06-21",
+          "note": "盘锦市大洼区民众体育公园"
+        },
+        {
+          "stage": "华东锦标赛（衢州常山）",
+          "start": "2026-07-03",
+          "end": "2026-07-07",
+          "note": "常山县体育馆、浙江省衢州数字工业学校体育馆"
+        },
+        {
+          "stage": "华南锦标赛（三亚）",
+          "start": "2026-07-20",
+          "end": "2026-07-24",
+          "note": "三亚红树林国际会展中心"
+        },
+        {
+          "stage": "总决赛",
+          "start": "2026-08-18",
+          "end": "2026-08-25",
+          "note": "北京经济技术开发区（亦庄），与2026世界机器人大会（8月19日至23日）同期"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-18",
+          "title": "关于举办2025-2026学年世界机器人大会青少年机器人设计与信息素养大赛的通知",
+          "url": "https://www.worldrobotconference.com/contest/notice/3196.html",
+          "summary": "发布2025-2026学年赛季总体安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-28",
+          "title": "“2026世界机器人大赛—青少年机器人设计大赛”暨“2025-2026学年世界机器人大会青少年机器人设计与信息素养大赛”机器人设计项目选拔赛安排",
+          "url": "https://www.worldrobotconference.com/contest/announcement/3200.html",
+          "summary": "公布2026年5月至8月各省级选拔赛时间、地点与竞赛方向",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-25",
+          "title": "关于举办“2026世界机器人大赛—青少年机器人设计大赛”的通知",
+          "url": "https://www.worldrobotconference.com/contest/announcement/3205.html",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-17",
+          "title": "关于举办2026世界机器人大赛总决赛的通知",
+          "url": "https://www.worldrobotconference.com/contest/announcement/3222.html",
+          "summary": "总决赛与2026世界机器人大会同期在北京亦庄举办",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-20",
+          "title": "2026世界机器人大赛总决赛赛况正酣",
+          "url": "https://www.chinanews.com.cn/m/tp/hd/2026/0820/181528.shtml",
+          "summary": "总决赛在北京亦庄与世界机器人大会同步举行，青少年机器人设计大赛选手同场竞技",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.worldrobotconference.com/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html"
+        }
+      ],
+      "tags": [
+        "机器人",
+        "编程",
+        "无人机"
+      ],
+      "relatedCourses": [
+        "drone",
+        "python",
+        "app"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "nqdrone",
+      "nameZh": "全国青少年无人机大赛",
+      "category": "natural-science",
+      "organizer": "中国航空学会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://www.int-ede.com/",
+      "moeListIndex": 3,
+      "summary": "中国航空学会主办的全国性无人机赛事，2025-2026学年为第十届，设十大赛项，经地区选拔赛晋级全国总决赛。",
+      "description": "全国青少年无人机大赛由中国航空学会2017年创办，连续入选教育部面向中小学生的全国性竞赛活动名单，2025-2026学年举办第十届。大赛面向小学、初中、普通高中、中职学生，设飞行操控、第一视角飞行、空中对抗、蜂群舞蹈、编程挑战、目标侦察、应用场景飞行、模拟飞行、创意飞行、协同挑战十大赛项，经市级赛、省级赛逐级选拔晋级全国总决赛。第十届8000余所学校约1.8万名选手晋级总决赛，总决赛于2026年7月30日至8月2日在天津举办。大赛为公益赛事，不收取参赛费，适合对航空与无人机感兴趣的中小学生。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": null,
+          "end": null,
+          "note": "不接受个人报名，须通过学校、科技馆、青少年宫等单位组队，由领队老师在官方平台统一报名，各省报名时间以省级赛区通知为准"
+        },
+        {
+          "stage": "地区选拔赛（市级赛、省级赛）",
+          "start": null,
+          "end": null,
+          "note": "2026年上半年各省市陆续举办（如北京市赛3月启动、多省市赛4-6月举行），具体时间地点由各省级赛区组委会另行通知"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-07-30",
+          "end": "2026-08-02",
+          "note": "国家会展中心（天津），与2026中国航空科普大会同期"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-01-06",
+          "title": "关于举办第十届全国青少年无人机大赛的通知",
+          "url": "https://m.thepaper.cn/newsDetail_forward_32332504",
+          "summary": "中航学字〔2026〕2号通知公布十大赛项与两级赛制，总决赛拟于2026年暑期在天津举办",
+          "source": "media"
+        },
+        {
+          "date": "2026-05-31",
+          "title": "全国青少年无人机大赛总决赛首次落地天津",
+          "url": "https://www.tj.gov.cn/sy/tjxw/202605/t20260531_7308597.html",
+          "summary": "第十届总决赛暨2026中国航空科普大会新闻发布会举行，总决赛将于7月底在国家会展中心（天津）举办",
+          "source": "media"
+        },
+        {
+          "date": "2026-08-07",
+          "title": "广西选手在第十届全国青少年无人机大赛总决赛中喜获佳绩",
+          "url": "http://www.gxnews.com.cn/staticpages/20260807/newgx6a758428-21978483.shtml",
+          "summary": "总决赛在天津圆满落幕，8000余所学校1.8万余名选手晋级总决赛，总参赛规模超8万人",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.int-ede.com/"
+        },
+        {
+          "label": "主办单位：中国航空学会",
+          "url": "http://www.csaa.org.cn/"
+        }
+      ],
+      "tags": [
+        "无人机",
+        "航空",
+        "编程"
+      ],
+      "relatedCourses": [
+        "drone"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "soong-invention-award",
+      "nameZh": "宋庆龄少年儿童发明奖",
+      "category": "natural-science",
+      "organizer": "中国宋庆龄基金会、中国发明协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://sclaci.sclc2017.org/",
+      "moeListIndex": 4,
+      "summary": "中国宋庆龄基金会、中国发明协会主办，2026年为第二十一届，设发明、人工智能（编程）、创意三类作品奖。",
+      "description": "宋庆龄少年儿童发明奖由中国宋庆龄基金会与中国发明协会共同主办，2026年举办第二十一届。参赛对象为18周岁及以下的小学（四年级及以上）、初中、高中（含中专、职高）在校学生。竞赛设发明作品、人工智能（编程）作品、创意作品三类奖项，本届创意作品设“太空旅行”“未来能源”主题，另征集科技绘画作品。流程为各地选拔推荐、网络申报、全国初评、终评答辩与颁奖，评出金、银、铜奖。本届终评颁奖于2026年8月19日至22日在北京举办。赛事公益零收费，适合热衷发明创造的中小学生。",
+      "schedule": [
+        {
+          "stage": "各地选拔推荐",
+          "start": null,
+          "end": null,
+          "note": "2026年2月至3月，由各组织机构组织选拔推荐"
+        },
+        {
+          "stage": "作品申报及形式审核",
+          "start": null,
+          "end": null,
+          "note": "2026年3月至4月，网络申报"
+        },
+        {
+          "stage": "全国初评",
+          "start": null,
+          "end": null,
+          "note": "2026年5月至6月；入围终评名单7月公示"
+        },
+        {
+          "stage": "终评颁奖",
+          "start": "2026-08-19",
+          "end": "2026-08-22",
+          "note": "北京首钢园、中国宋庆龄青少年科技文化交流中心；8月20日终评答辩，8月22日颁奖"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-02-13",
+          "title": "中国宋庆龄基金会、中国发明协会关于举办第二十一届宋庆龄少年儿童发明奖的通知",
+          "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/911/frtid/20/Default.aspx",
+          "summary": "公布第二十一届作品类别、申报要求与时间安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-22",
+          "title": "第二十一届宋庆龄少年儿童发明奖入围作品名单和科技绘画作品展示名单公示",
+          "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/916/frtid/20/Default.aspx",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-06",
+          "title": "关于举办第二十一届宋庆龄少年儿童发明奖终评颁奖活动的通知",
+          "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/917/frtid/20/Default.aspx",
+          "summary": "终评颁奖活动8月19日至22日在北京首钢园等地举办，8月20日现场答辩",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-21",
+          "title": "第二十一届宋庆龄少年儿童发明奖获奖名单公示",
+          "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/923/frtid/20/Default.aspx",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://sclaci.sclc2017.org/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://sclaci.sclc2017.org/tabid/47/Default.aspx"
+        }
+      ],
+      "tags": [
+        "发明创造",
+        "人工智能",
+        "科技创新"
+      ],
+      "relatedCourses": [
+        "s0",
+        "app",
+        "drone"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "cnao",
+      "nameZh": "全国中学生天文知识竞赛",
+      "category": "natural-science",
+      "organizer": "中国天文学会",
+      "grades": [
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.bjp.org.cn/qgzxstwzsjs/",
+      "moeListIndex": 5,
+      "summary": "中国天文学会主办、北京天文馆承办的全国性中学生天文竞赛，分预赛与决赛，是国际天文奥赛国家队的选拔通道。",
+      "description": "全国中学生天文知识竞赛（CNAO）前身为2002年举办的全国中学生天文通讯赛，2003年举办首届，由中国天文学会主办、北京天文馆承办，2019年起连续入选教育部竞赛名单。竞赛面向初中、普通高中、中职学生，分高年组与低年组，考察天文常识、天文时事、星空观测等内容。赛制为预赛（线下闭卷，部分省份由省级赛区推送）加决赛（笔试与观测考试）。2025-2026学年决赛于2026年5月在河南洛阳举行，177名选手入围。竞赛承担国际天文奥赛国家队选拔职能，适合热爱天文、数理基础扎实的中学生。",
+      "schedule": [
+        {
+          "stage": "预赛报名",
+          "start": "2026-03-03",
+          "end": "2026-03-17",
+          "note": "报名系统开放报名，3月17日12:00截止；学籍为北京、广东、浙江、新疆的学生由省级比赛推送，不参加统一预赛"
+        },
+        {
+          "stage": "预赛",
+          "start": "2026-03-28",
+          "end": "2026-03-28",
+          "note": "14:00-15:30线下闭卷考试，全国各预赛考点同步进行"
+        },
+        {
+          "stage": "决赛",
+          "start": "2026-05-13",
+          "end": "2026-05-17",
+          "note": "河南省洛阳市，含笔试与观测考试，同期举行国家队选拔赛"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-03",
+          "title": "2025-2026学年全国中学生天文知识竞赛2号通知（预赛报名通知）",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369cab05ed019cad96581a004f.shtml",
+          "summary": "预赛报名开启，3月17日截止，预赛定于3月28日举行",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-19",
+          "title": "2025-2026学年全国中学生天文知识竞赛圆满结束",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369e3cb5f6019e3eded9bb000f.shtml",
+          "summary": "决赛5月13日至17日在洛阳举办，177名选手入围，评出一等奖25名",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-06",
+          "title": "2025-2026学年全国中学生天文知识竞赛优秀指导教师名单",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369f33e736019f35375a5a001a.shtml",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-27",
+          "title": "北京天文馆成功举办2026年国际天文奥赛国家队集训活动",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1369fa00cb8019fa190f8c10022.shtml",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/"
+        }
+      ],
+      "tags": [
+        "天文",
+        "自然科学",
+        "奥林匹克"
+      ],
+      "relatedCourses": [
+        "theory",
+        "data"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "geodoctor",
+      "nameZh": "“地球小博士”全国地理科普知识大赛活动",
+      "category": "natural-science",
+      "organizer": "中国地理学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "http://www.geodoctor.cn/",
+      "moeListIndex": 6,
+      "summary": "中国地理学会主办的全国地理科普知识大赛，面向高中在校学生在线答题，2025-2026年度为第十九届，规模约80万人。",
+      "description": "“地球小博士”全国地理科普知识大赛由中国地理学会主办，自2007年起每年举办，2025-2026年度为第十九届，主题“地理智慧守护未来地球”。活动面向全国普通高中在校学生，由学校统一组织网上报名，集中在线随机答题。全国赛设个人一、二、三等奖（总获奖比例不超过20%），并择优授予100人“地球小博士”称号，成绩优异者可获推荐参加国际中学生地理奥林匹克竞赛选手选拔赛。第十九届规模约80万人。赛事公益零收费，适合对地理科学感兴趣的高中生。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": "2025-11-28",
+          "end": "2025-12-17",
+          "note": "学校统一组织网上报名并选择考试时段，规模80万人额满即止"
+        },
+        {
+          "stage": "全国赛（在线答题）",
+          "start": null,
+          "end": null,
+          "note": "2025年12月起由学校集中组织在线答题（考试时段报名时选定），2026年初公布成绩"
+        },
+        {
+          "stage": "国际地理奥赛选拔赛",
+          "start": null,
+          "end": null,
+          "note": "计划2026年3月启动，仅面向全国赛成绩优异者，具体安排另行通知"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2025-11-28",
+          "title": "中国地理学会关于举办第十九届（2025-2026年度）“地球小博士”全国地理科普知识大赛的通知",
+          "url": "https://www.gsc.org.cn/gsc/xueshuDetail.html?id=56&contentId=2236",
+          "summary": "公布第十九届主题、报名与竞赛安排，报名11月28日至12月17日",
+          "source": "official"
+        },
+        {
+          "date": "2026-02-06",
+          "title": "第十九届“地球小博士”全国地理科普知识大赛全国赛圆满落幕",
+          "url": "https://www.ahyouth.com/news/20260206/1777028.shtml",
+          "summary": "全国赛成绩正式公布，本届吸引全国逾80万名高中生参与",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.geodoctor.cn/"
+        },
+        {
+          "label": "主办单位：中国地理学会",
+          "url": "https://www.gsc.org.cn/"
+        }
+      ],
+      "tags": [
+        "地理",
+        "科普",
+        "自然科学"
+      ],
+      "relatedCourses": [
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "water-tech-invention",
+      "nameZh": "全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛",
+      "category": "natural-science",
+      "organizer": "生态环境部宣传教育中心、水利部宣传教育中心",
+      "grades": [
+        "小学",
+        "初中",
+        "高中"
+      ],
+      "officialSite": "https://www.naturesch.cn/",
+      "newsPages": [
+        "http://www.chinaeol.net/tzgga/"
+      ],
+      "moeListIndex": 7,
+      "summary": "生态环境部、水利部宣传教育中心联合主办的水主题科创赛事，高中组特等奖可代表中国参加斯德哥尔摩青少年水奖。",
+      "description": "全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛由生态环境部宣传教育中心、水利部宣传教育中心主办，已纳入教育部2025—2028学年竞赛名单，2026年7月启动第二十四届。比赛分小学高年级及初中组（每项不超过3人）与高中组（每项不超过2人），作品须围绕水主题开展科学研究并以项目报告形式提交，鼓励结合人工智能、大数据等前沿技术。赛制为省赛/地区选拔赛推荐、全国评审与决赛答辩，高中组特等奖推荐参加斯德哥尔摩青少年水奖。比赛坚持公益零收费，适合关注水环境、具备科研实践能力的学生。",
+      "schedule": [
+        {
+          "stage": "省赛/地区选拔赛",
+          "start": null,
+          "end": null,
+          "note": "第24届通知：2026年10月—2027年3月由各省赛组织单位开展作品征集与评审，具体时间以各省通知为准"
+        },
+        {
+          "stage": "全国比赛作品报送",
+          "start": null,
+          "end": "2027-03-19",
+          "note": "省赛组织单位登录 naturesch.cn 线上报送截止；未举办省赛地区可由作者本人在规定时间内自行申报"
+        },
+        {
+          "stage": "全国比赛（评审与决赛答辩）",
+          "start": null,
+          "end": null,
+          "note": "2027年4—5月，含资格审查、专家评审、决赛答辩与颁奖；特等奖作品推荐参加2027年斯德哥尔摩青少年水奖"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-29",
+          "title": "关于举办第二十四届全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛的通知",
+          "url": "http://www.chinaeol.net/tzgga/202607/t20260729_1163081.shtml",
+          "summary": "启动第二十四届比赛，明确省赛选拔、作品报送与全国比赛流程，强调零收费",
+          "source": "official"
+        },
+        {
+          "date": "2026-06-26",
+          "title": "关于公布第二十三届全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛获奖结果的通知",
+          "url": "http://www.chinaeol.net/tzgga/202606/t20260626_1160336.shtml",
+          "summary": "公布第二十三届比赛获奖结果",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.naturesch.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "http://www.chinaeol.net/tzgga/"
+        }
+      ],
+      "tags": [
+        "水科技",
+        "科技创新",
+        "生态环境"
+      ],
+      "relatedCourses": [
+        "data",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "ceso",
+      "nameZh": "全国中学生地球科学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国地震学会、中国地球物理学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://ceso.ssoc.org.cn/",
+      "moeListIndex": 8,
+      "summary": "中国地震学会、中国地球物理学会主办的高中生地球科学奥赛，是国际地球科学奥赛（IESO）中国队的选拔赛事。",
+      "description": "全国中学生地球科学奥林匹克竞赛（CESO）由中国科学技术协会主管，中国地震学会、中国地球物理学会主办，面向全国高中生，旨在普及地球科学知识、选拔国际地球科学奥林匹克竞赛（IESO）中国队。赛事按学年举办，分全国统一预赛与全国决赛：2025—2026学年预赛于2026年3月29日举行，决赛于2026年4月24—26日在山东青岛举办。竞赛涵盖地质学、地球物理学、气象学、海洋学、天文学等方向，注重理论与实践能力。适合对地球科学兴趣浓厚、学有余力的高中生，优秀选手可入选国家集训队并代表中国参加IESO。",
+      "schedule": [],
+      "updates": [
+        {
+          "date": "2026-09-09",
+          "title": "2018—2026年全国中学生地球科学奥赛真题及解析发布通知",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=673",
+          "summary": "发布历年真题及解析，供参赛学生和指导教师备考参考",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-25",
+          "title": "2026年国际地球科学奥林匹克竞赛中国国家代表队队员和中国国家集训队优秀队员名单",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=671",
+          "summary": "公布2026年IESO中国代表队及集训队优秀队员名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-29",
+          "title": "探海问地·智汇青岛 2025-2026学年全国中学生地球科学奥林匹克竞赛决赛圆满落幕",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=668",
+          "summary": "决赛于2026年4月24—26日在山东青岛举办",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-28",
+          "title": "关于警惕虚假地球科学奥赛网站等平台的公告",
+          "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=670",
+          "summary": "提醒考生谨防仿冒官网、公众号等诈骗平台",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-30",
+          "title": "2025-2026学年全国中学生地球科学奥林匹克竞赛预赛如期举行",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=664",
+          "summary": "预赛于2026年3月29日下午全国统一举行",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://ceso.ssoc.org.cn/"
+        }
+      ],
+      "tags": [
+        "地球科学",
+        "奥林匹克",
+        "理科竞赛"
+      ],
+      "relatedCourses": [
+        "theory",
+        "data"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "cmo",
+      "nameZh": "全国中学生数学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国数学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.cms.org.cn/",
+      "moeListIndex": 9,
+      "summary": "中国数学会主办的国内最高水平中学生数学赛事，经联赛、冬令营逐级选拔国际数学奥赛（IMO）国家队。",
+      "description": "全国中学生数学奥林匹克竞赛由中国数学会主办，是国内历史最久、水平最高的中学生数学竞赛，也是国际数学奥林匹克（IMO）中国国家队的选拔通道。竞赛分两个阶段：预赛即全国高中数学联赛（一般于9月举行，含一试与加试，考查几何、代数、数论、组合等内容），决赛即中国数学奥林匹克（全国中学生数学冬令营，2025年为第四十一届）。各省联赛一等奖前列学生组成省队参加决赛，决赛优胜者入选国家集训队。赛事面向数学特长突出、有志于基础学科深造的高中生，获奖成绩在高校强基计划等选拔中具有较高认可度。",
+      "schedule": [],
+      "updates": [
+        {
+          "date": "2026-04-20",
+          "title": "2025年全国中学生数学奥林匹克竞赛（决赛）获奖名单",
+          "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1429.html",
+          "summary": "公布2025年决赛（第四十一届冬令营）获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2025-10-14",
+          "title": "2025年全国中学生数学奥林匹克竞赛（决赛）（第四十一届全国中学生数学冬令营）名单公示",
+          "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1357.html",
+          "summary": "公示2025年冬令营营员名单，公示期至2025年10月21日",
+          "source": "official"
+        },
+        {
+          "date": "2025-10-14",
+          "title": "2025年全国中学生数学奥林匹克竞赛（预赛）（2025年全国高中数学联赛）一等奖名单公示",
+          "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1356.html",
+          "summary": "公示2025年高中数学联赛各赛区一等奖名单",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.cms.org.cn/"
+        }
+      ],
+      "tags": [
+        "数学",
+        "奥林匹克",
+        "理科竞赛"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "cpho",
+      "nameZh": "全国中学生物理奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国物理学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.cps-net.org.cn/",
+      "moeListIndex": 10,
+      "summary": "中国物理学会主办的中学生物理奥赛，经预赛、复赛、决赛选拔国际与亚洲物理奥赛国家队。",
+      "description": "全国中学生物理奥林匹克竞赛（全国中学生物理竞赛）由中国物理学会主办、全国中学生物理竞赛委员会组织，面向全国高中生，是国际物理奥林匹克（IPhO）和亚洲物理奥林匹克（APhO）中国队的选拔基础，2025年已举办至第42届。竞赛分预赛、复赛（理论考试与实验考试）和全国决赛三个阶段，一般于9月启动、秋季陆续进行。赛事考查力学、电磁学、热学、光学和近代物理等内容，兼顾理论分析与实验操作能力，决赛一等奖前列选手入选国家集训队。适合物理兴趣浓厚、数理基础扎实、学有余力的高中生，在高校拔尖人才选拔中认可度高。",
+      "schedule": [],
+      "updates": [
+        {
+          "date": "2025-11-13",
+          "title": "2025年第42届全国中学生物理竞赛决赛获奖名单",
+          "url": "http://cpho.pku.edu.cn/info/1126/1412.htm",
+          "summary": "公布第42届决赛获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-13",
+          "title": "2025年第42届全国中学生物理竞赛决赛单项奖获奖名单",
+          "url": "http://cpho.pku.edu.cn/info/1126/1402.htm",
+          "summary": "公布第42届决赛理论、实验等单项奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2025-10-20",
+          "title": "2025年省级竞赛一等奖获奖学生信息汇总表",
+          "url": "http://cpho.pku.edu.cn/info/1126/1362.htm",
+          "summary": "公布2025年省级竞赛一等奖获奖学生信息",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.cps-net.org.cn/"
+        }
+      ],
+      "tags": [
+        "物理",
+        "奥林匹克",
+        "理科竞赛"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "ccho",
+      "nameZh": "全国中学生化学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国化学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.chemsoc.org.cn/",
+      "moeListIndex": 11,
+      "summary": "中国化学会主办的高中生化学奥赛，第40届初赛已于2026年9月6日举行，优胜者有望入选IChO国家队。",
+      "description": "中国化学奥林匹克由中国化学会主办，面向全国高中生，是国际化学奥林匹克（IChO）中国国家队的选拔赛事，2026年为第40届。竞赛分初赛（全国统一笔试）、省队选拔和全国决赛（理论考试与实验考试）等阶段，依据《中国化学奥林匹克工作条例（试行）》及实施细则（2025年修订）组织，内容涵盖无机化学、有机化学、分析化学与物理化学等，强调实验技能与科学思维。决赛一等奖前列选手入选国家集训队，经选拔产生IChO中国代表队。适合化学兴趣浓厚、实验能力突出、学有余力的高中生。",
+      "schedule": [
+        {
+          "stage": "初赛",
+          "start": "2026-09-06",
+          "end": "2026-09-06",
+          "note": "第40届初赛全国统一于2026年9月6日上午举行，试题及参考答案已公布"
+        },
+        {
+          "stage": "决赛",
+          "start": null,
+          "end": null,
+          "note": "往年于11月举行；第40届决赛时间、地点待中国化学会正式通知"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-13",
+          "title": "中国化学会第40届中国化学奥林匹克（初赛）试题参考答案公布",
+          "url": "https://www.chemsoc.org.cn/notice/a7499.html",
+          "summary": "公布第40届初赛试题参考答案",
+          "source": "official"
+        },
+        {
+          "date": "2026-09-06",
+          "title": "第40届中国化学奥林匹克（初赛）试题公布",
+          "url": "https://www.chemsoc.org.cn/notice/a7491.html",
+          "summary": "第40届初赛于2026年9月6日举行，试题当日公布",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-12",
+          "title": "2026年中国化学奥林匹克（决赛）省队队员选拔方式",
+          "url": "https://www.chemsoc.org.cn/notice/a7432.html",
+          "summary": "公布2026年各省省队选拔方式，各省均须从当届初赛一等奖学生中选拔",
+          "source": "official"
+        },
+        {
+          "date": "2026-01-13",
+          "title": "关于印发《中国化学奥林匹克工作条例（试行）》《中国化学奥林匹克实施细则（2025年修订）》的通知",
+          "url": "https://www.chemsoc.org.cn/notice/a6988.html",
+          "summary": "印发化学奥林匹克新版工作条例与实施细则",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.chemsoc.org.cn/"
+        }
+      ],
+      "tags": [
+        "化学",
+        "奥林匹克",
+        "理科竞赛"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "chsbo",
+      "nameZh": "全国中学生生物学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国植物学会、中国动物学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "http://www.botany.org.cn/swxjs/zchssxz/",
+      "newsPages": [
+        "https://www.czs.org.cn/"
+      ],
+      "moeListIndex": 12,
+      "summary": "中国植物学会、中国动物学会联合主办的生物学奥赛，经全国联赛、全国竞赛选拔国际生物奥赛（IBO）国家队。",
+      "description": "全国中学生生物学奥林匹克竞赛（全国中学生生物学竞赛）由中国植物学会、中国动物学会联合主办，全国中学生生物学竞赛委员会组织，面向高中生，是国际生物学奥林匹克（IBO）中国队的选拔赛事。赛事分全国生物学联赛（2026年于5月10日举行，各省从一等奖获得者中产生省队）与全国竞赛即决赛（第三十五届于2026年8月14—18日在江西上饶举行，含理论与实验考试，580名选手参赛，金牌前50名入选国家集训队）。考查动植物学、生理、生化、遗传、生态等内容，适合生命科学兴趣浓厚、实验动手能力强的学生。",
+      "schedule": [],
+      "updates": [
+        {
+          "date": "2026-08-20",
+          "title": "第三十五届全国中学生生物学竞赛在江西上饶成功举办",
+          "url": "http://www.botany.org.cn/swxjs/swxjs_56644/202608/t20260820_854238.html",
+          "summary": "8月14—18日举行，580名选手参赛，金牌前50名入选国家集训队",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-08",
+          "title": "关于举办第三十五届全国中学生生物学竞赛的通知",
+          "url": "http://www.botany.org.cn/swxjs/swxjs_56644/202607/t20260708_849060.html",
+          "summary": "发布第三十五届全国竞赛（决赛）举办通知",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-26",
+          "title": "2026年全国中学生生物学联赛各省获奖名单",
+          "url": "http://www.botany.org.cn/swxjs/swxls/202607/t20260726_851087.html",
+          "summary": "公布2026年联赛各省获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-27",
+          "title": "2026年全国中学生生物学联赛通知",
+          "url": "http://www.botany.org.cn/swxjs/swxls/202604/t20260427_835390.html",
+          "summary": "联赛定于2026年5月10日举行，报名材料3月31日前报送",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.botany.org.cn/swxjs/zchssxz/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.czs.org.cn/"
+        }
+      ],
+      "tags": [
+        "生物",
+        "奥林匹克",
+        "理科竞赛"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "noi",
+      "nameZh": "全国中学生信息学奥林匹克竞赛",
+      "category": "natural-science",
+      "organizer": "中国计算机学会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.noi.cn/",
+      "moeListIndex": 13,
+      "summary": "中国计算机学会主办的国内最高水平中学生信息学竞赛，经CSP-J/S、NOIP、省选逐级选拔，优胜者入选国家队参加IOI。",
+      "description": "全国青少年信息学奥林匹克竞赛（NOI）由中国计算机学会（CCF）于1984年创办，是国内最高水平的中学生信息学赛事，2026年为第43届（7月18-24日在青岛市城阳第一高级中学举行，产生金牌54枚）。赛事以算法设计与程序设计为核心，选手沿CSP-J/S认证、NOIP联赛、省内选拔的路径晋级全国赛，按省组队参赛。NOI金牌前50名进入国家集训队，从中选拔4人代表中国参加国际信息学奥林匹克（IOI）。赛事适合编程与算法基础扎实、有志于计算机科学深造的中学生，在强基计划等高校选拔中认可度高。",
+      "schedule": [
+        {
+          "stage": "CSP-J/S 2026第一轮报名",
+          "start": "2026-07-06",
+          "end": "2026-09-06",
+          "note": "通过NOI报名系统（cspsjtest.noi.cn）注册报名，已截止"
+        },
+        {
+          "stage": "CSP-J/S 2026第一轮认证",
+          "start": "2026-09-19",
+          "end": "2026-09-19",
+          "note": "在各省认证点举行"
+        },
+        {
+          "stage": "CSP-J/S 2026第二轮认证",
+          "start": "2026-10-31",
+          "end": "2026-10-31",
+          "note": "在各省举行"
+        },
+        {
+          "stage": "NOIP 2026暨女生赛",
+          "start": "2026-11-28",
+          "end": "2026-11-28",
+          "note": "在各省举行，为省选与NOI参赛资格的重要环节"
+        },
+        {
+          "stage": "NOI 2026全国赛（已结束）",
+          "start": "2026-07-18",
+          "end": "2026-07-24",
+          "note": "第43届，青岛市城阳第一高级中学承办；NOI 2027将由中国人民大学附属中学承办"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-11",
+          "title": "关于自NOI 2029起取消A类选手加分政策的公告",
+          "url": "https://www.noi.cn/xw/2026-09-11/930261.shtml",
+          "summary": "CCF公告自NOI 2029起取消A类选手加分政策",
+          "source": "official"
+        },
+        {
+          "date": "2026-09-11",
+          "title": "CCF关于NOI 2027省内选拔的若干规定",
+          "url": "https://www.noi.cn/xw/2026-09-11/930020.shtml",
+          "summary": "明确NOI 2027省内选拔的组织与资格规定",
+          "source": "official"
+        },
+        {
+          "date": "2026-09-09",
+          "title": "关于CCF CSP-J/S认证等级名称规范的公告",
+          "url": "https://www.noi.cn/xw/2026-09-09/930554.shtml",
+          "summary": "规范CSP-J/S认证等级名称表述",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-27",
+          "title": "代码逐光，筑梦青岛——NOI 2026在青岛市城阳第一高级中学圆满收官",
+          "url": "https://www.noi.cn/xw/2026-07-27/918275.shtml",
+          "summary": "第43届NOI落幕，产生金牌54枚、银牌146枚、铜牌83枚，江苏队获团体总分第一",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-23",
+          "title": "CCF NOI 2026获奖名单公示",
+          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml",
+          "summary": "公示NOI 2026金银铜牌获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-06",
+          "title": "CSP-J/S 2026 第一轮报名通知",
+          "url": "https://www.noi.cn/xw/2026-07-06/908154.shtml",
+          "summary": "CSP-J/S 2026第一轮9月19日举行，报名至9月6日15:00截止",
+          "source": "official"
+        },
+        {
+          "date": "2026-02-12",
+          "title": "2026 NOI系列活动和认证日历",
+          "url": "https://www.noi.cn/xw/2026-02-12/861384.shtml",
+          "summary": "公布2026年NOI冬令营、APIO、NOI、IOI、CSP-J/S、NOIP等全年活动时间安排",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.noi.cn/"
+        }
+      ],
+      "tags": [
+        "信息学",
+        "编程",
+        "奥林匹克"
+      ],
+      "relatedCourses": [
+        "python"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "castic",
+      "nameZh": "全国青少年科技创新大赛",
+      "category": "natural-science",
+      "organizer": "中国科协",
+      "grades": [
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://cyscc.org/castic/",
+      "moeListIndex": 14,
+      "summary": "中国科协等主办的全国性青少年科创赛事，第40届起由关联赛事择优推荐选手，少年组面向15-17岁中学生。",
+      "description": "全国青少年科技创新大赛（CASTIC）由中国科协联合自然科学基金委、共青团中央、全国妇联等主办，是国内历史最久、规模最大的青少年科创赛事，2026年举办第40届。第40届起赛制改革：选手须经关联赛事择优推荐，按年龄分15-17岁少年组和18-24岁青年组；现场活动不再评审原有作品，改为现场发布的个人与团队挑战任务，约10%选手可获“中国科协主席奖”。第40届现场活动于2026年7月25-29日在西安交通大学举行，适合有科研实践经历的青少年。",
+      "schedule": [
+        {
+          "stage": "申报（关联赛事推荐选手在线申报）",
+          "start": "2026-05-10",
+          "end": "2026-05-31",
+          "note": "凭关联赛事授权码在申报系统提交材料，5月31日中午12:00截止"
+        },
+        {
+          "stage": "参赛确认",
+          "start": "2026-06-26",
+          "end": "2026-06-30",
+          "note": "选手填报个人挑战和团队挑战意向，领队确认代表队信息"
+        },
+        {
+          "stage": "第40届现场活动（已结束）",
+          "start": "2026-07-25",
+          "end": "2026-07-29",
+          "note": "在陕西省西安市西安交通大学创新港校区举办，含个人/团队挑战任务、前沿科技报告等"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-26",
+          "title": "关于第40届全国青少年科技创新大赛现场活动的通知",
+          "url": "https://cyscc.org/castic/#/news/article/249852",
+          "summary": "第40届现场活动定于2026年7月25-29日在西安举办，6月26-30日确认参赛",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-09",
+          "title": "第40届全国青少年科技创新大赛申报指南",
+          "url": "https://cyscc.org/castic/#/news/article/249848",
+          "summary": "申报系统5月10日至31日开放，选手凭关联赛事授权码在线申报",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-24",
+          "title": "中国科协办公厅关于举办第40届全国青少年科技创新大赛的通知",
+          "url": "https://cyscc.org/castic/#/news/article/249851",
+          "summary": "公布第40届大赛主题、组织机构、参赛对象与赛制安排",
+          "source": "official"
+        },
+        {
+          "date": "2025-08-19",
+          "title": "第39届全国青少年科技创新大赛获奖名单",
+          "url": "https://cyscc.org/castic/#/news/article/249850",
+          "summary": "公布第39届大赛获奖名单",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://cyscc.org/castic/"
+        }
+      ],
+      "tags": [
+        "科技创新",
+        "科研实践",
+        "综合素养"
+      ],
+      "relatedCourses": [
+        "python",
+        "data",
+        "drone",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "nysic",
+      "nameZh": "全国青少年航天创新大赛",
+      "category": "natural-science",
+      "organizer": "中国航天科技国际交流中心",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://nysic.declare.htgjjl.com/",
+      "moeListIndex": 15,
+      "summary": "中国航天科技国际交流中心主办的航天主题科创赛事，设航天科技创新与太空探测竞技两单元，覆盖小学至中职学生。",
+      "description": "全国青少年航天创新大赛由中国航天科技国际交流中心主办，国家航天局、中国载人航天工程办公室等指导，列入教育部2025-2028学年竞赛名单。大赛设“航天科技创新”和“太空探测竞技”两个竞赛单元：前者侧重航天科学探究与工程实践，需完成实物作品并迭代优化；后者以太空探测任务为主，培养动手实践、编程、机器人控制与人工智能应用能力。赛事分选拔赛和全国总决赛，2025-2026学年总决赛于2026年8月8-9日在杭州举行。大赛为公益性赛事，不收参赛费，适合对航天感兴趣的小学至中职学生。",
+      "schedule": [
+        {
+          "stage": "选拔赛",
+          "start": null,
+          "end": "2026-06-30",
+          "note": "各赛区2026年6月底前完成选拔赛，具体时间地点由各赛区另行通知"
+        },
+        {
+          "stage": "全国总决赛（已结束）",
+          "start": "2026-08-08",
+          "end": "2026-08-09",
+          "note": "在浙江杭州高新区（滨江）白马湖国际会展中心举办，与中国航天科普大会同期"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-17",
+          "title": "2026年全国青少年航天创新大赛总决赛获奖名单公示",
+          "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270625",
+          "summary": "公示2025-2026学年总决赛获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-10",
+          "title": "赓续航天志，点亮少年心｜2026年中国航天科普大会暨全国青少年航天创新大赛总决赛成功举办",
+          "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270623",
+          "summary": "总决赛于8月8-9日在杭州白马湖国际会展中心举办",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-08",
+          "title": "2026年中国航天科普大会暨全国青少年航天创新大赛总决赛在浙江杭州开幕",
+          "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270618",
+          "summary": "总决赛在杭州高新区（滨江）开幕",
+          "source": "official"
+        },
+        {
+          "date": "2026-01-19",
+          "title": "关于举办2025—2026学年全国青少年航天创新大赛的通知",
+          "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270504",
+          "summary": "发布2025-2026学年大赛安排：2026年1-8月举行，分选拔赛和全国总决赛",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://nysic.declare.htgjjl.com/"
+        }
+      ],
+      "tags": [
+        "航天",
+        "科技创新",
+        "工程实践"
+      ],
+      "relatedCourses": [
+        "drone",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "yau-awards",
+      "nameZh": "丘成桐中学科学奖",
+      "category": "natural-science",
+      "organizer": "清华大学",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.yau-awards.com/",
+      "moeListIndex": 16,
+      "summary": "清华大学主办、丘成桐院士发起的中学科学奖，舍弃试卷以研究报告参赛，涵盖数理化生、计算机、经济金融建模六学科。",
+      "description": "丘成桐中学科学奖由丘成桐院士于2008年发起，2026年为第十九届，由清华大学主办、清华大学丘成桐数学科学中心承办，连续入选教育部竞赛白名单。竞赛面向全球中学生（中国内地赛区仅限高中生），涵盖数学、物理、化学、生物、计算机、经济金融建模六大学科，舍弃试卷和标准答案，学生以提交研究报告参赛，1-3名同校高中生组队、1-2位指导老师带领。总决赛以英文答辩形式在清华大学举行，由国际评审委员会主持，各科设金银铜奖，另设最高奖“科学金奖”，适合有科研兴趣和英文表达能力的高中生。",
+      "schedule": [
+        {
+          "stage": "网上注册报名及提交参赛材料",
+          "start": "2026-07-01",
+          "end": "2026-09-15",
+          "note": "报名系统7月1日开放，已截止"
+        },
+        {
+          "stage": "参赛材料审核",
+          "start": "2026-09-16",
+          "end": "2026-09-30",
+          "note": "组委会审核参赛材料"
+        },
+        {
+          "stage": "分赛区评审",
+          "start": "2026-10-01",
+          "end": "2026-11-02",
+          "note": "各赛区评选出入围全球总决赛的名单"
+        },
+        {
+          "stage": "入围全球总决赛名单公示",
+          "start": "2026-11-03",
+          "end": "2026-11-10",
+          "note": "入围名单和研究报告网上公示，确定最终名单"
+        },
+        {
+          "stage": "全球总决赛暨颁奖典礼",
+          "start": "2026-12-05",
+          "end": "2026-12-06",
+          "note": "以英文答辩形式在清华大学举行，12月6日举办科学论坛"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-16",
+          "title": "2026丘成桐中学科学奖（诺特数学奖）报名开启",
+          "url": "https://www.yau-awards.com/show-86-60.html",
+          "summary": "面向女生数学方向的诺特数学奖开启报名",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-08",
+          "title": "丘成桐中学科学奖AI使用规则",
+          "url": "https://www.yau-awards.com/show-86-59.html",
+          "summary": "发布参赛过程中人工智能工具使用的规范",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-01",
+          "title": "2026丘成桐中学科学奖（中国内地赛区）报名开启",
+          "url": "https://www.yau-awards.com/show-86-58.html",
+          "summary": "2026年中国内地赛区报名系统开放",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-16",
+          "title": "2026丘成桐中学科学奖（中国内地赛区）参赛日程",
+          "url": "https://www.yau-awards.com/show-86-57.html",
+          "summary": "公布2026赛季报名、评审、总决赛完整日程",
+          "source": "official"
+        },
+        {
+          "date": "2025-12-09",
+          "title": "2025丘成桐中学科学奖总决赛获奖名单",
+          "url": "https://www.yau-awards.com/show-86-56.html",
+          "summary": "公布2025年总决赛各学科获奖名单",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.yau-awards.com/"
+        }
+      ],
+      "tags": [
+        "科学研究",
+        "学术论文",
+        "国际化"
+      ],
+      "relatedCourses": [
+        "data",
+        "python",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "icc-china",
+      "nameZh": "全球发明大会（中国）竞赛活动",
+      "category": "natural-science",
+      "organizer": "中国友好和平发展基金会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://icc.cffpd.org.cn/",
+      "moeListIndex": 17,
+      "summary": "中国友好和平发展基金会主办的青少年发明创新赛事，是白名单中唯一具国际化属性的科创赛事，总决赛与国际赛同期举行。",
+      "description": "全球发明大会（中国）竞赛活动（ICC）由中国人民对外友好协会发起、中国友好和平发展基金会主办，列入教育部2025-2028学年竞赛名单。赛事以发明教育为核心，引导青少年围绕真实社会问题完成发明作品，培养科创精神与全球视野，覆盖小学至高中各学段，经省级赛、主题赛选拔晋级全国总决赛。2025-2026学年全国总决赛暨国际赛于2026年8月15-16日在郑州国际会展中心举行，近万名中外青少年参加，适合喜欢动手创造的中小学生。",
+      "schedule": [
+        {
+          "stage": "全国总决赛暨国际赛（已结束）",
+          "start": "2026-08-15",
+          "end": "2026-08-16",
+          "note": "在郑州国际会展中心举行，中外近万名青少年参加"
+        },
+        {
+          "stage": "获奖名单公示",
+          "start": "2026-08-29",
+          "end": "2026-09-04",
+          "note": "公示国赛一、二、三等奖名单，公示期7个自然日，证书下载打印另行通知"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-29",
+          "title": "关于公示2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛获奖名单的通知",
+          "url": "https://mp.weixin.qq.com/s/SPbi-vkgp1NWj0rf-5cn1A",
+          "summary": "评出国赛一等奖565组、二等奖1042组、三等奖2531组，公示期8月29日至9月4日",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-15",
+          "title": "2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛在郑州开幕",
+          "url": "https://mp.weixin.qq.com/s/95IxsQrNfOSGYoqjWPQHNg",
+          "summary": "总决赛暨国际赛8月15日在郑州国际会展中心开幕，近万名中外青少年同台竞技",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-15",
+          "title": "2026年全球发明大会（中国）总决赛暨国际赛在河南郑州启幕",
+          "url": "https://www.chinanews.com.cn/tp/2026/08-15/10678290.shtml",
+          "summary": "中新社报道：近万名中外青少年在郑州同台竞技",
+          "source": "media"
+        },
+        {
+          "date": "2026-08-10",
+          "title": "关于2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛赛事安排细则",
+          "url": "https://mp.weixin.qq.com/s/agN5M1tkWUNgUsVXxpUMeQ",
+          "summary": "发布总决赛暨国际赛赛事安排细则",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-03",
+          "title": "关于举办2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛的通知",
+          "url": "https://mp.weixin.qq.com/s/SoZ9fB0sajw4UG9Fo9yscg",
+          "summary": "官宣总决赛暨国际赛举办安排",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://icc.cffpd.org.cn/"
+        }
+      ],
+      "tags": [
+        "发明创造",
+        "科技创新",
+        "国际化"
+      ],
+      "relatedCourses": [
+        "s0",
+        "app",
+        "drone"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "ny-ai-contest",
+      "nameZh": "全国青少年人工智能大赛",
+      "category": "natural-science",
+      "organizer": "中国福利会、中国妇女发展基金会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://aic.cwicp.cn/",
+      "moeListIndex": 18,
+      "summary": "中国福利会、中国妇女发展基金会主办的青少年AI赛事，以“智能向善 生长无限”为主题设五大赛道，覆盖小学至中职学生。",
+      "description": "全国青少年人工智能大赛由中国福利会和中国妇女发展基金会主办、中国福利会少年宫承办，2025-2026学年为首届，是本届名单中唯一在沪主办的赛事。大赛以“智能向善 生长无限”为主题，设基础知识、工具应用、驱动科学、具身智能、大语言模型应用五大赛道，按小学、初中、高中（含中职）分组，采用集中测试加作品评审方式，鼓励运用国产AI大模型完成绘本、短片、智能体等创作。赛事分初赛（省级选拔赛）和全国决赛，首届决赛于2026年7月31日至8月3日在上海举行。大赛坚持公益性，适合希望提升AI素养的中小学生。",
+      "schedule": [
+        {
+          "stage": "初赛（省级选拔赛）",
+          "start": null,
+          "end": null,
+          "note": "2026年3-5月在全国各赛区举行，具体时间由各赛区组织方通知"
+        },
+        {
+          "stage": "全国决赛（已结束）",
+          "start": "2026-07-31",
+          "end": "2026-08-03",
+          "note": "首届决赛在上海举行，8月1日至3日为决赛活动"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-06",
+          "title": "科创筑梦智启少年——首届全国青少年人工智能大赛侧记",
+          "url": "http://fegw.sh.gov.cn/ywxx/20260807/d41e94c337e445eeab67a0007d81b056.html",
+          "summary": "首届大赛总决赛8月1日至3日在上海举行",
+          "source": "media"
+        },
+        {
+          "date": "2026-07-16",
+          "title": "关于首届全国青少年人工智能大赛决赛的通知",
+          "url": "https://hbaai.cn/rgzn/f/2/view-30-741.html",
+          "summary": "河北省组委会转发全国决赛通知：决赛于2026年7月31日至8月3日在上海举行",
+          "source": "official"
+        },
+        {
+          "date": "2026-02-05",
+          "title": "首届全国青少年人工智能大赛官网正式上线",
+          "url": "http://sh.news.cn/20260205/2f419a1a5f6d4961afc557c60d5eedea/c.html",
+          "summary": "新华社报道大赛官网上线，大赛列入2025-2028学年竞赛名单",
+          "source": "media"
+        },
+        {
+          "date": "2026-02-04",
+          "title": "全国青少年人工智能大赛官网今日上线，初赛下月开启",
+          "url": "https://www.jfdaily.com/wx/detail.do?id=1062919",
+          "summary": "上观新闻报道：初赛将于3-5月在各省市举行，7月举行全国决赛",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://aic.cwicp.cn/"
+        }
+      ],
+      "tags": [
+        "人工智能",
+        "信息科技",
+        "素养评价"
+      ],
+      "relatedCourses": [
+        "s0",
+        "python",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "nysec",
+      "nameZh": "全国青少年科学实验能力大赛",
+      "category": "natural-science",
+      "organizer": "中国教育装备行业协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.ceeia.cn/",
+      "newsPages": [
+        "https://www.ceeia.cn/news/1/"
+      ],
+      "moeListIndex": 19,
+      "summary": "中国教育装备行业协会主办的首届科学实验类赛事，面向小学至中职学生，2026年4月启动、8月在济南举行全国决赛。",
+      "description": "全国青少年科学实验能力大赛由中国教育装备行业协会主办，列入教育部2025—2028学年面向中小学生的全国性竞赛活动名单，首届于2026年4月启动。大赛以“培育科学素养、提升实验能力”为主题，设地方赛和全国决赛：中小学组为个人赛，设小学科学组和初中物理、生物学及高中物理、化学、生物学等组别；中职组为1—3人团队赛。首届经14个赛区选拔，1749名选手晋级，2026年8月20—22日在济南举行全国决赛。赛事为公益性质，重点考察实验操作与跨学科问题解决能力，适合热爱科学探究的小学至中职学生。",
+      "schedule": [
+        {
+          "stage": "地方赛（已结束）",
+          "start": null,
+          "end": null,
+          "note": "首届大赛2026年4月启动，14个赛区于2026年4—8月组织多层级选拔，各赛区时间不一"
+        },
+        {
+          "stage": "全国决赛（已结束）",
+          "start": "2026-08-20",
+          "end": "2026-08-22",
+          "note": "中小学组决赛在济南西城实验中学举行，1749名选手参加，领队会议8月19日"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-24",
+          "title": "首届全国青少年科学实验能力大赛全国决赛在济南启幕",
+          "url": "https://www.ceeia.cn/news/detail_4162.htm",
+          "summary": "2026年8月20日决赛在济南启幕，1749名选手经14个赛区选拔晋级",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-05",
+          "title": "关于举办首届全国青少年科学实验能力大赛决赛（中小学组）的通知",
+          "url": "https://www.ceeia.cn/news/detail_4158.htm",
+          "summary": "定于2026年8月19—22日在济南举办全国决赛（中小学组）",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-07",
+          "title": "关于举办首届全国青少年科学实验能力大赛的通知",
+          "url": "https://www.ceeia.cn/news/detail_4116.htm",
+          "summary": "首届大赛定于2026年4月至8月举办，设地方赛和决赛两个阶段",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.ceeia.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.ceeia.cn/news/1/"
+        },
+        {
+          "label": "大赛官网",
+          "url": "https://www.nysec.com.cn/"
+        }
+      ],
+      "tags": [
+        "科学实验",
+        "科学教育",
+        "实验操作"
+      ],
+      "relatedCourses": [
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "nysim",
+      "nameZh": "全国青少年科学探究建模能力大赛",
+      "category": "natural-science",
+      "organizer": "北京师范大学",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://simcc.bnu.edu.cn/sszn/index.htm",
+      "newsPages": [
+        "https://simcc.bnu.edu.cn/ssgg/index.htm"
+      ],
+      "moeListIndex": 20,
+      "summary": "北京师范大学主办的科学探究与建模赛事，面向小学至中职学生，设线上初赛、省级复赛、全国总决赛三级赛制。",
+      "description": "全国青少年科学探究建模能力大赛由北京师范大学主办，列入教育部2025—2028学年面向中小学生的全国性竞赛活动名单，覆盖小学至中职学生。大赛支持个人参赛或2—4人团队参赛，要求成果形成“科学探究—模型建构—应用实践”的有机整体，可体现为实物装置、软件应用或实践方案，并须提交探究日志与规范报告。赛制分线上初赛、省级复赛和全国总决赛三级，2026年4月开启报名，拟于10月底举办全国总决赛。赛事不收取任何费用，适合热爱科学探究、数据分析与动手实践的学生。",
+      "schedule": [
+        {
+          "stage": "报名（已结束）",
+          "start": "2026-04-21",
+          "end": "2026-09-15",
+          "note": "大赛官网线上报名，逾期报名系统自动关闭"
+        },
+        {
+          "stage": "初赛",
+          "start": "2026-07-19",
+          "end": null,
+          "note": "线上进行，第一场2026年7月19日；最后一场在9月15日报名通道关闭后10个工作日内完成，分赛项分批次"
+        },
+        {
+          "stage": "省级复赛",
+          "start": null,
+          "end": null,
+          "note": "赛事指南规划2026年10月完成省赛，具体以各省级组委会通知为准"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": null,
+          "end": null,
+          "note": "拟2026年10月底举办，具体时间、地点及流程另行通知"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-28",
+          "title": "关于严禁冒用大赛主办单位及地区承办单位名义开展活动的严正声明",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/ac2d8ecb55c24d8c95920ea609479788.htm",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-22",
+          "title": "关于公布2025-2026学年全国青少年科学探究建模能力大赛第一批省级组委会通过名单的通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/9203aa74c64b44c4a6a3e02ce25c73a2.htm",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-15",
+          "title": "关于全国青少年科学探究建模能力大赛初赛通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/6ab2ab0613334b878aafc408ba2a3989.htm",
+          "summary": "初赛统一线上举行，报名窗口期2026年4月21日—9月15日，第一场初赛7月19日",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-07",
+          "title": "2025-2026学年全国青少年科学探究建模能力大赛参赛须知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/77277ce9e5b448848eec744291ec08e7.htm",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-27",
+          "title": "2026年全国青少年科学探究建模大赛报名正式启动",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/34b6713213094f59a10cbb218cb6bb7b.htm",
+          "summary": "2026年度赛事报名通道正式开启，官网注册报名",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-03",
+          "title": "北京师范大学关于举办2025-2026学年全国青少年科学探究建模能力大赛的通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/4437dc2de34543bbb06eca1ee2b64a98.htm",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://simcc.bnu.edu.cn/sszn/index.htm"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://simcc.bnu.edu.cn/ssgg/index.htm"
+        }
+      ],
+      "tags": [
+        "科学探究",
+        "建模",
+        "科学教育"
+      ],
+      "relatedCourses": [
+        "data",
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "youth-psy-innovation",
+      "nameZh": "全国青少年心理成长知识与应用创新大赛",
+      "category": "natural-science",
+      "organizer": "中国心理卫生协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.camh-edu.org.cn/",
+      "moeListIndex": 21,
+      "summary": "中国心理卫生协会主办的青少年心理健康主题赛事，设知识普及、趣味心理运动会、“小小心理学家”创新大赛三大赛项。",
+      "description": "全国青少年心理成长知识与应用创新大赛由中国心理卫生协会主办，是教育部2025—2028学年竞赛名单中唯一专注青少年心理健康的赛事，2025年11月启动。大赛面向小学至中职学生，按学段分组，设“五育并举促进学生心理健康”知识普及、趣味心理运动会、“小小心理学家”创新大赛三大赛项，须在官网注册报名，仅限报一个单项。2025—2026学年赛季经赛区初赛、省级复赛选拔，2026年8月22—24日在浙江横店举行全国总决赛，万余名学生参加。赛事公益自愿、不收报名费，适合关注心理健康、乐于创新的学生。",
+      "schedule": [
+        {
+          "stage": "报名（已结束）",
+          "start": null,
+          "end": null,
+          "note": "2026年上半年各赛区陆续组织报名，统一在大赛官网注册，截止日期以官网通知为准"
+        },
+        {
+          "stage": "初赛、复赛（省级）（已结束）",
+          "start": null,
+          "end": null,
+          "note": "2026年4—6月各赛区组织；7月中旬可查询复赛成绩并向全国组委会报送晋级名单"
+        },
+        {
+          "stage": "全国总决赛（已结束）",
+          "start": "2026-08-22",
+          "end": "2026-08-24",
+          "note": "首届总决赛在浙江横店举行，万余名中小学生参加"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-23",
+          "title": "全国青少年心理成长知识与应用创新大赛总决赛在浙江横店举行",
+          "url": "https://www.chinanews.com.cn/sh/2026/08-23/10682652.shtml",
+          "summary": "首届总决赛8月22—24日在横店举行，万余名中小学生参加",
+          "source": "media"
+        },
+        {
+          "date": "2026-04-30",
+          "title": "关于举办2025—2026学年全国青少年心理成长知识与应用创新大赛甘肃赛区赛事的通知",
+          "url": "http://www.gsxlxh.com/tongzhigonggao/guanyujuban20252026xuenianquanguoqingshaonianxinli.html",
+          "summary": "公布甘肃赛区安排：2026年4—6月初赛、复赛（省级），8月为全国总决赛阶段",
+          "source": "official"
+        },
+        {
+          "date": "2025-12-02",
+          "title": "教育部白名单赛事！全国青少年心理成长知识与应用创新大赛正式启动",
+          "url": "https://chuzhong.eol.cn/news/202512/t20251202_2705092.shtml",
+          "summary": "11月29日中国心理卫生协会宣布大赛正式启动",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.camh-edu.org.cn/"
+        }
+      ],
+      "tags": [
+        "心理健康",
+        "创新实践"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "nyseic",
+      "nameZh": "全国青少年安全与应急科普创新大赛",
+      "category": "natural-science",
+      "organizer": "中国灾害防御协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.nyseic.cn/",
+      "newsPages": [
+        "https://www.nyseic.cn/home/preview"
+      ],
+      "moeListIndex": 22,
+      "summary": "中国灾害防御协会主办的安全应急科普赛事，首届覆盖31个省份超百万中小学生，2026年8月在乌镇举行全国决赛。",
+      "description": "全国青少年安全与应急科普创新大赛（NYSEIC）由中国灾害防御协会主办，列入教育部2025—2028学年竞赛名单。大赛考察青少年在自然灾害防范、事故灾难应对、公共卫生事件防护、社会安全事件处理及应急救援技能、安全与应急科普创新等方面的知识和能力，设应急科普知识、演讲、征文、方案创新设计、装备发明创造等7个赛项。首届赛事覆盖31个省份，100多万名学生报名，70余万名参加初赛，6.8万余名晋级决赛，2026年8月13—15日在浙江乌镇举行全国决赛。适合关注安全科普、乐于实践创新的学生。",
+      "schedule": [
+        {
+          "stage": "报名与初赛（已结束）",
+          "start": null,
+          "end": null,
+          "note": "首届赛事2026年上半年由各省赛区组织报名与初赛，70余万名选手参加；7月30日起可在官网查询初赛结果"
+        },
+        {
+          "stage": "全国决赛（已结束）",
+          "start": "2026-08-13",
+          "end": "2026-08-15",
+          "note": "在浙江乌镇举行，1.5万名选手参加7个赛项；获奖名单9月5日公布，公示至9月11日"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-14",
+          "title": "全国青少年安全与应急科普创新大赛决赛在浙江乌镇启幕",
+          "url": "https://news.cctv.com/2026/08/14/ARTISkBFae9H7eYstM0CDSxk260814.shtml",
+          "summary": "决赛8月13—15日在乌镇举行，100多万名学生报名、6.8万余名晋级",
+          "source": "media"
+        },
+        {
+          "date": "2026-08-13",
+          "title": "第一届全国青少年安全与应急科普创新大赛全国决赛开幕",
+          "url": "https://www.bjnews.com.cn/detail/1786613542129516.html",
+          "summary": "1.5万名中小学生在乌镇围绕7个赛项展开角逐",
+          "source": "media"
+        },
+        {
+          "date": "2026-07-30",
+          "title": "关于第一届全国青少年安全与应急科普创新大赛初赛结果查询及决赛参赛确认的通知",
+          "url": "http://www.zaihai.cn/html/gongzuodongtai/tongzhigonggao/20260731/6a6c0c10341ffb21e6bac1a8.html",
+          "summary": "选手可登录大赛官网查询初赛成绩并确认决赛参赛资格",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-22",
+          "title": "关于举办第一届全国青少年安全与应急科普创新大赛全国决赛的通知（1号）",
+          "url": "http://www.zaihai.cn/html/gongzuodongtai/tongzhigonggao/20260722/6a60ab99c254a9bcdb32053f.html",
+          "summary": "全国决赛定于2026年8月13日至15日在浙江乌镇举行",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.nyseic.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.nyseic.cn/home/preview"
+        }
+      ],
+      "tags": [
+        "安全教育",
+        "应急科普",
+        "科普创新"
+      ],
+      "relatedCourses": [
+        "theory"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "anti-drug-quiz",
+      "nameZh": "全国青少年禁毒知识竞赛",
+      "category": "humanities",
+      "organizer": "中国禁毒基金会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.2-class.com/",
+      "moeListIndex": 23,
+      "summary": "中国禁毒基金会主办的全国性禁毒知识竞赛，依托“青骄第二课堂”平台答题，2025年赛季超6030万名学生参加。",
+      "description": "全国青少年禁毒知识竞赛由国家禁毒委员会办公室指导、中国禁毒基金会主办，自2016年起已连续举办十届，列入教育部2025—2028学年竞赛名单。竞赛面向小学五年级至高中二年级、中职一二年级在校学生，自愿免费参加，依托“青骄第二课堂”平台和中国禁毒网答题。竞赛分初赛和现场总决赛：2025年赛季初赛于11月10日—12月10日由各省组织，6030余万名学生参加；总决赛12月11日在武汉举行，33支代表队角逐。赛事旨在增强青少年识毒防毒拒毒意识，2026年新赛季安排待官方公布。",
+      "schedule": [],
+      "updates": [
+        {
+          "date": "2026-01-05",
+          "title": "争当禁毒卫士 共筑无毒长城——2025年全国青少年禁毒知识竞赛总决赛全景扫描",
+          "url": "http://www.nncc626.com/20260105/44daa354fd554227b5fec68828c048c6/c.html",
+          "summary": "回顾2025年12月11日在武汉举行的总决赛，设6个竞赛环节",
+          "source": "official"
+        },
+        {
+          "date": "2025-12-11",
+          "title": "2025年全国青少年禁毒知识竞赛总决赛成功举行",
+          "url": "http://www.nncc626.com/20251211/9d7bba9e15254e19aa78660ee565ba27/c.html",
+          "summary": "总决赛在武汉举行，33支代表队参加，湖北代表队获一等奖",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-10",
+          "title": "2025年全国青少年禁毒知识竞赛活动启动",
+          "url": "http://www.xinhuanet.com/government/20251110/3dc3e9570d5a42658583fe1787c29666/c.html",
+          "summary": "初赛11月10日起由各省禁毒办组织，现场总决赛在武汉举办",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.2-class.com/"
+        }
+      ],
+      "tags": [
+        "禁毒教育",
+        "知识竞赛"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "zuowendasai",
+      "nameZh": "世界华人学生作文大赛",
+      "category": "humanities",
+      "organizer": "中华全国归国华侨联合会、中华全国台湾同胞联谊会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "http://www.zuowendasai.com/",
+      "moeListIndex": 24,
+      "summary": "中国侨联、全国台联主办的华人学生中文写作赛事，已举办二十六届，第二十七届2026年8月启动征稿、11月30日截稿。",
+      "description": "世界华人学生作文大赛由中华全国归国华侨联合会、中华全国台湾同胞联谊会主办，河北阅读传媒有限责任公司《快乐作文》杂志承办，已举办二十六届，列入教育部2025—2028学年竞赛名单。大赛面向中国内地（大陆）高中在校学生、港澳台地区18周岁及以下青少年学生，以及海外华裔青少年学生；第二十六届起增设面向外国青少年的“中华文化国际传播”特别组。大赛分征稿及初审、复审、终审及特等奖答辩等阶段，第二十六届吸引570多万名学生参加，第二十七届2026年8月启动征稿。适合热爱中文写作的学生。",
+      "schedule": [
+        {
+          "stage": "征稿及初审",
+          "start": "2026-08-17",
+          "end": "2026-11-30",
+          "note": "第二十七届2026年8月中旬启动征稿，11月30日结束征稿；参赛学生按所在地区和年龄段选择主题写作"
+        },
+        {
+          "stage": "复审、终审及特等奖答辩",
+          "start": null,
+          "end": null,
+          "note": "后续阶段时间待组委会公布"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-19",
+          "title": "第二十七届世界华人学生作文大赛征文启事",
+          "url": "http://www.zuowendasai.com/shows/1/240.html",
+          "summary": "第二十七届正式开赛，即日起至2026年11月30日征稿",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-19",
+          "title": "第二十六届世界华人学生作文大赛“中华文化国际传播”特别组获奖结果公布",
+          "url": "http://www.zuowendasai.com/shows/1/242.html",
+          "summary": "特别组评审结束，获奖结果可通过大赛公众号查询",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-19",
+          "title": "第二十六届世界华人学生作文大赛颁奖典礼在京成功举办",
+          "url": "http://www.zuowendasai.com/shows/1/238.html",
+          "summary": "7月24日颁奖典礼在北京语言大学举行",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-04",
+          "title": "第二十六届世界华人学生作文大赛获奖结果公布",
+          "url": "http://www.zuowendasai.com/shows/1/237.html",
+          "summary": "570多万名学生参加，评出特等奖50名、一等奖约3700名",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.zuowendasai.com/"
+        }
+      ],
+      "tags": [
+        "作文",
+        "中文写作",
+        "人文素养"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "fltrp-cup",
+      "nameZh": "“外研社杯”全国中学生外语素养大赛",
+      "category": "humanities",
+      "organizer": "北京外国语大学",
+      "grades": [
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://events.fltrp.com/",
+      "moeListIndex": 25,
+      "summary": "北京外国语大学主办的全国性公益外语赛事，面向高中生（含中职），经初赛、地区复赛、地区决赛晋级全国总决赛。",
+      "description": "“外研社杯”全国中学生外语素养大赛由北京外国语大学主办、外语教学与研究出版社承办，全国基础外语教育研究培训中心提供学术指导，面向高中在校学生（含中职），全程公益零收费。大赛自第20届起融入“中华思想文化术语传播工程”内容，引导学生讲好中国故事。第22届于2025年11月启动，采取线上线下相结合形式，选手通过“外研U学”APP报名，历经初赛、地区复赛、地区决赛、全国总决赛四个阶段。适合英语基础扎实、希望提升外语素养与国际理解力的高中生。",
+      "schedule": [
+        {
+          "stage": "第22届初赛",
+          "start": "2025-11-10",
+          "end": "2025-12-21",
+          "note": "通过“外研U学”APP报名并线上参赛"
+        },
+        {
+          "stage": "第22届地区复赛",
+          "start": "2025-12-24",
+          "end": "2026-01-25",
+          "note": "线上、线下相结合"
+        },
+        {
+          "stage": "第22届地区决赛",
+          "start": "2026-02-05",
+          "end": "2026-02-14",
+          "note": null
+        },
+        {
+          "stage": "第22届全国总决赛",
+          "start": "2026-03-27",
+          "end": "2026-03-30",
+          "note": "通知中标注为暂定时间；新赛季（第23届）安排待公布"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2025-11-10",
+          "title": "第22届“外研社杯”全国中学生外语素养大赛通知",
+          "url": "https://events.fltrp.com/c/2025-11-10/235349.shtml",
+          "summary": "公布第22届大赛组织机构、参赛对象与完整赛程安排",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-10",
+          "title": "第22届“外研社杯”全国中学生外语素养大赛 地区赛赛制说明",
+          "url": "https://events.fltrp.com/c/2025-11-10/235348.shtml",
+          "summary": "说明地区赛各阶段赛制与晋级规则",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-10",
+          "title": "第22届“外研社杯”全国中学生外语素养大赛初赛操作指南",
+          "url": "https://events.fltrp.com/c/2025-11-10/235347.shtml",
+          "summary": "介绍初赛线上参赛流程与操作步骤",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-10",
+          "title": "第22届“外研社杯”全国中学生外语素养大赛郑重声明",
+          "url": "https://events.fltrp.com/c/2025-11-10/235346.shtml",
+          "summary": "声明大赛公益属性与官方渠道，提醒谨防假冒",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://events.fltrp.com/"
+        }
+      ],
+      "tags": [
+        "外语",
+        "英语",
+        "外语素养"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "hs-innovation",
+      "nameZh": "高中生创新能力大赛",
+      "category": "humanities",
+      "organizer": "中国老教授协会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.iccedu.com.cn/",
+      "newsPages": [
+        "https://www.iccedu.com.cn/cms/mingdan.html"
+      ],
+      "moeListIndex": 26,
+      "summary": "中国老教授协会主办的高中生全国性赛事，设科学工程、人文社科、科研成果方向，经初赛、分赛区复赛晋级全国决赛。",
+      "description": "高中生创新能力大赛由中国老教授协会、高中生创新能力大赛竞赛委员会主办，中国教育发展战略学会高中教育专业委员会支持，面向高中在校学生，每年一届，坚持公益属性。大赛设科学工程、人文社科、科研成果等方向，经资格审查、全国初赛、全国复赛、全国决赛逐级选拔，考查学科素养与逻辑推理、审辩式思维等能力。2026年赛事2025年11月启动报名，初赛笔试2026年3月29日举行，复赛4月分赛区进行，全国决赛7月28日至30日举办，8月公布获奖名单，并设有“春雨计划”专项资助。适合学有余力、有志科创的高中生。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": "2025-11-06",
+          "end": "2026-02-27",
+          "note": "2025年11月6日发布举办通知并启动报名，期间曾延长团体报名截止时间"
+        },
+        {
+          "stage": "全国初赛（笔试）",
+          "start": "2026-03-29",
+          "end": "2026-03-29",
+          "note": "上午09:00—11:30笔试，由各考点学校组织"
+        },
+        {
+          "stage": "全国复赛",
+          "start": null,
+          "end": null,
+          "note": "2026年4月分赛区举行（华东、中南、西北及西南联合、北部联合等赛区），5月3日全国复赛收官，5月22日公布复赛成绩及决赛晋级结果"
+        },
+        {
+          "stage": "全国决赛",
+          "start": "2026-07-28",
+          "end": "2026-07-30",
+          "note": "7月28日开幕、7月30日圆满落幕，8月13日公布正式获奖名单"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-27",
+          "title": "2026年高中生创新能力大赛“春雨计划”名单公示",
+          "url": "https://mp.weixin.qq.com/s/ttdufikhHt_wcqbJAwfTCg",
+          "summary": "公示2026年大赛专项资助计划“春雨计划”入选名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-13",
+          "title": "关于公布2026年高中生创新能力大赛全国决赛正式获奖名单的通知",
+          "url": "https://mp.weixin.qq.com/s/doyDjd8505EiCfYkKGYZhQ",
+          "summary": "公布2026年全国决赛正式获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-02",
+          "title": "2026年高中生创新能力大赛全国决赛拟获奖名单公示",
+          "url": "https://mp.weixin.qq.com/s/QvZMyebx9fNRK5pdcidNEQ",
+          "summary": "公示全国决赛拟获奖名单",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-30",
+          "title": "2026年高中生创新能力大赛全国决赛圆满落幕",
+          "url": "https://mp.weixin.qq.com/s/p12NQgCiwDN1py1b_916qw",
+          "summary": "2026年全国决赛于7月28日开幕、7月30日结束",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-06",
+          "title": "2026年高中生创新能力大赛全国决赛参赛通知",
+          "url": "https://mp.weixin.qq.com/s/immQpFXIFCvO2hQiKRVtEw",
+          "summary": "发布全国决赛参赛安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-22",
+          "title": "2026年高中生创新能力大赛全国复赛成绩及全国决赛晋级结果查询通知",
+          "url": "https://mp.weixin.qq.com/s/wA-wTaCUMlwTLOgTU-Hdxg",
+          "summary": "开放复赛成绩与决赛晋级结果查询",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-03",
+          "title": "2026年高中生创新能力大赛全国初赛成绩查询暨晋级结果公布通知",
+          "url": "https://mp.weixin.qq.com/s/boATvJfX5kqYtK6k0AmUIQ",
+          "summary": "公布初赛成绩及复赛晋级结果",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-13",
+          "title": "关于组织2026年高中生创新能力大赛全国初赛考务工作的通知",
+          "url": "https://mp.weixin.qq.com/s/4nlrs7lkAkxyF4KJlfx3Hg",
+          "summary": "全国初赛2026年3月29日上午09:00—11:30笔试",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.iccedu.com.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.iccedu.com.cn/cms/mingdan.html"
+        }
+      ],
+      "tags": [
+        "创新能力",
+        "科创",
+        "综合素养"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "eco-essay",
+      "nameZh": "全国中学生环境保护优秀作文征集活动",
+      "category": "humanities",
+      "organizer": "中华环保联合会",
+      "grades": [
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://www.huanbaozuowen.com/",
+      "moeListIndex": 27,
+      "summary": "中华环保联合会主办的全国性公益征文活动，高中生（含职高、中专）提交环保作文与研究性学习报告，分省赛、国赛两阶段。",
+      "description": "全国中学生环境保护优秀作文征集活动由中华环保联合会主办、《中华环境》杂志社学术支持，面向高中学生（含职高、中专），公益免费。第八届以“美丽中国，双碳有我”为主题，参赛学生须用专用稿纸手写提交一篇原创环保作文（800—1500字）和一篇环保研究性学习报告（1500—3000字），分团体与个人报名。2026年9月20日起官网注册并提交作品，11月30日截稿；初赛（省赛）结果拟定12月25日公布，获一、二等奖者晋级决赛（国赛），拟定2027年2月末举行。适合关注生态文明、热爱写作与调研的高中生。",
+      "schedule": [
+        {
+          "stage": "报名及作品提交（初赛/省赛）",
+          "start": "2026-09-20",
+          "end": "2026-11-30",
+          "note": "官网注册建档，提交环保作文与环保研究性学习报告"
+        },
+        {
+          "stage": "初赛（省赛）评审",
+          "start": null,
+          "end": null,
+          "note": "结果查询拟定2026年12月25日公布"
+        },
+        {
+          "stage": "决赛（国赛）",
+          "start": null,
+          "end": null,
+          "note": "拟定2027年2月末线下举行，结果查询拟定2027年3月末；初赛一、二等奖获得者晋级"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-10",
+          "title": "第八届全国中学生环境保护优秀作文征集活动启动！",
+          "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg9vkf4401e",
+          "summary": "第八届活动启动，主题“美丽中国，双碳有我”，9月20日起报名提交作品",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-02",
+          "title": "第七届环保作文大赛优秀指导教师证书查询通知",
+          "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99cc6b8d2",
+          "summary": "第七届优秀指导教师证书2026年7月5日开放查询",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-07",
+          "title": "第七届环保作文大赛全国总决赛成绩查询通知",
+          "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99p5608ad",
+          "summary": "第七届完成线下全国总决赛，评奖结果2026年4月7日22:00开放查询",
+          "source": "official"
+        },
+        {
+          "date": "2026-02-13",
+          "title": "第七届环保作文大赛复赛成绩公布及全国总决赛考试通知",
+          "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99x705a51",
+          "summary": "复赛成绩2026年2月13日18:00公布",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-14",
+          "title": "第七届全国中学生环境保护优秀作文征集活动启动通知",
+          "url": "https://www.huanbaozuowen.com/index/newsDetail/ukg99i6742b6",
+          "summary": "第七届活动正式启动，全国高中、中专、职高学生均可参加",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.huanbaozuowen.com/"
+        }
+      ],
+      "tags": [
+        "环境保护",
+        "作文",
+        "生态文明"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "bantu-quiz",
+      "nameZh": "“美丽中国”全国版图知识竞赛（中小学组）",
+      "category": "humanities",
+      "organizer": "自然资源部宣传教育中心",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.pecmnr.cn/gjbt/",
+      "moeListIndex": 28,
+      "summary": "自然资源部宣传教育中心主办的全国性公益竞赛，中小学生线上答题学习国家版图知识，第七届2026年10月起报名。",
+      "description": "“美丽中国”全国版图知识竞赛（中小学组）由自然资源部宣传教育中心主办，入选教育部2025—2028学年中小学生全国性竞赛名单，面向中小学及中职学生，分小学组和中学组，可个人或团体参赛，全程免费。竞赛题目以国家版图知识和自然资源知识为主，题型为单选、多选题，随机抽题、限时作答。第七届由自然资源部办公厅发文部署，2026年9—10月学校注册、10—11月学生报名、12月至2027年3月线上答题，2027年4—5月公示获奖名单；同期举办少儿手绘地图大赛。适合对地理与国家版图知识感兴趣的中小学生。",
+      "schedule": [
+        {
+          "stage": "学校注册",
+          "start": null,
+          "end": null,
+          "note": "第七届：2026年9月—10月，学校登录竞赛系统注册"
+        },
+        {
+          "stage": "学生报名",
+          "start": null,
+          "end": null,
+          "note": "第七届：2026年10月—11月，通过竞赛官网或“资源中国”“i自然全媒体”微信公众号报名"
+        },
+        {
+          "stage": "线上答题",
+          "start": null,
+          "end": null,
+          "note": "第七届：2026年12月—2027年3月，系统随机抽题、限时作答（以全国组委会通知为准）"
+        },
+        {
+          "stage": "评审与公示",
+          "start": null,
+          "end": null,
+          "note": "2027年4月—5月确定获奖者名单，经竞赛官网公示后发布正式名单"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-09",
+          "title": "广州市规划和自然资源局 广州市教育局关于积极组织参加“美丽中国”第七届全国国家版图知识竞赛和少儿手绘地图大赛活动的通知",
+          "url": "https://www.gz.gov.cn/xw/tzgg/content/post_10997836.html",
+          "summary": "明确第七届竞赛9—10月学校注册、10—11月学生报名、12月至2027年3月答题、2027年4—5月产生结果",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-26",
+          "title": "福建省自然资源厅办公室关于组织参加“美丽中国”第七届全国版图知识竞赛的通知",
+          "url": "https://zrzyt.fujian.gov.cn/zwgk/xwdt/zrzyyw/202608/t20260826_7204149.htm",
+          "summary": "根据自然资办函〔2026〕936号部署福建省参赛工作",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-23",
+          "title": "三项赛事等你参加！“美丽中国”第七届全国版图知识竞赛湖南赛区活动火热开启",
+          "url": "https://zygh.yueyang.gov.cn/31047/31316/31324/content_2390439.html",
+          "summary": "湖南赛区启动，版图知识竞赛、少儿手绘地图大赛等同步开放报名",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.pecmnr.cn/gjbt/"
+        }
+      ],
+      "tags": [
+        "版图知识",
+        "地理",
+        "自然资源"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "aild",
+      "nameZh": "全国青少年劳动技能与智能设计大赛",
+      "category": "humanities",
+      "organizer": "中国自动化学会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://aild.org.cn/",
+      "newsPages": [
+        "http://aild.org.cn/news.aspx",
+        "https://aild.caa.org.cn/cn/web/index/20629_1798925"
+      ],
+      "moeListIndex": 29,
+      "summary": "中国自动化学会主办的全国性公益赛事，融合劳动技能与智能设计，小学至中职学生经省赛区复赛选拔晋级全国总决赛。",
+      "description": "全国青少年劳动技能与智能设计大赛（AILD）由中国自动化学会主办，面向小学、初中、高中、中职学生，坚持自愿、免费参赛。大赛以“人文引领、以劳育人、智能驱动、五育融合、创新设计”为理念，赛题涵盖劳动技能、科学探究、人工智能、工程实践与创新设计等方向。2025—2026学年赛季2025年11月启动，各省赛区2026年4月1日至6月5日组织报名，6月分省赛区举行复赛，8月15日全国总决赛在山西省怀仁市开幕，近3万人参与开幕式，8月24日公示评比结果。适合热爱劳动实践、科技创新与智能制作的青少年。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": "2026-04-01",
+          "end": "2026-06-05",
+          "note": "由各省赛区组织报名，2026年6月5日12:00截止"
+        },
+        {
+          "stage": "复赛（省赛区）",
+          "start": null,
+          "end": null,
+          "note": "2026年6月分省赛区举行，6月17日开放复赛入围结果查询，7月16日开放决赛入围查询"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-08-15",
+          "end": null,
+          "note": "2026年8月15日在山西省怀仁市开幕，与新时代劳动与科技工程科普教育周同期举行，8月24日公示评比结果"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-07",
+          "title": "【国赛证书】2025-2026学年AILD国赛证书下载方法",
+          "url": "http://aild.org.cn/news_show.aspx?id=1223",
+          "summary": "开放2025-2026学年国赛证书下载",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-24",
+          "title": "【公示】2025-2026学年AILD劳动技能大赛全国总决赛评比结果",
+          "url": "http://aild.org.cn/news_show.aspx?id=1222",
+          "summary": "公示全国总决赛评比结果",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-15",
+          "title": "2025-2026学年AILD劳动技能大赛全国总决赛在怀仁举行",
+          "url": "http://aild.org.cn/news_show.aspx?id=1220",
+          "summary": "全国总决赛开幕式8月15日在山西省怀仁市举行，近3万人参与",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-23",
+          "title": "【决赛】2025-2026学年AILD劳动技能大赛全国决赛文件及相关通知",
+          "url": "http://aild.org.cn/news_show.aspx?id=1219",
+          "summary": "发布全国决赛文件、日程安排、赛题及报到须知",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-16",
+          "title": "【决赛】2025-2026学年AILD劳动技能大赛决赛入围查询方法、决赛挑战项目及评价标准",
+          "url": "http://aild.org.cn/news_show.aspx?id=1218",
+          "summary": "开放决赛入围查询，公布决赛挑战项目及评价标准",
+          "source": "official"
+        },
+        {
+          "date": "2026-06-22",
+          "title": "【复赛】2025-2026学年AILD劳动技能大赛复赛各省赛区通知汇总及赛题变化须知",
+          "url": "http://aild.org.cn/news_show.aspx?id=1214",
+          "summary": "汇总各省赛区复赛通知并说明赛题变化",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-25",
+          "title": "【汇总】2025-2026学年AILD各省赛区通知文件电子版",
+          "url": "http://aild.org.cn/news_show.aspx?id=1209",
+          "summary": "各省赛区通知汇总，报名2026年4月1日至6月5日12:00止",
+          "source": "official"
+        },
+        {
+          "date": "2025-11-11",
+          "title": "关于举办2025-2026学年全国青少年劳动技能与智能设计大赛的通知",
+          "url": "http://aild.org.cn/news_show.aspx?id=1196",
+          "summary": "2025-2026学年赛季正式启动",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://aild.org.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "http://aild.org.cn/news.aspx"
+        },
+        {
+          "label": "中国自动化学会赛事专栏",
+          "url": "https://aild.caa.org.cn/cn/web/index/20629_1798925"
+        }
+      ],
+      "tags": [
+        "劳动教育",
+        "智能设计",
+        "科技创新"
+      ],
+      "relatedCourses": [
+        "drone",
+        "app",
+        "python"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "shici-meiyu",
+      "nameZh": "中华诗词美育大赛",
+      "category": "humanities",
+      "organizer": "中华诗词学会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://www.zhscmyds.com/",
+      "moeListIndex": 30,
+      "summary": "中华诗词学会主办的全国性诗词美育赛事，设诵读、讲解、吟唱、创作、书法、绘画、演绎七大专项，面向中小学生。",
+      "description": "中华诗词美育大赛由中华诗词学会主办、中华诗词学会诗教委员会承办，入选教育部2025—2028学年中小学生全国性竞赛名单，主题为“以美育德，涵养诗心”，全程公益免费。大赛面向中小学在校学生（含中职），设诵读、讲解、吟唱、创作、书法、绘画六项个人赛和演绎团体赛，按学段分组评比。初赛为全国统一线上答题，复赛成绩由线上答题与专项作品各占50%构成。2026年赛季报名及初赛1月16日启动、顺延至8月10日截止，复赛6月1日至8月31日线上进行，全国总决赛时间另行通知。适合热爱中华诗词与传统文化的中小学生。",
+      "schedule": [
+        {
+          "stage": "报名及初赛（线上答题）",
+          "start": "2026-01-16",
+          "end": "2026-08-10",
+          "note": "原定7月31日截止，7月30日通知顺延10天至8月10日23:59，报名与初赛答题通道同步关闭"
+        },
+        {
+          "stage": "复赛（线上答题+作品提交）",
+          "start": "2026-06-01",
+          "end": "2026-08-31",
+          "note": "全程线上进行，线上答题占50%、专项作品占50%；演绎团体赛直接提交专项作品"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": null,
+          "end": null,
+          "note": "具体时间、地点以《中华诗词美育大赛全国总决赛通知》为准，另行通知"
+        },
+        {
+          "stage": "公示与颁奖",
+          "start": null,
+          "end": null,
+          "note": "具体时间另行通知"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-11",
+          "title": "关于打击假冒“‘中华诗词美育大赛’官方微信号”的公开声明",
+          "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=624712077059055970",
+          "summary": "组委会声明打击假冒官方微信号，提醒通过官网与正规公众号参赛",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-30",
+          "title": "紧急通知：“中华诗词美育大赛”初赛截止时间调整了",
+          "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=620340680820329850",
+          "summary": "初赛截止顺延10天至2026年8月10日23:59",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-24",
+          "title": "“中华诗词美育大赛”评审晋级说明",
+          "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=618180926450749834",
+          "summary": "说明大赛评审与晋级规则",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-29",
+          "title": "2026年中华诗词美育大赛复赛通知",
+          "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=597359934316750516",
+          "summary": "复赛2026年6月1日至8月31日线上答题与作品提交",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-13",
+          "title": "2026年中华诗词美育大赛初赛通知",
+          "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=591303824270952333",
+          "summary": "初赛为全国统一线上答题，报名及参赛至2026年7月31日（后顺延至8月10日）",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-27",
+          "title": "“中华诗词美育大赛”启动仪式在京举行",
+          "url": "https://www.zhscmyds.com/views/pc/989/AtSoAALHcMwgIAw/?id=585427351232315535",
+          "summary": "大赛启动仪式1月15日在京举行，正式面向全国中小学生启动",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.zhscmyds.com/"
+        }
+      ],
+      "tags": [
+        "中华诗词",
+        "美育",
+        "传统文化"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "luxunwenxue",
+      "nameZh": "鲁迅青少年文学大赛",
+      "category": "humanities",
+      "organizer": "鲁迅文化基金会",
+      "grades": [
+        "高中"
+      ],
+      "officialSite": "https://www.luxunwenxue.com/",
+      "moeListIndex": 31,
+      "summary": "鲁迅文化基金会主办的全国性高中生文学赛事，2009年创办，第十七届正在进行，全程公益免费。",
+      "description": "鲁迅青少年文学大赛由鲁迅文化基金会主办，2009年首次举办，已办十六届，入选教育部《2025—2028学年面向中小学生的全国性竞赛活动名单》，面向全国普通高中在校学生，自愿参赛、公益免费。大赛以“尊重母语、学习语文、独立思考、培养韧性”为宗旨，赛制分为在线报名、省级初赛、省级复赛和全国总决赛，支持团体或个人报名。第十七届2025年11月启动，高一高二组全国总决赛于2026年8月2日在全国六大赛区31个考点同步举行，约两万名选手晋级。适合热爱文学写作、希望锤炼表达与思辨能力的高中生。",
+      "schedule": [
+        {
+          "stage": "报名与省级初赛（高三组）",
+          "start": null,
+          "end": "2026-01-15",
+          "note": "第十七届2025年11月启动，高三组在线报名及初赛截至2026-01-15"
+        },
+        {
+          "stage": "全国总决赛（高三组）",
+          "start": "2026-02-28",
+          "end": "2026-02-28",
+          "note": "2026-02-28 14:00—17:30线上举行"
+        },
+        {
+          "stage": "报名与省级初赛（高一高二组）",
+          "start": null,
+          "end": "2026-05-20",
+          "note": "高一高二组在线报名及初赛截至2026-05-20"
+        },
+        {
+          "stage": "省级复赛（高一高二组）",
+          "start": "2026-07-04",
+          "end": "2026-07-11",
+          "note": "晋级报名确认2026-06-20至07-03；比赛日为7月4/5/6/11日14:00—17:00"
+        },
+        {
+          "stage": "全国总决赛（高一高二组）",
+          "start": "2026-08-02",
+          "end": "2026-08-02",
+          "note": "2026-08-02 14:00—16:00线下举行，设六大赛区；晋级报名确认2026-07-25至07-31"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-06",
+          "title": "第十七届鲁迅青少年文学大赛省级复赛民勤一中赛点火热开赛",
+          "url": "https://view.inews.qq.com/a/20260706A04LXZ00",
+          "summary": "甘肃民勤一中赛点300余名晋级学子参加高一高二组省级复赛。",
+          "source": "media"
+        },
+        {
+          "date": "2026-08-11",
+          "title": "第十七届鲁迅青少年文学大赛全国总决赛华南分赛在厦门大学举办",
+          "url": "https://news.xmu.edu.cn/info/1008/532752.htm",
+          "summary": "高一高二组全国总决赛8月2日在六大赛区31个线下考点同步开赛，两万余名选手晋级。",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.luxunwenxue.com/"
+        }
+      ],
+      "tags": [
+        "文学写作",
+        "作文"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "red-culture-contest",
+      "nameZh": "全国青少年红色文化传承与实践创新大赛",
+      "category": "humanities",
+      "organizer": "中国红色文化研究会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.hswh.org.cn/",
+      "newsPages": [
+        "https://www.hswh.org.cn/wzzx/hyzx/"
+      ],
+      "moeListIndex": 32,
+      "summary": "中国红色文化研究会主办的红色主题赛事，首届吸引92万余名中小学生，总决赛2026年8月在崇礼举行。",
+      "description": "全国青少年红色文化传承与实践创新大赛由中国红色文化研究会主办，以“传承红色基因 赓续红色血脉”为主题，入选教育部《2025—2028学年面向中小学生的全国性竞赛活动名单》，面向小学至中职学生。大赛设知识挑战赛、创意设计赛、数字传承赛、实践探索赛四个赛项，鼓励选手以书画、宣讲、编程、人工智能等多种形式传承红色文化。首届大赛吸引全国92万多名中小学生参加，经各省级组委会选拔后，全国总决赛于2026年8月20日至25日在河北张家口崇礼冬奥赛区举行。适合关注党史军史、乐于创意表达的中小学生。",
+      "schedule": [
+        {
+          "stage": "省级选拔",
+          "start": null,
+          "end": null,
+          "note": "省级组委会2026年2—3月分批签约设立，各赛区选拔安排以组委会通知为准"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-08-20",
+          "end": "2026-08-25",
+          "note": "首届总决赛在河北张家口崇礼冬奥赛区举行，历时6天"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2025-12-24",
+          "title": "我会关于组织设立全国青少年红色文化传承与实践创新大赛区域组委会的通知",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2025-12-24/96371.html",
+          "summary": "部署设立大赛区域组委会，推进各地组织工作。",
+          "source": "official"
+        },
+        {
+          "date": "2026-02-12",
+          "title": "全国青少年红色文化传承与实践创新大赛首批省级组委会合作签约仪式在京举行",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-02-12/97171.html",
+          "summary": "首批省级组委会完成合作签约。",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-22",
+          "title": "全国青少年红色文化传承与实践创新大赛全国总决赛在崇礼冬奥赛区隆重开赛",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-08-22/100015.html",
+          "summary": "首届总决赛8月20日在河北崇礼开幕，92万多名中小学生参与本届大赛。",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-29",
+          "title": "首届全国青少年红色文化传承与实践创新大赛全国总决赛在崇礼冬奥赛区圆满落幕",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-08-29/100091.html",
+          "summary": "总决赛历时6天，8月25日举行闭幕式，四个赛项覆盖知识、创意、技术与实践维度。",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.hswh.org.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/"
+        }
+      ],
+      "tags": [
+        "红色文化",
+        "实践创新"
+      ],
+      "relatedCourses": [
+        "voice",
+        "video"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "china-story-contest",
+      "nameZh": "“讲好中国故事”全国中小学语言素养大赛",
+      "category": "humanities",
+      "organizer": "中国教育电视协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.centv.cn/",
+      "moeListIndex": 33,
+      "summary": "中国教育电视协会主办的语言素养赛事，设辩论、演讲、主持、诵读等10个赛项，全程公益免费。",
+      "description": "“讲好中国故事”全国中小学语言素养大赛由中国教育电视协会主办、北京中线传媒有限公司承办，入选教育部《2025—2028学年面向中小学生的全国性竞赛活动名单》。2025—2026学年比赛设辩论、演讲、主持、采访、解说、经典诵读、相声、戏剧、大模型语言培养、英语演讲共10个赛项；语言表达、语言表演、语言科技单元面向小学至中职在校生，英语演讲面向高中及中职在校生。比赛分初赛、复赛和全国总决赛三个阶段，初赛在线报名并上传作品，总决赛设金银铜奖，全程公益免费。适合乐于表达、擅长演讲主持或诵读表演的学生。",
+      "schedule": [
+        {
+          "stage": "报名与初赛",
+          "start": null,
+          "end": null,
+          "note": "2026年1月启动报名并在线上传作品，截止时间见各赛项参赛手册；3月平台升级，4月10日恢复报名"
+        },
+        {
+          "stage": "复赛",
+          "start": null,
+          "end": null,
+          "note": "2026年5—7月"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": null,
+          "end": null,
+          "note": "2026年8月；主持赛项总决赛线上参赛2026-08-17至08-25，线下比赛2026-08-20至08-25在北京举行"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-01-04",
+          "title": "关于“讲好中国故事”全国中小学语言素养大赛2025—2026学年比赛启动的公告",
+          "url": "https://www.centv.cn/p/576524.html",
+          "summary": "2025—2026学年比赛启动，公布10个赛项与初赛、复赛、总决赛赛程安排。",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-02",
+          "title": "关于2025—2026学年“讲好中国故事”全国中小学语言素养大赛赛事平台升级的公告",
+          "url": "https://www.centv.cn/p/581024.html",
+          "summary": "官方报名平台升级报名流程与集体报名入口，作品上传入口稍后统一开放。",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-10",
+          "title": "关于2025—2026学年“讲好中国故事”全国中小学语言素养大赛恢复报名的公告",
+          "url": "https://www.centv.cn/p/586292.html",
+          "summary": "赛事官方平台恢复报名，重申赛事官网为唯一报名平台、全程免费。",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-12",
+          "title": "关于“讲好中国故事”全国中小学语言素养大赛主持赛项全国总决赛的通知",
+          "url": "https://www.centv.cn/p/600105.html",
+          "summary": "主持赛项全国总决赛2026年8月下旬举办，线上参赛8月17—25日、线下比赛8月20—25日在北京举行。",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.centv.cn/jhzggs"
+        }
+      ],
+      "tags": [
+        "语言素养",
+        "演讲",
+        "诵读"
+      ],
+      "relatedCourses": [
+        "voice",
+        "video"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "tongsong-zhonghua",
+      "nameZh": "同颂中华·全国青少年志愿文学创作与诵读大赛",
+      "category": "humanities",
+      "organizer": "中国青年报社",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://h5.cyol.com/special/2025baimingdan/share/index.html",
+      "moeListIndex": 34,
+      "summary": "中国青年报社主办的首届志愿主题文学创作与诵读公益赛事，近30万名选手报名，覆盖12955所学校。",
+      "description": "同颂中华·全国青少年志愿文学创作与诵读大赛由中国青年报社主办、中国青年志愿者协会指导，入选教育部《2025—2028学年面向中小学生的全国性竞赛活动名单》，面向小学至中职学生。大赛以“奉献、友爱、互助、进步”的志愿精神为核心，设文学创作与诵读两类内容，全程免费，唯一参赛平台为中国青年报客户端。赛程分报名（资格赛）、初赛（省赛）、复赛（全国基础赛）和全国决赛四个阶段。首届大赛近30万名选手报名，60名选手晋级，总决赛2026年8月22日在北京举行。适合热爱写作与朗诵、关注志愿服务的中小学生。",
+      "schedule": [
+        {
+          "stage": "报名（资格赛）",
+          "start": "2026-01-07",
+          "end": "2026-05-10",
+          "note": "通过中国青年报客户端报名参赛"
+        },
+        {
+          "stage": "初赛（省赛）",
+          "start": "2026-05-11",
+          "end": "2026-06-30",
+          "note": "线下或线上进行，具体形式、时间、地点以各赛区通知为准"
+        },
+        {
+          "stage": "复赛（全国基础赛）",
+          "start": "2026-07-01",
+          "end": "2026-07-31"
+        },
+        {
+          "stage": "全国决赛",
+          "start": "2026-08-22",
+          "end": "2026-08-22",
+          "note": "首届总决赛2026-08-22在北京青创IP工厂举行，总决赛暨颁奖展演8月下旬在京落幕"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-01-08",
+          "title": "首届“同颂中华·全国青少年志愿文学创作与诵读大赛”启动报名",
+          "url": "https://zqb.cyol.com/pc/content/202601/08/content_420892.html",
+          "summary": "首届志愿大赛启动报名，报名（资格赛）2026年1月7日至5月10日。",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-22",
+          "title": "“同颂中华·全国青少年志愿文学创作与诵读大赛”总决赛开始，赛题公布！",
+          "url": "https://news.youth.cn/gn/202608/t20260822_16828451.htm",
+          "summary": "首届大赛总决赛8月22日在北京开赛，文学创作与诵读赛项同步进行。",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-22",
+          "title": "“同颂中华·全国青少年志愿文学创作与诵读大赛”总决赛在京举行",
+          "url": "https://3g.163.com/dy/article/L4V0ABLH0514CDBK.html",
+          "summary": "首届大赛近30万名选手报名、覆盖12955所学校，60名选手晋级全国总决赛。",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://h5.cyol.com/special/2025baimingdan/share/index.html"
+        }
+      ],
+      "tags": [
+        "志愿精神",
+        "文学创作",
+        "诵读"
+      ],
+      "relatedCourses": [
+        "voice"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "painting-calligraphy",
+      "nameZh": "全国中小学生绘画书法作品比赛",
+      "category": "art-sports",
+      "organizer": "中国儿童中心（全国妇联儿童事业发展集团）",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.ccc.org.cn/",
+      "newsPages": [
+        "https://www.ccc.org.cn/col/col283/"
+      ],
+      "moeListIndex": 35,
+      "summary": "中国儿童中心主办的全国性美育赛事，第三十届主题“如花一样追光逐日”，设绘画、书法等五个类别。",
+      "description": "全国中小学生绘画书法作品比赛由中国儿童中心主办、《中国校外教育》杂志社有限公司承办，已举办至第三十届，入选教育部《2025—2028学年面向中小学生的全国性竞赛活动名单》。比赛面向小学至高中（含职高）学生，分四个组别，设绘画（含绘本）、书法、摄影、造型、数字美术五个类别。第三十届主题“如花一样追光逐日”，2026年4月启动征集，5—6月经微信公众号“学与玩杂志”线上报名提交作品，7—8月线上评审并公示发布结果，公益免费，颁发电子证书。适合热爱书画与艺术创作、希望获得权威美育实践经历的学生。",
+      "schedule": [
+        {
+          "stage": "报名与作品提交",
+          "start": null,
+          "end": "2026-06-30",
+          "note": "2026年4月发布通知启动征集，5—6月经“学与玩杂志”公众号平台提交作品，报名信息修改截止6月30日24时"
+        },
+        {
+          "stage": "作品评审与结果发布",
+          "start": null,
+          "end": null,
+          "note": "2026年7—8月线上评审，评审结果在平台公示7日后正式发布"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-09",
+          "title": "关于举办第三十届全国中小学生绘画书法作品比赛的通知",
+          "url": "https://www.ccc.org.cn/art/2026/4/9/art_283_231823.html",
+          "summary": "发布第三十届比赛方案：主题“如花一样追光逐日”，4—6月征集提交、7—8月评审发布结果。",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-09",
+          "title": "第三十届全国中小学生绘画书法作品比赛咨询问答",
+          "url": "https://www.ccc.org.cn/art/2026/4/9/art_283_231822.html",
+          "summary": "解答组别、作品规格、报名渠道、奖项比例等参赛常见问题。",
+          "source": "official"
+        },
+        {
+          "date": "2025-08-05",
+          "title": "第二十九届全国中小学生绘画书法作品比赛总结颁奖系列活动在吉林延边举办",
+          "url": "https://www.ccc.org.cn/art/2025/8/5/art_283_229769.html",
+          "summary": "第二十九届比赛完成总结颁奖。",
+          "source": "official"
+        },
+        {
+          "date": "2025-01-17",
+          "title": "关于举办第二十九届全国中小学生绘画书法作品比赛的通知",
+          "url": "https://www.ccc.org.cn/art/2025/1/17/art_283_229103.html",
+          "summary": "发布第二十九届比赛方案与赛制说明。",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.ccc.org.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.ccc.org.cn/col/col283/"
+        }
+      ],
+      "tags": [
+        "绘画",
+        "书法",
+        "美育"
+      ],
+      "relatedCourses": [
+        "drawing"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "nautical-model",
+      "nameZh": "“我爱祖国海疆”全国青少年航海模型教育竞赛",
+      "category": "art-sports",
+      "organizer": "中国航海模型运动协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://cmma.sports.cn/jyjs/wazghj/",
+      "moeListIndex": 36,
+      "summary": "国家体育总局航管中心与中国航海模型运动协会主办的航海模型教育竞赛，2026年总决赛在宁夏石嘴山举行。",
+      "description": "“我爱祖国海疆”全国青少年航海模型教育竞赛由国家体育总局航空无线电模型运动管理中心、中国航海模型运动协会主办，入选教育部《2025—2028学年面向中小学生的全国性竞赛活动名单》，面向小学至中职学生。竞赛设普及仿真制作、仿真自航、动力追逐、花样绕标、遥控帆船、水上足球等8大竞赛类别、37个小项，选手经各地选拔赛晋级全国总决赛。2026年总决赛于7月27日至8月1日在宁夏石嘴山市举行，27个省区市50支代表队、近3000名运动员和教练员参赛。适合热爱科技模型、喜欢动手实践的青少年。",
+      "schedule": [
+        {
+          "stage": "总决赛报名",
+          "start": null,
+          "end": "2026-07-08",
+          "note": "经各地选拔赛晋级后由参赛单位统一报名，2026年总决赛报名截至7月8日24时"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-07-27",
+          "end": "2026-08-01",
+          "note": "2026年总决赛在宁夏石嘴山市举办，7月27日报到"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-30",
+          "title": "体育总局航管中心关于举办2026年“我爱祖国海疆”全国青少年航海模型教育竞赛总决赛的通知",
+          "url": "https://www.sport.gov.cn/hgzx/n14912/n14914/n14923/c29726653/content.html",
+          "summary": "2026年总决赛定于7月27日至8月1日在宁夏石嘴山市举办，报名截至7月8日。",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-29",
+          "title": "2026“我爱祖国海疆”全国青少年航海模型教育竞赛总决赛开赛",
+          "url": "http://nx.wenming.cn/wmw/wztt/202607/t20260729_7009059.html",
+          "summary": "总决赛7月28日在石嘴山市大武口区开幕，27个省区市50支代表队、近3000名运动员和教练员参赛。",
+          "source": "media"
+        },
+        {
+          "date": "2026-08-04",
+          "title": "2026“我爱祖国海疆”全国青少年航海模型教育竞赛总决赛落幕",
+          "url": "http://nx.wenming.cn/wmw/sxdt/202608/t20260804_7010362.html",
+          "summary": "总决赛7月31日圆满落幕，共产生单项冠亚季军409名。",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://cmma.sports.cn/jyjs/wazghj/"
+        }
+      ],
+      "tags": [
+        "航海模型",
+        "科技体育"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "vehicle-model",
+      "nameZh": "“驾驭未来”全国青少年车辆模型教育竞赛",
+      "category": "art-sports",
+      "organizer": "中国车辆模型运动协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://cmac.sports.cn/",
+      "newsPages": [
+        "http://cmac.sports.cn/tzgg/"
+      ],
+      "moeListIndex": 37,
+      "summary": "国家体育总局航管中心与中国车辆模型运动协会主办的青少年车辆模型教育竞赛，2026年总决赛在江苏泰州举行。",
+      "description": "“驾驭未来”全国青少年车辆模型教育竞赛由国家体育总局航空无线电模型运动管理中心、中国车辆模型运动协会主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动之一，深耕青少年科技体育约三十年。赛事面向6至18岁青少年，融合科技实践、工程创新与体育竞技，总决赛设直线、竞技、竞速、创新四大类别25个赛项。赛事采用“地区选拔赛+全国总决赛”机制，2026年总决赛于7月17日至23日在江苏泰州举行，51支代表队3000余名选手参赛。适合对车辆模型与科技制作感兴趣的小学至高中学生参加。",
+      "schedule": [
+        {
+          "stage": "地区选拔赛",
+          "start": null,
+          "end": null,
+          "note": "2026年上半年由各地区选拔赛组织单位陆续举办，以当地通知为准"
+        },
+        {
+          "stage": "总决赛报名",
+          "start": null,
+          "end": "2026-07-05",
+          "note": "由地区选拔赛组织单位汇总报名材料发送至组委会邮箱，截止2026年7月5日24:00"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-07-17",
+          "end": "2026-07-23",
+          "note": "江苏省泰州市泰州国际博览中心E1馆，7月17日报到"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-10",
+          "title": "体育总局航管中心关于发布2026年“驾驭未来”全国青少年车辆模型教育竞赛活动规程、规则的通知",
+          "url": "https://www.sport.gov.cn/hgzx/n15154/c29529117/content.html",
+          "summary": "发布2026年竞赛规程及总决赛规则（2026年版）",
+          "source": "official"
+        },
+        {
+          "date": "2026-06-03",
+          "title": "2026年“驾驭未来”全国青少年车辆模型教育竞赛哈尔滨地区选拔赛启幕",
+          "url": "https://m.chinanews.com.cn/wap/detail/chs/zw/10633678.shtml",
+          "summary": "哈尔滨地区选拔赛开赛，各地选拔赛陆续展开",
+          "source": "media"
+        },
+        {
+          "date": "2026-06-30",
+          "title": "体育总局航管中心关于举办2026年“驾驭未来”全国青少年车辆模型教育竞赛总决赛的通知",
+          "url": "https://www.sport.gov.cn/hgzx/n15154/c29726691/content.html",
+          "summary": "总决赛定于2026年7月17日至23日在江苏泰州举办，报名截止7月5日",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-20",
+          "title": "2026年“驾驭未来”全国青少年车辆模型教育竞赛总决赛举行",
+          "url": "http://www.jyb.cn/rmtzcg/xwy/wzxw/202607/t20260720_2111503291.html",
+          "summary": "总决赛7月18日在泰州开赛，51支代表队参赛",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://cmac.sports.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "http://cmac.sports.cn/tzgg/"
+        }
+      ],
+      "tags": [
+        "车辆模型",
+        "科技体育",
+        "动手实践"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "youth-flight-sim",
+      "nameZh": "全国青少年模拟飞行锦标赛",
+      "category": "art-sports",
+      "organizer": "国家体育总局航空无线电模型运动管理中心",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.sport.gov.cn/hgzx/",
+      "newsPages": [
+        "https://www.sport.gov.cn/hgzx/n11026/index.html"
+      ],
+      "moeListIndex": 38,
+      "summary": "国家体育总局航管中心与中国航空运动协会主办的青少年模拟飞行赛事，第十七届总决赛2026年8月在成都举行。",
+      "description": "全国青少年模拟飞行锦标赛由国家体育总局航空无线电模型运动管理中心、中国航空运动协会主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动之一，也是白名单中唯一的国家级青少年模拟飞行赛事。竞赛设航空理论知识测试与模拟飞行竞赛两大板块，小学至高中划分十四个组别，全程公益免费、自动化判分。赛事按学年组织，选手经省级选拔赛晋级全国总决赛；第十七届总决赛于2026年8月4日至8日在成都东安湖体育公园举行，532支代表队5259人参赛，规模创新高。适合对航空飞行感兴趣的小学至高中学生参加。",
+      "schedule": [
+        {
+          "stage": "省级选拔赛",
+          "start": null,
+          "end": null,
+          "note": "2025—2026学年赛季，各省选拔赛于2026年上半年至7月陆续举办，以各省通知为准"
+        },
+        {
+          "stage": "总决赛报名与公示",
+          "start": null,
+          "end": null,
+          "note": "2026年7月组织总决赛报名，赛事官网7月24日、27日两次公示参赛人员报名信息"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-08-04",
+          "end": "2026-08-08",
+          "note": "四川省成都市东安湖体育公园"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-18",
+          "title": "第十七届全国青少年模拟飞行锦标赛总决赛补充通知4",
+          "url": "https://www.asfcyy.com/",
+          "summary": "发布总决赛补充通知，明确参赛安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-24",
+          "title": "第十七届全国青少年模拟飞行锦标赛总决赛参赛人员报名公示",
+          "url": "https://www.asfcyy.com/",
+          "summary": "公示总决赛参赛人员报名信息",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-06",
+          "title": "全国青少年模拟飞行锦标赛总决赛开启",
+          "url": "http://edu.people.com.cn/n1/2026/0806/c1006-40774786.html",
+          "summary": "第十七届总决赛8月4日在成都东安湖体育公园开赛，27个省份532支代表队参赛",
+          "source": "media"
+        },
+        {
+          "date": "2026-08-08",
+          "title": "第十七届全国青少年模拟飞行锦标赛总决赛成绩公示",
+          "url": "https://www.asfcyy.com/",
+          "summary": "总决赛落幕并公示成绩",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.sport.gov.cn/hgzx/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/index.html"
+        },
+        {
+          "label": "赛事官网",
+          "url": "https://www.asfcyy.com/"
+        }
+      ],
+      "tags": [
+        "模拟飞行",
+        "航空科普",
+        "科技体育"
+      ],
+      "relatedCourses": [
+        "drone"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "feibei-aeromodel",
+      "nameZh": "“飞向北京·飞向太空”全国青少年航空航天模型教育竞赛活动",
+      "category": "art-sports",
+      "organizer": "中国航空运动协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://www.asfc.org.cn/",
+      "newsPages": [
+        "http://www.asfc.org.cn/dynamic/announcement/"
+      ],
+      "moeListIndex": 39,
+      "summary": "国家体育总局航管中心与中国航空运动协会主办的青少年航空航天模型教育竞赛，2026年为第二十七届，总决赛在浙江丽水举行。",
+      "description": "“飞向北京·飞向太空”全国青少年航空航天模型教育竞赛活动由国家体育总局航管中心、中国航空运动协会主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动之一，国内影响力最大的青少年航空航天科普赛事。竞赛项目分A、B两类，涵盖橡筋动力飞机、伞降火箭、飞行器创新设计等，按小学、中学男女分组。赛事采用“基层组织单位选拔+全国总决赛”模式。2026年第二十七届总决赛8月10日至20日在浙江丽水举行，74支队伍近5000名选手参赛，总决赛不收报名费。适合对航空航天模型感兴趣的小学至高中学生参加。",
+      "schedule": [
+        {
+          "stage": "总决赛报名",
+          "start": null,
+          "end": "2026-07-25",
+          "note": "由基层组织单位组队线上报名，截止2026年7月25日"
+        },
+        {
+          "stage": "地区选拔赛",
+          "start": null,
+          "end": null,
+          "note": "2026年上半年各地基层组织单位陆续举办选拔赛，以当地通知为准"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-08-10",
+          "end": "2026-08-20",
+          "note": "浙江省丽水市，参赛队8月13日报到"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-12",
+          "title": "体育总局航管中心关于发布2026年第二十七届“飞向北京•飞向太空”全国青少年航空航天模型教育竞赛活动规程、规则的通知",
+          "url": "https://www.sport.gov.cn/hgzx/n15154/c29473470/content.html",
+          "summary": "发布2026年第二十七届竞赛规程与竞赛规则",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-10",
+          "title": "体育总局航管中心关于举办2026年第二十七届“飞向北京•飞向太空”全国青少年航空航天模型教育竞赛活动总决赛的通知",
+          "url": "https://www.sport.gov.cn/hgzx/n15154/c29762653/content.html",
+          "summary": "总决赛定于2026年8月10日至20日在浙江丽水举行，报名截止7月25日",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-18",
+          "title": "第27届“飞向北京·飞向太空”全国青少年航空航天模型教育竞赛总决赛开幕",
+          "url": "http://ent.people.com.cn/n1/2026/0818/c1012-40781636.html",
+          "summary": "总决赛8月14日在浙江丽水开幕，74支队伍近5000名青少年选手参赛",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.asfc.org.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "http://www.asfc.org.cn/dynamic/announcement/"
+        }
+      ],
+      "tags": [
+        "航空航天模型",
+        "科技体育",
+        "动手实践"
+      ],
+      "relatedCourses": [
+        "drone"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "traditional-sports",
+      "nameZh": "全国青少年传统体育项目比赛",
+      "category": "art-sports",
+      "organizer": "中国青少年宫协会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml",
+      "moeListIndex": 40,
+      "summary": "中国青少年宫协会主办的青少年传统体育公益赛事，设武术、棋类、跳绳项目，省级赛线上开展，总决赛实行晋级制。",
+      "description": "全国青少年传统体育项目比赛由中国青少年宫协会主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动之一，2026年由北京市少年宫、上海市青少年活动中心等十家青少年宫（活动中心）承办。比赛设武术（套路、散打）、棋类（围棋、象棋、国际象棋）和跳绳（线上积分赛、60秒竞速赛）三大项目，面向小学、初中、普通高中和中职在校学生分组竞技。赛事坚持公益“零收费”，成绩不作为中小学招生入学依据。2026年省级赛于7月线上开展，全国总决赛实行省级赛晋级制。适合热爱传统体育、希望以赛促练的中小学生参加。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": null,
+          "end": null,
+          "note": "2026年6月10日赛事通知发布后开放报名，经赛事网站或微信公众号注册报名，截止时间以官方通知为准"
+        },
+        {
+          "stage": "省级赛",
+          "start": "2026-07-05",
+          "end": "2026-07-25",
+          "note": "线上进行；武术项目7月5日至12日提交比赛视频，跳绳积分赛可于7月5日至8月20日间任选连续7天参赛"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-08-22",
+          "end": "2026-08-23",
+          "note": "跳绳项目总决赛8月22日至23日线上举行；棋类、武术项目总决赛安排见总决赛通知及各项目竞赛规程"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-10",
+          "title": "关于举办2026年全国青少年传统体育项目比赛的通知",
+          "url": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml",
+          "summary": "发布2026年赛事通知与竞赛规程，省级赛线上开展，总决赛实行省级赛晋级制",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-02",
+          "title": "2026年全国青少年传统体育项目比赛省级赛比赛时间安排",
+          "url": "https://npo052623.npoall.com/news/itemid-278267.html",
+          "summary": "省级赛于2026年7月5日至25日线上进行",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-10",
+          "title": "关于举办2026年全国青少年传统体育项目比赛总决赛的通知",
+          "url": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml",
+          "summary": "发布2026年全国总决赛安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-12",
+          "title": "2026年全国青少年传统体育项目比赛总决赛竞赛规程（跳绳项目）",
+          "url": "https://npo052623.npoall.com/news/itemid-293881.html",
+          "summary": "跳绳项目总决赛8月22日至23日通过“勋然体育”App线上举行",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-28",
+          "title": "奥运冠军来助力！全国青少年宫跆拳道比赛在杭落幕",
+          "url": "https://npo052623.npoall.com/news/itemid-296060.html",
+          "summary": "全国青少年宫跆拳道比赛8月9日至11日在杭州体育馆举办，15个城市近千名青少年参加",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.cnypa.org/qgqsncttyxmbs/index.jhtml"
+        },
+        {
+          "label": "报名平台",
+          "url": "https://www.qsnedu.com/eduplatform/html/gxjs/#/head/index"
+        }
+      ],
+      "tags": [
+        "传统体育",
+        "武术",
+        "棋类",
+        "跳绳"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "xiwangsong",
+      "nameZh": "“希望颂”——全国青少年书画艺术大展",
+      "category": "art-sports",
+      "organizer": "中国国际书画艺术研究会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://www.xiwangsong.com/",
+      "moeListIndex": 41,
+      "summary": "中国国际书画艺术研究会主办的青少年书画艺术大展，2026年为第十届，主题“美在身边”，公益征稿。",
+      "description": "“希望颂”——全国青少年书画艺术大展由中国国际书画艺术研究会主办，已连续举办九届，2022年起列入教育部面向中小学生的全国性竞赛活动名单，2026年为第十届，主题“美在身边”。大展面向全国6至18周岁青少年征稿，设小学、初中、高中（含中职）及特殊教育等组别，类别含书法（软笔、硬笔）、绘画（中国画、油画、素描、水彩等）与儿童画、数字美术，作品须寄送原作，每人限投两幅。第十届征稿2026年4月30日截稿，经专家评审后举行颁奖展览，证书9月至11月发放。适合热爱书画艺术的小学至高中学生参加。",
+      "schedule": [
+        {
+          "stage": "作品征集",
+          "start": null,
+          "end": "2026-04-30",
+          "note": "第十届征稿启事发布后启动征集，原作须于截稿前寄出，以邮戳为准"
+        },
+        {
+          "stage": "专家评审",
+          "start": "2026-05-10",
+          "end": "2026-06-15",
+          "note": "国家级专家集中评审"
+        },
+        {
+          "stage": "颁奖与展览",
+          "start": null,
+          "end": null,
+          "note": "2026年6月中旬至8月举行颁奖、展览活动"
+        },
+        {
+          "stage": "证书发放",
+          "start": null,
+          "end": null,
+          "note": "2026年9月至11月发放获奖证书"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-26",
+          "title": "希望颂第十届大展征稿启事（附指定组织机构名单）",
+          "url": "https://www.gjshyjh.com/news",
+          "summary": "第十届大展启动征稿，主题“美在身边”，2026年4月30日截稿",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-26",
+          "title": "希望颂—第十届全国青少年书画艺术大展新闻发布会隆重召开",
+          "url": "https://www.gjshyjh.com/news",
+          "summary": "第十届大展新闻发布会在京召开",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-05",
+          "title": "“希望颂——第十届全国青少年书画艺术大展”综述",
+          "url": "https://www.gjshyjh.com/news",
+          "summary": "主办单位发布第十届大展综述",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://www.xiwangsong.com/"
+        },
+        {
+          "label": "主办单位官网",
+          "url": "https://www.gjshyjh.com/"
+        }
+      ],
+      "tags": [
+        "书画艺术",
+        "绘画",
+        "书法"
+      ],
+      "relatedCourses": [
+        "drawing"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "ocean-design-contest",
+      "nameZh": "全国中小学生海洋文化创意设计大赛",
+      "category": "art-sports",
+      "organizer": "中国海洋发展基金会、中国海洋大学、自然资源部北海局",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://mcdnpss.com/",
+      "moeListIndex": 42,
+      "summary": "中国海洋发展基金会、中国海洋大学、自然资源部北海局联合主办的中小学生海洋主题创意设计公益赛事，首届主题“和美海洋”。",
+      "description": "全国中小学生海洋文化创意设计大赛由中国海洋发展基金会、中国海洋大学、自然资源部北海局联合主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动之一，公益赛事不收费。大赛以海洋文化为主题、创意设计为形式，首届主题“和美海洋”，设平面设计、实物模型、数字媒体、AIGC四类，面向小学与初中组。作品线上提交，经省赛、国赛两级评审，国赛设金、银、铜奖。首届作品征集2026年3月1日启动、延期至7月31日截止，颁奖与作品展览安排于10—12月。适合对海洋文化和创意设计感兴趣的学生参加。",
+      "schedule": [
+        {
+          "stage": "作品征集",
+          "start": "2026-03-01",
+          "end": "2026-07-31",
+          "note": "原定6月30日12时截止，经组委会通知延期至7月31日24时，经官网或官方公众号线上提交"
+        },
+        {
+          "stage": "作品评审",
+          "start": null,
+          "end": null,
+          "note": "2026年7—8月进行省赛、国赛两级评审"
+        },
+        {
+          "stage": "总结颁奖与作品展览",
+          "start": null,
+          "end": null,
+          "note": "2026年10—12月进行总结颁奖、证书发放及优秀作品展览"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-18",
+          "title": "关于举办2025-2026学年全国中小学生海洋文化创意设计大赛的通知",
+          "url": "https://www.cfocean.org.cn/html/web/xinwenzixun/tongzhitonggao/2034075064268214274.html",
+          "summary": "三主办方发布第一届大赛征集公告，主题“和美海洋”，3月1日起征集作品",
+          "source": "official"
+        },
+        {
+          "date": "2026-06-29",
+          "title": "关于第一届全国中小学生海洋文化创意设计大赛作品征集延期的通知",
+          "url": "http://mcdnpss.com/",
+          "summary": "作品征集截止时间延期至2026年7月31日24时",
+          "source": "official"
+        },
+        {
+          "date": "2026-02-25",
+          "title": "教育部白名单赛事“全国中小学生海洋文化创意设计大赛”正式启动",
+          "url": "https://tech.sina.cn/2026-02-25/detail-inhnzrth7865386.d.html",
+          "summary": "首届大赛启动，赛程分启动宣传、作品征集、评审与颁奖展览四阶段",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://mcdnpss.com/"
+        }
+      ],
+      "tags": [
+        "海洋文化",
+        "创意设计",
+        "绘画"
+      ],
+      "relatedCourses": [
+        "drawing",
+        "video"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "national-defense-youth",
+      "nameZh": "全国青少年国防素养大赛",
+      "category": "art-sports",
+      "organizer": "南京理工大学",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.gfsy.org.cn/",
+      "moeListIndex": 43,
+      "summary": "南京理工大学主办的全国性国防教育赛事，通过主题演讲、创意设计、技能比武、无人系统应用等赛项提升青少年综合国防素养。",
+      "description": "全国青少年国防素养大赛由南京理工大学主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动。大赛设“爱我国防”主题演讲赛、国防科技创意设计赛、国防技能挑战赛、智能无人系统应用赛四类赛项，面向小学至高中（含中职）学生，培育综合国防素养。2025—2026学年为首届赛季，2026年3月17日开放报名，经各赛区地区选拔赛选拔后，全国总决赛于2026年8月16日启幕，8月31日开放获奖查询。适合擅长演讲表达、热衷国防科技创意或喜爱无人系统操控与实践的中小学生参加。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": "2026-03-17",
+          "end": "2026-04-30",
+          "note": "报名系统3月17日开放，“材料提交”截止4月30日24时；部分赛区后续延长报名时间"
+        },
+        {
+          "stage": "地区选拔赛",
+          "start": null,
+          "end": null,
+          "note": "2026年5月下旬至7月，各赛区陆续举行线下选拔赛（含线上国防知识答题与作品上传环节）"
+        },
+        {
+          "stage": "全国总决赛",
+          "start": "2026-08-16",
+          "end": null,
+          "note": "首届总决赛2026年8月16日启幕，8月31日开放获奖查询"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-17",
+          "title": "【通知】关于举办2025—2026学年全国青少年国防素养大赛的通知",
+          "url": "https://www.gfsy.org.cn/news/96848df456c64352a5f943cf723033c0",
+          "summary": "发布2025—2026学年赛季总体安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-17",
+          "title": "【通知】2025—2026学年全国青少年国防素养大赛开放报名啦！",
+          "url": "https://www.gfsy.org.cn/news/ab2a07d80ecb45edbc48e95a5d734b69",
+          "summary": "报名系统正式上线，材料提交截止2026年4月30日24时",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-29",
+          "title": "关于报名截止时间及线上答题、作品上传的说明",
+          "url": "https://www.gfsy.org.cn/news/9d9a3b045fc04ecdaf043f22ef9c1ef1",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-30",
+          "title": "【通知】关于举办2025—2026学年全国青少年国防素养大赛全国总决赛的通知",
+          "url": "https://www.gfsy.org.cn/news/bee3b6ee020141359ff32525ffaeb52c",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-16",
+          "title": "【全国总决赛】厚植家国情怀 增强使命担当 首届全国青少年国防素养大赛总决赛启幕",
+          "url": "https://www.gfsy.org.cn/news/5d76ef2f06d94001b64337cd1daad412",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-31",
+          "title": "【全国总决赛】全国总决赛获奖查询功能开放的公告",
+          "url": "https://www.gfsy.org.cn/news/abb385b8cc32456d8fec5a863b52ee29",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.gfsy.org.cn/"
+        }
+      ],
+      "tags": [
+        "国防教育",
+        "爱国主义教育",
+        "综合素质"
+      ],
+      "relatedCourses": [],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "drama-china-contest",
+      "nameZh": "“戏剧中国”全国青少年戏剧文化艺术大赛",
+      "category": "art-sports",
+      "organizer": "中国戏剧文学学会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.zgxjwxxh.com/",
+      "newsPages": [
+        "https://zgxjwxxh.com/list.html?section=news"
+      ],
+      "moeListIndex": 44,
+      "summary": "中国戏剧文学学会主办的青少年戏剧艺术赛事，设戏曲、舞台剧、语言艺术、舞蹈、音乐等赛项，主题为“家国·传承·融合·创新”。",
+      "description": "“戏剧中国”全国青少年戏剧文化艺术大赛由中国戏剧文学学会主办，获中国戏曲学院、中央戏剧学院、上海戏剧学院、中国传媒大学等高校院系支持，是教育部2025—2028学年白名单赛事。大赛主题为“家国·传承·融合·创新”，设戏曲（传统戏曲、新创戏曲）与戏剧表演（舞台剧、语言艺术、舞蹈艺术、音乐艺术）两大类赛项，按小学低龄组、小学高龄组、初中组、高中组（含中职）分组，作品均以高清视频提交。赛制分初赛与决赛两个阶段，初赛一、二等奖入围决赛。适合热爱戏剧表演、朗诵配音、舞蹈、声乐器乐或戏曲传承的中小学生参加。",
+      "schedule": [
+        {
+          "stage": "初赛报名",
+          "start": "2025-12-01",
+          "end": "2026-05-20",
+          "note": "个人经官方公众号报名，集体经官网报名通道"
+        },
+        {
+          "stage": "初赛作品评审",
+          "start": "2026-05-21",
+          "end": "2026-06-10"
+        },
+        {
+          "stage": "初赛成绩复核",
+          "start": "2026-06-11",
+          "end": "2026-06-19"
+        },
+        {
+          "stage": "初赛结果查询",
+          "start": "2026-06-20",
+          "end": null,
+          "note": "2026年6月20日起开放查询"
+        },
+        {
+          "stage": "决赛作品评审",
+          "start": "2026-07-10",
+          "end": "2026-07-25"
+        },
+        {
+          "stage": "决赛成绩复核",
+          "start": "2026-07-26",
+          "end": "2026-08-04"
+        },
+        {
+          "stage": "决赛结果查询",
+          "start": "2026-08-05",
+          "end": null,
+          "note": "2026年8月5日起开放查询"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2025-11-29",
+          "title": "通知｜关于举办2025-2026学年“戏剧中国”全国青少年戏剧文化艺术大赛的通知",
+          "url": "https://zgxjwxxh.com/detail.html?id=2",
+          "summary": "印发大赛章程，公布主题、赛项与赛程安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-27",
+          "title": "世界戏剧日｜抓住《计划》政策东风，以“戏剧中国”赛事推动青少年戏剧振兴",
+          "url": "https://zgxjwxxh.com/detail.html?id=50",
+          "source": "official"
+        },
+        {
+          "date": "2026-08-21",
+          "title": "北京市“西少图”《书的故事》在“戏剧中国”全国青少年戏剧文化艺术大赛中获奖",
+          "url": "https://news.qq.com/rain/a/20260821A087NZ00",
+          "summary": "2025-2026学年大赛总决赛结果揭晓，各地参赛作品陆续获奖",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.zgxjwxxh.com/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://zgxjwxxh.com/list.html?section=news"
+        }
+      ],
+      "tags": [
+        "戏剧",
+        "戏曲",
+        "表演艺术",
+        "语言艺术"
+      ],
+      "relatedCourses": [
+        "voice",
+        "video"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "ai-digital-art",
+      "nameZh": "全国青少年人工智能辅助生成数字艺术创作者大赛",
+      "category": "art-sports",
+      "organizer": "文化和旅游部艺术发展中心",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.mcasc.com.cn/",
+      "newsPages": [
+        "https://www.mcasc.com.cn/tongzhis/"
+      ],
+      "moeListIndex": 45,
+      "summary": "文化和旅游部艺术发展中心主办的“人工智能＋艺术”赛事，每年一届，引导中小学生运用AI技术辅助创作数字艺术作品。",
+      "description": "全国青少年人工智能辅助生成数字艺术创作者大赛（AIGCNYACC）由文化和旅游部艺术发展中心主办，数字艺术与区块链文化和旅游部艺术发展中心实验室提供技术支持，每年举办一届。赛项涵盖“人工智能＋”图像与造型、影像、数字动漫、设计、音频、诗歌和戏剧、非物质文化遗产等方向，覆盖小学、初中、高中、中职四个学段。赛制分省赛（选拔赛）与国赛（全国决赛）两个环节，评审实行专家库抽选、双盲评审与三人评分取均值，参赛者可获文化艺术链数字证书。适合对AI绘画、影像、音频与文创设计感兴趣的学生。",
+      "schedule": [
+        {
+          "stage": "省赛（选拔赛）报名注册",
+          "start": "2026-04-28",
+          "end": "2026-06-20"
+        },
+        {
+          "stage": "省赛（选拔赛）作品提交",
+          "start": "2026-05-22",
+          "end": "2026-06-20"
+        },
+        {
+          "stage": "省赛（选拔赛）评审",
+          "start": "2026-06-22",
+          "end": "2026-06-28"
+        },
+        {
+          "stage": "国赛（全国决赛）作品报名提交",
+          "start": "2026-08-01",
+          "end": "2026-08-15"
+        },
+        {
+          "stage": "国赛（全国决赛）评审",
+          "start": "2026-08-17",
+          "end": "2026-08-21"
+        },
+        {
+          "stage": "线上及线下展览",
+          "start": null,
+          "end": null,
+          "note": "2026年9月至12月举办"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-03-25",
+          "title": "“全国青少年人工智能辅助生成数字艺术创作者大赛”通知",
+          "url": "https://www.mcasc.com.cn/tongzhis/detail/881.html",
+          "summary": "艺展赛发〔2026〕1号，公布赛项设置、奖项与赛程安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-04-29",
+          "title": "“全国青少年人工智能辅助生成数字艺术创作者大赛”参赛作品指南——(赛项介绍、技术规范)",
+          "url": "https://www.mcasc.com.cn/tongzhis/detail/922.html",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-19",
+          "title": "关于“全国青少年人工智能辅助生成数字艺术创作者大赛”省赛成绩查询的通知",
+          "url": "https://www.youyanchu.com/yanchu/54988.html",
+          "summary": "省赛阅卷完成核查校验，7月17日起可登录官网查询成绩，获奖选手晋级全国总决赛",
+          "source": "media"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.mcasc.com.cn/"
+        },
+        {
+          "label": "通知公告",
+          "url": "https://www.mcasc.com.cn/tongzhis/"
+        },
+        {
+          "label": "大赛官网",
+          "url": "https://www.aigcnyacc.com/"
+        }
+      ],
+      "tags": [
+        "人工智能",
+        "数字艺术",
+        "AIGC"
+      ],
+      "relatedCourses": [
+        "drawing",
+        "video",
+        "voice"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "visual-art-workshop",
+      "nameZh": "学校美育助力行动——青少年视觉艺术传承与创新工作坊展示",
+      "category": "art-sports",
+      "organizer": "中国艺术教育促进会",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "https://www.ccpae.cn/",
+      "moeListIndex": 46,
+      "summary": "中国艺术教育促进会主办、人民美术出版社承办，以学校工作坊团队形式开展的青少年视觉艺术传承与创新展示活动。",
+      "description": "“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”由中国艺术教育促进会主办、人民美术出版社承办，主题“薪火传承育新人”。面向中小学校、中职学校与校外教育单位，分小学、初中、高中（中职）、校外教育组，设非遗传承创新、融合艺术创新、科技艺术赋能、环境艺术设计四类项目。每单位限报1个工作坊（学生8至12名、指导教师不超2人）。报名自2025年12月1日至2026年4月20日，2026年5月评审、6月公示。获奖工作坊颁发证书并线上展播、择优线下展示。适合有美术、非遗或科技艺术特色的学校团队参加。",
+      "schedule": [
+        {
+          "stage": "报名",
+          "start": "2025-12-01",
+          "end": "2026-04-20",
+          "note": "原定2026年3月31日24时截止，后延期至4月20日24时；报名即参赛，须同步上传作品"
+        },
+        {
+          "stage": "评审",
+          "start": null,
+          "end": null,
+          "note": "2026年5月由评审委员会组织评审"
+        },
+        {
+          "stage": "评审结果公示",
+          "start": null,
+          "end": null,
+          "note": "2026年6月在主办单位官网公示，公示期7天"
+        },
+        {
+          "stage": "展示交流",
+          "start": null,
+          "end": null,
+          "note": "获奖作品线上展播，部分一等奖作品参加线下集中展示，具体时间另行通知"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2025-11-17",
+          "title": "中国艺术教育促进会关于举办2025—2026学年“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”活动的通知",
+          "url": "https://www.renmeijiaoyu.com/pages/art-submission-detail.html?id=16",
+          "summary": "公布活动主题、项目类别、报名要求与评审安排",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-12",
+          "title": "教育部“白名单”｜“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”活动线上宣讲会",
+          "url": "https://www.renmeijiaoyu.com/pages/activity-detail.html?id=29",
+          "summary": "主办方联合人民美术出版社举办线上宣讲会，讲解活动概况、报名细则与工作坊建设",
+          "source": "official"
+        },
+        {
+          "date": "2026-03-24",
+          "title": "教育部“白名单”艺术工作坊赛事报名时间延期通知",
+          "url": "https://www.renmeijiaoyu.com/pages/art-submission-detail.html?id=16",
+          "summary": "报名截止由2026年3月31日24时延期至4月20日24时",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "https://www.ccpae.cn/"
+        },
+        {
+          "label": "报名平台（人美艺教云）",
+          "url": "https://www.renmeijiaoyu.com/pages/art-submission-detail.html?id=16"
+        }
+      ],
+      "tags": [
+        "美育",
+        "视觉艺术",
+        "非遗传承"
+      ],
+      "relatedCourses": [
+        "drawing"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    },
+    {
+      "slug": "ivy-campus-drama",
+      "nameZh": "“常青藤”全国青少年校园戏剧创意大赛",
+      "category": "art-sports",
+      "organizer": "中央戏剧学院",
+      "grades": [
+        "小学",
+        "初中",
+        "高中",
+        "中专",
+        "职高"
+      ],
+      "officialSite": "http://cqtxj.org.cn/",
+      "moeListIndex": 47,
+      "summary": "中央戏剧学院主办的校园戏剧赛事，设剧本写作与剧目演出两个赛项，经初赛、省级复赛、全国总决赛逐级评审。",
+      "description": "“常青藤”全国青少年校园戏剧创意大赛由中央戏剧学院主办、北京中戏影业文化有限公司承办。大赛设剧本写作、剧目演出两个赛项，按小学低年级至高中（含中职）分组；剧本写作须提交2500—6000字剧本（小学组可用图文形式创作），剧目演出涵盖话剧、音乐剧、戏曲、木偶及皮影戏等形态，以一镜到底视频报送。首届大赛2026年5月1日至6月15日报名，经初赛、省级复赛、总决赛逐级评审，总决赛结果7月30日公布，8月15日至16日在中央戏剧学院昌平校区举办展演暨颁奖典礼。适合热爱剧本创作与舞台表演的中小学生参加。",
+      "schedule": [
+        {
+          "stage": "报名及作品初审",
+          "start": "2026-05-01",
+          "end": "2026-06-15",
+          "note": "通过大赛官网（cqtxj.org.cn）提交，逾期系统关闭"
+        },
+        {
+          "stage": "复赛（省级）成绩公布",
+          "start": "2026-07-10",
+          "end": "2026-07-10",
+          "note": "原定2026年6月30日公布，后因评审工作量延期至7月10日"
+        },
+        {
+          "stage": "全国总决赛评审结果公布",
+          "start": "2026-07-30",
+          "end": "2026-07-30",
+          "note": "指导教师、组织单位奖项及创意类单项奖另行公布"
+        },
+        {
+          "stage": "年度成果展演暨颁奖典礼",
+          "start": "2026-08-15",
+          "end": "2026-08-16",
+          "note": "地点：中央戏剧学院（昌平校区），限总决赛一等奖选手及队伍受邀参加"
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-28",
+          "title": "首届“常青藤”全国青少年校园戏剧创意大赛剧本写作赛项稿纸下载",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=123",
+          "summary": "发布初、高中组剧本写作赛项专用稿纸及作品示例",
+          "source": "official"
+        },
+        {
+          "date": "2026-05-06",
+          "title": "首届“常青藤”全国青少年校园戏剧创意大赛开启报名",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=92",
+          "summary": "公布赛项要求与赛程：2026年5月1日至6月15日报名，设初赛、复赛、总决赛三阶段",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-01",
+          "title": "关于“常青藤”全国青少年校园戏剧创意大赛复赛成绩延期公布的通知",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=128",
+          "summary": "复赛成绩公布时间延期至7月10日",
+          "source": "official"
+        },
+        {
+          "date": "2026-07-30",
+          "title": "关于首届“常青藤”全国青少年校园戏剧创意大赛评审结果的通知",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=129",
+          "summary": "总决赛评审结果公布并开放证书下载，8月15日至16日举办年度成果展演暨颁奖典礼",
+          "source": "official"
+        }
+      ],
+      "links": [
+        {
+          "label": "官方网站",
+          "url": "http://cqtxj.org.cn/"
+        }
+      ],
+      "tags": [
+        "戏剧",
+        "校园戏剧",
+        "剧本创作"
+      ],
+      "relatedCourses": [
+        "voice",
+        "video"
+      ],
+      "sourceCheckedAt": "2026-09-16"
+    }
+  ]
+}

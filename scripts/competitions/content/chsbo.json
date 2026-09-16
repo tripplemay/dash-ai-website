@@ -1,0 +1,19 @@
+{
+  "slug": "chsbo",
+  "summary": "中国植物学会、中国动物学会联合主办的生物学奥赛，经全国联赛、全国竞赛选拔国际生物奥赛（IBO）国家队。",
+  "description": "全国中学生生物学奥林匹克竞赛（全国中学生生物学竞赛）由中国植物学会、中国动物学会联合主办，全国中学生生物学竞赛委员会组织，面向高中生，是国际生物学奥林匹克（IBO）中国队的选拔赛事。赛事分全国生物学联赛（2026年于5月10日举行，各省从一等奖获得者中产生省队）与全国竞赛即决赛（第三十五届于2026年8月14—18日在江西上饶举行，含理论与实验考试，580名选手参赛，金牌前50名入选国家集训队）。考查动植物学、生理、生化、遗传、生态等内容，适合生命科学兴趣浓厚、实验动手能力强的学生。",
+  "schedule": [],
+  "updates": [
+    {"date": "2026-08-20", "title": "第三十五届全国中学生生物学竞赛在江西上饶成功举办", "url": "http://www.botany.org.cn/swxjs/swxjs_56644/202608/t20260820_854238.html", "summary": "8月14—18日举行，580名选手参赛，金牌前50名入选国家集训队", "source": "official"},
+    {"date": "2026-07-08", "title": "关于举办第三十五届全国中学生生物学竞赛的通知", "url": "http://www.botany.org.cn/swxjs/swxjs_56644/202607/t20260708_849060.html", "summary": "发布第三十五届全国竞赛（决赛）举办通知", "source": "official"},
+    {"date": "2026-07-26", "title": "2026年全国中学生生物学联赛各省获奖名单", "url": "http://www.botany.org.cn/swxjs/swxls/202607/t20260726_851087.html", "summary": "公布2026年联赛各省获奖名单", "source": "official"},
+    {"date": "2026-04-27", "title": "2026年全国中学生生物学联赛通知", "url": "http://www.botany.org.cn/swxjs/swxls/202604/t20260427_835390.html", "summary": "联赛定于2026年5月10日举行，报名材料3月31日前报送", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "http://www.botany.org.cn/swxjs/zchssxz/"},
+    {"label": "通知公告", "url": "https://www.czs.org.cn/"}
+  ],
+  "tags": ["生物", "奥林匹克", "理科竞赛"],
+  "relatedCourses": [],
+  "sourceCheckedAt": "2026-09-16"
+}

@@ -1,0 +1,145 @@
+{
+  "key": "cmo",
+  "name": "全国中学生数学奥林匹克竞赛",
+  "checkedAt": "2026-09-16T16:41:47.386Z",
+  "status": "first-scan",
+  "pages": {
+    "https://www.cms.org.cn/": {
+      "hash": "05acd5324aebcc56594fc0212117333ad1d898f0",
+      "items": [
+        {
+          "title": "历年文化论坛",
+          "url": "https://www.cms.org.cn/Home/about/about8.html"
+        },
+        {
+          "title": "全国高中数学联赛",
+          "url": "https://www.cms.org.cn/Home/comp/comp/cid/12.html"
+        },
+        {
+          "title": "全国中学生数学冬令营",
+          "url": "https://www.cms.org.cn/Home/comp/comp/cid/13.html"
+        },
+        {
+          "title": "国际数学奥林匹克中国队",
+          "url": "https://www.cms.org.cn/Home/comp/comp/cid/14.html"
+        },
+        {
+          "title": "中国女子数学奥林匹克",
+          "url": "https://www.cms.org.cn/Home/comp/comp/cid/15.html"
+        },
+        {
+          "title": "全国大学生数学竞赛",
+          "url": "https://www.cms.org.cn/Home/comp/comp/cid/16.html"
+        },
+        {
+          "title": "数学会工作信息",
+          "url": "https://www.cms.org.cn/Home/member/member2.html"
+        },
+        {
+          "title": "新闻报道及通报",
+          "url": "https://www.cms.org.cn/Home/scientificwarfare/scientificwarfare/cid/17.html"
+        },
+        {
+          "title": "研究成果摘选",
+          "url": "https://www.cms.org.cn/Home/scientificwarfare/scientificwarfare/cid/18.html"
+        },
+        {
+          "title": "中国数学会2026年学术年会",
+          "url": "https://www.cms.org.cn/"
+        },
+        {
+          "title": "2026年全国科普月科普报告 期待您的参与！",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1456.html"
+        },
+        {
+          "title": "两位中国籍学者荣获菲尔兹奖",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1453.html",
+          "date": "2026-07-23"
+        },
+        {
+          "title": "热烈祝贺何旭华教授、单芃教授 2026-07-22",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1452.html",
+          "date": "2026-07-22"
+        },
+        {
+          "title": "第 67 届国际数学奥林匹克（IMO）顺利闭幕 2026-07-21",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1451.html",
+          "date": "2026-07-21"
+        },
+        {
+          "title": "“魅丽数学基础前沿——高维非线性系统论坛”在北京信息科技大学举行 2026-07-15",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1450.html",
+          "date": "2026-07-15"
+        },
+        {
+          "title": "“全国科技工作者日”王小云院士网络科普讲座“浅谈密码” 2026-06-02",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1444.html",
+          "date": "2026-06-02"
+        },
+        {
+          "title": "中国数学会关于数学学术评价的意见",
+          "url": "https://www.cms.org.cn/Home/notices/notices_details/id/216.html"
+        },
+        {
+          "title": "● 中国数学会2026年学术年会 第一轮会议通知",
+          "url": "https://www.cms.org.cn/Home/notices/notices_details/id/1454.html"
+        },
+        {
+          "title": "● 2027-2028年度国家自然科学基金数学天元基金“天元数学国际交流中心项目”申请指南",
+          "url": "https://www.cms.org.cn/Home/notices/notices_details/id/1448.html"
+        },
+        {
+          "title": "● 魅丽数学前沿理论与应用-科学计算与人工智能学术论坛通知（第一轮）",
+          "url": "https://www.cms.org.cn/Home/notices/notices_details/id/1447.html"
+        },
+        {
+          "title": "厦门大学启动“陈景润讲座”，国际顶尖数学家张寿武首场开讲！",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1442.html"
+        },
+        {
+          "title": "香港申办 2030 年国际数学家大会（ICM 2030）",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1410.html"
+        },
+        {
+          "title": "一名数学家的“无穷大” ——读余义林《普通而纯粹 壮阔而平凡》 2025-09-15",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1345.html",
+          "date": "2025-09-15"
+        },
+        {
+          "title": "关于中俄数学挑战基金2025年度申报指南的通知 2025-08-13",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1341.html",
+          "date": "2025-08-13"
+        },
+        {
+          "title": "香港《南华早报》报道丨周向宇院士对中国古代数学的研究与发现 2025-04-14",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1314.html",
+          "date": "2025-04-14"
+        },
+        {
+          "title": "第二届“陈景润奖”报奖通告 2025-04-01",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1301.html",
+          "date": "2025-04-01"
+        },
+        {
+          "title": "● 数学通报",
+          "url": "https://www.cms.org.cn/Home/notices/notices_details/id/7.html"
+        },
+        {
+          "title": "部分国内学术平台一周活动纵览(2024.06.02-06.15) 2024-06-03",
+          "url": "https://www.cms.org.cn/Home/discuss/discuss_details/id/1228.html",
+          "date": "2024-06-02"
+        },
+        {
+          "title": "2024中国-巴西联合数学会议 2024-04-08",
+          "url": "https://www.cms.org.cn/Home/discuss/discuss_details/id/1209.html",
+          "date": "2024-04-08"
+        },
+        {
+          "title": "部分国内学术平台一周活动纵览(2024.04.07-04.13) 2024-04-07",
+          "url": "https://www.cms.org.cn/Home/discuss/discuss_details/id/1218.html",
+          "date": "2024-04-07"
+        }
+      ]
+    }
+  }
+}

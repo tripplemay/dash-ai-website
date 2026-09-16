@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
 
-const CONTENT_TYPES = ["course", "lesson", "faq", "brand-guideline", "presentation", "work", "badge-definition"] as const;
+const CONTENT_TYPES = ["course", "lesson", "faq", "competition", "competition-update", "brand-guideline", "presentation", "work", "badge-definition"] as const;
 
 function statusTone(status: ContentStatus) {
   if (status === "published") return "bg-[#EAF8F0] text-[#17613B]";

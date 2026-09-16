@@ -1,0 +1,26 @@
+{
+  "slug": "ai-digital-art",
+  "summary": "文化和旅游部艺术发展中心主办的“人工智能＋艺术”赛事，每年一届，引导中小学生运用AI技术辅助创作数字艺术作品。",
+  "description": "全国青少年人工智能辅助生成数字艺术创作者大赛（AIGCNYACC）由文化和旅游部艺术发展中心主办，数字艺术与区块链文化和旅游部艺术发展中心实验室提供技术支持，每年举办一届。赛项涵盖“人工智能＋”图像与造型、影像、数字动漫、设计、音频、诗歌和戏剧、非物质文化遗产等方向，覆盖小学、初中、高中、中职四个学段。赛制分省赛（选拔赛）与国赛（全国决赛）两个环节，评审实行专家库抽选、双盲评审与三人评分取均值，参赛者可获文化艺术链数字证书。适合对AI绘画、影像、音频与文创设计感兴趣的学生。",
+  "schedule": [
+    {"stage": "省赛（选拔赛）报名注册", "start": "2026-04-28", "end": "2026-06-20"},
+    {"stage": "省赛（选拔赛）作品提交", "start": "2026-05-22", "end": "2026-06-20"},
+    {"stage": "省赛（选拔赛）评审", "start": "2026-06-22", "end": "2026-06-28"},
+    {"stage": "国赛（全国决赛）作品报名提交", "start": "2026-08-01", "end": "2026-08-15"},
+    {"stage": "国赛（全国决赛）评审", "start": "2026-08-17", "end": "2026-08-21"},
+    {"stage": "线上及线下展览", "start": null, "end": null, "note": "2026年9月至12月举办"}
+  ],
+  "updates": [
+    {"date": "2026-03-25", "title": "“全国青少年人工智能辅助生成数字艺术创作者大赛”通知", "url": "https://www.mcasc.com.cn/tongzhis/detail/881.html", "summary": "艺展赛发〔2026〕1号，公布赛项设置、奖项与赛程安排", "source": "official"},
+    {"date": "2026-04-29", "title": "“全国青少年人工智能辅助生成数字艺术创作者大赛”参赛作品指南——(赛项介绍、技术规范)", "url": "https://www.mcasc.com.cn/tongzhis/detail/922.html", "source": "official"},
+    {"date": "2026-07-19", "title": "关于“全国青少年人工智能辅助生成数字艺术创作者大赛”省赛成绩查询的通知", "url": "https://www.youyanchu.com/yanchu/54988.html", "summary": "省赛阅卷完成核查校验，7月17日起可登录官网查询成绩，获奖选手晋级全国总决赛", "source": "media"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://www.mcasc.com.cn/"},
+    {"label": "通知公告", "url": "https://www.mcasc.com.cn/tongzhis/"},
+    {"label": "大赛官网", "url": "https://www.aigcnyacc.com/"}
+  ],
+  "tags": ["人工智能", "数字艺术", "AIGC"],
+  "relatedCourses": ["drawing", "video", "voice"],
+  "sourceCheckedAt": "2026-09-16"
+}

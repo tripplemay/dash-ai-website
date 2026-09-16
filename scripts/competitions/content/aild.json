@@ -1,0 +1,28 @@
+{
+  "slug": "aild",
+  "summary": "中国自动化学会主办的全国性公益赛事，融合劳动技能与智能设计，小学至中职学生经省赛区复赛选拔晋级全国总决赛。",
+  "description": "全国青少年劳动技能与智能设计大赛（AILD）由中国自动化学会主办，面向小学、初中、高中、中职学生，坚持自愿、免费参赛。大赛以“人文引领、以劳育人、智能驱动、五育融合、创新设计”为理念，赛题涵盖劳动技能、科学探究、人工智能、工程实践与创新设计等方向。2025—2026学年赛季2025年11月启动，各省赛区2026年4月1日至6月5日组织报名，6月分省赛区举行复赛，8月15日全国总决赛在山西省怀仁市开幕，近3万人参与开幕式，8月24日公示评比结果。适合热爱劳动实践、科技创新与智能制作的青少年。",
+  "schedule": [
+    {"stage": "报名", "start": "2026-04-01", "end": "2026-06-05", "note": "由各省赛区组织报名，2026年6月5日12:00截止"},
+    {"stage": "复赛（省赛区）", "start": null, "end": null, "note": "2026年6月分省赛区举行，6月17日开放复赛入围结果查询，7月16日开放决赛入围查询"},
+    {"stage": "全国总决赛", "start": "2026-08-15", "end": null, "note": "2026年8月15日在山西省怀仁市开幕，与新时代劳动与科技工程科普教育周同期举行，8月24日公示评比结果"}
+  ],
+  "updates": [
+    {"date": "2026-09-07", "title": "【国赛证书】2025-2026学年AILD国赛证书下载方法", "url": "http://aild.org.cn/news_show.aspx?id=1223", "summary": "开放2025-2026学年国赛证书下载", "source": "official"},
+    {"date": "2026-08-24", "title": "【公示】2025-2026学年AILD劳动技能大赛全国总决赛评比结果", "url": "http://aild.org.cn/news_show.aspx?id=1222", "summary": "公示全国总决赛评比结果", "source": "official"},
+    {"date": "2026-08-15", "title": "2025-2026学年AILD劳动技能大赛全国总决赛在怀仁举行", "url": "http://aild.org.cn/news_show.aspx?id=1220", "summary": "全国总决赛开幕式8月15日在山西省怀仁市举行，近3万人参与", "source": "official"},
+    {"date": "2026-07-23", "title": "【决赛】2025-2026学年AILD劳动技能大赛全国决赛文件及相关通知", "url": "http://aild.org.cn/news_show.aspx?id=1219", "summary": "发布全国决赛文件、日程安排、赛题及报到须知", "source": "official"},
+    {"date": "2026-07-16", "title": "【决赛】2025-2026学年AILD劳动技能大赛决赛入围查询方法、决赛挑战项目及评价标准", "url": "http://aild.org.cn/news_show.aspx?id=1218", "summary": "开放决赛入围查询，公布决赛挑战项目及评价标准", "source": "official"},
+    {"date": "2026-06-22", "title": "【复赛】2025-2026学年AILD劳动技能大赛复赛各省赛区通知汇总及赛题变化须知", "url": "http://aild.org.cn/news_show.aspx?id=1214", "summary": "汇总各省赛区复赛通知并说明赛题变化", "source": "official"},
+    {"date": "2026-03-25", "title": "【汇总】2025-2026学年AILD各省赛区通知文件电子版", "url": "http://aild.org.cn/news_show.aspx?id=1209", "summary": "各省赛区通知汇总，报名2026年4月1日至6月5日12:00止", "source": "official"},
+    {"date": "2025-11-11", "title": "关于举办2025-2026学年全国青少年劳动技能与智能设计大赛的通知", "url": "http://aild.org.cn/news_show.aspx?id=1196", "summary": "2025-2026学年赛季正式启动", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "http://aild.org.cn/"},
+    {"label": "通知公告", "url": "http://aild.org.cn/news.aspx"},
+    {"label": "中国自动化学会赛事专栏", "url": "https://aild.caa.org.cn/cn/web/index/20629_1798925"}
+  ],
+  "tags": ["劳动教育", "智能设计", "科技创新"],
+  "relatedCourses": ["drone", "app", "python"],
+  "sourceCheckedAt": "2026-09-16"
+}

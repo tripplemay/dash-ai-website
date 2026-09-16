@@ -1,0 +1,41 @@
+{
+  "key": "yau-awards",
+  "name": "丘成桐中学科学奖",
+  "checkedAt": "2026-09-16T16:39:07.355Z",
+  "status": "unchanged",
+  "pages": {
+    "https://www.yau-awards.com/": {
+      "hash": "1c675cd85d095bb8c9d5c4657abdbaafbfd9d1e8",
+      "items": [
+        {
+          "title": "获奖学生去向",
+          "url": "https://www.yau-awards.com/page-towhere.html"
+        },
+        {
+          "title": "2026丘成桐中学科学奖（中国内地赛区）参赛日程",
+          "url": "https://www.yau-awards.com/show-86-57.html"
+        },
+        {
+          "title": "2026丘成桐中学科学奖（诺特数学奖）报名开启 2026-09-16",
+          "url": "https://www.yau-awards.com/show-86-60.html",
+          "date": "2026-09-16"
+        },
+        {
+          "title": "丘成桐中学科学奖AI使用规则 2026-07-08",
+          "url": "https://www.yau-awards.com/show-86-59.html",
+          "date": "2026-07-08"
+        },
+        {
+          "title": "2026丘成桐中学科学奖（中国内地赛区）报名开启 2026-07-01",
+          "url": "https://www.yau-awards.com/show-86-58.html",
+          "date": "2026-07-01"
+        },
+        {
+          "title": "2025丘成桐中学科学奖总决赛获奖名单 2025-12-09",
+          "url": "https://www.yau-awards.com/show-86-56.html",
+          "date": "2025-12-09"
+        }
+      ]
+    }
+  }
+}

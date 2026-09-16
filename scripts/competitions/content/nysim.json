@@ -1,0 +1,26 @@
+{
+  "slug": "nysim",
+  "summary": "北京师范大学主办的科学探究与建模赛事，面向小学至中职学生，设线上初赛、省级复赛、全国总决赛三级赛制。",
+  "description": "全国青少年科学探究建模能力大赛由北京师范大学主办，列入教育部2025—2028学年面向中小学生的全国性竞赛活动名单，覆盖小学至中职学生。大赛支持个人参赛或2—4人团队参赛，要求成果形成“科学探究—模型建构—应用实践”的有机整体，可体现为实物装置、软件应用或实践方案，并须提交探究日志与规范报告。赛制分线上初赛、省级复赛和全国总决赛三级，2026年4月开启报名，拟于10月底举办全国总决赛。赛事不收取任何费用，适合热爱科学探究、数据分析与动手实践的学生。",
+  "schedule": [
+    {"stage": "报名（已结束）", "start": "2026-04-21", "end": "2026-09-15", "note": "大赛官网线上报名，逾期报名系统自动关闭"},
+    {"stage": "初赛", "start": "2026-07-19", "end": null, "note": "线上进行，第一场2026年7月19日；最后一场在9月15日报名通道关闭后10个工作日内完成，分赛项分批次"},
+    {"stage": "省级复赛", "start": null, "end": null, "note": "赛事指南规划2026年10月完成省赛，具体以各省级组委会通知为准"},
+    {"stage": "全国总决赛", "start": null, "end": null, "note": "拟2026年10月底举办，具体时间、地点及流程另行通知"}
+  ],
+  "updates": [
+    {"date": "2026-08-28", "title": "关于严禁冒用大赛主办单位及地区承办单位名义开展活动的严正声明", "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/ac2d8ecb55c24d8c95920ea609479788.htm", "source": "official"},
+    {"date": "2026-07-22", "title": "关于公布2025-2026学年全国青少年科学探究建模能力大赛第一批省级组委会通过名单的通知", "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/9203aa74c64b44c4a6a3e02ce25c73a2.htm", "source": "official"},
+    {"date": "2026-07-15", "title": "关于全国青少年科学探究建模能力大赛初赛通知", "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/6ab2ab0613334b878aafc408ba2a3989.htm", "summary": "初赛统一线上举行，报名窗口期2026年4月21日—9月15日，第一场初赛7月19日", "source": "official"},
+    {"date": "2026-07-07", "title": "2025-2026学年全国青少年科学探究建模能力大赛参赛须知", "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/77277ce9e5b448848eec744291ec08e7.htm", "source": "official"},
+    {"date": "2026-04-27", "title": "2026年全国青少年科学探究建模大赛报名正式启动", "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/34b6713213094f59a10cbb218cb6bb7b.htm", "summary": "2026年度赛事报名通道正式开启，官网注册报名", "source": "official"},
+    {"date": "2026-04-03", "title": "北京师范大学关于举办2025-2026学年全国青少年科学探究建模能力大赛的通知", "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/4437dc2de34543bbb06eca1ee2b64a98.htm", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://simcc.bnu.edu.cn/sszn/index.htm"},
+    {"label": "通知公告", "url": "https://simcc.bnu.edu.cn/ssgg/index.htm"}
+  ],
+  "tags": ["科学探究", "建模", "科学教育"],
+  "relatedCourses": ["data", "theory"],
+  "sourceCheckedAt": "2026-09-16"
+}

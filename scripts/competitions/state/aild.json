@@ -1,0 +1,69 @@
+{
+  "key": "aild",
+  "name": "全国青少年劳动技能与智能设计大赛",
+  "checkedAt": "2026-09-16T16:40:03.145Z",
+  "status": "error",
+  "pages": {
+    "http://aild.org.cn/news.aspx": {
+      "hash": "1727949c10bbf88a0ae7899621cd5e52365ef9ba",
+      "items": [
+        {
+          "title": "08/24 2026 【公示】2025-2026学年AILD劳动技能大赛全国总决赛评比结果 劳动光荣、技能宝贵、创造伟大",
+          "url": "http://aild.org.cn/news_show.aspx?id=1222"
+        },
+        {
+          "title": "08/15 2026 2025-2026学年AILD劳动技能大赛全国总决赛在怀仁举行 劳动光荣、技能宝贵、创造伟大",
+          "url": "http://aild.org.cn/news_show.aspx?id=1220"
+        },
+        {
+          "title": "07/23 2026 【决赛】2025-2026学年AILD劳动技能大赛全国决赛文件及相关通知 五育融合、创新创造",
+          "url": "http://aild.org.cn/news_show.aspx?id=1219"
+        },
+        {
+          "title": "07/01 2026 习近平：在庆祝中国共产党成立105周年大会上的讲话 共圆中国梦",
+          "url": "http://aild.org.cn/news_show.aspx?id=1215"
+        },
+        {
+          "title": "06/22 2026 【复赛】2025-2026学年AILD劳动技能大赛复赛各省赛区通知汇总及赛题变化须知 创新创造 超越自我",
+          "url": "http://aild.org.cn/news_show.aspx?id=1214"
+        },
+        {
+          "title": "06/17 2026 【查询方法】2025-2026学年AILD劳动技能大赛复赛入围结果查询方法 创新创造 超越自我",
+          "url": "http://aild.org.cn/news_show.aspx?id=1213"
+        },
+        {
+          "title": "03/25 2026 【汇总】2025-2026学年AILD各省赛区通知文件电子版 报名：4月1日——6月5日12:00止",
+          "url": "http://aild.org.cn/news_show.aspx?id=1209"
+        },
+        {
+          "title": "03/16 2026 2025-2026学年AILD赛题及评价标准 人文引领、以劳育人、智能驱动、五育融合、创新设计",
+          "url": "http://aild.org.cn/news_show.aspx?id=1208"
+        },
+        {
+          "title": "01/08 2026 2022-2025学年获奖证书（复赛和决赛）下载地址 复赛和决赛获奖证书下载地址",
+          "url": "http://aild.org.cn/news_show.aspx?id=1204"
+        },
+        {
+          "title": "11/10 2025 关于举办2025-2026学年AILD劳动技能大赛的通知 自愿、免费参赛",
+          "url": "http://aild.org.cn/news_show.aspx?id=1195"
+        },
+        {
+          "title": "11/07 2025 关于征集2025-2026学年AILD劳动技能大赛省赛组织单位的通知 五育并举，创新创造",
+          "url": "http://aild.org.cn/news_show.aspx?id=899"
+        },
+        {
+          "title": "26国赛证书",
+          "url": "http://aild.org.cn/news_show.aspx?id=1224"
+        },
+        {
+          "title": "【国赛证书】2025-2026学年AILD国赛证书下载方法",
+          "url": "http://aild.org.cn/news_show.aspx?id=1223"
+        },
+        {
+          "title": "【决赛】2025-2026学年AILD劳动技能大赛决赛入围查询方法、决赛挑战项目及评价标准",
+          "url": "http://aild.org.cn/news_show.aspx?id=1218"
+        }
+      ]
+    }
+  }
+}

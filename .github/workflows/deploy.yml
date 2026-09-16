@@ -41,6 +41,10 @@ jobs:
           node --check scripts/prepare-pm2-config.mjs
           node --check scripts/seed-content.mjs
           node --check scripts/validate-content.mjs
+          node --check scripts/competition-lib.mjs
+          node --check scripts/competition-merge.mjs
+          node --check scripts/competition-monitor.mjs
+          node --check scripts/validate-competitions.mjs
           test "$(grep -Ec 'location = /files' deploy/nginx/dash-pr-files.conf)" -eq 1
           grep -Eq 'location \^~ /files/' deploy/nginx/dash-pr-files.conf
           grep -Eq '^upstream dash_pr_release_app' deploy/nginx/dash-pr.conf
@@ -129,8 +133,10 @@ jobs:
           cp scripts/prepare-pm2-config.mjs release/app/scripts/prepare-pm2-config.mjs
           cp scripts/smoke-standalone.mjs release/app/scripts/smoke-standalone.mjs
           cp scripts/seed-content.mjs release/app/scripts/seed-content.mjs
+          cp scripts/competition-lib.mjs release/app/scripts/competition-lib.mjs
           cp scripts/resources-seed.json release/app/scripts/resources-seed.json
           cp scripts/lessons-content.json release/app/scripts/lessons-content.json
+          cp scripts/competitions-content.json release/app/scripts/competitions-content.json
           cp content/parent-faq.zh.json release/app/content/parent-faq.zh.json
           cp deploy/nginx/dash-pr.conf release/app/deploy/nginx/dash-pr.conf
 

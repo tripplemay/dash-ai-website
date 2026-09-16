@@ -1,0 +1,23 @@
+{
+  "slug": "visual-art-workshop",
+  "summary": "中国艺术教育促进会主办、人民美术出版社承办，以学校工作坊团队形式开展的青少年视觉艺术传承与创新展示活动。",
+  "description": "“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”由中国艺术教育促进会主办、人民美术出版社承办，主题“薪火传承育新人”。面向中小学校、中职学校与校外教育单位，分小学、初中、高中（中职）、校外教育组，设非遗传承创新、融合艺术创新、科技艺术赋能、环境艺术设计四类项目。每单位限报1个工作坊（学生8至12名、指导教师不超2人）。报名自2025年12月1日至2026年4月20日，2026年5月评审、6月公示。获奖工作坊颁发证书并线上展播、择优线下展示。适合有美术、非遗或科技艺术特色的学校团队参加。",
+  "schedule": [
+    {"stage": "报名", "start": "2025-12-01", "end": "2026-04-20", "note": "原定2026年3月31日24时截止，后延期至4月20日24时；报名即参赛，须同步上传作品"},
+    {"stage": "评审", "start": null, "end": null, "note": "2026年5月由评审委员会组织评审"},
+    {"stage": "评审结果公示", "start": null, "end": null, "note": "2026年6月在主办单位官网公示，公示期7天"},
+    {"stage": "展示交流", "start": null, "end": null, "note": "获奖作品线上展播，部分一等奖作品参加线下集中展示，具体时间另行通知"}
+  ],
+  "updates": [
+    {"date": "2025-11-17", "title": "中国艺术教育促进会关于举办2025—2026学年“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”活动的通知", "url": "https://www.renmeijiaoyu.com/pages/art-submission-detail.html?id=16", "summary": "公布活动主题、项目类别、报名要求与评审安排", "source": "official"},
+    {"date": "2026-03-12", "title": "教育部“白名单”｜“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”活动线上宣讲会", "url": "https://www.renmeijiaoyu.com/pages/activity-detail.html?id=29", "summary": "主办方联合人民美术出版社举办线上宣讲会，讲解活动概况、报名细则与工作坊建设", "source": "official"},
+    {"date": "2026-03-24", "title": "教育部“白名单”艺术工作坊赛事报名时间延期通知", "url": "https://www.renmeijiaoyu.com/pages/art-submission-detail.html?id=16", "summary": "报名截止由2026年3月31日24时延期至4月20日24时", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://www.ccpae.cn/"},
+    {"label": "报名平台（人美艺教云）", "url": "https://www.renmeijiaoyu.com/pages/art-submission-detail.html?id=16"}
+  ],
+  "tags": ["美育", "视觉艺术", "非遗传承"],
+  "relatedCourses": ["drawing"],
+  "sourceCheckedAt": "2026-09-16"
+}

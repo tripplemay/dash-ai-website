@@ -1,0 +1,24 @@
+{
+  "slug": "national-defense-youth",
+  "summary": "南京理工大学主办的全国性国防教育赛事，通过主题演讲、创意设计、技能比武、无人系统应用等赛项提升青少年综合国防素养。",
+  "description": "全国青少年国防素养大赛由南京理工大学主办，是教育部2025—2028学年面向中小学生的全国性竞赛活动。大赛设“爱我国防”主题演讲赛、国防科技创意设计赛、国防技能挑战赛、智能无人系统应用赛四类赛项，面向小学至高中（含中职）学生，培育综合国防素养。2025—2026学年为首届赛季，2026年3月17日开放报名，经各赛区地区选拔赛选拔后，全国总决赛于2026年8月16日启幕，8月31日开放获奖查询。适合擅长演讲表达、热衷国防科技创意或喜爱无人系统操控与实践的中小学生参加。",
+  "schedule": [
+    {"stage": "报名", "start": "2026-03-17", "end": "2026-04-30", "note": "报名系统3月17日开放，“材料提交”截止4月30日24时；部分赛区后续延长报名时间"},
+    {"stage": "地区选拔赛", "start": null, "end": null, "note": "2026年5月下旬至7月，各赛区陆续举行线下选拔赛（含线上国防知识答题与作品上传环节）"},
+    {"stage": "全国总决赛", "start": "2026-08-16", "end": null, "note": "首届总决赛2026年8月16日启幕，8月31日开放获奖查询"}
+  ],
+  "updates": [
+    {"date": "2026-03-17", "title": "【通知】关于举办2025—2026学年全国青少年国防素养大赛的通知", "url": "https://www.gfsy.org.cn/news/96848df456c64352a5f943cf723033c0", "summary": "发布2025—2026学年赛季总体安排", "source": "official"},
+    {"date": "2026-03-17", "title": "【通知】2025—2026学年全国青少年国防素养大赛开放报名啦！", "url": "https://www.gfsy.org.cn/news/ab2a07d80ecb45edbc48e95a5d734b69", "summary": "报名系统正式上线，材料提交截止2026年4月30日24时", "source": "official"},
+    {"date": "2026-04-29", "title": "关于报名截止时间及线上答题、作品上传的说明", "url": "https://www.gfsy.org.cn/news/9d9a3b045fc04ecdaf043f22ef9c1ef1", "source": "official"},
+    {"date": "2026-07-30", "title": "【通知】关于举办2025—2026学年全国青少年国防素养大赛全国总决赛的通知", "url": "https://www.gfsy.org.cn/news/bee3b6ee020141359ff32525ffaeb52c", "source": "official"},
+    {"date": "2026-08-16", "title": "【全国总决赛】厚植家国情怀 增强使命担当 首届全国青少年国防素养大赛总决赛启幕", "url": "https://www.gfsy.org.cn/news/5d76ef2f06d94001b64337cd1daad412", "source": "official"},
+    {"date": "2026-08-31", "title": "【全国总决赛】全国总决赛获奖查询功能开放的公告", "url": "https://www.gfsy.org.cn/news/abb385b8cc32456d8fec5a863b52ee29", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://www.gfsy.org.cn/"}
+  ],
+  "tags": ["国防教育", "爱国主义教育", "综合素质"],
+  "relatedCourses": [],
+  "sourceCheckedAt": "2026-09-16"
+}

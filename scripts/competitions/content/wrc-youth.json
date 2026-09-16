@@ -1,0 +1,26 @@
+{
+  "slug": "wrc-youth",
+  "summary": "中国电子学会主办的青少年机器人赛事，2025-2026学年以“2026世界机器人大赛—青少年机器人设计大赛”形式举办。",
+  "description": "世界机器人大会青少年机器人设计与信息素养大赛由中国电子学会主办，2025-2026学年赛季机器人设计项目以“2026世界机器人大赛—青少年机器人设计大赛”形式举办。赛事设机器人对抗、具身智能挑战、地空协同挑战、工程技能、智慧设计普及五类赛项，涵盖VRC、FTC、无人机、编程等数十个方向。赛制为省级选拔赛、锦标赛、总决赛三级。2026赛季各省选拔赛于5月至8月举办百余场，国内锦标赛在盘锦、常山、三亚举行，总决赛8月在北京亦庄与世界机器人大会同期举办。赛事零收费，适合喜爱机器人与编程的中小学生。",
+  "schedule": [
+    {"stage": "省级选拔赛", "start": "2026-05-05", "end": "2026-08-09", "note": "全国各省市陆续举办百余场，具体安排见官网选拔赛通知"},
+    {"stage": "东北锦标赛（盘锦）", "start": "2026-06-17", "end": "2026-06-21", "note": "盘锦市大洼区民众体育公园"},
+    {"stage": "华东锦标赛（衢州常山）", "start": "2026-07-03", "end": "2026-07-07", "note": "常山县体育馆、浙江省衢州数字工业学校体育馆"},
+    {"stage": "华南锦标赛（三亚）", "start": "2026-07-20", "end": "2026-07-24", "note": "三亚红树林国际会展中心"},
+    {"stage": "总决赛", "start": "2026-08-18", "end": "2026-08-25", "note": "北京经济技术开发区（亦庄），与2026世界机器人大会（8月19日至23日）同期"}
+  ],
+  "updates": [
+    {"date": "2026-03-18", "title": "关于举办2025-2026学年世界机器人大会青少年机器人设计与信息素养大赛的通知", "url": "https://www.worldrobotconference.com/contest/notice/3196.html", "summary": "发布2025-2026学年赛季总体安排", "source": "official"},
+    {"date": "2026-04-28", "title": "“2026世界机器人大赛—青少年机器人设计大赛”暨“2025-2026学年世界机器人大会青少年机器人设计与信息素养大赛”机器人设计项目选拔赛安排", "url": "https://www.worldrobotconference.com/contest/announcement/3200.html", "summary": "公布2026年5月至8月各省级选拔赛时间、地点与竞赛方向", "source": "official"},
+    {"date": "2026-05-25", "title": "关于举办“2026世界机器人大赛—青少年机器人设计大赛”的通知", "url": "https://www.worldrobotconference.com/contest/announcement/3205.html", "source": "official"},
+    {"date": "2026-07-17", "title": "关于举办2026世界机器人大赛总决赛的通知", "url": "https://www.worldrobotconference.com/contest/announcement/3222.html", "summary": "总决赛与2026世界机器人大会同期在北京亦庄举办", "source": "official"},
+    {"date": "2026-08-20", "title": "2026世界机器人大赛总决赛赛况正酣", "url": "https://www.chinanews.com.cn/m/tp/hd/2026/0820/181528.shtml", "summary": "总决赛在北京亦庄与世界机器人大会同步举行，青少年机器人设计大赛选手同场竞技", "source": "media"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "https://www.worldrobotconference.com/"},
+    {"label": "通知公告", "url": "https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html"}
+  ],
+  "tags": ["机器人", "编程", "无人机"],
+  "relatedCourses": ["drone", "python", "app"],
+  "sourceCheckedAt": "2026-09-16"
+}

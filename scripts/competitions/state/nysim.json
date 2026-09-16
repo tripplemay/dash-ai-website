@@ -1,0 +1,17 @@
+{
+  "key": "nysim",
+  "name": "全国青少年科学探究建模能力大赛",
+  "checkedAt": "2026-09-16T16:39:21.703Z",
+  "status": "unchanged",
+  "pages": {
+    "https://simcc.bnu.edu.cn/ssgg/index.htm": {
+      "hash": "bb3c7c8768c14887e393ccf8777f77d79feb1057",
+      "items": [
+        {
+          "title": "首页(赛事中心)",
+          "url": "https://simcc.bnu.edu.cn/index.html"
+        }
+      ]
+    }
+  }
+}

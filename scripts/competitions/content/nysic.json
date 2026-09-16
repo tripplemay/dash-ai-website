@@ -1,0 +1,21 @@
+{
+  "slug": "nysic",
+  "summary": "中国航天科技国际交流中心主办的航天主题科创赛事，设航天科技创新与太空探测竞技两单元，覆盖小学至中职学生。",
+  "description": "全国青少年航天创新大赛由中国航天科技国际交流中心主办，国家航天局、中国载人航天工程办公室等指导，列入教育部2025-2028学年竞赛名单。大赛设“航天科技创新”和“太空探测竞技”两个竞赛单元：前者侧重航天科学探究与工程实践，需完成实物作品并迭代优化；后者以太空探测任务为主，培养动手实践、编程、机器人控制与人工智能应用能力。赛事分选拔赛和全国总决赛，2025-2026学年总决赛于2026年8月8-9日在杭州举行。大赛为公益性赛事，不收参赛费，适合对航天感兴趣的小学至中职学生。",
+  "schedule": [
+    {"stage": "选拔赛", "start": null, "end": "2026-06-30", "note": "各赛区2026年6月底前完成选拔赛，具体时间地点由各赛区另行通知"},
+    {"stage": "全国总决赛（已结束）", "start": "2026-08-08", "end": "2026-08-09", "note": "在浙江杭州高新区（滨江）白马湖国际会展中心举办，与中国航天科普大会同期"}
+  ],
+  "updates": [
+    {"date": "2026-08-17", "title": "2026年全国青少年航天创新大赛总决赛获奖名单公示", "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270625", "summary": "公示2025-2026学年总决赛获奖名单", "source": "official"},
+    {"date": "2026-08-10", "title": "赓续航天志，点亮少年心｜2026年中国航天科普大会暨全国青少年航天创新大赛总决赛成功举办", "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270623", "summary": "总决赛于8月8-9日在杭州白马湖国际会展中心举办", "source": "official"},
+    {"date": "2026-08-08", "title": "2026年中国航天科普大会暨全国青少年航天创新大赛总决赛在浙江杭州开幕", "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270618", "summary": "总决赛在杭州高新区（滨江）开幕", "source": "official"},
+    {"date": "2026-01-19", "title": "关于举办2025—2026学年全国青少年航天创新大赛的通知", "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270504", "summary": "发布2025-2026学年大赛安排：2026年1-8月举行，分选拔赛和全国总决赛", "source": "official"}
+  ],
+  "links": [
+    {"label": "官方网站", "url": "http://nysic.declare.htgjjl.com/"}
+  ],
+  "tags": ["航天", "科技创新", "工程实践"],
+  "relatedCourses": ["drone", "theory"],
+  "sourceCheckedAt": "2026-09-16"
+}
