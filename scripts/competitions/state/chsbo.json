@@ -1,11 +1,14 @@
 {
   "key": "chsbo",
   "name": "全国中学生生物学奥林匹克竞赛",
-  "checkedAt": "2026-09-16T16:38:54.734Z",
+  "checkedAt": "2026-09-19T07:48:54.950Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:48:54.950Z",
   "pages": {
     "https://www.czs.org.cn/": {
       "hash": "0401dcf157065ac4aba729ea44592d27c76fdb14",
+      "layer": "fetch",
       "items": [
         {
           "title": "中国动物学会关于启动“2026年中国科协青年科技人才培育工程博士生专项计划”推荐工作的通知 详情",

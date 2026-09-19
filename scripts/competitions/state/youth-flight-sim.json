@@ -1,7 +1,8 @@
 {
   "key": "youth-flight-sim",
   "name": "全国青少年模拟飞行锦标赛",
-  "checkedAt": "2026-09-16T16:42:10.094Z",
+  "checkedAt": "2026-09-19T07:54:57.838Z",
   "status": "error",
+  "errorStreak": 1,
   "pages": {}
 }

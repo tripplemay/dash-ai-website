@@ -1,7 +1,99 @@
 {
   "key": "castic",
   "name": "全国青少年科技创新大赛",
-  "checkedAt": "2026-09-16T16:39:00.120Z",
-  "status": "needsManualCheck",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:49:12.410Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "https://cyscc.org/castic/": {
+      "hash": "d12b72449cb86400b94f73771b77e590ac9476de",
+      "layer": "render",
+      "items": [
+        {
+          "title": "关于第40届全国青少年科技创新大赛现场活动的通知",
+          "url": "https://www.cyscc.org/castic/#/home/article/249852"
+        },
+        {
+          "title": "第40届全国青少年科技创新大赛申报指南",
+          "url": "https://www.cyscc.org/castic/#/home/article/249848"
+        },
+        {
+          "title": "中国科协办公厅关于举办第40届全国青少年科技创新大赛的通知",
+          "url": "https://www.cyscc.org/castic/#/home/article/249851"
+        },
+        {
+          "title": "全国青少年科技创新大赛2025-2026年关联赛事名单（18-24岁青年组）",
+          "url": "https://www.cyscc.org/castic/#/home/article/249846"
+        },
+        {
+          "title": "关于组队参加第39届全国青少年科技创新大赛现场活动的通知",
+          "url": "https://www.cyscc.org/castic/#/home/article/249849"
+        },
+        {
+          "title": "全国青少年科技创新大赛2025-2026年关联赛事名单（15-17岁少年组）",
+          "url": "https://www.cyscc.org/castic/#/home/article/249847"
+        },
+        {
+          "title": "第34届全国青少年科技创新大赛专项奖颁奖典礼举行",
+          "url": "https://www.cyscc.org/castic/#/home/article/243622"
+        },
+        {
+          "title": "2019科学教育国际论坛聚焦青少年科技创新人才培养",
+          "url": "https://www.cyscc.org/castic/#/home/article/243528"
+        },
+        {
+          "title": "第34届全国青少年科技创新大赛在澳门开幕",
+          "url": "https://www.cyscc.org/castic/#/home/article/243500"
+        },
+        {
+          "title": "科技让智慧闪光 创新让青春飞扬——第34届宁夏青少年创新大赛在石嘴山市举办",
+          "url": "https://www.cyscc.org/castic/#/home/article/242521"
+        },
+        {
+          "title": "第34届甘肃省青少年科技创新大赛暨第19届中国青少年机器人（甘肃赛区）竞赛闭幕",
+          "url": "https://www.cyscc.org/castic/#/home/article/242517"
+        },
+        {
+          "title": "16883 第37届全国青少年科技创新大赛全程回顾视频2023-11-09 13:14:12",
+          "url": "https://www.cyscc.org/castic/#/home/video/249835",
+          "date": "2023-11-09"
+        },
+        {
+          "title": "2236 36届全国青少年科技创新大赛开幕活动特别节目2023-11-09 13:12:38",
+          "url": "https://www.cyscc.org/castic/#/home/video/249834",
+          "date": "2023-11-09"
+        },
+        {
+          "title": "79726 第34届全国青少年科技创新大赛回顾视频2019-08-05 12:43:09",
+          "url": "https://www.cyscc.org/castic/#/home/video/249303",
+          "date": "2019-08-05"
+        },
+        {
+          "title": "23591 第34届全国青少年创新大赛宣传片2019-07-24 00:15:13",
+          "url": "https://www.cyscc.org/castic/#/home/video/249302",
+          "date": "2019-07-24"
+        },
+        {
+          "title": "23392 第33届全国青少年科技创新大赛专项奖颁奖典礼2018-08-28 16:19:49",
+          "url": "https://www.cyscc.org/castic/#/home/video/249301",
+          "date": "2018-08-28"
+        },
+        {
+          "title": "19117 2018科学教育国际论坛宣传片2018-08-23 17:16:45",
+          "url": "https://www.cyscc.org/castic/#/home/video/249300",
+          "date": "2018-08-23"
+        },
+        {
+          "title": "12183 中国-东盟青少年创新大赛启动仪式2018-08-23 17:12:08",
+          "url": "https://www.cyscc.org/castic/#/home/video/249299",
+          "date": "2018-08-23"
+        },
+        {
+          "title": "14242 第33届全国青少年科技创新大赛闭幕式暨颁奖典礼央视报道2018-08-21 11:38:02",
+          "url": "https://www.cyscc.org/castic/#/home/video/249298",
+          "date": "2018-08-21"
+        }
+      ]
+    }
+  }
 }

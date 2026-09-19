@@ -1,11 +1,14 @@
 {
   "key": "fltrp-cup",
   "name": "“外研社杯”全国中学生外语素养大赛",
-  "checkedAt": "2026-09-16T16:39:36.548Z",
+  "checkedAt": "2026-09-19T07:52:12.994Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:52:12.994Z",
   "pages": {
     "https://events.fltrp.com/": {
       "hash": "1a8340d8e1d286ff439358e1a1c575dcae041c57",
+      "layer": "fetch",
       "items": [
         {
           "title": ">第22届“外研社杯”全国中学生外语素养大赛通知",
@@ -39,79 +42,98 @@
         },
         {
           "title": "蔡文美 中国传媒大学英语系教授、享受国务院专家津贴待遇",
-          "url": "https://events.fltrp.com/c/2019-03-29/163111.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163111.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "陈则航 北京师范大学教授、中国英语阅读教育研究院常务副院长、“中国中小学英语分级阅读体系标准研制”课题核心专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163108.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163108.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "程晓堂 北京师范大学外文学院院长、教授、博士生导师、《中小学外语教学》主编、《山东师范大学外国语学院学报》（基础英语教育）主编",
-          "url": "https://events.fltrp.com/c/2019-03-29/163107.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163107.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "Craig Wright 国际知名英语教学培训师、《丽声瑞格叔叔自然拼读法》系列教材作者",
-          "url": "https://events.fltrp.com/c/2019-03-29/163106.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163106.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "郝晓威 外研社青少年思辨培训顾问、国内国际英语辩论赛冠军、优秀评委",
-          "url": "https://events.fltrp.com/c/2019-03-29/163105.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163105.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "侯毅凌 北京外国语大学教授、《英语学习》杂志主编",
-          "url": "https://events.fltrp.com/c/2019-03-29/163104.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163104.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "李晨 北京外国语大学网络与继续教育学院讲师、剑桥认证口语考官、“国培计划”师训专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163103.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163103.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "李俊和 全国著名特级教师、原北京四中英语教研组组长、著名英语测试专家、高考研究专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163102.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163102.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "刘宝胤 ​北京外国语大学国际教育学院教师发展部主任、北外青少英语教学总监",
-          "url": "https://events.fltrp.com/c/2019-03-29/163101.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163101.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "罗少茜 北京师范大学教授、中国英语阅读教育研究院副院长、“中国中小学英语分级阅读体系标准研制”课题核心专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163100.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163100.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "梅仁毅 北京外国语大学教授、博士生导师、北京外国语大学外国文学研究所所长、《外国文学》主编",
-          "url": "https://events.fltrp.com/c/2019-03-29/163099.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163099.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "冉继军 中国外交学院副教授、英语思辨教育专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163098.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163098.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "冉永红 东北大学秦皇岛分校副教授、英语思辨教育专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163097.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163097.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "孙宝泉 全国外语特色学校教育研究会理事长",
-          "url": "https://events.fltrp.com/c/2019-03-29/163096.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163096.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "屠蓓 北京外国语大学教授、英语语音研究与教学专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163095.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163095.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "王蔷 ​北京师范大学教授、国家《英语课程标准》修订组专家、中国英语阅读教育研究院院长",
-          "url": "https://events.fltrp.com/c/2019-03-29/163094.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163094.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "王文斌 北京外国语大学教授、中国外语教育研究中心主任、中国外语测评中心主任",
-          "url": "https://events.fltrp.com/c/2019-03-29/163093.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163093.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "徐立新 ​北京外国语大学、解放军外国语学院副教授、复旦大学博士",
-          "url": "https://events.fltrp.com/c/2019-03-29/163092.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163092.shtml",
+          "date": "2019-03-29"
         },
         {
           "title": "张连仲 北京外国语大学教授、全国基础外语教育研究培训中心常务副理事长、国家《英语课程标准》研制组、修订组核心专家",
-          "url": "https://events.fltrp.com/c/2019-03-29/163091.shtml"
+          "url": "https://events.fltrp.com/c/2019-03-29/163091.shtml",
+          "date": "2019-03-29"
         }
       ]
     }

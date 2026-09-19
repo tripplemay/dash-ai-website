@@ -1,11 +1,13 @@
 {
   "key": "zuowendasai",
   "name": "世界华人学生作文大赛",
-  "checkedAt": "2026-09-16T16:39:34.339Z",
-  "status": "unchanged",
+  "checkedAt": "2026-09-19T07:52:10.802Z",
+  "status": "first-scan",
+  "errorStreak": 0,
   "pages": {
     "http://www.zuowendasai.com/": {
-      "hash": "0c0172c30e0c424e21bd038727b268dcb0543a36",
+      "hash": "5e52b7dc249f5f382a921702e8d089d36d59bccc",
+      "layer": "render",
       "items": [
         {
           "title": "学生成绩查询",
@@ -26,6 +28,26 @@
         {
           "title": "第二十六届世界华人学生作文大赛“中华文化国际传播”特别组获奖结果公布",
           "url": "https://zuowendasai.com/shows/1/242.html"
+        },
+        {
+          "title": "第十八届大赛",
+          "url": "https://zuowendasai.com/lists/16.html"
+        },
+        {
+          "title": "第十七届大赛",
+          "url": "https://zuowendasai.com/lists/17.html"
+        },
+        {
+          "title": "第十六届大赛",
+          "url": "https://zuowendasai.com/lists/18.html"
+        },
+        {
+          "title": "第十五届大赛",
+          "url": "https://zuowendasai.com/lists/19.html"
+        },
+        {
+          "title": "第十四届大赛",
+          "url": "https://zuowendasai.com/lists/20.html"
         },
         {
           "title": "第二十五届大赛",
@@ -54,26 +76,6 @@
         {
           "title": "第十九届大赛",
           "url": "https://zuowendasai.com/lists/15.html"
-        },
-        {
-          "title": "第十八届大赛",
-          "url": "https://zuowendasai.com/lists/16.html"
-        },
-        {
-          "title": "第十七届大赛",
-          "url": "https://zuowendasai.com/lists/17.html"
-        },
-        {
-          "title": "第十六届大赛",
-          "url": "https://zuowendasai.com/lists/18.html"
-        },
-        {
-          "title": "第十五届大赛",
-          "url": "https://zuowendasai.com/lists/19.html"
-        },
-        {
-          "title": "第十四届大赛",
-          "url": "https://zuowendasai.com/lists/20.html"
         }
       ]
     }

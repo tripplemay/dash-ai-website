@@ -1,11 +1,14 @@
 {
   "key": "red-culture-contest",
   "name": "全国青少年红色文化传承与实践创新大赛",
-  "checkedAt": "2026-09-16T16:40:11.586Z",
+  "checkedAt": "2026-09-19T07:53:56.215Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:53:56.215Z",
   "pages": {
     "https://www.hswh.org.cn/wzzx/hyzx/": {
-      "hash": "b904ad18ab0eeed1007112e92018a14b35249798",
+      "hash": "7b53e16de31b3dc82fe82bd54d7994e357751933",
+      "layer": "fetch",
       "items": [
         {
           "title": "我会主办的首届全国青少年红色文化传承与实践创新大赛全国总决赛在崇礼冬奥赛区圆满落幕",

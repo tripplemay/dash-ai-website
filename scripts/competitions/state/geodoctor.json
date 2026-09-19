@@ -1,7 +1,41 @@
 {
   "key": "geodoctor",
   "name": "“地球小博士”全国地理科普知识大赛活动",
-  "checkedAt": "2026-09-16T16:38:20.426Z",
-  "status": "needsManualCheck",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:48:18.088Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "http://www.geodoctor.cn/": {
+      "hash": "2aea490247ebc7e7da90b04397471fa42d9d3174",
+      "layer": "render",
+      "items": [
+        {
+          "title": "公函模板.doc",
+          "url": "http://www.geodoctor.cn/filedownload/761687",
+          "date": "2023-11-27"
+        },
+        {
+          "title": "끹 学校参赛流程",
+          "url": "http://www.geodoctor.cn/cslc"
+        },
+        {
+          "title": "뀡 指导教师操作流程",
+          "url": "http://www.geodoctor.cn/zdjsczlc"
+        },
+        {
+          "title": "关于举办第十九届“地球小博士”全国地理科普知识大赛活动的通知.pdf",
+          "url": "http://www.geodoctor.cn/filedownload/2979605",
+          "date": "2025-11-28"
+        },
+        {
+          "title": "第22届国际中学生地理奥林匹克竞赛选拔赛初赛结束",
+          "url": "http://www.geodoctor.cn/newsinfo/11143759.html"
+        },
+        {
+          "title": "中国地理学会声明",
+          "url": "http://www.geodoctor.cn/newsinfo/11076043.html"
+        }
+      ]
+    }
+  }
 }

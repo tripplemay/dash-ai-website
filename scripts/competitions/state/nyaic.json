@@ -1,7 +1,35 @@
 {
   "key": "nyaic",
   "name": "全国青少年人工智能创新挑战赛",
-  "checkedAt": "2026-09-16T16:42:45.585Z",
-  "status": "error",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:47:28.097Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "http://aiic.china61.org.cn/": {
+      "hash": "a63c494e326742932b66cc5a895a4dc3cefa85e2",
+      "layer": "render",
+      "items": [
+        {
+          "title": "往届赛事获奖查询",
+          "url": "http://aiic.china61.org.cn/niWXB"
+        },
+        {
+          "title": "给梦想插上科技的翅膀 第九届全国青少年人工智能创新挑战赛启动",
+          "url": "http://aiic.china61.org.cn/article-69fab6d0e9db232ab07745b0-LlM1H"
+        },
+        {
+          "title": "第九届全国青少年人工智能创新挑战赛决赛通知",
+          "url": "http://aiic.china61.org.cn/article-6a69678ee9db233a70919537-LlM1H"
+        },
+        {
+          "title": "第九届全国青少年人工智能创新挑战赛诚信参赛承诺书、评审专家纪律承诺书（模板）",
+          "url": "http://aiic.china61.org.cn/article-664f1d3ee9db236b3349e665-LlM1H"
+        },
+        {
+          "title": "教育部校外教育培训监管司负责人就《面向中小学生的全国性竞赛活动管理办法》答记者问",
+          "url": "http://aiic.china61.org.cn/article-6232b22de9db23187bf37920-LlM1H"
+        }
+      ]
+    }
+  }
 }

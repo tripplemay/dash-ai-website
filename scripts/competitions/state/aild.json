@@ -1,11 +1,13 @@
 {
   "key": "aild",
   "name": "全国青少年劳动技能与智能设计大赛",
-  "checkedAt": "2026-09-16T16:40:03.145Z",
-  "status": "error",
+  "checkedAt": "2026-09-19T07:53:19.757Z",
+  "status": "needsManualCheck",
+  "errorStreak": 0,
   "pages": {
     "http://aild.org.cn/news.aspx": {
       "hash": "1727949c10bbf88a0ae7899621cd5e52365ef9ba",
+      "layer": "fetch",
       "items": [
         {
           "title": "08/24 2026 【公示】2025-2026学年AILD劳动技能大赛全国总决赛评比结果 劳动光荣、技能宝贵、创造伟大",

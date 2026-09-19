@@ -1,11 +1,14 @@
 {
   "key": "cpho",
   "name": "全国中学生物理奥林匹克竞赛",
-  "checkedAt": "2026-09-16T16:38:50.952Z",
+  "checkedAt": "2026-09-19T07:48:41.654Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:48:41.654Z",
   "pages": {
     "https://www.cps-net.org.cn/": {
       "hash": "a17c8123c1cbdd33d5e0fea7f53e0273d7670f65",
+      "layer": "fetch",
       "items": [
         {
           "title": "2026年中国物理学会相关活动计划",

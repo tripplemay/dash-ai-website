@@ -1,7 +1,8 @@
 {
   "key": "traditional-sports",
   "name": "全国青少年传统体育项目比赛",
-  "checkedAt": "2026-09-16T16:42:19.553Z",
+  "checkedAt": "2026-09-19T07:55:20.525Z",
   "status": "error",
+  "errorStreak": 1,
   "pages": {}
 }

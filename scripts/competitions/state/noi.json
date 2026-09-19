@@ -1,131 +1,164 @@
 {
   "key": "noi",
   "name": "全国中学生信息学奥林匹克竞赛",
-  "checkedAt": "2026-09-16T16:38:57.250Z",
+  "checkedAt": "2026-09-19T07:48:58.337Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:48:58.337Z",
   "pages": {
     "https://www.noi.cn/": {
-      "hash": "bfaf850933d40db3c3c734826c356bb3670d014e",
+      "hash": "014b12c3fbdcc8cfcbcbed4a77b4ea4d9ba1482c",
+      "layer": "fetch",
       "items": [
         {
           "title": "2026 NOI系列活动和认证日历",
-          "url": "https://www.noi.cn/xw/2026-02-12/861384.shtml"
+          "url": "https://www.noi.cn/xw/2026-02-12/861384.shtml",
+          "date": "2026-02-12"
         },
         {
           "title": "代码无界，智领未来——APIO 2026中国区活动在北京大学附属中学成功举办",
-          "url": "https://www.noi.cn/xw/2026-05-11/891305.shtml"
+          "url": "https://www.noi.cn/xw/2026-05-11/891305.shtml",
+          "date": "2026-05-11"
         },
         {
           "title": "NOI 大纲（2025年修订版）正式发布",
-          "url": "https://www.noi.cn/xw/2025-04-18/841584.shtml"
+          "url": "https://www.noi.cn/xw/2025-04-18/841584.shtml",
+          "date": "2025-04-18"
         },
         {
           "title": "CCF全国青少年信息学奥林匹克竞赛教程",
-          "url": "https://www.noi.cn/cbw/2026-08-18/924758.shtml"
+          "url": "https://www.noi.cn/cbw/2026-08-18/924758.shtml",
+          "date": "2026-08-18"
         },
         {
           "title": "代码逐光，筑梦青岛——NOI 2026在青岛市城阳第一高级中学圆满收官",
-          "url": "https://www.noi.cn/xw/2026-07-27/918275.shtml"
+          "url": "https://www.noi.cn/xw/2026-07-27/918275.shtml",
+          "date": "2026-07-27"
         },
         {
           "title": "NOI创建40周年表彰结果公告",
-          "url": "https://www.noi.cn/hjmd/mdgs/2024/2024-06-26/827027.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2024/2024-06-26/827027.shtml",
+          "date": "2024-06-26"
         },
         {
           "title": "CCF关于NOI相关权益的声明",
-          "url": "https://www.noi.cn/xw/2020-06-23/715566.shtml"
+          "url": "https://www.noi.cn/xw/2020-06-23/715566.shtml",
+          "date": "2020-06-23"
         },
         {
           "title": "关于自NOI 2029起取消A类选手加分政策的公告",
-          "url": "https://www.noi.cn/xw/2026-09-11/930261.shtml"
+          "url": "https://www.noi.cn/xw/2026-09-11/930261.shtml",
+          "date": "2026-09-11"
         },
         {
           "title": "CCF关于NOI 2027省内选拔的若干规定",
-          "url": "https://www.noi.cn/xw/2026-09-11/930020.shtml"
+          "url": "https://www.noi.cn/xw/2026-09-11/930020.shtml",
+          "date": "2026-09-11"
         },
         {
           "title": "关于CCF CSP-J/S认证等级名称规范的公告",
-          "url": "https://www.noi.cn/xw/2026-09-09/930554.shtml"
+          "url": "https://www.noi.cn/xw/2026-09-09/930554.shtml",
+          "date": "2026-09-09"
         },
         {
           "title": "CCF关于举办IOI 2027精英培训的通知",
-          "url": "https://www.noi.cn/xw/2026-08-17/924463.shtml"
+          "url": "https://www.noi.cn/xw/2026-08-17/924463.shtml",
+          "date": "2026-08-17"
         },
         {
           "title": "丝路谱新章，代码展锋芒 ——IOI 2026中国队创佳绩",
-          "url": "https://www.noi.cn/xw/2026-08-16/924196.shtml"
+          "url": "https://www.noi.cn/xw/2026-08-16/924196.shtml",
+          "date": "2026-08-16"
         },
         {
           "title": "NOI主席杜子德在NOI 2026 开幕式上的致辞",
-          "url": "https://www.noi.cn/xw/2026-08-06/921020.shtml"
+          "url": "https://www.noi.cn/xw/2026-08-06/921020.shtml",
+          "date": "2026-08-06"
         },
         {
           "title": "NOI 2026 获奖规则",
-          "url": "https://www.noi.cn/xw/2026-07-07/909224.shtml"
+          "url": "https://www.noi.cn/xw/2026-07-07/909224.shtml",
+          "date": "2026-07-07"
         },
         {
           "title": "关于CCF CSP-J/S 2026有关问题的解答",
-          "url": "https://www.noi.cn/xw/2026-07-06/908222.shtml"
+          "url": "https://www.noi.cn/xw/2026-07-06/908222.shtml",
+          "date": "2026-07-06"
         },
         {
           "title": "CSP-J/S 2026 第一轮报名通知",
-          "url": "https://www.noi.cn/xw/2026-07-06/908154.shtml"
+          "url": "https://www.noi.cn/xw/2026-07-06/908154.shtml",
+          "date": "2026-07-06"
         },
         {
           "title": "CCF NOI 2026 获奖名单公示",
-          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml",
+          "date": "2026-07-23"
         },
         {
           "title": "APIO 2026中国区活动荣誉名单公示",
-          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-05-10/890915.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-05-10/890915.shtml",
+          "date": "2026-05-10"
         },
         {
           "title": "第九届CCF NOI计算机程序设计片段教学比赛获奖名单",
-          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861333.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861333.shtml",
+          "date": "2026-02-12"
         },
         {
           "title": "NOI冬令营2026获奖名单公示",
-          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861337.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861337.shtml",
+          "date": "2026-02-12"
         },
         {
           "title": "第五届NOI女生竞赛获奖名单公示",
-          "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854073.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854073.shtml",
+          "date": "2025-12-13"
         },
         {
           "title": "NOIP2025获奖名单公示",
-          "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854072.shtml"
+          "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854072.shtml",
+          "date": "2025-12-13"
         },
         {
           "title": "CCF NOI系列活动考场纪律",
-          "url": "https://www.noi.cn/gynoi/tlgd/2025-09-01/848189.shtml"
+          "url": "https://www.noi.cn/gynoi/tlgd/2025-09-01/848189.shtml",
+          "date": "2025-09-01"
         },
         {
           "title": "关于CCF NOI全国赛参赛资格的补充规定",
-          "url": "https://www.noi.cn/gynoi/tlgd/2025-02-13/837979.shtml"
+          "url": "https://www.noi.cn/gynoi/tlgd/2025-02-13/837979.shtml",
+          "date": "2025-02-13"
         },
         {
           "title": "关于重申在校在职NOI指导教师不得校外有偿兼职授课的公告",
-          "url": "https://www.noi.cn/gynoi/tlgd/2025-02-13/837982.shtml"
+          "url": "https://www.noi.cn/gynoi/tlgd/2025-02-13/837982.shtml",
+          "date": "2025-02-13"
         },
         {
           "title": "NOIP评奖规则",
-          "url": "https://www.noi.cn/gynoi/tlgd/2024-11-26/834964.shtml"
+          "url": "https://www.noi.cn/gynoi/tlgd/2024-11-26/834964.shtml",
+          "date": "2024-11-26"
         },
         {
           "title": "CCF中小学计算机教师能力认定暨实施办法",
-          "url": "https://www.noi.cn/gynoi/tlgd/2023-10-09/796144.shtml"
+          "url": "https://www.noi.cn/gynoi/tlgd/2023-10-09/796144.shtml",
+          "date": "2023-10-09"
         },
         {
           "title": "关于资助NOI特派员差旅费的规定",
-          "url": "https://www.noi.cn/gynoi/tlgd/2023-06-26/793472.shtml"
+          "url": "https://www.noi.cn/gynoi/tlgd/2023-06-26/793472.shtml",
+          "date": "2023-06-26"
         },
         {
-          "title": "CSP-J/S 2026第一轮认证新疆考点安排及考生注意事项",
-          "url": "https://www.noi.cn/gs/xw/xj/2026-09-16/932699.shtml"
+          "title": "关于CSP-J/S 2026（第二轮）广东省晋级规则与测算办法的通知",
+          "url": "https://www.noi.cn/gs/xw/gd/2026-09-19/933453.shtml",
+          "date": "2026-09-19"
         },
         {
-          "title": "2026年福建地区CSP-J/S2026第一轮认证考生须知及注意事项",
-          "url": "https://www.noi.cn/gs/xw/fj/2026-09-16/932636.shtml"
+          "title": "CSP-J/S 2026（第一轮）广东地区选手信息更正",
+          "url": "https://www.noi.cn/gs/xw/gd/2026-09-19/933442.shtml",
+          "date": "2026-09-19"
         }
       ]
     }

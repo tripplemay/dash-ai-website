@@ -1,11 +1,14 @@
 {
   "key": "water-tech-invention",
   "name": "全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛",
-  "checkedAt": "2026-09-16T16:38:21.924Z",
+  "checkedAt": "2026-09-19T07:48:19.909Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:48:19.909Z",
   "pages": {
     "http://www.chinaeol.net/tzgga/": {
       "hash": "2db6f0541287bc143f8439f1f9284a4b3371f6c7",
+      "layer": "fetch",
       "items": [
         {
           "title": "关于CEEC",

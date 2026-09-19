@@ -1,7 +1,156 @@
 {
   "key": "ccho",
   "name": "全国中学生化学奥林匹克竞赛",
-  "checkedAt": "2026-09-16T16:38:53.041Z",
-  "status": "needsManualCheck",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:48:50.599Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "https://www.chemsoc.org.cn/": {
+      "hash": "e6156b1ffaf6b844a6777319bf1634554f61122d",
+      "layer": "render",
+      "items": [
+        {
+          "title": "个人会员登录",
+          "url": "https://www.chemsoc.org.cn/member/login.php"
+        },
+        {
+          "title": "延长会员有效期",
+          "url": "https://www.chemsoc.org.cn/member/login.php?url=/member/payment.php"
+        },
+        {
+          "title": "申请成为单位会员",
+          "url": "https://www.chemsoc.org.cn/ccsunit/"
+        },
+        {
+          "title": "理事单位名单",
+          "url": "https://www.chemsoc.org.cn/ccsunit/alist/"
+        },
+        {
+          "title": "团体会员名单",
+          "url": "https://www.chemsoc.org.cn/ccsunit/olist/"
+        },
+        {
+          "title": "· 中国化学会第40届中国化学奥林匹克（初赛）试题参考答案公布",
+          "url": "https://www.chemsoc.org.cn/notice/a7499.html",
+          "date": "2026-09-13"
+        },
+        {
+          "title": "· 中国化学会第一届“玩转化学”科学探索课程征集通知",
+          "url": "https://www.chemsoc.org.cn/notice/a7495.html",
+          "date": "2026-09-13"
+        },
+        {
+          "title": "· 中国化学会第三届“无处不化学”主题科普征文通知",
+          "url": "https://www.chemsoc.org.cn/notice/a7494.html",
+          "date": "2026-09-13"
+        },
+        {
+          "title": "· 第40届中国化学奥林匹克（初赛）试题公布",
+          "url": "https://www.chemsoc.org.cn/notice/a7491.html",
+          "date": "2026-09-06"
+        },
+        {
+          "title": "· 2026年中国化学奥林匹克（决赛）省队队员选拔方式",
+          "url": "https://www.chemsoc.org.cn/notice/a7432.html",
+          "date": "2026-08-12"
+        },
+        {
+          "title": "· 关于推荐2026年中国科协青年科技人才培育工程博士生专项计划候选人的通知",
+          "url": "https://www.chemsoc.org.cn/notice/a7421.html",
+          "date": "2026-08-06"
+        },
+        {
+          "title": "· 关于征集中意化学交流合作信息的通知",
+          "url": "https://www.chemsoc.org.cn/notice/a7362.html",
+          "date": "2026-07-24"
+        },
+        {
+          "title": "· 关于征集中国化学会科普专家的通知",
+          "url": "https://www.chemsoc.org.cn/notice/a7323.html",
+          "date": "2026-07-03"
+        },
+        {
+          "title": "青年人才托举工程",
+          "url": "https://www.chemsoc.org.cn/talent/"
+        },
+        {
+          "title": "推荐会议 查看更多",
+          "url": "https://www.chemsoc.org.cn/meeting/home/"
+        },
+        {
+          "title": "会议通知 查看更多",
+          "url": "https://www.chemsoc.org.cn/meeting/home/announcement/"
+        },
+        {
+          "title": "会议报道 查看更多",
+          "url": "https://www.chemsoc.org.cn/meeting/home/news/"
+        },
+        {
+          "title": "中国化学会第七届全国超快光谱会议",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m670",
+          "date": "2026-12-04"
+        },
+        {
+          "title": "中国化学会第十六届全国理论与计算化学会议",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m685",
+          "date": "2026-12-25"
+        },
+        {
+          "title": "中国化学会第二十三全国金属有机化学学术讨论会",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m665",
+          "date": "2026-10-29"
+        },
+        {
+          "title": "中国化学会第一届全国再生资源循环化学学术会议",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m696",
+          "date": "2026-10-22"
+        },
+        {
+          "title": "中国化学会第五届全国有机自由基化学会议",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m648",
+          "date": "2026-10-23"
+        },
+        {
+          "title": "中国化学会第一届全国再生资源循环化学学术会议会议通知",
+          "url": "https://www.chemsoc.org.cn/meeting/home/announcement/a7493.html",
+          "date": "2026-09-10"
+        },
+        {
+          "title": "中国化学会第十六届全国理论与计算化学会议第一轮会议通知",
+          "url": "https://www.chemsoc.org.cn/meeting/home/announcement/a7487.html",
+          "date": "2026-09-02"
+        },
+        {
+          "title": "2026长春高分子化学与材料大会第一轮通知",
+          "url": "https://www.chemsoc.org.cn/meeting/home/announcement/a7478.html",
+          "date": "2026-08-28"
+        },
+        {
+          "title": "中国化学会第十八届固态化学与无机合成学术会议会议通知",
+          "url": "https://www.chemsoc.org.cn/meeting/home/announcement/a7477.html",
+          "date": "2026-08-28"
+        },
+        {
+          "title": "中国化学会第十届全国配位化学会议在天津举办",
+          "url": "https://www.chemsoc.org.cn/meeting/home/news/a6912.html",
+          "date": "2025-09-29"
+        },
+        {
+          "title": "芯片制造电子电镀表界面科学基础 研讨活动在京举办",
+          "url": "https://www.chemsoc.org.cn/meeting/home/news/a6910.html",
+          "date": "2025-09-29"
+        },
+        {
+          "title": "超越自然进化的生物合成研讨活动在京举办",
+          "url": "https://www.chemsoc.org.cn/meeting/home/news/a6908.html",
+          "date": "2025-09-23"
+        },
+        {
+          "title": "中国化学会第二届“华聚荟”论坛暨“菁青论坛”特别会议在兰州举办",
+          "url": "https://www.chemsoc.org.cn/meeting/home/news/a6845.html",
+          "date": "2025-08-07"
+        }
+      ]
+    }
+  }
 }

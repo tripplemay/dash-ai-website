@@ -1,7 +1,19 @@
 {
   "key": "shici-meiyu",
   "name": "中华诗词美育大赛",
-  "checkedAt": "2026-09-16T16:40:06.457Z",
-  "status": "needsManualCheck",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:53:39.065Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "http://www.zhscmyds.com/": {
+      "hash": "8edaaed135bee3bef20dd3f5cdcaeaf85fba13f7",
+      "layer": "render",
+      "items": [
+        {
+          "title": "2026年中华诗词美育大赛竞赛规程",
+          "url": "https://www.zhscmyds.com/views/pc/126/AZgAAAMoSFQgIAw/"
+        }
+      ]
+    }
+  }
 }

@@ -1,7 +1,71 @@
 {
   "key": "national-defense-youth",
   "name": "全国青少年国防素养大赛",
-  "checkedAt": "2026-09-16T16:40:53.911Z",
-  "status": "needsManualCheck",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:55:51.186Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "https://www.gfsy.org.cn/": {
+      "hash": "26a75b01d81a0b9e00eef20477e3abe4cfb54b97",
+      "layer": "render",
+      "items": [
+        {
+          "title": "全国青少年国防素养大赛",
+          "url": "https://www.gfsy.org.cn/"
+        },
+        {
+          "title": "【全国总决赛】全国总决赛获奖查询功能开放的公告2026/08/31",
+          "url": "https://www.gfsy.org.cn/news/abb385b8cc32456d8fec5a863b52ee29",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "2025—2026学年全国青少年国防素养大赛获奖查询操作指南2026/08/31",
+          "url": "https://www.gfsy.org.cn/news/8048fd1617dc4d8fbbcdac0185699412",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "【全国总决赛】关于2025—2026学年全国青少年国防素养大赛总决赛获奖查询功能开放时间安排的通知2026/08/23",
+          "url": "https://www.gfsy.org.cn/news/7b499a6560b0426b8e30517146e7aee3",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "【通知】关于对尚未确认行程信息的全国总决赛选手进行提醒的通知2026/08/13",
+          "url": "https://www.gfsy.org.cn/news/50ef5b239f63483994d953fc0dbd8a3b",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "【通知】关于对2025—2026学年全国青少年国防素养大赛全国总决赛选手行程信息进行确认的通知2026/08/10",
+          "url": "https://www.gfsy.org.cn/news/4b377038d29a4850bac7c5ccdd726a5f",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "【通知】2025—2026学年全国青少年国防素养大赛全国总决赛选手参赛手册2026/08/08",
+          "url": "https://www.gfsy.org.cn/news/3613428a86554b53a056051f537a5006",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "【温馨提示】关于总决赛承办地周边酒店信息的温馨提示2026/08/01",
+          "url": "https://www.gfsy.org.cn/news/3f23be0e03ef44cb85303d4af1481c92",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "【通知】关于举办2025—2026学年全国青少年国防素养大赛全国总决赛的通知2026/07/30",
+          "url": "https://www.gfsy.org.cn/news/bee3b6ee020141359ff32525ffaeb52c",
+          "date": "2026-08-31"
+        },
+        {
+          "title": "河北综合赛区",
+          "url": "https://www.gfsy.org.cn/zones/866121c613044ffbaca06ec84b94f5b9"
+        },
+        {
+          "title": "湖北综合赛区",
+          "url": "https://www.gfsy.org.cn/zones/db040dec333747da907b753f967a1501"
+        },
+        {
+          "title": "四川综合赛区",
+          "url": "https://www.gfsy.org.cn/zones/dcdd5bbe7c424669837f484b19b9f916"
+        }
+      ]
+    }
+  }
 }

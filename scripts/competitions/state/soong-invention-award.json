@@ -1,11 +1,14 @@
 {
   "key": "soong-invention-award",
   "name": "宋庆龄少年儿童发明奖",
-  "checkedAt": "2026-09-16T16:38:16.658Z",
+  "checkedAt": "2026-09-19T07:47:56.396Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:47:56.396Z",
   "pages": {
     "https://sclaci.sclc2017.org/": {
       "hash": "3ab9f212fc6b45c65b137d48f547c7bbc3b79154",
+      "layer": "fetch",
       "items": [
         {
           "title": "我会组团参加第13届澳门国际创新发明展再创佳绩 2025-11-04",

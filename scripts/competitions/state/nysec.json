@@ -1,16 +1,23 @@
 {
   "key": "nysec",
   "name": "全国青少年科学实验能力大赛",
-  "checkedAt": "2026-09-16T16:39:18.978Z",
+  "checkedAt": "2026-09-19T07:50:10.542Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:50:10.542Z",
   "pages": {
     "https://www.ceeia.cn/news/1/": {
-      "hash": "0ceea7f5f4a5811a0d98b3103e11a69695f9fdd1",
+      "hash": "8dd05b5415af15ea2a74da56b98b5fc8366851d0",
+      "layer": "fetch",
       "items": [
         {
           "title": "第十二届亚洲教育装备博览会在杭州开幕",
           "url": "https://www.ceeia.cn/news/detail_4166.htm",
           "date": "2026-09-15"
+        },
+        {
+          "title": "党建引领聚合力 尊师惠师暖人心——第三期尊师惠师公益行动爱心企业发布仪式在京举办",
+          "url": "https://www.ceeia.cn/news/detail_4168.htm"
         },
         {
           "title": "首届全国青少年科学实验能力大赛全国决赛在济南启幕",
@@ -31,10 +38,6 @@
         {
           "title": "第87届中国教育装备展示会圆满落幕",
           "url": "https://www.ceeia.cn/news/detail_4130.htm"
-        },
-        {
-          "title": "第87届中国教育装备展示会在蓉开幕",
-          "url": "https://www.ceeia.cn/news/detail_4127.htm"
         },
         {
           "title": "关于《中小学信息科技实验室建设与装备规范》等八项团体标准征求意见的函",

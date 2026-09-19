@@ -1,11 +1,14 @@
 {
   "key": "ai-digital-art",
   "name": "全国青少年人工智能辅助生成数字艺术创作者大赛",
-  "checkedAt": "2026-09-16T16:40:57.961Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T07:56:04.355Z",
+  "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:56:04.355Z",
   "pages": {
     "https://www.mcasc.com.cn/tongzhis/": {
       "hash": "1ec4e48d5183d9fcae6430c941b8406a3af2c385",
+      "layer": "fetch",
       "items": [
         {
           "title": "文化艺术要闻",

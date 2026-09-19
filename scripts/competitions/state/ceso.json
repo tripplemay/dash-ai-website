@@ -1,11 +1,14 @@
 {
   "key": "ceso",
   "name": "全国中学生地球科学奥林匹克竞赛",
-  "checkedAt": "2026-09-16T16:38:32.051Z",
+  "checkedAt": "2026-09-19T07:48:35.368Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:48:35.368Z",
   "pages": {
     "https://ceso.ssoc.org.cn/": {
       "hash": "b3b4fd159975b09e9914090ef07dc66150e177b5",
+      "layer": "fetch",
       "items": [
         {
           "title": "国际地球科学奥林匹克竞赛中国赛区选拔赛",

@@ -1,11 +1,14 @@
 {
   "key": "china-story-contest",
   "name": "“讲好中国故事”全国中小学语言素养大赛",
-  "checkedAt": "2026-09-16T16:40:14.263Z",
+  "checkedAt": "2026-09-19T07:54:05.977Z",
   "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:54:05.977Z",
   "pages": {
     "https://www.centv.cn/": {
-      "hash": "7f377691d9efbc6ce12716f8e3ad6ab2776d583d",
+      "hash": "a7b9e7d4416c04bfd3abdc4e808c096d4f2dc7da",
+      "layer": "fetch",
       "items": [
         {
           "title": "女声独唱《兰花草》",

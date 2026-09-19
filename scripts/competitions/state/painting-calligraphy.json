@@ -1,7 +1,69 @@
 {
   "key": "painting-calligraphy",
   "name": "全国中小学生绘画书法作品比赛",
-  "checkedAt": "2026-09-16T16:40:17.757Z",
-  "status": "needsManualCheck",
-  "pages": {}
+  "checkedAt": "2026-09-19T07:54:26.165Z",
+  "status": "first-scan",
+  "errorStreak": 0,
+  "pages": {
+    "https://www.ccc.org.cn/col/col283/": {
+      "hash": "f4537312fcc63eb4a2b85cee2832bb547ccbe5ff",
+      "layer": "render",
+      "items": [
+        {
+          "title": "全国中小学生绘画书法作品比赛",
+          "url": "https://www.ccc.org.cn/col/col281/index.html"
+        },
+        {
+          "title": "关于举办第三十届全国中小学生绘画书法作品比赛的通知",
+          "url": "https://www.ccc.org.cn/art/2026/4/9/art_283_231823.html",
+          "date": "2026-04-09"
+        },
+        {
+          "title": "第三十届全国中小学生绘画书法作品比赛咨询问答",
+          "url": "https://www.ccc.org.cn/art/2026/4/9/art_283_231822.html",
+          "date": "2026-04-09"
+        },
+        {
+          "title": "第二十九届全国中小学生绘画书法作品比赛总结颁奖系列活动在吉林延边举办",
+          "url": "https://www.ccc.org.cn/art/2025/8/5/art_283_229769.html",
+          "date": "2025-08-05"
+        },
+        {
+          "title": "第二十九届全国中小学生绘画书法作品比赛咨询问答",
+          "url": "https://www.ccc.org.cn/art/2025/1/17/art_283_229106.html",
+          "date": "2025-01-17"
+        },
+        {
+          "title": "第二十九届全国中小学生绘画书法作品比赛评审规则",
+          "url": "https://www.ccc.org.cn/art/2025/1/17/art_283_229105.html",
+          "date": "2025-01-17"
+        },
+        {
+          "title": "第二十九届全国中小学生绘画书法作品比赛赛程赛制说明",
+          "url": "https://www.ccc.org.cn/art/2025/1/17/art_283_229104.html",
+          "date": "2025-01-17"
+        },
+        {
+          "title": "关于举办第二十九届全国中小学生绘画书法作品比赛的通知",
+          "url": "https://www.ccc.org.cn/art/2025/1/17/art_283_229103.html",
+          "date": "2025-01-17"
+        },
+        {
+          "title": "“我喜爱的中国风”系列艺术探索实践活动暨第二十九届全国中小学生绘画书法作品比赛启动活动在云南举办",
+          "url": "https://www.ccc.org.cn/art/2024/11/27/art_283_228348.html",
+          "date": "2024-11-27"
+        },
+        {
+          "title": "第二十八届全国中小学生绘画书法作品比赛总结颁奖系列活动在甘肃敦煌举办",
+          "url": "https://www.ccc.org.cn/art/2024/7/26/art_283_224887.html",
+          "date": "2024-07-26"
+        },
+        {
+          "title": "第二十八届全国中小学生绘画书法作品比赛专家评审会顺利召开",
+          "url": "https://www.ccc.org.cn/art/2024/7/2/art_283_224271.html",
+          "date": "2024-07-02"
+        }
+      ]
+    }
+  }
 }

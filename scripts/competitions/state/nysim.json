@@ -1,15 +1,54 @@
 {
   "key": "nysim",
   "name": "全国青少年科学探究建模能力大赛",
-  "checkedAt": "2026-09-16T16:39:21.703Z",
-  "status": "unchanged",
+  "checkedAt": "2026-09-19T07:50:21.451Z",
+  "status": "changed",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:50:21.451Z",
   "pages": {
     "https://simcc.bnu.edu.cn/ssgg/index.htm": {
-      "hash": "bb3c7c8768c14887e393ccf8777f77d79feb1057",
+      "hash": "8f983fd97a419ee2a3b758853929a4b84e1d38d9",
+      "layer": "render",
       "items": [
         {
-          "title": "首页(赛事中心)",
-          "url": "https://simcc.bnu.edu.cn/index.html"
+          "title": "关于严禁冒用大赛主办单位及地区承办单位名义开展活动的严正声明",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/ac2d8ecb55c24d8c95920ea609479788.htm"
+        },
+        {
+          "title": "关于公布2025-2026学年全国青少年科学探究建模能力大赛第一批省级组委会通过名单的通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/9203aa74c64b44c4a6a3e02ce25c73a2.htm"
+        },
+        {
+          "title": "关于全国青少年科学探究建模能力大赛初赛通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/6ab2ab0613334b878aafc408ba2a3989.htm"
+        },
+        {
+          "title": "2025-2026学年全国青少年科学探究建模能力大赛参赛须知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/77277ce9e5b448848eec744291ec08e7.htm"
+        },
+        {
+          "title": "2025-2026学年全国青少年科学探究建模能力大赛实施办法",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/706a326ebad74100a0a3228511b4ec26.htm"
+        },
+        {
+          "title": "全国青少年科学探究建模能力大赛防范奖项买卖专项工作方案",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/983b4c37fb884cbc9dc4c46018c2da3e.htm"
+        },
+        {
+          "title": "全国青少年科学探究建模能力大赛启动发布说明会会议日程",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/0502c3858ef244eaaf290556de65828b.htm"
+        },
+        {
+          "title": "青少年科技教育与人文教育融合创新发展学术交流活动会议议程",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/aa7dfe950dd84af0ad74fb2b63aeeb1a.htm"
+        },
+        {
+          "title": "关于举办“全国青少年科学探究建模能力大赛启动发布说明会”的通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/c67267ab24be462c81c2b7f428f72de9.htm"
+        },
+        {
+          "title": "关于举办“青少年科技教育与人文教育融合创新发展学术交流活动”的通知",
+          "url": "https://simcc.bnu.edu.cn/ssgg/gsgg/b6e94e83c3464596844406743192016c.htm"
         }
       ]
     }

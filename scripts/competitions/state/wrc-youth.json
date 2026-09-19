@@ -1,11 +1,14 @@
 {
   "key": "wrc-youth",
   "name": "世界机器人大会青少年机器人设计与信息素养大赛",
-  "checkedAt": "2026-09-16T16:38:10.974Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T07:47:35.992Z",
+  "status": "unchanged",
+  "errorStreak": 0,
+  "lastOkAt": "2026-09-19T07:47:35.992Z",
   "pages": {
     "https://www.worldrobotconference.com/contest/YouthRobotDesignContest/2026.html": {
       "hash": "702cb088154b97c3106704f4b48cd1e88a05ab18",
+      "layer": "fetch",
       "items": [
         {
           "title": "世界机器人大会论坛",
