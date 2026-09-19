@@ -1,4 +1,7 @@
 {
   "slug": "water-tech-invention",
-  "papers": []
+  "papers": [
+    {"id":"water-tech-invention-2026-other-7f3966","year":2026,"stage":"其他","grade":null,"title":"苏州少年首夺全国中学生水科技发明比赛特等奖 将代表中国征战斯德哥尔摩国际赛场 | 苏州市生态环境局","files":[{"kind":"attachment","format":"jpg","fileKey":"files/papers/water-tech-invention/water-tech-invention-2026-other-7f3966-attachment.jpg","size":376247,"sha256":"ac878869bfaba1be3da80b2bcf1addf7f65bd6d435c2f73c3cd6bb55dc532135"}],"hasAnswer":false,"source":{"name":"sthjj.suzhou.gov.cn","url":"http://sthjj.suzhou.gov.cn/szhbj/tpxw/202605/ba71f33c16414b08b0c1de71a74f6674.shtml"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"water-tech-invention-2025-other-48d0d6","year":2025,"stage":"其他","grade":null,"title":"生态环境部宣传教育中心","files":[{"kind":"attachment","format":"doc","fileKey":"files/papers/water-tech-invention/water-tech-invention-2025-other-48d0d6-attachment.doc","size":23666,"sha256":"1948216bb88582c0aa8fb77cf591f25d52fdac7bd48ffd01f8e096fb2a993108"},{"kind":"attachment","format":"docx","fileKey":"files/papers/water-tech-invention/water-tech-invention-2025-other-48d0d6-attachment2.docx","size":26876,"sha256":"5636cc94b5c25a99acc24f44d7f50c28caf1551654208afc286f5c004b1077dc"},{"kind":"attachment","format":"docx","fileKey":"files/papers/water-tech-invention/water-tech-invention-2025-other-48d0d6-attachment3.docx","size":28640,"sha256":"b7b8657b508ac8bf6c36eb126d0265486dc743a8aba9cf950321a9032045ae53"}],"hasAnswer":false,"source":{"name":"www.ceec.cn","url":"http://www.ceec.cn/tzgga/202511/t20251128_1135206.shtml"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

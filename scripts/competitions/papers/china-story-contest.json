@@ -1,4 +1,6 @@
 {
   "slug": "china-story-contest",
-  "papers": []
+  "papers": [
+    {"id":"china-story-contest-2023-other-ab0c6b","year":2023,"stage":"其他","grade":null,"title":"跨文化教学与测评研究基地","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/china-story-contest/china-story-contest-2023-other-ab0c6b-attachment.pdf","size":38037523,"sha256":"7a3510d4d0cb42c30015099e30e978848c90c1e180a3f4075f94c5500fc6081c"}],"hasAnswer":false,"source":{"name":"ict.sflep.com","url":"https://ict.sflep.com/uploadfile/2023/0419/20230419051429237.pdf"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

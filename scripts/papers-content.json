@@ -1,12 +1,36 @@
 {
-  "generatedAt": "2026-09-19T18:59:31.561Z",
+  "generatedAt": "2026-09-19T19:31:54.723Z",
   "competitions": [
     {
       "slug": "nyaic",
       "nameZh": "全国青少年人工智能创新挑战赛",
       "category": "natural-science",
       "moeListIndex": 1,
-      "papers": []
+      "papers": [
+        {
+          "id": "nyaic-2022-other-80cf32",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "第五届全国青少年人工智能创新挑战赛机器人工程设计专项赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/nyaic/nyaic-2022-other-80cf32-attachment.pdf",
+              "size": 992010,
+              "sha256": "794c1f0fc712e1c60249e61cbc7ce1119e0bde4029b5803c3914c3b063b71475"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "tx-jeecms.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn",
+            "url": "https://tx-jeecms.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/base/u/cms/zgerfzzz/2022-04-18/8056d8e9-db46-453b-bc24-e2bba3b57245.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "wrc-youth",
@@ -426,7 +450,68 @@
       "nameZh": "全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛",
       "category": "natural-science",
       "moeListIndex": 7,
-      "papers": []
+      "papers": [
+        {
+          "id": "water-tech-invention-2026-other-7f3966",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "苏州少年首夺全国中学生水科技发明比赛特等奖 将代表中国征战斯德哥尔摩国际赛场 | 苏州市生态环境局",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2026-other-7f3966-attachment.jpg",
+              "size": 376247,
+              "sha256": "ac878869bfaba1be3da80b2bcf1addf7f65bd6d435c2f73c3cd6bb55dc532135"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "sthjj.suzhou.gov.cn",
+            "url": "http://sthjj.suzhou.gov.cn/szhbj/tpxw/202605/ba71f33c16414b08b0c1de71a74f6674.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "water-tech-invention-2025-other-48d0d6",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "生态环境部宣传教育中心",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "doc",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2025-other-48d0d6-attachment.doc",
+              "size": 23666,
+              "sha256": "1948216bb88582c0aa8fb77cf591f25d52fdac7bd48ffd01f8e096fb2a993108"
+            },
+            {
+              "kind": "attachment",
+              "format": "docx",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2025-other-48d0d6-attachment2.docx",
+              "size": 26876,
+              "sha256": "5636cc94b5c25a99acc24f44d7f50c28caf1551654208afc286f5c004b1077dc"
+            },
+            {
+              "kind": "attachment",
+              "format": "docx",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2025-other-48d0d6-attachment3.docx",
+              "size": 28640,
+              "sha256": "b7b8657b508ac8bf6c36eb126d0265486dc743a8aba9cf950321a9032045ae53"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.ceec.cn",
+            "url": "http://www.ceec.cn/tzgga/202511/t20251128_1135206.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "ceso",
@@ -1329,14 +1414,69 @@
       "nameZh": "全国青少年科技创新大赛",
       "category": "natural-science",
       "moeListIndex": 14,
-      "papers": []
+      "papers": [
+        {
+          "id": "castic-2006-other-9b43ed",
+          "year": 2006,
+          "stage": "其他",
+          "grade": null,
+          "title": "关于发布第21届全国青少年科技创新大赛获奖名单的通知 - 中华人民共和国教育部政府门户网站",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "doc",
+              "fileKey": "files/papers/castic/castic-2006-other-9b43ed-gallery.doc",
+              "size": 783360,
+              "sha256": "bc9e07a7386325f61933721337b16ae655ea23402dd25472e3bd40bec0fca2fd"
+            },
+            {
+              "kind": "gallery",
+              "format": "doc",
+              "fileKey": "files/papers/castic/castic-2006-other-9b43ed-gallery2.doc",
+              "size": 41472,
+              "sha256": "633eab5f8a0127db90df85697e6b3643f1fceadd97502cbcf9e0ef1b91f5bcac"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.moe.gov.cn",
+            "url": "http://www.moe.gov.cn/srcsite/A26/s7054/200612/t20061221_78506.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "nysic",
       "nameZh": "全国青少年航天创新大赛",
       "category": "natural-science",
       "moeListIndex": 15,
-      "papers": []
+      "papers": [
+        {
+          "id": "nysic-2025-other-c06a11",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "2025-2026学年全国青少年航天创新大赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/nysic/nysic-2025-other-c06a11-attachment.pdf",
+              "size": 272017,
+              "sha256": "1fa9e88f0621609762f38a0119b96bdb1176f22184ca36c3a99f40987733664f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "cdn.zizzs.com",
+            "url": "https://cdn.zizzs.com/zixunzhan/1%E8%88%AA%E5%A4%A9%E7%A7%91%E6%8A%80%E5%88%9B%E6%96%B0%E8%B5%9B%E8%A7%84%E5%88%99-202601301501061769768160437.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "yau-awards",
@@ -1393,14 +1533,155 @@
       "nameZh": "全球发明大会（中国）竞赛活动",
       "category": "natural-science",
       "moeListIndex": 17,
-      "papers": []
+      "papers": [
+        {
+          "id": "icc-china-2022-other-d6e077",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "2022-2023年度全球发明大会中国区上海市竞赛活动规则",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "html",
+              "externalUrl": "https://www.nanonanclub.com/rule"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.nanonanclub.com",
+            "url": "https://www.nanonanclub.com/rule"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "icc-china-2025-other-54c2c6",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "最近两个需要关注的白名单比赛申报~2025全球发明大会来了！家长 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment.jpg",
+              "size": 233550,
+              "sha256": "a248529cc95988e372ceed35a96f9eb5fa0a2d8d46c0653a1905cd389b5c47a3"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment2.jpg",
+              "size": 139048,
+              "sha256": "b6d87519f67dd58f80fc186948ae7a6d56f8964efd562f3326d5ed1e33f687f6"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment3.jpg",
+              "size": 142623,
+              "sha256": "01712a14fdf412dc4c50395f4b088d693c4f572be0e3ad5e372a649301f5e1dd"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment4.jpg",
+              "size": 92643,
+              "sha256": "a558b4fbdd097a0ec9f1be126b98496e68395b6ff7692c1a06ed30592d3759c4"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment5.jpg",
+              "size": 94301,
+              "sha256": "ce3a1040d2c144df23baaf31d3b524d4ff4c125b7d3db3c7a6a9dbc713a514b1"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment6.jpg",
+              "size": 156408,
+              "sha256": "c239277bd369f981f103deea0ec731a3a156ae488246b8314a6bbf15b3d76c69"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment7.jpg",
+              "size": 164233,
+              "sha256": "c06fd81db246329c8fa6d09b0c11c22856103b114fa402df70f43183c238d3ba"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/icc-china/icc-china-2025-other-54c2c6-attachment8.png",
+              "size": 5668,
+              "sha256": "ef629e3653708d1111f31390b5256f43dabcefd6db282afcb3cd361b031fa848"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "xd.sh.cn",
+            "url": "https://xd.sh.cn/2025-icc-1/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "ny-ai-contest",
       "nameZh": "全国青少年人工智能大赛",
       "category": "natural-science",
       "moeListIndex": 18,
-      "papers": []
+      "papers": [
+        {
+          "id": "ny-ai-contest-2026-chuji-b45939",
+          "year": 2026,
+          "stage": "初赛",
+          "grade": null,
+          "title": "首届全国青少年人工智能大赛初赛指南说明",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/ny-ai-contest/ny-ai-contest-2026-chuji-b45939-attachment.pdf",
+              "size": 1267830,
+              "sha256": "b92674c4a46a6936038b5f74ddf13b1f2455fbd29c747862cd5b37f1a8808fa9"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "hbaai.com",
+            "url": "https://hbaai.com/userfiles/f42ee026581748fc952f940fd6e67050/web//cms/contents/tinymce/2026/4/%E9%99%84%E4%BB%B62%EF%BC%9A%E9%A6%96%E5%B1%8A%E5%85%A8%E5%9B%BD%E9%9D%92%E5%B0%91%E5%B9%B4%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%A4%A7%E8%B5%9B%E5%88%9D%E8%B5%9B%E6%8C%87%E5%8D%97%E8%AF%B4%E6%98%8E%EF%BC%88%E5%8D%8F%E5%8A%9E%E5%8D%95%E4%BD%8D%E5%8F%8A%E6%8C%87%E5%AF%BC%E6%95%99%E5%B8%88%EF%BC%89(1).pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ny-ai-contest-2026-juesai-d61863",
+          "year": 2026,
+          "stage": "决赛",
+          "grade": null,
+          "title": "首届全国青少年人工智能大赛决赛指南",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/ny-ai-contest/ny-ai-contest-2026-juesai-d61863-attachment.pdf",
+              "size": 2164687,
+              "sha256": "f8f62e0e46c3b8da087f1b06fe79f1ab9cf913eabd70104f40fe741e0183265b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.ceacq.com",
+            "url": "https://www.ceacq.com/uploads/soft/20260608/1-26060Q41352914.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "nysec",
@@ -1414,7 +1695,145 @@
       "nameZh": "全国青少年科学探究建模能力大赛",
       "category": "natural-science",
       "moeListIndex": 20,
-      "papers": []
+      "papers": [
+        {
+          "id": "nysim-2026-other-abeb1a",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "关于举办2026年全国青少年科学探究建模能力大赛分赛项 — 建模能力赛参赛指南！ - 白名单赛事网",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "html",
+              "externalUrl": "https://www.123jingsai.com/zirankexuesuyanglei/136"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.123jingsai.com",
+            "url": "https://www.123jingsai.com/zirankexuesuyanglei/136"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "nysim-2026-other-24d63c",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "2026 年全国青少年科学探究建模能力大赛分赛项",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment.xlsx",
+              "size": 46274,
+              "sha256": "0effe60afd2042660d3dd12706bfa6de4dc481ddcf1f9a36b077da793d5fb571"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment2.xlsx",
+              "size": 21634,
+              "sha256": "542d9eb43b4b0534be3acad5e71c1d9ee326988d82a61e1975104eb46a08f839"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment3.xlsx",
+              "size": 63050,
+              "sha256": "941c55748fc3e95d33fb1fd7e5e18fb5b508c3bca8b53b7656924b81a00222c2"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment4.xlsx",
+              "size": 11251,
+              "sha256": "aaa5ac343e162870a20f1fde2d3c761a174c3d3db7d5450a81524afd6a46adfa"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment5.xlsx",
+              "size": 20680,
+              "sha256": "5fd090762c2f128070b0bf7323ced7d520496e966f868a4e1fdf4f4b55524f11"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment6.xlsx",
+              "size": 65975,
+              "sha256": "9cfdd6b63ec932aff79920c801f10f01b963b260dd29fcc09c49ab3b7eb71d29"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment7.xlsx",
+              "size": 49645,
+              "sha256": "e4bf246b0dd7d8880538e1ac555873d66ba0f1044a2695e82e62f1eba507da0f"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment8.xlsx",
+              "size": 71411,
+              "sha256": "c8bb715bd8010abfa63e7059abb14a6b812ff2e6d7f9fec19e88023caff46159"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment9.xlsx",
+              "size": 11870,
+              "sha256": "02ebdae6f242ad445972934d575421b37473548ab91b8878a18fc791db3af242"
+            },
+            {
+              "kind": "attachment",
+              "format": "xlsx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-24d63c-attachment10.xlsx",
+              "size": 579174,
+              "sha256": "0e2efd0b741f2cf222f42fcc1a31be41d6bd8eca04cd6fd5d35553cb68035a07"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "mm.bnu.edu.cn",
+            "url": "https://mm.bnu.edu.cn/zxjy/3e603228a87f4a5388af04a8e952c39a.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "nysim-2026-other-c21b3f",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "关于推荐“全国青少年科学探究建模能力大赛”地市级赛事组委会的通知 - 湖南省电化教育馆",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "docx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-c21b3f-attachment.docx",
+              "size": 18619,
+              "sha256": "6559a9981bb6621528f24d5baf8a34db8648fc9aecac1c83b150f3b8ef326326"
+            },
+            {
+              "kind": "attachment",
+              "format": "docx",
+              "fileKey": "files/papers/nysim/nysim-2026-other-c21b3f-attachment2.docx",
+              "size": 17696,
+              "sha256": "d6557cc408c821723f2d656bff36923ede425ae401a7fa9ce84eca7c9c6e2e6d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "jyt.hunan.gov.cn",
+            "url": "https://jyt.hunan.gov.cn/jyt/sjyt/dhjyg/djgtzgg/202606/t20260622_34009222.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "youth-psy-innovation",
@@ -1435,7 +1854,50 @@
       "nameZh": "全国青少年禁毒知识竞赛",
       "category": "humanities",
       "moeListIndex": 23,
-      "papers": []
+      "papers": [
+        {
+          "id": "anti-drug-quiz-2025-other-5a99a8",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "2025年全国青少年禁毒知识竞赛题库",
+          "files": [
+            {
+              "kind": "problem",
+              "format": "html",
+              "externalUrl": "https://m.sohu.com/a/952947918_121106884?pvid=000115_3w_a&scm=10001.8085_13-8085_13.0.0-0-0-0-0.0"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "m.sohu.com",
+            "url": "https://m.sohu.com/a/952947918_121106884?pvid=000115_3w_a&scm=10001.8085_13-8085_13.0.0-0-0-0-0.0"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "anti-drug-quiz-2024-juesai-0a9125",
+          "year": 2024,
+          "stage": "决赛",
+          "grade": null,
+          "title": "全国青少年禁毒知识竞赛决赛真题一起学！跟着阿楠阿柠来刷题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "html",
+              "externalUrl": "https://news.qq.com/rain/a/20241101A08AEQ00"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "news.qq.com",
+            "url": "https://news.qq.com/rain/a/20241101A08AEQ00"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "zuowendasai",
@@ -1508,7 +1970,31 @@
       "nameZh": "全国中学生环境保护优秀作文征集活动",
       "category": "humanities",
       "moeListIndex": 27,
-      "papers": []
+      "papers": [
+        {
+          "id": "eco-essay-2021-other-71201a",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "第三届全国中学生环境保护优秀作文征集活动启动",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/eco-essay/eco-essay-2021-other-71201a-attachment.jpg",
+              "size": 732897,
+              "sha256": "22ae86d341e81ec98923555f8eec1239c36013e5d5110ee16388c6a0a30cbb3f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "cn.chinadaily.com.cn",
+            "url": "https://cn.chinadaily.com.cn/a/202111/18/WS61960963a3107be4979f8d6c.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "bantu-quiz",
@@ -1551,7 +2037,31 @@
       "nameZh": "中华诗词美育大赛",
       "category": "humanities",
       "moeListIndex": 30,
-      "papers": []
+      "papers": [
+        {
+          "id": "shici-meiyu-2026-other-d208ba",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "“中华诗词美育大赛”启动仪式在京举行 - 中国日报网",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/shici-meiyu/shici-meiyu-2026-other-d208ba-attachment.jpg",
+              "size": 1198169,
+              "sha256": "6fb6eaa23f62f944224cbe2049fd4321d061f4f46fe2cddd4c9897594a24708f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "caijing.chinadaily.com.cn",
+            "url": "https://caijing.chinadaily.com.cn/a/202601/16/WS6969ce99a310942cc499b805.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "luxunwenxue",
@@ -1572,14 +2082,62 @@
       "nameZh": "“讲好中国故事”全国中小学语言素养大赛",
       "category": "humanities",
       "moeListIndex": 33,
-      "papers": []
+      "papers": [
+        {
+          "id": "china-story-contest-2023-other-ab0c6b",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "跨文化教学与测评研究基地",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/china-story-contest/china-story-contest-2023-other-ab0c6b-attachment.pdf",
+              "size": 38037523,
+              "sha256": "7a3510d4d0cb42c30015099e30e978848c90c1e180a3f4075f94c5500fc6081c"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "ict.sflep.com",
+            "url": "https://ict.sflep.com/uploadfile/2023/0419/20230419051429237.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "tongsong-zhonghua",
       "nameZh": "同颂中华·全国青少年志愿文学创作与诵读大赛",
       "category": "humanities",
       "moeListIndex": 34,
-      "papers": []
+      "papers": [
+        {
+          "id": "tongsong-zhonghua-2025-other-aef559",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "首届“同颂中华·全国青少年志愿文学创作与诵读大赛”启动",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/tongsong-zhonghua/tongsong-zhonghua-2025-other-aef559-attachment.pdf",
+              "size": 533797,
+              "sha256": "8324d7476a22271c3f4b480e85aee8d7e8adb1ba67f4daf5d4eb5469eec30dc3"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "news.youth.cn",
+            "url": "https://news.youth.cn/gn/202511/t20251128_16374699.htm"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "painting-calligraphy",
@@ -1593,14 +2151,154 @@
       "nameZh": "“我爱祖国海疆”全国青少年航海模型教育竞赛",
       "category": "art-sports",
       "moeListIndex": 36,
-      "papers": []
+      "papers": [
+        {
+          "id": "nautical-model-2025-other-c48e1a",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "飞向太空”全国青少年航空航天模型教育竞赛（新疆赛区巴 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/nautical-model/nautical-model-2025-other-c48e1a-attachment.pdf",
+              "size": 857594,
+              "sha256": "50ee2974dcad4237929575c02d92d988cca51caced39c1a8d7a768e3adf2f34d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.xjbz.gov.cn",
+            "url": "https://www.xjbz.gov.cn/xjbz/c101558/202503/d8d5022473754d6aaa9be48867f084e2/files/bda2b4f1175a44b3987a668dd811fc17.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "nautical-model-2011-other-b5b678",
+          "year": 2011,
+          "stage": "其他",
+          "grade": null,
+          "title": "国家体育总局办公教育部办公- 中国科协办国公司共青团中央 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/nautical-model/nautical-model-2011-other-b5b678-attachment.pdf",
+              "size": 18032795,
+              "sha256": "5743b4db7c40f61ddeeee713b7908205fb842d5a3832502e73ec8694d3eb791d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.xiaoxiaotong.org",
+            "url": "https://www.xiaoxiaotong.org/AttachFile/2011/3/10240100/634364276917323750.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "nautical-model-2020-other-0dc404",
+          "year": 2020,
+          "stage": "其他",
+          "grade": null,
+          "title": "行行出状元人人都精彩",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/nautical-model/nautical-model-2020-other-0dc404-attachment.pdf",
+              "size": 7332643,
+              "sha256": "084c15fe54e046e2ce8117da5390b5c8c995b325e07277b1a1a5d6fe27012b1c"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "epaper.cqrb.cn",
+            "url": "https://epaper.cqrb.cn/cqrb/2020-12/28/029/content_rb_276482.htm"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "vehicle-model",
       "nameZh": "“驾驭未来”全国青少年车辆模型教育竞赛",
       "category": "art-sports",
       "moeListIndex": 37,
-      "papers": []
+      "papers": [
+        {
+          "id": "vehicle-model-2025-other-b7e352",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "2025 年“驾驭未来”全国青少年车辆模型教育竞赛规程",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "pdf",
+              "fileKey": "files/papers/vehicle-model/vehicle-model-2025-other-b7e352-rules.pdf",
+              "size": 125710,
+              "sha256": "b4399db1eb11cc473d1605034fd215cdc65b8bfdf56976e10160e361500273a6"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.sport.gov.cn",
+            "url": "https://www.sport.gov.cn/hgzx/n15154/c28607051/part/28607183.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "vehicle-model-2025-other-c48e1a",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "飞向太空”全国青少年航空航天模型教育竞赛（新疆赛区巴 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/vehicle-model/vehicle-model-2025-other-c48e1a-attachment.pdf",
+              "size": 857594,
+              "sha256": "50ee2974dcad4237929575c02d92d988cca51caced39c1a8d7a768e3adf2f34d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.xjbz.gov.cn",
+            "url": "https://www.xjbz.gov.cn/xjbz/c101558/202503/d8d5022473754d6aaa9be48867f084e2/files/bda2b4f1175a44b3987a668dd811fc17.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "vehicle-model-2011-other-b5b678",
+          "year": 2011,
+          "stage": "其他",
+          "grade": null,
+          "title": "国家体育总局办公教育部办公- 中国科协办国公司共青团中央 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/vehicle-model/vehicle-model-2011-other-b5b678-attachment.pdf",
+              "size": 18032795,
+              "sha256": "5743b4db7c40f61ddeeee713b7908205fb842d5a3832502e73ec8694d3eb791d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.xiaoxiaotong.org",
+            "url": "https://www.xiaoxiaotong.org/AttachFile/2011/3/10240100/634364276917323750.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "youth-flight-sim",
@@ -1628,7 +2326,94 @@
       "nameZh": "“希望颂”——全国青少年书画艺术大展",
       "category": "art-sports",
       "moeListIndex": 41,
-      "papers": []
+      "papers": [
+        {
+          "id": "xiwangsong-2022-other-6cd2cf",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "2022-2025 中小学生竞赛白名单44项",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment.jpg",
+              "size": 101841,
+              "sha256": "caf605a46d6a733829872a704e86b67075fb51684abcd56e04f1200ce91c6834"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment2.jpg",
+              "size": 196165,
+              "sha256": "36c39cd337c614b48a9a6cb120dfd42f185e0e228c7d3b39142d130aee067207"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment3.jpg",
+              "size": 35381,
+              "sha256": "7fc9e37b1e108fa2bac6c128906ce14e892d0a725c543f7abfada39fb02de192"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment4.jpg",
+              "size": 111916,
+              "sha256": "d8f7af2d8566c19f69f66afc274093807b39703523961a088f56dedddc32e4ed"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment5.jpg",
+              "size": 75393,
+              "sha256": "d9a733be2fd49788044a61c0e62b1dc90ea326ddec814cbd7470b7b4bd618552"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment6.jpg",
+              "size": 208907,
+              "sha256": "2dab4ee9d5da3c1c0ed3115fee7c4360d7172b4f545519be7f078f94e4e50b48"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment7.jpg",
+              "size": 6480,
+              "sha256": "2f1d7f0c211fff72a752d0c47bedc320ecd70d74c4b5eb772f7339b1e9872302"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment8.jpg",
+              "size": 123879,
+              "sha256": "892563d8fe68296731be5157a13bc8ec5f04021275ee7516be331347b9da486c"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment9.jpg",
+              "size": 57992,
+              "sha256": "0a54b1df4a5319cf902dc9c3c57ef4799c9043f9f8c04336380c7050f83ef676"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/xiwangsong/xiwangsong-2022-other-6cd2cf-attachment10.jpg",
+              "size": 8155,
+              "sha256": "f413c82ca836ad760784939e1c278f545858ed02a6974e612a1677224cdda8a9"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "xuebajiajiayou.com",
+            "url": "https://xuebajiajiayou.com/student-competition-whitelist-2022-2025/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "ocean-design-contest",

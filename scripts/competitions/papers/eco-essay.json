@@ -1,4 +1,6 @@
 {
   "slug": "eco-essay",
-  "papers": []
+  "papers": [
+    {"id":"eco-essay-2021-other-71201a","year":2021,"stage":"其他","grade":null,"title":"第三届全国中学生环境保护优秀作文征集活动启动","files":[{"kind":"attachment","format":"jpg","fileKey":"files/papers/eco-essay/eco-essay-2021-other-71201a-attachment.jpg","size":732897,"sha256":"22ae86d341e81ec98923555f8eec1239c36013e5d5110ee16388c6a0a30cbb3f"}],"hasAnswer":false,"source":{"name":"cn.chinadaily.com.cn","url":"https://cn.chinadaily.com.cn/a/202111/18/WS61960963a3107be4979f8d6c.html"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

@@ -1,4 +1,7 @@
 {
   "slug": "anti-drug-quiz",
-  "papers": []
+  "papers": [
+    {"id":"anti-drug-quiz-2025-other-5a99a8","year":2025,"stage":"其他","grade":null,"title":"2025年全国青少年禁毒知识竞赛题库","files":[{"kind":"problem","format":"html","externalUrl":"https://m.sohu.com/a/952947918_121106884?pvid=000115_3w_a&scm=10001.8085_13-8085_13.0.0-0-0-0-0.0"}],"hasAnswer":false,"source":{"name":"m.sohu.com","url":"https://m.sohu.com/a/952947918_121106884?pvid=000115_3w_a&scm=10001.8085_13-8085_13.0.0-0-0-0-0.0"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"anti-drug-quiz-2024-juesai-0a9125","year":2024,"stage":"决赛","grade":null,"title":"全国青少年禁毒知识竞赛决赛真题一起学！跟着阿楠阿柠来刷题","files":[{"kind":"paper","format":"html","externalUrl":"https://news.qq.com/rain/a/20241101A08AEQ00"}],"hasAnswer":false,"source":{"name":"news.qq.com","url":"https://news.qq.com/rain/a/20241101A08AEQ00"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

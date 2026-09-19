@@ -1,4 +1,8 @@
 {
   "slug": "nautical-model",
-  "papers": []
+  "papers": [
+    {"id":"nautical-model-2025-other-c48e1a","year":2025,"stage":"其他","grade":null,"title":"飞向太空”全国青少年航空航天模型教育竞赛（新疆赛区巴 ...","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/nautical-model/nautical-model-2025-other-c48e1a-attachment.pdf","size":857594,"sha256":"50ee2974dcad4237929575c02d92d988cca51caced39c1a8d7a768e3adf2f34d"}],"hasAnswer":false,"source":{"name":"www.xjbz.gov.cn","url":"https://www.xjbz.gov.cn/xjbz/c101558/202503/d8d5022473754d6aaa9be48867f084e2/files/bda2b4f1175a44b3987a668dd811fc17.pdf"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"nautical-model-2011-other-b5b678","year":2011,"stage":"其他","grade":null,"title":"国家体育总局办公教育部办公- 中国科协办国公司共青团中央 ...","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/nautical-model/nautical-model-2011-other-b5b678-attachment.pdf","size":18032795,"sha256":"5743b4db7c40f61ddeeee713b7908205fb842d5a3832502e73ec8694d3eb791d"}],"hasAnswer":false,"source":{"name":"www.xiaoxiaotong.org","url":"https://www.xiaoxiaotong.org/AttachFile/2011/3/10240100/634364276917323750.pdf"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"nautical-model-2020-other-0dc404","year":2020,"stage":"其他","grade":null,"title":"行行出状元人人都精彩","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/nautical-model/nautical-model-2020-other-0dc404-attachment.pdf","size":7332643,"sha256":"084c15fe54e046e2ce8117da5390b5c8c995b325e07277b1a1a5d6fe27012b1c"}],"hasAnswer":false,"source":{"name":"epaper.cqrb.cn","url":"https://epaper.cqrb.cn/cqrb/2020-12/28/029/content_rb_276482.htm"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

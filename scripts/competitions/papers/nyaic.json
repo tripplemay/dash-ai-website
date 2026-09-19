@@ -1,4 +1,6 @@
 {
   "slug": "nyaic",
-  "papers": []
+  "papers": [
+    {"id":"nyaic-2022-other-80cf32","year":2022,"stage":"其他","grade":null,"title":"第五届全国青少年人工智能创新挑战赛机器人工程设计专项赛","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/nyaic/nyaic-2022-other-80cf32-attachment.pdf","size":992010,"sha256":"794c1f0fc712e1c60249e61cbc7ce1119e0bde4029b5803c3914c3b063b71475"}],"hasAnswer":false,"source":{"name":"tx-jeecms.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn","url":"https://tx-jeecms.oss-cn-hangzhou-zwynet-d01-a.internet.cloud.zj.gov.cn/base/u/cms/zgerfzzz/2022-04-18/8056d8e9-db46-453b-bc24-e2bba3b57245.pdf"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

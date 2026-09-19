@@ -1,4 +1,6 @@
 {
   "slug": "shici-meiyu",
-  "papers": []
+  "papers": [
+    {"id":"shici-meiyu-2026-other-d208ba","year":2026,"stage":"其他","grade":null,"title":"“中华诗词美育大赛”启动仪式在京举行 - 中国日报网","files":[{"kind":"attachment","format":"jpg","fileKey":"files/papers/shici-meiyu/shici-meiyu-2026-other-d208ba-attachment.jpg","size":1198169,"sha256":"6fb6eaa23f62f944224cbe2049fd4321d061f4f46fe2cddd4c9897594a24708f"}],"hasAnswer":false,"source":{"name":"caijing.chinadaily.com.cn","url":"https://caijing.chinadaily.com.cn/a/202601/16/WS6969ce99a310942cc499b805.html"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

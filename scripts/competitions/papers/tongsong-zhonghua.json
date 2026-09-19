@@ -1,4 +1,6 @@
 {
   "slug": "tongsong-zhonghua",
-  "papers": []
+  "papers": [
+    {"id":"tongsong-zhonghua-2025-other-aef559","year":2025,"stage":"其他","grade":null,"title":"首届“同颂中华·全国青少年志愿文学创作与诵读大赛”启动","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/tongsong-zhonghua/tongsong-zhonghua-2025-other-aef559-attachment.pdf","size":533797,"sha256":"8324d7476a22271c3f4b480e85aee8d7e8adb1ba67f4daf5d4eb5469eec30dc3"}],"hasAnswer":false,"source":{"name":"news.youth.cn","url":"https://news.youth.cn/gn/202511/t20251128_16374699.htm"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

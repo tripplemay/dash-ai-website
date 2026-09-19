@@ -1,4 +1,6 @@
 {
   "slug": "castic",
-  "papers": []
+  "papers": [
+    {"id":"castic-2006-other-9b43ed","year":2006,"stage":"其他","grade":null,"title":"关于发布第21届全国青少年科技创新大赛获奖名单的通知 - 中华人民共和国教育部政府门户网站","files":[{"kind":"gallery","format":"doc","fileKey":"files/papers/castic/castic-2006-other-9b43ed-gallery.doc","size":783360,"sha256":"bc9e07a7386325f61933721337b16ae655ea23402dd25472e3bd40bec0fca2fd"},{"kind":"gallery","format":"doc","fileKey":"files/papers/castic/castic-2006-other-9b43ed-gallery2.doc","size":41472,"sha256":"633eab5f8a0127db90df85697e6b3643f1fceadd97502cbcf9e0ef1b91f5bcac"}],"hasAnswer":false,"source":{"name":"www.moe.gov.cn","url":"http://www.moe.gov.cn/srcsite/A26/s7054/200612/t20061221_78506.html"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

@@ -1,4 +1,6 @@
 {
   "slug": "nysic",
-  "papers": []
+  "papers": [
+    {"id":"nysic-2025-other-c06a11","year":2025,"stage":"其他","grade":null,"title":"2025-2026学年全国青少年航天创新大赛","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/nysic/nysic-2025-other-c06a11-attachment.pdf","size":272017,"sha256":"1fa9e88f0621609762f38a0119b96bdb1176f22184ca36c3a99f40987733664f"}],"hasAnswer":false,"source":{"name":"cdn.zizzs.com","url":"https://cdn.zizzs.com/zixunzhan/1%E8%88%AA%E5%A4%A9%E7%A7%91%E6%8A%80%E5%88%9B%E6%96%B0%E8%B5%9B%E8%A7%84%E5%88%99-202601301501061769768160437.pdf"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }
