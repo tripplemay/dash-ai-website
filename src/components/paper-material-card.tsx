@@ -30,7 +30,7 @@ export function PaperMaterialCard({ material }: { material: PaperMaterial }) {
           file.fileKey ? (
             <a
               key={`${material.id}-file-${index}`}
-              href={`/${file.fileKey}`}
+              href={`/api/file/${file.fileKey}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-indigo-200 bg-indigo-50 px-3 py-2 text-[12.5px] font-bold text-indigo-800 transition-colors hover:border-indigo-400"
