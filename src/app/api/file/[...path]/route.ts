@@ -64,6 +64,9 @@ export async function GET(
   } catch {
     return NextResponse.json({ error: "DATABASE_UNAVAILABLE" }, { status: 503 });
   }
+  // 备赛资料（files/papers/）由采集管线落盘、papers-content 分片引用，不入 resources 表；
+  // 路径已过消毒，会话检查由本路由与 nginx auth_request 双重把关。
+  if (!allowed && key.startsWith("files/papers/")) allowed = true;
   if (!allowed) return NextResponse.json({ error: "NOT_FOUND" }, { status: 404 });
 
   const requestedMode = req.nextUrl.searchParams.get("mode");
