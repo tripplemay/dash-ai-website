@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T17:44:22.338Z",
+  "generatedAt": "2026-09-19T17:55:27.230Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -96,6 +96,75 @@
               "fileKey": "files/papers/wrc-youth/wrc-youth-2019-zongjuesai-7956bb-attachment.pdf",
               "size": 50783714,
               "sha256": "20c8acef703caf1481a1ef79520a323faa7947d87bc8eed33346163a8f565f5d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "wrc-youth-2025-other-7f453e",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "2025 锦标赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2025-other-7f453e-attachment.pdf",
+              "size": 5848130,
+              "sha256": "1c5395fb6eedc99dc7d546991f0977bdfd5967e9c355c80f03f005b673133b73"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "wrc-youth-2024-other-7f21ee",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "2024 锦标赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2024-other-7f21ee-attachment.pdf",
+              "size": 12064744,
+              "sha256": "92c2a7557fc4199a25349ee96bd9b951cae53537e4a4de9ec766824fcf357ac2"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "wrc-youth-2021-other-b757c0",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "2021 锦标赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2021-other-b757c0-attachment.pdf",
+              "size": 25897887,
+              "sha256": "966dae81572a16b7bab2f73a987fb0c1817c6b436ed2869a88407507e27acf86"
             }
           ],
           "hasAnswer": false,
