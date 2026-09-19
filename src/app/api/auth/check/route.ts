@@ -50,6 +50,9 @@ function protectedFileIsAllowed(req: Request) {
   const key = protectedResourceKey(pathname);
   if (key === undefined) return true;
   if (!key) return false;
+  // 备赛资料（files/papers/）由采集管线落盘、papers-content 分片引用，不入 resources 表；
+  // 会话检查仍是硬性门槛（未登录 401），与 /api/file 路由同口径。
+  if (key.startsWith("files/papers/")) return true;
   const direct = getResourceByFileKey(key);
   if (direct?.enabled && (direct.kind === "file" || direct.kind === "folder")) return true;
   return listEnabledFolderResources(RESOURCE_ZIP_LIMIT)
