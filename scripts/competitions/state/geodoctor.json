@@ -1,12 +1,13 @@
 {
   "key": "geodoctor",
   "name": "“地球小博士”全国地理科普知识大赛活动",
-  "checkedAt": "2026-09-19T07:48:18.088Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T08:57:45.429Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T08:57:45.429Z",
   "pages": {
     "http://www.geodoctor.cn/": {
-      "hash": "2aea490247ebc7e7da90b04397471fa42d9d3174",
+      "hash": "2fd8669ce810492d0b174f8b8d7b9f92dca7d8d8",
       "layer": "render",
       "items": [
         {

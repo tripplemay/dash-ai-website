@@ -1,8 +1,65 @@
 {
   "key": "luxunwenxue",
   "name": "鲁迅青少年文学大赛",
-  "checkedAt": "2026-09-19T07:53:50.914Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:01:36.002Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://www.luxunwenxue.com/newapi/eventConsultation/getEventList?pageNum=1&pageSize=10&type=4": {
+      "hash": "0900aa8a9fbda90d0dd90c91847b203b1fcb3908",
+      "layer": "api",
+      "items": [
+        {
+          "title": "鲁迅青少年文学大赛亮相“2026中国文学盛典·鲁迅文学周”",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=67&type=4",
+          "date": "2026-08-26"
+        },
+        {
+          "title": "高一高二组全国总决赛结果查询",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=66&type=4",
+          "date": "2026-08-17"
+        },
+        {
+          "title": "高一高二组总决赛圆满举行",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=65&type=4",
+          "date": "2026-08-05"
+        },
+        {
+          "title": "高一高二组全国总决赛通知",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=64&type=4",
+          "date": "2026-07-25"
+        },
+        {
+          "title": "高一高二组省级复赛结果查询提醒",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=63&type=4",
+          "date": "2026-07-21"
+        },
+        {
+          "title": "高一高二组省级复赛注意事项通知",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=62&type=4",
+          "date": "2026-06-26"
+        },
+        {
+          "title": "高一高二组省级复赛通知",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=61&type=4",
+          "date": "2026-06-20"
+        },
+        {
+          "title": "高一高二组省级初赛结果查询提醒",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=60&type=4",
+          "date": "2026-06-12"
+        },
+        {
+          "title": "高一高二组省级初赛及复赛延期通知",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=59&type=4",
+          "date": "2026-05-18"
+        },
+        {
+          "title": "省级复赛线下考点征集公告",
+          "url": "https://www.luxunwenxue.com/competeDetail?id=58&type=4",
+          "date": "2026-04-16"
+        }
+      ]
+    }
+  }
 }

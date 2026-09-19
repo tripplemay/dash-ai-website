@@ -103,6 +103,49 @@ function sleep(ms) {
 }
 
 // ---------------------------------------------------------------------------
+// curl 抓取（比 undici 更耐受本机代理/TUN 环境；macOS/Linux 均自带）
+// ---------------------------------------------------------------------------
+
+function fetchPageViaCurl(url, { json = false, method = "GET", body, headers: extraHeaders } = {}) {
+  return new Promise((resolve) => {
+    const args = [
+      "-sS",
+      "-L",
+      "--compressed",
+      "--max-time",
+      String(Math.ceil(FETCH_TIMEOUT_MS / 1000)),
+      "--connect-timeout",
+      "10",
+      "--max-redirs",
+      "8",
+      "-A",
+      USER_AGENT,
+      "-H",
+      json ? "accept: application/json, text/plain, */*" : "accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "-H",
+      "accept-language: zh-CN,zh;q=0.9",
+    ];
+    for (const [key, value] of Object.entries(extraHeaders ?? {})) {
+      args.push("-H", `${key}: ${value}`);
+    }
+    if (String(method).toUpperCase() === "POST") {
+      args.push("-X", "POST", "-H", "content-type: application/json", "--data", JSON.stringify(body ?? {}));
+    }
+    args.push("-w", "\n__CURL_META__%{http_code} %{url_effective}", url);
+    const child = spawnSync("curl", args, { encoding: "utf8", maxBuffer: 16 * 1024 * 1024 });
+    const raw = child.stdout ?? "";
+    const metaIndex = raw.lastIndexOf("\n__CURL_META__");
+    if (child.error || metaIndex === -1) {
+      resolve({ ok: false, status: 0, html: "", error: oneLine(child.error?.message ?? child.stderr ?? "curl 失败"), layer: "curl" });
+      return;
+    }
+    const [statusText, finalUrl] = raw.slice(metaIndex + 14).trim().split(" ");
+    const status = Number(statusText) || 0;
+    resolve({ ok: status >= 200 && status < 300, status, html: raw.slice(0, metaIndex), finalUrl, layer: "curl" });
+  });
+}
+
+// ---------------------------------------------------------------------------
 // L1：plain fetch
 // ---------------------------------------------------------------------------
 
@@ -242,6 +285,133 @@ async function fetchPageWithDoh(url) {
 }
 
 // ---------------------------------------------------------------------------
+// JSON API 直抓（registry apiPages 配置驱动，用于 SPA 站点）
+// ---------------------------------------------------------------------------
+
+function getByPath(value, dotPath) {
+  let current = value;
+  for (const key of String(dotPath ?? "").split(".")) {
+    if (!key) continue;
+    if (current === null || typeof current !== "object") return undefined;
+    current = current[key];
+  }
+  return current;
+}
+
+/** 归一化 API 返回的日期：YYYY-MM-DD / YYYY/M/D / 带时间的字符串 / 秒或毫秒时间戳 */
+function normalizeApiDate(value) {
+  if (value === null || value === undefined || value === "") return undefined;
+  if (typeof value === "number" && Number.isFinite(value)) {
+    const ms = value > 1e12 ? value : value * 1000;
+    const date = new Date(ms);
+    return Number.isFinite(date.getTime()) ? date.toISOString().slice(0, 10) : undefined;
+  }
+  const text = String(value).trim();
+  const match = text.match(DATE_RE);
+  if (match) return normalizeDate(match);
+  const parsed = Date.parse(text);
+  return Number.isFinite(parsed) ? new Date(parsed).toISOString().slice(0, 10) : undefined;
+}
+
+function resolveApiItemUrl(api, item) {
+  if (api.urlField && typeof item[api.urlField] === "string" && /^https?:\/\//.test(item[api.urlField])) {
+    return item[api.urlField];
+  }
+  if (api.urlTemplate) {
+    const resolved = api.urlTemplate.replace(/\{([a-zA-Z0-9_]+)\}/g, (_, field) => encodeURIComponent(String(item[field] ?? "")));
+    if (/\{|\}/.test(resolved) === false && /^https?:\/\//.test(resolved)) return resolved;
+  }
+  return undefined;
+}
+
+/** 条目稳定键：优先 URL，无 URL 的接口条目退化为 标题+日期（diff/去重共用） */
+function itemKey(item) {
+  return item.url ?? `${item.title}|${item.date ?? ""}`;
+}
+
+/** 抓取一个 JSON API 列表页，归一化为 {title, url?, date?} 条目 */
+async function fetchApiItems(api) {
+  const headers = { "user-agent": USER_AGENT, accept: "application/json, text/plain, */*", ...(api.headers ?? {}) };
+  const init = { redirect: "follow", headers, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) };
+  if (String(api.method ?? "GET").toUpperCase() === "POST") {
+    init.method = "POST";
+    headers["content-type"] = "application/json";
+    init.body = JSON.stringify(api.body ?? {});
+  }
+
+  let jsonText;
+  let layer = "api";
+  try {
+    const response = await fetch(api.url, init);
+    if (!response.ok) return { ok: false, status: response.status, error: `HTTP ${response.status}`, items: [], layer };
+    jsonText = await response.text();
+  } catch (error) {
+    // 降级链：DoH 直连（仅 GET）→ curl
+    const message = String(error?.cause?.message ?? error?.message ?? error);
+    if (init.method !== "POST" && isNetworkLayerError(message)) {
+      const addresses = await dohResolve(new URL(api.url).hostname);
+      if (addresses) {
+        const viaDoh = await rawRequest(api.url, addresses);
+        if (viaDoh.ok) {
+          jsonText = viaDoh.html;
+          layer = "api+doh";
+        }
+      }
+    }
+    if (jsonText === undefined) {
+      const viaCurl = await fetchPageViaCurl(api.url, { json: true, method: init.method ?? "GET", body: api.body, headers: api.headers });
+      if (viaCurl.ok) {
+        jsonText = viaCurl.html;
+        layer = "api+curl";
+      } else {
+        return { ok: false, status: viaCurl.status, error: oneLine(message), items: [], layer: viaCurl.layer };
+      }
+    }
+  }
+
+  let data;
+  try {
+    // 雪花 ID 等 19 位整数超出 Number 安全范围，先加引号再解析，避免详情 URL 拼错
+    const safeText = jsonText.replace(/:\s*(\d{15,})(\s*[,}\]])/g, ':"$1"$2');
+    data = JSON.parse(safeText);
+  } catch {
+    return { ok: false, status: 200, error: "接口未返回 JSON", items: [], layer };
+  }
+  const list = getByPath(data, api.listPath);
+  if (!Array.isArray(list)) {
+    return { ok: false, status: 200, error: `listPath ${api.listPath} 不是数组（结构可能已变化）`, items: [], layer };
+  }
+  const items = [];
+  const seen = new Set();
+  for (const entry of list) {
+    if (items.length >= MAX_ITEMS_PER_PAGE) break;
+    if (!entry || typeof entry !== "object") continue;
+    const title = String(entry[api.titleField] ?? "")
+      .replace(/<[^>]+>/g, "") // 字段可能含 <br> 等 HTML 标签
+      .replace(/\s+/g, " ")
+      .trim();
+    if (title.length < 4) continue;
+    const url = resolveApiItemUrl(api, entry);
+    const key = url ?? `${title}|${normalizeApiDate(api.dateField ? entry[api.dateField] : undefined) ?? ""}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const date = api.dateField ? normalizeApiDate(entry[api.dateField]) : undefined;
+    items.push({ title, ...(url ? { url } : {}), ...(date ? { date } : {}) });
+  }
+  if (!items.length) return { ok: false, status: 200, error: "接口列表为空（可能反爬或结构变化）", items: [], layer };
+  return { ok: true, status: 200, items, layer };
+}
+
+async function checkApiPage(api) {
+  const result = await fetchApiItems(api);
+  if (!result.ok) {
+    return { url: api.url, status: "error", httpStatus: result.status, error: result.error, items: [], layer: result.layer };
+  }
+  const hash = createHash("sha1").update(JSON.stringify(result.items.map((item) => [item.title, item.url, item.date]))).digest("hex");
+  return { url: api.url, status: "ok", items: result.items, hash, layer: result.layer };
+}
+
+// ---------------------------------------------------------------------------
 // L3：Chromium 渲染（playwright-core + 系统浏览器，可选）
 // ---------------------------------------------------------------------------
 
@@ -377,6 +547,12 @@ async function checkPage(url, kind, options) {
     else if (/重定向循环/.test(viaDoh.error ?? "")) result = viaDoh; // 站点自身死循环，保留该诊断
   }
 
+  // L2b：curl 兜底——本机代理/TUN 环境下 undici 常失败而 curl 可用；WAF 也可能因 TLS 指纹差异放行
+  if (!result.ok) {
+    const viaCurl = await fetchPageViaCurl(url);
+    if (viaCurl.ok) result = viaCurl;
+  }
+
   const buildOutcome = (res, note) => {
     // WAF 拦截页先于通用 HTTP 错误判断（405/403 也属于 !ok）
     if (isWafBlock(res)) {
@@ -430,10 +606,10 @@ function finalizeThin(outcome) {
 // ---------------------------------------------------------------------------
 
 function diffItems(previousItems, currentItems) {
-  const previousUrls = new Map((previousItems ?? []).map((item) => [item.url, item]));
-  const currentUrls = new Map(currentItems.map((item) => [item.url, item]));
-  const added = currentItems.filter((item) => !previousUrls.has(item.url));
-  const removed = (previousItems ?? []).filter((item) => !currentUrls.has(item.url));
+  const previousKeys = new Map((previousItems ?? []).map((item) => [itemKey(item), item]));
+  const currentKeys = new Map(currentItems.map((item) => [itemKey(item), item]));
+  const added = currentItems.filter((item) => !previousKeys.has(itemKey(item)));
+  const removed = (previousItems ?? []).filter((item) => !currentKeys.has(itemKey(item)));
   return { added, removed };
 }
 
@@ -456,8 +632,15 @@ async function checkTarget(target, options) {
   const previous = loadState(target.key);
   const pages = [];
   const changes = [];
+  const checkedPages = [];
+  for (const api of target.apis ?? []) {
+    checkedPages.push(await checkApiPage(api));
+  }
   for (const url of target.urls) {
-    const page = await checkPage(url, target.kind === "moe" ? "moe" : "news", options);
+    checkedPages.push(await checkPage(url, target.kind === "moe" ? "moe" : "news", options));
+  }
+  for (const page of checkedPages) {
+    const url = page.url;
     const previousPage = previous?.pages?.[url];
     if (page.status === "ok") {
       if (target.kind === "moe") {
@@ -518,12 +701,13 @@ function shardPath(slug) {
   return path.join(SHARDS_DIR, `${slug}.json`);
 }
 
-/** 单行 JSON 对象，与分片现有 updates 格式一致 */
+/** 单行 JSON 对象，与分片现有 updates 格式一致（无 URL 的条目省略 url 字段） */
 function formatUpdateLine(item) {
-  return `    {"date": ${JSON.stringify(item.date)}, "title": ${JSON.stringify(item.title)}, "url": ${JSON.stringify(item.url)}, "source": "official", "auto": true},`;
+  const urlPart = item.url ? `, "url": ${JSON.stringify(item.url)}` : "";
+  return `    {"date": ${JSON.stringify(item.date)}, "title": ${JSON.stringify(item.title)}${urlPart}, "source": "official", "auto": true},`;
 }
 
-/** 把 news-added 条目以外科手术方式插入分片原文（不重排其它字段）；按 URL 去重。返回写入明细。 */
+/** 把 news-added 条目以外科手术方式插入分片原文（不重排其它字段）；按 URL 或 标题+日期 去重。返回写入明细。 */
 function writeUpdatesToShards(results) {
   const written = [];
   const originals = new Map(); // file -> 原始内容（内存备份，回滚用）
@@ -544,15 +728,15 @@ function writeUpdatesToShards(results) {
       }
       const shard = JSON.parse(pending.get(file));
       const updates = Array.isArray(shard.updates) ? shard.updates : [];
-      const knownUrls = new Set(updates.map((update) => update.url).filter(Boolean));
+      const knownKeys = new Set(updates.map((update) => itemKey(update)));
 
       const lines = [];
       for (const item of added) {
         // 只自动写页面上带日期的条目：无日期条目噪声风险高，留在报告里人工/Agent 拾取
-        if (!item.date || knownUrls.has(item.url)) continue;
-        knownUrls.add(item.url);
+        if (!item.date || knownKeys.has(itemKey(item))) continue;
+        knownKeys.add(itemKey(item));
         lines.push(formatUpdateLine(item));
-        written.push({ slug: result.target.key, date: item.date, title: item.title, url: item.url });
+        written.push({ slug: result.target.key, date: item.date, title: item.title, url: item.url ?? null });
       }
       if (!lines.length) continue;
 
@@ -622,7 +806,8 @@ function collectAlertEvents(results, writeResult) {
         events.push({ type: "moe-list-changed", message: `⚠️ ${change.note}：${change.url}` });
       }
     }
-    if (result.status === "error" && result.errorStreak >= 2) {
+    // 告警防抖：第 2 次连续失败时报一次，之后每 14 次（约每周）复报，避免长期宕机站点每日刷屏
+    if (result.status === "error" && (result.errorStreak === 2 || (result.errorStreak > 2 && result.errorStreak % 14 === 0))) {
       const detail = result.pages.find((page) => page.status === "error");
       events.push({
         type: "persistent-error",
@@ -739,10 +924,21 @@ async function main() {
     });
   }
   for (const entry of registry.competitions ?? []) {
-    if (!entry.officialSite) continue;
     if (options.slug && entry.slug !== options.slug) continue;
-    const urls = Array.isArray(entry.newsPages) && entry.newsPages.length ? entry.newsPages : [entry.officialSite];
-    targets.push({ key: entry.slug, name: entry.nameZh, kind: "competition", urls });
+    // apiPages 存在时优先直抓 JSON 接口（SPA 站点的全自动通道），否则走 HTML 页面三层降级
+    const apis = Array.isArray(entry.apiPages)
+      ? entry.apiPages.filter((api) => api && api.url && typeof api.listPath === "string" && api.titleField)
+      : [];
+    const urls =
+      apis.length > 0
+        ? []
+        : Array.isArray(entry.newsPages) && entry.newsPages.length
+          ? entry.newsPages
+          : entry.officialSite
+            ? [entry.officialSite]
+            : [];
+    if (!apis.length && !urls.length) continue;
+    targets.push({ key: entry.slug, name: entry.nameZh, kind: "competition", apis, urls });
   }
 
   const startedAt = new Date().toISOString();

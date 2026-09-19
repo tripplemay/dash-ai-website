@@ -1,8 +1,35 @@
 {
   "key": "drama-china-contest",
   "name": "“戏剧中国”全国青少年戏剧文化艺术大赛",
-  "checkedAt": "2026-09-19T07:56:01.092Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:03:37.409Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://api.zgxjwxxh.com/api/public/articles?section=news&limit=50": {
+      "hash": "1aba9c5bc4b92deafe8fb0c8e366e1cd277813ff",
+      "layer": "api",
+      "items": [
+        {
+          "title": "“看见贺兰”民族艺术大会征集令——全国性社会组织集结助力宁夏银川文旅推广活动，2026“举杯贺兰山·青年艺术季”将全面启动",
+          "url": "https://zgxjwxxh.com/detail.html?id=29",
+          "date": "2026-04-18"
+        },
+        {
+          "title": "世界戏剧日｜抓住《计划》政策东风，以“戏剧中国”赛事推动青少年戏剧振兴",
+          "url": "https://zgxjwxxh.com/detail.html?id=50",
+          "date": "2026-03-27"
+        },
+        {
+          "title": "羊驰｜万马奔腾开新局 三年《计划》铸戏魂",
+          "url": "https://zgxjwxxh.com/detail.html?id=49",
+          "date": "2026-02-14"
+        },
+        {
+          "title": "通知｜关于举办2025-2026学年“戏剧中国”全国青少年戏剧文化艺术大赛的通知",
+          "url": "https://zgxjwxxh.com/detail.html?id=2",
+          "date": "2025-11-29"
+        }
+      ]
+    }
+  }
 }

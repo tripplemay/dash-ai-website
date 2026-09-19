@@ -1,9 +1,10 @@
 {
   "key": "shici-meiyu",
   "name": "中华诗词美育大赛",
-  "checkedAt": "2026-09-19T07:53:39.065Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T09:01:33.459Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T09:01:33.459Z",
   "pages": {
     "http://www.zhscmyds.com/": {
       "hash": "8edaaed135bee3bef20dd3f5cdcaeaf85fba13f7",

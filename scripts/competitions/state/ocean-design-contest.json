@@ -1,8 +1,66 @@
 {
   "key": "ocean-design-contest",
   "name": "全国中小学生海洋文化创意设计大赛",
-  "checkedAt": "2026-09-19T07:55:39.139Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:03:18.501Z",
+  "status": "unchanged",
   "errorStreak": 0,
-  "pages": {}
+  "lastOkAt": "2026-09-19T09:03:18.501Z",
+  "pages": {
+    "http://mcdnpss.com/api/competition/news/list?pageNum=1&pageSize=10&status=1": {
+      "hash": "33737c57b5f870421eb536f088dd88f1a1130071",
+      "layer": "api",
+      "items": [
+        {
+          "title": "第一届全国中小学生海洋文化创意设计大赛获奖查询操作指南",
+          "url": "http://mcdnpss.com/eventNews/2100824565658923010",
+          "date": "2026-09-18"
+        },
+        {
+          "title": "关于第一届全国中小学生海洋文化创意设计大赛省赛评委聘书获得者名单的公示",
+          "url": "http://mcdnpss.com/eventNews/2090258384535347201",
+          "date": "2026-08-20"
+        },
+        {
+          "title": "关于第一届全国中小学生海洋文化创意设计大赛作品征集延期的通知",
+          "url": "http://mcdnpss.com/eventNews/2071919654401617922",
+          "date": "2026-06-30"
+        },
+        {
+          "title": "全国中小学生海洋文化创意设计大赛参赛类别作品示例",
+          "url": "http://mcdnpss.com/eventNews/2044225884482920450",
+          "date": "2026-04-15"
+        },
+        {
+          "title": "关于举办2025-2026学年全国中小学生海洋文化创意设计大赛的通知",
+          "url": "http://mcdnpss.com/eventNews/2026308723353387009",
+          "date": "2026-02-09"
+        },
+        {
+          "title": "严正声明ㅣ关于防范假冒“全国中小学生海洋文化创意设计大赛”官方账号的严正声明",
+          "url": "http://mcdnpss.com/eventNews/2034067543215493121",
+          "date": "2026-03-07"
+        },
+        {
+          "title": "全国中小学生海洋文化设计大赛投稿要求",
+          "url": "http://mcdnpss.com/eventNews/2034069197407047681",
+          "date": "2026-03-12"
+        },
+        {
+          "title": "全国中小学生海洋文化创意设计大赛主题海报正式发布！",
+          "url": "http://mcdnpss.com/eventNews/2034071378113777665",
+          "date": "2026-03-15"
+        },
+        {
+          "title": "全国中小学生海洋文化创意设计大赛个人报名系统操作流程",
+          "url": "http://mcdnpss.com/eventNews/2035894494632816642",
+          "date": "2026-03-23"
+        },
+        {
+          "title": "团体报名入口|教师或机构端报名指引",
+          "url": "http://mcdnpss.com/eventNews/2035895710842564610",
+          "date": "2026-03-23"
+        }
+      ]
+    }
+  }
 }

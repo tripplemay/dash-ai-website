@@ -1,8 +1,115 @@
 {
   "key": "anti-drug-quiz",
   "name": "全国青少年禁毒知识竞赛",
-  "checkedAt": "2026-09-19T07:51:20.085Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:00:23.519Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://gw.2-class.com/ws/c/content/news/public/news-list?pageNo=1&pageSize=20&categoryId=hot": {
+      "hash": "cf7116ab0a5886841e9bd191d7bcca4593ed1515",
+      "layer": "api",
+      "items": [
+        {
+          "title": "全国青少年科学探究建模大赛-开始了！",
+          "url": "https://www.2-class.com/news/10000281",
+          "date": "2026-08-05"
+        },
+        {
+          "title": "监护人须知｜中考高考考研选专业避坑参考",
+          "url": "https://www.2-class.com/news/10000279",
+          "date": "2026-03-29"
+        },
+        {
+          "title": "团圆行动｜“梅姨”落网之后",
+          "url": "https://www.2-class.com/news/308",
+          "date": "2026-03-29"
+        },
+        {
+          "title": "测试：50个孩子，42个孩子被成功“拐走”",
+          "url": "https://www.2-class.com/news/287",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "孩子走失怎样快速上“团圆系统”？",
+          "url": "https://www.2-class.com/news/286",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "公安部寻亲指南：失散多年如何寻亲？",
+          "url": "https://www.2-class.com/news/285",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "监护人须知｜这些涉毒“零食”极具迷惑",
+          "url": "https://www.2-class.com/news/284",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "教育部要求“健康第一”坚持“问题导向，身心一致”",
+          "url": "https://www.2-class.com/news/283",
+          "date": "2026-03-16"
+        },
+        {
+          "title": "答题入口｜每年全国青少年禁毒知识竞赛答题指南",
+          "url": "https://www.2-class.com/news/10000278",
+          "date": "2025-11-25"
+        },
+        {
+          "title": "2025年全国青少年禁毒知识竞赛中学组题库",
+          "url": "https://www.2-class.com/news/10000276",
+          "date": "2025-11-10"
+        },
+        {
+          "title": "2025年全国青少年禁毒知识竞赛小学组题库",
+          "url": "https://www.2-class.com/news/10000275",
+          "date": "2025-11-10"
+        },
+        {
+          "title": "2025年全国青少年禁毒知识竞赛活动启动",
+          "url": "https://www.2-class.com/news/10000274",
+          "date": "2025-11-10"
+        },
+        {
+          "title": "【官方题库-中学组】2024年全国青少年禁毒知识竞赛",
+          "url": "https://www.2-class.com/news/10000193",
+          "date": "2024-09-11"
+        },
+        {
+          "title": "【官方题库-小学组】2024年全国青少年禁毒知识竞赛",
+          "url": "https://www.2-class.com/news/10000192",
+          "date": "2024-09-11"
+        },
+        {
+          "title": "启动 ｜ 2024年全国青少年禁毒知识竞赛",
+          "url": "https://www.2-class.com/news/10000191",
+          "date": "2024-09-10"
+        },
+        {
+          "title": "2024年全国青少年禁毒知识竞赛答题须知",
+          "url": "https://www.2-class.com/news/10000188",
+          "date": "2023-11-20"
+        },
+        {
+          "title": "【中学组】2023年全国青少年禁毒知识竞赛题库",
+          "url": "https://www.2-class.com/news/10000187",
+          "date": "2023-11-14"
+        },
+        {
+          "title": "【小学组】2023年全国青少年禁毒知识竞赛题库",
+          "url": "https://www.2-class.com/news/10000186",
+          "date": "2023-11-14"
+        },
+        {
+          "title": "青骄第二课堂&B站选出2023“UPUP青年骄子”",
+          "url": "https://www.2-class.com/news/10000185",
+          "date": "2023-05-08"
+        },
+        {
+          "title": "警惕这些！安全无小事 牢记每一天",
+          "url": "https://www.2-class.com/news/257",
+          "date": "2023-03-27"
+        }
+      ]
+    }
+  }
 }

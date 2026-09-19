@@ -23,7 +23,7 @@ VPS cron（每日 2 次）
   └─ scripts/competition-monitor-vps.sh
        1. git pull（VPS 上的仓库 clone：/opt/dash-pr/competition-monitor/repo）
        2. node scripts/competition-monitor.mjs --write-updates
-            L1 plain fetch → L2 DoH 修复解析 → L3 Chromium 渲染（自动降级）
+            L0 apiPages JSON 直抓（SPA 站点）→ L1 plain fetch → L2 DoH 修复解析 → L3 Chromium 渲染（自动降级）
             diff 对比 state（/opt/dash-pr/competition-monitor/state/）
             news-added → 追加到 scripts/competitions/content/<slug>.json
             写盘前跑 validate-competitions 门禁，不过则回滚并告警
@@ -41,10 +41,11 @@ VPS cron（每日 2 次）
 
 ### 抓取层（competition-monitor.mjs）
 
+- **L0 JSON API 直抓**：registry 中为 SPA 站点配置的 `apiPages`（前端实际调用的公开 JSON 接口，含 listPath/字段映射/详情 URL 模板/自定义 headers），绕过 HTML 渲染，最稳最快。配置存在时取代该站点的 HTML 页面监测。已完成 11 站 API 调研接入（2026-09-19，经 JS bundle 分析 + 浏览器抓包 + curl 实测验证）。
 - **L1 plain fetch**：现状，带浏览器 UA、重试 3 次。
-- **L2 DoH 修复**：L1 出现 DNS/证书/连接重置类错误时，用 `node:http(s)` 的 `lookup` 钩子把域名经 DoH（阿里 `223.5.5.5/resolve`，备用 DNSPod `1.12.12.12`）解析后直连真实 IP。纯 Node 内置模块，无新依赖。
-- **L3 渲染**：L1/L2 拿到的是错误、正文过短或空列表时，用 `playwright-core` + 系统 Chromium（`CHROMIUM_PATH` 或常见路径自动探测）渲染页面后走同一套条目提取。Chromium 不可用时跳过并保持 `needsManualCheck`，不报错。
-- **WAF 页识别**：HTTP 405 且正文含"访问被阻断"等 WAF 特征时按错误处理进入降级链。
+- **L2 DoH 修复 + curl 兜底**：L1 出现 DNS/证书/连接重置类错误时，先经 DoH（阿里 `dns.alidns.com/resolve`，备用 DNSPod `doh.pub/dns-query`）解析真实 IP 用 `node:http(s)` 自定义 lookup 直连；仍失败则 shell 调 curl（对代理/TUN 网络环境和 TLS 指纹敏感型 WAF 更耐受）。
+- **L3 渲染**：L1/L2 拿到的是错误、正文过短或空列表时，用 `playwright-core` + 系统 Chromium（`CHROMIUM_PATH` 或常见路径自动探测）渲染页面后走同一套条目提取（支持 SPA hash 路由链接 `#/...`）。Chromium 不可用时跳过并保持 `needsManualCheck`，不报错。
+- **WAF 页识别**：HTTP 405/403 且正文含"访问被阻断"等 WAF 特征时按错误处理进入降级链。
 - **302 死循环**（aiic.china61.org.cn）：识别自跳转，标记 `siteBroken`，进入告警但不反复重试。
 
 ### 自动写入门禁

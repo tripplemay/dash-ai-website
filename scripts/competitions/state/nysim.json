@@ -1,10 +1,10 @@
 {
   "key": "nysim",
   "name": "全国青少年科学探究建模能力大赛",
-  "checkedAt": "2026-09-19T07:50:21.451Z",
-  "status": "changed",
+  "checkedAt": "2026-09-19T09:00:14.095Z",
+  "status": "unchanged",
   "errorStreak": 0,
-  "lastOkAt": "2026-09-19T07:50:21.451Z",
+  "lastOkAt": "2026-09-19T09:00:14.095Z",
   "pages": {
     "https://simcc.bnu.edu.cn/ssgg/index.htm": {
       "hash": "8f983fd97a419ee2a3b758853929a4b84e1d38d9",

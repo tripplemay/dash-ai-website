@@ -1,8 +1,65 @@
 {
   "key": "bantu-quiz",
   "name": "“美丽中国”全国版图知识竞赛（中小学组）",
-  "checkedAt": "2026-09-19T07:53:05.176Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:00:54.288Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://api.pecmnr.cn/api/getArticles?cid=557475&pageSize=40&pageNumber=1": {
+      "hash": "5a7295c98448665f850457632b6c66197b195ed6",
+      "layer": "api",
+      "items": [
+        {
+          "title": "文件下载：自然资源部宣传教育中心关于2024-2025学年少儿手绘地图大赛获奖结果的通知",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5315681",
+          "date": "2025-09-16"
+        },
+        {
+          "title": "文件下载：自然资源部宣传教育中心关于2024-2025学年全国版图知识竞赛 （中小学组）获奖结果的通知",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5315678",
+          "date": "2025-09-16"
+        },
+        {
+          "title": "结果公布 | 2024-2025学年全国版图知识竞赛（中小学组）",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5315487",
+          "date": "2025-08-22"
+        },
+        {
+          "title": "文件下载：关于组织开展2024-2025学年全国版图知识竞赛（中小学组）的通知",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5310388",
+          "date": "2024-12-17"
+        },
+        {
+          "title": "报名倒计时！2024-2025学年全国版图知识竞赛（中小学组）【内附例题及答疑】",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5311962",
+          "date": "2025-03-20"
+        },
+        {
+          "title": "重庆市第八届“美丽中国 美好重庆” 少儿手绘地图大赛获奖人员名单",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5311860",
+          "date": "2025-03-12"
+        },
+        {
+          "title": "海南省“美丽中国”第六届全国版图知识竞赛和少儿手绘地图大赛火热进行中！",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5311859",
+          "date": "2025-03-12"
+        },
+        {
+          "title": "2025年宁夏少儿手绘地图大赛和国家版图知识竞赛开赛啦",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5311728",
+          "date": "2025-03-03"
+        },
+        {
+          "title": "等你来绘！“美丽中国”全国少儿手绘地图大赛福建省赛火热征集",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5311727",
+          "date": "2025-03-03"
+        },
+        {
+          "title": "开始报名了！2024-2025学年全国版图知识竞赛（中小学组）",
+          "url": "https://www.pecmnr.cn/gjbt/works-detail.html?aid=5310139",
+          "date": "2024-12-10"
+        }
+      ]
+    }
+  }
 }

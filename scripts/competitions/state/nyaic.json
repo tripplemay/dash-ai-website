@@ -1,9 +1,10 @@
 {
   "key": "nyaic",
   "name": "全国青少年人工智能创新挑战赛",
-  "checkedAt": "2026-09-19T07:47:28.097Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T08:56:45.543Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T08:56:45.543Z",
   "pages": {
     "http://aiic.china61.org.cn/": {
       "hash": "a63c494e326742932b66cc5a895a4dc3cefa85e2",

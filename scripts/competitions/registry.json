@@ -32,6 +32,7 @@
       "organizer": "中国航空学会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "http://www.int-ede.com/",
+      "newsPages": ["https://www.int-ede.com/notice/", "https://www.int-ede.com/news/"],
       "moeListIndex": 3
     },
     {
@@ -160,6 +161,16 @@
       "organizer": "中国友好和平发展基金会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://icc.cffpd.org.cn/",
+      "apiPages": [
+        {
+          "headers": { "Referer": "https://icc.cffpd.org.cn/" },
+          "url": "https://icc.cffpd.org.cn/prod-api/contest-system/announcement/list?pageNum=1&pageSize=10",
+          "method": "GET",
+          "listPath": "rows",
+          "titleField": "title",
+          "urlField": "url"
+        }
+      ],
       "moeListIndex": 17
     },
     {
@@ -198,6 +209,17 @@
       "organizer": "中国心理卫生协会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://www.camh-edu.org.cn/",
+      "apiPages": [
+        {
+          "headers": { "Referer": "https://www.camh-edu.org.cn/" },
+          "url": "https://m-api.camh-edu.org.cn/api/v1/articles/list",
+          "method": "POST",
+          "body": {"pageNo":1,"pageSize":10},
+          "listPath": "data.records",
+          "titleField": "title",
+          "dateField": "publishTime"
+        }
+      ],
       "moeListIndex": 21
     },
     {
@@ -207,6 +229,17 @@
       "organizer": "中国灾害防御协会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://www.nyseic.cn/",
+      "apiPages": [
+        {
+          "headers": { "Referer": "https://www.nyseic.cn/" },
+          "url": "https://www.nyseic.cn/api/api/public/v1/notice/list",
+          "method": "POST",
+          "body": {"page":1,"size":10},
+          "listPath": "data.list",
+          "titleField": "title",
+          "dateField": "publishTime"
+        }
+      ],
       "newsPages": ["https://www.nyseic.cn/home/preview"],
       "moeListIndex": 22
     },
@@ -217,6 +250,16 @@
       "organizer": "中国禁毒基金会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://www.2-class.com/",
+      "apiPages": [
+        {
+          "url": "https://gw.2-class.com/ws/c/content/news/public/news-list?pageNo=1&pageSize=20&categoryId=hot",
+          "method": "GET",
+          "listPath": "data.list",
+          "titleField": "title",
+          "dateField": "time",
+          "urlTemplate": "https://www.2-class.com/news/{id}"
+        }
+      ],
       "moeListIndex": 23
     },
     {
@@ -244,6 +287,18 @@
       "organizer": "中国老教授协会",
       "grades": ["高中"],
       "officialSite": "https://www.iccedu.com.cn/",
+      "apiPages": [
+        {
+          "headers": { "Referer": "https://www.iccedu.com.cn/" },
+          "url": "https://www.iccedu.com.cn/api/icc/homepage/majorevent/news?limit=10&to=1",
+          "method": "GET",
+          "listPath": "data.values",
+          "titleField": "title",
+          "dateField": "time",
+          "urlField": "link",
+          "urlTemplate": "https://www.iccedu.com.cn/trends/details/{id}"
+        }
+      ],
       "newsPages": ["https://www.iccedu.com.cn/cms/mingdan.html"],
       "moeListIndex": 26
     },
@@ -263,6 +318,17 @@
       "organizer": "自然资源部宣传教育中心",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://www.pecmnr.cn/gjbt/",
+      "apiPages": [
+        {
+          "headers": { "Referer": "https://www.pecmnr.cn/" },
+          "url": "https://api.pecmnr.cn/api/getArticles?cid=557475&pageSize=40&pageNumber=1",
+          "method": "GET",
+          "listPath": "list",
+          "titleField": "title",
+          "dateField": "publishTime",
+          "urlTemplate": "https://www.pecmnr.cn/gjbt/works-detail.html?aid={fileID}"
+        }
+      ],
       "moeListIndex": 28
     },
     {
@@ -291,6 +357,17 @@
       "organizer": "鲁迅文化基金会",
       "grades": ["高中"],
       "officialSite": "https://www.luxunwenxue.com/",
+      "apiPages": [
+        {
+          "headers": { "Referer": "https://www.luxunwenxue.com/" },
+          "url": "https://www.luxunwenxue.com/newapi/eventConsultation/getEventList?pageNum=1&pageSize=10&type=4",
+          "method": "GET",
+          "listPath": "data.list",
+          "titleField": "title",
+          "dateField": "createTime",
+          "urlTemplate": "https://www.luxunwenxue.com/competeDetail?id={id}&type=4"
+        }
+      ],
       "moeListIndex": 31
     },
     {
@@ -395,6 +472,16 @@
       "organizer": "中国海洋发展基金会、中国海洋大学、自然资源部北海局",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "http://mcdnpss.com/",
+      "apiPages": [
+        {
+          "url": "http://mcdnpss.com/api/competition/news/list?pageNum=1&pageSize=10&status=1",
+          "method": "GET",
+          "listPath": "rows",
+          "titleField": "title",
+          "dateField": "publishTime",
+          "urlTemplate": "http://mcdnpss.com/eventNews/{id}"
+        }
+      ],
       "moeListIndex": 42
     },
     {
@@ -413,6 +500,16 @@
       "organizer": "中国戏剧文学学会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://www.zgxjwxxh.com/",
+      "apiPages": [
+        {
+          "url": "https://api.zgxjwxxh.com/api/public/articles?section=news&limit=50",
+          "method": "GET",
+          "listPath": "",
+          "titleField": "title",
+          "dateField": "published_at",
+          "urlTemplate": "https://zgxjwxxh.com/detail.html?id={id}"
+        }
+      ],
       "newsPages": ["https://zgxjwxxh.com/list.html?section=news"],
       "moeListIndex": 44
     },
@@ -433,6 +530,17 @@
       "organizer": "中国艺术教育促进会",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "https://www.ccpae.cn/",
+      "apiPages": [
+        {
+          "url": "https://api.ccpae.cn/cjh/article/listArticle",
+          "method": "POST",
+          "body": {"pageNo":1,"pageSize":20,"data":{"columnName":"tzgg","status":999999}},
+          "listPath": "value.records",
+          "titleField": "h1",
+          "dateField": "publish",
+          "urlTemplate": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id={id}"
+        }
+      ],
       "moeListIndex": 46
     },
     {
@@ -442,6 +550,16 @@
       "organizer": "中央戏剧学院",
       "grades": ["小学", "初中", "高中", "中专", "职高"],
       "officialSite": "http://cqtxj.org.cn/",
+      "apiPages": [
+        {
+          "url": "https://houtai.cqtxj.org.cn/api/product/index?category=2",
+          "method": "GET",
+          "listPath": "data.data",
+          "titleField": "title",
+          "dateField": "created_at",
+          "urlTemplate": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id={id}"
+        }
+      ],
       "moeListIndex": 47
     }
   ]

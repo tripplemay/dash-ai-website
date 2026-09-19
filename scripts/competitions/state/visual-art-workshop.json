@@ -1,8 +1,115 @@
 {
   "key": "visual-art-workshop",
   "name": "学校美育助力行动——青少年视觉艺术传承与创新工作坊展示",
-  "checkedAt": "2026-09-19T07:56:16.321Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:04:09.014Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://api.ccpae.cn/cjh/article/listArticle": {
+      "hash": "3ce5561eaa5b56555c25aaa2dc34fc651364f027",
+      "layer": "api",
+      "items": [
+        {
+          "title": "中国艺术教育促进会关于开展“美育芳华”主题征文活动的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210066",
+          "date": "2026-09-14"
+        },
+        {
+          "title": "中国艺术教育促进会开通官方微信公众号和小程序的公告",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210065",
+          "date": "2026-09-14"
+        },
+        {
+          "title": "关于举办“2026年全国基础教育阶段音乐课堂教学展评与观摩”活动的预通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210060",
+          "date": "2026-06-04"
+        },
+        {
+          "title": "关于举办2026年“奥城杯”全国少年儿童 美术作品展的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210056",
+          "date": "2026-05-08"
+        },
+        {
+          "title": "征集通知｜乐团师资公益培训承办单位",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210053",
+          "date": "2025-12-29"
+        },
+        {
+          "title": "2026全国青少年乐团艺术季",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210052",
+          "date": "2025-12-28"
+        },
+        {
+          "title": "关于中国艺术教育促进会联合主办第十八届中国国际合唱节的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210037",
+          "date": "2025-11-29"
+        },
+        {
+          "title": "中国艺术教育促进会关于召开2025年度理事会暨成果交流会的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210036",
+          "date": "2025-11-25"
+        },
+        {
+          "title": "中国艺术教育促进会关于举办2025—2026学年“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”活动的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210032",
+          "date": "2025-11-16"
+        },
+        {
+          "title": "教育部办公厅关于公布2025—2028学年面向中小学生的全国性竞赛活动的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210030",
+          "date": "2025-10-27"
+        },
+        {
+          "title": "中国艺术教育促进会关于组织开展学校美育优秀研究成果和改革创新案例征集的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210021",
+          "date": "2025-04-18"
+        },
+        {
+          "title": "关于2025第二届中国合唱大会增设“中国人民大学合唱艺术成长基地”为青少年合唱团队提供专项服务的补充通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210020",
+          "date": "2025-03-28"
+        },
+        {
+          "title": "中国艺术教育促进会发展团体会员的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210019",
+          "date": "2025-04-07"
+        },
+        {
+          "title": "中国艺术教育促进会发展个人会员的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210018",
+          "date": "2025-04-04"
+        },
+        {
+          "title": "中国艺术教育促进会关于印发 《中国艺术教育促进会分支机构管理办法》的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210017",
+          "date": "2025-04-08"
+        },
+        {
+          "title": "关于举办“2025高校音乐教育专业钢琴教师技能交流与展示活动”的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210011",
+          "date": "2025-03-05"
+        },
+        {
+          "title": "关于中国艺术教育促进会联合主办2025第二届中国合唱大会的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210010",
+          "date": "2025-02-26"
+        },
+        {
+          "title": "中国艺术教育促进会关于联合主办第十七届中国国际合唱节的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=707",
+          "date": "2024-03-17"
+        },
+        {
+          "title": "教育部办公厅关于举办2021年全国普通高等学校音乐教育专业、美术教育专业本科学生和教师基本功展示的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=706",
+          "date": "2021-07-11"
+        },
+        {
+          "title": "教育部办公厅 文化和旅游部办公厅 财政部办公厅关于开展2021年高雅艺术进校园活动的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=705",
+          "date": "2021-05-26"
+        }
+      ]
+    }
+  }
 }

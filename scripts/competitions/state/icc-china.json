@@ -1,8 +1,55 @@
 {
   "key": "icc-china",
   "name": "全球发明大会（中国）竞赛活动",
-  "checkedAt": "2026-09-19T07:49:41.016Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T08:59:23.726Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://icc.cffpd.org.cn/prod-api/contest-system/announcement/list?pageNum=1&pageSize=10": {
+      "hash": "0f720c628da0bae6ee8a5f783e6335aa4227d057",
+      "layer": "api+curl",
+      "items": [
+        {
+          "title": "信息发布 | 关于公示2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛获奖名单的通知",
+          "url": "https://mp.weixin.qq.com/s/SPbi-vkgp1NWj0rf-5cn1A"
+        },
+        {
+          "title": "2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛成功闭幕",
+          "url": "https://mp.weixin.qq.com/s/FzuFIFz4j5DvIn9jlntk2A"
+        },
+        {
+          "title": "2025—2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛在郑闭幕",
+          "url": "https://mp.weixin.qq.com/s/SCtpXf_kOf9pkBm0SvveKw"
+        },
+        {
+          "title": "2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛在郑州开幕",
+          "url": "https://mp.weixin.qq.com/s/95IxsQrNfOSGYoqjWPQHNg"
+        },
+        {
+          "title": "全球发明大会（中国）竞赛活动港澳赛区赛事完美落幕 感谢所有的支持与付出",
+          "url": "https://mp.weixin.qq.com/s/z1dwR_ATjSXgvMV0Xa4e6g"
+        },
+        {
+          "title": "全球发明大会（中国）竞赛活动智能制造-未来智造家主题赛完美落幕，感谢所有的支持与付出",
+          "url": "https://mp.weixin.qq.com/s/6PqVfy4RqrYUt3OOawfZ7g"
+        },
+        {
+          "title": "关于2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛赛事安排细则",
+          "url": "https://mp.weixin.qq.com/s/agN5M1tkWUNgUsVXxpUMeQ"
+        },
+        {
+          "title": "关于举办2025-2026学年全球发明大会（中国）竞赛活动全国总决赛暨国际赛的通知",
+          "url": "https://mp.weixin.qq.com/s/SoZ9fB0sajw4UG9Fo9yscg"
+        },
+        {
+          "title": "关于公示2025-2026学年全球发明大会（中国）港澳赛区竞赛活动获奖结果的通知",
+          "url": "https://mp.weixin.qq.com/s/pDgcatN_e_b0ggBP7dWaHg"
+        },
+        {
+          "title": "关于公示2025-2026学年全球发明大会（中国）上海赛区竞赛活动获奖结果的通知",
+          "url": "https://mp.weixin.qq.com/s/gDYffM7c-8LWPqeKlrJKFQ"
+        }
+      ]
+    }
+  }
 }

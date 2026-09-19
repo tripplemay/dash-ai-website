@@ -1,8 +1,40 @@
 {
   "key": "ivy-campus-drama",
   "name": "“常青藤”全国青少年校园戏剧创意大赛",
-  "checkedAt": "2026-09-19T07:56:24.478Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:04:11.428Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://houtai.cqtxj.org.cn/api/product/index?category=2": {
+      "hash": "cf3e182a27caf569fd9988819c442011dfdd8a4f",
+      "layer": "api",
+      "items": [
+        {
+          "title": "关于首届“常青藤”全国青少年校园戏剧创意大赛评审结果的通知",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=129",
+          "date": "2026-07-30"
+        },
+        {
+          "title": "关于“常青藤”全国青少年校园戏剧创意大赛复赛成绩延期公布的通知",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=128",
+          "date": "2026-07-01"
+        },
+        {
+          "title": "首届“常青藤”全国青少年校园戏剧创意大赛剧本写作赛项稿纸下载",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=123",
+          "date": "2026-04-28"
+        },
+        {
+          "title": "首届“常青藤”全国青少年校园戏剧创意大赛开启报名",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=92",
+          "date": "2026-05-06"
+        },
+        {
+          "title": "教育部办公厅关于公布2025—2028学年面向中小学生的全国性竞赛活动的通知",
+          "url": "https://houtai.cqtxj.org.cn/api/product/newsdetail?id=77",
+          "date": "2026-04-23"
+        }
+      ]
+    }
+  }
 }

@@ -1,9 +1,10 @@
 {
   "key": "painting-calligraphy",
   "name": "全国中小学生绘画书法作品比赛",
-  "checkedAt": "2026-09-19T07:54:26.165Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T09:02:07.206Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T09:02:07.206Z",
   "pages": {
     "https://www.ccc.org.cn/col/col283/": {
       "hash": "f4537312fcc63eb4a2b85cee2832bb547ccbe5ff",

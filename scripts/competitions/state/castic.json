@@ -1,12 +1,13 @@
 {
   "key": "castic",
   "name": "全国青少年科技创新大赛",
-  "checkedAt": "2026-09-19T07:49:12.410Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T08:58:32.763Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T08:58:32.763Z",
   "pages": {
     "https://cyscc.org/castic/": {
-      "hash": "d12b72449cb86400b94f73771b77e590ac9476de",
+      "hash": "f3e0363a2825f9626b698a508d9ecb0d1f7e76d0",
       "layer": "render",
       "items": [
         {
@@ -54,7 +55,7 @@
           "url": "https://www.cyscc.org/castic/#/home/article/242517"
         },
         {
-          "title": "16883 第37届全国青少年科技创新大赛全程回顾视频2023-11-09 13:14:12",
+          "title": "16884 第37届全国青少年科技创新大赛全程回顾视频2023-11-09 13:14:12",
           "url": "https://www.cyscc.org/castic/#/home/video/249835",
           "date": "2023-11-09"
         },
@@ -64,7 +65,7 @@
           "date": "2023-11-09"
         },
         {
-          "title": "79726 第34届全国青少年科技创新大赛回顾视频2019-08-05 12:43:09",
+          "title": "79728 第34届全国青少年科技创新大赛回顾视频2019-08-05 12:43:09",
           "url": "https://www.cyscc.org/castic/#/home/video/249303",
           "date": "2019-08-05"
         },

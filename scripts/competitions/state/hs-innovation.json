@@ -1,8 +1,65 @@
 {
   "key": "hs-innovation",
   "name": "高中生创新能力大赛",
-  "checkedAt": "2026-09-19T07:52:30.912Z",
-  "status": "needsManualCheck",
+  "checkedAt": "2026-09-19T09:06:38.391Z",
+  "status": "first-scan",
   "errorStreak": 0,
-  "pages": {}
+  "pages": {
+    "https://www.iccedu.com.cn/api/icc/homepage/majorevent/news?limit=10&to=1": {
+      "hash": "d2a83ef940ce6a23979a6d5240e726c56257c7ee",
+      "layer": "api",
+      "items": [
+        {
+          "title": "今天，不能忘！不敢忘！",
+          "url": "https://mp.weixin.qq.com/s/vRN7218Sg9oU98531CXdGQ",
+          "date": "2026-09-18"
+        },
+        {
+          "title": "教师节快乐|师恩如灯 照亮前路",
+          "url": "https://mp.weixin.qq.com/s/AnQFGAeAmQ3ZEa8S-1eDuw?scene=1",
+          "date": "2026-09-10"
+        },
+        {
+          "title": "2026年高中生创新能力大赛“春雨计划\"名单公示",
+          "url": "https://mp.weixin.qq.com/s/ttdufikhHt_wcqbJAwfTCg",
+          "date": "2026-08-27"
+        },
+        {
+          "title": "关于公布2026年高中生创新能力大赛全国决赛正式获奖名单的通知",
+          "url": "https://mp.weixin.qq.com/s/doyDjd8505EiCfYkKGYZhQ",
+          "date": "2026-08-13"
+        },
+        {
+          "title": "2026年高中生创新能力大赛全国决赛获奖证书下载开放通知",
+          "url": "https://mp.weixin.qq.com/s/PeeIJUC44NU5E1HUCaPS3Q",
+          "date": "2026-08-13"
+        },
+        {
+          "title": "2026年高中生创新能力大赛全国决赛拟获奖名单公示",
+          "url": "https://mp.weixin.qq.com/s/QvZMyebx9fNRK5pdcidNEQ",
+          "date": "2026-08-02"
+        },
+        {
+          "title": "2026年高中生创新能力大赛国家级优秀指导教师申请通知",
+          "url": "https://mp.weixin.qq.com/s/5P2wRmiPABfUTnUVnvY_1g",
+          "date": "2026-08-02"
+        },
+        {
+          "title": "中国人民解放军，生日快乐！",
+          "url": "https://mp.weixin.qq.com/s/r7KKamXqzJ-I3MP0CJfkAA",
+          "date": "2026-08-02"
+        },
+        {
+          "title": "2026年高中生创新能力大赛全国决赛圆满落幕",
+          "url": "https://mp.weixin.qq.com/s/p12NQgCiwDN1py1b_916qw",
+          "date": "2026-07-30"
+        },
+        {
+          "title": "2026年高中生创新能力大赛全国决赛开幕",
+          "url": "https://mp.weixin.qq.com/s/hqiHW_oweKjXc6ETjZBOwg",
+          "date": "2026-07-28"
+        }
+      ]
+    }
+  }
 }

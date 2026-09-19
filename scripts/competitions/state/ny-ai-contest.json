@@ -1,8 +1,8 @@
 {
   "key": "ny-ai-contest",
   "name": "全国青少年人工智能大赛",
-  "checkedAt": "2026-09-19T07:50:06.994Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T08:59:58.880Z",
+  "status": "needsManualCheck",
   "errorStreak": 0,
   "pages": {
     "https://aic.cwicp.cn/": {

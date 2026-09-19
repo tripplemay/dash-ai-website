@@ -1,9 +1,10 @@
 {
   "key": "national-defense-youth",
   "name": "全国青少年国防素养大赛",
-  "checkedAt": "2026-09-19T07:55:51.186Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T09:03:34.653Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T09:03:34.653Z",
   "pages": {
     "https://www.gfsy.org.cn/": {
       "hash": "26a75b01d81a0b9e00eef20477e3abe4cfb54b97",

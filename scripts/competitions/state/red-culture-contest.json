@@ -1,13 +1,13 @@
 {
   "key": "red-culture-contest",
   "name": "全国青少年红色文化传承与实践创新大赛",
-  "checkedAt": "2026-09-19T07:53:56.215Z",
+  "checkedAt": "2026-09-19T09:01:40.027Z",
   "status": "unchanged",
   "errorStreak": 0,
-  "lastOkAt": "2026-09-19T07:53:56.215Z",
+  "lastOkAt": "2026-09-19T09:01:40.027Z",
   "pages": {
     "https://www.hswh.org.cn/wzzx/hyzx/": {
-      "hash": "7b53e16de31b3dc82fe82bd54d7994e357751933",
+      "hash": "47f40f51ffbb626a3dcf23781a39bf7df3aa0042",
       "layer": "fetch",
       "items": [
         {

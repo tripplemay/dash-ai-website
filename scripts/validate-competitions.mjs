@@ -130,6 +130,42 @@ function validateRegistry(registry, errors) {
         errors.push({ code: "INVALID_NEWS_PAGES", path: at("newsPages"), message: "newsPages must be an array of http(s) URLs" });
       }
     }
+    if (entry.apiPages !== undefined) {
+      if (!Array.isArray(entry.apiPages) || entry.apiPages.length === 0) {
+        errors.push({ code: "INVALID_API_PAGES", path: at("apiPages"), message: "apiPages must be a non-empty array of API configs" });
+      } else {
+        for (const [apiIndex, api] of entry.apiPages.entries()) {
+          const apiPath = `${at("apiPages")}[${apiIndex}]`;
+          if (!isRecord(api)) {
+            errors.push({ code: "INVALID_API_PAGE", path: apiPath, message: "api config must be an object" });
+            continue;
+          }
+          if (!isValidHttpUrl(api.url)) {
+            errors.push({ code: "INVALID_API_URL", path: `${apiPath}.url`, message: "url must be an http(s) URL" });
+          }
+          if (api.method !== undefined && !["GET", "POST"].includes(String(api.method).toUpperCase())) {
+            errors.push({ code: "INVALID_API_METHOD", path: `${apiPath}.method`, message: "method must be GET or POST" });
+          }
+          if (typeof api.listPath !== "string") {
+            errors.push({ code: "MISSING_API_LIST_PATH", path: `${apiPath}.listPath`, message: "listPath must be a dot path string (empty string = 根即为数组)" });
+          }
+          if (!nonEmptyString(api.titleField)) {
+            errors.push({ code: "MISSING_API_TITLE_FIELD", path: `${apiPath}.titleField`, message: "titleField must be a non-empty string" });
+          }
+          for (const field of ["dateField", "urlField"]) {
+            if (api[field] !== undefined && !nonEmptyString(api[field])) {
+              errors.push({ code: "INVALID_API_FIELD", path: `${apiPath}.${field}`, message: `${field} must be a non-empty string when present` });
+            }
+          }
+          if (api.urlTemplate !== undefined && (typeof api.urlTemplate !== "string" || !/^https?:\/\//.test(api.urlTemplate))) {
+            errors.push({ code: "INVALID_API_URL_TEMPLATE", path: `${apiPath}.urlTemplate`, message: "urlTemplate must start with http(s)://" });
+          }
+          if (api.headers !== undefined && (!isRecord(api.headers) || Object.values(api.headers).some((v) => typeof v !== "string"))) {
+            errors.push({ code: "INVALID_API_HEADERS", path: `${apiPath}.headers`, message: "headers must be an object of string values" });
+          }
+        }
+      }
+    }
     if (!Number.isInteger(entry.moeListIndex) || entry.moeListIndex < 1) {
       errors.push({ code: "INVALID_MOE_INDEX", path: at("moeListIndex"), message: "moeListIndex must be a positive integer" });
     } else if (seenIndexes.has(entry.moeListIndex)) {

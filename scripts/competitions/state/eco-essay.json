@@ -1,9 +1,10 @@
 {
   "key": "eco-essay",
   "name": "全国中学生环境保护优秀作文征集活动",
-  "checkedAt": "2026-09-19T07:52:43.280Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T09:00:49.522Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T09:00:49.522Z",
   "pages": {
     "http://www.huanbaozuowen.com/": {
       "hash": "946cc88dd9a0817069673790f6e24b5893f43738",

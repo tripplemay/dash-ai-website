@@ -1,9 +1,10 @@
 {
   "key": "ccho",
   "name": "全国中学生化学奥林匹克竞赛",
-  "checkedAt": "2026-09-19T07:48:50.599Z",
-  "status": "first-scan",
+  "checkedAt": "2026-09-19T08:58:13.743Z",
+  "status": "unchanged",
   "errorStreak": 0,
+  "lastOkAt": "2026-09-19T08:58:13.743Z",
   "pages": {
     "https://www.chemsoc.org.cn/": {
       "hash": "e6156b1ffaf6b844a6777319bf1634554f61122d",

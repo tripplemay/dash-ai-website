@@ -1,8 +1,8 @@
 {
   "key": "nqdrone",
   "name": "全国青少年无人机大赛",
-  "checkedAt": "2026-09-19T07:47:50.557Z",
-  "status": "needsManualCheck",
-  "errorStreak": 0,
+  "checkedAt": "2026-09-19T08:57:16.395Z",
+  "status": "error",
+  "errorStreak": 1,
   "pages": {}
 }
