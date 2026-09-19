@@ -1,0 +1,9 @@
+{
+  "slug": "wrc-youth",
+  "papers": [
+    {"id":"wrc-youth-2023-other-296cff","year":2023,"stage":"其他","grade":null,"title":"2023 锦标赛","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/wrc-youth/wrc-youth-2023-other-296cff-attachment.pdf","size":24816847,"sha256":"3a77ee7fab05f2bbfcb042efc2179309cf9b72b9d2db8b61c50bc5852da42945"}],"hasAnswer":false,"source":{"name":"资料下载","url":"https://www.worldrobotconference.com/100/"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"wrc-youth-2020-zongjuesai-36a89d","year":2020,"stage":"总决赛","grade":null,"title":"2020 总决赛","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/wrc-youth/wrc-youth-2020-zongjuesai-36a89d-attachment.pdf","size":6965129,"sha256":"8ed37f0c3b00f4d69c473e7b495fe1e17c6a52642dde951112009b8b582e0080"}],"hasAnswer":false,"source":{"name":"资料下载","url":"https://www.worldrobotconference.com/100/"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"wrc-youth-2019-other-985cf3","year":2019,"stage":"其他","grade":null,"title":"2019 锦标赛","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/wrc-youth/wrc-youth-2019-other-985cf3-attachment.pdf","size":10308107,"sha256":"73718c1b80b5945064dc5512c2323832f12599cefe86c7f7c76139099edffbc2"}],"hasAnswer":false,"source":{"name":"资料下载","url":"https://www.worldrobotconference.com/100/"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"wrc-youth-2019-zongjuesai-7956bb","year":2019,"stage":"总决赛","grade":null,"title":"2019 总决赛","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/wrc-youth/wrc-youth-2019-zongjuesai-7956bb-attachment.pdf","size":50783714,"sha256":"20c8acef703caf1481a1ef79520a323faa7947d87bc8eed33346163a8f565f5d"}],"hasAnswer":false,"source":{"name":"资料下载","url":"https://www.worldrobotconference.com/100/"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "seen": {
+    "https://ceso.ssoc.org.cn/upload/file/1777191002.pdf": {
+      "at": "2026-09-19T16:45:18.603Z",
+      "status": "collected",
+      "id": "ceso-2025-juesai-87f8ab"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1775183981.pdf": {
+      "at": "2026-09-19T16:45:25.886Z",
+      "status": "collected",
+      "id": "ceso-2025-yusai-1b1300"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1755787659.pdf": {
+      "at": "2026-09-19T16:45:33.480Z",
+      "status": "collected",
+      "id": "ceso-2025-other-ec9050"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1747981900.pdf": {
+      "at": "2026-09-19T16:45:37.137Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1744627891.pdf": {
+      "at": "2026-09-19T16:45:41.807Z",
+      "status": "collected",
+      "id": "ceso-2024-yusai-f9b4cd"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1726811969.pdf": {
+      "at": "2026-09-19T16:45:47.353Z",
+      "status": "collected",
+      "id": "ceso-2024-other-0e130b"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1718106216.pdf": {
+      "at": "2026-09-19T16:45:52.295Z",
+      "status": "collected",
+      "id": "ceso-2023-juesai-635c98"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1711695440.pdf": {
+      "at": "2026-09-19T16:45:57.098Z",
+      "status": "collected",
+      "id": "ceso-2023-yusai-67b9af"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1685685020.pdf": {
+      "at": "2026-09-19T16:46:06.232Z",
+      "status": "collected",
+      "id": "ceso-2022-juesai-4e3ae8"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1680597799.pdf": {
+      "at": "2026-09-19T16:46:12.619Z",
+      "status": "collected",
+      "id": "ceso-2022-yusai-ecb37c"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1680597460.pdf": {
+      "at": "2026-09-19T16:46:17.254Z",
+      "status": "collected",
+      "id": "ceso-2021-yusai-c796cd"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1680597189.pdf": {
+      "at": "2026-09-19T16:46:27.254Z",
+      "status": "collected",
+      "id": "ceso-2021-juesai-44a721"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1623900205.pdf": {
+      "at": "2026-09-19T16:46:27.555Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1623296479.pdf": {
+      "at": "2026-09-19T16:46:27.555Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1618798068.pdf": {
+      "at": "2026-09-19T16:46:32.833Z",
+      "status": "collected",
+      "id": "ceso-2019-juesai-09ce9f"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1618798368.pdf": {
+      "at": "2026-09-19T16:46:39.956Z",
+      "status": "collected",
+      "id": "ceso-2019-yusai-a8294f"
+    },
+    "https://ceso.ssoc.org.cn/upload/file/1536739796.pdf": {
+      "at": "2026-09-19T16:46:40.259Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    }
+  }
+}

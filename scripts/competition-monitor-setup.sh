@@ -36,7 +36,7 @@ if [[ "${1:-}" == "--chromium-only" ]]; then
 fi
 
 echo "== 1/5 建目录 =="
-mkdir -p "$BASE"/{state,reports}
+mkdir -p "$BASE"/{state,reports,paper-state,paper-reports}
 
 echo "== 2/5 仓库 clone =="
 if [[ -d "$BASE/repo/.git" ]]; then
@@ -80,7 +80,16 @@ else
   echo "cron 已写入：$CRON_LINE"
 fi
 
-chmod +x "$BASE/repo/scripts/competition-monitor-vps.sh" || true
+# 备赛资料采集（与动态监测错峰）：paper-collector-vps.sh
+PAPERS_CRON_LINE="47 9,21 * * * $BASE/repo/scripts/paper-collector-vps.sh >> $BASE/papers-cron.log 2>&1"
+if crontab -l 2>/dev/null | grep -qF "paper-collector-vps.sh"; then
+  echo "papers cron 已存在，跳过。"
+else
+  (crontab -l 2>/dev/null || true; echo "$PAPERS_CRON_LINE") | crontab -
+  echo "papers cron 已写入：$PAPERS_CRON_LINE"
+fi
+
+chmod +x "$BASE/repo/scripts/competition-monitor-vps.sh" "$BASE/repo/scripts/paper-collector-vps.sh" || true
 
 echo
 echo "初始化完成。手动试跑一次："

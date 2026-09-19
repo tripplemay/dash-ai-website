@@ -1,0 +1,49 @@
+{
+  "seen": {
+    "https://www.worldrobotconference.com/static/upload/file/20250730/1753861033759833.pdf": {
+      "at": "2026-09-19T17:13:51.437Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744212315153568.pdf": {
+      "at": "2026-09-19T17:13:54.810Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744212040999488.pdf": {
+      "at": "2026-09-19T17:13:58.180Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744211895481486.pdf": {
+      "at": "2026-09-19T17:14:10.910Z",
+      "status": "collected",
+      "id": "wrc-youth-2023-other-296cff"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744211830472839.pdf": {
+      "at": "2026-09-19T17:14:14.601Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744211605222990.pdf": {
+      "at": "2026-09-19T17:14:18.954Z",
+      "status": "collected",
+      "id": "wrc-youth-2020-zongjuesai-36a89d"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744212447242426.pdf": {
+      "at": "2026-09-19T17:14:26.598Z",
+      "status": "collected",
+      "id": "wrc-youth-2019-other-985cf3"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744211505653233.pdf": {
+      "at": "2026-09-19T17:14:48.186Z",
+      "status": "collected",
+      "id": "wrc-youth-2019-zongjuesai-7956bb"
+    },
+    "https://www.worldrobotconference.com/static/upload/file/20250409/1744211327328176.pdf": {
+      "at": "2026-09-19T17:14:48.488Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    }
+  }
+}

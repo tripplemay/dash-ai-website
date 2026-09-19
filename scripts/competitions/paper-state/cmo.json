@@ -1,0 +1,29 @@
+{
+  "seen": {
+    "https://www.cms.org.cn/upload/file/20260420/1776645923730547.xlsx": {
+      "at": "2026-09-19T17:16:19.852Z",
+      "status": "collected",
+      "id": "cmo-2025-juesai-b6e0e7"
+    },
+    "https://www.cms.org.cn/Uploads/20241213/d43493c9caf4455e10bb662cbbffde71.pdf": {
+      "at": "2026-09-19T17:16:22.151Z",
+      "status": "collected",
+      "id": "cmo-2024-juesai-4a8c87"
+    },
+    "https://www.cms.org.cn/Home/comp/comp_details/id/1357.html": {
+      "at": "2026-09-19T17:16:35.489Z",
+      "status": "collected",
+      "id": "cmo-2025-juesai-fce83e"
+    },
+    "https://www.cms.org.cn/Home/comp/comp_details/id/1356.html": {
+      "at": "2026-09-19T17:16:53.157Z",
+      "status": "collected",
+      "id": "cmo-2025-yusai-bb1b31"
+    },
+    "https://www.cms.org.cn/Home/comp/comp_details/id/1315.html": {
+      "at": "2026-09-19T17:17:05.505Z",
+      "status": "collected",
+      "id": "cmo-2025-juesai-68ef60"
+    }
+  }
+}

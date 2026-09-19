@@ -1,0 +1,39 @@
+{
+  "seen": {
+    "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml": {
+      "at": "2026-09-19T17:19:08.370Z",
+      "status": "collected",
+      "id": "noi-2026-other-19285e"
+    },
+    "https://www.noi.cn/hjmd/mdgs/2026/2026-05-10/890915.shtml": {
+      "at": "2026-09-19T17:19:09.197Z",
+      "status": "collected",
+      "id": "noi-2026-other-03b21a"
+    },
+    "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861337.shtml": {
+      "at": "2026-09-19T17:19:10.031Z",
+      "status": "collected",
+      "id": "noi-2026-donglingying-4fdc87"
+    },
+    "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854072.shtml": {
+      "at": "2026-09-19T17:19:10.871Z",
+      "status": "collected",
+      "id": "noi-2025-other-e1af6f"
+    },
+    "https://www.noi.cn/hjmd/mdgs/2025/2025-07-18/846584.shtml": {
+      "at": "2026-09-19T17:19:11.700Z",
+      "status": "collected",
+      "id": "noi-2025-other-75fb03"
+    },
+    "https://www.noi.cn/hjmd/mdgs/2025/2025-05-21/842409.shtml": {
+      "at": "2026-09-19T17:19:12.540Z",
+      "status": "collected",
+      "id": "noi-2025-other-646d04"
+    },
+    "https://www.noi.cn/hjmd/mdgs/2025/2025-01-23/837733.shtml": {
+      "at": "2026-09-19T17:19:13.365Z",
+      "status": "collected",
+      "id": "noi-2025-donglingying-81391b"
+    }
+  }
+}

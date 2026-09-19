@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { AppPageHero } from "@/components/app-page-hero";
 import { CompetitionsBrowser } from "@/components/competitions-browser";
 import { COMPETITIONS, latestUpdate, competitionDateKey, type CompetitionListItem } from "@/lib/competitions";
+import { getPaperCounts } from "@/lib/papers";
 import { getPageMetadata } from "@/lib/page-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -11,6 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 
 export default async function CompetitionsPage() {
   const t = await getTranslations("competitions");
+  const paperCounts = getPaperCounts();
 
   const items: CompetitionListItem[] = COMPETITIONS.map((competition) => ({
     slug: competition.slug,
@@ -24,6 +26,7 @@ export default async function CompetitionsPage() {
     tags: competition.tags,
     schedule: competition.schedule.map(({ stage, start, end, completed }) => ({ stage, start, end, completed })),
     latest: latestUpdate(competition),
+    paperCount: paperCounts.get(competition.slug) ?? 0,
   }));
 
   return (

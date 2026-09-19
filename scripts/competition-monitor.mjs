@@ -1045,6 +1045,23 @@ async function main() {
   console.log(`\n报告已写入 ${path.relative(REPO_ROOT, outputDir)}/（report.md / diff.json${writeResult ? " / written.json" : ""}）`);
 }
 
+// 供 paper-collector 等脚本复用的抓取层（仅导出，不改变本脚本行为；main 入口守卫在下方）
+export {
+  USER_AGENT,
+  FETCH_TIMEOUT_MS,
+  sleep,
+  fetchPageViaCurl,
+  fetchPage,
+  isNetworkLayerError,
+  dohResolve,
+  rawRequest,
+  fetchPageWithDoh,
+  findChromiumExecutable,
+  getRenderer,
+  renderPage,
+  closeRenderer,
+};
+
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   main().catch((error) => {
     console.error(`监测脚本执行失败：${error.message}`);

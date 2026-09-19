@@ -1,0 +1,14 @@
+{
+  "seen": {
+    "http://www.centv.cn/yaowen114/p/603130.html": {
+      "at": "2026-09-19T17:24:03.661Z",
+      "status": "skipped",
+      "reason": "文章页无附件且标题无明确资料类型"
+    },
+    "http://www.centv.cn/z/569264": {
+      "at": "2026-09-19T17:24:05.437Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    }
+  }
+}

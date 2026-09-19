@@ -1,0 +1,19 @@
+{
+  "seen": {
+    "https://www.chemsoc.org.cn/notice/a7499.html": {
+      "at": "2026-09-19T17:17:12.705Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://www.chemsoc.org.cn/notice/a7491.html": {
+      "at": "2026-09-19T17:17:13.392Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://www.chemsoc.org.cn/notice/a6983.html": {
+      "at": "2026-09-19T17:17:14.086Z",
+      "status": "collected",
+      "id": "ccho-2025-other-be4064"
+    }
+  }
+}

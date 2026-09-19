@@ -1,0 +1,14 @@
+{
+  "seen": {
+    "https://www.gfsy.org.cn/news/8048fd1617dc4d8fbbcdac0185699412": {
+      "at": "2026-09-19T17:24:37.828Z",
+      "status": "skipped",
+      "reason": "文章页无附件且标题无明确资料类型"
+    },
+    "https://www.gfsy.org.cn/news/3613428a86554b53a056051f537a5006": {
+      "at": "2026-09-19T17:24:46.229Z",
+      "status": "collected",
+      "id": "national-defense-youth-2025-zongjuesai-ec28fa"
+    }
+  }
+}

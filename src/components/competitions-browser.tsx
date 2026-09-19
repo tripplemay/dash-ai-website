@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { CalendarDays, Search, SlidersHorizontal } from "lucide-react";
+import { CalendarDays, LibraryBig, Search, SlidersHorizontal } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
 import {
@@ -84,6 +84,11 @@ function CompetitionCard({ item, today, from }: { item: CompetitionListItem; tod
       </dl>
       <div className="mt-3 flex min-w-0 flex-wrap items-center gap-2 border-t border-neutral-100 pt-3 text-xs text-neutral-600">
         <CompetitionFollowButton slug={item.slug} name={name} />
+        {item.paperCount ? (
+          <Link href={`/competitions/${item.slug}#papers`} className="inline-flex items-center gap-1 rounded bg-coral-50 px-2 py-1 font-bold text-coral-700 transition-colors hover:bg-coral-100">
+            <LibraryBig aria-hidden="true" className="size-3" />{t("paperCountBadge", { count: item.paperCount })}
+          </Link>
+        ) : null}
         {item.tags.map((tag) => <span key={tag} className="rounded bg-indigo-50 px-2 py-1 text-indigo-800">{tag}</span>)}
         {item.latest && <span className="min-w-0 flex-1 truncate text-right" title={item.latest.title}>{t("latestUpdate")} {item.latest.date}</span>}
       </div>
@@ -138,6 +143,9 @@ export function CompetitionsBrowser({ items, initialToday }: { items: Competitio
           </button>
           <Link href="/competitions/calendar" className={cn(controlClass, "inline-flex items-center gap-2 text-indigo-800")}>
             <CalendarDays aria-hidden="true" className="size-4" />{t("calendarEntry")}
+          </Link>
+          <Link href="/competitions/papers" className={cn(controlClass, "inline-flex items-center gap-2 text-indigo-800")}>
+            <LibraryBig aria-hidden="true" className="size-4" />{t("papersEntry")}
           </Link>
           <CompetitionRemindersLink />
         </div>

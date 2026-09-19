@@ -1,0 +1,7 @@
+{
+  "slug": "ai-digital-art",
+  "papers": [
+    {"id":"ai-digital-art-2026-other-690507","year":2026,"stage":"其他","grade":null,"title":"时代画卷 笔绘河山 美丽中国系列主题绘画创作工程作品展征稿通知 2026.07.28","files":[{"kind":"problem","format":"html","externalUrl":"https://www.mcasc.com.cn/tongzhis/detail/1009.html"}],"hasAnswer":false,"source":{"name":"通知公告","url":"https://www.mcasc.com.cn/tongzhis/detail/1009.html"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"ai-digital-art-2026-other-0ba3ad","year":2026,"stage":"其他","grade":null,"title":"“全国青少年人工智能辅助生成数字艺术 创作者大赛”参赛作品指南——(赛项介绍、技术规范) 2026.04.29","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/ai-digital-art/ai-digital-art-2026-other-0ba3ad-attachment.pdf","size":10427827,"sha256":"e5d7e7ccf526e230ed614a4679c63b2cd0c4acdcb68413deaa51cceb0b1c85c7"},{"kind":"attachment","format":"pdf","fileKey":"files/papers/ai-digital-art/ai-digital-art-2026-other-0ba3ad-attachment2.pdf","size":3749774,"sha256":"57e454e0ffa1dee0c95e59951a6b0ca91f0a522efeca8cccb16b12253b4b84ca"}],"hasAnswer":false,"source":{"name":"通知公告","url":"https://www.mcasc.com.cn/tongzhis/detail/922.html"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
+}

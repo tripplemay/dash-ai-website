@@ -166,6 +166,20 @@ function validateRegistry(registry, errors) {
         }
       }
     }
+    if (entry.paperPages !== undefined) {
+      if (!Array.isArray(entry.paperPages) || entry.paperPages.length === 0) {
+        errors.push({ code: "INVALID_PAPER_PAGES", path: at("paperPages"), message: "paperPages must be a non-empty array of {url, label?}" });
+      } else {
+        for (const [pageIndex, page] of entry.paperPages.entries()) {
+          const pagePath = `${at("paperPages")}[${pageIndex}]`;
+          if (!isRecord(page) || !isValidHttpUrl(page.url)) {
+            errors.push({ code: "INVALID_PAPER_PAGE", path: `${pagePath}.url`, message: "paperPages entries must be objects with an http(s) url" });
+          } else if (page.label !== undefined && !nonEmptyString(page.label)) {
+            errors.push({ code: "INVALID_PAPER_PAGE_LABEL", path: `${pagePath}.label`, message: "label must be a non-empty string when present" });
+          }
+        }
+      }
+    }
     if (!Number.isInteger(entry.moeListIndex) || entry.moeListIndex < 1) {
       errors.push({ code: "INVALID_MOE_INDEX", path: at("moeListIndex"), message: "moeListIndex must be a positive integer" });
     } else if (seenIndexes.has(entry.moeListIndex)) {

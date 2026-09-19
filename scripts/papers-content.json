@@ -1,0 +1,1523 @@
+{
+  "generatedAt": "2026-09-19T17:25:19.530Z",
+  "competitions": [
+    {
+      "slug": "nyaic",
+      "nameZh": "全国青少年人工智能创新挑战赛",
+      "category": "natural-science",
+      "moeListIndex": 1,
+      "papers": []
+    },
+    {
+      "slug": "wrc-youth",
+      "nameZh": "世界机器人大会青少年机器人设计与信息素养大赛",
+      "category": "natural-science",
+      "moeListIndex": 2,
+      "papers": [
+        {
+          "id": "wrc-youth-2023-other-296cff",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "2023 锦标赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2023-other-296cff-attachment.pdf",
+              "size": 24816847,
+              "sha256": "3a77ee7fab05f2bbfcb042efc2179309cf9b72b9d2db8b61c50bc5852da42945"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "wrc-youth-2020-zongjuesai-36a89d",
+          "year": 2020,
+          "stage": "总决赛",
+          "grade": null,
+          "title": "2020 总决赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2020-zongjuesai-36a89d-attachment.pdf",
+              "size": 6965129,
+              "sha256": "8ed37f0c3b00f4d69c473e7b495fe1e17c6a52642dde951112009b8b582e0080"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "wrc-youth-2019-other-985cf3",
+          "year": 2019,
+          "stage": "其他",
+          "grade": null,
+          "title": "2019 锦标赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2019-other-985cf3-attachment.pdf",
+              "size": 10308107,
+              "sha256": "73718c1b80b5945064dc5512c2323832f12599cefe86c7f7c76139099edffbc2"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "wrc-youth-2019-zongjuesai-7956bb",
+          "year": 2019,
+          "stage": "总决赛",
+          "grade": null,
+          "title": "2019 总决赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/wrc-youth/wrc-youth-2019-zongjuesai-7956bb-attachment.pdf",
+              "size": 50783714,
+              "sha256": "20c8acef703caf1481a1ef79520a323faa7947d87bc8eed33346163a8f565f5d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "资料下载",
+            "url": "https://www.worldrobotconference.com/100/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "nqdrone",
+      "nameZh": "全国青少年无人机大赛",
+      "category": "natural-science",
+      "moeListIndex": 3,
+      "papers": []
+    },
+    {
+      "slug": "soong-invention-award",
+      "nameZh": "宋庆龄少年儿童发明奖",
+      "category": "natural-science",
+      "moeListIndex": 4,
+      "papers": [
+        {
+          "id": "soong-invention-award-2026-other-89506f",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "第二十一届宋庆龄少年儿童发明奖获奖名单公示 2026-08-21",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-89506f-gallery.pdf",
+              "size": 318839,
+              "sha256": "d323a08e156e3f95c051a2c0770ffe5d7a1f31d1d6d5a2dd2d98289e23c3fb2a"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-89506f-gallery2.pdf",
+              "size": 218126,
+              "sha256": "84091980af064f62a3b6577d12cac13ed8196b39a738f7b50985998f22e8c21b"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-89506f-gallery3.pdf",
+              "size": 86712,
+              "sha256": "90eea3bb6e94fcda8ab2987a54e3568691592bad85329c9eeb1bb18458228bd3"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-89506f-gallery4.pdf",
+              "size": 65468,
+              "sha256": "a08aa3ea687a4ba680947a6e21f91d04810f2ef4f035731fa6a945bb908009f4"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "中国宋庆龄基金会、中国发明协会",
+            "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/923/frtid/20/Default.aspx"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "soong-invention-award-2026-other-8287ac",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "第二十一届宋庆龄少年儿童发明奖入围作品名单和科技绘画作品展示名单公示 2026-07-22",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-8287ac-gallery.pdf",
+              "size": 685682,
+              "sha256": "c7f2de8aabb00f237020f90c9fa48d40d25b39f682992c5df8c52910e1e4f268"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-8287ac-gallery2.pdf",
+              "size": 426022,
+              "sha256": "333ea4a3d3915dcc1d966efd59fc76f09d4a086443e9d187077e7d7ae248c327"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-8287ac-gallery3.pdf",
+              "size": 206122,
+              "sha256": "3beb824c443533bae6092b83c96bfbf65950c628f04e4d45d223fc89b5869723"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-8287ac-gallery4.pdf",
+              "size": 141807,
+              "sha256": "04da71500c57cdac9f93463377f8d646fa9433b7fe13656b65fb4a3c69b36a0e"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "中国宋庆龄基金会、中国发明协会",
+            "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/916/frtid/20/Default.aspx"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "soong-invention-award-2025-other-936483",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "第二十届宋庆龄少年儿童发明奖获奖名单公布 2025-08-20",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2025-other-936483-gallery.pdf",
+              "size": 468235,
+              "sha256": "1fd03c6e9613b91bbaa82fcb4f57db049532ecbb6ab66e444094d0c8e9762953"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2025-other-936483-gallery2.pdf",
+              "size": 331470,
+              "sha256": "1bb663529e719e80c27066d963c500e819020cf8d0e7f611168c603f18fab4d9"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2025-other-936483-gallery3.pdf",
+              "size": 182333,
+              "sha256": "cf0a1c492a30c0cebecf7a16f2ac0f87e9154414ba9570dca99d293f97f8d558"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "中国宋庆龄基金会、中国发明协会",
+            "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/906/frtid/20/Default.aspx"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "cnao",
+      "nameZh": "全国中学生天文知识竞赛",
+      "category": "natural-science",
+      "moeListIndex": 5,
+      "papers": []
+    },
+    {
+      "slug": "geodoctor",
+      "nameZh": "“地球小博士”全国地理科普知识大赛活动",
+      "category": "natural-science",
+      "moeListIndex": 6,
+      "papers": []
+    },
+    {
+      "slug": "water-tech-invention",
+      "nameZh": "全国中学生水科技发明比赛暨斯德哥尔摩青少年水奖中国区选拔赛",
+      "category": "natural-science",
+      "moeListIndex": 7,
+      "papers": []
+    },
+    {
+      "slug": "ceso",
+      "nameZh": "全国中学生地球科学奥林匹克竞赛",
+      "category": "natural-science",
+      "moeListIndex": 8,
+      "papers": [
+        {
+          "id": "ceso-2025-juesai-87f8ab",
+          "year": 2025,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2025-2026学年全国中学生地球科学奥赛决赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-juesai-87f8ab-paper.pdf",
+              "size": 6570548,
+              "sha256": "af5dd54e8592ae4fb46b9363b9595c178dca51d9f55f8abd6525fdbaf4bc5709"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2025-yusai-1b1300",
+          "year": 2025,
+          "stage": "预赛",
+          "grade": null,
+          "title": "2025-2026学年全国中学生地球科学奥赛预赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-yusai-1b1300-paper.pdf",
+              "size": 12876219,
+              "sha256": "e52c92938c1a63390a72f6f5b04220e554d8c63961b6b7bab8c0a404b9b9cec1"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2025-other-ec9050",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "2025年国际地球科学奥林匹克竞赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-other-ec9050-paper.pdf",
+              "size": 2797535,
+              "sha256": "384d50294d164ccdd22942fa2e0603dfea3e612679e26a97633717337f844563"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2024-yusai-f9b4cd",
+          "year": 2024,
+          "stage": "预赛",
+          "grade": null,
+          "title": "2024-2025学年全国中学生地球科学奥林匹克竞赛预赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-yusai-f9b4cd-paper.pdf",
+              "size": 2037692,
+              "sha256": "24727b59a919760707c7f6dccb3b1baef308c6122ed106cbddbed0319dc681e7"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2024-other-0e130b",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "2024国际地球科学奥林匹克竞赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-other-0e130b-paper.pdf",
+              "size": 4928025,
+              "sha256": "4db26438321dafe1a736309a1d4ba3b76df436798460982cf39d53d48e9024a5"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2023-juesai-635c98",
+          "year": 2023,
+          "stage": "决赛",
+          "grade": null,
+          "title": "“燕园元培杯”2023-2024学年全国中学生地球科学奥林匹克竞赛决赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-juesai-635c98-paper.pdf",
+              "size": 5425120,
+              "sha256": "15952d749db3e838f22c559ccac599f6defd18f3fca4bf6a7dfaa94d349aec9a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2023-yusai-67b9af",
+          "year": 2023,
+          "stage": "预赛",
+          "grade": null,
+          "title": "“燕园元培杯”2023-2024 学年全国中学生地球科学奥林匹克竞赛预赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-yusai-67b9af-paper.pdf",
+              "size": 1606867,
+              "sha256": "63c1d1ba512fc61f54a0c3f93eddebe7a97d30289085a2bada8b83e19f1f7f74"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2022-juesai-4e3ae8",
+          "year": 2022,
+          "stage": "决赛",
+          "grade": null,
+          "title": "“海亮杯”2022-2023学年全国中学生地球科学奥林匹克竞赛决赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-juesai-4e3ae8-paper.pdf",
+              "size": 3961066,
+              "sha256": "854269715bdf384e3493a2c2ff3c270c13589ac59d58c6f78bec8aa2c450e4a7"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2022-yusai-ecb37c",
+          "year": 2022,
+          "stage": "预赛",
+          "grade": null,
+          "title": "“海亮杯”2022-2023学年全国中学生地球科学奥林匹克竞赛预赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-yusai-ecb37c-paper.pdf",
+              "size": 791453,
+              "sha256": "9f7b028dceb2d7864341b04501ece6e2a308e1d0ee95f2c25997828d6c46ca27"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2021-yusai-c796cd",
+          "year": 2021,
+          "stage": "预赛",
+          "grade": null,
+          "title": "“海亮杯”2021-2022学年全国中学生地球科学奥林匹克竞赛预赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2021-yusai-c796cd-paper.pdf",
+              "size": 1581464,
+              "sha256": "b041c581b78851fa20e319c36bc09e6d318a9ed9d959b495c6cdae2a689b58ed"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2021-juesai-44a721",
+          "year": 2021,
+          "stage": "决赛",
+          "grade": null,
+          "title": "“海亮杯”2021-2022学年全国中学生地球科学奥林匹克竞赛决赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2021-juesai-44a721-paper.pdf",
+              "size": 14228927,
+              "sha256": "3e46fefcb994a551e00f351ce2a7251bc2c46136686b4cbc324564d537b65dbd"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2019-juesai-09ce9f",
+          "year": 2019,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2019年国际地球科学奥林匹克竞赛选拔赛决赛",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2019-juesai-09ce9f-paper.pdf",
+              "size": 1135769,
+              "sha256": "880d63c9d8690a61eaa6137b6e4e7276b24aace1ffb1b43540b80d5695b9b0e9"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2019-yusai-a8294f",
+          "year": 2019,
+          "stage": "预赛",
+          "grade": null,
+          "title": "2019年国际地球科学奥林匹克竞赛选拔赛预赛",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2019-yusai-a8294f-paper.pdf",
+              "size": 1104516,
+              "sha256": "a1d1f122c274ac245dd2d5a84b1a4741d06c908dfe4c5d74d408324caebe077c"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "cmo",
+      "nameZh": "全国中学生数学奥林匹克竞赛",
+      "category": "natural-science",
+      "moeListIndex": 9,
+      "papers": [
+        {
+          "id": "cmo-2025-juesai-b6e0e7",
+          "year": 2025,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2025年全国中学生数学奥林匹克竞赛（决赛）获奖名单",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/cmo/cmo-2025-juesai-b6e0e7-gallery.xlsx",
+              "size": 45530,
+              "sha256": "68e2bad06b6ad9949853420e596ec563d89507ac62163d6d2a9e67f22f47399f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "竞赛专栏",
+            "url": "https://www.cms.org.cn/Home/comp/comp.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "cmo-2024-juesai-4a8c87",
+          "year": 2024,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2024年全国中学生数学奥林匹克竞赛（决赛）获奖名单 发布时间：2024-12-13",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2024-juesai-4a8c87-gallery.pdf",
+              "size": 353001,
+              "sha256": "f7138e30747efb718d87fe5b1c65d0c1347751f2ef01f255903a762aa3267ad8"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "竞赛专栏",
+            "url": "https://www.cms.org.cn/Home/comp/comp.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "cmo-2025-juesai-fce83e",
+          "year": 2025,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2025年全国中学生数学奥林匹克竞赛（决赛）（第四十一届全国中学生数学冬令营）名单公示 发布时间：2025-10-14",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "rar",
+              "fileKey": "files/papers/cmo/cmo-2025-juesai-fce83e-gallery.rar",
+              "size": 1505854,
+              "sha256": "e9467df3ef716c9cdee3c155993292dfaa093b3ae82643d0c5f6c460cbb7246b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "竞赛专栏",
+            "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1357.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "cmo-2025-yusai-bb1b31",
+          "year": 2025,
+          "stage": "预赛",
+          "grade": null,
+          "title": "2025年全国中学生数学奥林匹克竞赛（预赛）（2025年全国高中数学联赛）一等奖名单公示 发布时间：2025-10-14",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "rar",
+              "fileKey": "files/papers/cmo/cmo-2025-yusai-bb1b31-gallery.rar",
+              "size": 2200313,
+              "sha256": "54fb16686ead5dcc6ee0ae9c86a4f8b0b1a2ef30535fd93e29480bd6cf291d80"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "竞赛专栏",
+            "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1356.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "cmo-2025-juesai-68ef60",
+          "year": 2025,
+          "stage": "决赛",
+          "grade": null,
+          "title": "第十六全国大学生数学竞赛决赛获奖名单 发布时间：2025-04-16",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery.pdf",
+              "size": 281671,
+              "sha256": "775d1248bc85a04332e020b3c2b5062381a475ed3d2207d3631c907006e87828"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery2.pdf",
+              "size": 314306,
+              "sha256": "596a661701ad2e7be9dcf449d440242250c7fb4d54a24409aec0f607a8636851"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery3.pdf",
+              "size": 382356,
+              "sha256": "d51ab473708f3d56adc25af1030a6de5f07c63c798115a3564f480dc90258f39"
+            },
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery4.pdf",
+              "size": 256032,
+              "sha256": "7d58b7a6389c176a3f8f1e358bb77dd01dc6941e3cfe0da36e86ed8f737d0eed"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "竞赛专栏",
+            "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1315.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "cpho",
+      "nameZh": "全国中学生物理奥林匹克竞赛",
+      "category": "natural-science",
+      "moeListIndex": 10,
+      "papers": []
+    },
+    {
+      "slug": "ccho",
+      "nameZh": "全国中学生化学奥林匹克竞赛",
+      "category": "natural-science",
+      "moeListIndex": 11,
+      "papers": [
+        {
+          "id": "ccho-2025-other-be4064",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "· 2025年度京博科技奖-化学化工与材料京博优秀博士奖获奖名单公布",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.chemsoc.org.cn/notice/a6983.html"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "通知公告",
+            "url": "https://www.chemsoc.org.cn/notice/a6983.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "chsbo",
+      "nameZh": "全国中学生生物学奥林匹克竞赛",
+      "category": "natural-science",
+      "moeListIndex": 12,
+      "papers": [
+        {
+          "id": "chsbo-2017-liansai-b370f8",
+          "year": 2017,
+          "stage": "联赛",
+          "grade": null,
+          "title": "2017年全国中学生生物学联赛获奖学生名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery.xls",
+              "size": 131584,
+              "sha256": "872cc130f07ed468f890675aabae323e46b2c1bdbc1ee33f205df2450ea94984"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery2.xls",
+              "size": 125440,
+              "sha256": "30ddb3fa997ae808f97685121815ce9f4251fffb9faa4d6009ffaf56fc1efecc"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery3.xls",
+              "size": 126464,
+              "sha256": "a9481073e3891147a58bfa56968c70dafb53e99c37a945f65392a33515ccffef"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery4.xls",
+              "size": 121344,
+              "sha256": "6d6e4849a3e28a2cefeed54dcd5be5d3c6026434106fadae9947a0e73eb17328"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery5.xls",
+              "size": 140288,
+              "sha256": "59af294912763cb3e04a3b5ca17d43526c58498193f1c4460ef28b6d0ad15c8c"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery6.xls",
+              "size": 134144,
+              "sha256": "4002f836662d17dba6908324a2ee95edd9ed8d5f6552779b802642a4a259dd7b"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery7.xls",
+              "size": 131072,
+              "sha256": "9859a7476e75d15f0297a4e87c2285d40b58adbc9d40cf0916e9c3d99c6ed5f1"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery8.xls",
+              "size": 133632,
+              "sha256": "ca977726039e5bf1da98ff1b4e258a549bb9eb3a4e7b2c2a5ff818f6fe5a2213"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery9.xls",
+              "size": 118272,
+              "sha256": "f7916665a3df709bf9980938b2a5188096cac767142d85fd731c14f73dd8e0f3"
+            },
+            {
+              "kind": "gallery",
+              "format": "xls",
+              "fileKey": "files/papers/chsbo/chsbo-2017-liansai-b370f8-gallery10.xls",
+              "size": 125440,
+              "sha256": "8e2dd23f86cadfe54041f03c7014598fc906ab236981a168fd8519b9927e4f5a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "联赛通知",
+            "url": "https://www.czs.org.cn/swjs/swls/art/2026/art_527d82ad25204dd78dac05f71241882b.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "chsbo-2025-liansai-1c7664",
+          "year": 2025,
+          "stage": "联赛",
+          "grade": null,
+          "title": "2025年全国中学生生物学联赛各省赛区获奖学生名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2025-liansai-1c7664-gallery2.xlsx",
+              "size": 61171,
+              "sha256": "9c4b2750c277847b68da0be5d40f3966417604d3f6404776568f507a098a5601"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2025-liansai-1c7664-gallery4.xlsx",
+              "size": 44419,
+              "sha256": "776d2bdeda38e49b0f89cda57bdb1b43e6b7f4a7acca26d78e8e2812b8478b14"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2025-liansai-1c7664-gallery6.xlsx",
+              "size": 69892,
+              "sha256": "f2584b6d7d4165aa43a636ffcf7679672282a28c529718e3c897c33fd7a79b5c"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2025-liansai-1c7664-gallery8.xlsx",
+              "size": 62571,
+              "sha256": "c457ef9fe572ec481f128a9c96f71f74b22fdae788c11dd0945770fb1c193583"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2025-liansai-1c7664-gallery10.xlsx",
+              "size": 60887,
+              "sha256": "5510fcdf7c6993452eac685ad35e5dab16e7a447e6c7d16a30f39e6d65b6980f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "联赛通知",
+            "url": "https://www.czs.org.cn/swjs/swls/art/2025/art_03b065cbec5849d595b5a003f9fd34d9.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "chsbo-2019-liansai-441510",
+          "year": 2019,
+          "stage": "联赛",
+          "grade": null,
+          "title": "2019年全国中学生生物学联赛获奖学生名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery.xlsx",
+              "size": 69315,
+              "sha256": "1d28bdf84d647045da17fdf1d8b6745769ff40c19e433f13e0a3a33dda4d1c22"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery2.xlsx",
+              "size": 38696,
+              "sha256": "11382439ed6c57b7fc508ff8120dc9eb5346108f3f8db5708a0ed5b3c5826972"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery3.xlsx",
+              "size": 66239,
+              "sha256": "ae699a6ca8e82661a898ff8f3e1c52df2b1daf8f0d9194b56a86c220f618654a"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery4.xlsx",
+              "size": 64883,
+              "sha256": "efaa7e4d7363c99714d7b0df3c19f236e8547df4797ba25c6299528d0527ffe7"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery5.xlsx",
+              "size": 70756,
+              "sha256": "2779f69f6cb72c2591bc088d624d73d015cc625fb70d3b134802b940e6f70e53"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery6.xlsx",
+              "size": 67529,
+              "sha256": "bfbeacbe3598a9b159a83fda3f580d6033d5deb89d9a8c27e3600a421bfdc9f4"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery7.xlsx",
+              "size": 63535,
+              "sha256": "0b0c7a2f440c39c7b64d9087d089dfbc56d25447772c4f15a59113e73584f8f9"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery8.xlsx",
+              "size": 63723,
+              "sha256": "58950764aa6331de6959b74c012f795935086809fd07d12b72f6ee3495a988fa"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery9.xlsx",
+              "size": 67373,
+              "sha256": "d7f6b2ca0c254b548aa0a04c809a9d48cfe04e1dc25ba4714baa87d549f277a7"
+            },
+            {
+              "kind": "gallery",
+              "format": "xlsx",
+              "fileKey": "files/papers/chsbo/chsbo-2019-liansai-441510-gallery10.xlsx",
+              "size": 69180,
+              "sha256": "efb5c6fd53f35e3fb686380e06684f953573ca84dcb0cbb41c34895a98a38c67"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "联赛通知",
+            "url": "https://www.czs.org.cn/swjs/swls/art/2019/art_74bb3e42202749e89479e8406c4012e7.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "noi",
+      "nameZh": "全国中学生信息学奥林匹克竞赛",
+      "category": "natural-science",
+      "moeListIndex": 13,
+      "papers": [
+        {
+          "id": "noi-2026-other-19285e",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "CCF NOI 2026 获奖名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-07-23/917137.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "noi-2026-other-03b21a",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "APIO 2026中国区活动荣誉名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2026/2026-05-10/890915.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-05-10/890915.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "noi-2026-donglingying-4fdc87",
+          "year": 2026,
+          "stage": "冬令营",
+          "grade": null,
+          "title": "NOI冬令营2026获奖名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861337.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-02-12/861337.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "noi-2025-other-e1af6f",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "NOIP2025获奖名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854072.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-12-13/854072.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "noi-2025-other-75fb03",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "CCF NOI2025获奖名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2025/2025-07-18/846584.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-07-18/846584.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "noi-2025-other-646d04",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "APIO2025中国区活动获奖名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2025/2025-05-21/842409.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-05-21/842409.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "noi-2025-donglingying-81391b",
+          "year": 2025,
+          "stage": "冬令营",
+          "grade": null,
+          "title": "NOI2025冬令营获奖名单公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://www.noi.cn/hjmd/mdgs/2025/2025-01-23/837733.shtml"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "名单公示",
+            "url": "https://www.noi.cn/hjmd/mdgs/2025/2025-01-23/837733.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "castic",
+      "nameZh": "全国青少年科技创新大赛",
+      "category": "natural-science",
+      "moeListIndex": 14,
+      "papers": []
+    },
+    {
+      "slug": "nysic",
+      "nameZh": "全国青少年航天创新大赛",
+      "category": "natural-science",
+      "moeListIndex": 15,
+      "papers": []
+    },
+    {
+      "slug": "yau-awards",
+      "nameZh": "丘成桐中学科学奖",
+      "category": "natural-science",
+      "moeListIndex": 16,
+      "papers": [
+        {
+          "id": "yau-awards-2021-zongjuesai-01a8d8",
+          "year": 2021,
+          "stage": "总决赛",
+          "grade": null,
+          "title": "2021总决赛学生手册",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "html",
+              "externalUrl": "https://www.yau-awards.com/index/reldown?id=5"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "文件下载",
+            "url": "https://www.yau-awards.com/index/reldown?id=5"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "yau-awards-2020-zongjuesai-b542f1",
+          "year": 2020,
+          "stage": "总决赛",
+          "grade": null,
+          "title": "2020总决赛学生手册",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "html",
+              "externalUrl": "https://www.yau-awards.com/index/reldown?id=4"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "文件下载",
+            "url": "https://www.yau-awards.com/index/reldown?id=4"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "icc-china",
+      "nameZh": "全球发明大会（中国）竞赛活动",
+      "category": "natural-science",
+      "moeListIndex": 17,
+      "papers": []
+    },
+    {
+      "slug": "ny-ai-contest",
+      "nameZh": "全国青少年人工智能大赛",
+      "category": "natural-science",
+      "moeListIndex": 18,
+      "papers": []
+    },
+    {
+      "slug": "nysec",
+      "nameZh": "全国青少年科学实验能力大赛",
+      "category": "natural-science",
+      "moeListIndex": 19,
+      "papers": []
+    },
+    {
+      "slug": "nysim",
+      "nameZh": "全国青少年科学探究建模能力大赛",
+      "category": "natural-science",
+      "moeListIndex": 20,
+      "papers": []
+    },
+    {
+      "slug": "youth-psy-innovation",
+      "nameZh": "全国青少年心理成长知识与应用创新大赛",
+      "category": "natural-science",
+      "moeListIndex": 21,
+      "papers": []
+    },
+    {
+      "slug": "nyseic",
+      "nameZh": "全国青少年安全与应急科普创新大赛",
+      "category": "natural-science",
+      "moeListIndex": 22,
+      "papers": []
+    },
+    {
+      "slug": "anti-drug-quiz",
+      "nameZh": "全国青少年禁毒知识竞赛",
+      "category": "humanities",
+      "moeListIndex": 23,
+      "papers": []
+    },
+    {
+      "slug": "zuowendasai",
+      "nameZh": "世界华人学生作文大赛",
+      "category": "humanities",
+      "moeListIndex": 24,
+      "papers": []
+    },
+    {
+      "slug": "fltrp-cup",
+      "nameZh": "“外研社杯”全国中学生外语素养大赛",
+      "category": "humanities",
+      "moeListIndex": 25,
+      "papers": []
+    },
+    {
+      "slug": "hs-innovation",
+      "nameZh": "高中生创新能力大赛",
+      "category": "humanities",
+      "moeListIndex": 26,
+      "papers": []
+    },
+    {
+      "slug": "eco-essay",
+      "nameZh": "全国中学生环境保护优秀作文征集活动",
+      "category": "humanities",
+      "moeListIndex": 27,
+      "papers": []
+    },
+    {
+      "slug": "bantu-quiz",
+      "nameZh": "“美丽中国”全国版图知识竞赛（中小学组）",
+      "category": "humanities",
+      "moeListIndex": 28,
+      "papers": []
+    },
+    {
+      "slug": "aild",
+      "nameZh": "全国青少年劳动技能与智能设计大赛",
+      "category": "humanities",
+      "moeListIndex": 29,
+      "papers": [
+        {
+          "id": "aild-2026-other-1aa832",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "03/16 2026 2025-2026学年AILD赛题及评价标准 人文引领、以劳育人、智能驱动、五育融合、创新设计",
+          "files": [
+            {
+              "kind": "problem",
+              "format": "html",
+              "externalUrl": "http://aild.org.cn/news_show.aspx?id=1208"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "赛题",
+            "url": "http://aild.org.cn/news_show.aspx?id=1208"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "shici-meiyu",
+      "nameZh": "中华诗词美育大赛",
+      "category": "humanities",
+      "moeListIndex": 30,
+      "papers": []
+    },
+    {
+      "slug": "luxunwenxue",
+      "nameZh": "鲁迅青少年文学大赛",
+      "category": "humanities",
+      "moeListIndex": 31,
+      "papers": []
+    },
+    {
+      "slug": "red-culture-contest",
+      "nameZh": "全国青少年红色文化传承与实践创新大赛",
+      "category": "humanities",
+      "moeListIndex": 32,
+      "papers": []
+    },
+    {
+      "slug": "china-story-contest",
+      "nameZh": "“讲好中国故事”全国中小学语言素养大赛",
+      "category": "humanities",
+      "moeListIndex": 33,
+      "papers": []
+    },
+    {
+      "slug": "tongsong-zhonghua",
+      "nameZh": "同颂中华·全国青少年志愿文学创作与诵读大赛",
+      "category": "humanities",
+      "moeListIndex": 34,
+      "papers": []
+    },
+    {
+      "slug": "painting-calligraphy",
+      "nameZh": "全国中小学生绘画书法作品比赛",
+      "category": "art-sports",
+      "moeListIndex": 35,
+      "papers": []
+    },
+    {
+      "slug": "nautical-model",
+      "nameZh": "“我爱祖国海疆”全国青少年航海模型教育竞赛",
+      "category": "art-sports",
+      "moeListIndex": 36,
+      "papers": []
+    },
+    {
+      "slug": "vehicle-model",
+      "nameZh": "“驾驭未来”全国青少年车辆模型教育竞赛",
+      "category": "art-sports",
+      "moeListIndex": 37,
+      "papers": []
+    },
+    {
+      "slug": "youth-flight-sim",
+      "nameZh": "全国青少年模拟飞行锦标赛",
+      "category": "art-sports",
+      "moeListIndex": 38,
+      "papers": []
+    },
+    {
+      "slug": "feibei-aeromodel",
+      "nameZh": "“飞向北京·飞向太空”全国青少年航空航天模型教育竞赛活动",
+      "category": "art-sports",
+      "moeListIndex": 39,
+      "papers": []
+    },
+    {
+      "slug": "traditional-sports",
+      "nameZh": "全国青少年传统体育项目比赛",
+      "category": "art-sports",
+      "moeListIndex": 40,
+      "papers": []
+    },
+    {
+      "slug": "xiwangsong",
+      "nameZh": "“希望颂”——全国青少年书画艺术大展",
+      "category": "art-sports",
+      "moeListIndex": 41,
+      "papers": []
+    },
+    {
+      "slug": "ocean-design-contest",
+      "nameZh": "全国中小学生海洋文化创意设计大赛",
+      "category": "art-sports",
+      "moeListIndex": 42,
+      "papers": []
+    },
+    {
+      "slug": "national-defense-youth",
+      "nameZh": "全国青少年国防素养大赛",
+      "category": "art-sports",
+      "moeListIndex": 43,
+      "papers": [
+        {
+          "id": "national-defense-youth-2025-zongjuesai-ec28fa",
+          "year": 2025,
+          "stage": "总决赛",
+          "grade": null,
+          "title": "2025—2026学年全国青少年国防素养大赛全国总决赛选手参赛手册2026/08/08",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "html",
+              "externalUrl": "https://www.gfsy.org.cn/news/3613428a86554b53a056051f537a5006"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "赛项规则",
+            "url": "https://www.gfsy.org.cn/news/3613428a86554b53a056051f537a5006"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "drama-china-contest",
+      "nameZh": "“戏剧中国”全国青少年戏剧文化艺术大赛",
+      "category": "art-sports",
+      "moeListIndex": 44,
+      "papers": []
+    },
+    {
+      "slug": "ai-digital-art",
+      "nameZh": "全国青少年人工智能辅助生成数字艺术创作者大赛",
+      "category": "art-sports",
+      "moeListIndex": 45,
+      "papers": [
+        {
+          "id": "ai-digital-art-2026-other-690507",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "时代画卷 笔绘河山 美丽中国系列主题绘画创作工程作品展征稿通知 2026.07.28",
+          "files": [
+            {
+              "kind": "problem",
+              "format": "html",
+              "externalUrl": "https://www.mcasc.com.cn/tongzhis/detail/1009.html"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "通知公告",
+            "url": "https://www.mcasc.com.cn/tongzhis/detail/1009.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ai-digital-art-2026-other-0ba3ad",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "“全国青少年人工智能辅助生成数字艺术 创作者大赛”参赛作品指南——(赛项介绍、技术规范) 2026.04.29",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/ai-digital-art/ai-digital-art-2026-other-0ba3ad-attachment.pdf",
+              "size": 10427827,
+              "sha256": "e5d7e7ccf526e230ed614a4679c63b2cd0c4acdcb68413deaa51cceb0b1c85c7"
+            },
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/ai-digital-art/ai-digital-art-2026-other-0ba3ad-attachment2.pdf",
+              "size": 3749774,
+              "sha256": "57e454e0ffa1dee0c95e59951a6b0ca91f0a522efeca8cccb16b12253b4b84ca"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "通知公告",
+            "url": "https://www.mcasc.com.cn/tongzhis/detail/922.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
+    },
+    {
+      "slug": "visual-art-workshop",
+      "nameZh": "学校美育助力行动——青少年视觉艺术传承与创新工作坊展示",
+      "category": "art-sports",
+      "moeListIndex": 46,
+      "papers": []
+    },
+    {
+      "slug": "ivy-campus-drama",
+      "nameZh": "“常青藤”全国青少年校园戏剧创意大赛",
+      "category": "art-sports",
+      "moeListIndex": 47,
+      "papers": []
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "seen": {
+    "https://www.czs.org.cn/swjs/lsstxz/index.html": {
+      "at": "2026-09-19T17:17:43.294Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://www.czs.org.cn/swjs/swls/art/2026/art_527d82ad25204dd78dac05f71241882b.html": {
+      "at": "2026-09-19T17:18:06.457Z",
+      "status": "collected",
+      "id": "chsbo-2017-liansai-b370f8"
+    },
+    "https://www.czs.org.cn/swjs/swls/art/2025/art_03b065cbec5849d595b5a003f9fd34d9.html": {
+      "at": "2026-09-19T17:18:16.071Z",
+      "status": "collected",
+      "id": "chsbo-2025-liansai-1c7664"
+    },
+    "https://www.czs.org.cn/swjs/swls/art/2019/art_74bb3e42202749e89479e8406c4012e7.html": {
+      "at": "2026-09-19T17:18:34.647Z",
+      "status": "collected",
+      "id": "chsbo-2019-liansai-441510"
+    },
+    "https://www.czs.org.cn/swjs/swls/art/2019/art_ed19f5f4f8a04753ba9a36c106204fbc.html": {
+      "at": "2026-09-19T17:18:43.362Z",
+      "status": "skipped",
+      "reason": "版权/转载声明类公告，不作为资料收录"
+    },
+    "https://www.czs.org.cn/swjs/swls/art/2017/art_95606e4a6aa04d089d5985b702700e2b.html": {
+      "at": "2026-09-19T17:18:54.566Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.czs.org.cn/swjs/swls/art/2017/art_691da2672d9b4b73913dbeba8608e673.html": {
+      "at": "2026-09-19T17:19:03.445Z",
+      "status": "skipped",
+      "reason": "附件全部下载失败（2 个）"
+    }
+  }
+}

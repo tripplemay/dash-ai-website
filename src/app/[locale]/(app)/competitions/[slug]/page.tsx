@@ -10,6 +10,8 @@ import { CompetitionSchedule } from "@/components/competition-schedule";
 import { CompetitionDetailTracking } from "@/components/competition-follow-controls";
 import { CATEGORY_BADGE_DARK, CATEGORY_LABEL_KEYS, GRADE_LABEL_KEYS } from "@/components/competition-meta";
 import { COMPETITIONS, getCompetition, MOE_LIST, competitionDateKey, competitionQueryString } from "@/lib/competitions";
+import { getCompetitionPapers, groupPapersByYear } from "@/lib/papers";
+import { PaperMaterialCard } from "@/components/paper-material-card";
 import { COURSE_ENTRIES, type CourseEntry } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -45,6 +47,7 @@ export default async function CompetitionDetailPage({
   const query = competitionQueryString(new URLSearchParams(typeof from === "string" ? from.slice(0, 2000) : ""));
   const backHref = `/competitions${query ? "?" + query : ""}#competition-${competition.slug}`;
   const updates = [...competition.updates].sort((a, b) => b.date.localeCompare(a.date));
+  const papers = getCompetitionPapers(slug);
   const relatedCourses = competition.relatedCourses
     .map((courseSlug) => COURSE_ENTRIES.find((entry) => entry.course.slug === courseSlug))
     .filter((entry): entry is CourseEntry => Boolean(entry));
@@ -98,9 +101,9 @@ export default async function CompetitionDetailPage({
       <CompetitionDetailTracking slug={slug} name={locale === "en" && competition.nameEn ? competition.nameEn : competition.nameZh} />
 
       <nav aria-label={t("detailNavigation")} className="flex flex-wrap gap-2 border-b border-neutral-200 px-5 py-3 sm:px-7">
-        {["intro", "schedule", "updates"].map((id) => (
+        {["intro", "schedule", "updates", ...(papers.length > 0 ? ["papers"] : [])].map((id) => (
           <a key={id} href={`#${id}`} className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-bold text-indigo-800 hover:bg-indigo-50">
-            {t(id === "intro" ? "introTitle" : id === "schedule" ? "scheduleTitle" : "updatesTitle")}
+            {t(id === "intro" ? "introTitle" : id === "schedule" ? "scheduleTitle" : id === "updates" ? "updatesTitle" : "papersTabTitle")}
           </a>
         ))}
       </nav>
@@ -165,6 +168,25 @@ export default async function CompetitionDetailPage({
           </ol>
         )}
       </section>
+
+      {papers.length > 0 && (
+        <section id="papers" className="w-full scroll-mt-24 px-5 pt-10 sm:px-7">
+          <h2 className="text-[26px] font-extrabold text-indigo-900">{t("papersTabTitle")}</h2>
+          {groupPapersByYear(papers).map(([year, materials]) => (
+            <div key={year} className="mt-4">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[13px] font-extrabold text-coral-700">{year}</span>
+                <span aria-hidden="true" className="h-px flex-1 bg-neutral-200" />
+              </div>
+              <ol className="mt-2 space-y-3">
+                {materials.map((material) => (
+                  <PaperMaterialCard key={material.id} material={material} />
+                ))}
+              </ol>
+            </div>
+          ))}
+        </section>
+      )}
 
       {competition.links.length > 0 && (
         <section className="w-full px-5 pt-10 sm:px-7">

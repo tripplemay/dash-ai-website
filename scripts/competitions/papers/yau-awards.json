@@ -1,0 +1,7 @@
+{
+  "slug": "yau-awards",
+  "papers": [
+    {"id":"yau-awards-2021-zongjuesai-01a8d8","year":2021,"stage":"总决赛","grade":null,"title":"2021总决赛学生手册","files":[{"kind":"rules","format":"html","externalUrl":"https://www.yau-awards.com/index/reldown?id=5"}],"hasAnswer":false,"source":{"name":"文件下载","url":"https://www.yau-awards.com/index/reldown?id=5"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"yau-awards-2020-zongjuesai-b542f1","year":2020,"stage":"总决赛","grade":null,"title":"2020总决赛学生手册","files":[{"kind":"rules","format":"html","externalUrl":"https://www.yau-awards.com/index/reldown?id=4"}],"hasAnswer":false,"source":{"name":"文件下载","url":"https://www.yau-awards.com/index/reldown?id=4"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
+}

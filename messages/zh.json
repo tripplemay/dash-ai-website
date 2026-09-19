@@ -16,7 +16,8 @@
       "guide": "使用指南",
       "brand": "品牌规范",
       "admin": "管理后台",
-      "login": "合作伙伴登录"
+      "login": "合作伙伴登录",
+      "competitionPapers": "备赛资料"
     }
   },
   "nav": {
@@ -359,7 +360,36 @@
     "calendarStart": "开始",
     "calendarEnd": "截止/结束",
     "calendarContinues": "跨月赛程",
-    "calendarEvent": "比赛节点"
+    "calendarEvent": "比赛节点",
+    "papersEntry": "备赛资料",
+    "papersEyebrow": "PAST PAPERS & MATERIALS",
+    "papersTitle": "备赛资料中心",
+    "papersSubtitle": "覆盖教育部白名单赛事的历年真题、历届命题、赛项规则、评分标准与获奖范例，由自动化系统持续从各赛事官网采集更新。",
+    "papersStats": "{competitions} 项赛事 · {count} 份资料",
+    "papersUpdatedAt": "更新于 {date}",
+    "papersEmpty": "资料正在由自动化系统从各赛事官网采集中，首批资料即将上线，敬请期待。",
+    "papersEmptyResult": "没有符合条件的资料",
+    "papersSearchLabel": "搜索资料标题",
+    "papersSearchPlaceholder": "搜索真题 / 命题 / 规则…",
+    "papersFilterCompetition": "按赛事筛选",
+    "papersFilterCompetitionAll": "全部赛事（{count}）",
+    "papersFilterKind": "资料类型",
+    "papersCountLabel": "{competitions} 项赛事 · {count} 份资料",
+    "papersMaterialCount": "{count} 份",
+    "paperKindPaper": "真题",
+    "paperKindAnswer": "答案",
+    "paperKindProblem": "命题/赛题",
+    "paperKindRules": "规程/规则",
+    "paperKindStandard": "评分标准",
+    "paperKindGallery": "获奖范例",
+    "paperKindAttachment": "附件资料",
+    "paperHasAnswer": "含答案",
+    "paperSource": "来源",
+    "paperViewOriginal": "查看原文",
+    "papersCopyrightTitle": "版权说明",
+    "papersCopyright": "本页资料均采集自各赛事官网及公开发布渠道，仅供学习交流使用，版权归原作者及赛事主办方所有。如涉及版权问题，请联系我们核实下架。",
+    "papersTabTitle": "备赛资料",
+    "paperCountBadge": "资料 {count}"
   },
   "parentFaq": {
     "eyebrow": "给家长的课程参考",
@@ -379,11 +409,25 @@
     "step": "第 {n} 步 / 共 {total} 步",
     "back": "上一步",
     "q1": "孩子目前的学习状态？",
-    "ages": ["首次接触 AI", "有创作表达经验", "有编程基础", "有项目经验"],
+    "ages": [
+      "首次接触 AI",
+      "有创作表达经验",
+      "有编程基础",
+      "有项目经验"
+    ],
     "q2": "孩子更喜欢哪类事情？",
-    "interests": ["创作表达（画画 / 声音 / 视频）", "编程与逻辑", "硬件与动手", "还不确定"],
+    "interests": [
+      "创作表达（画画 / 声音 / 视频）",
+      "编程与逻辑",
+      "硬件与动手",
+      "还不确定"
+    ],
     "q3": "有相关基础吗？",
-    "levels": ["零基础", "学过一点", "有项目经验"],
+    "levels": [
+      "零基础",
+      "学过一点",
+      "有项目经验"
+    ],
     "resultTag": "推荐起点",
     "pathTitle": "建议路径",
     "actDetail": "查看课程详情",
@@ -422,7 +466,16 @@
     "emptySub": "试试更短的关键词，或清除当前筛选条件。",
     "openDetail": "查看资源：{title}",
     "breadcrumb": "资源详情路径",
-    "categories": ["全部", "品牌系统", "使用指南", "视觉预览", "课件模板", "营销认知", "营销转化", "体验课物料"],
+    "categories": [
+      "全部",
+      "品牌系统",
+      "使用指南",
+      "视觉预览",
+      "课件模板",
+      "营销认知",
+      "营销转化",
+      "体验课物料"
+    ],
     "dimensions": "规格",
     "adviceLabel": "使用建议",
     "format": "格式",
@@ -546,7 +599,15 @@
       "colSort": "排序",
       "colUpdated": "更新于",
       "colOps": "操作",
-      "categories": ["品牌系统", "使用指南", "视觉预览", "课件模板", "营销认知", "营销转化", "体验课物料"],
+      "categories": [
+        "品牌系统",
+        "使用指南",
+        "视觉预览",
+        "课件模板",
+        "营销认知",
+        "营销转化",
+        "体验课物料"
+      ],
       "advicePh": "如：A3 打印 / 朋友圈长图",
       "uploadSubmit": "上传",
       "submitting": "上传中…",

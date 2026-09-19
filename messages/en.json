@@ -16,7 +16,8 @@
       "guide": "User Guide",
       "brand": "Brand Guidelines",
       "admin": "Admin Console",
-      "login": "Partner Sign In"
+      "login": "Partner Sign In",
+      "competitionPapers": "Prep Materials"
     }
   },
   "nav": {
@@ -359,7 +360,36 @@
     "calendarStart": "Starts",
     "calendarEnd": "Deadline / ends",
     "calendarContinues": "Continues this month",
-    "calendarEvent": "Event"
+    "calendarEvent": "Event",
+    "papersEntry": "Prep materials",
+    "papersEyebrow": "PAST PAPERS & MATERIALS",
+    "papersTitle": "Prep Materials Center",
+    "papersSubtitle": "Past papers, problem statements, contest rules, rubrics and winning examples for MOE-whitelisted competitions, continuously collected from official sites by our automated pipeline.",
+    "papersStats": "{competitions} competitions · {count} materials",
+    "papersUpdatedAt": "Updated {date}",
+    "papersEmpty": "Materials are being collected from official competition sites by our automated pipeline. The first batch is coming soon.",
+    "papersEmptyResult": "No materials match the current filters",
+    "papersSearchLabel": "Search material titles",
+    "papersSearchPlaceholder": "Search papers / problems / rules…",
+    "papersFilterCompetition": "Filter by competition",
+    "papersFilterCompetitionAll": "All competitions ({count})",
+    "papersFilterKind": "Material type",
+    "papersCountLabel": "{competitions} competitions · {count} materials",
+    "papersMaterialCount": "{count}",
+    "paperKindPaper": "Past paper",
+    "paperKindAnswer": "Answer key",
+    "paperKindProblem": "Problem",
+    "paperKindRules": "Rules",
+    "paperKindStandard": "Rubrics",
+    "paperKindGallery": "Winners",
+    "paperKindAttachment": "Attachment",
+    "paperHasAnswer": "With answers",
+    "paperSource": "Source",
+    "paperViewOriginal": "View page",
+    "papersCopyrightTitle": "Copyright notice",
+    "papersCopyright": "All materials on this page are collected from official competition sites and public channels for study purposes only; copyright belongs to the original authors and organizers. Contact us for takedown if needed.",
+    "papersTabTitle": "Prep materials",
+    "paperCountBadge": "{count} files"
   },
   "parentFaq": {
     "eyebrow": "A guide for parents",
@@ -379,11 +409,25 @@
     "step": "Step {n} of {total}",
     "back": "Back",
     "q1": "What is the learner's current experience?",
-    "ages": ["New to AI", "Creative experience", "Programming basics", "Project experience"],
+    "ages": [
+      "New to AI",
+      "Creative experience",
+      "Programming basics",
+      "Project experience"
+    ],
     "q2": "What does the learner enjoy most?",
-    "interests": ["Creative expression (art / sound / video)", "Programming and logic", "Hardware and making", "Not sure yet"],
+    "interests": [
+      "Creative expression (art / sound / video)",
+      "Programming and logic",
+      "Hardware and making",
+      "Not sure yet"
+    ],
     "q3": "Any relevant experience?",
-    "levels": ["No experience", "Some experience", "Project experience"],
+    "levels": [
+      "No experience",
+      "Some experience",
+      "Project experience"
+    ],
     "resultTag": "Recommended starting point",
     "pathTitle": "Suggested path",
     "actDetail": "View course details",
@@ -422,7 +466,16 @@
     "emptySub": "Try a shorter keyword or clear the active filters.",
     "openDetail": "Open resource: {title}",
     "breadcrumb": "Resource detail path",
-    "categories": ["All", "Brand system", "Guides", "Visual previews", "Course templates", "Marketing awareness", "Marketing conversion", "Trial materials"],
+    "categories": [
+      "All",
+      "Brand system",
+      "Guides",
+      "Visual previews",
+      "Course templates",
+      "Marketing awareness",
+      "Marketing conversion",
+      "Trial materials"
+    ],
     "dimensions": "Specs",
     "adviceLabel": "Usage advice",
     "format": "Format",
@@ -546,7 +599,15 @@
       "colSort": "Order",
       "colUpdated": "Updated",
       "colOps": "Actions",
-      "categories": ["Brand system", "Guides", "Visual previews", "Course templates", "Marketing awareness", "Marketing conversion", "Trial materials"],
+      "categories": [
+        "Brand system",
+        "Guides",
+        "Visual previews",
+        "Course templates",
+        "Marketing awareness",
+        "Marketing conversion",
+        "Trial materials"
+      ],
       "advicePh": "e.g. A3 print / social long image",
       "uploadSubmit": "Upload",
       "submitting": "Uploading…",
