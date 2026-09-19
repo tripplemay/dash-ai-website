@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "typecheck": "tsc --noEmit --pretty false",
-    "content:validate": "node scripts/validate-content.mjs && node scripts/validate-competitions.mjs && node scripts/validate-papers.mjs",
+    "content:validate": "node scripts/validate-content.mjs && node scripts/validate-competitions.mjs && node scripts/validate-papers.mjs && node scripts/validate-paper-questions.mjs",
     "content:seed": "node scripts/seed-content.mjs",
     "competitions:merge": "node scripts/competition-merge.mjs",
     "competitions:monitor": "node scripts/competition-monitor.mjs",
@@ -26,7 +26,11 @@
     "brand:materialize": "node scripts/sync-brand-assets.mjs materialize",
     "papers:merge": "node scripts/paper-merge.mjs",
     "papers:validate": "node scripts/validate-papers.mjs",
-    "papers:collect": "node scripts/paper-collector.mjs"
+    "papers:collect": "node scripts/paper-collector.mjs",
+    "papers:questions:merge": "node scripts/paper-questions-merge.mjs",
+    "papers:questions:validate": "node scripts/validate-paper-questions.mjs",
+    "papers:extract": "node scripts/paper-extract.mjs",
+    "papers:test": "node --experimental-strip-types --import ./tests/register-test-loader.mjs --test tests/practice-*.test.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",

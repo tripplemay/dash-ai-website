@@ -48,3 +48,12 @@ export function listPaperCompetitions(): PaperCompetitionEntry[] {
     .filter((item) => item.papers.length > 0)
     .sort((a, b) => a.moeListIndex - b.moeListIndex);
 }
+
+/** 按 paperId 查找资料（含所属赛事），供练习页/练习 API 定位题目所属试卷 */
+export function findPaperMaterial(paperId: string): { slug: string; nameZh: string; material: PaperMaterial } | null {
+  for (const item of content.competitions) {
+    const material = visiblePapers(item.papers).find((paper) => paper.id === paperId);
+    if (material) return { slug: item.slug, nameZh: item.nameZh, material };
+  }
+  return null;
+}

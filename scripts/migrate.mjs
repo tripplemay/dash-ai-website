@@ -913,6 +913,55 @@ const MIGRATIONS = [
       `);
     },
   },
+  {
+    id: "015_practice",
+    up(db) {
+      // 真题练习：会话与逐题作答。作答行带幂等键（重试/双击安全），
+      // 错题本为派生视图（每题最新一条 is_correct=0 的作答），不单独建表。
+      db.exec(`
+        CREATE TABLE practice_sessions (
+          session_id      TEXT PRIMARY KEY NOT NULL,
+          user_id         TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
+          paper_id        TEXT NOT NULL CHECK(length(trim(paper_id)) BETWEEN 1 AND 120),
+          mode            TEXT NOT NULL DEFAULT 'practice' CHECK(mode IN ('practice', 'review')),
+          total_questions INTEGER NOT NULL CHECK(total_questions >= 0),
+          answered_count  INTEGER NOT NULL DEFAULT 0 CHECK(answered_count >= 0),
+          correct_count   INTEGER NOT NULL DEFAULT 0 CHECK(correct_count >= 0),
+          score           REAL,
+          status          TEXT NOT NULL DEFAULT 'active' CHECK(status IN ('active', 'finished')),
+          started_at      TEXT NOT NULL DEFAULT (datetime('now')),
+          finished_at     TEXT,
+          updated_at      TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+        CREATE INDEX practice_sessions_user_idx
+          ON practice_sessions (user_id, started_at DESC);
+        CREATE INDEX practice_sessions_user_paper_idx
+          ON practice_sessions (user_id, paper_id, status);
+
+        CREATE TABLE practice_answers (
+          answer_id       TEXT PRIMARY KEY NOT NULL,
+          session_id      TEXT NOT NULL REFERENCES practice_sessions(session_id) ON DELETE CASCADE,
+          user_id         TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
+          paper_id        TEXT NOT NULL CHECK(length(trim(paper_id)) BETWEEN 1 AND 120),
+          question_id     TEXT NOT NULL CHECK(length(trim(question_id)) BETWEEN 1 AND 120),
+          question_seq    INTEGER NOT NULL CHECK(question_seq >= 1),
+          question_type   TEXT NOT NULL CHECK(question_type IN ('choice', 'multiple', 'fill', 'essay')),
+          user_answer     TEXT NOT NULL DEFAULT '',
+          is_correct      INTEGER CHECK(is_correct IS NULL OR is_correct IN (0, 1)),
+          self_marked     INTEGER NOT NULL DEFAULT 0 CHECK(self_marked IN (0, 1)),
+          score           REAL,
+          idempotency_key TEXT NOT NULL UNIQUE CHECK(length(idempotency_key) BETWEEN 8 AND 200),
+          answered_at     TEXT NOT NULL DEFAULT (datetime('now'))
+        );
+        CREATE UNIQUE INDEX practice_answers_session_question_idx
+          ON practice_answers (session_id, question_id);
+        CREATE INDEX practice_answers_user_question_idx
+          ON practice_answers (user_id, question_id, answered_at DESC);
+        CREATE INDEX practice_answers_wrong_idx
+          ON practice_answers (user_id, is_correct, answered_at DESC);
+      `);
+    },
+  },
 ];
 
 /** 在一个 SQLite 连接上执行所有未应用的应用迁移。 */

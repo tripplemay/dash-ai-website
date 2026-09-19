@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
-import { Download, ExternalLink } from "lucide-react";
+import { Download, ExternalLink, GraduationCap } from "lucide-react";
+import { Link } from "@/i18n/navigation";
 import { formatFileSize, type PaperKind, type PaperMaterial, PAPER_KIND_LABEL_KEYS } from "@/lib/paper-domain";
 
 function uniqueKinds(material: PaperMaterial): PaperKind[] {
@@ -8,7 +9,7 @@ function uniqueKinds(material: PaperMaterial): PaperKind[] {
 }
 
 /** 备赛资料卡片（无 "use client"：服务端详情页与客户端资料中心共用） */
-export function PaperMaterialCard({ material }: { material: PaperMaterial }) {
+export function PaperMaterialCard({ material, questionCount = 0 }: { material: PaperMaterial; questionCount?: number }) {
   const t = useTranslations("competitions");
   return (
     <li className="rounded-lg border border-neutral-200 bg-card p-[14px_16px]">
@@ -51,6 +52,15 @@ export function PaperMaterialCard({ material }: { material: PaperMaterial }) {
               {t("paperViewOriginal")}
             </a>
           )
+        )}
+        {questionCount > 0 && (
+          <Link
+            href={`/competitions/papers/${material.id}/practice`}
+            className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-coral-300 bg-coral-500/10 px-3 py-2 text-[12.5px] font-extrabold text-coral-700 transition-colors hover:bg-coral-500/20"
+          >
+            <GraduationCap aria-hidden="true" className="size-3.5" />
+            {t("practiceStart", { count: questionCount })}
+          </Link>
         )}
         <a
           href={material.source.url}

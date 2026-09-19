@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { AppPageHero } from "@/components/app-page-hero";
 import { PapersBrowser } from "@/components/papers-browser";
 import { listPaperCompetitions, PAPERS_GENERATED_AT } from "@/lib/papers";
+import { getQuestionCounts } from "@/lib/paper-questions";
 import { getPageMetadata } from "@/lib/page-metadata";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
@@ -12,6 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 export default async function CompetitionPapersPage() {
   const t = await getTranslations("competitions");
   const entries = listPaperCompetitions();
+  const questionCounts = Object.fromEntries(getQuestionCounts());
   const totalMaterials = entries.reduce((sum, entry) => sum + entry.papers.length, 0);
 
   return (
@@ -37,7 +39,7 @@ export default async function CompetitionPapersPage() {
         </section>
       ) : (
         <Suspense fallback={<p className="p-7 text-sm text-neutral-600">{t("loading")}</p>}>
-          <PapersBrowser entries={entries} />
+          <PapersBrowser entries={entries} questionCounts={questionCounts} />
         </Suspense>
       )}
 

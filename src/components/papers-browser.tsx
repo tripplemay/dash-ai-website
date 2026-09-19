@@ -17,7 +17,7 @@ import { cn } from "@/lib/utils";
 const controlClass =
   "min-h-11 rounded-md border border-neutral-200 bg-card px-3 py-2 text-[13px] font-bold text-neutral-700 transition-colors hover:border-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600";
 
-export function PapersBrowser({ entries }: { entries: PaperCompetitionEntry[] }) {
+export function PapersBrowser({ entries, questionCounts = {} }: { entries: PaperCompetitionEntry[]; questionCounts?: Record<string, number> }) {
   const t = useTranslations("competitions");
   const [query, setQuery] = useState("");
   const [competition, setCompetition] = useState<string | null>(null);
@@ -141,7 +141,7 @@ export function PapersBrowser({ entries }: { entries: PaperCompetitionEntry[] })
                 </div>
                 <ol className="mt-2 space-y-3">
                   {materials.map((material) => (
-                    <PaperMaterialCard key={material.id} material={material} />
+                    <PaperMaterialCard key={material.id} material={material} questionCount={questionCounts[material.id] ?? 0} />
                   ))}
                 </ol>
               </div>

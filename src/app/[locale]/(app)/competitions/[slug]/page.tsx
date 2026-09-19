@@ -11,6 +11,7 @@ import { CompetitionDetailTracking } from "@/components/competition-follow-contr
 import { CATEGORY_BADGE_DARK, CATEGORY_LABEL_KEYS, GRADE_LABEL_KEYS } from "@/components/competition-meta";
 import { COMPETITIONS, getCompetition, MOE_LIST, competitionDateKey, competitionQueryString } from "@/lib/competitions";
 import { getCompetitionPapers, groupPapersByYear } from "@/lib/papers";
+import { getQuestionCounts } from "@/lib/paper-questions";
 import { PaperMaterialCard } from "@/components/paper-material-card";
 import { COURSE_ENTRIES, type CourseEntry } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -48,6 +49,7 @@ export default async function CompetitionDetailPage({
   const backHref = `/competitions${query ? "?" + query : ""}#competition-${competition.slug}`;
   const updates = [...competition.updates].sort((a, b) => b.date.localeCompare(a.date));
   const papers = getCompetitionPapers(slug);
+  const questionCounts = getQuestionCounts();
   const relatedCourses = competition.relatedCourses
     .map((courseSlug) => COURSE_ENTRIES.find((entry) => entry.course.slug === courseSlug))
     .filter((entry): entry is CourseEntry => Boolean(entry));
@@ -180,7 +182,7 @@ export default async function CompetitionDetailPage({
               </div>
               <ol className="mt-2 space-y-3">
                 {materials.map((material) => (
-                  <PaperMaterialCard key={material.id} material={material} />
+                  <PaperMaterialCard key={material.id} material={material} questionCount={questionCounts.get(material.id) ?? 0} />
                 ))}
               </ol>
             </div>
