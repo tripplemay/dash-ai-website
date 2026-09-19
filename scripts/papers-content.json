@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T17:25:19.530Z",
+  "generatedAt": "2026-09-19T17:44:22.338Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -334,6 +334,29 @@
               "fileKey": "files/papers/ceso/ceso-2025-other-ec9050-paper.pdf",
               "size": 2797535,
               "sha256": "384d50294d164ccdd22942fa2e0603dfea3e612679e26a97633717337f844563"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "往届真题",
+            "url": "https://ceso.ssoc.org.cn/kejian/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2024-juesai-882233",
+          "year": 2024,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2024-2025学年全国中学生地球科学奥林匹克竞赛决赛试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-juesai-882233-paper.pdf",
+              "size": 3847934,
+              "sha256": "959caaaa431e45c876713ddf368e137a0880fb006876c43da28918ff8d6d6f6b"
             }
           ],
           "hasAnswer": false,

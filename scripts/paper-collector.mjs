@@ -252,12 +252,31 @@ function registrableDomain(hostname) {
   return twoLevelTlds.has(tail2) ? parts.slice(-3).join(".") : tail2;
 }
 
+/** 主流云存储/CDN 域名白名单：官网附件常托管在对象存储（实测 ceso.ssoc.org.cn → myqcloud.com），放行 */
+const STORAGE_CDN_SUFFIXES = [
+  "myqcloud.com", // 腾讯云 COS
+  "qcloud.com",
+  "aliyuncs.com", // 阿里 OSS
+  "qiniucdn.com",
+  "qiniu.com",
+  "amazonaws.com",
+  "bcebos.com", // 百度 BOS
+  "myhuaweicloud.com", // 华为 OBS
+  "upyun.com",
+  "alicdn.com",
+  "tencentcos.cn",
+];
+
 /** 下载完成后的异域跳转检查：防止过期域名被抢注后投毒（实测 yau-awards.science 301 到赌博域名） */
 function checkRedirectTarget(originalUrl, finalUrl) {
   try {
     const from = registrableDomain(new URL(originalUrl).hostname);
-    const to = registrableDomain(new URL(finalUrl).hostname);
-    if (from && to && from !== to) return `下载被重定向到异域 ${to}（源域 ${from}，疑似域名停放/劫持）`;
+    const toHost = new URL(finalUrl).hostname.toLowerCase();
+    const to = registrableDomain(toHost);
+    if (from && to && from !== to) {
+      if (STORAGE_CDN_SUFFIXES.some((suffix) => toHost === suffix || toHost.endsWith(`.${suffix}`))) return null;
+      return `下载被重定向到异域 ${to}（源域 ${from}，疑似域名停放/劫持）`;
+    }
   } catch {
     // URL 解析失败不拦截
   }
