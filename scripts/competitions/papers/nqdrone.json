@@ -1,4 +1,6 @@
 {
   "slug": "nqdrone",
-  "papers": []
+  "papers": [
+    {"id":"nqdrone-2026-shengxuan-c0deeb","year":2026,"stage":"省选","grade":null,"title":"新闻信息 - 2026年全国青少年无人机创新教育竞赛活动 （河南省选拔赛）竞赛规程","files":[{"kind":"rules","format":"xlsx","fileKey":"files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules.xlsx","size":12033,"sha256":"16d4bc58d429e067a6230f5c7cad3d9e9d5cac3ccbee8844b666bbff7bbb2ac3"},{"kind":"rules","format":"docx","fileKey":"files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules2.docx","size":24381,"sha256":"e91beff9050a44743e3d1e92d22a34340b3a40b5656847fa96d43c9095a558d8"},{"kind":"rules","format":"docx","fileKey":"files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules3.docx","size":18471,"sha256":"9c74e2d26655933fe9220334978c7848d4a8116ebb4f3601a318fc6311439368"},{"kind":"rules","format":"pdf","fileKey":"files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules4.pdf","size":1214792,"sha256":"43449c6f875ce737100e39d6590ebd24b55c50860e13754b024320d0a1e1d87a"}],"hasAnswer":false,"source":{"name":"www.hnasfh.com","url":"http://www.hnasfh.com/xwxx/detail/208"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

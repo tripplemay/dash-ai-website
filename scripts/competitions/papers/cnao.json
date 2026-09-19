@@ -1,4 +1,7 @@
 {
   "slug": "cnao",
-  "papers": []
+  "papers": [
+    {"id":"cnao-2024-yusai-68d5a2","year":2024,"stage":"预赛","grade":null,"title":"物理[去水化项目]2024年全国中学生天文知识竞赛预赛试题及答案","files":[{"kind":"answer","format":"html","externalUrl":"https://forum.eduzhixin.com/discuss-detail/37709?subjectType=2"}],"hasAnswer":true,"source":{"name":"forum.eduzhixin.com","url":"https://forum.eduzhixin.com/discuss-detail/37709?subjectType=2"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"cnao-2023-yusai-ad98af","year":2023,"stage":"预赛","grade":null,"title":"2023年CNAO全国中学生天文知识竞赛预赛试卷（答案）,天体收藏家","files":[{"kind":"answer","format":"png","fileKey":"files/papers/cnao/cnao-2023-yusai-ad98af-answer.png","size":22681,"sha256":"d10a0bd515bf067ddc34c15efb4f9d9d7a91b7ec6ad04ab53b31e56a1c16c68c"}],"hasAnswer":true,"source":{"name":"sunguoyou.lamost.org","url":"https://sunguoyou.lamost.org/2223cnao.html"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

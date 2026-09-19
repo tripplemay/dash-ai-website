@@ -1,4 +1,7 @@
 {
   "slug": "zuowendasai",
-  "papers": []
+  "papers": [
+    {"id":"zuowendasai-2026-other-f263a8","year":2026,"stage":"其他","grade":null,"title":"世界华人学生作文大赛工作推进会暨第二十七届大赛命题 ...","files":[{"kind":"problem","format":"html","externalUrl":"http://www.chinaql.org/n1/2026/0715/c433149-40761202.html"}],"hasAnswer":false,"source":{"name":"www.chinaql.org","url":"http://www.chinaql.org/n1/2026/0715/c433149-40761202.html"},"auto":true,"collectedAt":"2026-09-19"},
+    {"id":"zuowendasai-2021-other-c68d35","year":2021,"stage":"其他","grade":null,"title":"“第二十一届世界华人学生作文大赛”新金山东区中文学校获奖 ...","files":[{"kind":"attachment","format":"pdf","fileKey":"files/papers/zuowendasai/zuowendasai-2021-other-c68d35-attachment3.pdf","size":600810,"sha256":"4bf765b006dca1fcedd465c71fda05b8f8eaaabcd127911f36c8c9e1749859d8"}],"hasAnswer":false,"source":{"name":"eclschool.vic.edu.au","url":"https://eclschool.vic.edu.au/2021/04/12/%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E5%B1%8A%E4%B8%96%E7%95%8C%E5%8D%8E%E4%BA%BA%E5%AD%A6%E7%94%9F%E4%BD%9C%E6%96%87%E5%A4%A7%E8%B5%9B%E6%96%B0%E9%87%91%E5%B1%B1%E4%B8%9C%E5%8C%BA-2"},"auto":true,"collectedAt":"2026-09-19"}
+  ]
 }

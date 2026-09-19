@@ -1,3 +1,48 @@
 {
-  "seen": {}
+  "seen": {
+    "https://forum.eduzhixin.com/discuss-detail/37709?subjectType=2": {
+      "at": "2026-09-19T18:48:14.609Z",
+      "status": "collected",
+      "id": "cnao-2024-yusai-68d5a2"
+    },
+    "https://sunguoyou.lamost.org/2223cnao.html": {
+      "at": "2026-09-19T18:48:26.468Z",
+      "status": "collected",
+      "id": "cnao-2023-yusai-ad98af"
+    },
+    "https://sunguoyou.lamost.org/twjs": {
+      "at": "2026-09-19T18:48:28.538Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://tianwen.100xuexi.com": {
+      "at": "2026-09-19T18:48:37.789Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://hk.space.museum/sc/web/spm/activities/hkakc.html": {
+      "at": "2026-09-19T18:48:39.060Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c1368e9b3f9d018e9cdb11000017.shtml": {
+      "at": "2026-09-19T18:48:40.696Z",
+      "status": "skipped",
+      "reason": "文章页无附件且标题无明确资料类型"
+    },
+    "https://zhuanlan.zhihu.com/p/21139464748": {
+      "at": "2026-09-19T18:48:49.225Z",
+      "status": "skipped",
+      "reason": "文章页抓取失败：HTTP 403"
+    },
+    "https://cnao.fhui.org": {
+      "at": "2026-09-19T18:48:59.278Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    }
+  },
+  "l2": {
+    "lastSearchAt": "2026-09-19T18:48:08.778Z",
+    "query": "全国中学生天文知识竞赛 历年真题 试题"
+  }
 }

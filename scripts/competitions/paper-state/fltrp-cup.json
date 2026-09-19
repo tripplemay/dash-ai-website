@@ -1,3 +1,58 @@
 {
-  "seen": {}
+  "seen": {
+    "http://heji.baidu.com/view/a74bca0b30d4b14e852458fb770bf78a64293acd.html": {
+      "at": "2026-09-19T18:51:27.428Z",
+      "status": "skipped",
+      "reason": "付费墙/文库类域名黑名单"
+    },
+    "https://heep.fltrp.com/contents/17124643120002917?type=1": {
+      "at": "2026-09-19T18:51:30.146Z",
+      "status": "skipped",
+      "reason": "文章页无附件且标题无明确资料类型"
+    },
+    "https://fltrp-gy.oss-cn-shanghai.aliyuncs.com/gykejianNews/files/wyzs/20/20.pdf": {
+      "at": "2026-09-19T18:51:30.147Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://fltrp-gy.oss-cn-shanghai.aliyuncs.com/gykejianNews/files/link_%26_think/link_%26_think.pdf": {
+      "at": "2026-09-19T18:51:30.147Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://www.zhihu.com/question/42234749": {
+      "at": "2026-09-19T18:51:42.937Z",
+      "status": "skipped",
+      "reason": "文章页抓取失败：HTTP 403"
+    },
+    "http://yjsc.nufe.edu.cn/__local/4/B5/A1/FA41DE9DE66E1B10F2D02F8B397_E1CC7299_6D71B3.pdf": {
+      "at": "2026-09-19T18:51:47.326Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://www.qdc.edu.cn/files/2022/12/08/da6443487b3401d3a276b51371fc489a.pdf": {
+      "at": "2026-09-19T19:00:21.505Z",
+      "status": "skipped",
+      "reason": "标题/摘要与赛事名不匹配（L2 相关性过滤）"
+    },
+    "https://ipp.cfau.edu.cn/col4426/index30.htm": {
+      "at": "2026-09-19T19:00:21.505Z",
+      "status": "skipped",
+      "reason": "标题/摘要与赛事名不匹配（L2 相关性过滤）"
+    },
+    "https://ca.world.taobao.com/product/%E5%95%A5%E7%A0%B4%E9%A2%98.htm": {
+      "at": "2026-09-19T19:00:21.505Z",
+      "status": "skipped",
+      "reason": "标题/摘要与赛事名不匹配（L2 相关性过滤）"
+    },
+    "https://xiaoban.ecust.edu.cn/_upload/article/files/d7/72/350338184d55b00a6652cfcbc0a7/df1ddc59-08b5-482f-9bc3-d666f1b22415.pdf": {
+      "at": "2026-09-19T19:00:21.505Z",
+      "status": "skipped",
+      "reason": "标题/摘要与赛事名不匹配（L2 相关性过滤）"
+    }
+  },
+  "l2": {
+    "lastSearchAt": "2026-09-19T19:00:18.477Z",
+    "query": "“外研社杯”全国中学生外语素养大赛 历届 命题 主题 题目"
+  }
 }

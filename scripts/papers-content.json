@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T17:55:27.230Z",
+  "generatedAt": "2026-09-19T18:59:31.561Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -182,7 +182,52 @@
       "nameZh": "全国青少年无人机大赛",
       "category": "natural-science",
       "moeListIndex": 3,
-      "papers": []
+      "papers": [
+        {
+          "id": "nqdrone-2026-shengxuan-c0deeb",
+          "year": 2026,
+          "stage": "省选",
+          "grade": null,
+          "title": "新闻信息 - 2026年全国青少年无人机创新教育竞赛活动 （河南省选拔赛）竞赛规程",
+          "files": [
+            {
+              "kind": "rules",
+              "format": "xlsx",
+              "fileKey": "files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules.xlsx",
+              "size": 12033,
+              "sha256": "16d4bc58d429e067a6230f5c7cad3d9e9d5cac3ccbee8844b666bbff7bbb2ac3"
+            },
+            {
+              "kind": "rules",
+              "format": "docx",
+              "fileKey": "files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules2.docx",
+              "size": 24381,
+              "sha256": "e91beff9050a44743e3d1e92d22a34340b3a40b5656847fa96d43c9095a558d8"
+            },
+            {
+              "kind": "rules",
+              "format": "docx",
+              "fileKey": "files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules3.docx",
+              "size": 18471,
+              "sha256": "9c74e2d26655933fe9220334978c7848d4a8116ebb4f3601a318fc6311439368"
+            },
+            {
+              "kind": "rules",
+              "format": "pdf",
+              "fileKey": "files/papers/nqdrone/nqdrone-2026-shengxuan-c0deeb-rules4.pdf",
+              "size": 1214792,
+              "sha256": "43449c6f875ce737100e39d6590ebd24b55c50860e13754b024320d0a1e1d87a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.hnasfh.com",
+            "url": "http://www.hnasfh.com/xwxx/detail/208"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "soong-invention-award",
@@ -322,7 +367,52 @@
       "nameZh": "全国中学生天文知识竞赛",
       "category": "natural-science",
       "moeListIndex": 5,
-      "papers": []
+      "papers": [
+        {
+          "id": "cnao-2024-yusai-68d5a2",
+          "year": 2024,
+          "stage": "预赛",
+          "grade": null,
+          "title": "物理[去水化项目]2024年全国中学生天文知识竞赛预赛试题及答案",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "html",
+              "externalUrl": "https://forum.eduzhixin.com/discuss-detail/37709?subjectType=2"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "forum.eduzhixin.com",
+            "url": "https://forum.eduzhixin.com/discuss-detail/37709?subjectType=2"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "cnao-2023-yusai-ad98af",
+          "year": 2023,
+          "stage": "预赛",
+          "grade": null,
+          "title": "2023年CNAO全国中学生天文知识竞赛预赛试卷（答案）,天体收藏家",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cnao/cnao-2023-yusai-ad98af-answer.png",
+              "size": 22681,
+              "sha256": "d10a0bd515bf067ddc34c15efb4f9d9d7a91b7ec6ad04ab53b31e56a1c16c68c"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "sunguoyou.lamost.org",
+            "url": "https://sunguoyou.lamost.org/2223cnao.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "geodoctor",
@@ -1352,7 +1442,52 @@
       "nameZh": "世界华人学生作文大赛",
       "category": "humanities",
       "moeListIndex": 24,
-      "papers": []
+      "papers": [
+        {
+          "id": "zuowendasai-2026-other-f263a8",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "世界华人学生作文大赛工作推进会暨第二十七届大赛命题 ...",
+          "files": [
+            {
+              "kind": "problem",
+              "format": "html",
+              "externalUrl": "http://www.chinaql.org/n1/2026/0715/c433149-40761202.html"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.chinaql.org",
+            "url": "http://www.chinaql.org/n1/2026/0715/c433149-40761202.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "zuowendasai-2021-other-c68d35",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "“第二十一届世界华人学生作文大赛”新金山东区中文学校获奖 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/zuowendasai/zuowendasai-2021-other-c68d35-attachment3.pdf",
+              "size": 600810,
+              "sha256": "4bf765b006dca1fcedd465c71fda05b8f8eaaabcd127911f36c8c9e1749859d8"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "eclschool.vic.edu.au",
+            "url": "https://eclschool.vic.edu.au/2021/04/12/%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E5%B1%8A%E4%B8%96%E7%95%8C%E5%8D%8E%E4%BA%BA%E5%AD%A6%E7%94%9F%E4%BD%9C%E6%96%87%E5%A4%A7%E8%B5%9B%E6%96%B0%E9%87%91%E5%B1%B1%E4%B8%9C%E5%8C%BA-2"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-19"
+        }
+      ]
     },
     {
       "slug": "fltrp-cup",

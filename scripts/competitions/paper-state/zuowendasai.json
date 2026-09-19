@@ -1,3 +1,48 @@
 {
-  "seen": {}
+  "seen": {
+    "https://www.yidaiyilu.gov.cn/p/02N9BB2U.html": {
+      "at": "2026-09-19T18:49:16.634Z",
+      "status": "skipped",
+      "reason": "文章页抓取失败：fetch failed (Client network socket disconnected before secure TLS connection was established)"
+    },
+    "https://toronto.china-consulate.gov.cn/zytzxx/202608/t20260829_12012443.htm": {
+      "at": "2026-09-19T18:49:24.678Z",
+      "status": "skipped",
+      "reason": "文章页抓取失败：fetch failed (Client network socket disconnected before secure TLS connection was established)"
+    },
+    "https://www.shanghaiql.org/detailpage/xcwlb-3c1db8aa-4385-4244-a85d-c1c97443d35d.html": {
+      "at": "2026-09-19T18:49:34.110Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "http://www.chinaql.org/n1/2026/0715/c433149-40761202.html": {
+      "at": "2026-09-19T18:49:42.390Z",
+      "status": "collected",
+      "id": "zuowendasai-2026-other-f263a8"
+    },
+    "https://www.carycs.org/worldwide-chinese-contest.html": {
+      "at": "2026-09-19T18:49:43.827Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://xjs.vic.edu.au/world-essay-competition-26-award-winning": {
+      "at": "2026-09-19T18:49:47.547Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://news.hubeidaily.net/pc/c_5360235.html": {
+      "at": "2026-09-19T18:49:56.915Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://eclschool.vic.edu.au/2021/04/12/%E7%AC%AC%E4%BA%8C%E5%8D%81%E4%B8%80%E5%B1%8A%E4%B8%96%E7%95%8C%E5%8D%8E%E4%BA%BA%E5%AD%A6%E7%94%9F%E4%BD%9C%E6%96%87%E5%A4%A7%E8%B5%9B%E6%96%B0%E9%87%91%E5%B1%B1%E4%B8%9C%E5%8C%BA-2": {
+      "at": "2026-09-19T18:50:23.278Z",
+      "status": "collected",
+      "id": "zuowendasai-2021-other-c68d35"
+    }
+  },
+  "l2": {
+    "lastSearchAt": "2026-09-19T18:49:05.379Z",
+    "query": "世界华人学生作文大赛 历届 命题 主题 题目"
+  }
 }

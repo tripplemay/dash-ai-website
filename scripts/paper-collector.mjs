@@ -53,6 +53,7 @@ import {
   renderPage,
   sleep,
 } from "./competition-monitor.mjs";
+import { isBlacklistedDomain, isRelevantToCompetition, L2_RESEARCH_INTERVAL_MS, searchConfig, searchQueryFor, searchTavily } from "./paper-search.mjs";
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(SCRIPT_DIR, "..");
@@ -391,7 +392,7 @@ function buildMaterial({ slug, title, year, stage, files, sourceUrl, sourceName 
   };
 }
 
-async function collectCompetition(entry, options) {
+function makeCollectContext(entry, options) {
   const slug = entry.slug;
   const result = {
     slug,
@@ -401,192 +402,273 @@ async function collectCompetition(entry, options) {
     newMaterials: [],
     skipped: [],
     errors: [],
+    l2: null,
     totalAfter: 0,
   };
   const shard = loadShard(slug);
   const state = loadState(slug);
-  const existingIds = new Set(shard.papers.map((paper) => paper.id));
-  const existingSha = new Set(shard.papers.flatMap((paper) => paper.files.map((file) => file.sha256).filter(Boolean)));
-  const existingExternal = new Set(shard.papers.flatMap((paper) => paper.files.map((file) => file.externalUrl).filter(Boolean)));
-  const downloadedPaths = [];
-  let overflow = 0;
-
-  const skip = (url, reason) => {
+  const ctx = {
+    entry,
+    slug,
+    options,
+    result,
+    shard,
+    state,
+    existingIds: new Set(shard.papers.map((paper) => paper.id)),
+    existingSha: new Set(shard.papers.flatMap((paper) => paper.files.map((file) => file.sha256).filter(Boolean))),
+    existingExternal: new Set(shard.papers.flatMap((paper) => paper.files.map((file) => file.externalUrl).filter(Boolean))),
+    downloadedPaths: [],
+    overflow: 0,
+  };
+  ctx.skip = (url, reason) => {
     result.skipped.push({ url, reason });
     state.seen[url] = { at: new Date().toISOString(), status: "skipped", reason };
   };
+  return ctx;
+}
 
+/** 处理附件直连候选（L1 栏目页与 L2 搜索结果共用） */
+async function processFileCandidate(candidate, ctx, source) {
+  const { entry, slug, options, result, shard, state } = ctx;
+  if (result.newMaterials.length >= options.maxNew) {
+    ctx.overflow += 1;
+    return;
+  }
+  if (state.seen[candidate.url]) return;
+  const title = candidate.title;
+  if (LEGAL_NOTICE_RE.test(title)) {
+    ctx.skip(candidate.url, "版权/转载声明类公告，不作为资料收录");
+    return;
+  }
+  const year = inferYear(`${title} ${candidate.url}`);
+  if (!year) {
+    ctx.skip(candidate.url, "标题/URL 缺年份");
+    return;
+  }
+  const stage = inferStage(title);
+  // 栏目标签明示"真题/试题"时，兜底类型升级为 paper（如"选拔赛决赛"这类不含关键词的标题）
+  const labelHint = /真题|试题/.test(source.label ?? "") ? "paper" : null;
+  const kind = inferKind(title) === "attachment" && labelHint ? labelHint : inferKind(title);
+  const id = paperMaterialId(slug, year, stage, title);
+  if (ctx.existingIds.has(id)) {
+    ctx.skip(candidate.url, "id 已存在");
+    return;
+  }
+  if (!options.write) {
+    result.newMaterials.push({ id, title, kind, stage, year, dry: true, url: candidate.url });
+    state.seen[candidate.url] = { at: new Date().toISOString(), status: "dry" };
+    return;
+  }
+  const outcome = await guardedDownload(candidate.url, slug, id, kind, 1);
+  if (outcome.skip) {
+    ctx.skip(candidate.url, outcome.skip);
+    return;
+  }
+  if (ctx.existingSha.has(outcome.file.sha256)) {
+    fs.rmSync(outcome.destPath, { force: true });
+    ctx.skip(candidate.url, "sha256 与已有资料重复");
+    return;
+  }
+  ctx.downloadedPaths.push(outcome.destPath);
+  ctx.existingSha.add(outcome.file.sha256);
+  ctx.existingIds.add(id);
+  const material = buildMaterial({
+    slug,
+    title,
+    year,
+    stage,
+    files: [outcome.file],
+    sourceUrl: source.url,
+    sourceName: source.label ?? entry.organizer ?? new URL(source.url).hostname,
+  });
+  result.newMaterials.push(material);
+  shard.papers.push(material);
+  state.seen[candidate.url] = { at: new Date().toISOString(), status: "collected", id };
+  await sleep(300);
+}
+
+/** 处理文章页候选（深入一层提取附件；无附件但标题有明确资料类型时收录为外链） */
+async function processArticleCandidate(candidate, ctx, source) {
+  const { entry, slug, options, result, shard, state } = ctx;
+  if (result.newMaterials.length >= options.maxNew) {
+    ctx.overflow += 1;
+    return;
+  }
+  if (state.seen[candidate.url]) return;
+  await sleep(300);
+  const article = await fetchBestHtml(candidate.url, { render: options.render });
+  if (!article.ok) {
+    ctx.skip(candidate.url, `文章页抓取失败：${article.error ?? `HTTP ${article.status}`}`);
+    return;
+  }
+  const articleUrl = article.finalUrl ?? candidate.url;
+  const title = candidate.title;
+  if (LEGAL_NOTICE_RE.test(title)) {
+    ctx.skip(candidate.url, "版权/转载声明类公告，不作为资料收录");
+    return;
+  }
+  const attachments = extractArticleAttachments(article.html, articleUrl);
+  const year = inferYear(`${title} ${articleUrl}`);
+  if (!year) {
+    ctx.skip(candidate.url, "标题/URL 缺年份");
+    return;
+  }
+  const sourceName = source.label ?? entry.organizer ?? new URL(articleUrl).hostname;
+
+  if (attachments.length === 0) {
+    // 无附件的网页型资料：标题能推断出明确资料类型（rules/gallery/problem/paper…）即收录为外链
+    const externalKind = inferKind(title);
+    if (externalKind === "attachment") {
+      ctx.skip(candidate.url, "文章页无附件且标题无明确资料类型");
+      return;
+    }
+    const stage = inferStage(title);
+    const id = paperMaterialId(slug, year, stage, title);
+    if (ctx.existingIds.has(id) || ctx.existingExternal.has(articleUrl)) {
+      ctx.skip(candidate.url, "已收录");
+      return;
+    }
+    const file = { kind: externalKind, format: "html", externalUrl: articleUrl };
+    if (!options.write) {
+      result.newMaterials.push({ id, title, dry: true, external: articleUrl });
+      state.seen[candidate.url] = { at: new Date().toISOString(), status: "dry" };
+      return;
+    }
+    ctx.existingIds.add(id);
+    ctx.existingExternal.add(articleUrl);
+    const material = buildMaterial({ slug, title, year, stage, files: [file], sourceUrl: articleUrl, sourceName });
+    result.newMaterials.push(material);
+    shard.papers.push(material);
+    state.seen[candidate.url] = { at: new Date().toISOString(), status: "collected", id };
+    return;
+  }
+
+  // 有附件 → 多文件资料
+  const stage = inferStage(title);
+  const id = paperMaterialId(slug, year, stage, title);
+  if (ctx.existingIds.has(id)) {
+    ctx.skip(candidate.url, "id 已存在");
+    return;
+  }
+  if (!options.write) {
+    result.newMaterials.push({ id, title, dry: true, attachments: attachments.length, url: articleUrl });
+    state.seen[candidate.url] = { at: new Date().toISOString(), status: "dry" };
+    return;
+  }
+  const files = [];
+  let failed = 0;
+  for (const [index, attachment] of attachments.entries()) {
+    const fileKind = attachment.anchorTitle && inferKind(attachment.anchorTitle) !== "attachment" ? inferKind(attachment.anchorTitle) : inferKind(title);
+    const outcome = await guardedDownload(attachment.url, slug, id, fileKind, index + 1);
+    if (outcome.skip) {
+      failed += 1;
+      result.skipped.push({ url: attachment.url, reason: outcome.skip });
+      continue;
+    }
+    if (ctx.existingSha.has(outcome.file.sha256)) {
+      fs.rmSync(outcome.destPath, { force: true });
+      result.skipped.push({ url: attachment.url, reason: "sha256 与已有资料重复" });
+      continue;
+    }
+    ctx.downloadedPaths.push(outcome.destPath);
+    ctx.existingSha.add(outcome.file.sha256);
+    files.push(outcome.file);
+    await sleep(300);
+  }
+  if (files.length === 0) {
+    ctx.skip(candidate.url, `附件全部下载失败（${failed} 个）`);
+    return;
+  }
+  ctx.existingIds.add(id);
+  const material = buildMaterial({ slug, title, year, stage, files, sourceUrl: articleUrl, sourceName });
+  result.newMaterials.push(material);
+  shard.papers.push(material);
+  state.seen[candidate.url] = { at: new Date().toISOString(), status: "collected", id };
+}
+
+/** L1：官网 paperPages 栏目抓取 */
+async function collectFromPaperPages(entry, ctx) {
   for (const pageConf of entry.paperPages ?? []) {
-    if (result.newMaterials.length >= options.maxNew) break;
-    const page = await fetchBestHtml(pageConf.url, { render: options.render });
-    result.pages.push({ url: pageConf.url, ok: page.ok, layer: page.layer, error: page.error });
+    if (ctx.result.newMaterials.length >= ctx.options.maxNew) break;
+    const page = await fetchBestHtml(pageConf.url, { render: ctx.options.render });
+    ctx.result.pages.push({ url: pageConf.url, ok: page.ok, layer: page.layer, error: page.error });
     if (!page.ok) {
-      result.errors.push({ url: pageConf.url, error: page.error ?? `HTTP ${page.status}` });
+      ctx.result.errors.push({ url: pageConf.url, error: page.error ?? `HTTP ${page.status}` });
       continue;
     }
     const baseUrl = page.finalUrl ?? pageConf.url;
     const candidates = discoverCandidates(page.html, baseUrl);
-
-    // 附件直连 → 单文件资料
     for (const candidate of candidates.files) {
-      if (result.newMaterials.length >= options.maxNew) {
-        overflow += 1;
-        continue;
-      }
-      if (state.seen[candidate.url]) continue;
-      const title = candidate.title;
-      if (LEGAL_NOTICE_RE.test(title)) {
-        skip(candidate.url, "版权/转载声明类公告，不作为资料收录");
-        continue;
-      }
-      const year = inferYear(`${title} ${candidate.url}`);
-      if (!year) {
-        skip(candidate.url, "标题/URL 缺年份");
-        continue;
-      }
-      const stage = inferStage(title);
-      // 栏目标签明示"真题/试题"时，兜底类型升级为 paper（如"选拔赛决赛"这类不含关键词的标题）
-      const labelHint = /真题|试题/.test(pageConf.label ?? "") ? "paper" : null;
-      const kind = inferKind(title) === "attachment" && labelHint ? labelHint : inferKind(title);
-      const id = paperMaterialId(slug, year, stage, title);
-      if (existingIds.has(id)) {
-        skip(candidate.url, "id 已存在");
-        continue;
-      }
-      if (!options.write) {
-        result.newMaterials.push({ id, title, kind, stage, year, dry: true, url: candidate.url });
-        state.seen[candidate.url] = { at: new Date().toISOString(), status: "dry" };
-        continue;
-      }
-      const outcome = await guardedDownload(candidate.url, slug, id, kind, 1);
-      if (outcome.skip) {
-        skip(candidate.url, outcome.skip);
-        continue;
-      }
-      if (existingSha.has(outcome.file.sha256)) {
-        fs.rmSync(outcome.destPath, { force: true });
-        skip(candidate.url, "sha256 与已有资料重复");
-        continue;
-      }
-      downloadedPaths.push(outcome.destPath);
-      existingSha.add(outcome.file.sha256);
-      existingIds.add(id);
-      const material = buildMaterial({
-        slug,
-        title,
-        year,
-        stage,
-        files: [outcome.file],
-        sourceUrl: baseUrl,
-        sourceName: pageConf.label ?? entry.organizer ?? new URL(baseUrl).hostname,
-      });
-      result.newMaterials.push(material);
-      shard.papers.push(material);
-      state.seen[candidate.url] = { at: new Date().toISOString(), status: "collected", id };
-      await sleep(300);
+      await processFileCandidate(candidate, ctx, { url: baseUrl, label: pageConf.label });
     }
-
-    // 文章页 → 深入一层
     for (const candidate of candidates.articles) {
-      if (result.newMaterials.length >= options.maxNew) {
-        overflow += 1;
-        continue;
-      }
-      if (state.seen[candidate.url]) continue;
-      await sleep(300);
-      const article = await fetchBestHtml(candidate.url, { render: options.render });
-      if (!article.ok) {
-        skip(candidate.url, `文章页抓取失败：${article.error ?? `HTTP ${article.status}`}`);
-        continue;
-      }
-      const articleUrl = article.finalUrl ?? candidate.url;
-      const title = candidate.title;
-      if (LEGAL_NOTICE_RE.test(title)) {
-        skip(candidate.url, "版权/转载声明类公告，不作为资料收录");
-        continue;
-      }
-      const attachments = extractArticleAttachments(article.html, articleUrl);
-      const year = inferYear(`${title} ${articleUrl}`);
-      if (!year) {
-        skip(candidate.url, "标题/URL 缺年份");
-        continue;
-      }
-
-      if (attachments.length === 0) {
-        // 无附件的网页型资料：标题能推断出明确资料类型（rules/gallery/problem/paper…）即收录为外链
-        const externalKind = inferKind(title);
-        if (externalKind === "attachment") {
-          skip(candidate.url, "文章页无附件且标题无明确资料类型");
-          continue;
-        }
-        const stage = inferStage(title);
-        const id = paperMaterialId(slug, year, stage, title);
-        if (existingIds.has(id) || existingExternal.has(articleUrl)) {
-          skip(candidate.url, "已收录");
-          continue;
-        }
-        const file = { kind: externalKind, format: "html", externalUrl: articleUrl };
-        if (!options.write) {
-          result.newMaterials.push({ id, title, dry: true, external: articleUrl });
-          state.seen[candidate.url] = { at: new Date().toISOString(), status: "dry" };
-          continue;
-        }
-        existingIds.add(id);
-        existingExternal.add(articleUrl);
-        const material = buildMaterial({ slug, title, year, stage, files: [file], sourceUrl: articleUrl, sourceName: pageConf.label ?? entry.organizer ?? new URL(articleUrl).hostname });
-        result.newMaterials.push(material);
-        shard.papers.push(material);
-        state.seen[candidate.url] = { at: new Date().toISOString(), status: "collected", id };
-        continue;
-      }
-
-      // 有附件 → 多文件资料
-      const stage = inferStage(title);
-      const id = paperMaterialId(slug, year, stage, title);
-      if (existingIds.has(id)) {
-        skip(candidate.url, "id 已存在");
-        continue;
-      }
-      if (!options.write) {
-        result.newMaterials.push({ id, title, dry: true, attachments: attachments.length, url: articleUrl });
-        state.seen[candidate.url] = { at: new Date().toISOString(), status: "dry" };
-        continue;
-      }
-      const files = [];
-      let failed = 0;
-      for (const [index, attachment] of attachments.entries()) {
-        const fileKind = attachment.anchorTitle && inferKind(attachment.anchorTitle) !== "attachment" ? inferKind(attachment.anchorTitle) : inferKind(title);
-        const outcome = await guardedDownload(attachment.url, slug, id, fileKind, index + 1);
-        if (outcome.skip) {
-          failed += 1;
-          result.skipped.push({ url: attachment.url, reason: outcome.skip });
-          continue;
-        }
-        if (existingSha.has(outcome.file.sha256)) {
-          fs.rmSync(outcome.destPath, { force: true });
-          result.skipped.push({ url: attachment.url, reason: "sha256 与已有资料重复" });
-          continue;
-        }
-        downloadedPaths.push(outcome.destPath);
-        existingSha.add(outcome.file.sha256);
-        files.push(outcome.file);
-        await sleep(300);
-      }
-      if (files.length === 0) {
-        skip(candidate.url, `附件全部下载失败（${failed} 个）`);
-        continue;
-      }
-      existingIds.add(id);
-      const material = buildMaterial({ slug, title, year, stage, files, sourceUrl: articleUrl, sourceName: pageConf.label ?? entry.organizer ?? new URL(articleUrl).hostname });
-      result.newMaterials.push(material);
-      shard.papers.push(material);
-      state.seen[candidate.url] = { at: new Date().toISOString(), status: "collected", id };
+      await processArticleCandidate(candidate, ctx, { url: baseUrl, label: pageConf.label });
     }
   }
+}
 
-  result.totalAfter = shard.papers.length;
-  if (overflow > 0) result.skipped.push({ url: "(overflow)", reason: `达单赛事新增上限 ${options.maxNew}，剩余 ${overflow} 个候选下次处理` });
-  return { result, shard, downloadedPaths, state };
+/**
+ * L2：全网搜索发现（L1 无收获的赛事，按周限频）。
+ * 搜索结果（附件直连/文章页）回到与 L1 完全相同的候选处理器与下载守护。
+ */
+async function collectFromSearch(entry, ctx) {
+  const cfg = searchConfig();
+  const { result, state } = ctx;
+  if (!cfg) {
+    result.l2 = { skipped: "未配置 DASH_PAPER_SEARCH_PROVIDER/KEY" };
+    return;
+  }
+  if (result.newMaterials.length >= ctx.options.maxNew) {
+    result.l2 = { skipped: "已达新增上限" };
+    return;
+  }
+  const lastAt = Date.parse(state.l2?.lastSearchAt ?? "");
+  if (Number.isFinite(lastAt) && Date.now() - lastAt < L2_RESEARCH_INTERVAL_MS) {
+    result.l2 = { skipped: `距上次搜索不足 ${L2_RESEARCH_INTERVAL_MS / 86400000} 天`, lastSearchAt: state.l2.lastSearchAt };
+    return;
+  }
+
+  const { klass, query } = searchQueryFor(entry);
+  const searchedAt = new Date().toISOString();
+  const response = await searchTavily(query, { apiKey: cfg.apiKey, maxResults: 8 });
+  state.l2 = { lastSearchAt: searchedAt, query };
+  result.l2 = { query, klass, searchedAt, resultCount: response.ok ? response.results.length : 0, error: response.ok ? undefined : response.error };
+  if (!response.ok) return;
+
+  for (const item of response.results) {
+    if (result.newMaterials.length >= ctx.options.maxNew) {
+      ctx.overflow += 1;
+      continue;
+    }
+    if (ctx.state.seen[item.url]) continue;
+    if (isBlacklistedDomain(item.url)) {
+      ctx.skip(item.url, "付费墙/文库类域名黑名单");
+      continue;
+    }
+    const title = cleanTitle(item.title) || item.title;
+    if (!isRelevantToCompetition(entry, title, item.snippet)) {
+      ctx.skip(item.url, "标题/摘要与赛事名不匹配（L2 相关性过滤）");
+      continue;
+    }
+    const source = { url: item.url, label: new URL(item.url).hostname };
+    if (ATTACHMENT_RE.test(item.url)) {
+      await processFileCandidate({ type: "file", url: item.url, title }, ctx, source);
+    } else {
+      await processArticleCandidate({ type: "article", url: item.url, title }, ctx, source);
+    }
+  }
+}
+
+async function collectCompetition(entry, options) {
+  const ctx = makeCollectContext(entry, options);
+  await collectFromPaperPages(entry, ctx);
+  // L1 无收获（分片仍为空）时落入 L2 全网搜索发现
+  if (ctx.shard.papers.length === 0) {
+    await collectFromSearch(entry, ctx);
+  }
+  ctx.result.totalAfter = ctx.shard.papers.length;
+  if (ctx.overflow > 0) ctx.result.skipped.push({ url: "(overflow)", reason: `达单赛事新增上限 ${options.maxNew}，剩余 ${ctx.overflow} 个候选下次处理` });
+  return { result: ctx.result, shard: ctx.shard, downloadedPaths: ctx.downloadedPaths, state: ctx.state };
 }
 
 function renderReport(results, startedAt, writeMode) {
@@ -595,7 +677,7 @@ function renderReport(results, startedAt, writeMode) {
     "",
     `模式：${writeMode ? "write（已写盘）" : "dry-run（只发现不写盘）"}`,
     "",
-    `共 ${results.length} 个配置目标：covered ${results.filter((r) => r.totalAfter > 0).length}，新增 ${results.reduce((sum, r) => sum + r.newMaterials.length, 0)} 条，错误 ${results.reduce((sum, r) => sum + r.errors.length, 0)} 个`,
+    `共 ${results.length} 个目标：covered ${results.filter((r) => r.totalAfter > 0).length}，新增 ${results.reduce((sum, r) => sum + r.newMaterials.length, 0)} 条，错误 ${results.reduce((sum, r) => sum + r.errors.length, 0)} 个；L2 搜索 ${results.filter((r) => r.l2 && !r.l2.skipped).length} 项`,
     "",
     "## 各赛事明细",
     "",
@@ -603,6 +685,13 @@ function renderReport(results, startedAt, writeMode) {
   for (const result of results) {
     lines.push(`### ${result.name}（${result.slug}）`);
     lines.push(`- 资料总数：${result.totalAfter}；新增：${result.newMaterials.length}；跳过：${result.skipped.length}；错误：${result.errors.length}`);
+    if (result.l2) {
+      if (result.l2.skipped) {
+        lines.push(`- L2 搜索：跳过（${result.l2.skipped}）`);
+      } else {
+        lines.push(`- L2 搜索：「${result.l2.query}」（${result.l2.klass} 类，${result.l2.resultCount} 个结果${result.l2.error ? `，错误：${result.l2.error}` : ""}）`);
+      }
+    }
     for (const material of result.newMaterials.slice(0, 20)) {
       lines.push(`  - + [${material.kind ?? "dry"}] ${material.title}`);
     }
@@ -613,8 +702,6 @@ function renderReport(results, startedAt, writeMode) {
     for (const [reason, count] of skipReasons) lines.push(`  - 跳过 ×${count}：${reason}`);
     lines.push("");
   }
-  lines.push("## 未配置 paperPages 的赛事（等待 L2 搜索发现或补充配置）");
-  lines.push("");
   return lines.join("\n");
 }
 
@@ -623,15 +710,13 @@ async function main() {
   const registry = readRegistry();
   const competitions = Array.isArray(registry.competitions) ? registry.competitions : [];
 
-  const targets = competitions.filter((entry) => {
-    if (options.slug && entry.slug !== options.slug) return false;
-    return Array.isArray(entry.paperPages) && entry.paperPages.length > 0;
-  });
-  const unconfigured = competitions.filter((entry) => !Array.isArray(entry.paperPages) || entry.paperPages.length === 0);
+  // 全部赛事均为采集目标：有 paperPages 的走 L1，无配置的由 L2 搜索兜底
+  const targets = competitions.filter((entry) => !options.slug || entry.slug === options.slug);
+  const l1Count = competitions.filter((entry) => Array.isArray(entry.paperPages) && entry.paperPages.length > 0).length;
 
   const startedAt = new Date().toISOString();
   console.log(
-    `采集 ${targets.length} 个配置目标（${new Date().toLocaleString("zh-CN")}）… 模式：${options.write ? "write" : "dry-run"}${options.render ? "" : "（渲染关闭）"}；未配置 paperPages：${unconfigured.length} 项`
+    `采集 ${targets.length} 个目标（${new Date().toLocaleString("zh-CN")}）… 模式：${options.write ? "write" : "dry-run"}${options.render ? "" : "（渲染关闭）"}；L1 配置 ${l1Count} 项，L2 兜底 ${targets.length - l1Count} 项`
   );
 
   const results = [];
@@ -702,12 +787,13 @@ async function main() {
         startedAt,
         write: options.write,
         validation,
-        unconfigured: unconfigured.map((entry) => entry.slug),
+        noPaperPages: competitions.filter((entry) => !Array.isArray(entry.paperPages) || entry.paperPages.length === 0).map((entry) => entry.slug),
         results: results.map((result) => ({
           slug: result.slug,
           name: result.name,
           totalAfter: result.totalAfter,
           newCount: result.newMaterials.length,
+          l2: result.l2,
           newMaterials: result.newMaterials,
           skipped: result.skipped,
           errors: result.errors,
