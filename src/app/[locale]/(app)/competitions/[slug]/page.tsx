@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
 import { CompetitionStatusBadge } from "@/components/competition-status-badge";
 import { CompetitionSchedule } from "@/components/competition-schedule";
+import { CompetitionDetailTracking } from "@/components/competition-follow-controls";
 import { CATEGORY_BADGE_DARK, CATEGORY_LABEL_KEYS, GRADE_LABEL_KEYS } from "@/components/competition-meta";
 import { COMPETITIONS, getCompetition, MOE_LIST, competitionDateKey, competitionQueryString } from "@/lib/competitions";
 import { COURSE_ENTRIES, type CourseEntry } from "@/lib/data";
@@ -93,6 +94,8 @@ export default async function CompetitionDetailPage({
           </a>
         )}
       </AppPageHero>
+
+      <CompetitionDetailTracking slug={slug} name={locale === "en" && competition.nameEn ? competition.nameEn : competition.nameZh} />
 
       <nav aria-label={t("detailNavigation")} className="flex flex-wrap gap-2 border-b border-neutral-200 px-5 py-3 sm:px-7">
         {["intro", "schedule", "updates"].map((id) => (

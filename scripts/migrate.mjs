@@ -887,6 +887,32 @@ const MIGRATIONS = [
       `);
     },
   },
+  {
+    id: "014_competition_tracking",
+    up(db) {
+      db.exec(`
+        CREATE TABLE competition_follows (
+          user_id TEXT NOT NULL REFERENCES user(id) ON DELETE CASCADE,
+          competition_slug TEXT NOT NULL CHECK(length(competition_slug) BETWEEN 1 AND 100),
+          deadline_reminders INTEGER NOT NULL DEFAULT 0 CHECK(deadline_reminders IN (0, 1)),
+          update_reminders INTEGER NOT NULL DEFAULT 0 CHECK(update_reminders IN (0, 1)),
+          update_baseline TEXT NOT NULL DEFAULT '[]' CHECK(json_valid(update_baseline)),
+          created_at TEXT NOT NULL,
+          updated_at TEXT NOT NULL,
+          PRIMARY KEY (user_id, competition_slug)
+        );
+        CREATE TABLE competition_reminder_reads (
+          user_id TEXT NOT NULL,
+          competition_slug TEXT NOT NULL,
+          reminder_key TEXT NOT NULL,
+          read_at TEXT NOT NULL,
+          PRIMARY KEY (user_id, reminder_key),
+          FOREIGN KEY (user_id, competition_slug)
+            REFERENCES competition_follows(user_id, competition_slug) ON DELETE CASCADE
+        );
+      `);
+    },
+  },
 ];
 
 /** 在一个 SQLite 连接上执行所有未应用的应用迁移。 */

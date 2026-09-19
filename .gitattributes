@@ -1,0 +1,2 @@
+# Preserve the CRLF required by iCalendar exports and fixtures.
+*.ics -text whitespace=cr-at-eol

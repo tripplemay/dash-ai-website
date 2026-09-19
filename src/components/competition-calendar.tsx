@@ -6,6 +6,8 @@ import { Link } from "@/i18n/navigation";
 import { buildCompetitionCalendar, type Competition } from "@/lib/competition-domain";
 import { formatCompetitionDate, formatStageRange, isRegistrationStage } from "@/components/competition-meta";
 import { useCompetitionToday } from "@/components/use-competition-today";
+import { useCompetitionTracking } from "@/components/competition-tracking-provider";
+import { CompetitionCalendarExport, CompetitionRemindersLink } from "@/components/competition-follow-controls";
 
 export type CalendarCompetition = Pick<Competition, "slug" | "nameZh" | "nameEn" | "schedule">;
 
@@ -14,9 +16,12 @@ export function CompetitionCalendar({ items, initialToday }: { items: CalendarCo
   const locale = useLocale();
   const today = useCompetitionToday(initialToday);
   const params = useSearchParams();
+  const tracking = useCompetitionTracking();
+  const onlyFollowing = params.get("following") === "1";
+  const followed = new Set(tracking.follows.map((item) => item.slug));
   const requested = params.get("month") ?? "";
   const month = /^(20\d{2})-(0[1-9]|1[0-2])$/.test(requested) ? requested : today.slice(0, 7);
-  const calendar = buildCompetitionCalendar(items);
+  const calendar = buildCompetitionCalendar(onlyFollowing ? items.filter((item) => followed.has(item.slug)) : items);
   const entries = calendar.find(([key]) => key === month)?.[1] ?? [];
   const months = [...new Set([month, today.slice(0, 7), ...calendar.map(([key]) => key)])].sort();
   const monthLabel = (key: string) => new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
@@ -26,6 +31,7 @@ export function CompetitionCalendar({ items, initialToday }: { items: CalendarCo
 
   function selectMonth(value: string) {
     const query = new URLSearchParams();
+    if (onlyFollowing) query.set("following", "1");
     if (value !== today.slice(0, 7)) query.set("month", value);
     window.history.pushState(null, "", window.location.pathname + (query.size ? "?" + query : ""));
   }
@@ -37,6 +43,19 @@ export function CompetitionCalendar({ items, initialToday }: { items: CalendarCo
 
   return (
     <section className="min-w-0 px-5 py-6 sm:px-7">
+      <div className="mb-4 flex flex-wrap items-center gap-3">
+        <label className="flex min-h-11 items-center gap-2 text-sm font-bold text-indigo-800">
+          <input type="checkbox" checked={onlyFollowing} disabled={!tracking.available} className="size-4 accent-indigo-700" onChange={(event) => {
+            const query = new URLSearchParams();
+            if (month !== today.slice(0, 7)) query.set("month", month);
+            if (event.target.checked) query.set("following", "1");
+            window.history.pushState(null, "", window.location.pathname + (query.size ? "?" + query : ""));
+          }} />{t("onlyFollowing", { count: tracking.follows.length })}
+        </label>
+        <CompetitionRemindersLink />
+        <CompetitionCalendarExport key={onlyFollowing ? "followed" : "all"} scope={onlyFollowing ? "followed" : "all"} />
+      </div>
+      <p className="mb-4 text-xs leading-6 text-neutral-600">{t(onlyFollowing ? "exportScopeFollowing" : "exportScopeAll")} {t("exportNote")}</p>
       <div className="flex flex-wrap items-center gap-2">
         <button type="button" onClick={() => shiftMonth(-1)} className={buttonClass}>{t("previousMonth")}</button>
         <label htmlFor="calendar-month" className="sr-only">{t("selectMonth")}</label>

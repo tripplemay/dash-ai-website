@@ -174,6 +174,7 @@ export function readCompetitionQuery(params: Pick<URLSearchParams, "get">) {
     category: member("category", COMPETITION_CATEGORIES),
     grade: member("grade", COMPETITION_GRADES),
     status: member("status", COMPETITION_STATUSES),
+    following: params.get("following") === "1",
     sort: member("sort", COMPETITION_SORTS) ?? "recommended",
     limit: Number.isInteger(limit) && limit >= COMPETITION_PAGE_SIZE && limit <= 120 ? limit : COMPETITION_PAGE_SIZE,
   };
@@ -184,6 +185,7 @@ export function competitionQueryString(params: Pick<URLSearchParams, "get">): st
   const result = new URLSearchParams();
   for (const key of ["q", "category", "grade", "status"] as const) if (query[key]) result.set(key, query[key]!);
   if (query.sort !== "recommended") result.set("sort", query.sort);
+  if (query.following) result.set("following", "1");
   if (query.limit !== COMPETITION_PAGE_SIZE) result.set("limit", String(query.limit));
   return result.toString();
 }

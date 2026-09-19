@@ -1,0 +1,19 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//CORECOORD//Competition Calendar//ZH
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:d20064f7935d1c683ecbce64a523cf3060e83720718fbb8e8f87ee7c66efbe35@compet
+ itions.corecoord
+DTSTAMP:20260919T133101Z
+DTSTART;VALUE=DATE:20260817
+DTEND;VALUE=DATE:20261201
+SUMMARY:世界华人学生作文大赛 · 征稿及初审
+DESCRIPTION:一次性导出，不会自动同步。日期按官方北京时
+ 间赛程记录，具体时间与规则以官网为准。\n第二十七届
+ 2026年8月中旬启动征稿，11月30日结束征稿；参赛学生按
+ 所在地区和年龄段选择主题写作\nhttp://www.zuowendasai.com/
+URL:http://127.0.0.1:3618/zh/competitions/zuowendasai
+TRANSP:TRANSPARENT
+END:VEVENT
+END:VCALENDAR

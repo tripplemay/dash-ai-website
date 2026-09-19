@@ -1,0 +1,56 @@
+$ node --experimental-strip-types --test tests/competition-*.test.mjs
+(node:97547) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Volumes/ORICO/project/dash-ai-website/src/lib/competition-domain.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Volumes/ORICO/project/dash-ai-website/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ unknown future stages do not end a season (0.869959ms)
+✔ single date boundaries never invent an open window or a closing date (0.156417ms)
+✔ the next stage is not the current stage (0.089292ms)
+✔ deadline boundaries are inclusive and quiz days are not registration (0.052208ms)
+✔ one instant uses Beijing time in every process timezone (3.423709ms)
+✔ calendar includes current months and a distinct deadline (0.738125ms)
+✔ calendar does not invent an end for start-only stages (0.071208ms)
+✔ strict date validation accepts leap days only in leap years (0.12ms)
+✔ query state round trips and discards untrusted or unknown navigation parameters (1.0175ms)
+✔ search, filtering and sorting use real data without mutating the catalog (0.579792ms)
+(node:97548) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Volumes/ORICO/project/dash-ai-website/src/lib/competition-ics.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Volumes/ORICO/project/dash-ai-website/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ ICS uses all-day dates, exclusive end and CRLF without repeating cross-month events (1.254041ms)
+✔ unknown dates are omitted and single boundaries are labelled as one-day milestones (0.36875ms)
+✔ event identity survives date revisions and distinct stage reorderings (0.551834ms)
+✔ UTF-8 folding respects 75 octets without corrupting Chinese or emoji (0.118ms)
+✔ calendar text cannot inject new properties or events (0.149917ms)
+✔ followed-only query survives detail return without arbitrary parameters (0.319041ms)
+✔ failed validation retains an outbox and the next unchanged scan retries exactly once (3.642916ms)
+✔ crash after applying content but before acknowledging is idempotent (1.111792ms)
+✔ merge failure rolls back both the shard and generated content without consuming the outbox (1.193834ms)
+✔ same-URL revisions are detected and queued for review rather than overwriting curated content (1.4025ms)
+✔ no-write scans leave the persisted baseline and outbox untouched (0.82975ms)
+✔ temporary source failure preserves pending work and the last good snapshot (0.88875ms)
+✔ a missing shard fails without acknowledging pending work (0.782375ms)
+(node:97550) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///Volumes/ORICO/project/dash-ai-website/src/lib/competition-tracking.ts is not specified and it doesn't parse as CommonJS.
+Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+To eliminate this warning, add "type": "module" to /Volumes/ORICO/project/dash-ai-website/package.json.
+(Use `node --trace-warnings ...` to show where the warning was created)
+✔ following is idempotent, account-scoped and reminders default to off (14.821541ms)
+✔ 7/3/1 thresholds catch up once, keep read state within a band and expire (3.494ms)
+✔ unknown and completed deadlines do not produce misleading reminders (2.695834ms)
+✔ revised deadlines get a new identity instead of reusing a read reminder (2.467708ms)
+✔ official update subscriptions baseline history and detect later additions or edits (3.3115ms)
+✔ read writes reject another account's or fabricated notifications (4.440541ms)
+✔ unfollowing deletes preferences and read history without affecting another account (2.8075ms)
+✔ migrations are repeatable and preserve subscriptions; account deletion cascades (3.033083ms)
+✔ an existing unpublished commit is pushed even when the crawler finds nothing (448.983666ms)
+✔ a rejected push is retained and retried on the next otherwise unchanged run (530.060458ms)
+✔ uncommitted content survives a failed gate and is recovered on retry (388.76375ms)
+✔ unrelated work is neither discarded nor committed (156.769458ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 35
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1626.942333

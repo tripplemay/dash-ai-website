@@ -25,6 +25,8 @@ try {
       "content_references",
       "audit_events",
       "learning_events",
+      "competition_follows",
+      "competition_reminder_reads",
     );
   }
   const placeholders = required.map(() => "?").join(",");

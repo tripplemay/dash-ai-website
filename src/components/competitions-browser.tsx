@@ -16,6 +16,8 @@ import {
   STATUS_BADGE_LIGHT, STATUS_LABEL_KEYS,
 } from "@/components/competition-meta";
 import { useCompetitionToday } from "@/components/use-competition-today";
+import { useCompetitionTracking } from "@/components/competition-tracking-provider";
+import { CompetitionFollowButton, CompetitionRemindersLink } from "@/components/competition-follow-controls";
 import { cn } from "@/lib/utils";
 
 const controlClass = "min-h-11 rounded-md border border-neutral-200 bg-card px-3 py-2 text-[13px] font-bold text-neutral-700 transition-colors hover:border-indigo-400 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600";
@@ -81,6 +83,7 @@ function CompetitionCard({ item, today, from }: { item: CompetitionListItem; tod
         )}
       </dl>
       <div className="mt-3 flex min-w-0 flex-wrap items-center gap-2 border-t border-neutral-100 pt-3 text-xs text-neutral-600">
+        <CompetitionFollowButton slug={item.slug} name={name} />
         {item.tags.map((tag) => <span key={tag} className="rounded bg-indigo-50 px-2 py-1 text-indigo-800">{tag}</span>)}
         {item.latest && <span className="min-w-0 flex-1 truncate text-right" title={item.latest.title}>{t("latestUpdate")} {item.latest.date}</span>}
       </div>
@@ -95,9 +98,11 @@ export function CompetitionsBrowser({ items, initialToday }: { items: Competitio
   const query = readCompetitionQuery(params);
   const from = competitionQueryString(params);
   const today = useCompetitionToday(initialToday);
+  const tracking = useCompetitionTracking();
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const filtered = selectCompetitions(items, query, today);
-  const hasFilters = Boolean(query.q || query.category || query.grade || query.status);
+  const followed = new Set(tracking.follows.map((item) => item.slug));
+  const filtered = selectCompetitions(query.following ? items.filter((item) => followed.has(item.slug)) : items, query, today);
+  const hasFilters = Boolean(query.q || query.category || query.grade || query.status || query.following);
   const chips = [
     query.category && { key: "category", label: t(CATEGORY_LABEL_KEYS[query.category]) },
     query.grade && { key: "grade", label: t(GRADE_LABEL_KEYS[query.grade]) },
@@ -134,7 +139,12 @@ export function CompetitionsBrowser({ items, initialToday }: { items: Competitio
           <Link href="/competitions/calendar" className={cn(controlClass, "inline-flex items-center gap-2 text-indigo-800")}>
             <CalendarDays aria-hidden="true" className="size-4" />{t("calendarEntry")}
           </Link>
+          <CompetitionRemindersLink />
         </div>
+        <label className="mt-2 flex min-h-11 items-center gap-2 text-sm font-bold text-indigo-800">
+          <input type="checkbox" checked={query.following} disabled={!tracking.available} onChange={(event) => update("following", event.target.checked ? "1" : null)} className="size-4 accent-indigo-700" />
+          {t("onlyFollowing", { count: tracking.follows.length })}
+        </label>
         <div id="competition-filters" className={cn("mt-4 gap-4 border-t border-neutral-100 pt-4 sm:grid", filtersOpen ? "grid" : "hidden")}>
           <FilterRow label={t("filterCategory")} value={query.category} onChange={(value) => update("category", value)}
             options={COMPETITION_CATEGORIES.map((value) => ({ value, label: t(CATEGORY_LABEL_KEYS[value]) }))} />

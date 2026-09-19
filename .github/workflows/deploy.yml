@@ -287,6 +287,10 @@ jobs:
             SMOKE_BASE_URL="http://127.0.0.1:${smoke_port}" \
             SMOKE_ADMIN_PASSWORD=ci-admin-pass-123 \
             node scripts/smoke-campus-screen.mjs
+          SMOKE_BASE_URL="http://127.0.0.1:${smoke_port}" \
+            SMOKE_ADMIN_PASSWORD=ci-admin-pass-123 \
+            SMOKE_PARTNER_PASSWORD=ci-initial-pass-123 \
+            node scripts/smoke-competitions.mjs
           cleanup_smoke
           trap - EXIT
 
