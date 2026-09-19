@@ -1,0 +1,4 @@
+{"precondition":"real production-mode login limit reached","status":429,"retryAfter":"10"}
+competition smoke login rate-limited; retry 1/2 after 10250 ms
+competition HTTP smoke passed: 28 status checks; real sessions, isolation, CSRF, persistence, opt-in and ICS
+{"result":"PASS","elapsedMs":10669,"productionAuthUnmodified":true}

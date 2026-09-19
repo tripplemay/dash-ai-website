@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { retryCompetitionSmokeLogin } from "./competition-smoke-login.mjs";
 
 // This mutating regression is intentionally restricted to an isolated local server and seeded accounts.
 const base = process.env.SMOKE_BASE_URL || "http://127.0.0.1:3618";
@@ -7,7 +8,10 @@ const slug = "zuowendasai";
 let assertions = 0;
 function status(response, expected) { assert.equal(response.status, expected); assertions += 1; return response; }
 async function login(username, password) {
-  const response = await fetch(`${base}/api/auth/sign-in/username`, { method: "POST", headers: { "Content-Type": "application/json", Origin: base }, body: JSON.stringify({ username, password }) });
+  const response = await retryCompetitionSmokeLogin(
+    () => fetch(`${base}/api/auth/sign-in/username`, { method: "POST", signal: AbortSignal.timeout(15_000), headers: { "Content-Type": "application/json", Origin: base }, body: JSON.stringify({ username, password }) }),
+    { onRetry: (waitMs, attempt) => console.log(`competition smoke login rate-limited; retry ${attempt}/2 after ${waitMs} ms`) },
+  );
   status(response, 200);
   return response.headers.getSetCookie().map((value) => value.split(";", 1)[0]).join("; ");
 }
