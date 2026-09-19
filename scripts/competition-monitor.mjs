@@ -28,7 +28,7 @@
  *
  * 说明：
  *   - 快照记录每个目标的页面条目、errorStreak、lastOkAt，供 diff 与告警防抖；
- *   - 本脚本永远以 0 退出（参数错误除外），监测失败不应阻塞 CI/cron。
+ *   - 单站抓取失败写入报告；内容写入/校验失败以非零退出，保留待处理队列供重试。
  */
 
 import fs from "node:fs";
@@ -37,6 +37,7 @@ import http from "node:http";
 import https from "node:https";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
+import { fileURLToPath } from "node:url";
 import * as cheerio from "cheerio";
 import { REPO_ROOT, STATE_DIR, isValidSlug, readRegistry } from "./competition-lib.mjs";
 
@@ -65,8 +66,6 @@ const CHROMIUM_CANDIDATES = [
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
 ].filter(Boolean);
 
-const SHARDS_DIR = path.join(REPO_ROOT, "scripts", "competitions", "content");
-const VALIDATE_SCRIPT = path.join(REPO_ROOT, "scripts", "validate-competitions.mjs");
 const monitorStateDir = process.env.DASH_MONITOR_STATE_DIR || STATE_DIR;
 const monitorOutputRoot = process.env.DASH_MONITOR_OUTPUT_DIR || path.join(REPO_ROOT, "output", "competition-monitor");
 
@@ -605,12 +604,16 @@ function finalizeThin(outcome) {
 // diff / 状态
 // ---------------------------------------------------------------------------
 
-function diffItems(previousItems, currentItems) {
+export function diffItems(previousItems, currentItems) {
   const previousKeys = new Map((previousItems ?? []).map((item) => [itemKey(item), item]));
   const currentKeys = new Map(currentItems.map((item) => [itemKey(item), item]));
   const added = currentItems.filter((item) => !previousKeys.has(itemKey(item)));
   const removed = (previousItems ?? []).filter((item) => !currentKeys.has(itemKey(item)));
-  return { added, removed };
+  const updated = currentItems.filter((item) => {
+    const previous = previousKeys.get(itemKey(item));
+    return previous && (previous.title !== item.title || previous.date !== item.date);
+  });
+  return { added, removed, updated };
 }
 
 function loadState(key) {
@@ -625,19 +628,26 @@ function loadState(key) {
 
 function saveState(key, state) {
   fs.mkdirSync(monitorStateDir, { recursive: true });
-  fs.writeFileSync(path.join(monitorStateDir, `${key}.json`), `${JSON.stringify(state, null, 2)}\n`);
+  const destination = path.join(monitorStateDir, `${key}.json`);
+  const temporary = `${destination}.${process.pid}.tmp`;
+  fs.writeFileSync(temporary, `${JSON.stringify(state, null, 2)}\n`);
+  fs.renameSync(temporary, destination);
 }
 
-async function checkTarget(target, options) {
-  const previous = loadState(target.key);
+export async function checkTarget(target, options, dependencies = {}) {
+  const readState = dependencies.loadState ?? loadState;
+  const writeState = dependencies.saveState ?? saveState;
+  const readPage = dependencies.checkPage ?? checkPage;
+  const readApi = dependencies.checkApiPage ?? checkApiPage;
+  const previous = readState(target.key);
   const pages = [];
   const changes = [];
   const checkedPages = [];
   for (const api of target.apis ?? []) {
-    checkedPages.push(await checkApiPage(api));
+    checkedPages.push(await readApi(api));
   }
   for (const url of target.urls) {
-    checkedPages.push(await checkPage(url, target.kind === "moe" ? "moe" : "news", options));
+    checkedPages.push(await readPage(url, target.kind === "moe" ? "moe" : "news", options));
   }
   for (const page of checkedPages) {
     const url = page.url;
@@ -648,12 +658,15 @@ async function checkTarget(target, options) {
           changes.push({ type: "moe-list-changed", url, note: "教育部名单公告页内容发生变化，需人工核对名单" });
         }
       } else {
-        const { added, removed } = diffItems(previousPage?.items, page.items);
+        const { added, removed, updated } = diffItems(previousPage?.items, page.items);
         if (previousPage && added.length) {
           changes.push({ type: "news-added", url, items: added });
         }
         if (previousPage && removed.length) {
           changes.push({ type: "news-removed", url, items: removed });
+        }
+        if (previousPage && updated.length) {
+          changes.push({ type: "news-updated", url, items: updated });
         }
       }
     }
@@ -680,6 +693,19 @@ async function checkTarget(target, options) {
       .filter((page) => page.status === "ok")
       .map((page) => [page.url, { hash: page.hash, layer: page.layer, ...(page.items?.length ? { items: page.items } : {}) }])
   );
+  const pendingUpdates = new Map((previous?.pendingUpdates ?? []).map((item) => [itemKey(item), item]));
+  const pendingReviews = new Map((previous?.pendingReviews ?? []).map((item) => [itemKey(item), item]));
+  for (const change of changes) {
+    if (change.type === "news-added") {
+      for (const item of change.items) if (item.date) pendingUpdates.set(itemKey(item), item);
+    }
+    if (change.type === "news-updated") {
+      for (const item of change.items) {
+        pendingReviews.set(itemKey(item), { ...item, detectedAt: now, sourcePage: change.url });
+        if (pendingUpdates.has(itemKey(item))) pendingUpdates.set(itemKey(item), item);
+      }
+    }
+  }
   const state = {
     key: target.key,
     name: target.name,
@@ -688,18 +714,27 @@ async function checkTarget(target, options) {
     errorStreak,
     ...(status === "ok" || status === "changed" || status === "unchanged" ? { lastOkAt: now } : previous?.lastOkAt ? { lastOkAt: previous.lastOkAt } : {}),
     pages: { ...(previous?.pages ?? {}), ...okPages },
+    pendingUpdates: [...pendingUpdates.values()],
+    pendingReviews: [...pendingReviews.values()],
   };
-  if (options.write) saveState(target.key, state);
-  return { target, status, pages, changes, errorStreak };
+  // Persist the outbox with the snapshot before touching content, so a crash cannot consume a change.
+  if (options.write) writeState(target.key, state);
+  return { target, status, pages, changes, errorStreak, state };
+}
+
+export function completePendingUpdates(results, writeResult, writeState = saveState) {
+  if (!writeResult?.validated) return;
+  for (const result of results) {
+    if (result.target.kind !== "competition" || !result.state.pendingUpdates.length) continue;
+    const state = { ...result.state, pendingUpdates: [], contentAppliedAt: new Date().toISOString() };
+    writeState(result.target.key, state);
+    result.state = state;
+  }
 }
 
 // ---------------------------------------------------------------------------
 // 自动写回分片
 // ---------------------------------------------------------------------------
-
-function shardPath(slug) {
-  return path.join(SHARDS_DIR, `${slug}.json`);
-}
 
 /** 单行 JSON 对象，与分片现有 updates 格式一致（无 URL 的条目省略 url 字段） */
 function formatUpdateLine(item) {
@@ -708,7 +743,7 @@ function formatUpdateLine(item) {
 }
 
 /** 把 news-added 条目以外科手术方式插入分片原文（不重排其它字段）；按 URL 或 标题+日期 去重。返回写入明细。 */
-function writeUpdatesToShards(results) {
+export function writeUpdatesToShards(results, { repoRoot = REPO_ROOT, run = spawnSync } = {}) {
   const written = [];
   const originals = new Map(); // file -> 原始内容（内存备份，回滚用）
   const pending = new Map(); // file -> 新内容
@@ -716,11 +751,11 @@ function writeUpdatesToShards(results) {
   try {
     for (const result of results) {
       if (result.target.kind !== "competition") continue;
-      const added = result.changes.filter((change) => change.type === "news-added").flatMap((change) => change.items);
+      const added = result.state.pendingUpdates;
       if (!added.length) continue;
 
-      const file = shardPath(result.target.key);
-      if (!fs.existsSync(file)) continue;
+      const file = path.join(repoRoot, "scripts", "competitions", "content", `${result.target.key}.json`);
+      if (!fs.existsSync(file)) throw new Error(`Missing content shard: ${result.target.key}`);
       if (!originals.has(file)) {
         const original = fs.readFileSync(file, "utf8");
         originals.set(file, original);
@@ -756,22 +791,22 @@ function writeUpdatesToShards(results) {
       pending.set(file, `${raw.slice(0, insertAt)}\n${lines.join("\n")}${raw.slice(insertAt)}`);
     }
 
-    if (!written.length) return { written, validated: true };
+    if (!pending.size) return { written, validated: true };
 
     for (const [file, content] of pending) {
       fs.writeFileSync(file, content);
     }
 
     // 先重生成合并产物，再跑校验（validate 会检查 merged 是否与分片一致）
-    const mergedFile = path.join(REPO_ROOT, "scripts", "competitions-content.json");
+    const mergedFile = path.join(repoRoot, "scripts", "competitions-content.json");
     if (fs.existsSync(mergedFile)) originals.set(mergedFile, fs.readFileSync(mergedFile, "utf8"));
-    const merge = spawnSync(process.execPath, [path.join(REPO_ROOT, "scripts", "competition-merge.mjs")], { encoding: "utf8" });
+    const merge = run(process.execPath, [path.join(repoRoot, "scripts", "competition-merge.mjs")], { encoding: "utf8" });
     if (merge.status !== 0) {
       rollbackShards(originals);
       return { written: [], validated: false, validationOutput: `合并失败：${(merge.stderr ?? merge.stdout ?? "").trim()}` };
     }
 
-    const validation = spawnSync(process.execPath, [VALIDATE_SCRIPT], { encoding: "utf8" });
+    const validation = run(process.execPath, [path.join(repoRoot, "scripts", "validate-competitions.mjs")], { encoding: "utf8" });
     if (validation.status !== 0) {
       rollbackShards(originals);
       return { written: [], validated: false, validationOutput: `${validation.stdout ?? ""}${validation.stderr ?? ""}`.trim() };
@@ -804,6 +839,9 @@ function collectAlertEvents(results, writeResult) {
     for (const change of result.changes) {
       if (change.type === "moe-list-changed") {
         events.push({ type: "moe-list-changed", message: `⚠️ ${change.note}：${change.url}` });
+      }
+      if (change.type === "news-updated") {
+        events.push({ type: "news-updated", message: `${result.target.name} 有 ${change.items.length} 条原公告修订，已加入 pendingReviews，需核实赛程：${change.url}` });
       }
     }
     // 告警防抖：第 2 次连续失败时报一次，之后每 14 次（约每周）复报，避免长期宕机站点每日刷屏
@@ -878,7 +916,7 @@ function renderReport(results, startedAt, writeResult) {
         if (change.type === "moe-list-changed") {
           lines.push(`- ⚠️ ${change.note}：${change.url}`);
         } else {
-          lines.push(`- ${change.type === "news-added" ? "新增" : "移除"}（${change.url}）：`);
+          lines.push(`- ${change.type === "news-added" ? "新增" : change.type === "news-updated" ? "修订（待审核）" : "移除"}（${change.url}）：`);
           for (const item of change.items) {
             lines.push(`  - [${item.date ?? "未知日期"}] ${item.title} — ${item.url}`);
           }
@@ -964,10 +1002,12 @@ async function main() {
   let writeResult = null;
   if (options.writeUpdates && options.write) {
     writeResult = writeUpdatesToShards(results);
+    completePendingUpdates(results, writeResult);
     if (writeResult.written?.length) {
       console.log(`\n已写入 ${writeResult.written.length} 条新动态到分片（校验通过）。`);
     } else if (writeResult.validated === false) {
       console.error(`\n写入校验失败，已回滚：${writeResult.validationOutput ?? ""}`);
+      process.exitCode = 1;
     }
   }
 
@@ -1005,7 +1045,9 @@ async function main() {
   console.log(`\n报告已写入 ${path.relative(REPO_ROOT, outputDir)}/（report.md / diff.json${writeResult ? " / written.json" : ""}）`);
 }
 
-main().catch((error) => {
-  console.error(`监测脚本执行失败：${error.message}`);
-  process.exitCode = 1;
-});
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((error) => {
+    console.error(`监测脚本执行失败：${error.message}`);
+    process.exitCode = 1;
+  });
+}

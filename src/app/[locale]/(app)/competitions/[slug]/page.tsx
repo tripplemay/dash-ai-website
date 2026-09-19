@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { AppPageHero } from "@/components/app-page-hero";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "@/i18n/navigation";
 import { CompetitionStatusBadge } from "@/components/competition-status-badge";
 import { CompetitionSchedule } from "@/components/competition-schedule";
-import { CATEGORY_BADGE_DARK, CATEGORY_LABEL_KEYS } from "@/components/competition-meta";
-import { COMPETITIONS, getCompetition, MOE_LIST } from "@/lib/competitions";
+import { CATEGORY_BADGE_DARK, CATEGORY_LABEL_KEYS, GRADE_LABEL_KEYS } from "@/components/competition-meta";
+import { COMPETITIONS, getCompetition, MOE_LIST, competitionDateKey, competitionQueryString } from "@/lib/competitions";
 import { COURSE_ENTRIES, type CourseEntry } from "@/lib/data";
 import { cn } from "@/lib/utils";
 
@@ -28,14 +28,21 @@ export async function generateMetadata({
 
 export default async function CompetitionDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ from?: string | string[] }>;
 }) {
   const { slug } = await params;
   const competition = getCompetition(slug);
   if (!competition) notFound();
 
   const t = await getTranslations("competitions");
+  const locale = await getLocale();
+  const initialToday = competitionDateKey();
+  const { from } = await searchParams;
+  const query = competitionQueryString(new URLSearchParams(typeof from === "string" ? from.slice(0, 2000) : ""));
+  const backHref = `/competitions${query ? "?" + query : ""}#competition-${competition.slug}`;
   const updates = [...competition.updates].sort((a, b) => b.date.localeCompare(a.date));
   const relatedCourses = competition.relatedCourses
     .map((courseSlug) => COURSE_ENTRIES.find((entry) => entry.course.slug === courseSlug))
@@ -43,15 +50,15 @@ export default async function CompetitionDetailPage({
 
   return (
     <>
-      <AppPageHero>
+      <AppPageHero className="pt-6 pb-6 sm:pt-9">
         <Link
-          href="/competitions"
+          href={backHref}
           className="inline-flex items-center gap-1.5 text-[12.5px] font-bold tracking-wider text-neutral-300 transition-colors hover:text-coral-300"
         >
           <ArrowLeft className="size-3.5" />
           {t("backToList")}
         </Link>
-        <h1 className="mt-4 text-[34px] font-extrabold tracking-[2px]">{competition.nameZh}</h1>
+        <h1 className="mt-4 text-[26px] leading-snug font-extrabold sm:text-[34px]">{locale === "en" && competition.nameEn ? competition.nameEn : competition.nameZh}</h1>
         <div className="mt-3.5 flex flex-wrap items-center gap-2.5">
           <Badge
             variant="secondary"
@@ -59,7 +66,7 @@ export default async function CompetitionDetailPage({
           >
             {t(CATEGORY_LABEL_KEYS[competition.category])}
           </Badge>
-          <CompetitionStatusBadge schedule={competition.schedule} />
+          <CompetitionStatusBadge schedule={competition.schedule} initialToday={initialToday} />
         </div>
         <div className="mt-4 text-[12.5px] text-neutral-300">
           {t("organizer")}：{competition.organizer}
@@ -68,10 +75,12 @@ export default async function CompetitionDetailPage({
           <span className="text-[12px] font-bold text-neutral-400">{t("gradesLabel")}</span>
           {competition.grades.map((grade) => (
             <span key={grade} className="rounded-md bg-white/10 px-2.5 py-1 text-[11.5px] font-bold text-white">
-              {grade}
+              {t(GRADE_LABEL_KEYS[grade])}
             </span>
           ))}
         </div>
+        <p className="mt-4 max-w-3xl text-sm leading-6 text-neutral-200">{competition.summary}</p>
+        <p className="mt-2 text-xs leading-6 text-neutral-300">{t("sourceCheckedAt", { date: competition.sourceCheckedAt })} · {t("timeZoneNote")}</p>
         {competition.officialSite && (
           <a
             href={competition.officialSite}
@@ -79,13 +88,25 @@ export default async function CompetitionDetailPage({
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 rounded-md border border-coral-300/60 bg-coral-500/10 px-4 py-2.5 text-[13px] font-extrabold tracking-widest text-coral-300 transition-colors hover:bg-coral-500/20"
           >
-            {t("officialSite")}
+            {t("officialEntry")}
             <ExternalLink className="size-4" />
           </a>
         )}
       </AppPageHero>
 
-      <section className="w-full px-5 pt-10 sm:px-7">
+      <nav aria-label={t("detailNavigation")} className="flex flex-wrap gap-2 border-b border-neutral-200 px-5 py-3 sm:px-7">
+        {["intro", "schedule", "updates"].map((id) => (
+          <a key={id} href={`#${id}`} className="inline-flex min-h-11 items-center rounded-md px-3 text-sm font-bold text-indigo-800 hover:bg-indigo-50">
+            {t(id === "intro" ? "introTitle" : id === "schedule" ? "scheduleTitle" : "updatesTitle")}
+          </a>
+        ))}
+      </nav>
+      <aside className="mx-5 mt-6 rounded-lg border border-indigo-100 bg-indigo-50 p-4 text-sm leading-7 text-indigo-900 sm:mx-7">
+        <h2 className="font-extrabold">{t("beforeJoining")}</h2>
+        <p>{t("eligibilityNote")}</p>
+        {locale === "en" && <p className="mt-1">{t("originalLanguageNote")}</p>}
+      </aside>
+      <section id="intro" className="w-full scroll-mt-24 px-5 pt-8 sm:px-7">
         <h2 className="text-[26px] font-extrabold text-indigo-900">{t("introTitle")}</h2>
         <p className="mt-3 max-w-[820px] text-[14px] leading-[1.9] font-bold text-neutral-800">{competition.summary}</p>
         <p className="mt-2.5 max-w-[820px] text-[13.5px] leading-[1.9] whitespace-pre-line text-neutral-600">
@@ -93,18 +114,18 @@ export default async function CompetitionDetailPage({
         </p>
       </section>
 
-      <section className="w-full px-5 pt-10 sm:px-7">
+      <section id="schedule" className="w-full scroll-mt-24 px-5 pt-10 sm:px-7">
         <h2 className="text-[26px] font-extrabold text-indigo-900">{t("scheduleTitle")}</h2>
         {competition.schedule.length === 0 ? (
           <div className="mt-4 rounded-lg border border-dashed border-neutral-200 bg-card p-6 text-[13px] text-neutral-500">
             {t("scheduleEmpty")}
           </div>
         ) : (
-          <CompetitionSchedule schedule={competition.schedule} />
+          <CompetitionSchedule schedule={competition.schedule} initialToday={initialToday} />
         )}
       </section>
 
-      <section className="w-full px-5 pt-10 sm:px-7">
+      <section id="updates" className="w-full scroll-mt-24 px-5 pt-10 sm:px-7">
         <h2 className="text-[26px] font-extrabold text-indigo-900">{t("updatesTitle")}</h2>
         {updates.length === 0 ? (
           <div className="mt-4 rounded-lg border border-dashed border-neutral-200 bg-card p-6 text-[13px] text-neutral-500">

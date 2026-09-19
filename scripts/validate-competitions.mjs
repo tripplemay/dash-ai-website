@@ -226,6 +226,9 @@ function validateShard(shard, label, errors) {
       if (isValidDate(stage.start) && isValidDate(stage.end) && stage.start > stage.end) {
         errors.push({ code: "STAGE_DATE_ORDER", path: stagePath, message: "stage start must not be after end" });
       }
+      if (stage.completed !== undefined && typeof stage.completed !== "boolean") {
+        errors.push({ code: "INVALID_STAGE_COMPLETED", path: `${stagePath}.completed`, message: "completed must be a boolean" });
+      }
     }
   }
 

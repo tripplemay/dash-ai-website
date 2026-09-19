@@ -1,10 +1,9 @@
 import {
   REGISTRATION_STAGE_RE,
-  type Competition,
   type CompetitionCategory,
   type CompetitionStatus,
   type ScheduleStage,
-} from "@/lib/competitions";
+} from "@/lib/competition-domain";
 
 export const CATEGORY_LABEL_KEYS: Record<CompetitionCategory, string> = {
   "natural-science": "categoryNaturalScience",
@@ -18,6 +17,7 @@ export const STATUS_LABEL_KEYS: Record<CompetitionStatus, string> = {
   upcoming: "statusUpcoming",
   finished: "statusFinished",
   tbd: "statusTbd",
+  pending: "statusPending",
 };
 
 /** 浅色背景（卡片）上的类别徽标配色 */
@@ -40,6 +40,7 @@ export const STATUS_BADGE_LIGHT: Record<CompetitionStatus, string> = {
   upcoming: "border-emerald-100 bg-emerald-50 text-emerald-700",
   finished: "border-neutral-200 bg-neutral-50 text-neutral-500",
   tbd: "border-neutral-200 bg-card text-neutral-400",
+  pending: "border-amber-200 bg-amber-50 text-amber-800",
 };
 
 export const STATUS_BADGE_DARK: Record<CompetitionStatus, string> = {
@@ -48,6 +49,7 @@ export const STATUS_BADGE_DARK: Record<CompetitionStatus, string> = {
   upcoming: "border-indigo-300/50 bg-indigo-500/20 text-indigo-200",
   finished: "border-white/15 bg-white/5 text-neutral-400",
   tbd: "border-white/15 bg-white/5 text-neutral-300",
+  pending: "border-amber-300/50 bg-amber-500/15 text-amber-200",
 };
 
 export function isRegistrationStage(stage: ScheduleStage): boolean {
@@ -55,16 +57,19 @@ export function isRegistrationStage(stage: ScheduleStage): boolean {
 }
 
 export function formatCompetitionDate(date: string, locale: string): string {
-  const parsed = new Date(`${date}T00:00:00`);
+  const parsed = new Date(`${date}T00:00:00Z`);
   if (Number.isNaN(parsed.getTime())) return date;
   return new Intl.DateTimeFormat(locale === "en" ? "en-US" : "zh-CN", {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   }).format(parsed);
 }
 
 export function formatStageRange(stage: ScheduleStage, locale: string): string | null {
+  if (stage.start && !stage.end) return `${locale === "en" ? "From " : "开始于 "}${formatCompetitionDate(stage.start, locale)}${locale === "en" ? " (end TBD)" : "（结束时间待公布）"}`;
+  if (stage.end && !stage.start) return `${locale === "en" ? "Until " : "截止至 "}${formatCompetitionDate(stage.end, locale)}${locale === "en" ? " (start TBD)" : "（开始时间待公布）"}`;
   const start = stage.start ?? stage.end;
   const end = stage.end ?? stage.start;
   if (!start || !end) return null;
@@ -72,7 +77,4 @@ export function formatStageRange(stage: ScheduleStage, locale: string): string |
   return `${formatCompetitionDate(start, locale)} – ${formatCompetitionDate(end, locale)}`;
 }
 
-/** 列表/详情页只传轻量字段；推导函数仅读取 schedule/updates，此处补齐类型 */
-export function asCompetition(partial: { schedule: ScheduleStage[] }): Competition {
-  return partial as unknown as Competition;
-}
+export const GRADE_LABEL_KEYS = { 小学: "gradePrimary", 初中: "gradeMiddle", 高中: "gradeHigh", 中专: "gradeTechnical", 职高: "gradeVocational" } as const;

@@ -28,51 +28,61 @@ fi
 
 echo "=== $(date '+%F %T') 赛事监测开始 ==="
 
+command -v flock >/dev/null || { echo "缺少 flock，请安装 util-linux。" >&2; exit 1; }
+exec 9>"$BASE/monitor.lock"
+flock -n 9 || { echo "监测已在运行，跳过重叠任务。"; exit 0; }
+
 cd "$REPO"
-git fetch origin main --quiet
-# 上次可能已 commit 但 push 失败：优先 ff，其次 rebase 保留本地提交，冲突才重置（并重爬生成）
-if git diff --quiet && git diff --cached --quiet; then
-  if ! git merge --ff-only origin/main --quiet 2>/dev/null; then
-    if ! git rebase origin/main --quiet 2>/dev/null; then
-      git rebase --abort 2>/dev/null || true
-      echo "警告：本地提交与远端冲突，重置到 origin/main（未推送的更新将由本次重爬重新生成）" >&2
-      git reset --hard origin/main --quiet
-    fi
+commit_content() {
+  # Recover interrupted content writes without staging unrelated files or discarding an outbox.
+  local changed
+  while IFS= read -r changed; do
+    case "$changed" in
+      scripts/competitions/content/*.json|scripts/competitions-content.json) ;;
+      "") ;;
+      *) echo "存在非监测改动，保留现场并停止：$changed" >&2; return 1 ;;
+    esac
+  done < <(git diff --name-only HEAD)
+  if git diff --quiet HEAD -- scripts/competitions/content/ scripts/competitions-content.json; then
+    return 0
   fi
-else
-  echo "警告：工作区有残留改动，重置到 origin/main" >&2
-  git reset --hard origin/main --quiet
+  node scripts/competition-merge.mjs
+  node scripts/validate-competitions.mjs
+  git add scripts/competitions/content/ scripts/competitions-content.json
+  git -c user.name="${GIT_AUTHOR_NAME:-dash-competition-bot}" \
+      -c user.email="${GIT_AUTHOR_EMAIL:-competition-bot@dashedu.net}" \
+      commit --quiet -m "chore(competitions): publish validated competition updates"
+}
+
+push_pending() {
+  if [[ "$(git rev-list --count origin/main..HEAD)" -eq 0 ]]; then return 0; fi
+  if git push origin HEAD:main; then
+    echo "已推送待发布提交，CI 将自动部署。"
+  else
+    local message="赛事监测：git push 失败，提交已保留，下次运行将优先重试。"
+    echo "$message" >&2
+    if [[ -n "${DASH_MONITOR_WEBHOOK_URL:-}" ]]; then
+      curl -fsS -m 10 -X POST "$DASH_MONITOR_WEBHOOK_URL" \
+        -H 'content-type: application/json' \
+        -d "{\"text\":\"$message\",\"events\":[{\"type\":\"git-push-failed\",\"message\":\"$message\"}]}" || true
+    fi
+    return 1
+  fi
+}
+
+commit_content
+git fetch origin main --quiet
+if ! git merge --ff-only origin/main --quiet 2>/dev/null; then
+  if ! git -c user.name="dash-competition-bot" -c user.email="competition-bot@dashedu.net" rebase origin/main --quiet; then
+    git rebase --abort 2>/dev/null || true
+    echo "本地提交与远端冲突，已保留待发布数据，请人工处理。" >&2
+    exit 1
+  fi
 fi
+push_pending
 
 node scripts/competition-monitor.mjs --write-updates
+commit_content
+push_pending
 
-# 有分片变更才走合并+提交
-if git diff --quiet -- scripts/competitions/ ; then
-  echo "无新增动态，不触发部署。"
-  echo "=== $(date '+%F %T') 监测结束（无变更）==="
-  exit 0
-fi
-
-node scripts/competition-merge.mjs
-node scripts/validate-competitions.mjs
-
-count="$(git diff --numstat -- scripts/competitions/ scripts/competitions-content.json | awk '{a+=$1} END {print a+0}')"
-git add scripts/competitions/ scripts/competitions-content.json
-git -c user.name="${GIT_AUTHOR_NAME:-dash-competition-bot}" \
-    -c user.email="${GIT_AUTHOR_EMAIL:-competition-bot@dashedu.net}" \
-    commit --quiet -m "chore(competitions): 自动监测写入 ${count} 行赛事动态更新"
-
-if git push origin main; then
-  echo "已推送 main，CI 将自动部署。"
-else
-  message="赛事监测：更新已写入但 git push 失败，下次运行将重试。"
-  echo "$message" >&2
-  if [[ -n "${DASH_MONITOR_WEBHOOK_URL:-}" ]]; then
-    curl -fsS -m 10 -X POST "$DASH_MONITOR_WEBHOOK_URL" \
-      -H 'content-type: application/json' \
-      -d "{\"text\":\"$message\",\"events\":[{\"type\":\"git-push-failed\",\"message\":\"$message\"}]}" || true
-  fi
-  exit 1
-fi
-
-echo "=== $(date '+%F %T') 监测结束（已提交）==="
+echo "=== $(date '+%F %T') 监测结束 ==="

@@ -1,6 +1,6 @@
 # 赛事自动监测与抓取机制设计（2026-09-19）
 
-目标：47 项教育部白名单赛事 + 教育部名单页，**全部自动化监测**，检测到官网新动态后**自动更新网站内容并上线**，无需人工干预；只有结构性变化（名单调整、官网迁移、站点失效）才告警人工介入。
+目标：47 项教育部白名单赛事 + 教育部名单页自动监测；通过校验的、带日期的官网新增动态自动追加，提交后由 CI 发布。名单调整、官网迁移、站点失效以及已有公告修订进入人工复核，不自动改写策展赛程。
 
 ## 为什么这样设计
 
@@ -21,23 +21,23 @@ v2 在本机（网络受限环境）的首次全量实测：48 个目标中 27 �
 ```
 VPS cron（每日 2 次）
   └─ scripts/competition-monitor-vps.sh
-       1. git pull（VPS 上的仓库 clone：/opt/dash-pr/competition-monitor/repo）
+       1. flock 防重入；恢复并校验上次未提交内容；同步远端并重试未推送提交
        2. node scripts/competition-monitor.mjs --write-updates
             L0 apiPages JSON 直抓（SPA 站点）→ L1 plain fetch → L2 DoH 修复解析 → L3 Chromium 渲染（自动降级）
             diff 对比 state（/opt/dash-pr/competition-monitor/state/）
-            news-added → 追加到 scripts/competitions/content/<slug>.json
-            写盘前跑 validate-competitions 门禁，不过则回滚并告警
-       3. 有变更 → competition-merge → git commit → push main
+            news-added → 持久化 pendingUpdates → 追加到 scripts/competitions/content/<slug>.json
+            合并后跑 validate-competitions 门禁，不过则回滚内容并保留待办
+       3. 校验成功后确认待办；有变更则 commit；存在待发布提交就 push main
        4. GitHub Actions 现有管线（validate/build/打包/部署/冒烟）自动上线
        5. webhook 告警（名单变化 / 持续失败 / 写入校验失败）
 ```
 
 ### 关键决策：走 git + CI，而不是 VPS 直写数据库
 
-赛事页面是 SSG，数据来自构建期内联的 `scripts/competitions-content.json`。让更新生效有两条路：
+赛事数据来自构建期导入的 `scripts/competitions-content.json`，不是运行时读库。当前生产构建将赛事路由标为动态服务端渲染（共享布局读取登录会话），不能将其描述为 SSG。让内容更新生效有两条路：
 
 - **A（本方案）**：VPS 更新分片 JSON → push → CI 构建部署。复用现有全部质量门禁（validate 失败则部署失败，坏数据上不了线）；git 历史即审计与回滚；不改动网站运行架构。代价：更新延迟约 10 分钟，按日批处理足够。
-- B（未采用）：页面改 ISR/动态读 DB。上线快但绕过策展审核，且要把三个页面从 SSG 改成动态渲染，风险大于收益。
+- B（未采用）：改为运行时读库并设计缓存失效与审核发布。更新延迟更低，但需要额外的数据、缓存和审核机制，目前不改动架构。
 
 ### 抓取层（competition-monitor.mjs）
 
@@ -51,15 +51,18 @@ VPS cron（每日 2 次）
 ### 自动写入门禁
 
 - 只自动追加 `updates`（官网动态链接：`{date, title, url, source: "official", auto: true}`）；**赛事元数据与赛程永远不自动改**。
-- 无日期的条目用抓取当天日期；与分片已有条目按 URL 去重。
+- 无日期的条目不自动写入，不用抓取日期冒充公告发布日期；与分片已有条目按 URL（无 URL 时按标题和日期）去重。
 - 写盘后备份式跑 `validate-competitions.mjs`，失败则整体回滚本次写入并告警。
 - `competition-merge.mjs` 重新生成 `competitions-content.json`，与分片同一 commit。
+- 快照与 `pendingUpdates` 同步原子落盘；只有合并、校验通过才清空待办。失败或中途退出后，即使官网没有再次变化也会重试；已写入的条目不会重复追加。
+- 同 URL 公告的标题或日期变化记为 `news-updated`，保存到 `pendingReviews` 并告警，不自动覆盖已审核内容。目前复核队列保存在状态文件中，尚未提供后台处理界面。
 
 ### 告警
 
 `DASH_MONITOR_WEBHOOK_URL` 指向任意接受 JSON POST 的 webhook（Server 酱 / 企业微信 / Telegram Bot 均可包装）。触发事件：
 
 - `moe-list-changed`：教育部名单页变化（每次必报）
+- `news-updated`：已有公告标题或日期修订，需复核赛程及通知
 - `write-validation-failed`：自动写入未过校验（已回滚）
 - `persistent-error`：同一目标连续 ≥2 次抓取失败（防抖，瞬时抖动不报）
 - `site-broken`：官网出现死循环/长期不可用迹象
@@ -67,13 +70,15 @@ VPS cron（每日 2 次）
 
 ### 状态与报告
 
-- 状态目录：`DASH_MONITOR_STATE_DIR`（VPS 默认 `/opt/dash-pr/competition-monitor/state`，本地默认仓库内 `scripts/competitions/state`）。每个目标记录快照、`errorStreak`、`lastOkAt`。
+- 状态目录：`DASH_MONITOR_STATE_DIR`（VPS 默认 `/opt/dash-pr/competition-monitor/state`，本地默认仓库内 `scripts/competitions/state`）。每个目标记录快照、`errorStreak`、`lastOkAt`、`pendingUpdates` 和 `pendingReviews`。
 - 报告目录：`DASH_MONITOR_OUTPUT_DIR`（VPS 默认 `/opt/dash-pr/competition-monitor/reports/<日期>/`），含 `report.md` / `diff.json` / `written.json`。
 - VPS 上 state/reports 都在仓库 clone 之外，跨部署持久。
 
 ## VPS 部署（一次性，runbook）
 
-前置：VPS 已有 Node 22（`/opt/node22`）与部署用户（无 sudo，Chromium 安装需一次性 root）。
+前置：VPS 已有 Node 22（`/opt/node22`）、`flock`（util-linux）与部署用户（无 sudo，Chromium 安装需一次性 root）。监测使用专用 clone，不与人工开发共用工作区。
+
+同步流程不再执行 `git reset --hard`。未提交内容先过门禁再提交；发现无关的已跟踪文件改动则停止并保留现场；rebase 冲突中止后保留待发布提交；push 失败下次优先重试，即使本次没有新动态。
 
 ```bash
 # 以部署用户执行（Chromium 安装步骤除外）
@@ -92,6 +97,7 @@ sudo bash scripts/competition-monitor-setup.sh   # 或按脚本内注释分步�
 ## 本地开发/验证
 
 ```bash
+pnpm competitions:test                         # 隔离测试，不抓官网、不推真实远端
 pnpm competitions:monitor                       # 全量监测（自动三层降级）
 node scripts/competition-monitor.mjs --slug noi --write-updates   # 单目标+写入
 CHROMIUM_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
@@ -100,6 +106,7 @@ CHROMIUM_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
 
 ## 已知的不可自动化残余
 
+- 本次可靠性升级仅完成本地隔离回归，未部署或执行真实 VPS cron；真实出口、Deploy Key、webhook 和 CI 发布需上线时另行验收。
 - `aiic.china61.org.cn` 站点自身 302 死循环：任何客户端都无法抓，只能等站点修复或换源（告警会提示）。
 - 教育部名单调整、赛事赛程变更：监测能**发现**，但结构化入库仍需人工（质量要求高的策展内容）。
 - 若 VPS 出口自身被某站点封锁（海外机房访问个别政务站点可能受限），该目标会持续 `error` 并触发告警；届时可为单站点配置代理或改为人工维护。

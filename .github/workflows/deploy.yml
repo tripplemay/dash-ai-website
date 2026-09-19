@@ -33,6 +33,7 @@ jobs:
           pnpm run lint
           pnpm exec tsc --noEmit --pretty false
           pnpm content:validate
+          pnpm competitions:test
           pnpm brand:check
           node --check scripts/package-seed-runtime.mjs
           node --check scripts/migrate-auth.mjs

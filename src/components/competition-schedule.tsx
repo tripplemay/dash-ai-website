@@ -1,17 +1,18 @@
 "use client";
 
-import { useMemo } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "@/components/ui/badge";
-import { currentScheduleStage, type ScheduleStage } from "@/lib/competitions";
-import { asCompetition, formatStageRange } from "@/components/competition-meta";
+import { currentScheduleStage, nextScheduleStage, type ScheduleStage } from "@/lib/competition-domain";
+import { formatStageRange } from "@/components/competition-meta";
+import { useCompetitionToday } from "@/components/use-competition-today";
 import { cn } from "@/lib/utils";
 
-export function CompetitionSchedule({ schedule }: { schedule: ScheduleStage[] }) {
+export function CompetitionSchedule({ schedule, initialToday }: { schedule: ScheduleStage[]; initialToday: string }) {
   const t = useTranslations("competitions");
   const locale = useLocale();
-  const now = useMemo(() => new Date(), []);
-  const current = currentScheduleStage(asCompetition({ schedule }), now);
+  const now = useCompetitionToday(initialToday);
+  const current = currentScheduleStage({ schedule }, now);
+  const next = nextScheduleStage({ schedule }, now);
 
   return (
     <ol className="mt-6">
@@ -35,14 +36,14 @@ export function CompetitionSchedule({ schedule }: { schedule: ScheduleStage[] })
                 <span className={cn("text-[14px] font-extrabold", isCurrent ? "text-coral-700" : "text-indigo-900")}>
                   {stage.stage}
                 </span>
-                {isCurrent && (
+                {(isCurrent || (!current && next === stage)) && (
                   <Badge variant="secondary" className="border border-coral-100 bg-coral-50 text-[11px] font-bold text-coral-700">
-                    {t("currentStage")}
+                    {t(isCurrent ? "currentStage" : "nextStage")}
                   </Badge>
                 )}
               </div>
               <div className="mt-1 text-[12.5px] text-neutral-600">{range ?? t("scheduleEmpty")}</div>
-              {stage.note && <div className="mt-0.5 text-[12px] text-neutral-400">{stage.note}</div>}
+              {stage.note && <div className="mt-1 text-[13px] leading-6 text-neutral-600">{stage.note}</div>}
             </div>
           </li>
         );
