@@ -158,7 +158,7 @@ export function buildCompetitionCalendar<T extends Scheduled & { slug: string }>
   return [...byMonth.entries()].sort(([a], [b]) => a.localeCompare(b));
 }
 
-export type CompetitionListItem = Pick<Competition, "slug" | "nameZh" | "nameEn" | "category" | "organizer" | "grades" | "summary" | "tags" | "schedule" | "moeListIndex"> & { latest: CompetitionUpdate | null };
+export type CompetitionListItem = Pick<Competition, "slug" | "nameZh" | "nameEn" | "category" | "organizer" | "grades" | "summary" | "tags" | "schedule" | "moeListIndex"> & { latest: CompetitionUpdate | null; paperCount?: number };
 export const COMPETITION_SORTS = ["recommended", "deadline", "updated", "official"] as const;
 export type CompetitionSort = typeof COMPETITION_SORTS[number];
 export const COMPETITION_PAGE_SIZE = 12;
