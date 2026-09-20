@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T04:36:34.647Z",
+  "generatedAt": "2026-09-20T07:54:38.790Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -1524,6 +1524,75 @@
             }
           ],
           "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2018-other-b4f91b",
+          "year": 2018,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2018-other-b4f91b-answer.pdf",
+              "size": 38968,
+              "sha256": "af802e45a27f60c0655ea0dd150f7ef340be299cd1e35e2550a432d27d65c305"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2026-other-0bd62a",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-0bd62a-paper.pdf",
+              "size": 5789882,
+              "sha256": "7ae0714266b7ff6bbbfa8838eb3d0e2470934eadf14def01cabc1053092f6e59"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2026-other-b4f91b",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-b4f91b-answer.pdf",
+              "size": 5904680,
+              "sha256": "eedfd5f92ca9029f879ebfe99632c46c895b68cf30f9d2a707da0a45471a04e1"
+            }
+          ],
+          "hasAnswer": true,
           "source": {
             "name": "USESO/IESO 历年试题（美国地科组织官方）",
             "url": "https://www.useso.org/resources/past-exams/"
@@ -3126,6 +3195,75 @@
           },
           "auto": true,
           "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "yau-awards-2025-other-20fad1",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "下载研究报告模板",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/yau-awards/yau-awards-2025-other-20fad1-attachment.pdf",
+              "size": 221568,
+              "sha256": "5e074dac40e7676b76fd57243c95883df40ff75023e1f7e312e854d7c6be932b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "参赛指南",
+            "url": "https://www.yau-awards.com/page-rule.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "yau-awards-2026-other-ba6dc8",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "下载学术诚信声明",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/yau-awards/yau-awards-2026-other-ba6dc8-attachment.pdf",
+              "size": 122895,
+              "sha256": "4e937a04cf6a5f208a18fa9c39f463cf140d47600695cad2818bfff4575e4191"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "参赛指南",
+            "url": "https://www.yau-awards.com/page-rule.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "yau-awards-2025-other-1e8868",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "下载指导老师信息表",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "docx",
+              "fileKey": "files/papers/yau-awards/yau-awards-2025-other-1e8868-attachment.docx",
+              "size": 17150,
+              "sha256": "b2a07534b90aba908940637f1496937b44a87e5e843d69dbc0d1f340f9dfa050"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "参赛指南",
+            "url": "https://www.yau-awards.com/page-rule.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
         }
       ]
     },
