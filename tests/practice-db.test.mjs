@@ -78,7 +78,7 @@ test("解答题自评与错题本派生（自评翻正后自动移出）", () =>
   // 答错的 fill 入选；essay 未自评前 is_correct=null 不入选
   assert.deepEqual(wrongs.map((answer) => answer.questionId), ["q2"]);
 
-  const marked = selfMarkAnswer({ userId: USER_ID, questionId: "q3", isCorrect: 0 });
+  const marked = selfMarkAnswer({ userId: USER_ID, paperId: PAPER, questionId: "q3", isCorrect: 0 });
   assert.equal(marked.isCorrect, 0);
   assert.equal(marked.selfMarked, 1);
   wrongs = listWrongAnswers(USER_ID);
@@ -87,7 +87,26 @@ test("解答题自评与错题本派生（自评翻正后自动移出）", () =>
     ["q2", "q3"]
   );
 
-  selfMarkAnswer({ userId: USER_ID, questionId: "q2", isCorrect: 1 });
+  selfMarkAnswer({ userId: USER_ID, paperId: PAPER, questionId: "q2", isCorrect: 1 });
   wrongs = listWrongAnswers(USER_ID);
   assert.deepEqual(wrongs.map((answer) => answer.questionId), ["q3"]);
+});
+
+test("questionId 跨试卷碰撞隔离：同名 q1 在两份试卷互不影响", () => {
+  const OTHER_PAPER = "test-2024-paper-aaaaaa";
+  // 另一份试卷也答 q1（答错）
+  const other = createOrResumeSession(USER_ID, OTHER_PAPER, "practice", 3);
+  submitAnswer({ userId: USER_ID, sessionId: other.session.sessionId, question: choice, userAnswer: "A", idempotencyKey: "test-idem-0002-0001" });
+
+  // 对 OTHER_PAPER 的 q1 自评翻正，PAPER 的 q1（choice 已答对）不应受影响
+  const marked = selfMarkAnswer({ userId: USER_ID, paperId: OTHER_PAPER, questionId: "q1", isCorrect: 1 });
+  assert.equal(marked.paperId, OTHER_PAPER);
+
+  // PAPER 的 q1 自评：两份试卷的 q1 各自独立定位
+  const first = selfMarkAnswer({ userId: USER_ID, paperId: PAPER, questionId: "q1", isCorrect: 0 });
+  assert.equal(first.paperId, PAPER);
+  const wrongs = listWrongAnswers(USER_ID);
+  const papers = wrongs.map((answer) => `${answer.paperId}:${answer.questionId}`);
+  assert.ok(papers.includes(`${PAPER}:q1`), "PAPER 的 q1 应在错题本");
+  assert.ok(!papers.includes(`${OTHER_PAPER}:q1`), "OTHER_PAPER 的 q1 已翻正，不应在错题本");
 });

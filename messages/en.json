@@ -397,7 +397,7 @@
     "practiceAutoPoints": "Auto-graded points: {points}",
     "practiceFinish": "Submit paper",
     "practiceFinishedTitle": "Practice complete",
-    "practiceFinishedScore": "Score {score} (auto-graded) · Answered {answered}/{total}",
+    "practiceFinishedScore": "Auto-graded rate {score}% · Answered {answered}/{total}",
     "practiceFinishedNoScore": "Answered {answered}/{total} · Self-mark essays with the reference answers",
     "practiceSubmit": "Submit answer",
     "practicePoints": "{points} pts",

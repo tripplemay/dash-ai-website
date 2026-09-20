@@ -229,14 +229,15 @@ export function finishSession(sessionId: string, userId: string, autoGradablePoi
 }
 
 /**
- * 解答题自评/错题掌握标记：更新该用户该题最新一条作答的 is_correct（self_marked=1）。
+ * 解答题自评/错题掌握标记：更新该用户该卷该题最新一条作答的 is_correct（self_marked=1）。
+ * questionId 仅在单个题集内唯一，必须带 paperId 定位，避免跨试卷误标记。
  * 自评本身幂等（重复设置同值结果一致），并同步修正涉及会话的 correct_count。
  */
-export function selfMarkAnswer(input: { userId: string; questionId: string; isCorrect: 0 | 1 }): PracticeAnswer {
+export function selfMarkAnswer(input: { userId: string; paperId: string; questionId: string; isCorrect: 0 | 1 }): PracticeAnswer {
   const db = getDb();
   const latest = db
-    .prepare(`SELECT * FROM practice_answers WHERE user_id = ? AND question_id = ? ORDER BY answered_at DESC LIMIT 1`)
-    .get(input.userId, input.questionId) as AnswerRow | undefined;
+    .prepare(`SELECT * FROM practice_answers WHERE user_id = ? AND paper_id = ? AND question_id = ? ORDER BY answered_at DESC LIMIT 1`)
+    .get(input.userId, input.paperId, input.questionId) as AnswerRow | undefined;
   if (!latest) throw new PracticeError("ANSWER_NOT_FOUND", "no answer to mark");
   if (latest.is_correct === input.isCorrect && latest.self_marked === 1) return toAnswer(latest);
 
@@ -256,7 +257,7 @@ export function selfMarkAnswer(input: { userId: string; questionId: string; isCo
   return toAnswer(row);
 }
 
-/** 错题本：每题取最新一条作答，is_correct=0 者入选（自评/重练翻正后自动移出） */
+/** 错题本：每卷每题取最新一条作答，is_correct=0 者入选（按 paper_id+question_id 归组，自评/重练翻正后自动移出） */
 export function listWrongAnswers(userId: string, limit = 100): PracticeAnswer[] {
   const db = getDb();
   const rows = db
@@ -265,7 +266,7 @@ export function listWrongAnswers(userId: string, limit = 100): PracticeAnswer[] 
        WHERE pa.user_id = @userId AND pa.is_correct = 0
          AND pa.answered_at = (
            SELECT MAX(answered_at) FROM practice_answers
-           WHERE user_id = @userId AND question_id = pa.question_id
+           WHERE user_id = @userId AND paper_id = pa.paper_id AND question_id = pa.question_id
          )
        ORDER BY pa.answered_at DESC LIMIT @limit`
     )

@@ -21,11 +21,12 @@ export async function POST(request: NextRequest) {
     return json({ error: "INVALID_BODY" }, 400);
   }
   const questionId = typeof body.questionId === "string" ? body.questionId : "";
+  const paperId = typeof body.paperId === "string" ? body.paperId : "";
   const isCorrect = body.isCorrect === 1 || body.isCorrect === true ? 1 : body.isCorrect === 0 || body.isCorrect === false ? 0 : null;
-  if (!questionId || isCorrect === null) return json({ error: "INVALID_BODY" }, 400);
+  if (!questionId || !paperId || isCorrect === null) return json({ error: "INVALID_BODY" }, 400);
 
   try {
-    const answer = selfMarkAnswer({ userId: session.user.id, questionId, isCorrect });
+    const answer = selfMarkAnswer({ userId: session.user.id, paperId, questionId, isCorrect });
     return json({ data: { answer } });
   } catch (error) {
     return responseForError(error);

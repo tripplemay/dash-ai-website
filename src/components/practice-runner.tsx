@@ -319,7 +319,7 @@ export function PracticeRunner({ paperId }: { paperId: string }) {
         const resp = await fetch("/api/practice/self-mark", {
           method: "POST",
           headers: { "content-type": "application/json" },
-          body: JSON.stringify({ questionId, isCorrect }),
+          body: JSON.stringify({ paperId, questionId, isCorrect }),
         });
         if (!resp.ok) throw new Error(`self-mark HTTP ${resp.status}`);
         setAnswered((prev) => {
@@ -332,7 +332,7 @@ export function PracticeRunner({ paperId }: { paperId: string }) {
         setSelfMarking(null);
       }
     },
-    []
+    [paperId]
   );
 
   const handleFinish = useCallback(async () => {

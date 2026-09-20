@@ -49,13 +49,14 @@ export function WrongBookList() {
     };
   }, []);
 
-  async function master(questionId: string) {
+  async function master(questionId: string, paperId: string | undefined) {
+    if (!paperId) return;
     setMarking(questionId);
     try {
       const resp = await fetch("/api/practice/self-mark", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ questionId, isCorrect: 1 }),
+        body: JSON.stringify({ paperId, questionId, isCorrect: 1 }),
       });
       if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
       setItems((prev) => (prev ?? []).filter((item) => item.questionId !== questionId));
@@ -126,8 +127,8 @@ export function WrongBookList() {
           <div className="mt-3">
             <button
               type="button"
-              disabled={marking === item.questionId}
-              onClick={() => master(item.questionId)}
+              disabled={marking === item.questionId || !item.paper}
+              onClick={() => master(item.questionId, item.paper?.paperId)}
               className={cn(controlClass, "inline-flex items-center gap-1.5 border-emerald-200 bg-emerald-50 text-emerald-700")}
             >
               {marking === item.questionId ? <Loader2 aria-hidden="true" className="size-4 animate-spin" /> : <CheckCircle2 aria-hidden="true" className="size-4" />}
