@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T03:16:11.249Z",
+  "generatedAt": "2026-09-20T04:42:30.037Z",
   "sets": {
     "ccho-2010-other-49a040": {
       "paperId": "ccho-2010-other-49a040",
@@ -17643,6 +17643,977 @@
           "answer": "B",
           "explanation": "海底扩张使新洋壳在大洋中脊不断生成并向两侧推移，远离中脊的洋壳年龄越老，接受沉积的时间越长，沉积物越厚。",
           "points": 5
+        }
+      ]
+    },
+    "ceso-2026-other-0f9f57": {
+      "paperId": "ceso-2026-other-0f9f57",
+      "slug": "ceso",
+      "extractor": {
+        "model": "deepseek-v3",
+        "at": "2026-09-20",
+        "reviewed": false
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "seq": 1,
+          "type": "multiple",
+          "stem": "Vishnu is interested in how different types of urban developments influence flood duration and flood intensity. To do so, he models a precipitation event in three hypothetical watersheds. Which option correctly matches each hydrograph to its corresponding watershed type?",
+          "options": [
+            {
+              "key": "A",
+              "text": "I is a highly urbanized watershed; II is a forested rural watershed; III is a dam-controlled river reach"
+            },
+            {
+              "key": "B",
+              "text": "I is a forested rural watershed; II is a highly urbanized watershed; III is a dam-controlled river reach"
+            },
+            {
+              "key": "C",
+              "text": "I is a dam-controlled river reach, II is a highly urbanized watershed, III is a forested rural watershed"
+            },
+            {
+              "key": "D",
+              "text": "I is a forested rural watershed, II is a dam-controlled river reach, III is a highly urbanized watershed"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q2",
+          "seq": 2,
+          "type": "multiple",
+          "stem": "The P/Ep ratio is the ratio of precipitation to maximum evapotranspiration assuming an unlimited water supply. Suppose you were trying to calculate this ratio, but you accidentally substituted the actual evapotranspiration Ea instead of Ep . What would be the resulting error, and where would the largest percent errors be?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An overestimate of the P/Ep ratio, mainly in dry climates"
+            },
+            {
+              "key": "B",
+              "text": "An overestimate of the P/Ep ratio, mainly in wet climates"
+            },
+            {
+              "key": "C",
+              "text": "An underestimate of the P/Ep ratio, mainly in dry climates"
+            },
+            {
+              "key": "D",
+              "text": "An underestimate of the P/Ep ratio, mainly in wet climates"
+            }
+          ],
+          "answer": [
+            "C"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q3",
+          "seq": 3,
+          "type": "multiple",
+          "stem": "Of the terrestrial planets, only Earth and Mercury have appreciable global magnetic fields. However, Mercury’s magnetic field is much weaker than Earth’s (about 1/100th the strength of Earth’s magnetic field). Which of the following choices correctly explains why?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Mercury’s larger core relative to its size results in stronger Coriolis forces upon core convection currents"
+            },
+            {
+              "key": "B",
+              "text": "Mercury’s slow rotation compared to Earth results in weaker convection columns within the core"
+            },
+            {
+              "key": "C",
+              "text": "Mercury’s large inner core temperature gradient results in stronger core convection currents"
+            },
+            {
+              "key": "D",
+              "text": "Mercury has a thick outer core relative to its overall core size, resulting in weaker convection currents"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q4",
+          "seq": 4,
+          "type": "multiple",
+          "stem": "Max is measuring the water discharge exiting a fully saturated aquifer composed primarily of sand. Which of the following changes would increase the discharge measured by Max?\n\nI) Replacing the sand in the aquifer with silt\nII) Increasing the discharge of streams feeding into the aquifer",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "None"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q5",
+          "seq": 5,
+          "type": "multiple",
+          "stem": "Sulfate aerosols are emitted into the troposphere by anthropogenic pollution. Which of the following climate impacts would you expect to observe following an increase in tropospheric sulfate aerosols?\n\nI) Increase in the absorbance of incoming sunlight, causing warming\nII) Increase in low-level cloud formation rates, causing cooling\nIII) Decrease in the lifespan of low-level clouds by decreasing the average droplet mass, causing warming",
+          "options": [
+            {
+              "key": "A",
+              "text": "I and III"
+            },
+            {
+              "key": "B",
+              "text": "II and III"
+            },
+            {
+              "key": "C",
+              "text": "II only"
+            },
+            {
+              "key": "D",
+              "text": "III only"
+            },
+            {
+              "key": "E",
+              "text": "None"
+            }
+          ],
+          "answer": [
+            "C"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q6",
+          "seq": 6,
+          "type": "multiple",
+          "stem": "Consider the following outcrop of igneous rock with intruding rock Unit 1 denoted by the white outlines. Which of the following can be reasonably inferred from this photo?\n\nI) Unit 1 is younger than the surrounding rock\nII) The rocks at location A are younger than those at location B",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "None"
+            }
+          ],
+          "answer": [
+            "A"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q7",
+          "seq": 7,
+          "type": "multiple",
+          "stem": "Blearth is a planet exactly identical to Earth except for the fact that it rotates around its axis in retrograde. Which of the following statements accurately describes patterns of ocean circulation on Blearth?\n\nI) Downwelling occurs at the center of gyres\nII) Currents on the Western edge of ocean basins are slower and wider than their Eastern counterparts\nIII) Surface water at the latitude of the Antarctic Divergence on Earth converges on Blearth",
+          "options": [
+            {
+              "key": "A",
+              "text": "II only"
+            },
+            {
+              "key": "B",
+              "text": "III only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "II and III"
+            },
+            {
+              "key": "E",
+              "text": "I, II, and III"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q8",
+          "seq": 8,
+          "type": "multiple",
+          "stem": "The following diagram depicts the temperature profiles for gaining and losing streams at different times of the year. Which profile represents a gaining stream in winter?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q9",
+          "seq": 9,
+          "type": "multiple",
+          "stem": "The chemical index of alteration (CIA), a weathering index for rocks, is calculated as\n\n$$ CIA = \\frac{[Al2 O3 ]}{[Al2 O3 ] + [CaO] + [Na2 O] + [K2 O]} \\times 100, $$\n\nwhere [CaO], [Na2 O], and [K2 O] are the concentrations of more easily leachable species than Al2 O3 . Soil samples X and Y are derived from the same parent rock but were taken from different locations. Sample X has CIA = 80 and Sample Y has CIA = 55. Which of the following offers the best explanation for the cause of this discrepancy?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Sample Y is older than Sample X"
+            },
+            {
+              "key": "B",
+              "text": "Sample X was sampled from the E horizon, while Sample Y was sampled from the B horizon"
+            }
+          ],
+          "answer": [
+            "B"
+          ],
+          "points": 2
+        },
+        {
+          "id": "q10",
+          "seq": 10,
+          "type": "multiple",
+          "stem": "Edlyn and Flora are studying water properties in the Atlantic Ocean. Edlyn is on a boat at the equator, while Flora is on a boat at 20 degrees north. Which of the following statements is/are true about the water they are studying?\n\nI) If Edlyn and Flora both begin vertically descending into the ocean below their boats, Flora will experience a greater change in temperature as she descends\nII) If Edlyn and Flora have identical boats, Flora’s boat will have an easier time floating due to a difference in surface water density\nIII) If the strength of the Hadley circulation cell were decreased, the difference in surface water salinity at the location of the two boats would also decrease",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "I and III"
+            },
+            {
+              "key": "D",
+              "text": "II and III"
+            },
+            {
+              "key": "E",
+              "text": "I, II, and III"
+            }
+          ],
+          "answer": [
+            "D"
+          ],
+          "points": 6
+        },
+        {
+          "id": "q11",
+          "seq": 11,
+          "type": "choice",
+          "stem": "According to Kepler’s laws of planetary motion, which of the following pairs of planets have the same orbital period?\n\nPlanet   Host Star Mass (M⊙ )       Perihelion (AU)      Aphelion (AU)\n  I                   1.0                  1.0                  1.0\n  II                  2.0                  0.5                  2.0\n III                  4.0                  1.0                  4.0\n IV                   8.0                  1.0                  3.0",
+          "options": [
+            {
+              "key": "A",
+              "text": "I and II"
+            },
+            {
+              "key": "B",
+              "text": "I and IV"
+            },
+            {
+              "key": "C",
+              "text": "II and III"
+            },
+            {
+              "key": "D",
+              "text": "II and IV"
+            },
+            {
+              "key": "E",
+              "text": "III and IV"
+            }
+          ],
+          "answer": "B",
+          "points": 5
+        },
+        {
+          "id": "q12",
+          "seq": 12,
+          "type": "choice",
+          "stem": "Scientists are investigating a sample of oceanic sediments known to be located near the equator during the start of its formation. From top to bottom, the layers are primarily composed of clay, then siliceous ooze, then calcareous ooze. Which of the following sets of events experienced by the sample is most likely to have caused the formation of this sequence?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Retreat of continental glaciers, followed by movement away from the equator"
+            },
+            {
+              "key": "B",
+              "text": "Movement away from the equator, followed by retreat of continental glaciers"
+            },
+            {
+              "key": "C",
+              "text": "Seafloor subsidence, followed by strong ocean surface cooling"
+            },
+            {
+              "key": "D",
+              "text": "Strong ocean surface cooling, followed by seafloor subsidence"
+            }
+          ],
+          "answer": "A",
+          "points": 5
+        },
+        {
+          "id": "q13",
+          "seq": 13,
+          "type": "choice",
+          "stem": "A geologist wants to find rocks with strong schistosity and large mica flakes. From which of the following environments would they be most likely to find such rocks?",
+          "options": [
+            {
+              "key": "A",
+              "text": "An area of repeated marine transgressions and regressions"
+            },
+            {
+              "key": "B",
+              "text": "An area of continental rifting"
+            },
+            {
+              "key": "C",
+              "text": "A mountain range where accreted oceanic crust is found"
+            },
+            {
+              "key": "D",
+              "text": "An isolated mountain where tuff and rhyolite are found"
+            }
+          ],
+          "answer": "C",
+          "points": 5
+        },
+        {
+          "id": "q14",
+          "seq": 14,
+          "type": "choice",
+          "stem": "The cross-section below depicts a region before deformation occurred along with the faults that formed during deformation. What type of force resulted in the faults shown, and would you expect erosion or deposition to occur at the region labeled A?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Compressional, erosion"
+            },
+            {
+              "key": "B",
+              "text": "Compressional, deposition"
+            },
+            {
+              "key": "C",
+              "text": "Extensional, erosion"
+            },
+            {
+              "key": "D",
+              "text": "Extensional, deposition"
+            }
+          ],
+          "answer": "A",
+          "points": 5
+        },
+        {
+          "id": "q15",
+          "seq": 15,
+          "type": "choice",
+          "stem": "Heat waves generally form when high-pressure zones stagnate, trapping hot air near the ground. Which of the following best explains how high soil moisture affects the severity of a heat wave?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Increases, because the high latent heat of evaporation releases energy to the atmosphere"
+            },
+            {
+              "key": "B",
+              "text": "Decreases, because the high latent heat of evaporation absorbs heat energy from the atmosphere"
+            },
+            {
+              "key": "C",
+              "text": "Increases, because the high specific heat of water releases energy to the atmosphere"
+            },
+            {
+              "key": "D",
+              "text": "Decreases, because the high specific heat of water absorbs energy from the atmosphere"
+            }
+          ],
+          "answer": "B",
+          "points": 5
+        },
+        {
+          "id": "q16",
+          "seq": 16,
+          "type": "multiple",
+          "stem": "The velocity of a glacier can be affected by factors such as temperature, basal water pressure, and glacier mass. Which of the following conditions are associated with faster glacier flow?\n\nI) A glacier with an ice shelf rather than fully grounded termination\nII) A glacier that is thinner than average\nIII) A glacier with a warmer base than average",
+          "options": [
+            {
+              "key": "A",
+              "text": "II only"
+            },
+            {
+              "key": "B",
+              "text": "III only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "I and III"
+            },
+            {
+              "key": "E",
+              "text": "I, II, and III"
+            }
+          ],
+          "answer": [
+            "D"
+          ],
+          "points": 6
+        },
+        {
+          "id": "q17",
+          "seq": 17,
+          "type": "choice",
+          "stem": "Shown below is the pressure-temperature phase diagram for six polymorphic minerals, A, B, C, D, E, and F. For samples belonging to the same metamorphic facies, in which of the following facies would these minerals be least useful for distinguishing relative degrees of metamorphism?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Zeolite"
+            },
+            {
+              "key": "B",
+              "text": "Blueschist"
+            },
+            {
+              "key": "C",
+              "text": "Amphibolite"
+            },
+            {
+              "key": "D",
+              "text": "Hornfels"
+            }
+          ],
+          "answer": "D",
+          "points": 5
+        },
+        {
+          "id": "q18",
+          "seq": 18,
+          "type": "choice",
+          "stem": "Laboratory analysis of a stony-iron meteorite shows that it is composed of roughly equal parts Fe–Ni metal and olivine–pyroxene crystals, with textures suggesting slow cooling while solid-state metal and silicate were in contact. Which of the following parent-body settings best explains this composition and texture?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Fragment of an undifferentiated chondritic asteroid that never experienced large-scale melting"
+            },
+            {
+              "key": "B",
+              "text": "Regolith breccia formed in the upper crust of a small, airless body such as the Moon"
+            },
+            {
+              "key": "C",
+              "text": "Metal-rich clasts mixed into silicate material within an undifferentiated asteroid’s interior"
+            },
+            {
+              "key": "D",
+              "text": "Mixed material from the boundary between the metallic core and silicate mantle of a differentiated asteroid"
+            }
+          ],
+          "answer": "D",
+          "points": 5
+        },
+        {
+          "id": "q19",
+          "seq": 19,
+          "type": "choice",
+          "stem": "Shown in the figure is the zonal average of aurora intensity on an unknown planet (in a specific month) versus the latitude relative to the planet’s rotational axis. Which of the following statements can be inferred about the planet imaged during this month?",
+          "options": [
+            {
+              "key": "A",
+              "text": "The planet’s southern hemisphere is tilted toward the Sun"
+            },
+            {
+              "key": "B",
+              "text": "The planet experiences retrograde rotation"
+            },
+            {
+              "key": "C",
+              "text": "The planet’s magnetic pole is offset from its rotational axis"
+            },
+            {
+              "key": "D",
+              "text": "The planet exhibits a lower rotational axial tilt than Earth"
+            }
+          ],
+          "answer": "C",
+          "points": 5
+        },
+        {
+          "id": "q20",
+          "seq": 20,
+          "type": "choice",
+          "stem": "The North American monsoon is a seasonal weather phenomenon which impacts the southwestern United States and Mexico. The following figure shows one phase of the monsoon, with surface-level isobars overlain on a topographic map of Mexico. Which of the following correctly describes the effect of this phase of the monsoon on precipitation levels at locations A and B, respectively?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Relatively high; relatively low"
+            },
+            {
+              "key": "B",
+              "text": "Relatively high; relatively high"
+            },
+            {
+              "key": "C",
+              "text": "Relatively low, relatively high"
+            },
+            {
+              "key": "D",
+              "text": "Relatively low, relatively low"
+            }
+          ],
+          "answer": "A",
+          "points": 5
+        },
+        {
+          "id": "q21",
+          "seq": 21,
+          "type": "choice",
+          "stem": "Winds subject to which of the following conditions would be expected to flow across isobars?\n\nI) Large pressure gradient aloft in the mid-latitudes\nII) Located within the planetary boundary layer in the Antarctic\nIII) Located at the surface beneath a developing anticyclone in the mid-troposphere",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "III only"
+            },
+            {
+              "key": "D",
+              "text": "I and II"
+            },
+            {
+              "key": "E",
+              "text": "II and III"
+            }
+          ],
+          "answer": "B",
+          "points": 5
+        },
+        {
+          "id": "q22",
+          "seq": 22,
+          "type": "choice",
+          "stem": "The tachocline acts as the division between the Sun’s radiative and convective zones. Which of the following four figures most accurately models the rotation of the Sun as a function of distance from the Sun’s center?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            }
+          ],
+          "answer": "D",
+          "points": 5
+        },
+        {
+          "id": "q23",
+          "seq": 23,
+          "type": "choice",
+          "stem": "Which of the following best describes upper tropospheric energy transfer over the Western Pacific ocean during La Niña conditions?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Net meridional heat movement towards the equator, net zonal heat movement eastward"
+            },
+            {
+              "key": "B",
+              "text": "Net meridional heat movement towards the equator, net zonal heat movement westward"
+            },
+            {
+              "key": "C",
+              "text": "Net meridional heat movement towards the poles, net zonal heat movement eastward"
+            },
+            {
+              "key": "D",
+              "text": "Net meridional heat movement towards the poles, net zonal heat movement westward"
+            }
+          ],
+          "answer": "D",
+          "points": 5
+        },
+        {
+          "id": "q24",
+          "seq": 24,
+          "type": "choice",
+          "stem": "Adakites are a rare class of silica- and sodium-rich igneous rock. Ratios of trace elements in adakites indicate that they are derived from partial melting of metamorphosed basalt. Which of the following is most likely to be the bulk composition of the material left behind by an adakite-forming partial melt?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Alkali feldspar and chlorite"
+            },
+            {
+              "key": "B",
+              "text": "Amphibole and garnet"
+            },
+            {
+              "key": "C",
+              "text": "Muscovite and quartz"
+            },
+            {
+              "key": "D",
+              "text": "Perovskite and bridgmanite"
+            }
+          ],
+          "answer": "B",
+          "points": 5
+        },
+        {
+          "id": "q25",
+          "seq": 25,
+          "type": "choice",
+          "stem": "The following diagram shows four upper air soundings at different locations. At which location are thunderstorms most likely to occur?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            }
+          ],
+          "answer": "C",
+          "points": 5
+        },
+        {
+          "id": "q26",
+          "seq": 26,
+          "type": "choice",
+          "stem": "Cold air damming occurs when cold air gets trapped by easterly winds along the windward side of a mountain range. Which of the following statements is/are true about cold air damming configurations in the Northern Hemisphere?\n\nI) Cold air damming configurations typically have high pressure to the south\nII) Cold air damming is associated with freezing rain",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "None"
+            }
+          ],
+          "answer": "C",
+          "points": 5
+        },
+        {
+          "id": "q27",
+          "seq": 27,
+          "type": "choice",
+          "stem": "Which of the following regions are likely to display anomalously high seismic velocities in the lower lithosphere?\n\nI) Below the Canadian Shield\nII) Below Kilauea, Hawaii",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "None"
+            }
+          ],
+          "answer": "A",
+          "points": 5
+        },
+        {
+          "id": "q28",
+          "seq": 28,
+          "type": "choice",
+          "stem": "The Siberian Traps are a large region of volcanic rock formed by mantle plume volcanism. These eruptions are often stated to be the primary cause of the Permian-Triassic mass extinction event. The image below shows a simplified cross-section of a portion of the Siberian Traps, including the underlying strata.\n\nIdentify all of the following statements that are true of the Siberian Traps:\n\nI) The mass extinction was partially caused by long-term global warming due to the eruption’s high greenhouse gas content\nII) A sample of the intrusion from location A would likely be more enriched in volatiles than a sample from location B",
+          "options": [
+            {
+              "key": "A",
+              "text": "I only"
+            },
+            {
+              "key": "B",
+              "text": "II only"
+            },
+            {
+              "key": "C",
+              "text": "I and II"
+            },
+            {
+              "key": "D",
+              "text": "None"
+            }
+          ],
+          "answer": "C",
+          "points": 5
+        },
+        {
+          "id": "q29",
+          "seq": 29,
+          "type": "choice",
+          "stem": "Shown in the figure is a simplified topographic profile of a river that originates in the mountains and flows out to the sea over uniform bedrock. Which of the following choices best identifies the points where the highest net erosion and deposition occur, respectively?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A, C"
+            },
+            {
+              "key": "B",
+              "text": "A, B"
+            },
+            {
+              "key": "C",
+              "text": "C, A"
+            },
+            {
+              "key": "D",
+              "text": "C, B"
+            }
+          ],
+          "answer": "A",
+          "points": 5
+        },
+        {
+          "id": "q30",
+          "seq": 30,
+          "type": "choice",
+          "stem": "Rohit is studying a mysterious exoplanet—a perfect black body with no atmosphere—that has an average surface solar flux of 2100 W/m2 . He measures its ratio of absorbed radiation to reflected radiation to be 1.75. Taking the Stefan Boltzmann constant to be $5.67 \\times 10^{-8} W m^{-2} K^{-4}$, which of the following is closest to the equilibrium temperature of Rohit’s planet?",
+          "options": [
+            {
+              "key": "A",
+              "text": "A"
+            },
+            {
+              "key": "B",
+              "text": "B"
+            },
+            {
+              "key": "C",
+              "text": "C"
+            },
+            {
+              "key": "D",
+              "text": "D"
+            }
+          ],
+          "answer": "B",
+          "points": 5
+        }
+      ]
+    },
+    "cmo-2025-other-98e5ef": {
+      "paperId": "cmo-2025-other-98e5ef",
+      "slug": "cmo",
+      "extractor": {
+        "model": "deepseek-v3",
+        "at": "2026-09-20",
+        "reviewed": false
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "seq": 1,
+          "type": "essay",
+          "stem": "A line in the plane is called sunny if it is not parallel to any of the x-axis, the y-axis, and the line $x + y = 0$. Let $n \\geqslant 3$ be a given integer. Determine all nonnegative integers $k$ such that there exist $n$ distinct lines in the plane satisfying both of the following:\n\n   • for all positive integers $a$ and $b$ with $a + b \\leqslant n + 1$, the point $(a, b)$ is on at least one of the lines; and\n\n   • exactly $k$ of the $n$ lines are sunny.",
+          "answer": "The possible values of $k$ are all nonnegative integers $k$ such that $k \\leqslant n - 3$.",
+          "points": 7
+        },
+        {
+          "id": "q2",
+          "seq": 2,
+          "type": "essay",
+          "stem": "Let $\\Omega$ and $\\Gamma$ be circles with centres $M$ and $N$, respectively, such that the radius of $\\Omega$ is less than the radius of $\\Gamma$. Suppose circles $\\Omega$ and $\\Gamma$ intersect at two distinct points $A$ and $B$. Line $M N$ intersects $\\Omega$ at $C$ and $\\Gamma$ at $D$, such that points $C, M, N$ and $D$ lie on the line in that order. Let $P$ be the circumcentre of triangle $ACD$. Line $AP$ intersects $\\Omega$ again at $E \\neq A$. Line $AP$ intersects $\\Gamma$ again at $F \\neq A$. Let $H$ be the orthocentre of triangle $P M N$.\nProve that the line through $H$ parallel to $AP$ is tangent to the circumcircle of triangle $BEF$.",
+          "answer": "The proof involves showing that the line through $H$ parallel to $AP$ is indeed tangent to the circumcircle of triangle $BEF$ by using properties of cyclic quadrilaterals, power of a point, and orthocentre.",
+          "points": 7
+        },
+        {
+          "id": "q3",
+          "seq": 3,
+          "type": "essay",
+          "stem": "Let $\\mathbb{N}$ denote the set of positive integers. A function $f : \\mathbb{N} \\to \\mathbb{N}$ is said to be bonza if\n\n$$f (a) \\text{ divides } ba - f (b)f (a)$$\n\nfor all positive integers $a$ and $b$.\nDetermine the smallest real constant $c$ such that $f (n) \\leqslant cn$ for all bonza functions $f$ and all positive integers $n$.",
+          "answer": "The smallest real constant $c$ is $1$.",
+          "points": 7
+        },
+        {
+          "id": "q4",
+          "seq": 4,
+          "type": "essay",
+          "stem": "A proper divisor of a positive integer $N$ is a positive divisor of $N$ other than $N$ itself. The infinite sequence $a_1, a_2, \\ldots$ consists of positive integers, each of which has at least three proper divisors. For each $n \\geqslant 1$, the integer $a_{n+1}$ is the sum of the three largest proper divisors of $a_n$. Determine all possible values of $a_1$.",
+          "answer": "The possible values of $a_1$ are all positive integers that are either perfect squares or twice a perfect square.",
+          "points": 7
+        },
+        {
+          "id": "q5",
+          "seq": 5,
+          "type": "essay",
+          "stem": "Alice and Bazza are playing the inekoalaty game, a two-player game whose rules depend on a positive real number $\\lambda$ which is known to both players. On the $n$th turn of the game (starting with $n = 1$) the following happens:\n\n   • If $n$ is odd, Alice chooses a nonnegative real number $x_n$ such that\n\n$$x_1 + x_2 + \\cdots + x_n \\leqslant \\lambda n.$$\n\n   • If $n$ is even, Bazza chooses a nonnegative real number $x_n$ such that\n\n$$x_1^2 + x_2^2 + \\cdots + x_n^2 \\leqslant n.$$\n\nIf a player cannot choose a suitable number $x_n$, the game ends and the other player wins. If the game goes on forever, neither player wins. All chosen numbers are known to both players.\nDetermine all values of $\\lambda$ for which Alice has a winning strategy and all those for which Bazza has a winning strategy.",
+          "answer": "Alice has a winning strategy for all $\\lambda > 1$, and Bazza has a winning strategy for all $\\lambda \\leqslant 1$.",
+          "points": 7
+        },
+        {
+          "id": "q6",
+          "seq": 6,
+          "type": "essay",
+          "stem": "Consider a $2025 \\times 2025$ grid of unit squares. Matilda wishes to place on the grid some rectangular tiles, possibly of different sizes, such that each side of every tile lies on a grid line and every unit square is covered by at most one tile.\nDetermine the minimum number of tiles Matilda needs to place so that each row and each column of the grid has exactly one unit square that is not covered by any tile.",
+          "answer": "The minimum number of tiles required is $2025$.",
+          "points": 7
+        }
+      ]
+    },
+    "cpho-2025-other-b4f91b": {
+      "paperId": "cpho-2025-other-b4f91b",
+      "slug": "cpho",
+      "extractor": {
+        "model": "deepseek-v3",
+        "at": "2026-09-20",
+        "reviewed": false
+      },
+      "questions": [
+        {
+          "id": "q1",
+          "seq": 1,
+          "type": "essay",
+          "stem": "Estimate the mass of the galaxy NGC 6946 actually present in the picture in Fig. 1(A).",
+          "answer": "The mass embedded in a sphere of radius $r$ is given by $M_{\\text{int}} = \\int_0^r 4\\pi x^2 \\rho_m(x) dx = 4\\pi C_m \\left[r - r_m \\arctan\\left(\\frac{r}{r_m}\\right)\\right]$, which reduces to $M_{\\text{int}} \\simeq 4\\pi C_m r$ if $r \\gg r_m$. In the picture we have a radius $R = 9 \\text{ kpc} = 2.27 \\times 10^{20} \\text{ m}$ of the galaxy, then a mass $M_{\\text{in the figure}} \\simeq 4\\pi C_m R \\simeq 10^{41} \\text{ kg} \\simeq 10^{11} M_{\\odot}$.",
+          "points": 20
+        },
+        {
+          "id": "q2",
+          "seq": 2,
+          "type": "essay",
+          "stem": "Find the equation of motion on $z$ for the vertical motion of a point mass $m$ in such a potential, assuming $r$ is constant. Show that, if $r < r_0$, the galactic plane is a stable equilibrium state by giving the angular frequency $\\omega_0$ of small oscillations around it.",
+          "answer": "The gravitational potential is given by $\\varphi_G(r, z) = \\varphi_0 \\ln\\left(\\frac{r}{r_0}\\right) \\exp\\left(-\\frac{z^2}{z_0^2}\\right)$. The equation of motion for $z$ is derived from the force $F_z = -m \\frac{\\partial \\varphi_G}{\\partial z} = m \\frac{2 \\varphi_0 z}{z_0^2} \\ln\\left(\\frac{r}{r_0}\\right) \\exp\\left(-\\frac{z^2}{z_0^2}\\right)$. For small oscillations around $z = 0$, the potential can be approximated as harmonic, leading to an angular frequency $\\omega_0 = \\sqrt{\\frac{2 \\varphi_0}{z_0^2} \\ln\\left(\\frac{r_0}{r}\\right)}$.",
+          "points": 10
+        },
+        {
+          "id": "q3",
+          "seq": 3,
+          "type": "essay",
+          "stem": "Gravitational field in the case 𝑟 < 𝑅𝑏",
+          "answer": "D4.3 : Gravitational field in the case 𝑟 < 𝑅𝑏",
+          "points": 0.1
+        },
+        {
+          "id": "q4",
+          "seq": 4,
+          "type": "essay",
+          "stem": "In our galaxy, 𝑣⊙ = 220 km ⋅ s−1. Determine the values of the relative radial velocity (with 3 significant digits) and the distance from the galactic center (with 2 significant digits) of the 3 sources observed in Fig. 3. Distances should be expressed as multiples of 𝑅⊙.",
+          "answer": "The 3 frequency shifts (𝑓 − 𝑓0) corresponding to each peak are 𝛥𝑓1 = 0.03 MHz, 𝛥𝑓2 = 0.15 MHz, and 𝛥𝑓3 = 0.26 MHz. The relative Doppler velocities are calculated using 𝑣𝑟,𝑖 = 𝑐𝛥𝑓𝑖/𝑓0, with 𝑓0 = 1,420 MHz, resulting in:\n• 𝑣𝑟,1 = 6.33 km ⋅ s−1\n• 𝑣𝑟,2 = 31.7 km ⋅ s−1\n• 𝑣𝑟,3 = 54.9 km ⋅ s−1\nThe corresponding distances from the galactic center are obtained using the relation 𝑅𝑖 = 𝑅⊙ / (1 + (𝑣𝑟,𝑖 / 𝑣⊙) sin ℓ), with ℓ = 30°, resulting in:\n• 𝑅1 = 0.95𝑅⊙\n• 𝑅2 = 0.78𝑅⊙\n• 𝑅3 = 0.67𝑅⊙",
+          "points": 0.6
+        },
+        {
+          "id": "q5",
+          "seq": 5,
+          "type": "essay",
+          "stem": "On the top view of our galaxy (in the answer box), indicate the positions of the sources observed in Fig. 3. What could be deduced from repeated measurements changing ℓ?",
+          "answer": "The positions of the sources can be indicated geometrically using the 15° grid graduation, going back from 30° from the perpendicular line to CS. The line of sight is passing by S and is tangent to the circle of radius CS/2. Drawing the circles of radius 𝑅1, 𝑅2, and 𝑅3, the line of sight with ℓ = 30° gives 2 possible intersections for each peak: a near one and a far one. Only the nearest for each source is plotted on the answer figure. From repeated measurements changing ℓ, one could deduce the distribution and motion of sources in the galaxy.",
+          "points": 0.6
+        },
+        {
+          "id": "q6",
+          "seq": 6,
+          "type": "essay",
+          "stem": "Behaviour in the limit 𝑟 → ∞",
+          "answer": "D4.6 : Behaviour in the limit 𝑟 → ∞",
+          "points": 0.1
+        },
+        {
+          "id": "q7",
+          "seq": 7,
+          "type": "essay",
+          "stem": "Bi-quadractic equation for 𝑟 < 𝑅𝑏",
+          "answer": "D4.7 : Bi-quadractic equation for 𝑟 < 𝑅𝑏",
+          "points": 0.1
+        },
+        {
+          "id": "q8",
+          "seq": 8,
+          "type": "essay",
+          "stem": "Expression for 𝑣𝑐 when 𝑟 < 𝑅𝑏",
+          "answer": "D4.8 : Expression for 𝑣𝑐 when 𝑟 < 𝑅𝑏",
+          "points": 0.1
+        },
+        {
+          "id": "q9",
+          "seq": 9,
+          "type": "essay",
+          "stem": "Behaviour when 𝑟 → 0",
+          "answer": "D4.9 : Behaviour when 𝑟 → 0",
+          "points": 0.1
         }
       ]
     }

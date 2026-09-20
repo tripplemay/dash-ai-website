@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T04:22:53.770Z",
+  "generatedAt": "2026-09-20T04:36:34.647Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -846,7 +846,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Exam",
+          "title": "USESO 2026 Section I 试题",
           "files": [
             {
               "kind": "paper",
@@ -869,7 +869,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Solution",
+          "title": "USESO 2026 Section I 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -892,7 +892,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Exam",
+          "title": "USESO 2026 Section II 试题",
           "files": [
             {
               "kind": "paper",
@@ -915,7 +915,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Solution",
+          "title": "USESO 2026 Section II 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -938,7 +938,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Score Distribution",
+          "title": "USESO 2026 成绩分布",
           "files": [
             {
               "kind": "paper",
@@ -961,7 +961,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Exam",
+          "title": "USESO 2025 Section I 试题",
           "files": [
             {
               "kind": "paper",
@@ -984,7 +984,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Solution",
+          "title": "USESO 2025 Section I 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1007,7 +1007,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Exam",
+          "title": "USESO 2025 Section II 试题",
           "files": [
             {
               "kind": "paper",
@@ -1030,7 +1030,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Solution",
+          "title": "USESO 2025 Section II 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1053,7 +1053,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Score Distribution",
+          "title": "USESO 2025 成绩分布",
           "files": [
             {
               "kind": "paper",
@@ -1076,7 +1076,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Exam",
+          "title": "USESO 2024 Section I 试题",
           "files": [
             {
               "kind": "paper",
@@ -1099,7 +1099,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Exam",
+          "title": "USESO 2024 Section II 试题",
           "files": [
             {
               "kind": "paper",
@@ -1122,7 +1122,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Solution",
+          "title": "USESO 2024 Section I 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1145,7 +1145,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Solution",
+          "title": "USESO 2024 Section II 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1168,7 +1168,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Score Distribution",
+          "title": "USESO 2024 成绩分布",
           "files": [
             {
               "kind": "paper",
@@ -1191,7 +1191,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Exam",
+          "title": "USESO 2023 Section I 试题",
           "files": [
             {
               "kind": "paper",
@@ -1214,7 +1214,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Solution",
+          "title": "USESO 2023 Section I 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1237,7 +1237,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Exam",
+          "title": "USESO 2023 Section II 试题",
           "files": [
             {
               "kind": "paper",
@@ -1260,7 +1260,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Solution",
+          "title": "USESO 2023 Section II 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1283,7 +1283,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Score Distribution",
+          "title": "USESO 2023 成绩分布",
           "files": [
             {
               "kind": "paper",
@@ -1306,7 +1306,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Exam",
+          "title": "USESO 2022 Section I 试题",
           "files": [
             {
               "kind": "paper",
@@ -1329,7 +1329,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Section I Solution",
+          "title": "USESO 2022 Section I 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1352,7 +1352,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Exam",
+          "title": "USESO 2022 Section II 试题",
           "files": [
             {
               "kind": "paper",
@@ -1375,7 +1375,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Section II Solution",
+          "title": "USESO 2022 Section II 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1398,7 +1398,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Score Distribution",
+          "title": "USESO 2022 成绩分布",
           "files": [
             {
               "kind": "paper",
@@ -1421,7 +1421,7 @@
           "year": 2021,
           "stage": "其他",
           "grade": null,
-          "title": "Exam",
+          "title": "USESO 2021 试题",
           "files": [
             {
               "kind": "paper",
@@ -1444,7 +1444,7 @@
           "year": 2021,
           "stage": "其他",
           "grade": null,
-          "title": "Solution",
+          "title": "USESO 2021 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1467,7 +1467,7 @@
           "year": 2020,
           "stage": "其他",
           "grade": null,
-          "title": "Exam",
+          "title": "USESO 2020 试题",
           "files": [
             {
               "kind": "paper",
@@ -1490,7 +1490,7 @@
           "year": 2020,
           "stage": "其他",
           "grade": null,
-          "title": "Solution",
+          "title": "USESO 2020 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -1513,7 +1513,7 @@
           "year": 2018,
           "stage": "其他",
           "grade": null,
-          "title": "Exam",
+          "title": "USESO 2018 试题",
           "files": [
             {
               "kind": "paper",
@@ -1719,7 +1719,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2026 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1742,7 +1742,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2025 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1765,7 +1765,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2024 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1788,7 +1788,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2023 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1811,7 +1811,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2022 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1834,7 +1834,7 @@
           "year": 2021,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2021 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1857,7 +1857,7 @@
           "year": 2020,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2020 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -1880,7 +1880,7 @@
           "year": 2019,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IMO 2019 试题（官方）",
           "files": [
             {
               "kind": "paper",
@@ -2220,7 +2220,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Problem",
+          "title": "IPhO 2026 试题",
           "files": [
             {
               "kind": "paper",
@@ -2243,7 +2243,7 @@
           "year": 2026,
           "stage": "其他",
           "grade": null,
-          "title": "Solution",
+          "title": "IPhO 2026 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -2266,7 +2266,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Problem",
+          "title": "IPhO 2025 试题",
           "files": [
             {
               "kind": "paper",
@@ -2289,7 +2289,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Solution",
+          "title": "IPhO 2025 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -2312,7 +2312,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Problem",
+          "title": "IPhO 2024 试题",
           "files": [
             {
               "kind": "paper",
@@ -2335,7 +2335,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Solution",
+          "title": "IPhO 2024 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -2358,7 +2358,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Problem",
+          "title": "IPhO 2023 试题",
           "files": [
             {
               "kind": "paper",
@@ -2381,7 +2381,7 @@
           "year": 2023,
           "stage": "其他",
           "grade": null,
-          "title": "Solution",
+          "title": "IPhO 2023 试题解答",
           "files": [
             {
               "kind": "answer",
@@ -2404,7 +2404,7 @@
           "year": 2022,
           "stage": "其他",
           "grade": null,
-          "title": "Problem",
+          "title": "IPhO 2022 试题",
           "files": [
             {
               "kind": "paper",
@@ -2427,7 +2427,7 @@
           "year": 2024,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IPhO 2024 试题合辑",
           "files": [
             {
               "kind": "attachment",
@@ -2450,7 +2450,7 @@
           "year": 2025,
           "stage": "其他",
           "grade": null,
-          "title": "Download PDF",
+          "title": "IPhO 2025 试题合辑",
           "files": [
             {
               "kind": "attachment",

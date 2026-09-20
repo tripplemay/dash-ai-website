@@ -311,6 +311,8 @@ function findTargetPapers(options) {
     if (options.slug && slug !== options.slug) continue;
     for (const paper of shard.papers ?? []) {
       if (options.paper && paper.id !== options.paper) continue;
+      // 成绩统计/分数分布类文档不是题卷，跳过
+      if (/score|distribution|statistics|成绩分布|成绩统计/i.test(paper.title)) continue;
       const files = pickExtractFiles(paper);
       if (!files.length) continue;
       targets.push({ slug, paper, files });
