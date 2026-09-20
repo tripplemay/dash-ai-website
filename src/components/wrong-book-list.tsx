@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { CheckCircle2, Loader2 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { LatexText } from "@/components/latex-text";
 import { QUESTION_TYPE_LABEL_KEYS, type QuestionType } from "@/lib/paper-questions-domain";
 import { cn } from "@/lib/utils";
 
@@ -106,7 +107,9 @@ export function WrongBookList() {
           </div>
           {item.question && (
             <>
-              <p className="mt-2.5 text-[14px] leading-7 font-bold whitespace-pre-line text-neutral-800">{item.question.stem}</p>
+              <p className="mt-2.5 text-[14px] leading-7 font-bold whitespace-pre-line text-neutral-800">
+                <LatexText text={item.question.stem} />
+              </p>
               <div className="mt-3 grid gap-2 rounded-md border border-neutral-100 bg-neutral-50 p-3 text-[13px] leading-6 sm:grid-cols-2">
                 <div>
                   <div className="font-bold text-neutral-500">{t("wrongBookMyAnswer")}</div>
@@ -114,13 +117,14 @@ export function WrongBookList() {
                 </div>
                 <div>
                   <div className="font-bold text-neutral-500">{t("practiceCorrectAnswer")}</div>
-                  <div className="mt-0.5 whitespace-pre-line text-emerald-700">
-                    {Array.isArray(item.question.correctAnswer) ? item.question.correctAnswer.join("") : item.question.correctAnswer}
-                  </div>
+                  <LatexText
+                    text={Array.isArray(item.question.correctAnswer) ? item.question.correctAnswer.join("") : item.question.correctAnswer}
+                    className="mt-0.5 block whitespace-pre-line text-emerald-700"
+                  />
                 </div>
               </div>
               {item.question.explanation && (
-                <p className="mt-2 text-[12.5px] leading-6 whitespace-pre-line text-neutral-600">{item.question.explanation}</p>
+                <LatexText text={item.question.explanation} className="mt-2 block text-[12.5px] leading-6 whitespace-pre-line text-neutral-600" />
               )}
             </>
           )}

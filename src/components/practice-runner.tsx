@@ -4,6 +4,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import { CheckCircle2, CircleAlert, Flag, Loader2 } from "lucide-react";
 import { Link } from "@/i18n/navigation";
+import { LatexText } from "@/components/latex-text";
 import { QUESTION_TYPE_LABEL_KEYS, type PaperQuestion } from "@/lib/paper-questions-domain";
 import { cn } from "@/lib/utils";
 
@@ -74,14 +75,15 @@ function AnswerPanel({
         <VerdictBadge isCorrect={answered.isCorrect} selfMarked={answered.selfMarked} />
         {question.type !== "essay" && (
           <span className="font-bold text-emerald-700">
-            {t("practiceCorrectAnswer")}：{Array.isArray(answered.correctAnswer) ? answered.correctAnswer.join("") : answered.correctAnswer}
+            {t("practiceCorrectAnswer")}：
+            <LatexText text={Array.isArray(answered.correctAnswer) ? answered.correctAnswer.join("") : answered.correctAnswer} />
           </span>
         )}
       </div>
       {question.type === "essay" && (
         <div className="mt-2">
           <div className="font-bold text-neutral-700">{t("practiceReferenceAnswer")}</div>
-          <p className="mt-1 whitespace-pre-line text-neutral-600">{String(answered.correctAnswer)}</p>
+          <LatexText text={String(answered.correctAnswer)} className="mt-1 block whitespace-pre-line text-neutral-600" />
           {answered.isCorrect === null && (
             <div className="mt-2 flex flex-wrap gap-2">
               <button
@@ -107,7 +109,7 @@ function AnswerPanel({
       {answered.explanation && (
         <div className="mt-2">
           <div className="font-bold text-neutral-700">{t("practiceExplanation")}</div>
-          <p className="mt-1 whitespace-pre-line text-neutral-600">{answered.explanation}</p>
+          <LatexText text={answered.explanation} className="mt-1 block whitespace-pre-line text-neutral-600" />
         </div>
       )}
     </div>
@@ -144,7 +146,9 @@ function QuestionCard({
         <span className="rounded bg-neutral-100 px-2 py-0.5 text-[11px] font-bold text-neutral-600">{t("practicePoints", { points: question.points })}</span>
         {done && <span className="ml-auto" />}
       </div>
-      <p className="mt-2.5 text-[14px] leading-7 font-bold whitespace-pre-line text-neutral-800">{question.stem}</p>
+      <p className="mt-2.5 text-[14px] leading-7 font-bold whitespace-pre-line text-neutral-800">
+        <LatexText text={question.stem} />
+      </p>
 
       {question.options && question.options.length > 0 && (
         <div className="mt-2 space-y-1.5">
@@ -174,7 +178,7 @@ function QuestionCard({
                   }}
                 />
                 <span className="font-mono font-bold">{option.key}.</span>
-                <span className="leading-6">{option.text}</span>
+                <LatexText text={option.text} className="leading-6" />
               </label>
             );
           })}
