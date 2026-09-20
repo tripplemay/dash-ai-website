@@ -167,6 +167,10 @@
         {
           "url": "https://ceso.ssoc.org.cn/kejian/",
           "label": "往届真题"
+        },
+        {
+          "url": "https://www.useso.org/resources/past-exams/",
+          "label": "USESO/IESO 历年试题（美国地科组织官方）"
         }
       ]
     },
@@ -189,6 +193,38 @@
           "url": "https://cmo.eduzhixin.com/",
           "label": "质心数学竞赛网",
           "requireRelevance": true
+        },
+        {
+          "url": "https://www.imo-official.org/problems.aspx",
+          "label": "IMO 官方历年真题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2025/",
+          "label": "IMO 2025 官方试题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2024/",
+          "label": "IMO 2024 官方试题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2023/",
+          "label": "IMO 2023 官方试题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2022/",
+          "label": "IMO 2022 官方试题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2021/",
+          "label": "IMO 2021 官方试题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2020/",
+          "label": "IMO 2020 官方试题"
+        },
+        {
+          "url": "https://www.imo-official.org/problems/2019/",
+          "label": "IMO 2019 官方试题"
         }
       ]
     },
@@ -215,6 +251,14 @@
           "url": "https://cpho.eduzhixin.com/",
           "label": "质心物理竞赛网",
           "requireRelevance": true
+        },
+        {
+          "url": "https://ipho.olimpicos.net/",
+          "label": "IPhO 历年试题（官方档案镜像 1967-）"
+        },
+        {
+          "url": "https://www.ipho-new.org/documentations/",
+          "label": "IPhO 官方文档中心"
         }
       ]
     },
@@ -237,6 +281,10 @@
           "url": "https://ccho.eduzhixin.com/",
           "label": "质心化学竞赛网",
           "requireRelevance": true
+        },
+        {
+          "url": "https://www.icho.sk/competition-problems/",
+          "label": "IChO 官方题库（当前站点维护中，恢复后自动接管）"
         }
       ]
     },
@@ -282,6 +330,10 @@
         {
           "url": "https://www.noi.cn/hjmd/mdgs/",
           "label": "名单公示"
+        },
+        {
+          "url": "https://ioinformatics.org/page/contests/10",
+          "label": "IOI 历年竞赛"
         }
       ]
     },

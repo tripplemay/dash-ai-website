@@ -84,6 +84,276 @@
       "at": "2026-09-19T17:44:21.834Z",
       "status": "skipped",
       "reason": "标题/URL 缺年份"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/10/00-IESO-2011-written-instructions.pdf": {
+      "at": "2026-09-20T04:13:05.753Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/10/IESO-2011-Geosphere-written-questions.pdf": {
+      "at": "2026-09-20T04:13:05.767Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2011-Hydrosphere-written-test-questions.pdf": {
+      "at": "2026-09-20T04:13:05.779Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2011-Atmosphere-written-test-questions.pdf": {
+      "at": "2026-09-20T04:13:05.789Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2007-writtwn-and-practical-TEST.pdf": {
+      "at": "2026-09-20T04:13:05.799Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2008-written_test_final.pdf": {
+      "at": "2026-09-20T04:13:05.808Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/practical-test-IESO-20081.pdf": {
+      "at": "2026-09-20T04:13:05.818Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO2009_WT1.pdf": {
+      "at": "2026-09-20T04:13:05.827Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO2009_PT_Geo.pdf": {
+      "at": "2026-09-20T04:13:05.837Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO2009_PT_AtmI.pdf": {
+      "at": "2026-09-20T04:13:05.846Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO2009_PT_AtmII.pdf": {
+      "at": "2026-09-20T04:13:05.854Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO2009_PT_Ast.pdf": {
+      "at": "2026-09-20T04:13:05.864Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Astronomy-written.pdf": {
+      "at": "2026-09-20T04:13:05.873Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Geology-written.pdf": {
+      "at": "2026-09-20T04:13:05.882Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Geophysics-written.pdf": {
+      "at": "2026-09-20T04:13:05.890Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Meteorology-written.pdf": {
+      "at": "2026-09-20T04:13:05.898Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Oceanography-written.pdf": {
+      "at": "2026-09-20T04:13:05.906Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Astronomy-practical.doc": {
+      "at": "2026-09-20T04:13:05.914Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Astronomy-practical-answer-sheet.pdf": {
+      "at": "2026-09-20T04:13:05.923Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO2010-Geology-practical.pdf": {
+      "at": "2026-09-20T04:13:05.932Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Geosphere-practical-laboratory-test1.pdf": {
+      "at": "2026-09-20T04:13:05.940Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "http://www.ieso2011.unimore.it/wp-content/uploads/2011/01/IESO-2010-Atmosphere-practical.pdf": {
+      "at": "2026-09-20T04:13:05.949Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
+    },
+    "https://www.useso.org/wp-content/uploads/2026/04/2026_USESO_Open_Section-I.pdf": {
+      "at": "2026-09-20T04:17:32.213Z",
+      "status": "collected",
+      "id": "ceso-2026-other-0f9f57"
+    },
+    "https://www.useso.org/wp-content/uploads/2026/04/2026_USESO_Open_Section-I_KEY.pdf": {
+      "at": "2026-09-20T04:17:35.393Z",
+      "status": "collected",
+      "id": "ceso-2026-other-fef28d"
+    },
+    "https://www.useso.org/wp-content/uploads/2026/04/2026_USESO_Open_Section-II.pdf": {
+      "at": "2026-09-20T04:17:38.850Z",
+      "status": "collected",
+      "id": "ceso-2026-other-439e69"
+    },
+    "https://www.useso.org/wp-content/uploads/2026/04/2026_USESO_Open_Section-II_KEY.pdf": {
+      "at": "2026-09-20T04:17:43.558Z",
+      "status": "collected",
+      "id": "ceso-2026-other-b185a8"
+    },
+    "https://www.useso.org/wp-content/uploads/2026/04/2026_USESO_Open_Histo.pdf": {
+      "at": "2026-09-20T04:17:46.084Z",
+      "status": "collected",
+      "id": "ceso-2026-other-862714"
+    },
+    "https://www.useso.org/wp-content/uploads/2025/04/S1_2025_USESO_Open_Exam.pdf": {
+      "at": "2026-09-20T04:17:49.239Z",
+      "status": "collected",
+      "id": "ceso-2025-other-0f9f57"
+    },
+    "https://www.useso.org/wp-content/uploads/2025/04/S1_Key_2025_USESO_Open_Exam.pdf": {
+      "at": "2026-09-20T04:17:51.494Z",
+      "status": "collected",
+      "id": "ceso-2025-other-fef28d"
+    },
+    "https://www.useso.org/wp-content/uploads/2025/04/S2_2025_USESO_Open_Exam.pdf": {
+      "at": "2026-09-20T04:17:54.411Z",
+      "status": "collected",
+      "id": "ceso-2025-other-439e69"
+    },
+    "https://www.useso.org/wp-content/uploads/2025/04/S2_Key_2025_USESO_Open_Exam.pdf": {
+      "at": "2026-09-20T04:17:58.156Z",
+      "status": "collected",
+      "id": "ceso-2025-other-b185a8"
+    },
+    "https://www.useso.org/wp-content/uploads/2025/05/2025-Open-Exam-Histo.pdf": {
+      "at": "2026-09-20T04:17:59.784Z",
+      "status": "collected",
+      "id": "ceso-2025-other-862714"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/03/2024_USESO_Open_Section-I_Test_Color.pdf": {
+      "at": "2026-09-20T04:18:02.282Z",
+      "status": "collected",
+      "id": "ceso-2024-other-0f9f57"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/03/2024_USESO_Open_Section-I_Test_BW.pdf": {
+      "at": "2026-09-20T04:18:02.583Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/03/2024_USESO_Open_Section-II_Test_Color.pdf": {
+      "at": "2026-09-20T04:18:06.762Z",
+      "status": "collected",
+      "id": "ceso-2024-other-439e69"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/03/2024_USESO_Open_Section-II_Test_BW.pdf": {
+      "at": "2026-09-20T04:18:07.063Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/03/2024_USESO_Open_Section-I_KEY.pdf": {
+      "at": "2026-09-20T04:18:09.269Z",
+      "status": "collected",
+      "id": "ceso-2024-other-fef28d"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/03/2024_USESO_Open_Section-II_KEY-1.pdf": {
+      "at": "2026-09-20T04:18:12.929Z",
+      "status": "collected",
+      "id": "ceso-2024-other-b185a8"
+    },
+    "https://www.useso.org/wp-content/uploads/2024/04/2024-USESO-National-Open-Exam-Score-Distribution.pdf": {
+      "at": "2026-09-20T04:18:14.542Z",
+      "status": "collected",
+      "id": "ceso-2024-other-862714"
+    },
+    "https://www.useso.org/wp-content/uploads/2023/03/2023_USESO_Open_Exam_Section_I.pdf": {
+      "at": "2026-09-20T04:18:17.765Z",
+      "status": "collected",
+      "id": "ceso-2023-other-0f9f57"
+    },
+    "https://www.useso.org/wp-content/uploads/2023/03/2023_USESO_Open_Exam_Section_I_KEY.pdf": {
+      "at": "2026-09-20T04:18:19.758Z",
+      "status": "collected",
+      "id": "ceso-2023-other-fef28d"
+    },
+    "https://www.useso.org/wp-content/uploads/2023/03/2023_USESO_Open_Exam_Section-II.pdf": {
+      "at": "2026-09-20T04:18:23.084Z",
+      "status": "collected",
+      "id": "ceso-2023-other-439e69"
+    },
+    "https://www.useso.org/wp-content/uploads/2023/03/2023_USESO_Open_Exam_Section_II_KEY.pdf": {
+      "at": "2026-09-20T04:18:25.241Z",
+      "status": "collected",
+      "id": "ceso-2023-other-b185a8"
+    },
+    "https://www.useso.org/wp-content/uploads/2023/04/2023_USESO_National_Open_Exam_Score_Distribution.pdf": {
+      "at": "2026-09-20T04:18:27.606Z",
+      "status": "collected",
+      "id": "ceso-2023-other-862714"
+    },
+    "https://www.useso.org/wp-content/uploads/2022/04/2022_USESO_Open_Exam_Section_I.pdf": {
+      "at": "2026-09-20T04:18:34.958Z",
+      "status": "collected",
+      "id": "ceso-2022-other-0f9f57"
+    },
+    "https://www.useso.org/wp-content/uploads/2022/04/2022_USESO_Open_Exam_Section_I_KEY.pdf": {
+      "at": "2026-09-20T04:18:42.772Z",
+      "status": "collected",
+      "id": "ceso-2022-other-fef28d"
+    },
+    "https://www.useso.org/wp-content/uploads/2022/04/2022_USESO_Open_Exam.pdf": {
+      "at": "2026-09-20T04:18:46.386Z",
+      "status": "collected",
+      "id": "ceso-2022-other-439e69"
+    },
+    "https://www.useso.org/wp-content/uploads/2022/04/2022_USESO_Open_Exam_KEY.pdf": {
+      "at": "2026-09-20T04:18:49.628Z",
+      "status": "collected",
+      "id": "ceso-2022-other-b185a8"
+    },
+    "https://www.useso.org/wp-content/uploads/2022/05/Open-histogram.pdf": {
+      "at": "2026-09-20T04:18:51.211Z",
+      "status": "collected",
+      "id": "ceso-2022-other-862714"
+    },
+    "https://www.useso.org/wp-content/uploads/2021/08/2021_USESO_Open.pdf": {
+      "at": "2026-09-20T04:18:58.214Z",
+      "status": "collected",
+      "id": "ceso-2021-other-0bd62a"
+    },
+    "https://www.useso.org/wp-content/uploads/2021/08/2021_USESO_Open_KEY.pdf": {
+      "at": "2026-09-20T04:19:04.422Z",
+      "status": "collected",
+      "id": "ceso-2021-other-b4f91b"
+    },
+    "https://www.useso.org/wp-content/uploads/2020/06/2020_open_EXAM_published.pdf": {
+      "at": "2026-09-20T04:19:06.094Z",
+      "status": "collected",
+      "id": "ceso-2020-other-0bd62a"
+    },
+    "https://www.useso.org/wp-content/uploads/2020/06/2020_open_KEY.pdf": {
+      "at": "2026-09-20T04:19:07.482Z",
+      "status": "collected",
+      "id": "ceso-2020-other-b4f91b"
+    },
+    "https://www.useso.org/wp-content/uploads/2018/06/USESO-2018.pdf": {
+      "at": "2026-09-20T04:19:10.230Z",
+      "status": "collected",
+      "id": "ceso-2018-other-0bd62a"
     }
   }
 }

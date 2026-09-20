@@ -44,6 +44,81 @@
       "at": "2026-09-20T03:05:42.995Z",
       "status": "collected",
       "id": "cmo-2021-liansai-a5ab1c"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2026/2026_eng.pdf": {
+      "at": "2026-09-20T04:19:25.968Z",
+      "status": "collected",
+      "id": "cmo-2026-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2025/2025_eng.pdf": {
+      "at": "2026-09-20T04:22:44.652Z",
+      "status": "collected",
+      "id": "cmo-2025-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2025/IMO2025SL.pdf": {
+      "at": "2026-09-20T04:22:44.954Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2024/2024_eng.pdf": {
+      "at": "2026-09-20T04:22:45.983Z",
+      "status": "collected",
+      "id": "cmo-2024-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2024/IMO2024SL.pdf": {
+      "at": "2026-09-20T04:22:46.284Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2023/2023_eng.pdf": {
+      "at": "2026-09-20T04:22:47.487Z",
+      "status": "collected",
+      "id": "cmo-2023-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2023/IMO2023SL.pdf": {
+      "at": "2026-09-20T04:22:47.789Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2022/2022_eng.pdf": {
+      "at": "2026-09-20T04:22:48.845Z",
+      "status": "collected",
+      "id": "cmo-2022-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2022/IMO2022SL.pdf": {
+      "at": "2026-09-20T04:22:49.147Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2021/2021_eng.pdf": {
+      "at": "2026-09-20T04:22:50.111Z",
+      "status": "collected",
+      "id": "cmo-2021-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2021/IMO2021SL.pdf": {
+      "at": "2026-09-20T04:22:50.413Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2020/2020_eng.pdf": {
+      "at": "2026-09-20T04:22:51.448Z",
+      "status": "collected",
+      "id": "cmo-2020-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2020/IMO2020SL.pdf": {
+      "at": "2026-09-20T04:22:51.750Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2019/2019_eng.pdf": {
+      "at": "2026-09-20T04:22:52.850Z",
+      "status": "collected",
+      "id": "cmo-2019-other-98e5ef"
+    },
+    "https://www.imo-official.org/assets/documents/problems/2019/IMO2019SL.pdf": {
+      "at": "2026-09-20T04:22:53.151Z",
+      "status": "skipped",
+      "reason": "id 已存在"
     }
   }
 }

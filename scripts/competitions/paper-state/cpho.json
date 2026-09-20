@@ -99,6 +99,221 @@
       "at": "2026-09-20T03:05:14.605Z",
       "status": "collected",
       "id": "cpho-2021-juesai-dedaed"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_Q1.pdf": {
+      "at": "2026-09-20T04:19:37.874Z",
+      "status": "collected",
+      "id": "cpho-2026-other-1baa06"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_S1.pdf": {
+      "at": "2026-09-20T04:19:39.184Z",
+      "status": "collected",
+      "id": "cpho-2026-other-b4f91b"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_Q2.pdf": {
+      "at": "2026-09-20T04:19:39.485Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_S2.pdf": {
+      "at": "2026-09-20T04:19:39.485Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_Q3.pdf": {
+      "at": "2026-09-20T04:19:39.485Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_S3.pdf": {
+      "at": "2026-09-20T04:19:39.485Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_Q4.pdf": {
+      "at": "2026-09-20T04:19:39.485Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2026_S4.pdf": {
+      "at": "2026-09-20T04:19:39.485Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_Q1.pdf": {
+      "at": "2026-09-20T04:19:40.843Z",
+      "status": "collected",
+      "id": "cpho-2025-other-1baa06"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_S1.pdf": {
+      "at": "2026-09-20T04:19:51.173Z",
+      "status": "collected",
+      "id": "cpho-2025-other-b4f91b"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_Q2.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_S2.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_Q3.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_S3.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_Q4.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_S4.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_Q5.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_S5.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2025_Q6.pdf": {
+      "at": "2026-09-20T04:19:51.474Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_Q1.pdf": {
+      "at": "2026-09-20T04:20:01.046Z",
+      "status": "collected",
+      "id": "cpho-2024-other-1baa06"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_S1.pdf": {
+      "at": "2026-09-20T04:20:04.688Z",
+      "status": "collected",
+      "id": "cpho-2024-other-b4f91b"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_Q2.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_S2.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_Q3.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_S3.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_Q4.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_S5.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_Q5.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2024_S4.pdf": {
+      "at": "2026-09-20T04:20:04.990Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_Q1.pdf": {
+      "at": "2026-09-20T04:20:33.147Z",
+      "status": "collected",
+      "id": "cpho-2023-other-1baa06"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_S1.pdf": {
+      "at": "2026-09-20T04:20:34.545Z",
+      "status": "collected",
+      "id": "cpho-2023-other-b4f91b"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_Q2.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_S2.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_Q3.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_S3.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_Q4.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_S4.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_Q5.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2023_S5.pdf": {
+      "at": "2026-09-20T04:20:34.847Z",
+      "status": "skipped",
+      "reason": "id 已存在"
+    },
+    "https://ipho.olimpicos.net/pdf/IPhO_2022_Q1.pdf": {
+      "at": "2026-09-20T04:20:36.256Z",
+      "status": "collected",
+      "id": "cpho-2022-other-1baa06"
+    },
+    "https://www.ipho-new.org/physics/wp-content/uploads/2024/12/Minutes-IPhO-2024-Iran.pdf?x30394": {
+      "at": "2026-09-20T04:20:45.556Z",
+      "status": "collected",
+      "id": "cpho-2024-other-98e5ef"
+    },
+    "https://www.ipho-new.org/physics/wp-content/uploads/2025/08/Minutes-IPhO-2025-France.pdf?x30394": {
+      "at": "2026-09-20T04:20:46.760Z",
+      "status": "collected",
+      "id": "cpho-2025-other-98e5ef"
+    },
+    "https://www.ipho-new.org/physics/wp-content/uploads/2026/08/Minutes-IPhO-2026-Colombia.pdf?x30394": {
+      "at": "2026-09-20T04:20:47.864Z",
+      "status": "skipped",
+      "reason": "下载失败：curl 下载失败"
     }
   }
 }

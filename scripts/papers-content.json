@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T03:06:07.767Z",
+  "generatedAt": "2026-09-20T04:22:53.770Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -840,6 +840,696 @@
           },
           "auto": true,
           "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "ceso-2026-other-0f9f57",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-0f9f57-paper.pdf",
+              "size": 4604635,
+              "sha256": "7438e861b7cef64142d1df839b9d85b6ccad5733be05f621c54fcdd4c9fac408"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2026-other-fef28d",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-fef28d-answer.pdf",
+              "size": 4646084,
+              "sha256": "d8f961df5ab8ef05ca535771d22118fb827b45c0a053f02d625ae20d7e0e8832"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2026-other-439e69",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-439e69-paper.pdf",
+              "size": 2939398,
+              "sha256": "38bf3f1609e72772814f28396c7bd013f2250705671de1c5516ce11454dc199e"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2026-other-b185a8",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-b185a8-answer.pdf",
+              "size": 2967296,
+              "sha256": "7b3e6fce511e524fbe6cd5a45342b555a2d8369edcf0e29e970db0598889f1ce"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2026-other-862714",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Score Distribution",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2026-other-862714-paper.pdf",
+              "size": 79332,
+              "sha256": "61d84f0d4aade2cb1a85a48a9e3b339ac59f7f15a80255ff5578e8e78eff5fca"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2025-other-0f9f57",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-other-0f9f57-paper.pdf",
+              "size": 992852,
+              "sha256": "fb21405c55931a4141fff6bab1e421a59d16e58f01fc19afb50424faa342ce0e"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2025-other-fef28d",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-other-fef28d-answer.pdf",
+              "size": 2251261,
+              "sha256": "601f8e3fe038fb85a49738f99184a8909cde3292463a4b89d0776d5626b71135"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2025-other-439e69",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-other-439e69-paper.pdf",
+              "size": 2183750,
+              "sha256": "21ef9fb0bf416b2fe0448a80e0948a16fdaeae729c38c218bbc4608578c9d5be"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2025-other-b185a8",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-other-b185a8-answer.pdf",
+              "size": 3408164,
+              "sha256": "d08129ecedce5dd76473f7e38db5971cb8f0a86b4e0ea03eadbc6e5a856f5e08"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2025-other-862714",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Score Distribution",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2025-other-862714-paper.pdf",
+              "size": 60463,
+              "sha256": "ae281cd1736ad8d1aa5bae84f1f1f43c677a9435339ebb6ed113d7b58f063b39"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2024-other-0f9f57",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-other-0f9f57-paper.pdf",
+              "size": 3231558,
+              "sha256": "fee52985cf102cb144d952cb7715060d4faf12bc8ed5d484f21be6df000ec36a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2024-other-439e69",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-other-439e69-paper.pdf",
+              "size": 3794061,
+              "sha256": "98e85b2407aca766029812ad3b38ae2de66d2aa9a2589928edd6f5112b5659f6"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2024-other-fef28d",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-other-fef28d-answer.pdf",
+              "size": 3268330,
+              "sha256": "3a17036789a5db809364357132137e4cda569112e06340e81a8b0aff94024dac"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2024-other-b185a8",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-other-b185a8-answer.pdf",
+              "size": 3827239,
+              "sha256": "a297e78699398b42e8e97696d119039d2e2e4d7ea652342a4f3d82f05896f8b0"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2024-other-862714",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Score Distribution",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2024-other-862714-paper.pdf",
+              "size": 70742,
+              "sha256": "c5f27b50a962f58aff5cf1055ed9d0c66e63ee2d58dcdf14418f65f864ccf156"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2023-other-0f9f57",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-other-0f9f57-paper.pdf",
+              "size": 1602739,
+              "sha256": "9e2be6b3431469c44507ebbfd0a37576d1214a1ea9a8d8f8e5acfe8071c23f4f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2023-other-fef28d",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-other-fef28d-answer.pdf",
+              "size": 1673071,
+              "sha256": "3cf81473671d2c6d26a033e8f2b184d2186d60d350251ebeb4a114f2bf2399cc"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2023-other-439e69",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-other-439e69-paper.pdf",
+              "size": 3193282,
+              "sha256": "faa53fa43548c7e34012fb6d7b59cfc5c4787a62e2f813a298f06c9bbdf09453"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2023-other-b185a8",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-other-b185a8-answer.pdf",
+              "size": 3244990,
+              "sha256": "30010b2d978a3f6977ff0bee53481f7ce253853dcf73977a8da90fd4c554890e"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2023-other-862714",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Score Distribution",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2023-other-862714-paper.pdf",
+              "size": 13274,
+              "sha256": "6f9d57406cc2974bae27e10c33210b1d49fbed2cf2ffa648b772d0c0162acc4a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2022-other-0f9f57",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-other-0f9f57-paper.pdf",
+              "size": 11737464,
+              "sha256": "19d3f358c2351e2646dd2c122372ae33a36b5a9b0a4d9c27e75a72d578dc150a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2022-other-fef28d",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section I Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-other-fef28d-answer.pdf",
+              "size": 11780362,
+              "sha256": "4e063f84962c2004c0861a565a5c66c3d8e6b119e8c657572e003a7a738a82c8"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2022-other-439e69",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-other-439e69-paper.pdf",
+              "size": 2126355,
+              "sha256": "3de619c286f60c995747923986e83495ad44f1e22cc756b1c2b16299247ebbb3"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2022-other-b185a8",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Section II Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-other-b185a8-answer.pdf",
+              "size": 2172779,
+              "sha256": "32df3586064e87a9001c5e4374b904d5baa03f449dff597ff25b69994d895875"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2022-other-862714",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Score Distribution",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2022-other-862714-paper.pdf",
+              "size": 199656,
+              "sha256": "22eab703117ff4bcd0465841598000e79ad4037674d0784a0b8be03c4854af1b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2021-other-0bd62a",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2021-other-0bd62a-paper.pdf",
+              "size": 14134778,
+              "sha256": "074e322d34c1dbf832bc4f5e5be2dbab7a5c017caee661618c0e2985e2e0e83f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2021-other-b4f91b",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2021-other-b4f91b-answer.pdf",
+              "size": 14432217,
+              "sha256": "b90d8f511dbe1ee79737f13407ec8af9679aac18a37cf8c444754498f2a34f8c"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2020-other-0bd62a",
+          "year": 2020,
+          "stage": "其他",
+          "grade": null,
+          "title": "Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2020-other-0bd62a-paper.pdf",
+              "size": 944030,
+              "sha256": "292abbadccaea0164a5a7ca6e4056b46444c4c26cef86656d2ab3eeefe246136"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2020-other-b4f91b",
+          "year": 2020,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2020-other-b4f91b-answer.pdf",
+              "size": 40163,
+              "sha256": "3c559e7819f0f97a055d9cc37123182fb62ca7b5b393a9da6fc7973b719c7edf"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ceso-2018-other-0bd62a",
+          "year": 2018,
+          "stage": "其他",
+          "grade": null,
+          "title": "Exam",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ceso/ceso-2018-other-0bd62a-paper.pdf",
+              "size": 1465238,
+              "sha256": "d22a57dc3f86a77c761fcfff250cead270ce3d90dd7f975c8193b124291c34bc"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "USESO/IESO 历年试题（美国地科组织官方）",
+            "url": "https://www.useso.org/resources/past-exams/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
         }
       ]
     },
@@ -1020,6 +1710,190 @@
           "source": {
             "name": "质心数学竞赛网",
             "url": "https://cmo.eduzhixin.com/archives/679"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2026-other-98e5ef",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2026-other-98e5ef-paper.pdf",
+              "size": 105677,
+              "sha256": "b548fac1eb84f942366095dff5814eba18a362f620423ffa7e371db6a41b7cff"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 官方历年真题",
+            "url": "https://www.imo-official.org/problems/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2025-other-98e5ef",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2025-other-98e5ef-paper.pdf",
+              "size": 79214,
+              "sha256": "f6c56af26bf10ce0b7046c6861447f976a1b02d53ef7158061fc9e6344a82682"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2025 官方试题",
+            "url": "https://www.imo-official.org/problems/2025/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2024-other-98e5ef",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2024-other-98e5ef-paper.pdf",
+              "size": 84583,
+              "sha256": "0af020a3fd0bf03ff38b2218daa516ab78a5bf2d2796591923e03b444b6243a5"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2024 官方试题",
+            "url": "https://www.imo-official.org/problems/2024/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2023-other-98e5ef",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2023-other-98e5ef-paper.pdf",
+              "size": 94314,
+              "sha256": "60b4b10c65dceaa89d75c574c808fdc5fcadd18ec524d3bb46a7104e4eebb385"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2023 官方试题",
+            "url": "https://www.imo-official.org/problems/2023/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2022-other-98e5ef",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2022-other-98e5ef-paper.pdf",
+              "size": 78329,
+              "sha256": "432d2b4679524353b70f179b0af88ec8e9364c866b97bdb197f3d6050b5e073c"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2022 官方试题",
+            "url": "https://www.imo-official.org/problems/2022/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2021-other-98e5ef",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2021-other-98e5ef-paper.pdf",
+              "size": 63038,
+              "sha256": "d07cff21f54acf34a4e23f048374783d22f8b5249c762ad7d7e3a9061b9cc485"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2021 官方试题",
+            "url": "https://www.imo-official.org/problems/2021/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2020-other-98e5ef",
+          "year": 2020,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2020-other-98e5ef-paper.pdf",
+              "size": 69958,
+              "sha256": "f15dff36d956750b0126f1c792dfacf6daa291d62818cb25b926d5017ace59ac"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2020 官方试题",
+            "url": "https://www.imo-official.org/problems/2020/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2019-other-98e5ef",
+          "year": 2019,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cmo/cmo-2019-other-98e5ef-paper.pdf",
+              "size": 267013,
+              "sha256": "d3509007d2f762563a041341e6b4ac359f3c42a0c4b5dae278aace36bc5adaeb"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IMO 2019 官方试题",
+            "url": "https://www.imo-official.org/problems/2019/"
           },
           "auto": true,
           "collectedAt": "2026-09-20"
@@ -1337,6 +2211,259 @@
           "source": {
             "name": "历年真题（质心物理竞赛网）",
             "url": "https://cpho.eduzhixin.com/archives/18501"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2026-other-1baa06",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Problem",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2026-other-1baa06-paper.pdf",
+              "size": 655287,
+              "sha256": "0fc29bcca76d88b36c6cc6630cddb9bd22fceb96da857a527b675b72cb97f833"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2026-other-b4f91b",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2026-other-b4f91b-answer.pdf",
+              "size": 247936,
+              "sha256": "9e6855ade0068a9451f3476d6781fece4a222d3b5a412f894f5bf28778f7ef6f"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2025-other-1baa06",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Problem",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2025-other-1baa06-paper.pdf",
+              "size": 1649097,
+              "sha256": "866d34e6f1c5469c9a33761f9b8fea94e41620cb28831ed5401b056febdc4485"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2025-other-b4f91b",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2025-other-b4f91b-answer.pdf",
+              "size": 1958938,
+              "sha256": "4551f43739a66723fae135aa80f5811cca0c719a9d8e9ca2d72c63ec9d28d988"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2024-other-1baa06",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Problem",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2024-other-1baa06-paper.pdf",
+              "size": 1061026,
+              "sha256": "a513d544b6dc80e8fd6454d908e14b378b6e4306cb3bc49d26f826558862803a"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2024-other-b4f91b",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2024-other-b4f91b-answer.pdf",
+              "size": 329386,
+              "sha256": "c7006bbcadf2bdfa1feaf99c89cac6c7aa8b41f66cc742d0a12dc41a90bf6e52"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2023-other-1baa06",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Problem",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2023-other-1baa06-paper.pdf",
+              "size": 659955,
+              "sha256": "4fef805edaaa3c236c1e6a326bb5dd217e2915bee3bddfeb42652355cd7154c0"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2023-other-b4f91b",
+          "year": 2023,
+          "stage": "其他",
+          "grade": null,
+          "title": "Solution",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2023-other-b4f91b-answer.pdf",
+              "size": 485577,
+              "sha256": "a813483dd978f206c2c237e2516abc8b6ae922bb794491c51d1b1abb33a3e03c"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2022-other-1baa06",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "Problem",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2022-other-1baa06-paper.pdf",
+              "size": 1357140,
+              "sha256": "0f90f13d7fc724fdda8393698e0e7450f3c1e47970bd91b36dbd96eefeaff99d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 历年试题（官方档案镜像 1967-）",
+            "url": "https://ipho.olimpicos.net/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2024-other-98e5ef",
+          "year": 2024,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2024-other-98e5ef-attachment.pdf",
+              "size": 48038,
+              "sha256": "1af2ab97de7bc74d15be1cf7b138533911e32b634c0055bb9ff36fb8999b35bb"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 官方文档中心",
+            "url": "https://www.ipho-new.org/documentations/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2025-other-98e5ef",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "Download PDF",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/cpho/cpho-2025-other-98e5ef-attachment.pdf",
+              "size": 113088,
+              "sha256": "6899d796f15dca6a505037746d7373051497c7fd72b3542d238c2471ab13528d"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IPhO 官方文档中心",
+            "url": "https://www.ipho-new.org/documentations/"
           },
           "auto": true,
           "collectedAt": "2026-09-20"

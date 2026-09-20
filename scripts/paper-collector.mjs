@@ -181,7 +181,8 @@ function discoverCandidates(html, pageUrl) {
     const title = cleanTitle(titleAttr || anchorText) || cleanTitle(rowText);
 
     if (ATTACHMENT_RE.test(rawHref)) {
-      const context = `${title}|${rowText}`;
+      // 上下文含 URL：国际档案馆的链接锚文本常只有图标/文件名，年份在 URL 路径中（如 /2026/、IPhO_1967）
+      const context = `${title}|${rowText}|${url}`;
       if (!TITLE_KEYWORD_RE.test(context) && !inferYear(context)) return;
       seen.add(url);
       files.push({ type: "file", url, title: title || cleanTitle(decodeURIComponent(url.split("/").pop() ?? "")) });

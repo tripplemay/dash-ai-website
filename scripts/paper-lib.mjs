@@ -129,12 +129,12 @@ export function inferStage(text) {
 }
 
 const KIND_RULES = [
-  [/答案|解答|参考答案|解析/, "answer"],
-  [/评分标准|评审标准|评分细则|评分办法/, "standard"],
-  [/规程|规则|竞赛办法|比赛办法|章程|参赛指南|申报指南|活动指南|手册/, "rules"],
-  [/获奖名单|名单公示|获奖作品|优秀作品|获奖论文|作品集/, "gallery"],
-  [/试题|试卷|真题|考题/, "paper"],
-  [/任务书|赛题|命题|主题|题目|选题/, "problem"],
+  [/答案|解答|参考答案|解析|answer key|solutions?|mark scheme|keys?\b/i, "answer"],
+  [/评分标准|评审标准|评分细则|评分办法|marking schemes?|rubrics?/i, "standard"],
+  [/规程|规则|竞赛办法|比赛办法|章程|参赛指南|申报指南|活动指南|手册|rules?|regulations?|syllabus|handbook|guidelines?/i, "rules"],
+  [/获奖名单|名单公示|获奖作品|优秀作品|获奖论文|作品集|results?|winners?|medalists?|awardees?/i, "gallery"],
+  [/试题|试卷|真题|考题|problems?|tasks?|exams?|papers?|tests?|questions?/i, "paper"],
+  [/任务书|赛题|命题|主题|题目|选题|prompts?|topics?|themes?/i, "problem"],
 ];
 
 /** 从标题推断资料类型（顺序即优先级：答案先于试卷，标准先于规则） */
