@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T06:22:18.386Z",
+  "generatedAt": "2026-09-20T18:22:34.456Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -790,6 +790,13 @@
       ],
       "updates": [
         {
+          "date": "2026-09-20",
+          "title": "· 第40届中国化学奥林匹克（初赛）一等奖学生公示名单",
+          "url": "https://www.chemsoc.org.cn/notice/a7508.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-09-13",
           "title": "中国化学会第40届中国化学奥林匹克（初赛）试题参考答案公布",
           "url": "https://www.chemsoc.org.cn/notice/a7499.html",
@@ -941,6 +948,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-20",
+          "title": "湖南省 CSP-J/S 2026信息更正通知",
+          "url": "https://www.noi.cn/gs/xw/hn12/2026-09-20/933807.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-20",
+          "title": "CSP-J/S 2026（第一轮）山西地区选手信息更正",
+          "url": "https://www.noi.cn/gs/xw/sx/2026-09-20/933798.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-20",
           "title": "CSP-J/S 2026（第一轮）四川地区选手信息更正",
