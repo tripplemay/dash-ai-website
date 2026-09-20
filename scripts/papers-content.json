@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T02:20:42.672Z",
+  "generatedAt": "2026-09-20T03:06:07.767Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -942,6 +942,29 @@
           "collectedAt": "2026-09-19"
         },
         {
+          "id": "cmo-2021-other-92adb4",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "2021数学竞赛福建省奖名单公示，其中省队17人，省一67人，福建师大附霸榜！",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "png",
+              "fileKey": "files/papers/cmo/cmo-2021-other-92adb4-gallery.png",
+              "size": 40065,
+              "sha256": "047e3566a76755310a01498f5630f6656c9a9fea971eca1e9636276036eee55b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "质心数学竞赛网",
+            "url": "https://cmo.eduzhixin.com/archives/705"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
           "id": "cmo-2021-liansai-259a13",
           "year": 2021,
           "stage": "联赛",
@@ -954,6 +977,13 @@
               "fileKey": "files/papers/cmo/cmo-2021-liansai-259a13-paper.png",
               "size": 203286,
               "sha256": "f0ee38cc2300d23d662d1ac58ed75c2ab87958ff219ccd49a361c1bf21b82090"
+            },
+            {
+              "kind": "paper",
+              "format": "png",
+              "fileKey": "files/papers/cmo/cmo-2021-liansai-259a13-paper2.png",
+              "size": 171596,
+              "sha256": "30cb29537e0019f2187f65fc97913f8d57d39fa456d26f2d3b78b3f30d29fc5f"
             }
           ],
           "hasAnswer": false,
@@ -977,35 +1007,19 @@
               "fileKey": "files/papers/cmo/cmo-2021-liansai-a5ab1c-paper.png",
               "size": 219713,
               "sha256": "9cf4ca9302228501d95383621b8c8ee4880175c7601c16ec64d28178f2c1410f"
+            },
+            {
+              "kind": "paper",
+              "format": "png",
+              "fileKey": "files/papers/cmo/cmo-2021-liansai-a5ab1c-paper2.png",
+              "size": 173944,
+              "sha256": "4fc8ae964dca112e067cde7452cbab369b49c9266b0b19ba4028b10f059ccb3d"
             }
           ],
           "hasAnswer": false,
           "source": {
             "name": "质心数学竞赛网",
             "url": "https://cmo.eduzhixin.com/archives/679"
-          },
-          "auto": true,
-          "collectedAt": "2026-09-20"
-        },
-        {
-          "id": "cmo-2021-other-92adb4",
-          "year": 2021,
-          "stage": "其他",
-          "grade": null,
-          "title": "2021数学竞赛福建省奖名单公示，其中省队17人，省一67人，福建师大附霸榜！",
-          "files": [
-            {
-              "kind": "gallery",
-              "format": "png",
-              "fileKey": "files/papers/cmo/cmo-2021-other-92adb4-gallery.png",
-              "size": 40065,
-              "sha256": "047e3566a76755310a01498f5630f6656c9a9fea971eca1e9636276036eee55b"
-            }
-          ],
-          "hasAnswer": false,
-          "source": {
-            "name": "质心数学竞赛网",
-            "url": "https://cmo.eduzhixin.com/archives/705"
           },
           "auto": true,
           "collectedAt": "2026-09-20"
@@ -1018,29 +1032,6 @@
       "category": "natural-science",
       "moeListIndex": 10,
       "papers": [
-        {
-          "id": "cpho-2021-juesai-dedaed",
-          "year": 2021,
-          "stage": "决赛",
-          "grade": null,
-          "title": "2021年全国中学生物理竞赛决赛理论考试试题及评分标准",
-          "files": [
-            {
-              "kind": "standard",
-              "format": "png",
-              "fileKey": "files/papers/cpho/cpho-2021-juesai-dedaed-standard.png",
-              "size": 489925,
-              "sha256": "253d87e77fa72038764c6e06e3bda05b1153a157079d8219903dd750f094c7a6"
-            }
-          ],
-          "hasAnswer": false,
-          "source": {
-            "name": "历年真题（质心物理竞赛网）",
-            "url": "https://cpho.eduzhixin.com/archives/18501"
-          },
-          "auto": true,
-          "collectedAt": "2026-09-20"
-        },
         {
           "id": "cpho-2010-other-049442",
           "year": 2010,
@@ -1312,6 +1303,43 @@
           },
           "auto": true,
           "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2021-juesai-dedaed",
+          "year": 2021,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2021年全国中学生物理竞赛决赛理论考试试题及评分标准",
+          "files": [
+            {
+              "kind": "standard",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2021-juesai-dedaed-standard.png",
+              "size": 489925,
+              "sha256": "253d87e77fa72038764c6e06e3bda05b1153a157079d8219903dd750f094c7a6"
+            },
+            {
+              "kind": "standard",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2021-juesai-dedaed-standard2.png",
+              "size": 59209,
+              "sha256": "9ace3944dab36ed4c05a913d114ecb584a6f56bfc42f3a767aecfcc9c92e56c7"
+            },
+            {
+              "kind": "standard",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2021-juesai-dedaed-standard3.png",
+              "size": 549353,
+              "sha256": "8a9ce54e21b32a6e5a92113a21c32e6aa6f3d5919946b6dbda41942ce2866235"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/18501"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
         }
       ]
     },
@@ -1359,29 +1387,6 @@
           "source": {
             "name": "质心化学竞赛网",
             "url": "https://ccho.eduzhixin.com/archives/tag/2019%e5%b9%b4%e7%ac%ac33%e5%b1%8a%e5%8c%96%e5%ad%a6%e7%ab%9e%e8%b5%9b%ef%bc%88%e5%88%9d%e8%b5%9b%ef%bc%89%e6%88%90%e7%bb%a9%e8%8e%b7%e5%a5%96%e5%90%8d%e5%8d%95"
-          },
-          "auto": true,
-          "collectedAt": "2026-09-20"
-        },
-        {
-          "id": "ccho-2021-chuji-f0ccab",
-          "year": 2021,
-          "stage": "初赛",
-          "grade": null,
-          "title": "答案&解析 | 2021第35届化学竞赛（初赛）试题公布！附质心独家解析！",
-          "files": [
-            {
-              "kind": "answer",
-              "format": "jpg",
-              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer.jpg",
-              "size": 69042,
-              "sha256": "5c9dc7848d489a95a671558b33e6176ab80c71b9333681ed41543297d4b03994"
-            }
-          ],
-          "hasAnswer": true,
-          "source": {
-            "name": "质心化学竞赛网",
-            "url": "https://ccho.eduzhixin.com/archives/7483"
           },
           "auto": true,
           "collectedAt": "2026-09-20"
@@ -1435,6 +1440,57 @@
           "source": {
             "name": "质心化学竞赛网",
             "url": "https://ccho.eduzhixin.com/archives/5501"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ccho-2021-chuji-f0ccab",
+          "year": 2021,
+          "stage": "初赛",
+          "grade": null,
+          "title": "答案&解析 | 2021第35届化学竞赛（初赛）试题公布！附质心独家解析！",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "jpg",
+              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer.jpg",
+              "size": 69042,
+              "sha256": "5c9dc7848d489a95a671558b33e6176ab80c71b9333681ed41543297d4b03994"
+            },
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer2.png",
+              "size": 48009,
+              "sha256": "46283733d22d6d7fa9175f4545bf53efd027733ca3574367400c83481d407ab4"
+            },
+            {
+              "kind": "answer",
+              "format": "jpg",
+              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer3.jpg",
+              "size": 136122,
+              "sha256": "b5ef5344ee8eddb5882807dfbef50ec70de972474485a9fba2405a41696ef5ba"
+            },
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer5.png",
+              "size": 19840,
+              "sha256": "9868f585ea162c588c357d1a19d77d697d47f23066a7496fa7ebbe8cac5ebc0b"
+            },
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer6.png",
+              "size": 97545,
+              "sha256": "320f88ad52ef13514e24f3a0ebde93926d918d532264bfda229dd6f8a434ee04"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "质心化学竞赛网",
+            "url": "https://ccho.eduzhixin.com/archives/7483"
           },
           "auto": true,
           "collectedAt": "2026-09-20"

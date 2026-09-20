@@ -203,7 +203,7 @@ function discoverCandidates(html, pageUrl) {
   };
 }
 
-/** 在文章页内提取附件链接（保留文章标题作为资料标题） */
+/** 在文章页内提取附件链接（保留文章标题作为资料标题）；同时提取正文内容图（质心系等站点以 <img> 页图嵌入整卷） */
 function extractArticleAttachments(html, articleUrl) {
   const $ = cheerio.load(html);
   const attachments = [];
@@ -221,7 +221,28 @@ function extractArticleAttachments(html, articleUrl) {
     seen.add(url);
     attachments.push({ url, anchorTitle: cleanTitle($(el).attr("title") || $(el).text()) });
   });
-  return attachments.slice(0, 10);
+  // 正文扫描页图：无 <a> 包裹的 <img> 内容图（排除 logo/图标/二维码/按钮/头像等装饰图）
+  $("img[src]").each((_, el) => {
+    const rawSrc = String($(el).attr("src") ?? "").trim();
+    if (!rawSrc || rawSrc.startsWith("data:")) return;
+    let url;
+    try {
+      url = new URL(rawSrc, articleUrl).toString();
+    } catch {
+      return;
+    }
+    if (!/^https?:\/\//.test(url) || seen.has(url)) return;
+    if (!ATTACHMENT_RE.test(url)) return;
+    if (/logo|icon|btn|button|qrcode|qr_|avatar|weixin|wechat|wx\.|share|emoji|loading/i.test(url)) return;
+    const width = Number($(el).attr("width")) || 0;
+    const height = Number($(el).attr("height")) || 0;
+    const contentPath = /upload|uploads|file|attach|image|content|data/i.test(url);
+    if (Math.max(width, height) >= 480 || (width === 0 && height === 0 && contentPath)) {
+      seen.add(url);
+      attachments.push({ url, anchorTitle: cleanTitle($(el).attr("alt")) });
+    }
+  });
+  return attachments.slice(0, 30);
 }
 
 function curlDownloadArgs(url, destPath, extra = []) {

@@ -242,6 +242,25 @@ async function callVisionLlm(imagePaths, meta) {
   return [];
 }
 
+/** 视觉抽取共用：页图组 → 分批视觉识别 → 合并 */
+async function runVisionOnImages(imagePaths, paper, model) {
+  const pages = imagePaths.slice(0, VISION_MAX_PAGES);
+  if (pages.length === 0) return { status: "error", error: "无页图" };
+  const groups = [];
+  for (let index = 0; index < pages.length; index += VISION_PAGES_PER_CALL) {
+    groups.push(pages.slice(index, index + VISION_PAGES_PER_CALL));
+  }
+  const meta = { title: paper.title, year: paper.year, stage: paper.stage, model };
+  const chunkResults = [];
+  for (const [index, group] of groups.entries()) {
+    const questions = await callVisionLlm(group, { ...meta, index });
+    chunkResults.push(questions);
+  }
+  const questions = mergeQuestions(chunkResults);
+  if (questions.length === 0) return { status: "empty", error: "Vision 未能抽取出任何题目" };
+  return { status: "ok", questions, detail: `${pages.length} 页图 / ${groups.length} 次视觉调用`, model };
+}
+
 /** 扫描件视觉抽取：渲染页图 → 分批视觉识别 → 合并 */
 async function extractViaVision(filePath, paper, options) {
   const workDir = path.join(REPO_ROOT, "tmp", "paper-extract", paper.id);
@@ -249,22 +268,8 @@ async function extractViaVision(filePath, paper, options) {
   try {
     const rendered = pdftoppmPages(filePath, workDir);
     if (!rendered.ok) return { status: "error", error: rendered.error };
-    const pages = rendered.pages.slice(0, VISION_MAX_PAGES);
-    if (pages.length === 0) return { status: "error", error: "pdftoppm 未产出页图" };
-
-    const groups = [];
-    for (let index = 0; index < pages.length; index += VISION_PAGES_PER_CALL) {
-      groups.push(pages.slice(index, index + VISION_PAGES_PER_CALL));
-    }
-    const meta = { title: paper.title, year: paper.year, stage: paper.stage, model: options.visionModel };
-    const chunkResults = [];
-    for (const [index, group] of groups.entries()) {
-      const questions = await callVisionLlm(group, { ...meta, index });
-      chunkResults.push(questions);
-    }
-    const questions = mergeQuestions(chunkResults);
-    if (questions.length === 0) return { status: "empty", error: "Vision 未能抽取出任何题目" };
-    return { status: "ok", questions, detail: `${pages.length} 页 / ${groups.length} 次视觉调用`, model: options.visionModel };
+    if (rendered.pages.length === 0) return { status: "error", error: "pdftoppm 未产出页图" };
+    return await runVisionOnImages(rendered.pages, paper, options.visionModel);
   } finally {
     fs.rmSync(workDir, { recursive: true, force: true });
   }
@@ -286,24 +291,60 @@ function serializeQuestionShard(shard) {
   return `{\n  "slug": ${JSON.stringify(shard.slug)},\n  "sets": [\n${lines.join(",\n")}\n  ]\n}\n`;
 }
 
+const EXTRACT_KIND_PRIORITY = ["paper", "answer", "standard"];
+const EXTRACT_FORMATS = ["pdf", "png", "jpg"];
+
+/** 选择用于抽取的文件组：按 paper>answer>standard 优先级取一类；同类内优先 PDF（整卷），无 PDF 才用页图组 */
+function pickExtractFiles(paper) {
+  for (const kind of EXTRACT_KIND_PRIORITY) {
+    const files = paper.files.filter((file) => file.kind === kind && EXTRACT_FORMATS.includes(file.format) && file.fileKey);
+    if (files.length === 0) continue;
+    const pdfs = files.filter((file) => file.format === "pdf");
+    return pdfs.length > 0 ? pdfs : files;
+  }
+  return [];
+}
+
 function findTargetPapers(options) {
   const targets = [];
   for (const [slug, shard] of readPaperShards()) {
     if (options.slug && slug !== options.slug) continue;
     for (const paper of shard.papers ?? []) {
       if (options.paper && paper.id !== options.paper) continue;
-      const mainFile = paper.files.find((file) => file.kind === "paper" && file.format === "pdf" && file.fileKey);
-      if (!mainFile) continue;
-      targets.push({ slug, paper, mainFile });
+      const files = pickExtractFiles(paper);
+      if (!files.length) continue;
+      targets.push({ slug, paper, files });
     }
   }
   return targets;
 }
 
 async function extractPaper(target, options) {
-  const { slug, paper, mainFile } = target;
-  const filePath = path.join(filesPublicDir, mainFile.fileKey);
-  if (!fs.existsSync(filePath)) return { paperId: paper.id, status: "missing-file", error: `文件不存在：${mainFile.fileKey}` };
+  const { slug, paper, files } = target;
+  const firstFile = files[0];
+
+  // 页图组（png/jpg）：采集期已落盘的扫描页，直接视觉抽取
+  if (firstFile.format !== "pdf") {
+    const imagePaths = files.map((file) => path.join(filesPublicDir, file.fileKey));
+    const missing = imagePaths.find((imagePath) => !fs.existsSync(imagePath));
+    if (missing) return { paperId: paper.id, status: "missing-file", error: `页图不存在：${path.basename(missing)}` };
+    const outcome = await runVisionOnImages(imagePaths, paper, options.visionModel);
+    if (outcome.status !== "ok") return { paperId: paper.id, status: outcome.status, error: outcome.error };
+    return {
+      paperId: paper.id,
+      status: "ok",
+      set: {
+        paperId: paper.id,
+        slug,
+        extractor: { model: outcome.model, at: new Date().toISOString().slice(0, 10), reviewed: false },
+        questions: outcome.questions,
+      },
+      detail: outcome.detail,
+    };
+  }
+
+  const filePath = path.join(filesPublicDir, firstFile.fileKey);
+  if (!fs.existsSync(filePath)) return { paperId: paper.id, status: "missing-file", error: `文件不存在：${firstFile.fileKey}` };
 
   let outcome = null;
   if (options.engine !== "vision") {

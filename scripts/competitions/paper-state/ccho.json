@@ -55,11 +55,6 @@
       "status": "collected",
       "id": "ccho-2019-chuji-73b969"
     },
-    "https://ccho.eduzhixin.com/archives/7483": {
-      "at": "2026-09-20T02:13:06.959Z",
-      "status": "collected",
-      "id": "ccho-2021-chuji-f0ccab"
-    },
     "https://ccho.eduzhixin.com/archives/5505": {
       "at": "2026-09-20T02:13:18.930Z",
       "status": "collected",
@@ -69,6 +64,11 @@
       "at": "2026-09-20T02:13:34.115Z",
       "status": "collected",
       "id": "ccho-2014-other-c598f6"
+    },
+    "https://ccho.eduzhixin.com/archives/7483": {
+      "at": "2026-09-20T03:06:07.278Z",
+      "status": "collected",
+      "id": "ccho-2021-chuji-f0ccab"
     }
   }
 }

@@ -1,10 +1,5 @@
 {
   "seen": {
-    "https://cpho.eduzhixin.com/archives/18501": {
-      "at": "2026-09-20T02:11:43.619Z",
-      "status": "collected",
-      "id": "cpho-2021-juesai-dedaed"
-    },
     "https://cpho.eduzhixin.com/archives/24432": {
       "at": "2026-09-20T02:11:44.427Z",
       "status": "skipped",
@@ -99,6 +94,11 @@
       "at": "2026-09-20T02:12:20.471Z",
       "status": "collected",
       "id": "cpho-2022-other-efd8de"
+    },
+    "https://cpho.eduzhixin.com/archives/18501": {
+      "at": "2026-09-20T03:05:14.605Z",
+      "status": "collected",
+      "id": "cpho-2021-juesai-dedaed"
     }
   }
 }
