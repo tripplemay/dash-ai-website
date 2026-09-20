@@ -10,6 +10,8 @@
     {"stage": "NOI 2026全国赛（已结束）", "start": "2026-07-18", "end": "2026-07-24", "note": "第43届，青岛市城阳第一高级中学承办；NOI 2027将由中国人民大学附属中学承办"}
   ],
   "updates": [
+    {"date": "2026-09-20", "title": "CSP-J/S 2026（第一轮）四川地区选手信息更正", "url": "https://www.noi.cn/gs/xw/sc/2026-09-20/933775.shtml", "source": "official", "auto": true},
+    {"date": "2026-09-20", "title": "CSP-J/S 2026（第一轮）海南选手信息更正", "url": "https://www.noi.cn/gs/xw/hn/2026-09-20/933738.shtml", "source": "official", "auto": true},
     {"date": "2026-05-11", "title": "代码无界，智领未来——APIO 2026中国区活动在北京大学附属中学成功举办", "url": "https://www.noi.cn/xw/2026-05-11/891305.shtml", "source": "official", "auto": true},
     {"date": "2026-09-11", "title": "关于自NOI 2029起取消A类选手加分政策的公告", "url": "https://www.noi.cn/xw/2026-09-11/930261.shtml", "summary": "CCF公告自NOI 2029起取消A类选手加分政策", "source": "official"},
     {"date": "2026-09-11", "title": "CCF关于NOI 2027省内选拔的若干规定", "url": "https://www.noi.cn/xw/2026-09-11/930020.shtml", "summary": "明确NOI 2027省内选拔的组织与资格规定", "source": "official"},

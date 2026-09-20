@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T08:48:18.731Z",
+  "generatedAt": "2026-09-20T06:22:18.386Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -941,6 +941,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-20",
+          "title": "CSP-J/S 2026（第一轮）四川地区选手信息更正",
+          "url": "https://www.noi.cn/gs/xw/sc/2026-09-20/933775.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-20",
+          "title": "CSP-J/S 2026（第一轮）海南选手信息更正",
+          "url": "https://www.noi.cn/gs/xw/hn/2026-09-20/933738.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-05-11",
           "title": "代码无界，智领未来——APIO 2026中国区活动在北京大学附属中学成功举办",
@@ -1941,6 +1955,34 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-20",
+          "title": ">第23届“外研社杯”全国中学生外语素养大赛通知",
+          "url": "https://events.fltrp.com/c/2026-09-20/236668.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-20",
+          "title": ">第23届“外研社杯”全国中学生外语素养大赛 地区赛赛制说明",
+          "url": "https://events.fltrp.com/c/2026-09-20/236667.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-20",
+          "title": ">第23届“外研社杯”全国中学生外语素养大赛 操作指导简述",
+          "url": "https://events.fltrp.com/c/2026-09-20/236665.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-20",
+          "title": ">第23届“外研社杯”全国中学生外语素养大赛 全国组委会郑重声明",
+          "url": "https://events.fltrp.com/c/2026-09-20/236664.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2025-11-10",
           "title": "第22届“外研社杯”全国中学生外语素养大赛通知",
