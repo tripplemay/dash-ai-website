@@ -184,6 +184,11 @@
         {
           "url": "https://www.cms.org.cn/Home/comp/comp.html",
           "label": "竞赛专栏"
+        },
+        {
+          "url": "https://cmo.eduzhixin.com/",
+          "label": "质心数学竞赛网",
+          "requireRelevance": true
         }
       ]
     },
@@ -200,6 +205,16 @@
       "paperPages": [
         {
           "url": "https://www.cps-net.org.cn/"
+        },
+        {
+          "url": "https://cpho.eduzhixin.com/lnzt",
+          "label": "历年真题（质心物理竞赛网）",
+          "requireRelevance": true
+        },
+        {
+          "url": "https://cpho.eduzhixin.com/",
+          "label": "质心物理竞赛网",
+          "requireRelevance": true
         }
       ]
     },
@@ -217,6 +232,11 @@
         {
           "url": "https://www.chemsoc.org.cn/notice/",
           "label": "通知公告"
+        },
+        {
+          "url": "https://ccho.eduzhixin.com/",
+          "label": "质心化学竞赛网",
+          "requireRelevance": true
         }
       ]
     },

@@ -440,6 +440,11 @@ async function processFileCandidate(candidate, ctx, source) {
     ctx.skip(candidate.url, "版权/转载声明类公告，不作为资料收录");
     return;
   }
+  // 第三方多主题来源（如培训机构站覆盖多赛事）需过赛事名相关性门禁，防跨赛事泄漏
+  if (source.requireRelevance && !isRelevantToCompetition(entry, title, "")) {
+    ctx.skip(candidate.url, "标题与赛事名不匹配（第三方源相关性过滤）");
+    return;
+  }
   const year = inferYear(`${title} ${candidate.url}`);
   if (!year) {
     ctx.skip(candidate.url, "标题/URL 缺年份");
@@ -505,6 +510,10 @@ async function processArticleCandidate(candidate, ctx, source) {
   const title = candidate.title;
   if (LEGAL_NOTICE_RE.test(title)) {
     ctx.skip(candidate.url, "版权/转载声明类公告，不作为资料收录");
+    return;
+  }
+  if (source.requireRelevance && !isRelevantToCompetition(entry, title, "")) {
+    ctx.skip(candidate.url, "标题与赛事名不匹配（第三方源相关性过滤）");
     return;
   }
   const attachments = extractArticleAttachments(article.html, articleUrl);
@@ -599,10 +608,10 @@ async function collectFromPaperPages(entry, ctx) {
     const baseUrl = page.finalUrl ?? pageConf.url;
     const candidates = discoverCandidates(page.html, baseUrl);
     for (const candidate of candidates.files) {
-      await processFileCandidate(candidate, ctx, { url: baseUrl, label: pageConf.label });
+      await processFileCandidate(candidate, ctx, { url: baseUrl, label: pageConf.label, requireRelevance: Boolean(pageConf.requireRelevance) });
     }
     for (const candidate of candidates.articles) {
-      await processArticleCandidate(candidate, ctx, { url: baseUrl, label: pageConf.label });
+      await processArticleCandidate(candidate, ctx, { url: baseUrl, label: pageConf.label, requireRelevance: Boolean(pageConf.requireRelevance) });
     }
   }
 }

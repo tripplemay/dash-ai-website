@@ -1,3 +1,104 @@
 {
-  "seen": {}
+  "seen": {
+    "https://cpho.eduzhixin.com/archives/18501": {
+      "at": "2026-09-20T02:11:43.619Z",
+      "status": "collected",
+      "id": "cpho-2021-juesai-dedaed"
+    },
+    "https://cpho.eduzhixin.com/archives/24432": {
+      "at": "2026-09-20T02:11:44.427Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/24404": {
+      "at": "2026-09-20T02:11:45.219Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/24380": {
+      "at": "2026-09-20T02:11:46.024Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/17793": {
+      "at": "2026-09-20T02:11:46.748Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/17787": {
+      "at": "2026-09-20T02:11:49.728Z",
+      "status": "collected",
+      "id": "cpho-2010-other-049442"
+    },
+    "https://cpho.eduzhixin.com/archives/17782": {
+      "at": "2026-09-20T02:11:52.573Z",
+      "status": "collected",
+      "id": "cpho-2011-other-f1947c"
+    },
+    "https://cpho.eduzhixin.com/archives/17778": {
+      "at": "2026-09-20T02:11:55.468Z",
+      "status": "collected",
+      "id": "cpho-2012-other-ab302d"
+    },
+    "https://cpho.eduzhixin.com/archives/17774": {
+      "at": "2026-09-20T02:11:58.340Z",
+      "status": "collected",
+      "id": "cpho-2013-other-66570b"
+    },
+    "https://cpho.eduzhixin.com/archives/17769": {
+      "at": "2026-09-20T02:12:01.323Z",
+      "status": "collected",
+      "id": "cpho-2014-other-464f4a"
+    },
+    "https://cpho.eduzhixin.com/archives/17765": {
+      "at": "2026-09-20T02:12:04.144Z",
+      "status": "collected",
+      "id": "cpho-2015-other-94ad1a"
+    },
+    "https://cpho.eduzhixin.com/archives/17761": {
+      "at": "2026-09-20T02:12:06.950Z",
+      "status": "collected",
+      "id": "cpho-2016-other-746a1b"
+    },
+    "https://cpho.eduzhixin.com/archives/17757": {
+      "at": "2026-09-20T02:12:09.751Z",
+      "status": "collected",
+      "id": "cpho-2017-other-21a428"
+    },
+    "https://cpho.eduzhixin.com/archives/17751": {
+      "at": "2026-09-20T02:12:12.565Z",
+      "status": "collected",
+      "id": "cpho-2018-other-0d579c"
+    },
+    "https://cpho.eduzhixin.com/archives/17747": {
+      "at": "2026-09-20T02:12:15.407Z",
+      "status": "collected",
+      "id": "cpho-2019-other-41d1dc"
+    },
+    "https://cpho.eduzhixin.com/archives/24511": {
+      "at": "2026-09-20T02:12:17.477Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/category/czwl": {
+      "at": "2026-09-20T02:12:18.193Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/3752": {
+      "at": "2026-09-20T02:12:18.977Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cpho.eduzhixin.com/archives/24534": {
+      "at": "2026-09-20T02:12:19.744Z",
+      "status": "collected",
+      "id": "cpho-2022-other-2e7449"
+    },
+    "https://cpho.eduzhixin.com/archives/24527": {
+      "at": "2026-09-20T02:12:20.471Z",
+      "status": "collected",
+      "id": "cpho-2022-other-efd8de"
+    }
+  }
 }

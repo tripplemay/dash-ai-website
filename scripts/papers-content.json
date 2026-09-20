@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-19T19:31:54.723Z",
+  "generatedAt": "2026-09-20T02:20:42.672Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -942,48 +942,73 @@
           "collectedAt": "2026-09-19"
         },
         {
-          "id": "cmo-2025-juesai-68ef60",
-          "year": 2025,
-          "stage": "决赛",
+          "id": "cmo-2021-liansai-259a13",
+          "year": 2021,
+          "stage": "联赛",
           "grade": null,
-          "title": "第十六全国大学生数学竞赛决赛获奖名单 发布时间：2025-04-16",
+          "title": "数学竞赛真题 | 部分延误省份2021全国高中数学联赛真题新鲜出炉！",
           "files": [
             {
-              "kind": "gallery",
-              "format": "pdf",
-              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery.pdf",
-              "size": 281671,
-              "sha256": "775d1248bc85a04332e020b3c2b5062381a475ed3d2207d3631c907006e87828"
-            },
-            {
-              "kind": "gallery",
-              "format": "pdf",
-              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery2.pdf",
-              "size": 314306,
-              "sha256": "596a661701ad2e7be9dcf449d440242250c7fb4d54a24409aec0f607a8636851"
-            },
-            {
-              "kind": "gallery",
-              "format": "pdf",
-              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery3.pdf",
-              "size": 382356,
-              "sha256": "d51ab473708f3d56adc25af1030a6de5f07c63c798115a3564f480dc90258f39"
-            },
-            {
-              "kind": "gallery",
-              "format": "pdf",
-              "fileKey": "files/papers/cmo/cmo-2025-juesai-68ef60-gallery4.pdf",
-              "size": 256032,
-              "sha256": "7d58b7a6389c176a3f8f1e358bb77dd01dc6941e3cfe0da36e86ed8f737d0eed"
+              "kind": "paper",
+              "format": "png",
+              "fileKey": "files/papers/cmo/cmo-2021-liansai-259a13-paper.png",
+              "size": 203286,
+              "sha256": "f0ee38cc2300d23d662d1ac58ed75c2ab87958ff219ccd49a361c1bf21b82090"
             }
           ],
           "hasAnswer": false,
           "source": {
-            "name": "竞赛专栏",
-            "url": "https://www.cms.org.cn/Home/comp/comp_details/id/1315.html"
+            "name": "质心数学竞赛网",
+            "url": "https://cmo.eduzhixin.com/archives/664"
           },
           "auto": true,
-          "collectedAt": "2026-09-19"
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2021-liansai-a5ab1c",
+          "year": 2021,
+          "stage": "联赛",
+          "grade": null,
+          "title": "2021全国高中数学联赛试题公布！",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "png",
+              "fileKey": "files/papers/cmo/cmo-2021-liansai-a5ab1c-paper.png",
+              "size": 219713,
+              "sha256": "9cf4ca9302228501d95383621b8c8ee4880175c7601c16ec64d28178f2c1410f"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "质心数学竞赛网",
+            "url": "https://cmo.eduzhixin.com/archives/679"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cmo-2021-other-92adb4",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "2021数学竞赛福建省奖名单公示，其中省队17人，省一67人，福建师大附霸榜！",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "png",
+              "fileKey": "files/papers/cmo/cmo-2021-other-92adb4-gallery.png",
+              "size": 40065,
+              "sha256": "047e3566a76755310a01498f5630f6656c9a9fea971eca1e9636276036eee55b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "质心数学竞赛网",
+            "url": "https://cmo.eduzhixin.com/archives/705"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
         }
       ]
     },
@@ -992,7 +1017,303 @@
       "nameZh": "全国中学生物理奥林匹克竞赛",
       "category": "natural-science",
       "moeListIndex": 10,
-      "papers": []
+      "papers": [
+        {
+          "id": "cpho-2021-juesai-dedaed",
+          "year": 2021,
+          "stage": "决赛",
+          "grade": null,
+          "title": "2021年全国中学生物理竞赛决赛理论考试试题及评分标准",
+          "files": [
+            {
+              "kind": "standard",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2021-juesai-dedaed-standard.png",
+              "size": 489925,
+              "sha256": "253d87e77fa72038764c6e06e3bda05b1153a157079d8219903dd750f094c7a6"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/18501"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2010-other-049442",
+          "year": 2010,
+          "stage": "其他",
+          "grade": null,
+          "title": "2010年第41届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2010-other-049442-answer.png",
+              "size": 20487,
+              "sha256": "6747a1a4874864d76f5050d808bc9a099b824207fb7f18aff43658cb07bb1c9e"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17787"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2011-other-f1947c",
+          "year": 2011,
+          "stage": "其他",
+          "grade": null,
+          "title": "2011年第42届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2011-other-f1947c-answer.png",
+              "size": 20733,
+              "sha256": "2bdcf598c6cad2cff7331b9838067e0eaf76032482445b5583372ed3e03d16b7"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17782"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2012-other-ab302d",
+          "year": 2012,
+          "stage": "其他",
+          "grade": null,
+          "title": "2012年第43届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2012-other-ab302d-answer.png",
+              "size": 20800,
+              "sha256": "3bdcf9da46343af302d0d6e41cf2462a32f66330ca52429a58aed9e0a16b5cd1"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17778"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2013-other-66570b",
+          "year": 2013,
+          "stage": "其他",
+          "grade": null,
+          "title": "2013年第44届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2013-other-66570b-answer.png",
+              "size": 20620,
+              "sha256": "0e1af42630d24e7aee427711f07a238f36ea2e090939d88a2f749b153c086357"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17774"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2014-other-464f4a",
+          "year": 2014,
+          "stage": "其他",
+          "grade": null,
+          "title": "2014年第45届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2014-other-464f4a-answer.png",
+              "size": 20716,
+              "sha256": "f8356a5268879f936a371d4401d38fe4d86c18d9f848d0a138c1248cce449cfe"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17769"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2015-other-94ad1a",
+          "year": 2015,
+          "stage": "其他",
+          "grade": null,
+          "title": "2015年第46届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2015-other-94ad1a-answer.png",
+              "size": 20849,
+              "sha256": "cdcc669c248fc5364d58fd99b7c70c847f6ccf1eb628c233f802342e0e7ab80d"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17765"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2016-other-746a1b",
+          "year": 2016,
+          "stage": "其他",
+          "grade": null,
+          "title": "2016年第47届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2016-other-746a1b-answer.png",
+              "size": 20595,
+              "sha256": "c7204916661cbbb35aa95ce040319253a868b1a268346e2a2c4904bb8b0ae3bc"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17761"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2017-other-21a428",
+          "year": 2017,
+          "stage": "其他",
+          "grade": null,
+          "title": "2017年第48届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2017-other-21a428-answer.png",
+              "size": 20917,
+              "sha256": "c837dd6f71252db90d2ac2a9e885100bd35ead6f0da00fbbd641dc80a4f32bd4"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17757"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2018-other-0d579c",
+          "year": 2018,
+          "stage": "其他",
+          "grade": null,
+          "title": "2018年第49届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2018-other-0d579c-answer.png",
+              "size": 20852,
+              "sha256": "f0917e56e475b091dcdfcb8874d9b11c5c7256256c6ce72d7b0852d560aab8f6"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17751"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2019-other-41d1dc",
+          "year": 2019,
+          "stage": "其他",
+          "grade": null,
+          "title": "2019年第50届国际物理奥林匹克竞赛试题及解答",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "png",
+              "fileKey": "files/papers/cpho/cpho-2019-other-41d1dc-answer.png",
+              "size": 20907,
+              "sha256": "333be46a51452e3f654b2fb2b676e5992931d81c8cb94f7828c9f847cdc40abd"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "历年真题（质心物理竞赛网）",
+            "url": "https://cpho.eduzhixin.com/archives/17747"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2022-other-2e7449",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "2022年第六届欧洲物理竞赛（EuPhO）完整试题&答案！历年6届真题领取！",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "html",
+              "externalUrl": "https://cpho.eduzhixin.com/archives/24534"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "质心物理竞赛网",
+            "url": "https://cpho.eduzhixin.com/archives/24534"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "cpho-2022-other-efd8de",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "2022亚洲物理竞赛（APhO）试题出炉！近12年亚赛真题集锦免费领取！",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "html",
+              "externalUrl": "https://cpho.eduzhixin.com/archives/24527"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "质心物理竞赛网",
+            "url": "https://cpho.eduzhixin.com/archives/24527"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        }
+      ]
     },
     {
       "slug": "ccho",
@@ -1001,25 +1322,122 @@
       "moeListIndex": 11,
       "papers": [
         {
-          "id": "ccho-2025-other-be4064",
-          "year": 2025,
-          "stage": "其他",
+          "id": "ccho-2018-chuji-e61b08",
+          "year": 2018,
+          "stage": "初赛",
           "grade": null,
-          "title": "· 2025年度京博科技奖-化学化工与材料京博优秀博士奖获奖名单公布",
+          "title": "2018年第32届化学竞赛（初赛）成绩获奖名单",
           "files": [
             {
               "kind": "gallery",
               "format": "html",
-              "externalUrl": "https://www.chemsoc.org.cn/notice/a6983.html"
+              "externalUrl": "https://ccho.eduzhixin.com/archives/tag/32score"
             }
           ],
           "hasAnswer": false,
           "source": {
-            "name": "通知公告",
-            "url": "https://www.chemsoc.org.cn/notice/a6983.html"
+            "name": "质心化学竞赛网",
+            "url": "https://ccho.eduzhixin.com/archives/tag/32score"
           },
           "auto": true,
-          "collectedAt": "2026-09-19"
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ccho-2019-chuji-73b969",
+          "year": 2019,
+          "stage": "初赛",
+          "grade": null,
+          "title": "2019年第33届化学竞赛（初赛）成绩获奖名单",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "html",
+              "externalUrl": "https://ccho.eduzhixin.com/archives/tag/2019%e5%b9%b4%e7%ac%ac33%e5%b1%8a%e5%8c%96%e5%ad%a6%e7%ab%9e%e8%b5%9b%ef%bc%88%e5%88%9d%e8%b5%9b%ef%bc%89%e6%88%90%e7%bb%a9%e8%8e%b7%e5%a5%96%e5%90%8d%e5%8d%95"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "质心化学竞赛网",
+            "url": "https://ccho.eduzhixin.com/archives/tag/2019%e5%b9%b4%e7%ac%ac33%e5%b1%8a%e5%8c%96%e5%ad%a6%e7%ab%9e%e8%b5%9b%ef%bc%88%e5%88%9d%e8%b5%9b%ef%bc%89%e6%88%90%e7%bb%a9%e8%8e%b7%e5%a5%96%e5%90%8d%e5%8d%95"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ccho-2021-chuji-f0ccab",
+          "year": 2021,
+          "stage": "初赛",
+          "grade": null,
+          "title": "答案&解析 | 2021第35届化学竞赛（初赛）试题公布！附质心独家解析！",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "jpg",
+              "fileKey": "files/papers/ccho/ccho-2021-chuji-f0ccab-answer.jpg",
+              "size": 69042,
+              "sha256": "5c9dc7848d489a95a671558b33e6176ab80c71b9333681ed41543297d4b03994"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "质心化学竞赛网",
+            "url": "https://ccho.eduzhixin.com/archives/7483"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ccho-2010-other-49a040",
+          "year": 2010,
+          "stage": "其他",
+          "grade": null,
+          "title": "2010年第42届国际化学奥林匹克竞赛理论试题",
+          "files": [
+            {
+              "kind": "paper",
+              "format": "png",
+              "fileKey": "files/papers/ccho/ccho-2010-other-49a040-paper.png",
+              "size": 41118,
+              "sha256": "9fc356b1cac5220a634f8da6f6c669115080c2ac2d3314d7ee36ed25ede1a057"
+            },
+            {
+              "kind": "paper",
+              "format": "pdf",
+              "fileKey": "files/papers/ccho/ccho-2010-other-49a040-paper2.pdf",
+              "size": 1414330,
+              "sha256": "b31dedd92e4958ad006416a09f7bf273473ffc6d1923adaf3a2da1b884926874"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "质心化学竞赛网",
+            "url": "https://ccho.eduzhixin.com/archives/5505"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ccho-2014-other-c598f6",
+          "year": 2014,
+          "stage": "其他",
+          "grade": null,
+          "title": "2014年第46届国际化学奥林匹克理论试题及答案",
+          "files": [
+            {
+              "kind": "answer",
+              "format": "pdf",
+              "fileKey": "files/papers/ccho/ccho-2014-other-c598f6-answer2.pdf",
+              "size": 968609,
+              "sha256": "fbfa52d0c7d1adf98f1e700add2f39e73230f3b17db8aeb6d4b69e456ff36094"
+            }
+          ],
+          "hasAnswer": true,
+          "source": {
+            "name": "质心化学竞赛网",
+            "url": "https://ccho.eduzhixin.com/archives/5501"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-20"
         }
       ]
     },

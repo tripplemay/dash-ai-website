@@ -24,6 +24,26 @@
       "at": "2026-09-19T17:17:05.505Z",
       "status": "collected",
       "id": "cmo-2025-juesai-68ef60"
+    },
+    "https://cmo.eduzhixin.com/archives/723": {
+      "at": "2026-09-20T02:12:29.592Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://cmo.eduzhixin.com/archives/664": {
+      "at": "2026-09-20T02:12:38.206Z",
+      "status": "collected",
+      "id": "cmo-2021-liansai-259a13"
+    },
+    "https://cmo.eduzhixin.com/archives/679": {
+      "at": "2026-09-20T02:12:43.109Z",
+      "status": "collected",
+      "id": "cmo-2021-liansai-a5ab1c"
+    },
+    "https://cmo.eduzhixin.com/archives/705": {
+      "at": "2026-09-20T02:12:46.099Z",
+      "status": "collected",
+      "id": "cmo-2021-other-92adb4"
     }
   }
 }

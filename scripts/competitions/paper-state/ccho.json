@@ -14,6 +14,61 @@
       "at": "2026-09-19T17:17:14.086Z",
       "status": "collected",
       "id": "ccho-2025-other-be4064"
+    },
+    "https://ccho.eduzhixin.com/archives/tag/csst": {
+      "at": "2026-09-20T02:12:55.767Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ccho.eduzhixin.com/archives/tag/ichoshiti": {
+      "at": "2026-09-20T02:12:56.838Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ccho.eduzhixin.com/archives/7544": {
+      "at": "2026-09-20T02:12:57.907Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ccho.eduzhixin.com/archives/7217": {
+      "at": "2026-09-20T02:12:59.012Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ccho.eduzhixin.com/archives/7315": {
+      "at": "2026-09-20T02:13:00.028Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ccho.eduzhixin.com/archives/3489": {
+      "at": "2026-09-20T02:13:01.123Z",
+      "status": "skipped",
+      "reason": "标题/URL 缺年份"
+    },
+    "https://ccho.eduzhixin.com/archives/tag/32score": {
+      "at": "2026-09-20T02:13:02.138Z",
+      "status": "collected",
+      "id": "ccho-2018-chuji-e61b08"
+    },
+    "https://ccho.eduzhixin.com/archives/tag/2019%e5%b9%b4%e7%ac%ac33%e5%b1%8a%e5%8c%96%e5%ad%a6%e7%ab%9e%e8%b5%9b%ef%bc%88%e5%88%9d%e8%b5%9b%ef%bc%89%e6%88%90%e7%bb%a9%e8%8e%b7%e5%a5%96%e5%90%8d%e5%8d%95": {
+      "at": "2026-09-20T02:13:03.160Z",
+      "status": "collected",
+      "id": "ccho-2019-chuji-73b969"
+    },
+    "https://ccho.eduzhixin.com/archives/7483": {
+      "at": "2026-09-20T02:13:06.959Z",
+      "status": "collected",
+      "id": "ccho-2021-chuji-f0ccab"
+    },
+    "https://ccho.eduzhixin.com/archives/5505": {
+      "at": "2026-09-20T02:13:18.930Z",
+      "status": "collected",
+      "id": "ccho-2010-other-49a040"
+    },
+    "https://ccho.eduzhixin.com/archives/5501": {
+      "at": "2026-09-20T02:13:34.115Z",
+      "status": "collected",
+      "id": "ccho-2014-other-c598f6"
     }
   }
 }

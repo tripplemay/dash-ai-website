@@ -176,6 +176,8 @@ function validateRegistry(registry, errors) {
             errors.push({ code: "INVALID_PAPER_PAGE", path: `${pagePath}.url`, message: "paperPages entries must be objects with an http(s) url" });
           } else if (page.label !== undefined && !nonEmptyString(page.label)) {
             errors.push({ code: "INVALID_PAPER_PAGE_LABEL", path: `${pagePath}.label`, message: "label must be a non-empty string when present" });
+          } else if (page.requireRelevance !== undefined && typeof page.requireRelevance !== "boolean") {
+            errors.push({ code: "INVALID_PAPER_PAGE_RELEVANCE", path: `${pagePath}.requireRelevance`, message: "requireRelevance must be a boolean when present" });
           }
         }
       }
