@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T18:22:34.456Z",
+  "generatedAt": "2026-09-21T06:21:24.058Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -948,6 +948,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-20",
+          "title": "NOIP 2025题目综合分析报告",
+          "url": "https://www.noi.cn/xw/2026-09-20/933736.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-21",
+          "title": "CSP-J/S 2026（第一轮）宁夏地区选手信息更正",
+          "url": "https://www.noi.cn/gs/xw/nx/2026-09-21/933963.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-20",
           "title": "湖南省 CSP-J/S 2026信息更正通知",

@@ -10,6 +10,8 @@
     {"stage": "NOI 2026全国赛（已结束）", "start": "2026-07-18", "end": "2026-07-24", "note": "第43届，青岛市城阳第一高级中学承办；NOI 2027将由中国人民大学附属中学承办"}
   ],
   "updates": [
+    {"date": "2026-09-20", "title": "NOIP 2025题目综合分析报告", "url": "https://www.noi.cn/xw/2026-09-20/933736.shtml", "source": "official", "auto": true},
+    {"date": "2026-09-21", "title": "CSP-J/S 2026（第一轮）宁夏地区选手信息更正", "url": "https://www.noi.cn/gs/xw/nx/2026-09-21/933963.shtml", "source": "official", "auto": true},
     {"date": "2026-09-20", "title": "湖南省 CSP-J/S 2026信息更正通知", "url": "https://www.noi.cn/gs/xw/hn12/2026-09-20/933807.shtml", "source": "official", "auto": true},
     {"date": "2026-09-20", "title": "CSP-J/S 2026（第一轮）山西地区选手信息更正", "url": "https://www.noi.cn/gs/xw/sx/2026-09-20/933798.shtml", "source": "official", "auto": true},
     {"date": "2026-09-20", "title": "CSP-J/S 2026（第一轮）四川地区选手信息更正", "url": "https://www.noi.cn/gs/xw/sc/2026-09-20/933775.shtml", "source": "official", "auto": true},
