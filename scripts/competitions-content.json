@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T06:21:24.058Z",
+  "generatedAt": "2026-09-21T18:23:42.314Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1777,6 +1777,12 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-21",
+          "title": "关于征集第二届全国青少年安全与应急 科普创新大赛决赛举办地的通知",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-08-14",
           "title": "全国青少年安全与应急科普创新大赛决赛在浙江乌镇启幕",
