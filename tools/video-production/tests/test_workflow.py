@@ -284,6 +284,16 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(self.request(self.base + "/comment", "POST", {"revision": 1})[0], 403)
         self.assertEqual(self.request("/api/projects/..%2Ftest-film")[0], 404)
 
+    def test_http_health(self):
+        status, headers, body = self.request("/api/health")
+        data = json.loads(body)
+        self.assertEqual(status, 200)
+        self.assertEqual(data["status"], "ok")
+        self.assertTrue(data["workspace_writable"])
+        self.assertEqual(data["bind"], "127.0.0.1")
+        self.assertIn("no-store", headers["Cache-Control"])
+        self.assertNotIn("token", data)
+
     def test_http_range_and_head(self):
         path = self.base + "/media/" + self.aid
         status, headers, body = self.request(path, headers={"Range": "bytes=0-99"})

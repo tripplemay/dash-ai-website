@@ -43,7 +43,7 @@ async function refresh(){
   if(!selected||!state.assets[selected])choose(state.latest_render||Object.keys(state.assets)[0]);else{renderAssets();renderDetails();}
 }
 $("projects").onchange=async()=>{player.pause();comparison.pause();comparison.removeAttribute("src");$("comparison-wrap").hidden=true;$("viewer-grid").classList.remove("comparing");projectId=$("projects").value;selected=null;await refresh();};
-$("refresh").onclick=()=>refresh().catch(e=>notice(e.message,true));$("role-filter").onchange=renderAssets;
+$("refresh").onclick=()=>projectId?refresh().catch(e=>notice(e.message,true)):location.reload();$("role-filter").onchange=renderAssets;
 $("compare-select").onchange=()=>{const id=$("compare-select").value;comparison.pause();$("comparison-wrap").hidden=!id;$("viewer-grid").classList.toggle("comparing",!!id);if(id){comparison.src=media(id);comparison.onloadedmetadata=()=>{comparison.currentTime=Math.min(player.currentTime,comparison.duration);};}else{comparison.removeAttribute("src");comparison.load();}};
 player.ontimeupdate=()=>{$("clock").textContent=time(player.currentTime);if(!$("comparison-wrap").hidden&&Number.isFinite(comparison.duration)&&Math.abs(comparison.currentTime-player.currentTime)>.18)comparison.currentTime=Math.min(player.currentTime,comparison.duration);};
 player.onpause=()=>comparison.pause();player.onseeking=()=>{if(Number.isFinite(comparison.duration))comparison.currentTime=Math.min(player.currentTime,comparison.duration);};player.onratechange=()=>comparison.playbackRate=player.playbackRate;
@@ -55,5 +55,5 @@ $("review-form").onsubmit=e=>{e.preventDefault();if(!$("author").value.trim()){n
 $("check").onclick=()=>{notice("正在核验 SHA、依赖与全流解码，请稍候…");action("check",{asset:selected});};
 $("release-form").onsubmit=e=>{e.preventDefault();if(confirm("确认此为最终整片？系统将核对全片分层批准、未处理反馈和技术检查。"))action("release",{asset:selected,author:$("author").value,device_review:$("device-review").value,rights_review:$("rights-review").value});};
 $("export").onclick=async()=>{const r=await action("export",{});if(r)$("export-result").textContent=r.directory;};
-async function init(){const data=await api("/api/projects");token=data.token;data.projects.forEach(p=>$("projects").add(new Option(p.title,p.id)));if(!data.projects.length){$("subtitle").textContent="暂无项目，请使用 CLI init 创建项目并导入素材。";return;}projectId=data.projects[0].id;await refresh();}
+async function init(){const data=await api("/api/projects");token=data.token;data.projects.forEach(p=>$("projects").add(new Option(p.title,p.id)));if(!data.projects.length){$("subtitle").textContent="暂无项目，请使用 CLI init 创建项目并导入素材。";document.querySelectorAll("button").forEach(b=>b.disabled=b.id!=="refresh");return;}projectId=data.projects[0].id;await refresh();}
 init().catch(e=>notice(e.message,true));

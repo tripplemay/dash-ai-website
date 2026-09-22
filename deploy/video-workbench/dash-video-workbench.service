@@ -1,0 +1,34 @@
+# Managed by deploy/video-workbench/install.sh
+[Unit]
+Description=Private video production workbench (SSH tunnel only)
+After=network.target
+
+[Service]
+Type=simple
+User=dash-video
+Group=dash-video
+WorkingDirectory=/opt/dash-video/current
+EnvironmentFile=/opt/dash-video/current/service.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /opt/dash-video/current/scripts/video.py serve --workspace /opt/dash-video/projects --port 18877
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/opt/dash-video/projects
+RestrictAddressFamilies=AF_UNIX AF_INET
+CapabilityBoundingSet=
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+TasksMax=128
+MemoryMax=768M
+CPUQuota=150%
+
+[Install]
+WantedBy=multi-user.target

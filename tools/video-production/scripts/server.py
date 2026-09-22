@@ -1,6 +1,7 @@
 """Loopback review server. No arbitrary path API, shell execution or remote bind."""
 import json
 import mimetypes
+import os
 import re
 import secrets
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -20,6 +21,7 @@ class Workbench(ThreadingHTTPServer):
         self.workspace = Path(workspace).resolve(strict=True)
         self.token = secrets.token_urlsafe(32)
         self.hash_cache = {}
+        self.release = os.environ.get("VIDEO_WORKBENCH_RELEASE", "development")
         super().__init__(("127.0.0.1", port), Handler)
 
     def project(self, name):
@@ -89,6 +91,10 @@ class Handler(BaseHTTPRequestHandler):
 
     def route(self, write):
         path = unquote(urlsplit(self.path).path)
+        if not write and path == "/api/health":
+            writable = os.access(self.server.workspace, os.R_OK | os.W_OK | os.X_OK)
+            self.json({"status": "ok" if writable else "unready", "release": self.server.release, "workspace_writable": writable, "bind": "127.0.0.1", "port": self.server.server_port}, 200 if writable else 503)
+            return
         if not write and path in ("/", "/app.js", "/style.css"):
             file = WEB / ("index.html" if path == "/" else path[1:])
             body = file.read_bytes()

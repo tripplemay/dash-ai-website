@@ -1,0 +1,128 @@
+name: deploy-video-workbench
+
+on:
+  push:
+    branches: ['release/video-production-*']
+    paths:
+      - 'tools/video-production/**'
+      - 'deploy/video-workbench/**'
+      - '.github/workflows/deploy-video-workbench.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-video-workbench
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate exact release
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends ffmpeg shellcheck
+          python -m unittest discover -s tools/video-production/tests -v
+          node --check tools/video-production/web/app.js
+          bash -n deploy/video-workbench/install.sh
+          shellcheck deploy/video-workbench/install.sh
+          tar --exclude='__pycache__' --exclude='*.pyc' -czf workbench.tar.gz -C tools/video-production .
+          cp deploy/video-workbench/dash-video-workbench.service .
+          cp deploy/video-workbench/install.sh install-workbench.sh
+          sha256sum workbench.tar.gz dash-video-workbench.service install-workbench.sh > bundle.sha256
+
+      - name: Install private service and verify SSH tunnel
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+          DEPLOY_USER: ${{ secrets.DEPLOY_USER }}
+          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.DEPLOY_KNOWN_HOSTS }}
+          DASH_HEALTH_URL: ${{ secrets.DASH_HEALTH_URL }}
+        run: |
+          set -Eeuo pipefail
+          umask 077
+          test -n "$DEPLOY_HOST"
+          test -n "$DEPLOY_USER"
+          test -n "$DEPLOY_SSH_KEY"
+          test -n "$DEPLOY_KNOWN_HOSTS"
+          mkdir -p "$RUNNER_TEMP/video-ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$RUNNER_TEMP/video-ssh/key"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$RUNNER_TEMP/video-ssh/known_hosts"
+          ssh_opts=(-i "$RUNNER_TEMP/video-ssh/key" -o "UserKnownHostsFile=$RUNNER_TEMP/video-ssh/known_hosts" -o StrictHostKeyChecking=yes -o BatchMode=yes -o ConnectTimeout=15 -o ServerAliveInterval=15)
+          incoming="/opt/dash-pr/incoming/video-${GITHUB_SHA}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          ssh "${ssh_opts[@]}" "$DEPLOY_USER@$DEPLOY_HOST" "umask 077; mkdir -p '$incoming'"
+          scp "${ssh_opts[@]}" workbench.tar.gz dash-video-workbench.service install-workbench.sh bundle.sha256 "$DEPLOY_USER@$DEPLOY_HOST:$incoming/"
+          ssh "${ssh_opts[@]}" "$DEPLOY_USER@$DEPLOY_HOST" bash -s -- "$incoming" "$GITHUB_SHA" "$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT" <<'REMOTE'
+          set -Eeuo pipefail
+          # Installing absent dependencies is separate from changing the website runtime.
+          if ! command -v python3 >/dev/null || ! command -v ffmpeg >/dev/null || ! command -v ffprobe >/dev/null; then
+            sudo -n apt-get update
+            sudo -n env DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends python3 ffmpeg
+          fi
+          (cd "$1" && sha256sum --check bundle.sha256)
+          sudo -n bash "$1/install-workbench.sh" "$1" "$2" "$3"
+          REMOTE
+
+          # Exercise the deployed instance through a real SSH local forwarding channel.
+          ssh "${ssh_opts[@]}" -o ExitOnForwardFailure=yes -N -L 127.0.0.1:18877:127.0.0.1:18877 "$DEPLOY_USER@$DEPLOY_HOST" &
+          tunnel_pid=$!
+          trap 'kill "$tunnel_pid" 2>/dev/null || true' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent --max-time 2 http://127.0.0.1:18877/api/health >/dev/null; then break; fi
+            sleep 1
+          done
+          python - <<'PY'
+          import json, os, socket, urllib.error, urllib.request
+          from pathlib import Path
+          base = 'http://127.0.0.1:18877'
+          with urllib.request.urlopen(base + '/api/health', timeout=10) as r:
+              health = json.load(r)
+          assert health['status'] == 'ok' and health['workspace_writable']
+          assert health['release'] == os.environ['GITHUB_SHA']
+          with urllib.request.urlopen(base + '/', timeout=10) as r:
+              assert '视频制作工作台' in r.read().decode()
+          with urllib.request.urlopen(base + '/api/projects', timeout=10) as r:
+              projects = json.load(r)
+          assert isinstance(projects['projects'], list) and projects['token']
+          for headers in ({'Origin': 'https://untrusted.invalid'}, {'Host': 'untrusted.invalid'}):
+              try:
+                  urllib.request.urlopen(urllib.request.Request(base + '/api/health', headers=headers), timeout=10)
+              except urllib.error.HTTPError as e:
+                  assert e.code == 403
+              else:
+                  raise AssertionError('Origin/Host boundary failed')
+          try:
+              with socket.create_connection((os.environ['DEPLOY_HOST'], 18877), timeout=5):
+                  raise AssertionError('Workbench port is reachable through the public deployment address')
+          except OSError:
+              pass
+          report = {'health': health, 'ssh_tunnel': 'passed', 'host_origin_guard': 'passed', 'public_port_reachable': False, 'project_count': len(projects['projects']), 'local_media_uploaded': False}
+          Path('video-deployment-checks.json').write_text(json.dumps(report, indent=2))
+          print(json.dumps(report, indent=2))
+          PY
+          if [[ -n "$DASH_HEALTH_URL" ]]; then
+            origin="$(python -c 'import os,urllib.parse; u=urllib.parse.urlsplit(os.environ["DASH_HEALTH_URL"]); assert u.scheme=="https"; print(u.scheme+"://"+u.netloc)')"
+            curl --fail --silent --show-error --max-time 30 "$origin/api/health/live" > website-health-after.json
+            echo 'Existing website live health: HTTP 200'
+          fi
+
+      - name: Retain deployment verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: video-workbench-deployment-${{ github.sha }}
+          path: |
+            video-deployment-checks.json
+            website-health-after.json
+          if-no-files-found: ignore
+          retention-days: 14
