@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>视频制作工作台</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside><a class="brand" href="/">FRAME<span>视频制作工作台</span></a><div class="eyebrow">LOCAL PRODUCTION</div><label for="projects">项目</label><select id="projects"></select><div id="project-facts"></div><p class="aside-note">原件不覆盖<br>批准绑定版本<br>技术与感知分开</p><div class="local-dot">仅本机 · 无自动付费调用</div></aside>
+<main>
+<header><div><div class="eyebrow">REVIEW / REFINE / RELEASE</div><h1 id="title">视频制作工作台</h1><p id="subtitle">载入项目…</p></div><button id="refresh" class="secondary">刷新台账</button></header>
+<div id="notice" role="status" aria-live="polite"></div>
+<section class="review-layout">
+<div class="viewer-panel panel"><div class="section-heading"><h2>审阅画面</h2><span id="version-tag" class="tag">未选择</span></div>
+<div class="viewer-grid" id="viewer-grid"><div><video id="player" controls preload="metadata"></video><div id="playing-label" class="caption"></div></div><div id="comparison-wrap" hidden><video id="comparison" controls muted preload="metadata"></video><div class="caption">B · 仅画面对照，默认静音</div></div></div>
+<div class="transport"><button id="play-both" class="secondary">同步播放 / 暂停</button><label for="compare-select">B 对照</label><select id="compare-select"><option value="">关闭对照</option></select><button id="comment-now" class="secondary">标记当前时间</button><span id="clock">00:00.000</span></div>
+<p class="help">A/B 按同一秒定位；片长不同不代表语义对齐。声音比较请切换左侧主版本，避免叠音。</p>
+<div id="asset-meta" class="metadata"></div>
+<details id="cue-panel"><summary>旁白时间线与语义定位</summary><p class="help">来自当前声音分支的对位记录；其他分支不能直接套用这些时间。</p><div id="cues" class="cue-list"></div></details>
+</div>
+<div class="assets-panel panel"><div class="section-heading"><h2>素材与版本</h2><span id="asset-count" class="tag"></span></div><label for="role-filter" class="sr-only">素材类型</label><select id="role-filter"><option value="all">全部类型</option><option value="render">整片</option><option value="visual">画面</option><option value="voice">干声</option><option value="music">配乐</option><option value="mix">混音</option><option value="ui">信息 UI</option><option value="source">来源 / 对照</option></select><div id="assets" class="asset-list"></div></div>
+</section>
+<section class="lower-grid">
+<div class="panel"><div class="section-heading"><h2>时间点反馈</h2><span class="tag">绑定当前素材 SHA</span></div>
+<form id="comment-form"><div class="form-row"><label>开始 / 秒<input id="comment-start" type="number" min="0" step="0.001" value="0" required></label><label>结束 / 秒<input id="comment-end" type="number" min="0" step="0.001" value="0" required></label><label>审阅人<input id="author" placeholder="填写姓名" required></label></div><label>问题与期望<textarea id="comment-text" rows="2" placeholder="例如：这句需要连续递进，不要逐小句插入停顿。" required></textarea></label><button type="submit">保存反馈</button></form><div id="comments"></div></div>
+<div class="panel"><div class="section-heading"><h2>分层验收</h2><span class="tag">人工确认</span></div><div id="approvals" class="approval-list"></div>
+<form id="review-form"><div class="form-row"><label>维度<select id="review-layer"><option value="visual">画面与动作</option><option value="voice">音色、断句与情感</option><option value="music">配乐与混音</option><option value="ui">信息 UI 与对位</option></select></label><label>结论<select id="review-decision"><option value="approved">整段 / 整片通过</option><option value="rejected">不通过，需返工</option></select></label></div><label>审阅说明<textarea id="review-text" rows="2" placeholder="只记录实际完整看过或听过的维度；局部意见请用时间点反馈。" required></textarea></label><button type="submit">记录当前版本验收</button></form><p class="help">此按钮记录当前素材完整范围，不等于最终发布。新版本不会继承批准。</p></div>
+</section>
+<section class="lower-grid">
+<div class="panel"><div class="section-heading"><h2>交付检查</h2><span id="release-state" class="tag"></span></div><p>技术检查只验证来源完整性与全流解码，不替代人工审听、版权或设备检查。</p><button id="check" class="secondary">检查当前素材</button><div id="check-results"></div><form id="release-form"><label>目标设备审看记录<input id="device-review" placeholder="设备 / 日期 / 结果" required></label><label>素材与音乐使用依据<input id="rights-review" placeholder="授权或自有素材记录" required></label><button type="submit">批准当前整片交付</button></form><button id="export" class="secondary">导出已批准交付包</button><p id="export-result" class="help"></p></div>
+<div class="panel"><div class="section-heading"><h2>任务与费用</h2><span class="tag">可恢复台账</span></div><div id="jobs"></div><div id="notes" class="notes"></div><p class="help">网页音色用真实网页生成并导入。本版不自动提交付费任务；状态不明的请求先找回原任务，不重新提交。</p></div>
+</section>
+<footer>FRAME / production toolkit v1 · 可追溯的制作，不替代创作判断</footer>
+</main>
+</body></html>

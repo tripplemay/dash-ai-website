@@ -1,0 +1,12 @@
+{
+  "purpose": "填写本片用途",
+  "audience": "填写受众",
+  "key_message": "填写唯一核心信息",
+  "duration_target_seconds": 90,
+  "duration_hard_limit_seconds": null,
+  "delivery": {"width": 1920, "height": 1080, "fps": "24/1", "platform": "待确认"},
+  "required_layers": ["visual", "voice", "music", "ui"],
+  "voice_profile": {"provider_entry": "待确认", "preset": "待确认", "reference_asset": null},
+  "constraints": [],
+  "pending_decisions": []
+}

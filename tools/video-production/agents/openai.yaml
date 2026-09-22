@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频生产与审阅"
+  short_description: "复用分镜、配音、局部修订、版本验收与可追溯交付的完整制作流程"
+  default_prompt: "请使用 $video-production 开始或继续本视频项目，先核对当前素材、批准与待办，再执行本轮制作。"
