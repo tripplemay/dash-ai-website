@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-20T07:54:38.790Z",
+  "generatedAt": "2026-09-22T07:52:04.363Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -2690,6 +2690,52 @@
           },
           "auto": true,
           "collectedAt": "2026-09-20"
+        },
+        {
+          "id": "ccho-2001-other-e54900",
+          "year": 2001,
+          "stage": "其他",
+          "grade": null,
+          "title": "VOLUME 1 – IChO 01-20",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/ccho/ccho-2001-other-e54900-attachment.pdf",
+              "size": 4252639,
+              "sha256": "2b4cad18d4e740d69115bcebf3eec8b5c27c548684bcc1e8618e58246c7a9253"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IChO 官方题库（当前站点维护中，恢复后自动接管）",
+            "url": "https://icho.sk/competition-problems/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-22"
+        },
+        {
+          "id": "ccho-2021-other-30de9d",
+          "year": 2021,
+          "stage": "其他",
+          "grade": null,
+          "title": "VOLUME 2 – IChO 21-40",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/ccho/ccho-2021-other-30de9d-attachment.pdf",
+              "size": 9004169,
+              "sha256": "f13b0cb2168fe181cc3aed02c9719b2eb5726cd647b7d25f8082f696805707cb"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "IChO 官方题库（当前站点维护中，恢复后自动接管）",
+            "url": "https://icho.sk/competition-problems/"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-22"
         }
       ]
     },
