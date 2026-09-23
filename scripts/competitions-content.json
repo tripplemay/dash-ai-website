@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T06:23:06.744Z",
+  "generatedAt": "2026-09-23T18:22:54.171Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1792,6 +1792,12 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-23",
+          "title": "关于2025－2026学年全国青少年心理成长知识与应用创新大赛总决赛结果查询的通知",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-08-23",
           "title": "全国青少年心理成长知识与应用创新大赛总决赛在浙江横店举行",
@@ -3982,6 +3988,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-21",
+          "title": "中国艺术教育促进会关于收缴会费的通知",
+          "url": "https://www.ccpae.cn/details.html?type=1&menu=xhhd&modules=tzgg&id=210067",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2025-11-17",
           "title": "中国艺术教育促进会关于举办2025—2026学年“学校美育助力行动——青少年视觉艺术传承与创新工作坊展示”活动的通知",
