@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T07:52:04.363Z",
+  "generatedAt": "2026-09-24T07:52:55.925Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -3890,6 +3890,29 @@
           },
           "auto": true,
           "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "china-story-contest-2027-other-4c5c21",
+          "year": 2027,
+          "stage": "其他",
+          "grade": null,
+          "title": "教育部部署开展2027届全国高校毕业生“金秋启航”校园招聘月活动 教育部部署开展2027届全国高校毕业生“金秋启航”校园招聘月活动 日前，教育部部署各地各高校抢",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/china-story-contest/china-story-contest-2027-other-4c5c21-attachment.png",
+              "size": 18464,
+              "sha256": "d563207c2d5ee7270e083ff2ddab08eb0dbdcbc77eae233e1a0c5c7b6b5b0cd9"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "中国教育电视协会",
+            "url": "http://www.centv.cn/yaowen114/p/604792.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-24"
         }
       ]
     },
