@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T06:24:45.447Z",
+  "generatedAt": "2026-09-24T18:23:19.248Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -909,6 +909,13 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-09-24",
+          "title": "第26个全民国防教育日暨2026年广西国防科普、民族团结进步宣传教育活动成功举办",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5844.do",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2025-11-13",
           "title": "2025年第42届全国中学生物理竞赛决赛获奖名单",
           "url": "http://cpho.pku.edu.cn/info/1126/1412.htm",
@@ -1158,6 +1165,27 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-24",
+          "title": "CCF关于CSP-J/S 2026第一轮晋级第二轮的规定",
+          "url": "https://www.noi.cn/xw/2026-09-24/934543.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-24",
+          "title": "CSP-J/S 2026河北省第一轮认证成绩发布及申诉事宜的通知",
+          "url": "https://www.noi.cn/gs/xw/hb/2026-09-24/934918.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-24",
+          "title": "CSP-J/S 2026四川考区第一轮认证成绩复查办法",
+          "url": "https://www.noi.cn/gs/xw/sc/2026-09-24/934906.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-20",
           "title": "NOIP 2025题目综合分析报告",
@@ -1993,6 +2021,12 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-24",
+          "title": "温馨提示",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-21",
           "title": "关于征集第二届全国青少年安全与应急 科普创新大赛决赛举办地的通知",
