@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-23T18:22:54.171Z",
+  "generatedAt": "2026-09-24T06:24:45.447Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -610,6 +610,20 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-09-24",
+          "title": "【地科奥赛选手风采】白易轩：地科奥赛——积极尝试，收获很多",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=674",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-24",
+          "title": "【地科奥赛选手风采】杨秦越：地球科学竞赛与我",
+          "url": "https://ceso.ssoc.org.cn/news/shownews.php?lang=cn&id=675",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-09-09",
           "title": "2018—2026年全国中学生地球科学奥赛真题及解析发布通知",
           "url": "https://ceso.ssoc.org.cn/saishigonggao/shownews.php?lang=cn&id=673",
@@ -676,6 +690,90 @@
       "description": "全国中学生数学奥林匹克竞赛由中国数学会主办，是国内历史最久、水平最高的中学生数学竞赛，也是国际数学奥林匹克（IMO）中国国家队的选拔通道。竞赛分两个阶段：预赛即全国高中数学联赛（一般于9月举行，含一试与加试，考查几何、代数、数论、组合等内容），决赛即中国数学奥林匹克（全国中学生数学冬令营，2025年为第四十一届）。各省联赛一等奖前列学生组成省队参加决赛，决赛优胜者入选国家集训队。赛事面向数学特长突出、有志于基础学科深造的高中生，获奖成绩在高校强基计划等选拔中具有较高认可度。",
       "schedule": [],
       "updates": [
+        {
+          "date": "2026-07-23",
+          "title": "两位中国籍学者荣获菲尔兹奖",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1453.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-07-22",
+          "title": "热烈祝贺何旭华教授、单芃教授 2026-07-22",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1452.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-07-21",
+          "title": "第 67 届国际数学奥林匹克（IMO）顺利闭幕 2026-07-21",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1451.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-07-15",
+          "title": "“魅丽数学基础前沿——高维非线性系统论坛”在北京信息科技大学举行 2026-07-15",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1450.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-06-02",
+          "title": "“全国科技工作者日”王小云院士网络科普讲座“浅谈密码” 2026-06-02",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1444.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-09-15",
+          "title": "一名数学家的“无穷大” ——读余义林《普通而纯粹 壮阔而平凡》 2025-09-15",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1345.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-08-13",
+          "title": "关于中俄数学挑战基金2025年度申报指南的通知 2025-08-13",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1341.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-04-14",
+          "title": "香港《南华早报》报道丨周向宇院士对中国古代数学的研究与发现 2025-04-14",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1314.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-04-01",
+          "title": "第二届“陈景润奖”报奖通告 2025-04-01",
+          "url": "https://www.cms.org.cn/Home/news/news_details/id/1301.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2024-06-02",
+          "title": "部分国内学术平台一周活动纵览(2024.06.02-06.15) 2024-06-03",
+          "url": "https://www.cms.org.cn/Home/discuss/discuss_details/id/1228.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2024-04-08",
+          "title": "2024中国-巴西联合数学会议 2024-04-08",
+          "url": "https://www.cms.org.cn/Home/discuss/discuss_details/id/1209.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2024-04-07",
+          "title": "部分国内学术平台一周活动纵览(2024.04.07-04.13) 2024-04-07",
+          "url": "https://www.cms.org.cn/Home/discuss/discuss_details/id/1218.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-07-23",
           "title": "两位中国籍学者荣获菲尔兹奖",
@@ -940,6 +1038,34 @@
       "description": "全国中学生生物学奥林匹克竞赛（全国中学生生物学竞赛）由中国植物学会、中国动物学会联合主办，全国中学生生物学竞赛委员会组织，面向高中生，是国际生物学奥林匹克（IBO）中国队的选拔赛事。赛事分全国生物学联赛（2026年于5月10日举行，各省从一等奖获得者中产生省队）与全国竞赛即决赛（第三十五届于2026年8月14—18日在江西上饶举行，含理论与实验考试，580名选手参赛，金牌前50名入选国家集训队）。考查动植物学、生理、生化、遗传、生态等内容，适合生命科学兴趣浓厚、实验动手能力强的学生。",
       "schedule": [],
       "updates": [
+        {
+          "date": "2026-09-24",
+          "title": "中国动物学会生物进化理论专业委员会2026年学术年会暨第五届换届会在湖北武汉成功召开 2026-09-24",
+          "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_8b98cc9144fe2617bcf7b3c4525101ba.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-24",
+          "title": "中国动物学会生物进化理论专业委员会202... 2026-09-24",
+          "url": "https://www.czs.org.cn/xsjl/jldt/art/2026/art_72af1e7c62939da2186d6576d294422f.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-24",
+          "title": "中国动物学会生物进化理论专业委员会2026年学术年会暨第五届换届会在湖北武汉成功召开 2026-09-24",
+          "url": "https://www.czs.org.cn/xsjl/gnhy/art/2026/art_b25f8c2490614415a3a4463bfdec6f8d.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-09-10",
+          "title": "指尖上的鸟儿——“北京的候鸟”之鹰飞在天立体书活动招募 2025-09-10",
+          "url": "https://www.czs.org.cn/kpdt/art/2025/art_619522996.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-08-20",
           "title": "第三十五届全国中学生生物学竞赛在江西上饶成功举办",
@@ -2776,6 +2902,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-24",
+          "title": "本会副会长、作家忽培元走进上海校园讲解延安精神",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-09-24/100386.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2025-12-24",
           "title": "我会关于组织设立全国青少年红色文化传承与实践创新大赛区域组委会的通知",
