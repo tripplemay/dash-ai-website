@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-24T18:23:19.248Z",
+  "generatedAt": "2026-09-25T06:24:46.065Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1165,6 +1165,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-25",
+          "title": "关于2026年CCF非专业级软件能力认证CSP-J/S 第一轮认证（新疆）成绩复查的通知",
+          "url": "https://www.noi.cn/gs/xw/xj/2026-09-25/935030.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-25",
+          "title": "青海省CSP-J/S 2026 第二轮晋级规则",
+          "url": "https://www.noi.cn/gs/xw/qh/2026-09-25/934989.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-24",
           "title": "CCF关于CSP-J/S 2026第一轮晋级第二轮的规定",
