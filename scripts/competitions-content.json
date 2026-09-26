@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-26T06:23:54.138Z",
+  "generatedAt": "2026-09-26T18:24:21.428Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1165,6 +1165,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-26",
+          "title": "湖北省CSP-J/S2026第一轮晋级第二轮规则及相关通知",
+          "url": "https://www.noi.cn/gs/xw/hb1/2026-09-26/935181.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-25",
           "title": "天津CSP-JS 2026第一轮认证成绩复核查询要求的通知",
