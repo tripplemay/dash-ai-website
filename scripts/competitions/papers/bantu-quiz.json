@@ -1,4 +1,6 @@
 {
   "slug": "bantu-quiz",
-  "papers": []
+  "papers": [
+    {"id":"bantu-quiz-2026-other-1ffa80","year":2026,"stage":"其他","grade":null,"title":"2026 \"美丽中国\"全国版图知识竞赛（中小学组）｜官方报名时间与条件｜含金量评级 | 白名单赛事志","files":[{"kind":"attachment","format":"doc","fileKey":"files/papers/bantu-quiz/bantu-quiz-2026-other-1ffa80-attachment.doc","size":26177,"sha256":"e5ef927a32582fe8cd48dbac6bd713c85b44fa4463ee1392ac3d3a8baff7ac95"}],"hasAnswer":false,"source":{"name":"saishizhi.com","url":"https://saishizhi.com/competitions/28"},"auto":true,"collectedAt":"2026-09-26"}
+  ]
 }

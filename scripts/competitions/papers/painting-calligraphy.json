@@ -1,4 +1,6 @@
 {
   "slug": "painting-calligraphy",
-  "papers": []
+  "papers": [
+    {"id":"painting-calligraphy-2026-other-744040","year":2026,"stage":"其他","grade":null,"title":"中国儿童中心 赛事动态 第三十届全国中小学生绘画书法作品比赛咨询问答","files":[{"kind":"attachment","format":"png","fileKey":"files/papers/painting-calligraphy/painting-calligraphy-2026-other-744040-attachment.png","size":510846,"sha256":"fee6775df5007aad38e0f9c1d8a07b683009ea8ed0e28e86da262c0c9e28327c"},{"kind":"attachment","format":"png","fileKey":"files/papers/painting-calligraphy/painting-calligraphy-2026-other-744040-attachment2.png","size":645091,"sha256":"8048997c95cf16d21609deb8de4209fe48958c0c6ed673cd998f2b27b77e34a1"}],"hasAnswer":false,"source":{"name":"www.ccc.org.cn","url":"https://www.ccc.org.cn/art/2026/4/9/art_283_231822.html"},"auto":true,"collectedAt":"2026-09-26"}
+  ]
 }

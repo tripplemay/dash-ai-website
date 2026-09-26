@@ -1,4 +1,6 @@
 {
   "slug": "nysec",
-  "papers": []
+  "papers": [
+    {"id":"nysec-2026-juesai-2ad4fe","year":2026,"stage":"决赛","grade":null,"title":"首届全国青少年科学实验能力大赛（北京赛区）决赛举行","files":[{"kind":"attachment","format":"jpg","fileKey":"files/papers/nysec/nysec-2026-juesai-2ad4fe-attachment.jpg","size":95281,"sha256":"936d4495a3358c4f9616325665f4e90982f5e32ca0fd88b5bf75d6c6127fca17"},{"kind":"attachment","format":"png","fileKey":"files/papers/nysec/nysec-2026-juesai-2ad4fe-attachment2.png","size":526526,"sha256":"a62e468e9373560f9e39e35709a8c697c0d163ebe508d5e2dcf7e71aeb5d1335"},{"kind":"attachment","format":"jpg","fileKey":"files/papers/nysec/nysec-2026-juesai-2ad4fe-attachment3.jpg","size":2333588,"sha256":"18f13d1a4e2d2d2fe839ae1364ce293b62f8ae0927d4bea6e9e834188a99317b"},{"kind":"attachment","format":"png","fileKey":"files/papers/nysec/nysec-2026-juesai-2ad4fe-attachment4.png","size":109524,"sha256":"7bc58cb96f4d9267ddbc2d71ec7eed2ae08be482c4ca2880cd1231f38b442520"}],"hasAnswer":false,"source":{"name":"app.xinhuanet.com","url":"https://app.xinhuanet.com/news/article.html?articleId=202607214d9a16731f744ede9ab9894a00d12d11"},"auto":true,"collectedAt":"2026-09-26"}
+  ]
 }

@@ -1,4 +1,6 @@
 {
   "slug": "nyseic",
-  "papers": []
+  "papers": [
+    {"id":"nyseic-2026-juesai-989224","year":2026,"stage":"决赛","grade":null,"title":"全国青少年安全与应急科普创新大赛决赛在浙江乌镇启幕","files":[{"kind":"attachment","format":"png","fileKey":"files/papers/nyseic/nyseic-2026-juesai-989224-attachment.png","size":3084154,"sha256":"d46b729ae02a015271cdda58f81c0e3e927e697340836a7e63de3d5fad11c65c"},{"kind":"attachment","format":"jpg","fileKey":"files/papers/nyseic/nyseic-2026-juesai-989224-attachment2.jpg","size":558390,"sha256":"7e8308ab87ee07b436f16ec40ff20ab693fb3ed641e85978eacb80b849eb015d"}],"hasAnswer":false,"source":{"name":"www.news.cn","url":"https://www.news.cn/yjfw/20260824/6031fc7c318844659a7e844c5016361a/c.html"},"auto":true,"collectedAt":"2026-09-26"}
+  ]
 }
