@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T18:23:55.560Z",
+  "generatedAt": "2026-09-28T06:24:07.985Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -910,6 +910,62 @@
       "updates": [
         {
           "date": "2026-09-24",
+          "title": "铁基超导薄膜Majorana零能模研究取得重要进展",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5848.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-21",
+          "title": "异步测量设备无关量子会议密钥分发",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5852.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-16",
+          "title": "混沌光学微腔中轨道可分辨的共振模场成像",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5846.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-16",
+          "title": "三维自旋玻璃高效采样新方法",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5854.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-15",
+          "title": "超导界面声子极性的晶向依赖",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5853.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-07",
+          "title": "量子自旋液体的激发谱研究",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5845.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-08-18",
+          "title": "量子纠缠与Wigner负性、量子计量之间的深层定量关联",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5847.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-07-28",
+          "title": "镀膜等离子体镜自发聚焦增强逆康普顿散射",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5849.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-24",
           "title": "第26个全民国防教育日暨2026年广西国防科普、民族团结进步宣传教育活动成功举办",
           "url": "https://www.cps-net.org.cn/Home/Content/show/id/5844.do",
           "source": "official",
@@ -978,6 +1034,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-28",
+          "title": "· 2026年第40届中国化学奥林匹克（初赛）一等奖获奖学生名单",
+          "url": "https://www.chemsoc.org.cn/notice/a7514.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-20",
           "title": "· 第40届中国化学奥林匹克（初赛）一等奖学生公示名单",
@@ -1165,6 +1228,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-28",
+          "title": "CSP-J/S2026 第一轮认证湖南地区晋级规则",
+          "url": "https://www.noi.cn/gs/xw/hn12/2026-09-28/935695.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-27",
           "title": "天津CSP-J/S 2026第二轮晋级规则",
