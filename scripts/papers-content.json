@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-28T07:54:11.457Z",
+  "generatedAt": "2026-09-29T07:54:10.303Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -510,6 +510,36 @@
           },
           "auto": true,
           "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "water-tech-invention-2026-other-ef92ee",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "关于2026年“Z世代”国际生态环境小记者工作坊项目优秀作品名单的公示",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "docx",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2026-other-ef92ee-gallery.docx",
+              "size": 70031,
+              "sha256": "7a641bca187472ab9e9fb89162835b2b33699337ae1c4a9109e1cf531fed8b3a"
+            },
+            {
+              "kind": "gallery",
+              "format": "jpg",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2026-other-ef92ee-gallery2.jpg",
+              "size": 332,
+              "sha256": "1223668c52b6a5a9454d85601099ae003e73390f77b6802c66033bc330294907"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "通知公告",
+            "url": "http://www.chinaeol.net/tzgga/202609/t20260929_1175443.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-09-29"
         }
       ]
     },
