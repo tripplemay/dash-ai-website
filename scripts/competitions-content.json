@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T18:21:12.237Z",
+  "generatedAt": "2026-09-30T06:25:02.955Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -409,6 +409,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-29",
+          "title": "2026-09-29关于2026-2027学年全国中学生天文知识竞赛预赛承办单位的公告",
+          "url": "https://www.bjp.org.cn/qgzxstwzsjs/asdt/4028c136a0eeca2201a0efcff01c0001.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-03-03",
           "title": "2025-2026学年全国中学生天文知识竞赛2号通知（预赛报名通知）",
@@ -1062,6 +1069,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-30",
+          "title": "· 2026年第40届中国化学奥林匹克（初赛）二三等奖学生公示名单",
+          "url": "https://www.chemsoc.org.cn/notice/a7518.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-09-28",
           "title": "· 2026年第40届中国化学奥林匹克（初赛）一等奖获奖学生名单",
@@ -2612,6 +2626,27 @@
       ],
       "updates": [
         {
+          "date": "2026-09-30",
+          "title": "2026年高中生创新能力大赛全国决赛创新能力综合测评报告下载通知",
+          "url": "https://mp.weixin.qq.com/s/J8twQMvxyvM2iIQa3YefiA",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-30",
+          "title": "2026年高中生创新能力大赛国家级优秀指导教师获奖证书查询及下载通知",
+          "url": "https://mp.weixin.qq.com/s/qzXlZc-Pc4tBP4RmPknXYg",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-30",
+          "title": "关于公布2026年高中生创新能力大赛国家级优秀指导教师正式名单的通知",
+          "url": "https://mp.weixin.qq.com/s/xt46rRJRc6bn1wIXJTkfoQ",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-09-25",
           "title": "中秋节|月照千秋 青春共赴",
           "url": "https://mp.weixin.qq.com/s/aAUKZG0oXmzbmwe-gRXb0w",
@@ -3704,6 +3739,27 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-09-30",
+          "title": "2026-2027年全国青少年模拟飞行挑战赛省级赛申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c30086823/content.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-30",
+          "title": "2026年全国高校模拟飞行锦标赛申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c30086543/content.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-09-30",
+          "title": "2026年全国模拟飞行精英赛申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c30086689/content.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-07-18",
           "title": "第十七届全国青少年模拟飞行锦标赛总决赛补充通知4",
