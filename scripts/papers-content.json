@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-29T07:54:10.303Z",
+  "generatedAt": "2026-10-04T07:57:16.783Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -4266,7 +4266,278 @@
       "nameZh": "全国青少年红色文化传承与实践创新大赛",
       "category": "humanities",
       "moeListIndex": 32,
-      "papers": []
+      "papers": [
+        {
+          "id": "red-culture-contest-2025-other-e46e50",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "我会主办的全国青少年红色文化传承与实践创新大赛在京 ...",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment.jpg",
+              "size": 93034,
+              "sha256": "6f09fc7e5ce30696fe85a4ed7c44476fdc4e9b39c50ac550a3be2b3d7d827f3c"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment3.jpg",
+              "size": 70155,
+              "sha256": "55e0dc166b6f9cc9de2ae53492fd30b1d75944af195665a49e00612376ba1212"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment4.jpg",
+              "size": 54823,
+              "sha256": "11c9982de52ac00480a7247d2d324fac68890794ebb4bcc40ca310ccd1b8afde"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment5.jpg",
+              "size": 52105,
+              "sha256": "e3ca9adfe20ac3a9afb5ddca93b10cb442ef9db84d4ab7e09bf0d514a8c4efd6"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment6.jpg",
+              "size": 60227,
+              "sha256": "171ef5014582104445f7f7f0c1b6a8ca11c7b68cabe96d8e24802f292dc44980"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment7.jpg",
+              "size": 57171,
+              "sha256": "19a97c1436f8b6e19174b09fb42830c785c5552f03d6e29f7c3dc50dc6c73f9f"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment8.jpg",
+              "size": 47250,
+              "sha256": "b7a4c0fccb5ea16d59750e8e974978f4066a3c74bb1923c51547229985aaf4c0"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment9.jpg",
+              "size": 73222,
+              "sha256": "a7cbcf7a10625ee6a1eb66f4d7a6716d47fc9bdd8573ac61d36d14be9396a6a2"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment10.jpg",
+              "size": 74860,
+              "sha256": "6d9250beb642623274c0bd48ebf99fe6b9bebb48d6abcf683be68f794b21ea8f"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-e46e50-attachment11.jpg",
+              "size": 66888,
+              "sha256": "ef9f07e0c3aaefe3ce364b4401000c62bf675ef7b3a0fa65b4cca53abc7675ce"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "m.hswh.org.cn",
+            "url": "https://m.hswh.org.cn/wzzx/llyd/wh/2025-12-22/96348.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-10-04"
+        },
+        {
+          "id": "red-culture-contest-2025-other-f3c903",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "全国青少年红色文化传承与实践创新大赛在京启动",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment.jpg",
+              "size": 1282776,
+              "sha256": "a95341689e05518198581c908edcb81a80bbbade01a76e51fc72dee4e72402b7"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment2.png",
+              "size": 1103,
+              "sha256": "7906b922c3f12dedd0429b6cecf10231d5d50ef44ac3c3661ac1e06affd8ef5f"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment3.png",
+              "size": 1299,
+              "sha256": "bc0875e023fc07cdd3e73941a49cb7a5afe3a162730d5cc7d605bae687b490b8"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment4.jpg",
+              "size": 6160,
+              "sha256": "b5495d17abf46224a284bdc06f5a26f68d85ddb4ad91e6c626ef68f638a4ce01"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment5.jpg",
+              "size": 7106,
+              "sha256": "b111a5673e1a1d382220bfdb36d524dad0ca810694bc61b7b50bd70a20d60450"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment6.jpg",
+              "size": 5872,
+              "sha256": "ca223e2ccc7cd1f50debc400ffc1a2bbb8dfc247fb22a24b5dbba6ea1ec912a7"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment7.png",
+              "size": 15411,
+              "sha256": "a36f8bc535c6b3952b720fc58b73e18ccf75460e9ed983c78e6b149c2a877c60"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment8.png",
+              "size": 7271,
+              "sha256": "4a958c8205e2542b09ccc505530a26e74c26f0270a9038670a1c6183b3269c73"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment9.png",
+              "size": 9089,
+              "sha256": "4e9a7aab54950b373cc130bde41028c9d8bcc13450b9fed0e6a6e506baf1f8e2"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment10.png",
+              "size": 12400,
+              "sha256": "4ac65ba8cbc76b6058574688849cba1e3af7e8dbc283e19572d0ad223b2aa9c5"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment12.png",
+              "size": 105173,
+              "sha256": "86e018f865d721002d13756710809a9d4355ee5bb10eb2149004292e173b5b87"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment13.jpg",
+              "size": 38130,
+              "sha256": "880e3f862b4168516b954a890f0d31b1cdf390f29d5eb06b9777f6f2a749e317"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment14.jpg",
+              "size": 42542,
+              "sha256": "33fead7c349ed78e90df7b263387d617322183cd389b217ec97552f4061a16ea"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment15.jpg",
+              "size": 32444,
+              "sha256": "b367ed82589012de8d3948ef4aeb532de642a6d668bb3810337592715f9c4937"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment16.jpg",
+              "size": 38100,
+              "sha256": "0783441f2ae2c2f2799c68f862256309c5751adaa30e308ffc4ba941996cc4e5"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment17.jpg",
+              "size": 34171,
+              "sha256": "fb22d78e3d6af755bd3bd16027ade645b92caaeb089570b1764fcf2de0113d76"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment18.jpg",
+              "size": 91725,
+              "sha256": "0ecad062b9a24382e29f9ca3b1591dbe5819a048075bb271578693be5d02ad46"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment19.jpg",
+              "size": 35548,
+              "sha256": "d25bdc53ac671dfa632831d44da7861abba88410e78bd06592c2a428e755708b"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment20.jpg",
+              "size": 38333,
+              "sha256": "9ef8e3ce5d1a588c2f219cd71bb1c486bfdc9b61950fbca9e6551c06a59fcbec"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment21.jpg",
+              "size": 46688,
+              "sha256": "4e58b70bd40c53abf6b71eb46b27a88602180dad381e4991d2ccb511eb4ba421"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment22.jpg",
+              "size": 41666,
+              "sha256": "1b70a5e0793ddc59a5ea34815bc703a387a8dc76f2f7eabf472b4b1cce8fc3e8"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment23.jpg",
+              "size": 27649,
+              "sha256": "d898f4ed60fa6e0b50ef1218166bfd6606bc568bbb2af423fce26c77ecf0d6d0"
+            },
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment24.jpg",
+              "size": 32243,
+              "sha256": "8651f36a9672a882e8cef44ba1db88c3aec18ac7e41f6426621a815b7df91fee"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/red-culture-contest/red-culture-contest-2025-other-f3c903-attachment25.png",
+              "size": 19256,
+              "sha256": "a20583c81805fe64f7fa210851ce29754af9d25fd6aa5a3225a9557529602513"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.chinanews.com.cn",
+            "url": "https://www.chinanews.com.cn/sh/2025/12-22/10538432.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-10-04"
+        }
+      ]
     },
     {
       "slug": "china-story-contest",
@@ -4550,7 +4821,38 @@
       "nameZh": "全国青少年模拟飞行锦标赛",
       "category": "art-sports",
       "moeListIndex": 38,
-      "papers": []
+      "papers": [
+        {
+          "id": "youth-flight-sim-2026-zongjuesai-e001e4",
+          "year": 2026,
+          "stage": "总决赛",
+          "grade": null,
+          "title": "全国青少年模拟飞行锦标赛总决赛开启 - 人民日报",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/youth-flight-sim/youth-flight-sim-2026-zongjuesai-e001e4-attachment.png",
+              "size": 343,
+              "sha256": "b981320ea8e478f6e368e0ab8a9532a7e8da731974fa7d439a9fa60ef147feba"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/youth-flight-sim/youth-flight-sim-2026-zongjuesai-e001e4-attachment2.png",
+              "size": 417,
+              "sha256": "ebd354974e9b319e996f25febc719ee7ae2568c63b60fb3a1172411567419f2c"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "paper.people.com.cn",
+            "url": "http://paper.people.com.cn/rmrb/pc/content/202608/06/content_30173462.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-10-04"
+        }
+      ]
     },
     {
       "slug": "feibei-aeromodel",

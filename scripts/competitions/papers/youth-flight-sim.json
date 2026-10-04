@@ -1,4 +1,6 @@
 {
   "slug": "youth-flight-sim",
-  "papers": []
+  "papers": [
+    {"id":"youth-flight-sim-2026-zongjuesai-e001e4","year":2026,"stage":"总决赛","grade":null,"title":"全国青少年模拟飞行锦标赛总决赛开启 - 人民日报","files":[{"kind":"attachment","format":"png","fileKey":"files/papers/youth-flight-sim/youth-flight-sim-2026-zongjuesai-e001e4-attachment.png","size":343,"sha256":"b981320ea8e478f6e368e0ab8a9532a7e8da731974fa7d439a9fa60ef147feba"},{"kind":"attachment","format":"png","fileKey":"files/papers/youth-flight-sim/youth-flight-sim-2026-zongjuesai-e001e4-attachment2.png","size":417,"sha256":"ebd354974e9b319e996f25febc719ee7ae2568c63b60fb3a1172411567419f2c"}],"hasAnswer":false,"source":{"name":"paper.people.com.cn","url":"http://paper.people.com.cn/rmrb/pc/content/202608/06/content_30173462.html"},"auto":true,"collectedAt":"2026-10-04"}
+  ]
 }
