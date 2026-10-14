@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T06:23:53.063Z",
+  "generatedAt": "2026-10-14T18:21:11.814Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -761,6 +761,13 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-10-14",
+          "title": "2026年全国中学生数学奥林匹克竞赛（决赛）（第四十二届全国中学生数学冬令营）名单公示",
+          "url": "https://www.cms.org.cn/article/1522.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-09-29",
           "title": "全国大学生数学竞赛命题专家白名单增选专家",
           "url": "https://www.cms.org.cn/article/1519.html",
@@ -1424,6 +1431,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-14",
+          "title": "2026年CSP-J/S 非专业级别能力认证第二轮认证者须知（湖南）",
+          "url": "https://www.noi.cn/gs/xw/hn12/2026-10-14/939921.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2019-09-30",
           "title": "CCF CSP-J/S认证须知",
