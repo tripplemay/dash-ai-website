@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T18:22:20.958Z",
+  "generatedAt": "2026-10-14T06:23:53.063Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1284,6 +1284,27 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-10-14",
+          "title": "《中国生物多样性红色名录（2025版）——脊椎动物卷》编写启动会在京召开 2026-10-14",
+          "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_09a63c09b6de5e96b72c43ad7eba148e.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-14",
+          "title": "《中国生物多样性红色名录（2025版）—... 2026-10-14",
+          "url": "https://www.czs.org.cn/xsjl/jldt/art/2026/art_e70feb8c559b40278fb7f60629a1eb33.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-14",
+          "title": "《中国生物多样性红色名录（2025版）——脊椎动物卷》编写启动会在京召开 2026-10-14",
+          "url": "https://www.czs.org.cn/xsjl/gnhy/art/2026/art_22f8941c6e29c8993851b8c8a6e2e7e2.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-09-24",
           "title": "中国动物学会生物进化理论专业委员会2026年学术年会暨第五届换届会在湖北武汉成功召开 2026-09-24",
           "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_8b98cc9144fe2617bcf7b3c4525101ba.html",
@@ -1403,6 +1424,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2019-09-30",
+          "title": "CCF CSP-J/S认证须知",
+          "url": "https://www.noi.cn/gynoi/tlgd/2019-09-30/710460.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-02-13",
+          "title": "关于参加CSP-J/S认证需符合年龄条件的公告",
+          "url": "https://www.noi.cn/gynoi/tlgd/2025-02-13/837978.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-13",
           "title": "关于CSP-J/S 2026辽宁省第二轮认证有关事项的通知",
