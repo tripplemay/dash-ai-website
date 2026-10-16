@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T06:23:31.613Z",
+  "generatedAt": "2026-10-16T06:23:34.018Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1438,6 +1438,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-16",
+          "title": "CSP-J/S 2026第二轮认证（云南）安排、注意事项及操作系统登记的通知",
+          "url": "https://www.noi.cn/gs/xw/yn/2026-10-16/940625.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-15",
           "title": "关于2026年CSP-J/S非专业级软件能力认证第二轮（江苏地区）有关事项的通知",
@@ -4026,6 +4033,34 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-05-20",
+          "title": "2026年“匠心众运”建筑模型文化系列赛事活动申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c29637934/content.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-05-20",
+          "title": "2026年“匠心众运”车辆模型文化系列赛事活动申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c29638114/content.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-05-20",
+          "title": "2026年“匠心众运”航海模型文化系列赛事活动申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c29638049/content.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-05-20",
+          "title": "2026年“红心向党 匠心育人”红色模型主题系列教育竞赛活动申办公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c29638076/content.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-12",
           "title": "体育总局航管中心关于公开征集2026年“共筑家园”全国青少年建筑模型教育竞赛总决...",
