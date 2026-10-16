@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T06:23:34.018Z",
+  "generatedAt": "2026-10-16T18:22:35.273Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -761,6 +761,13 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-10-16",
+          "title": "中国数学会2026年学术年会会议通知（第二轮）",
+          "url": "https://www.cms.org.cn/article/1523.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-10-14",
           "title": "2026年全国中学生数学奥林匹克竞赛（决赛）（第四十二届全国中学生数学冬令营）名单公示",
           "url": "https://www.cms.org.cn/article/1522.html",
@@ -1438,6 +1445,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-16",
+          "title": "CSP-J/S 2026第一轮认证证书申请通知",
+          "url": "https://www.noi.cn/xw/2026-10-16/940603.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-16",
           "title": "CSP-J/S 2026第二轮认证（云南）安排、注意事项及操作系统登记的通知",
