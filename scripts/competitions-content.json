@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T06:24:10.586Z",
+  "generatedAt": "2026-10-22T18:22:01.754Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1480,6 +1480,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-22",
+          "title": "NOIP 2026甘肃省赛区报名通知",
+          "url": "https://www.noi.cn/gs/xw/gs/2026-10-22/942221.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-22",
           "title": "2026年CSP-J/S 非专业级别能力认证第二轮（安徽地区）认证选手须知",
@@ -4117,6 +4124,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-22",
+          "title": "关于公开征集2026年度展会合作单位的公告",
+          "url": "https://www.sport.gov.cn/hgzx/n11026/c30126017/content.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-22",
           "title": "航管中心天坛东里中区甲14号1号楼老旧小区综合整治项目工程质量检测服务比选公告",
