@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T18:22:01.754Z",
+  "generatedAt": "2026-10-24T06:24:15.624Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1480,6 +1480,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-24",
+          "title": "陕西省CSP-J/S 2026 第二轮认证选手须知",
+          "url": "https://www.noi.cn/gs/xw/sx1/2026-10-24/942537.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-22",
           "title": "NOIP 2026甘肃省赛区报名通知",
