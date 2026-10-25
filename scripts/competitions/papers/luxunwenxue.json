@@ -1,4 +1,6 @@
 {
   "slug": "luxunwenxue",
-  "papers": []
+  "papers": [
+    {"id":"luxunwenxue-2018-other-d767c8","year":2018,"stage":"其他","grade":null,"title":"历届鲁迅文学奖获奖作品一览--文学奖项--中国作家网","files":[{"kind":"gallery","format":"jpg","fileKey":"files/papers/luxunwenxue/luxunwenxue-2018-other-d767c8-gallery.jpg","size":156212,"sha256":"f3c3e12be690c7e15c68df3d3636e27e318c7434255ff7485f4cecb6cc66a593"}],"hasAnswer":false,"source":{"name":"www.chinawriter.com.cn","url":"https://www.chinawriter.com.cn/n1/2018/0811/c405646-30223204.html"},"auto":true,"collectedAt":"2026-10-25"}
+  ]
 }
