@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-26T19:22:49.714Z",
+  "generatedAt": "2026-10-27T07:22:13.611Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1480,6 +1480,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-27",
+          "title": "CCF NOI2027江西省队选拔赛方案",
+          "url": "https://www.noi.cn/gs/xw/jx/2026-10-27/943584.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-26",
           "title": "关于参加全国青少年信息学奥林匹克竞赛（NOI 2027）江苏省队选拔活动的通知",
@@ -3644,6 +3651,13 @@
       ],
       "updates": [
         {
+          "date": "2026-10-27",
+          "title": "巨文辉：人民公安从这里走来",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-10-27/100690.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-09-26",
           "title": "丽江红色文化研究会第三届理事会换届圆满成功",
           "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-09-26/100410.html",
@@ -3903,6 +3917,27 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-17",
+          "title": "第三十届全国中小学生绘画书法作品比赛电子证书获取指南",
+          "url": "https://www.ccc.org.cn/art/2026/10/17/art_283_233480.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-17",
+          "title": "第三十届全国中小学生绘画书法作品比赛成绩查询指南",
+          "url": "https://www.ccc.org.cn/art/2026/10/17/art_283_233479.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-17",
+          "title": "关于公布第三十届全国中小学生绘画书法作品比赛评审结果的通知",
+          "url": "https://www.ccc.org.cn/art/2026/10/17/art_283_233478.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-04-09",
           "title": "关于举办第三十届全国中小学生绘画书法作品比赛的通知",
