@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T07:22:13.611Z",
+  "generatedAt": "2026-10-27T19:30:39.510Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -325,6 +325,13 @@
       ],
       "updates": [
         {
+          "date": "2026-10-27",
+          "title": "关于取消第二十一届宋庆龄少年儿童发明奖 作品《多层建筑下的秒级定寻走失儿童系统》 获奖资格的公告 2026-10-27",
+          "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/924/frtid/20/Default.aspx",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-02-13",
           "title": "中国宋庆龄基金会、中国发明协会关于举办第二十一届宋庆龄少年儿童发明奖的通知",
           "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/911/frtid/20/Default.aspx",
@@ -573,6 +580,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-27",
+          "title": "关于2026“美丽中国，我是行...",
+          "url": "http://www.chinaeol.net/tzgga/202610/t20261027_1184690.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-20",
           "title": "关于公布2026年企业ESG实践成...",
