@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T07:23:30.776Z",
+  "generatedAt": "2026-10-28T19:23:23.904Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1217,6 +1217,13 @@
       ],
       "updates": [
         {
+          "date": "2026-10-28",
+          "title": "中国化学会第26届全国色谱学术报告会及仪器展览会 （第一轮通知）",
+          "url": "https://www.chemsoc.org.cn/meeting/home/announcement/a7553.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2025-09-29",
           "title": "芯片制造电子电镀表界面科学基础 研讨活动在京举办",
           "url": "https://www.chemsoc.org.cn/meeting/home/news/a6910.html",
@@ -1494,6 +1501,27 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-28",
+          "title": "NOI 2027名额分配测算方案",
+          "url": "https://www.noi.cn/xw/2026-10-28/944054.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2024-08-26",
+          "title": "NOI名额分配测算方案",
+          "url": "https://www.noi.cn/gynoi/tlgd/2024-08-26/829152.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-28",
+          "title": "2026年CSP-J/S非专业级别能力认证第二轮（新疆）认证选手须知",
+          "url": "https://www.noi.cn/gs/xw/xj/2026-10-28/943977.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-28",
           "title": "CCF NOI 2027 青海省队选拔方案",
@@ -2185,6 +2213,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-28",
+          "title": "2026丘成桐中学科学奖（中国内地赛区）半决赛入围名单（二） 2026-10-28",
+          "url": "https://www.yau-awards.com/show-86-63.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-28",
           "title": "2026丘成桐中学科学奖（中国内地赛区）半决赛入围名单公示（ 2026-10-28",
@@ -3678,6 +3713,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-29",
+          "title": "我会南通教育研究基地举行“重走长征路，奋进新征程”纪念红军长征胜利90周年专题讲座",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-10-29/100708.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-29",
+          "title": "“通山县第四届重走红军路”红色主题系列活动在红旗山、市民广场等地隆重举行",
+          "url": "https://www.hswh.org.cn/wzzx/hyzx/2026-10-29/100709.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-27",
           "title": "巨文辉：人民公安从这里走来",
