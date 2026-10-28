@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-27T19:30:39.510Z",
+  "generatedAt": "2026-10-28T07:23:30.776Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1495,6 +1495,13 @@
       ],
       "updates": [
         {
+          "date": "2026-10-28",
+          "title": "CCF NOI 2027 青海省队选拔方案",
+          "url": "https://www.noi.cn/gs/xw/qh/2026-10-28/943922.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-10-27",
           "title": "CCF NOI2027江西省队选拔赛方案",
           "url": "https://www.noi.cn/gs/xw/jx/2026-10-27/943584.shtml",
@@ -2178,6 +2185,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-28",
+          "title": "2026丘成桐中学科学奖（中国内地赛区）半决赛入围名单公示（ 2026-10-28",
+          "url": "https://www.yau-awards.com/show-86-62.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-26",
           "title": "2026丘成桐中学科学奖（诺特数学奖）获奖名单 2026-10-26",
