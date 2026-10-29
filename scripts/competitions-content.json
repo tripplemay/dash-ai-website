@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-28T19:23:23.904Z",
+  "generatedAt": "2026-10-29T07:27:00.532Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1354,6 +1354,27 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-10-29",
+          "title": "第七届全国斑马鱼PI大会在武汉召开 2026-10-29",
+          "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_df3ae10410338600ac311ee4cffd58be.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-29",
+          "title": "第七届全国斑马鱼PI大会在武汉召开 2026-10-29",
+          "url": "https://www.czs.org.cn/xsjl/jldt/art/2026/art_77dd2a610c863e078b72ce6a1868a07a.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-29",
+          "title": "第七届全国斑马鱼PI大会在武汉召开 2026-10-29",
+          "url": "https://www.czs.org.cn/xsjl/gnhy/art/2026/art_5f17b8a7de7b460681fa0b9c565b1a97.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-10-20",
           "title": "报名｜生存工程：物种存续技术——2026世界生命科学大会中国动物学会分论坛，11月29日下午广州相约 2026-10-20",
           "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_a90f7599e42843b984b6f9f9e3c5caa0.html",
@@ -1501,6 +1522,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-29",
+          "title": "CCF NOI 2027天津省队选拔方案",
+          "url": "https://www.noi.cn/gs/xw/tj/2026-10-29/944317.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-28",
           "title": "NOI 2027名额分配测算方案",
