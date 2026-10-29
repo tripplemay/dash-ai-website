@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-29T07:27:00.532Z",
+  "generatedAt": "2026-10-29T19:24:43.083Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1084,6 +1084,13 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-10-29",
+          "title": "中国物理学会2026秋季学术会议首届青年专场成功举办",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5887.do",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-10-19",
           "title": "IUPAP与中国物理学会高层座谈会在北京召开",
           "url": "https://www.cps-net.org.cn/Home/Content/show/id/5873.do",
@@ -1216,6 +1223,27 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-13",
+          "title": "中国化学会第十七届全国核化学与放射化学学术研讨会",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m682",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-30",
+          "title": "中国化学会第二十四次全国电化学大会",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m673",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-10-16",
+          "title": "2026年化学反应与制药工艺国际会议",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m693",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-28",
           "title": "中国化学会第26届全国色谱学术报告会及仪器展览会 （第一轮通知）",
@@ -4815,6 +4843,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-29",
+          "title": "关于获奖证书查阅下载功能开放的公告2026/10/29",
+          "url": "https://www.gfsy.org.cn/news/dbe41b02b1464a8f86275107a482e7d0",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-03-17",
           "title": "【通知】关于举办2025—2026学年全国青少年国防素养大赛的通知",
