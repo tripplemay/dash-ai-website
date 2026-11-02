@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-25T08:55:25.657Z",
+  "generatedAt": "2026-11-02T08:54:32.950Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -5208,7 +5208,31 @@
       "nameZh": "“戏剧中国”全国青少年戏剧文化艺术大赛",
       "category": "art-sports",
       "moeListIndex": 44,
-      "papers": []
+      "papers": [
+        {
+          "id": "drama-china-contest-2025-other-b3ccc9",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "关于举办2025-2026学年“戏剧中国”全国青少年戏剧文化艺术大赛的通知_作品_参赛",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/drama-china-contest/drama-china-contest-2025-other-b3ccc9-attachment.png",
+              "size": 105051,
+              "sha256": "d0edff0b2e8f4fde23e72e9e2fb94a5f8c94d23c1445a9760e47c125c8263c75"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "www.sohu.com",
+            "url": "https://www.sohu.com/a/963801535_121124034"
+          },
+          "auto": true,
+          "collectedAt": "2026-11-02"
+        }
+      ]
     },
     {
       "slug": "ai-digital-art",
@@ -5274,7 +5298,38 @@
       "nameZh": "学校美育助力行动——青少年视觉艺术传承与创新工作坊展示",
       "category": "art-sports",
       "moeListIndex": 46,
-      "papers": []
+      "papers": [
+        {
+          "id": "visual-art-workshop-2026-other-c7bc45",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "青少年视觉艺术传承与创新工作坊在京展示--教育--人民网",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/visual-art-workshop/visual-art-workshop-2026-other-c7bc45-attachment.png",
+              "size": 401891,
+              "sha256": "aca50026ee2bf5b5737a5d1e5e98cdbf229b9546a56ab0717df377a0aeaa475b"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/visual-art-workshop/visual-art-workshop-2026-other-c7bc45-attachment2.png",
+              "size": 418092,
+              "sha256": "0dc59618a237023915df7dee07df03ef24c6dff63eb9d4ac50cfa4ce60649705"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "edu.people.com.cn",
+            "url": "http://edu.people.com.cn/n1/2026/1028/c1006-40823312.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-11-02"
+        }
+      ]
     },
     {
       "slug": "ivy-campus-drama",
