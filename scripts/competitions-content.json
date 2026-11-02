@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-01T19:23:19.922Z",
+  "generatedAt": "2026-11-02T07:22:33.586Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1564,6 +1564,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-02",
+          "title": "CCF NOIP 2026重庆市报名通知",
+          "url": "https://www.noi.cn/gs/xw/zq/2026-11-02/945350.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-30",
           "title": "关于NOIP 2026云南省报名的通知",
