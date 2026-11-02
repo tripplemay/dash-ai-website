@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T07:22:33.586Z",
+  "generatedAt": "2026-11-02T19:22:33.101Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1566,6 +1566,13 @@
       "updates": [
         {
           "date": "2026-11-02",
+          "title": "NOIP 2026 河南赛区报名通知",
+          "url": "https://www.noi.cn/gs/xw/hn1/2026-11-02/945403.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-02",
           "title": "CCF NOIP 2026重庆市报名通知",
           "url": "https://www.noi.cn/gs/xw/zq/2026-11-02/945350.shtml",
           "source": "official",
@@ -2206,6 +2213,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-10-09",
+          "title": "【动态】在白马湖畔，播下“航天科技”的种子 2026/08/10",
+          "url": "https://nysic.declare.htgjjl.com/article/articledetail.aspx?ArticleID=270624",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-09",
           "title": "【通知】关于申报2026-2027学年全国青少年航天创新大赛地方联合主办单位的通知 2026/10/09",
