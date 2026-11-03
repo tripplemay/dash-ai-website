@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T07:24:39.645Z",
+  "generatedAt": "2026-11-03T19:23:52.464Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1397,6 +1397,20 @@
       "updates": [
         {
           "date": "2026-11-03",
+          "title": "中国动物学会动物行为学分会第三届青年学者... 2026-11-03",
+          "url": "https://www.czs.org.cn/xsjl/jldt/art/2026/art_7aa3972c0924af3a278b41e02db162ea.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-03",
+          "title": "中国动物学会动物行为学分会第三届青年学者论坛会议总结 2026-11-03",
+          "url": "https://www.czs.org.cn/xsjl/gnhy/art/2026/art_33f7d78451334d988334248bae15d684.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-03",
           "title": "关于启动2026年度 “中国⽣命科学⼗⼤进展”推荐的通知 2026-11-03",
           "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_0ae4f749f5c0a28042e63211dff50ca6.html",
           "source": "official",
@@ -1571,6 +1585,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-03",
+          "title": "NOIP 2026河北省赛区报名通知",
+          "url": "https://www.noi.cn/gs/xw/hb/2026-11-03/945618.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-03",
           "title": "NOIP 2026（吉林省赛区）通知",
