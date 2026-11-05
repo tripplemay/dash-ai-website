@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T07:27:58.679Z",
+  "generatedAt": "2026-11-05T19:22:43.363Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1085,6 +1085,13 @@
       "updates": [
         {
           "date": "2026-11-05",
+          "title": "2026世界顶尖科学家论坛之量子科学论坛成功举办",
+          "url": "https://www.cps-net.org.cn/Home/Content/show/id/5899.do",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-05",
           "title": "中国物理学会女物理工作者圆桌会议成功举办",
           "url": "https://www.cps-net.org.cn/Home/Content/show/id/5898.do",
           "source": "official",
@@ -1606,6 +1613,20 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-05",
+          "title": "关于CSP-J/S 2026第二轮认证个人成绩申诉问题的公告",
+          "url": "https://www.noi.cn/xw/2026-11-05/945690.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-05",
+          "title": "关于CSP-J/S 2026第二轮成绩和申诉的通知",
+          "url": "https://www.noi.cn/xw/2026-11-05/945674.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-04",
           "title": "关于NOIP2026广东地区报名实施细则通知",
