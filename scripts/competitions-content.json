@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T19:22:43.363Z",
+  "generatedAt": "2026-11-06T07:25:24.332Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -580,6 +580,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-06",
+          "title": "关于“2026美丽中国•绿色空...",
+          "url": "http://www.chinaeol.net/tzgga/202611/t20261106_1185663.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-10-27",
           "title": "关于2026“美丽中国，我是行...",
@@ -1245,6 +1252,20 @@
       ],
       "updates": [
         {
+          "date": "2026-11-05",
+          "title": "· 关于提名2026年度中国化学会荣誉会士候选人的通知",
+          "url": "https://www.chemsoc.org.cn/notice/a7585.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2025-09-23",
+          "title": "超越自然进化的生物合成研讨活动在京举办",
+          "url": "https://www.chemsoc.org.cn/meeting/home/news/a6908.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-11-04",
           "title": "· 第40届中国化学奥林匹克（决赛）获奖公示名单",
           "url": "https://www.chemsoc.org.cn/notice/a7582.html",
@@ -1613,6 +1634,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-06",
+          "title": "CCF NOI集训营2026 报到通知",
+          "url": "https://www.noi.cn/xw/2026-11-06/946602.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-05",
           "title": "关于CSP-J/S 2026第二轮认证个人成绩申诉问题的公告",
