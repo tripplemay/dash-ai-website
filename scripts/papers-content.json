@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-02T08:54:32.950Z",
+  "generatedAt": "2026-11-11T08:53:29.270Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -383,6 +383,29 @@
           },
           "auto": true,
           "collectedAt": "2026-09-19"
+        },
+        {
+          "id": "soong-invention-award-2026-other-6f1bf5",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "第二十一届宋庆龄少年儿童发明奖获奖名单公布 2026-08-26",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/soong-invention-award/soong-invention-award-2026-other-6f1bf5-gallery.pdf",
+              "size": 529343,
+              "sha256": "3f0e7c564db4bc3a5a2e5ad9672eb5ea620a00b6f3e363f07c64fd1b7ed00c76"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "中国宋庆龄基金会、中国发明协会",
+            "url": "https://sclaci.sclc2017.org/tabid/36/ArticleID/926/frtid/20/Default.aspx"
+          },
+          "auto": true,
+          "collectedAt": "2026-11-11"
         }
       ]
     },
