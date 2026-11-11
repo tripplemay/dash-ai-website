@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-11T07:23:17.971Z",
+  "generatedAt": "2026-11-11T19:23:39.024Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1279,6 +1279,34 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-11",
+          "title": "· 2027年国际化学奥林匹克国家集训队名单",
+          "url": "https://www.chemsoc.org.cn/notice/a7602.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-11",
+          "title": "· 第40届中国化学奥林匹克（决赛）获奖名单",
+          "url": "https://www.chemsoc.org.cn/notice/a7601.html",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2027-04-23",
+          "title": "中国化学会第26届全国色谱学术报告会及仪器展览会（26th NSEC）",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m709",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2027-04-09",
+          "title": "中国化学会全国第九届资源化学学术研讨会",
+          "url": "https://www.chemsoc.org.cn/meeting/home/m716",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-05",
           "title": "· 关于提名2026年度中国化学会荣誉会士候选人的通知",
