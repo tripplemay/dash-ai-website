@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-12T19:22:01.919Z",
+  "generatedAt": "2026-11-13T19:23:44.852Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1789,6 +1789,27 @@
       ],
       "updates": [
         {
+          "date": "2026-11-13",
+          "title": "CCF关于对CSP-J/S2026第二轮认证违规处罚的公告",
+          "url": "https://www.noi.cn/xw/2026-11-13/947980.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-13",
+          "title": "CSP-J/S 2026第二轮评级规则",
+          "url": "https://www.noi.cn/xw/2026-11-13/947969.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
+          "date": "2026-11-13",
+          "title": "CCF CSP-J/S 2026第二轮认证评级名单",
+          "url": "https://www.noi.cn/hjmd/mdgs/2026/2026-11-13/948515.shtml",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-11-11",
           "title": "NOIP 2026云南省参赛名额及公示说明",
           "url": "https://www.noi.cn/gs/xw/yn/2026-11-11/948017.shtml",
@@ -2598,6 +2619,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-13",
+          "title": "2026丘成桐中学科学奖（中国内地赛区）总决赛入围名单公示 2026-11-13",
+          "url": "https://www.yau-awards.com/show-86-65.html",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-05",
           "title": "2026丘成桐中学科学奖（中国内地赛区）半决赛名单 2026-11-05",
