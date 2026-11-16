@@ -1,4 +1,6 @@
 {
   "slug": "ocean-design-contest",
-  "papers": []
+  "papers": [
+    {"id":"ocean-design-contest-2026-other-1d53f7","year":2026,"stage":"其他","grade":null,"title":"教育部白名单赛事“全国中小学生海洋文化创意设计大赛”正式启动|教育部_新浪科技_新浪网","files":[{"kind":"attachment","format":"png","fileKey":"files/papers/ocean-design-contest/ocean-design-contest-2026-other-1d53f7-attachment.png","size":2886,"sha256":"472e2634d36f4e016d8a28cb55be63eebd4089d23bc7ea493059d35b01b7c125"},{"kind":"attachment","format":"png","fileKey":"files/papers/ocean-design-contest/ocean-design-contest-2026-other-1d53f7-attachment2.png","size":6179,"sha256":"bc54abb460cdee0d9575369e7f4f2ac99492b7cd399a026c3856722151d97155"},{"kind":"attachment","format":"jpg","fileKey":"files/papers/ocean-design-contest/ocean-design-contest-2026-other-1d53f7-attachment3.jpg","size":7000,"sha256":"4805d51560d021cd0b5b1d49b8fc94081eed475b3a8e913df28dbf4b1822c195"},{"kind":"attachment","format":"jpg","fileKey":"files/papers/ocean-design-contest/ocean-design-contest-2026-other-1d53f7-attachment4.jpg","size":151507,"sha256":"2a0d399faf723790ad120c60243dc03df2deab3e86ea6157d40c84a6559b2dcf"}],"hasAnswer":false,"source":{"name":"finance.sina.com.cn","url":"https://finance.sina.com.cn/tech/roll/2026-02-25/doc-inhnzrth7865386.shtml"},"auto":true,"collectedAt":"2026-11-16"}
+  ]
 }
