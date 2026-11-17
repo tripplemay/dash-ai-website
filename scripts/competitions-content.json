@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T07:23:39.448Z",
+  "generatedAt": "2026-11-17T19:23:05.089Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1802,6 +1802,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-17",
+          "title": "关于举办全国青少年信息学奥林匹克竞赛联赛（NOIP2026）内蒙古赛区竞赛的通知",
+          "url": "https://www.noi.cn/gs/xw/nmg/2026-11-17/949632.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-16",
           "title": "CCF NOIP 2026黑龙江省联赛相关事项通知",
