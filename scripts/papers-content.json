@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T08:58:13.588Z",
+  "generatedAt": "2026-11-20T20:51:29.305Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -586,6 +586,29 @@
           },
           "auto": true,
           "collectedAt": "2026-10-10"
+        },
+        {
+          "id": "water-tech-invention-2026-other-a5bf9c",
+          "year": 2026,
+          "stage": "其他",
+          "grade": null,
+          "title": "关于公示2026“清洁美丽中国行”全国高校小额资助项目获奖名单的通知",
+          "files": [
+            {
+              "kind": "gallery",
+              "format": "pdf",
+              "fileKey": "files/papers/water-tech-invention/water-tech-invention-2026-other-a5bf9c-gallery.pdf",
+              "size": 117173,
+              "sha256": "03c51877b9dda4a9b3da99dec975b5b08fe60c902fd3f968621dc90ad773472b"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "通知公告",
+            "url": "http://www.chinaeol.net/tzgga/202611/t20261120_1187150.shtml"
+          },
+          "auto": true,
+          "collectedAt": "2026-11-20"
         }
       ]
     },
