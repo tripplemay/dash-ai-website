@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T20:51:29.305Z",
+  "generatedAt": "2026-11-23T20:55:01.537Z",
   "competitions": [
     {
       "slug": "nyaic",
@@ -4199,7 +4199,82 @@
       "nameZh": "高中生创新能力大赛",
       "category": "humanities",
       "moeListIndex": 26,
-      "papers": []
+      "papers": [
+        {
+          "id": "hs-innovation-2025-other-f9978f",
+          "year": 2025,
+          "stage": "其他",
+          "grade": null,
+          "title": "2025年高中生创新能力大赛通知发布",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "jpg",
+              "fileKey": "files/papers/hs-innovation/hs-innovation-2025-other-f9978f-attachment.jpg",
+              "size": 29872,
+              "sha256": "c82c83b4842f5422afadf96d3b9e68ad89697ba2f4f660c5354f16ff8e367e6c"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/hs-innovation/hs-innovation-2025-other-f9978f-attachment2.png",
+              "size": 452575,
+              "sha256": "992e317a39e746b0013f85ddd57e4dec1463659ad1aca910ffb480dafea52826"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/hs-innovation/hs-innovation-2025-other-f9978f-attachment3.png",
+              "size": 10152,
+              "sha256": "b892a00e2713acacb10b786b7ad5774262b9881ea2c9b6499ec3b2180c2626c8"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/hs-innovation/hs-innovation-2025-other-f9978f-attachment4.png",
+              "size": 11436,
+              "sha256": "f55c3e2350f2cb5714f9944b6f75eb9c5addfa235ee9a89f3f7785ce4b478190"
+            },
+            {
+              "kind": "attachment",
+              "format": "png",
+              "fileKey": "files/papers/hs-innovation/hs-innovation-2025-other-f9978f-attachment5.png",
+              "size": 11254,
+              "sha256": "6bd227f94e193e9f0c9f06e0bf10b476e4ea89908d6116dfcb72d32e70ccce84"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "xhxcedu.com",
+            "url": "https://xhxcedu.com/detail/id/2888.html"
+          },
+          "auto": true,
+          "collectedAt": "2026-11-23"
+        },
+        {
+          "id": "hs-innovation-2022-other-e4f130",
+          "year": 2022,
+          "stage": "其他",
+          "grade": null,
+          "title": "2022-2025学年面向中小学生的全国性竞赛活动名单",
+          "files": [
+            {
+              "kind": "attachment",
+              "format": "pdf",
+              "fileKey": "files/papers/hs-innovation/hs-innovation-2022-other-e4f130-attachment.pdf",
+              "size": 128935,
+              "sha256": "4465da07d655bb5ad75ad50bc3b90a2b56e447da7ecdd952a446979aad516169"
+            }
+          ],
+          "hasAnswer": false,
+          "source": {
+            "name": "jwc.tiangong.edu.cn",
+            "url": "https://jwc.tiangong.edu.cn/_upload/article/files/b7/c7/10702e5a441b8b7c2224398d851e/832a7631-908b-425d-812d-ba085c9cacd9.pdf"
+          },
+          "auto": true,
+          "collectedAt": "2026-11-23"
+        }
+      ]
     },
     {
       "slug": "eco-essay",
