@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T07:24:11.599Z",
+  "generatedAt": "2026-11-24T19:21:47.167Z",
   "moeList": {
     "name": "2025—2028学年面向中小学生的全国性竞赛活动名单",
     "announcementUrl": "http://www.moe.gov.cn/srcsite/A29/202510/t20251029_1418393.html",
@@ -1550,6 +1550,13 @@
       "schedule": [],
       "updates": [
         {
+          "date": "2026-11-24",
+          "title": "中国动物学会关于2026年度“中国生命科学十大进展”拟推荐项目的公示 2026-11-24",
+          "url": "https://www.czs.org.cn/xwzx/xhdt/art/2026/art_5ce21532245273c34b1bb0332d946824.html",
+          "source": "official",
+          "auto": true
+        },
+        {
           "date": "2026-01-07",
           "title": "全国中学生生物学联赛、竞赛章程",
           "url": "https://www.czs.org.cn/swjs/gkjssxz/art/2026/art_79b86eb0485247b88bca203984378cd2.html",
@@ -1858,6 +1865,13 @@
         }
       ],
       "updates": [
+        {
+          "date": "2026-11-24",
+          "title": "全国青少年信息学奥林匹克联赛NOIP2026（重庆赛区）通知",
+          "url": "https://www.noi.cn/gs/xw/zq/2026-11-24/951633.shtml",
+          "source": "official",
+          "auto": true
+        },
         {
           "date": "2026-11-23",
           "title": "全国青少年信息学奥林匹克联赛NOIP2026（甘肃省）通知",
