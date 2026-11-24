@@ -1,4 +1,6 @@
 {
   "slug": "geodoctor",
-  "papers": []
+  "papers": [
+    {"id":"geodoctor-2026-other-be2bae","year":2026,"stage":"其他","grade":null,"title":"2026-2027年度“地球小博士”报名来了，小博士”11套真题免费下载|奥赛|考试|科学|奥林匹克_网易订阅","files":[{"kind":"paper","format":"jpg","fileKey":"files/papers/geodoctor/geodoctor-2026-other-be2bae-paper.jpg","size":16814,"sha256":"15aa001f940852a4e77dc62aa85c027dd6abc85da2607da88a541bb4ca6654ec"},{"kind":"paper","format":"png","fileKey":"files/papers/geodoctor/geodoctor-2026-other-be2bae-paper2.png","size":9689,"sha256":"1ff582db0e2a30277be6d5b6e2d7d466fa89df5c7a8c67ff0c740d58ae07d92f"}],"hasAnswer":false,"source":{"name":"www.163.com","url":"https://www.163.com/dy/article/LCA28GH30516DHVE.html"},"auto":true,"collectedAt":"2026-11-24"}
+  ]
 }
